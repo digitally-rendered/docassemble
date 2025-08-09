@@ -5,12 +5,13 @@ allow demo: True
 exitpage: https://docassemble.org
 db:
   prefix: postgresql+psycopg2://
-  name: docassemble
-  user: docassemble
-  password: abc123
-  host: localhost
-  port: Null
-  table_prefix: Null
+  name: postgres
+  user: postgres
+  password: YOUR_SUPABASE_DB_PASSWORD
+  host: db.ceiplvxfrxlopndgviyc.supabase.co
+  port: 5432
+  table_prefix: ""
+  ssl_mode: require
 oauth:
   facebook:
     enable: False

@@ -84,7 +84,8 @@ from docassemble.webapp.screenreader import to_text
 from docassemble.webapp.translations import setup_translation
 from docassemble.webapp.users.forms import MyRegisterForm, MySignInForm, PhoneLoginForm, PhoneLoginVerifyForm, MFASetupForm, MFAReconfigureForm, MFALoginForm, MFAChooseForm, MFASMSSetupForm, MFAVerifySMSSetupForm, MyResendConfirmEmailForm, ManageAccountForm, RequestDeveloperForm, InterviewsListForm
 from docassemble.webapp.users.models import UserAuthModel, UserModel, UserDict, UserDictKeys, TempUser, ChatLog, MyUserInvitation, Role, UserRoles, AnonymousUserModel
-from docassemble.webapp.users.views import user_profile_page
+from docassemble.webapp.users.views import user_profile_page, user_list_api
+from docassemble.webapp.openapi_spec import spec
 if not in_celery:
     import docassemble.webapp.worker
     import celery.exceptions
@@ -32166,6 +32167,11 @@ def initialize():
             if DEBUG_BOOT:
                 boot_log("server: fixing API keys")
             fix_api_keys()
+            with app.test_request_context():
+                # Temporarily disabled to fix startup issues - spec.path registration
+                # spec.path(view=user_list_api)
+                pass
+
             if DEBUG_BOOT:
                 boot_log("server: starting importing add-on modules")
             import_necessary(url, url_root)

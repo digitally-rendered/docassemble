@@ -38,6 +38,14 @@ def create_app():
             the_app.wsgi_app = ProxyFix(the_app.wsgi_app)
     if 'cross site domains' in daconfig:
         CORS(the_app, origins=daconfig['cross site domains'], supports_credentials=True)
+    
+    # Initialize Flask-APISpec for automatic API documentation
+    try:
+        from docassemble.webapp.openapi_spec import init_docs  # pylint: disable=import-outside-toplevel
+        init_docs(the_app)
+    except ImportError:
+        pass  # Flask-APISpec not available
+    
     docassemble.webapp.worker_common.workerapp.set_current()
     return the_app, the_csrf
 

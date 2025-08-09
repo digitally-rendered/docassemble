@@ -1,0 +1,983 @@
+---
+# Ontario Family Law Common Components
+# Shared components, validation functions, and common data structures
+# for Ontario family law forms in Docassemble
+# Version: 1.0.0
+# Last Updated: 2025-08-09
+#
+# This file provides reusable components that promote consistency
+# and reduce code duplication across all Ontario family law forms.
+#
+# USAGE: Include this file in other forms with:
+# include:
+#   - ontario-family-law-common.yml
+
+metadata:
+  title: Ontario Family Law Common Components
+  short title: ON Family Law Common
+  description: |
+    Shared components for Ontario family law forms including validation
+    functions, common data objects, and reusable question blocks.
+  version: "1.0.0"
+  authors:
+    - name: Ontario Family Law Forms Development Team
+  tags:
+    - ontario
+    - family-law
+    - common
+    - shared-components
+
+---
+# MODULES AND IMPORTS
+modules:
+  - re
+  - datetime
+  - decimal
+  - .privacy_protection
+  - .court_data
+  - .validation_helpers
+
+---
+# PRIVACY AND LEGAL DISCLAIMERS
+template: privacy_disclaimer
+content: |
+  **Privacy Notice**: This form may collect personal and sensitive information.
+  All information provided is subject to privacy protection under applicable
+  Ontario and federal privacy legislation. Information about children is
+  subject to additional privacy protections.
+
+template: legal_disclaimer
+content: |
+  **Legal Disclaimer**: This system provides assistance with form completion
+  but does not provide legal advice. For legal advice, consult with a lawyer
+  or paralegal licensed to practice in Ontario. The Law Society of Ontario
+  maintains a directory of legal professionals at lso.ca.
+
+---
+# VALIDATION FUNCTIONS
+
+# Ontario Postal Code Validation
+code: |
+  def validate_ontario_postal_code(postal_code):
+    """
+    Validates Ontario postal code format and verifies it's in Ontario.
+    
+    Args:
+        postal_code (str): The postal code to validate
+        
+    Returns:
+        dict: {'valid': bool, 'formatted': str, 'message': str}
+    """
+    if not postal_code:
+      return {'valid': False, 'formatted': '', 'message': 'Postal code is required'}
+    
+    # Clean and format
+    cleaned = re.sub(r'[^A-Za-z0-9]', '', postal_code.upper())
+    
+    # Basic format check
+    if not re.match(r'^[A-Z]\d[A-Z]\d[A-Z]\d$', cleaned):
+      return {'valid': False, 'formatted': postal_code, 
+              'message': 'Invalid postal code format. Use format: A1A 1A1'}
+    
+    # Format with space
+    formatted = f"{cleaned[:3]} {cleaned[3:]}"
+    
+    # Ontario postal code prefixes
+    ontario_prefixes = ['K', 'L', 'M', 'N', 'P']
+    
+    if cleaned[0] not in ontario_prefixes:
+      return {'valid': False, 'formatted': formatted,
+              'message': 'Postal code must be in Ontario (K, L, M, N, or P prefix)'}
+    
+    return {'valid': True, 'formatted': formatted, 'message': 'Valid Ontario postal code'}
+
+---
+# Court File Number Validation
+code: |
+  def validate_court_file_number(file_number, court_level='superior'):
+    """
+    Validates Ontario court file number format.
+    
+    Args:
+        file_number (str): The court file number
+        court_level (str): 'superior' or 'provincial'
+        
+    Returns:
+        dict: {'valid': bool, 'formatted': str, 'message': str}
+    """
+    if not file_number:
+      return {'valid': False, 'formatted': '', 'message': 'Court file number is required'}
+    
+    # Clean input
+    cleaned = re.sub(r'[^A-Za-z0-9-]', '', file_number.upper())
+    
+    if court_level.lower() == 'superior':
+      # Superior Court format: FS-YY-NNNNNN-00 or similar
+      pattern = r'^[A-Z]{2}-\d{2}-\d{6}-\d{2}$'
+      expected_format = 'FS-YY-NNNNNN-00'
+    else:
+      # Provincial Court format varies by location
+      pattern = r'^[A-Z0-9-]{5,20}$'
+      expected_format = 'Varies by court location'
+    
+    if not re.match(pattern, cleaned):
+      return {'valid': False, 'formatted': file_number,
+              'message': f'Invalid format. Expected: {expected_format}'}
+    
+    return {'valid': True, 'formatted': cleaned, 'message': 'Valid court file number'}
+
+---
+# Canadian Phone Number Formatting
+code: |
+  def format_canadian_phone(phone_number):
+    """
+    Formats and validates Canadian phone numbers.
+    
+    Args:
+        phone_number (str): The phone number to format
+        
+    Returns:
+        dict: {'valid': bool, 'formatted': str, 'message': str}
+    """
+    if not phone_number:
+      return {'valid': False, 'formatted': '', 'message': 'Phone number is required'}
+    
+    # Extract digits only
+    digits = re.sub(r'[^0-9]', '', phone_number)
+    
+    # Handle different formats
+    if len(digits) == 10:
+      # 10 digits - assume Canadian
+      formatted = f"({digits[:3]}) {digits[3:6]}-{digits[6:]}"
+      return {'valid': True, 'formatted': formatted, 'message': 'Valid Canadian phone number'}
+    elif len(digits) == 11 and digits[0] == '1':
+      # 11 digits starting with 1 - North American with country code
+      area_code = digits[1:4]
+      formatted = f"+1 ({area_code}) {digits[4:7]}-{digits[7:]}"
+      return {'valid': True, 'formatted': formatted, 'message': 'Valid North American phone number'}
+    else:
+      return {'valid': False, 'formatted': phone_number,
+              'message': 'Invalid phone number. Must be 10 digits (Canadian) or 11 digits (with country code)'}
+
+---
+# SIN Number Validation (with privacy considerations)
+code: |
+  def validate_sin_number(sin, purpose='court_filing'):
+    """
+    Validates Canadian Social Insurance Number with privacy considerations.
+    
+    Args:
+        sin (str): The SIN to validate
+        purpose (str): Purpose for collection ('court_filing', 'support_calculation')
+        
+    Returns:
+        dict: {'valid': bool, 'masked': str, 'message': str, 'privacy_warning': str}
+    """
+    if not sin:
+      return {'valid': False, 'masked': '', 'message': 'SIN is required for this purpose',
+              'privacy_warning': 'SIN collection must be legally justified'}
+    
+    # Extract digits only
+    digits = re.sub(r'[^0-9]', '', sin)
+    
+    if len(digits) != 9:
+      return {'valid': False, 'masked': sin, 'message': 'SIN must be 9 digits',
+              'privacy_warning': 'Ensure SIN collection is legally justified'}
+    
+    # Luhn algorithm validation
+    def luhn_check(card_num):
+      def digits_of(n):
+        return [int(d) for d in str(n)]
+      digits = digits_of(card_num)
+      odd_digits = digits[-1::-2]
+      even_digits = digits[-2::-2]
+      checksum = sum(odd_digits)
+      for d in even_digits:
+        checksum += sum(digits_of(d*2))
+      return checksum % 10 == 0
+    
+    if not luhn_check(int(digits)):
+      return {'valid': False, 'masked': f"XXX-XXX-{digits[-3:]}",
+              'message': 'Invalid SIN number',
+              'privacy_warning': 'Invalid SIN - verify entry and legal authority to collect'}
+    
+    # Mask for privacy
+    masked = f"XXX-XXX-{digits[-3:]}"
+    
+    privacy_purposes = {
+      'court_filing': 'SIN required for court identification and enforcement',
+      'support_calculation': 'SIN required for child/spousal support calculations',
+      'enforcement': 'SIN required for support enforcement proceedings'
+    }
+    
+    privacy_warning = privacy_purposes.get(purpose, 'Verify legal authority to collect SIN')
+    
+    return {'valid': True, 'masked': masked, 'message': 'Valid SIN (masked for privacy)',
+            'privacy_warning': privacy_warning}
+
+---
+# Date Validation Functions
+code: |
+  def validate_legal_date(date_input, context='general'):
+    """
+    Validates dates for legal contexts with appropriate rules.
+    
+    Args:
+        date_input: Date to validate (various formats accepted)
+        context (str): 'birth_date', 'marriage_date', 'separation_date', 'general'
+        
+    Returns:
+        dict: {'valid': bool, 'date': datetime, 'message': str}
+    """
+    try:
+      if isinstance(date_input, str):
+        # Try common formats
+        for fmt in ['%Y-%m-%d', '%m/%d/%Y', '%d/%m/%Y', '%B %d, %Y']:
+          try:
+            parsed_date = datetime.datetime.strptime(date_input, fmt).date()
+            break
+          except ValueError:
+            continue
+        else:
+          return {'valid': False, 'date': None, 'message': 'Invalid date format'}
+      elif hasattr(date_input, 'date'):
+        parsed_date = date_input.date()
+      else:
+        parsed_date = date_input
+      
+      today = datetime.date.today()
+      
+      # Context-specific validation
+      if context == 'birth_date':
+        if parsed_date > today:
+          return {'valid': False, 'date': parsed_date, 'message': 'Birth date cannot be in the future'}
+        if parsed_date < datetime.date(1900, 1, 1):
+          return {'valid': False, 'date': parsed_date, 'message': 'Birth date seems unreasonable'}
+      elif context == 'marriage_date':
+        if parsed_date > today:
+          return {'valid': False, 'date': parsed_date, 'message': 'Marriage date cannot be in the future'}
+      elif context == 'separation_date':
+        if parsed_date > today:
+          return {'valid': False, 'date': parsed_date, 'message': 'Separation date cannot be in the future'}
+      
+      return {'valid': True, 'date': parsed_date, 'message': 'Valid date'}
+      
+    except Exception as e:
+      return {'valid': False, 'date': None, 'message': f'Date validation error: {str(e)}'}
+
+---
+# Income Validation
+code: |
+  def validate_income_amount(amount, income_type='annual'):
+    """
+    Validates income amounts with reasonable bounds checking.
+    
+    Args:
+        amount: Income amount (numeric or string)
+        income_type (str): 'annual', 'monthly', 'weekly', 'hourly'
+        
+    Returns:
+        dict: {'valid': bool, 'amount': Decimal, 'formatted': str, 'message': str}
+    """
+    try:
+      if isinstance(amount, str):
+        # Clean currency formatting
+        cleaned = re.sub(r'[^\d.-]', '', amount)
+        decimal_amount = decimal.Decimal(cleaned)
+      else:
+        decimal_amount = decimal.Decimal(str(amount))
+      
+      if decimal_amount < 0:
+        return {'valid': False, 'amount': decimal_amount, 
+                'formatted': f"${decimal_amount:,.2f}",
+                'message': 'Income cannot be negative'}
+      
+      # Reasonable bounds checking
+      bounds = {
+        'hourly': {'min': 0, 'max': 200},
+        'weekly': {'min': 0, 'max': 8000},
+        'monthly': {'min': 0, 'max': 35000},
+        'annual': {'min': 0, 'max': 500000}
+      }
+      
+      if income_type in bounds:
+        min_val, max_val = bounds[income_type]['min'], bounds[income_type]['max']
+        if decimal_amount > max_val:
+          return {'valid': False, 'amount': decimal_amount,
+                  'formatted': f"${decimal_amount:,.2f}",
+                  'message': f'Amount seems unusually high for {income_type} income. Please verify.'}
+      
+      formatted = f"${decimal_amount:,.2f}"
+      return {'valid': True, 'amount': decimal_amount, 'formatted': formatted,
+              'message': f'Valid {income_type} income amount'}
+      
+    except (ValueError, decimal.InvalidOperation) as e:
+      return {'valid': False, 'amount': None, 'formatted': str(amount),
+              'message': 'Invalid numeric amount'}
+
+---
+# ONTARIO COURT LOCATIONS DATA
+
+# Superior Court Locations
+variable name: ontario_superior_courts
+data:
+  - name: "Toronto"
+    address: "393 University Avenue, Toronto, ON M5G 1E6"
+    phone: "(416) 327-5020"
+    region: "Toronto"
+    file_prefix: "FS"
+  - name: "Ottawa"
+    address: "161 Elgin Street, Ottawa, ON K2P 2K1"
+    phone: "(613) 239-1600"
+    region: "Ottawa"
+    file_prefix: "FS"
+  - name: "Hamilton"
+    address: "45 Main Street East, Hamilton, ON L8N 2B7"
+    phone: "(905) 645-5252"
+    region: "Hamilton-Wentworth"
+    file_prefix: "FS"
+  - name: "London"
+    address: "80 Dundas Street, London, ON N6A 6A3"
+    phone: "(519) 660-3000"
+    region: "London"
+    file_prefix: "FS"
+  - name: "Windsor"
+    address: "245 Windsor Avenue, Windsor, ON N9A 1J2"
+    phone: "(519) 973-4800"
+    region: "Windsor"
+    file_prefix: "FS"
+  - name: "Kingston"
+    address: "25 Court Street, Kingston, ON K7L 2N4"
+    phone: "(613) 548-6811"
+    region: "Kingston"
+    file_prefix: "FS"
+  - name: "Thunder Bay"
+    address: "125 Brodie Street North, Thunder Bay, ON P7C 0A3"
+    phone: "(807) 343-2710"
+    region: "Thunder Bay"
+    file_prefix: "FS"
+  - name: "Sudbury"
+    address: "155 Elm Street West, Sudbury, ON P3C 1T9"
+    phone: "(705) 564-7600"
+    region: "Sudbury"
+    file_prefix: "FS"
+  - name: "St. Catharines"
+    address: "59 Church Street, St. Catharines, ON L2R 3C3"
+    phone: "(905) 988-6200"
+    region: "Niagara"
+    file_prefix: "FS"
+  - name: "Barrie"
+    address: "75 Mulcaster Street, Barrie, ON L4M 6P2"
+    phone: "(705) 739-6100"
+    region: "Simcoe"
+    file_prefix: "FS"
+
+---
+# Ontario Court (Provincial Division) Locations
+variable name: ontario_provincial_courts
+data:
+  - name: "Toronto - College Park"
+    address: "444 Yonge Street, Toronto, ON M5B 2H4"
+    phone: "(416) 327-1147"
+    region: "Toronto"
+    specialties: ["Family Court"]
+  - name: "Toronto - Old City Hall"
+    address: "60 Queen Street West, Toronto, ON M5H 2M3"
+    phone: "(416) 327-1147"
+    region: "Toronto"
+    specialties: ["Criminal", "Provincial Offences"]
+  - name: "North York"
+    address: "1000 Finch Avenue West, North York, ON M3J 2V5"
+    phone: "(416) 326-3102"
+    region: "Toronto"
+    specialties: ["Family Court", "Criminal"]
+  - name: "Scarborough"
+    address: "1911 Eglinton Avenue East, Scarborough, ON M1L 4L1"
+    phone: "(416) 326-3102"
+    region: "Toronto"
+    specialties: ["Family Court", "Criminal"]
+  - name: "Etobicoke"
+    address: "47 Rexdale Boulevard, Etobicoke, ON M9W 1N3"
+    phone: "(416) 326-3102"
+    region: "Toronto"
+    specialties: ["Family Court", "Criminal"]
+
+---
+# COMMON DATA OBJECTS
+
+# Standard Ontario Address Object
+objects:
+  - ontario_address: DAObject
+
+---
+template: ontario_address_fields
+content: |
+  Street Address:
+  City:
+  Province: Ontario
+  Postal Code:
+  Country: Canada
+
+---
+# Contact Information Object
+objects:
+  - contact_info: DAObject
+
+---
+code: |
+  contact_info.phone_primary = None
+  contact_info.phone_secondary = None
+  contact_info.email = None
+  contact_info.preferred_contact_method = None
+  contact_info.accessibility_needs = None
+
+---
+# Legal Representation Object
+objects:
+  - legal_representation: DAObject
+
+---
+code: |
+  legal_representation.has_lawyer = None
+  legal_representation.lawyer_name = None
+  legal_representation.lawyer_firm = None
+  legal_representation.lawyer_phone = None
+  legal_representation.lawyer_email = None
+  legal_representation.lso_number = None
+  legal_representation.is_self_represented = None
+
+---
+# Child Information Object (with privacy protections)
+objects:
+  - child_info: DAList.using(object_type=DAObject)
+
+---
+code: |
+  def create_child_object():
+    """Create a child object with privacy protections"""
+    child = DAObject()
+    child.first_name = None
+    child.last_name = None  # May be initials only for privacy
+    child.birth_date = None
+    child.age = None
+    child.lives_with = None
+    child.special_needs = None
+    child.is_child_of_marriage = None
+    child.privacy_level = 'standard'  # 'standard', 'high', 'sealed'
+    return child
+
+---
+# UTILITY FUNCTIONS
+
+# Age Calculation
+code: |
+  def calculate_age(birth_date, as_of_date=None):
+    """
+    Calculate age from birth date.
+    
+    Args:
+        birth_date: Birth date (datetime.date or compatible)
+        as_of_date: Date to calculate age as of (defaults to today)
+        
+    Returns:
+        dict: {'years': int, 'months': int, 'days': int, 'age_string': str}
+    """
+    if as_of_date is None:
+      as_of_date = datetime.date.today()
+    
+    if hasattr(birth_date, 'date'):
+      birth_date = birth_date.date()
+    
+    years = as_of_date.year - birth_date.year
+    months = as_of_date.month - birth_date.month
+    days = as_of_date.day - birth_date.day
+    
+    if days < 0:
+      months -= 1
+      # Get days in previous month
+      if as_of_date.month == 1:
+        prev_month = datetime.date(as_of_date.year - 1, 12, 1)
+      else:
+        prev_month = datetime.date(as_of_date.year, as_of_date.month - 1, 1)
+      next_month = prev_month.replace(month=prev_month.month + 1) if prev_month.month < 12 else prev_month.replace(year=prev_month.year + 1, month=1)
+      days_in_prev_month = (next_month - prev_month).days
+      days += days_in_prev_month
+    
+    if months < 0:
+      years -= 1
+      months += 12
+    
+    # Format age string
+    if years > 0:
+      age_string = f"{years} year{'s' if years != 1 else ''}"
+      if months > 0:
+        age_string += f", {months} month{'s' if months != 1 else ''}"
+    elif months > 0:
+      age_string = f"{months} month{'s' if months != 1 else ''}"
+      if days > 0:
+        age_string += f", {days} day{'s' if days != 1 else ''}"
+    else:
+      age_string = f"{days} day{'s' if days != 1 else ''}"
+    
+    return {
+      'years': years,
+      'months': months,
+      'days': days,
+      'age_string': age_string
+    }
+
+---
+# Court Level Determination
+code: |
+  def determine_court_level(claim_type, claim_amount=None):
+    """
+    Determine appropriate court level based on claim type and amount.
+    
+    Args:
+        claim_type (str): Type of claim
+        claim_amount (float): Monetary amount if applicable
+        
+    Returns:
+        dict: {'court_level': str, 'explanation': str, 'forms_needed': list}
+    """
+    superior_claims = [
+      'divorce',
+      'annulment',
+      'property_division_over_35000',
+      'complex_custody',
+      'adoption',
+      'child_protection'
+    ]
+    
+    if claim_type in superior_claims:
+      return {
+        'court_level': 'Superior Court of Justice',
+        'explanation': 'This matter must be filed in Superior Court',
+        'forms_needed': ['Form 8', 'Form 8A', 'Form 13.1']
+      }
+    
+    if claim_amount and claim_amount > 35000:
+      return {
+        'court_level': 'Superior Court of Justice',
+        'explanation': 'Claims over $35,000 must be filed in Superior Court',
+        'forms_needed': ['Form 8', 'Form 8A', 'Form 13.1']
+      }
+    
+    return {
+      'court_level': 'Ontario Court of Justice (Family Court)',
+      'explanation': 'This matter can be filed in Family Court',
+      'forms_needed': ['Form 8', 'Form 8A']
+    }
+
+---
+# Filing Fee Calculation
+code: |
+  def calculate_filing_fees(form_types, party_count=1, financial_hardship=False):
+    """
+    Calculate Ontario court filing fees.
+    
+    Args:
+        form_types (list): List of forms being filed
+        party_count (int): Number of parties
+        financial_hardship (bool): Whether requesting fee waiver
+        
+    Returns:
+        dict: {'total_fee': Decimal, 'breakdown': dict, 'waiver_available': bool}
+    """
+    fee_schedule = {
+      'Form 8': decimal.Decimal('202.00'),      # Application (General)
+      'Form 8A': decimal.Decimal('202.00'),     # Application (Divorce)
+      'Form 14': decimal.Decimal('157.00'),     # Notice of Motion
+      'Form 17': decimal.Decimal('202.00'),     # Conference Request
+      'Form 34': decimal.Decimal('280.00'),     # Motion to Change
+      'Form 37': decimal.Decimal('280.00')      # Notice of Appeal
+    }
+    
+    breakdown = {}
+    total = decimal.Decimal('0.00')
+    
+    for form_type in form_types:
+      if form_type in fee_schedule:
+        fee = fee_schedule[form_type]
+        breakdown[form_type] = fee
+        total += fee
+    
+    # Additional party fees (if applicable)
+    if party_count > 2:
+      additional_party_fee = decimal.Decimal('50.00') * (party_count - 2)
+      breakdown['Additional parties'] = additional_party_fee
+      total += additional_party_fee
+    
+    return {
+      'total_fee': total,
+      'breakdown': breakdown,
+      'waiver_available': financial_hardship,
+      'waiver_info': 'Fee waiver available under Rule 24 for financial hardship'
+    }
+
+---
+# CONSTANTS AND REFERENCE LISTS
+
+# Common Claim Types
+variable name: common_claim_types
+data:
+  - value: "divorce"
+    label: "Divorce"
+  - value: "separation"
+    label: "Separation (no divorce)"
+  - value: "annulment"
+    label: "Annulment"
+  - value: "child_support"
+    label: "Child Support"
+  - value: "spousal_support"
+    label: "Spousal Support"
+  - value: "custody_access"
+    label: "Custody and Access"
+  - value: "parenting_time"
+    label: "Parenting Time"
+  - value: "property_division"
+    label: "Property Division"
+  - value: "restraining_order"
+    label: "Restraining Order"
+  - value: "exclusive_possession"
+    label: "Exclusive Possession of Home"
+
+---
+# Service Methods
+variable name: service_methods
+data:
+  - value: "personal"
+    label: "Personal Service"
+    description: "Documents served directly to the person"
+  - value: "mail"
+    label: "Service by Mail"
+    description: "Documents sent by registered mail"
+  - value: "courier"
+    label: "Service by Courier"
+    description: "Documents delivered by courier service"
+  - value: "fax"
+    label: "Service by Fax"
+    description: "Documents sent by fax (with consent)"
+  - value: "email"
+    label: "Service by Email"
+    description: "Documents sent by email (with consent)"
+  - value: "substituted"
+    label: "Substituted Service"
+    description: "Alternative service method approved by court"
+  - value: "publication"
+    label: "Service by Publication"
+    description: "Service by newspaper advertisement (court order required)"
+
+---
+# Legal Aid Resources
+variable name: legal_aid_resources
+data:
+  - name: "Legal Aid Ontario"
+    phone: "1-800-668-8258"
+    website: "www.legalaid.on.ca"
+    description: "Provides legal aid certificates and duty counsel services"
+  - name: "Pro Bono Ontario"
+    phone: "1-855-255-7256"
+    website: "www.probonoontario.org"
+    description: "Free legal services for those who cannot afford a lawyer"
+  - name: "Law Society Referral Service"
+    phone: "1-855-947-5787"
+    website: "lsrs.lso.ca"
+    description: "Referrals to lawyers offering 30-minute consultations"
+  - name: "Family Legal Information Centres"
+    website: "www.attorneygeneral.jus.gov.on.ca"
+    description: "Information and assistance at courthouses"
+
+---
+# REUSABLE QUESTION BLOCKS
+
+# Ontario Address Collection
+question: |
+  What is ${ person_name if defined('person_name') else 'your' } address in Ontario?
+fields:
+  - Street Address: address.address
+    address autocomplete: True
+  - Unit/Apartment: address.unit
+    required: False
+  - City: address.city
+  - Province: address.province
+    default: "Ontario"
+    disabled: True
+  - Postal Code: address.postal_code
+    validate: |
+      lambda x: validate_ontario_postal_code(x)['valid']
+validation code: |
+  postal_validation = validate_ontario_postal_code(address.postal_code)
+  if not postal_validation['valid']:
+    validation_error(postal_validation['message'])
+  address.postal_code = postal_validation['formatted']
+---
+# Phone Number Collection
+question: |
+  What is ${ person_name if defined('person_name') else 'your' } phone number?
+fields:
+  - Primary Phone: contact.phone_primary
+    validate: |
+      lambda x: format_canadian_phone(x)['valid']
+  - Secondary Phone: contact.phone_secondary
+    required: False
+    validate: |
+      lambda x: not x or format_canadian_phone(x)['valid']
+  - Preferred contact method: contact.preferred_method
+    choices:
+      - Primary phone
+      - Secondary phone
+      - Email
+validation code: |
+  primary_validation = format_canadian_phone(contact.phone_primary)
+  if not primary_validation['valid']:
+    validation_error(primary_validation['message'])
+  contact.phone_primary = primary_validation['formatted']
+  
+  if contact.phone_secondary:
+    secondary_validation = format_canadian_phone(contact.phone_secondary)
+    if not secondary_validation['valid']:
+      validation_error(secondary_validation['message'])
+    contact.phone_secondary = secondary_validation['formatted']
+---
+# Legal Representation Questions
+question: |
+  Do you have a lawyer or paralegal representing you in this matter?
+yesno: legal_rep.has_representation
+---
+question: |
+  Please provide your legal representative's information.
+fields:
+  - Representative Type: legal_rep.rep_type
+    choices:
+      - Lawyer
+      - Paralegal
+  - Name: legal_rep.name
+  - Law Firm/Organization: legal_rep.firm
+    required: False
+  - Phone Number: legal_rep.phone
+    validate: |
+      lambda x: format_canadian_phone(x)['valid']
+  - Email: legal_rep.email
+    datatype: email
+  - Law Society Number: legal_rep.lso_number
+    help: |
+      The Law Society of Ontario license number for your representative
+validation code: |
+  phone_validation = format_canadian_phone(legal_rep.phone)
+  if not phone_validation['valid']:
+    validation_error(phone_validation['message'])
+  legal_rep.phone = phone_validation['formatted']
+---
+# Service Method Selection
+question: |
+  How do you want to serve the documents on the other party?
+field: service_method
+choices: service_methods
+help: |
+  The court rules require that all parties be properly served with court documents.
+  Personal service is usually required unless the court orders otherwise or the
+  other party consents to alternative service.
+---
+# Financial Disclosure Questions
+question: |
+  Financial Information
+subquestion: |
+  The court requires financial disclosure for support and property matters.
+  All amounts should be gross (before tax) income.
+fields:
+  - Annual Employment Income: finances.employment_income
+    datatype: currency
+    required: False
+  - Annual Self-Employment Income: finances.self_employment_income
+    datatype: currency
+    required: False
+  - Annual Investment Income: finances.investment_income
+    datatype: currency
+    required: False
+  - Annual Other Income: finances.other_income
+    datatype: currency
+    required: False
+  - Describe other income: finances.other_income_description
+    required: False
+    show if: finances.other_income
+validation code: |
+  for income_type in ['employment_income', 'self_employment_income', 'investment_income', 'other_income']:
+    if hasattr(finances, income_type) and getattr(finances, income_type):
+      amount = getattr(finances, income_type)
+      validation = validate_income_amount(amount, 'annual')
+      if not validation['valid']:
+        validation_error(f"{income_type.replace('_', ' ').title()}: {validation['message']}")
+---
+# Children Information Collection
+question: |
+  Information about the child${ 'ren' if child_info.number() != 1 else '' }
+subquestion: |
+  ${ privacy_disclaimer }
+  
+  Please provide information about each child involved in this case.
+list collect: True
+fields:
+  - Child's first name: child_info[i].first_name
+  - Child's last name or initial: child_info[i].last_name
+    help: |
+      You may use only the child's initial for privacy protection
+  - Date of birth: child_info[i].birth_date
+    datatype: date
+    validate: |
+      lambda x: validate_legal_date(x, 'birth_date')['valid']
+  - Child lives with: child_info[i].lives_with
+    choices:
+      - "Applicant"
+      - "Respondent" 
+      - "Both parties (shared)"
+      - "Other person"
+  - Other person details: child_info[i].other_person_details
+    show if:
+      variable: child_info[i].lives_with
+      is: "Other person"
+  - Special needs or circumstances: child_info[i].special_needs
+    datatype: area
+    required: False
+validation code: |
+  date_validation = validate_legal_date(child_info[i].birth_date, 'birth_date')
+  if not date_validation['valid']:
+    validation_error(date_validation['message'])
+  
+  # Calculate age automatically
+  age_calc = calculate_age(child_info[i].birth_date)
+  child_info[i].age = age_calc['years']
+  child_info[i].age_string = age_calc['age_string']
+---
+# ACCESSIBILITY AND BILINGUAL SUPPORT
+
+# AODA Compliance Template
+template: aoda_compliance_notice
+content: |
+  **Accessibility Notice**: This form system is designed to meet AODA standards.
+  If you need accommodation or have accessibility concerns, please contact the
+  court office directly. Alternative formats and assistance are available upon request.
+
+# Bilingual Support Hook
+code: |
+  def get_language_preference():
+    """
+    Hook for bilingual support (English/French)
+    Returns user's language preference
+    """
+    # This would integrate with broader bilingual system
+    return 'english'  # Default - to be implemented
+
+---
+# PRIVACY PROTECTION FUNCTIONS
+
+code: |
+  def protect_child_privacy(child_data, privacy_level='standard'):
+    """
+    Apply privacy protections to child information based on privacy level.
+    
+    Args:
+        child_data: Child information object
+        privacy_level (str): 'standard', 'high', 'sealed'
+        
+    Returns:
+        dict: Privacy-protected child data
+    """
+    protected = {}
+    
+    if privacy_level == 'sealed':
+      # Sealed records - minimal information
+      protected['initials'] = f"{child_data.first_name[0]}.{child_data.last_name[0]}."
+      protected['age'] = child_data.age
+      protected['lives_with'] = child_data.lives_with
+    elif privacy_level == 'high':
+      # High privacy - first name and initial
+      protected['first_name'] = child_data.first_name
+      protected['last_initial'] = child_data.last_name[0] + "."
+      protected['birth_year'] = child_data.birth_date.year
+      protected['age'] = child_data.age
+      protected['lives_with'] = child_data.lives_with
+    else:
+      # Standard privacy - some information protected
+      protected['first_name'] = child_data.first_name
+      protected['last_name'] = child_data.last_name
+      protected['birth_date'] = child_data.birth_date
+      protected['age'] = child_data.age
+      protected['lives_with'] = child_data.lives_with
+      if hasattr(child_data, 'special_needs'):
+        protected['special_needs'] = child_data.special_needs
+    
+    return protected
+
+---
+# DOCUMENT GENERATION HELPERS
+
+code: |
+  def format_currency_for_document(amount):
+    """Format currency amounts for legal documents"""
+    if amount is None or amount == 0:
+      return "$0.00"
+    return f"${amount:,.2f}"
+
+code: |
+  def format_date_for_document(date_obj):
+    """Format dates for legal documents"""
+    if hasattr(date_obj, 'strftime'):
+      return date_obj.strftime("%B %d, %Y")
+    return str(date_obj)
+
+code: |
+  def create_document_footer():
+    """Standard footer for Ontario family law documents"""
+    return f"""
+    Generated on {datetime.date.today().strftime("%B %d, %Y")}
+    
+    This document was prepared using the Ontario Family Law Forms System.
+    For assistance, contact the courthouse or consult with a legal professional.
+    
+    {legal_disclaimer}
+    """
+
+---
+# UNIT TEST EXAMPLES
+
+# Example test for postal code validation
+code: |
+  def test_postal_code_validation():
+    """Unit test examples for postal code validation"""
+    test_cases = [
+      {'input': 'M5G 1E6', 'expected_valid': True},
+      {'input': 'm5g1e6', 'expected_valid': True},
+      {'input': 'V6B 1A1', 'expected_valid': False},  # BC postal code
+      {'input': '12345', 'expected_valid': False},     # Invalid format
+    ]
+    
+    for case in test_cases:
+      result = validate_ontario_postal_code(case['input'])
+      assert result['valid'] == case['expected_valid'], f"Test failed for {case['input']}"
+    
+    return "All postal code tests passed"
+
+---
+# ERROR HANDLING TEMPLATES
+
+template: validation_error_template
+content: |
+  **Input Error**: ${ error_message }
+  
+  Please correct the highlighted field and try again.
+  If you need assistance, contact the court office at the phone number listed above.
+
+template: system_error_template  
+content: |
+  **System Error**: An unexpected error occurred while processing your request.
+  
+  Please try again, and if the problem persists, contact technical support
+  or visit the court office for assistance.
+  
+  Error details (for technical support): ${ error_details if defined('error_details') else 'No details available' }
+
+---
+# END OF ONTARIO FAMILY LAW COMMON COMPONENTS
+# This file provides the foundation for all Ontario family law forms
+# in the Docassemble system, ensuring consistency and reducing code duplication.

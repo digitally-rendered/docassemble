@@ -1,0 +1,214 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "docassemble.fullname" . }}
+  labels:
+    {{- include "docassemble.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "docassemble.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "docassemble.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "docassemble.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      # Use default DNS policy for cluster service discovery
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.targetPort }}
+              protocol: TCP
+          env:
+            # Database Configuration (Supabase)
+            - name: DBHOST
+              value: {{ .Values.database.host | quote }}
+            - name: DBPORT
+              value: {{ .Values.database.port | quote }}
+            - name: DBNAME
+              value: {{ .Values.database.name | quote }}
+            - name: DBUSER
+              value: {{ .Values.database.user | quote }}
+            - name: DBPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "docassemble.fullname" . }}-db-secret
+                  key: password
+            
+            # Redis Configuration  
+            {{- if .Values.redis.external }}
+            - name: REDIS
+              value: "redis://{{ .Values.redis.host }}:{{ .Values.redis.port }}"
+            {{- else }}
+            - name: REDIS
+              value: "redis://{{ include "docassemble.fullname" . }}-redis:6379"
+            {{- end }}
+            
+            # Docassemble Configuration
+            - name: DAHOSTNAME
+              value: {{ .Values.docassemble.hostname | quote }}
+            - name: USEHTTPS
+              value: {{ .Values.docassemble.useHttps | quote }}
+            - name: USELETSENCRYPT
+              value: {{ .Values.docassemble.useLetsEncrypt | quote }}
+            - name: BEHINDHTTPSLOADBALANCER
+              value: {{ .Values.docassemble.behindHttpsLoadBalancer | quote }}
+            
+            # Admin Configuration
+            - name: DA_ADMIN_EMAIL
+              value: {{ .Values.docassemble.admin.email | quote }}
+            - name: DA_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "docassemble.fullname" . }}-admin-secret
+                  key: password
+            
+            # Supervisor Configuration
+            - name: DASUPERVISORUSERNAME
+              value: {{ .Values.docassemble.supervisor.username | quote }}
+            - name: DASUPERVISORPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "docassemble.fullname" . }}-supervisor-secret
+                  key: password
+            
+            # Storage Configuration
+            {{- if .Values.docassemble.storage.s3.enabled }}
+            - name: S3ENABLE
+              value: "true"
+            - name: S3ACCESSKEY
+              value: {{ .Values.docassemble.storage.s3.accessKey | quote }}
+            - name: S3SECRETACCESSKEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "docassemble.fullname" . }}-s3-secret
+                  key: secretKey
+            - name: S3BUCKET
+              value: {{ .Values.docassemble.storage.s3.bucket | quote }}
+            - name: S3REGION
+              value: {{ .Values.docassemble.storage.s3.region | quote }}
+            {{- else }}
+            - name: S3ENABLE
+              value: "false"
+            {{- end }}
+            
+            # Container Configuration - exclude SQL since using external database
+            - name: CONTAINERROLE
+              value: "web:worker:websockets:cron:mail"
+            - name: TIMEZONE  
+              value: "America/New_York"
+            - name: SUPERVISORLOGLEVEL
+              value: "info"
+            - name: EC2
+              value: "false"
+            
+            # External Database Configuration (Supabase)
+            - name: DBPREFIX
+              value: {{ .Values.database.tablePrefix | quote }}
+            - name: DBBACKUP
+              value: "false"
+            - name: PGUSER
+              value: {{ .Values.database.user | quote }}
+            - name: PGPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "docassemble.fullname" . }}-db-secret
+                  key: password
+            - name: PGHOST
+              value: {{ .Values.database.host | quote }}
+            - name: PGPORT
+              value: {{ .Values.database.port | quote }}
+            - name: PGDATABASE
+              value: {{ .Values.database.name | quote }}
+            - name: DBSSLMODE
+              value: {{ .Values.database.sslMode | quote }}
+            - name: PGSSLROOTCERT
+              value: "/usr/share/ssl-certs/prod-ca-2021.crt"
+            
+            # Service Configuration - Use external services
+            - name: POSTNGINX
+              value: "true"
+            - name: DAWEBSERVER
+              value: "nginx"
+            - name: DAPYTHONRUNTIME
+              value: "python3"
+            
+            # Development mode - skip ownership changes for volume mounts
+            - name: DAROOTOWNED
+              value: "true"
+            
+            # Use external database only (Supabase)
+            - name: DAEXTERNALDATABASE
+              value: "true"
+            
+            # Disable OpenAPI spec generation during startup
+            - name: PYTHONDONTWRITEBYTECODE
+              value: "1"
+              
+          {{- if .Values.livenessProbe }}
+          livenessProbe:
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
+          {{- end }}
+          {{- if .Values.readinessProbe }}
+          readinessProbe:
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            {{- if .Values.persistence.enabled }}
+            - name: docassemble-data
+              mountPath: /usr/share/docassemble/files
+            {{- end }}
+            - name: ssl-cert
+              mountPath: /usr/share/ssl-certs
+              readOnly: true
+            {{- with .Values.volumeMounts }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+      volumes:
+        {{- if .Values.persistence.enabled }}
+        - name: docassemble-data
+          persistentVolumeClaim:
+            claimName: {{ include "docassemble.fullname" . }}-pvc
+        {{- end }}
+        - name: ssl-cert
+          configMap:
+            name: {{ include "docassemble.fullname" . }}-ssl-cert
+        {{- with .Values.volumes }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

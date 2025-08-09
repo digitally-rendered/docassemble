@@ -1,0 +1,773 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+    This form is used to ask the court for orders related to divorce, custody, access, support, 
+    property division, and other family law matters.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2024-01-01
+  tags:
+    - ontario
+    - family-law
+    - form-8
+    - application
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+---
+objects:
+  - applicant: Individual.using(ask_if_children=False)
+  - respondent: Individual.using(ask_if_children=False)
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - claims: DADict
+  - court_info: DAObject
+  - financial_info: DAObject
+  - service_info: DAObject
+---
+# Main interview order and flow
+mandatory: True
+code: |
+  # Introduction and disclaimers
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Court information
+  court_info.level
+  court_info.location
+  court_info.file_number
+  court_info.date_commenced
+  
+  # Applicant information
+  applicant.name.first
+  applicant.address.address
+  applicant.phone_number
+  applicant.email
+  applicant_legal_representation
+  
+  # Respondent information  
+  respondent.name.first
+  respondent.address.address
+  respondent_service_info
+  
+  # Children information (if applicable)
+  children_involved
+  if children_involved:
+    children.gather()
+    children_privacy_protection
+  
+  # Claims being made
+  claims_selection
+  
+  # Financial information (if required)
+  if financial_claims_made:
+    basic_financial_info
+  
+  # Service information
+  service_method
+  service_details
+  
+  # Review and confirmation
+  review_information
+  final_confirmation
+  
+  # Generate final form
+  final_form_ready = True
+---
+# Introduction screen
+question: |
+  Welcome to Ontario Family Court Form 8 - Application (General)
+subquestion: |
+  This interview will help you complete Form 8, which is used to start most family court proceedings in Ontario.
+  
+  **What this form is for:**
+  
+  - Applying for divorce
+  - Requesting custody or access orders
+  - Seeking child or spousal support
+  - Dividing property or debts
+  - Other family law matters
+  
+  **Before you start:**
+  
+  - Gather all necessary documents (marriage certificate, financial documents, etc.)
+  - Ensure you have accurate information about all parties involved
+  - Consider whether you need legal advice for complex matters
+  
+  **Time required:** This interview typically takes 20-30 minutes to complete.
+field: introduction_screen
+datatype: checkboxes
+minlength: 1
+choices:
+  - I have read and understand the above information: understood
+validation messages:
+  minlength: You must confirm you have read the information before continuing.
+---
+# Legal disclaimer
+question: |
+  Important Legal Information
+subquestion: |
+  **This is not legal advice.** This form completion tool is provided for informational purposes only.
+  
+  **Please understand:**
+  
+  - Completing this form does not guarantee a successful court outcome
+  - Complex family law matters may require legal representation
+  - You are responsible for ensuring all information is accurate and complete
+  - Filing incorrect or incomplete information may delay your case
+  
+  **Consider getting legal advice if:**
+  
+  - Your case involves complex property division
+  - There are allegations of domestic violence
+  - Child protection services are involved
+  - The other party has a lawyer
+  - You are unsure about your legal rights
+  
+  **Free legal resources:**
+  
+  - [Legal Aid Ontario](https://www.legalaid.on.ca/)
+  - [Pro Bono Ontario](https://www.probonoontario.org/)
+  - [Community legal clinics](https://www.legalaid.on.ca/legal-clinics/)
+field: legal_disclaimer_accepted
+datatype: yesnoradio
+---
+# Court Information Section
+question: |
+  Which level of court will handle your case?
+subquestion: |
+  **Superior Court of Justice** handles:
+  - Divorce cases
+  - Property division over $35,000
+  - Complex custody disputes
+  - Cases involving significant assets
+  
+  **Ontario Court of Justice** handles:
+  - Child and spousal support (unless part of divorce)
+  - Custody and access (unless part of divorce)
+  - Property division under $35,000
+  - Child protection matters
+field: court_info.level
+choices:
+  - Superior Court of Justice: superior
+  - Ontario Court of Justice: ontario
+help: |
+  If you're unsure which court to choose, Superior Court of Justice is generally the safer choice for most family law matters, especially if divorce is involved.
+---
+question: |
+  In which city/town will you file your application?
+subquestion: |
+  Choose the court location closest to where you or the other party lives, or where the family issue arose.
+field: court_info.location
+datatype: combobox
+choices:
+  - Toronto
+  - Ottawa
+  - Hamilton
+  - London
+  - Windsor
+  - Sudbury
+  - Thunder Bay
+  - Kingston
+  - Kitchener
+  - Barrie
+  - St. Catharines
+  - Oshawa
+  - Cambridge
+  - Guelph
+  - Brantford
+  - Peterborough
+  - Sarnia
+  - Sault Ste. Marie
+  - North Bay
+  - Timmins
+validation code: |
+  if not court_info.location:
+    validation_error("Please enter a court location.")
+---
+question: |
+  Court File Number (if known)
+subquestion: |
+  If this is a new application, leave this blank. If you're adding to an existing case, enter the court file number.
+field: court_info.file_number
+required: False
+help: |
+  Court file numbers typically look like: FC-12-345678 or similar format depending on the court.
+validation code: |
+  import re
+  if court_info.file_number and not re.match(r'^[A-Z]{1,3}-\d{2}-\d{6}$', court_info.file_number.upper()):
+    validation_error("Please enter a valid court file number format (e.g., FC-12-345678)")
+---
+question: |
+  Date case commenced
+subquestion: |
+  For new applications, this is typically today's date. For existing cases, enter the original filing date.
+field: court_info.date_commenced
+datatype: date
+default: ${ today() }
+---
+# Applicant Information Section
+question: |
+  Your Full Legal Name
+subquestion: |
+  Enter your name exactly as it appears on official documents like your driver's license or birth certificate.
+fields:
+  - First Name: applicant.name.first
+    required: True
+  - Middle Name(s): applicant.name.middle
+    required: False
+  - Last Name: applicant.name.last
+    required: True
+  - Also known as (if applicable): applicant.name.suffix
+    required: False
+    help: Include any other names you are known by or have used previously
+validation code: |
+  if len(applicant.name.first.strip()) < 2:
+    validation_error("First name must be at least 2 characters long.")
+  if len(applicant.name.last.strip()) < 2:
+    validation_error("Last name must be at least 2 characters long.")
+---
+question: |
+  Your Address
+subquestion: |
+  This should be your current residential address where you can receive court documents.
+fields:
+  - Street Address: applicant.address.address
+    required: True
+  - Unit/Apartment: applicant.address.unit
+    required: False
+  - City: applicant.address.city
+    required: True
+  - Province: applicant.address.state
+    required: True
+    default: Ontario
+    code: |
+      provinces_list
+  - Postal Code: applicant.address.zip
+    required: True
+    help: Format: A1A 1A1
+validation code: |
+  import re
+  postal_code = applicant.address.zip.upper().replace(" ", "")
+  if not re.match(r'^[A-Z]\d[A-Z]\d[A-Z]\d$', postal_code):
+    validation_error("Please enter a valid Canadian postal code (e.g., K1A 0A6)")
+  # Reformat with space
+  applicant.address.zip = postal_code[:3] + " " + postal_code[3:]
+---
+question: |
+  Your Contact Information
+fields:
+  - Phone Number: applicant.phone_number
+    required: True
+    help: Include area code (e.g., 416-555-1234)
+  - Email Address: applicant.email
+    required: True
+    datatype: email
+  - Preferred contact method: applicant.preferred_contact
+    choices:
+      - Phone: phone
+      - Email: email
+      - Mail: mail
+validation code: |
+  import re
+  phone = re.sub(r'[^\d]', '', applicant.phone_number)
+  if len(phone) != 10:
+    validation_error("Please enter a valid 10-digit phone number.")
+  # Format phone number
+  applicant.phone_number = f"({phone[:3]}) {phone[3:6]}-{phone[6:]}"
+---
+question: |
+  Legal Representation
+subquestion: |
+  Do you have a lawyer or legal representative?
+field: applicant_legal_representation
+datatype: yesnoradio
+---
+question: |
+  Your Lawyer's Information
+subquestion: |
+  Please provide your lawyer's contact information.
+fields:
+  - Lawyer's Name: applicant.lawyer.name
+    required: True
+  - Law Firm: applicant.lawyer.firm
+    required: False
+  - Phone Number: applicant.lawyer.phone
+    required: True
+  - Email: applicant.lawyer.email
+    required: True
+    datatype: email
+  - Law Society Number: applicant.lawyer.lsuc_number
+    required: False
+    help: If known, this helps identify your lawyer to the court
+show if: applicant_legal_representation
+---
+# Respondent Information Section
+question: |
+  Other Party's Full Legal Name
+subquestion: |
+  Enter the full legal name of the person you are making this application against (the "Respondent").
+fields:
+  - First Name: respondent.name.first
+    required: True
+  - Middle Name(s): respondent.name.middle
+    required: False
+  - Last Name: respondent.name.last
+    required: True
+  - Also known as: respondent.name.suffix
+    required: False
+validation code: |
+  if len(respondent.name.first.strip()) < 2:
+    validation_error("First name must be at least 2 characters long.")
+  if len(respondent.name.last.strip()) < 2:
+    validation_error("Last name must be at least 2 characters long.")
+---
+question: |
+  Other Party's Address
+subquestion: |
+  Enter the respondent's current address if known. This is where court documents will be served.
+fields:
+  - Street Address: respondent.address.address
+    required: True
+  - Unit/Apartment: respondent.address.unit
+    required: False
+  - City: respondent.address.city
+    required: True
+  - Province: respondent.address.state
+    required: True
+    default: Ontario
+    code: |
+      provinces_list
+  - Postal Code: respondent.address.zip
+    required: True
+validation code: |
+  import re
+  postal_code = respondent.address.zip.upper().replace(" ", "")
+  if not re.match(r'^[A-Z]\d[A-Z]\d[A-Z]\d$', postal_code):
+    validation_error("Please enter a valid Canadian postal code")
+  respondent.address.zip = postal_code[:3] + " " + postal_code[3:]
+---
+question: |
+  Service Information for Respondent
+subquestion: |
+  How will the respondent be served with court documents?
+field: respondent_service_info
+choices:
+  - Personal service (hand delivery): personal
+  - Registered mail: mail
+  - Email (if agreed to): email
+  - Through their lawyer: lawyer
+  - Service will be arranged later: later
+help: |
+  Personal service is the most common and reliable method. The respondent must receive copies of all court documents.
+---
+# Children Information Section
+question: |
+  Are there children involved in this case?
+subquestion: |
+  This includes biological children, adopted children, or children you have acted as a parent to.
+field: children_involved
+datatype: yesnoradio
+---
+question: |
+  Children's Information
+subquestion: |
+  Please provide information about each child involved in this case.
+  
+  **Privacy Protection:** Children's personal information will be protected according to Ontario Family Law Rules.
+list collect: True
+fields:
+  - Child's first name: children[i].name.first
+    required: True
+  - Child's last name: children[i].name.last
+    required: True
+  - Date of birth: children[i].birthdate
+    datatype: date
+    required: True
+  - Current residence: children[i].current_residence
+    choices:
+      - With applicant: with_applicant
+      - With respondent: with_respondent
+      - Shared/joint: shared
+      - With other person: with_other
+      - Other arrangement: other
+  - Birth registration: children[i].birth_registration
+    choices:
+      - Ontario: ontario
+      - Other Canadian province: other_canada
+      - Outside Canada: outside_canada
+show if: children_involved
+validation code: |
+  from datetime import date
+  if children[i].birthdate > date.today():
+    validation_error("Birth date cannot be in the future.")
+  if (date.today() - children[i].birthdate).days < 0:
+    validation_error("Please enter a valid birth date.")
+---
+question: |
+  Child Privacy Protection
+subquestion: |
+  **Important:** To protect your children's privacy and safety, their personal information will be handled according to Ontario Family Law Rules.
+  
+  - Full names and addresses will not appear on publicly accessible court documents
+  - Only initials or "Child 1, Child 2" etc. will be used in public documents
+  - Complete information will be available to the judge and parties involved
+  
+  Do you understand and agree to these privacy protections?
+field: children_privacy_protection
+datatype: yesnoradio
+show if: children_involved
+---
+# Claims Section
+question: |
+  What are you asking the court to order?
+subquestion: |
+  Select all claims that apply to your situation. You can ask for multiple types of orders in one application.
+field: claims_selection
+datatype: checkboxes
+choices:
+  - Divorce: divorce
+  - Custody of child(ren): custody
+  - Access to child(ren): access
+  - Child support: child_support
+  - Spousal support: spousal_support
+  - Division of property: property_division
+  - Division of debts: debt_division
+  - Exclusive possession of matrimonial home: exclusive_possession
+  - Restraining order: restraining_order
+  - Other relief: other_relief
+minlength: 1
+validation messages:
+  minlength: You must select at least one claim.
+help: |
+  **Definitions:**
+  - **Custody:** Legal responsibility for major decisions about children
+  - **Access:** Time spent with children (also called "parenting time")
+  - **Child Support:** Financial support for children's needs
+  - **Spousal Support:** Financial support between spouses/partners
+  - **Property Division:** Sharing of assets acquired during relationship
+---
+question: |
+  Divorce Details
+subquestion: |
+  Please provide details about your divorce claim.
+fields:
+  - Ground for divorce: claims.divorce_ground
+    choices:
+      - Separation for one year or more: separation
+      - Adultery: adultery
+      - Physical or mental cruelty: cruelty
+  - Date of separation: claims.separation_date
+    datatype: date
+    required: True
+  - Date of marriage: claims.marriage_date
+    datatype: date
+    required: True
+  - Place of marriage: claims.marriage_place
+    required: True
+show if:
+  variable: claims_selection
+  is: divorce
+validation code: |
+  from datetime import date, timedelta
+  if claims.separation_date <= claims.marriage_date:
+    validation_error("Separation date must be after marriage date.")
+  if claims.divorce_ground == 'separation' and (date.today() - claims.separation_date).days < 365:
+    validation_error("For separation ground, you must be separated for at least one year.")
+---
+question: |
+  Custody Details
+subquestion: |
+  What type of custody arrangement are you seeking?
+fields:
+  - Type of custody: claims.custody_type
+    choices:
+      - Sole custody to applicant: sole_applicant
+      - Sole custody to respondent: sole_respondent
+      - Joint custody: joint
+  - Specific arrangements: claims.custody_details
+    datatype: area
+    rows: 4
+    help: Describe any specific custody arrangements you want the court to consider
+show if:
+  variable: claims_selection
+  is: custody
+---
+question: |
+  Access/Parenting Time Details
+subquestion: |
+  What access arrangement are you seeking?
+fields:
+  - Type of access: claims.access_type
+    choices:
+      - Reasonable access: reasonable
+      - Specific scheduled access: scheduled
+      - Supervised access: supervised
+      - No access: no_access
+  - Specific schedule (if applicable): claims.access_schedule
+    datatype: area
+    rows: 4
+    help: Describe the specific access schedule you want
+show if:
+  variable: claims_selection
+  is: access
+---
+question: |
+  Child Support Details
+fields:
+  - Support amount requested: claims.child_support_amount
+    datatype: currency
+    required: False
+    help: Leave blank if you want the court to determine the amount based on guidelines
+  - Effective date: claims.child_support_start_date
+    datatype: date
+    default: ${ today() }
+  - Special expenses requested: claims.special_expenses
+    datatype: yesnoradio
+    help: Activities, medical, education, or childcare expenses beyond basic support
+show if:
+  variable: claims_selection
+  is: child_support
+---
+question: |
+  Spousal Support Details
+fields:
+  - Support amount requested: claims.spousal_support_amount
+    datatype: currency
+    required: False
+    help: Leave blank if you want the court to determine the amount
+  - Duration requested: claims.spousal_support_duration
+    choices:
+      - Indefinite: indefinite
+      - Limited term: limited
+      - Lump sum: lump_sum
+  - Effective date: claims.spousal_support_start_date
+    datatype: date
+    default: ${ today() }
+show if:
+  variable: claims_selection
+  is: spousal_support
+---
+question: |
+  Property Division Details
+subquestion: |
+  What property division are you seeking?
+fields:
+  - Equal division of net family property: claims.equal_division
+    datatype: yesnoradio
+  - Specific items requested: claims.specific_property
+    datatype: area
+    rows: 4
+    required: False
+    help: List any specific items you want awarded to you
+  - Matrimonial home: claims.matrimonial_home_claim
+    choices:
+      - Sell and divide proceeds: sell_divide
+      - Applicant to keep: applicant_keep  
+      - Respondent to keep: respondent_keep
+      - Continue joint ownership: joint_ownership
+show if:
+  variable: claims_selection
+  is: property_division
+---
+# Financial Information Section
+code: |
+  financial_claims_made = ('child_support' in claims_selection or 
+                          'spousal_support' in claims_selection or 
+                          'property_division' in claims_selection)
+---
+question: |
+  Basic Financial Information
+subquestion: |
+  Since you are claiming support or property division, please provide basic financial information.
+  
+  **Note:** You will need to complete a detailed Financial Statement (Form 13 or 13.1) as a separate document.
+fields:
+  - Your current annual income: financial_info.applicant_income
+    datatype: currency
+    help: Include all sources of income before taxes
+  - Respondent's estimated annual income (if known): financial_info.respondent_income
+    datatype: currency
+    required: False
+  - Are there significant assets to divide?: financial_info.significant_assets
+    datatype: yesnoradio
+    help: Assets worth more than $10,000 individually or combined
+  - Are there significant debts?: financial_info.significant_debts
+    datatype: yesnoradio
+    help: Debts over $5,000 that should be divided
+show if: financial_claims_made
+---
+# Service Information Section
+question: |
+  How will you serve the respondent?
+subquestion: |
+  You must serve the respondent with a copy of your application and supporting documents.
+field: service_method
+choices:
+  - Personal service by process server: process_server
+  - Personal service by sheriff: sheriff
+  - Personal service by friend/relative over 18: personal_friend
+  - Registered mail (if address confirmed): registered_mail
+  - Service through respondent's lawyer: through_lawyer
+  - Alternative service (requires court order): alternative
+help: |
+  **Personal service** is preferred and most reliable. **Registered mail** can be used if the respondent's address is confirmed and they are likely to accept mail.
+---
+question: |
+  Service Details
+subquestion: |
+  Please provide additional details about service.
+fields:
+  - Expected service date: service_info.expected_date
+    datatype: date
+    default: ${ today() + datetime.timedelta(days=7) }
+  - Name of person who will serve: service_info.server_name
+    required: False
+    show if:
+      variable: service_method
+      is: personal_friend
+  - Relationship to you: service_info.server_relationship
+    required: False
+    show if:
+      variable: service_method
+      is: personal_friend
+  - Special instructions: service_info.special_instructions
+    datatype: area
+    required: False
+    rows: 3
+---
+# Review Section
+question: |
+  Review Your Information
+subquestion: |
+  Please review all the information you have entered. Make sure everything is accurate and complete.
+  
+  **Court Information:**
+  - Court Level: ${ court_info.level.title() }
+  - Location: ${ court_info.location }
+  - File Number: ${ court_info.file_number if defined('court_info.file_number') and court_info.file_number else 'New Application' }
+  
+  **Applicant:** ${ applicant.name.full() }
+  **Address:** ${ applicant.address.block() }
+  **Phone:** ${ applicant.phone_number }
+  **Email:** ${ applicant.email }
+  
+  **Respondent:** ${ respondent.name.full() }
+  **Address:** ${ respondent.address.block() }
+  
+  % if children_involved:
+  **Children:** ${ children.number_as_word().title() } child${ 'ren' if children.number() > 1 else '' }
+  % for child in children:
+  - ${ child.name.full() }, born ${ child.birthdate }
+  % endfor
+  % endif
+  
+  **Claims:**
+  % for claim in claims_selection:
+  - ${ claim.replace('_', ' ').title() }
+  % endfor
+  
+  **Service Method:** ${ service_method.replace('_', ' ').title() }
+field: review_information
+datatype: yesnoradio
+---
+question: |
+  Final Confirmation
+subquestion: |
+  **Important:** By proceeding, you confirm that:
+  
+  - All information provided is true and accurate
+  - You understand this starts a legal proceeding
+  - You will serve the respondent as required by law
+  - You may need to complete additional forms (Financial Statement, etc.)
+  - You should consider legal advice for complex matters
+  
+  **Next Steps:**
+  1. Your completed Form 8 will be generated
+  2. You must file it at the appropriate court with the filing fee
+  3. You must serve the respondent within the required time
+  4. The respondent has 30 days to file a response
+  
+  Are you ready to generate your Form 8?
+field: final_confirmation
+datatype: yesnoradio
+---
+# Code blocks for data processing
+code: |
+  provinces_list = [
+    'Alberta', 'British Columbia', 'Manitoba', 'New Brunswick',
+    'Newfoundland and Labrador', 'Northwest Territories', 'Nova Scotia',
+    'Nunavut', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan', 'Yukon'
+  ]
+---
+# Final form generation
+event: final_form_ready
+question: |
+  Your Form 8 is Ready
+subquestion: |
+  Congratulations! Your Ontario Family Law Form 8 - Application (General) has been completed.
+  
+  **What happens next:**
+  
+  1. **Download and print** your completed form
+  2. **File at court** with the appropriate filing fee
+  3. **Serve the respondent** within required timeframes
+  4. **Complete additional forms** if required (Financial Statement, etc.)
+  
+  **Filing Fees (as of 2024):**
+  - Superior Court: $632
+  - Ontario Court of Justice: $157
+  - Fee waiver may be available if you meet financial criteria
+  
+  **Important Reminders:**
+  - Keep copies of all documents for your records
+  - Serve the respondent within 6 months of filing
+  - The respondent has 30 days to file an Answer
+  - Consider getting legal advice for complex matters
+  
+  [Download Form 8](${ url_action('download_form8') })
+buttons:
+  - Start New Application: restart
+  - Exit: exit
+---
+# Error handling and validation functions
+code: |
+  def validate_ontario_postal_code(postal_code):
+    import re
+    clean_postal = postal_code.upper().replace(" ", "")
+    return re.match(r'^[A-Z]\d[A-Z]\d[A-Z]\d$', clean_postal) is not None
+---
+code: |
+  def format_phone_number(phone):
+    import re
+    digits = re.sub(r'[^\d]', '', phone)
+    if len(digits) == 10:
+      return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}"
+    return phone
+---
+# Additional helper functions
+code: |
+  def calculate_child_age(birthdate):
+    from datetime import date
+    today = date.today()
+    return today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
+---
+# Download action for the final form
+event: download_form8
+code: |
+  # This would generate and return the actual PDF form
+  # For now, this is a placeholder for the download functionality
+  response('Generated Form 8 would be downloaded here')
+---

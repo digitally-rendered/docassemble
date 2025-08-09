@@ -21,6 +21,8 @@ from docassemble_flask_user import current_user, login_required, roles_required,
 from sqlalchemy import and_, not_, select
 from flask import make_response, redirect, render_template, request, flash, current_app, url_for
 from markupsafe import Markup
+from docassemble.webapp.openapi_spec import spec, UserSchema, docs
+from flask_apispec import marshal_with, doc, use_kwargs
 
 HTTP_TO_HTTPS = daconfig.get('behind https load balancer', False)
 PAGINATION_LIMIT = daconfig.get('pagination limit', 100)
@@ -116,6 +118,25 @@ def user_list():
     response = make_response(render_template('users/userlist.html', version_warning=None, bodyclass='daadminbody', page_title=word('User List'), tab_title=word('User List'), users=users, prev_page=prev_page, next_page=next_page), 200)
     response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
     return response
+
+
+@app.route('/api/spec')
+def api_spec():
+    """Return the OpenAPI specification."""
+    return json.dumps(spec.to_dict())
+
+
+@app.route('/api/users', methods=['GET'])
+@login_required
+@roles_required(['admin', 'advocate'], permission='access_user_info')
+@doc(description='Get a list of users', tags=['users'])
+@marshal_with(UserSchema(many=True))
+def user_list_api():
+    """Get a list of users with role information"""
+    user_query = select(UserModel).options(db.joinedload(UserModel.roles)).where(and_(UserModel.nickname != 'cron', not_(UserModel.social_id.like('disabled$%')))).order_by(UserModel.id)
+    users = db.session.execute(user_query).unique().scalars().all()
+    schema = UserSchema(many=True)
+    return make_response(schema.dumps(users), 200)
 
 
 @app.route('/privilege/<int:privilege_id>/delete', methods=['GET'])
@@ -468,3 +489,11 @@ def user_add():
     response = make_response(render_template('users/add_user_page.html', version_warning=None, bodyclass='daadminbody', page_title=word('Add User'), tab_title=word('Add User'), form=add_form), 200)
     response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
     return response
+
+
+# Register API endpoints with Flask-APISpec for automatic documentation
+try:
+    if docs is not None:
+        docs.register(user_list_api)
+except (ImportError, NameError):
+    pass  # Flask-APISpec not available or not initialized

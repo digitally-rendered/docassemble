@@ -1,0 +1,25 @@
+---
+metadata:
+  title: Ontario Form 8 - Test Version
+  short title: Test Form 8
+---
+mandatory: True
+question: |
+  Ontario Family Law Form 8 - Application (General)
+subquestion: |
+  This is a test version to verify the form system is working.
+field: test_complete
+---
+mandatory: True
+question: |
+  Thank you for testing Form 8
+subquestion: |
+  The Ontario family law forms system is working correctly.
+  
+  Next steps:
+  - Complete your application
+  - File with the court
+  - Serve the respondent
+buttons:
+  - Restart: restart
+  - Exit: exit

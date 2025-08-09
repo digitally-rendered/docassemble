@@ -1,139 +1,128 @@
-FROM jhpyle/docassemble-os
-COPY . /tmp/docassemble/
+# Stage 1: Base image with system dependencies and configurations
+# Stage 1: Base image with system dependencies and configurations
+FROM jhpyle/docassemble-os AS base
+SHELL ["/bin/bash", "-c"]
+
 RUN DEBIAN_FRONTEND=noninteractive TERM=xterm LC_CTYPE=C.UTF-8 LANG=C.UTF-8 \
-bash -c \
-"apt-get -y update \
-&& ln -s /var/mail/mail /var/mail/root \
-&& cp /tmp/docassemble/docassemble_webapp/docassemble.wsgi /usr/share/docassemble/webapp/ \
-&& cp /tmp/docassemble/Docker/*.sh /usr/share/docassemble/webapp/ \
-&& cp /tmp/docassemble/Docker/VERSION /usr/share/docassemble/webapp/ \
-&& cp /tmp/docassemble/Docker/pip.conf /usr/share/docassemble/local3.12/ \
-&& cp /tmp/docassemble/Docker/config/* /usr/share/docassemble/config/ \
-&& cp /tmp/docassemble/Docker/cgi-bin/index.sh /usr/lib/cgi-bin/ \
-&& cp /tmp/docassemble/Docker/syslog-ng.conf /usr/share/docassemble/webapp/syslog-ng.conf \
-&& cp /tmp/docassemble/Docker/syslog-ng-docker.conf /usr/share/docassemble/webapp/syslog-ng-docker.conf \
-&& cp /tmp/docassemble/Docker/smart-multi-line.fsm /usr/share/syslog-ng/smart-multi-line.fsm \
-&& cp /tmp/docassemble/Docker/docassemble-syslog-ng.conf /usr/share/docassemble/webapp/docassemble-syslog-ng.conf \
-&& cp /tmp/docassemble/Docker/apache.logrotate /etc/logrotate.d/apache2 \
-&& cp /tmp/docassemble/Docker/nginx.logrotate /etc/logrotate.d/nginx \
-&& cp /tmp/docassemble/Docker/docassemble.logrotate /etc/logrotate.d/docassemble \
-&& cp /tmp/docassemble/Docker/cron/docassemble-cron-monthly.sh /etc/cron.monthly/docassemble \
-&& cp /tmp/docassemble/Docker/cron/docassemble-cron-weekly.sh /etc/cron.weekly/docassemble \
-&& cp /tmp/docassemble/Docker/cron/docassemble-cron-daily.sh /etc/cron.daily/docassemble \
-&& cp /tmp/docassemble/Docker/cron/docassemble-cron-hourly.sh /etc/cron.hourly/docassemble \
-&& cp /tmp/docassemble/Docker/cron/syslogng-cron-daily.sh /etc/cron.daily/logrotatepost \
-&& cp /tmp/docassemble/Docker/cron/donothing /usr/share/docassemble/cron/donothing \
-&& cp /tmp/docassemble/Docker/docassemble.conf /etc/apache2/conf-available/ \
-&& cp /tmp/docassemble/Docker/docassemble-behindlb.conf /etc/apache2/conf-available/ \
-&& cp /tmp/docassemble/Docker/docassemble-supervisor.conf /etc/supervisor/conf.d/docassemble.conf \
-&& cp /tmp/docassemble/Docker/ssl/* /usr/share/docassemble/certs/ \
-&& cp -r /tmp/docassemble/Docker/ssl /usr/share/docassemble/config/defaultcerts \
-&& chmod og-rwx /usr/share/docassemble/certs/* \
-&& chmod og-rwx /usr/share/docassemble/config/defaultcerts/* \
-&& cp /tmp/docassemble/Docker/rabbitmq.config /etc/rabbitmq/ \
-&& cp /tmp/docassemble/Docker/config/exim4-router /etc/exim4/conf.d/router/101_docassemble \
-&& cp /tmp/docassemble/Docker/config/exim4-filter /etc/exim4/docassemble-filter \
-&& cp /tmp/docassemble/Docker/config/exim4-main /etc/exim4/conf.d/main/01_docassemble \
-&& cp /tmp/docassemble/Docker/config/exim4-acl /etc/exim4/conf.d/acl/29_docassemble \
-&& cp /tmp/docassemble/Docker/config/exim4-update /etc/exim4/update-exim4.conf.conf \
-&& cp /tmp/docassemble/Docker/config/nascent.conf /usr/share/docassemble/config/nascent.conf \
-&& cp /tmp/docassemble/Docker/nascent.html /var/www/nascent/index.html \
-&& cp /tmp/docassemble/Docker/daunoconv /usr/bin/daunoconv \
-&& chmod ogu+rx /usr/bin/daunoconv \
-&& update-exim4.conf \
-&& chown -R www-data:www-data \
-   /usr/share/docassemble/log \
-   /usr/share/docassemble/files \
-&& chmod ogu+r /usr/share/docassemble/config/config.yml.dist \
-&& chmod 755 /etc/ssl/docassemble \
-&& cd /tmp \
-&& echo \"en_US.UTF-8 UTF-8\" >> /etc/locale.gen \
-&& locale-gen \
-&& update-locale \
-&& /usr/bin/pip3 install --break-system-packages unoconv \
-&& cp /usr/local/bin/unoconv /usr/bin/unoconv \
-&& python3 -m venv --copies /usr/share/docassemble/local3.12 \
-&& source /usr/share/docassemble/local3.12/bin/activate \
-&& pip install --upgrade pip==25.1.1 \
-&& pip install --upgrade wheel==0.45.1 \
-&& pip install --upgrade mod_wsgi==5.0.2 \
-&& pip install --upgrade \
-   acme==3.1.0 \
-   certbot==3.1.0 \
-   certbot-apache==3.1.0 \
-   certbot-nginx==3.1.0 \
-   certifi==2025.1.31 \
-   cffi==1.17.1 \
-   charset-normalizer==3.4.1 \
-   click==8.1.8 \
-   ConfigArgParse==1.7 \
-   configobj==5.0.9 \
-   cryptography==43.0.3 \
-   distro==1.9.0 \
-   idna==3.10 \
-   joblib==1.4.2 \
-   josepy==1.15.0 \
-   nltk==3.9.1 \
-   parsedatetime==2.6 \
-   pycparser==2.22 \
-   pyOpenSSL==24.2.1 \
-   pyparsing==3.2.3 \
-   pyRFC3339==2.0.1 \
-   python-augeas==1.1.0 \
-   pytz==2025.2 \
-   regex==2024.11.6 \
-   requests==2.32.3 \
-   six==1.17.0 \
-   tqdm==4.67.1 \
-   typing_extensions==4.13.1 \
-   urllib3==2.3.0 \
-&& pip install \
-   /tmp/docassemble/docassemble_base \
-   /tmp/docassemble/docassemble_demo \
-   /tmp/docassemble/docassemble_webapp \
-&& mv /etc/crontab /usr/share/docassemble/cron/crontab \
-&& ln -s /usr/share/docassemble/cron/crontab /etc/crontab \
-&& mv /etc/cron.daily/apache2 /usr/share/docassemble/cron/apache2 \
-&& ln -s /usr/share/docassemble/cron/apache2 /etc/cron.daily/apache2 \
-&& mv /etc/cron.daily/exim4-base /usr/share/docassemble/cron/exim4-base \
-&& ln -s /usr/share/docassemble/cron/exim4-base /etc/cron.daily/exim4-base \
-&& mv /etc/syslog-ng/syslog-ng.conf /usr/share/docassemble/syslogng/syslog-ng.conf \
-&& ln -s /usr/share/docassemble/syslogng/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf \
-&& { if [[ '$(dpkg --print-architecture)' == 'amd64' ]]; then cp /usr/share/docassemble/local3.12/lib/python3.12/site-packages/mod_wsgi/server/mod_wsgi-py312.cpython-312-x86_64-linux-gnu.so /usr/lib/apache2/modules/mod_wsgi.so-3.12; else cp /usr/share/docassemble/local3.12/lib/python3.12/site-packages/mod_wsgi/server/mod_wsgi-py312.cpython-312-aarch64-linux-gnu.so /usr/lib/apache2/modules/mod_wsgi.so-3.12; fi; } \
-&& rm -f /usr/lib/apache2/modules/mod_wsgi.so \
-&& ln -s /usr/lib/apache2/modules/mod_wsgi.so-3.12 /usr/lib/apache2/modules/mod_wsgi.so \
-&& rm -f /etc/cron.daily/apt-compat \
-&& sed -i -e 's/^\(daemonize\s*\)yes\s*$/\1no/g' -e 's/^bind 127.0.0.1/bind 0.0.0.0/g' /etc/redis/redis.conf \
-&& sed -i -e 's/#APACHE_ULIMIT_MAX_FILES/APACHE_ULIMIT_MAX_FILES/' -e 's/ulimit -n 65536/ulimit -n 8192/' /etc/apache2/envvars \
-&& sed -i '/session    required     pam_loginuid.so/c\#session    required   pam_loginuid.so' /etc/pam.d/cron \
-&& LANG=en_US.UTF-8 \
-&& { a2dismod ssl \
-; a2enmod rewrite \
-; a2enmod xsendfile \
-; a2enmod proxy \
-; a2enmod proxy_http \
-; a2enmod proxy_wstunnel \
-; a2enmod headers \
-; a2enconf docassemble \
-; echo 'export TERM=xterm' >> /etc/bash.bashrc; }"
+    bash -c \
+    "apt-get -y update && ln -s /var/mail/mail /var/mail/root"
+
+# Copy configuration files and scripts that don't change often
+COPY Docker/ /tmp/Docker/
+RUN chmod +x /tmp/Docker/wait-for-postgres.sh
+RUN DEBIAN_FRONTEND=noninteractive TERM=xterm LC_CTYPE=C.UTF-8 LANG=C.UTF-8 \
+    bash -c \
+    "cp /tmp/Docker/*.sh /usr/share/docassemble/webapp/ && \
+    cp /tmp/Docker/VERSION /usr/share/docassemble/webapp/ && \
+    cp /tmp/Docker/pip.conf /usr/share/docassemble/local3.12/ && \
+    cp /tmp/Docker/config/* /usr/share/docassemble/config/ && \
+    cp /tmp/Docker/cgi-bin/index.sh /usr/lib/cgi-bin/ && \
+    cp /tmp/Docker/syslog-ng.conf /usr/share/docassemble/webapp/syslog-ng.conf && \
+    cp /tmp/Docker/syslog-ng-docker.conf /usr/share/docassemble/webapp/syslog-ng-docker.conf && \
+    cp /tmp/Docker/smart-multi-line.fsm /usr/share/syslog-ng/smart-multi-line.fsm && \
+    cp /tmp/Docker/docassemble-syslog-ng.conf /usr/share/docassemble/webapp/docassemble-syslog-ng.conf && \
+    cp /tmp/Docker/apache.logrotate /etc/logrotate.d/apache2 && \
+    cp /tmp/Docker/nginx.logrotate /etc/logrotate.d/nginx && \
+    cp /tmp/Docker/docassemble.logrotate /etc/logrotate.d/docassemble && \
+    cp /tmp/Docker/cron/docassemble-cron-monthly.sh /etc/cron.monthly/docassemble && \
+    cp /tmp/Docker/cron/docassemble-cron-weekly.sh /etc/cron.weekly/docassemble && \
+    cp /tmp/Docker/cron/docassemble-cron-daily.sh /etc/cron.daily/docassemble && \
+    cp /tmp/Docker/cron/docassemble-cron-hourly.sh /etc/cron.hourly/docassemble && \
+    cp /tmp/Docker/cron/syslogng-cron-daily.sh /etc/cron.daily/logrotatepost && \
+    cp /tmp/Docker/cron/donothing /usr/share/docassemble/cron/donothing && \
+    cp /tmp/Docker/docassemble.conf /etc/apache2/conf-available/ && \
+    cp /tmp/Docker/docassemble-behindlb.conf /etc/apache2/conf-available/ && \
+    cp /tmp/Docker/docassemble-supervisor.conf /etc/supervisor/conf.d/docassemble.conf && \
+    cp /tmp/Docker/ssl/* /usr/share/docassemble/certs/ && \
+    cp -r /tmp/Docker/ssl /usr/share/docassemble/config/defaultcerts && \
+    chmod og-rwx /usr/share/docassemble/certs/* && \
+    chmod og-rwx /usr/share/docassemble/config/defaultcerts/* && \
+    cp /tmp/Docker/rabbitmq.config /etc/rabbitmq/ && \
+    cp /tmp/Docker/config/exim4-router /etc/exim4/conf.d/router/101_docassemble && \
+    cp /tmp/Docker/config/exim4-filter /etc/exim4/docassemble-filter && \
+    cp /tmp/Docker/config/exim4-main /etc/exim4/conf.d/main/01_docassemble && \
+    cp /tmp/Docker/config/exim4-acl /etc/exim4/conf.d/acl/29_docassemble && \
+    cp /tmp/Docker/config/exim4-update /etc/exim4/update-exim4.conf.conf && \
+    cp /tmp/Docker/config/nascent.conf /usr/share/docassemble/config/nascent.conf && \
+    cp /tmp/Docker/daunoconv /usr/bin/daunoconv && \
+    chmod ogu+rx /usr/bin/daunoconv && \
+    update-exim4.conf && \
+    chmod 755 /etc/ssl/docassemble && \
+    echo \"en_US.UTF-8 UTF-8\" >> /etc/locale.gen && \
+    locale-gen && \
+    update-locale && \
+    rm -rf /tmp/Docker"
+
+# Stage 2: Builder for Python dependencies
+FROM base AS builder
+
+WORKDIR /tmp/src
+
+# Create Python virtual environment
+RUN python3 -m venv --copies /usr/share/docassemble/local3.12 && \
+    source /usr/share/docassemble/local3.12/bin/activate && \
+    pip install --upgrade pip==25.1.1 wheel==0.45.1 mod_wsgi==5.0.2 && \
+    pip install --break-system-packages unoconv && \
+    cp /usr/share/docassemble/local3.12/bin/unoconv /usr/bin/unoconv
+
+# Install third-party Python packages
+COPY Docker/requirements.txt /tmp/src/requirements.txt
+RUN source /usr/share/docassemble/local3.12/bin/activate && \
+    pip install -r /tmp/src/requirements.txt
+
+# Install docassemble packages
+COPY docassemble_base/ /tmp/src/docassemble_base/
+COPY docassemble_demo/ /tmp/src/docassemble_demo/
+COPY docassemble_webapp/ /tmp/src/docassemble_webapp/
+RUN source /usr/share/docassemble/local3.12/bin/activate && \
+    pip install ./docassemble_base && \
+    pip install ./docassemble_demo && \
+    pip install ./docassemble_webapp
+
+# Stage 3: Run tests
+FROM builder AS test
+
+WORKDIR /tmp/src
+COPY tests/ /tmp/src/tests/
+
+ENV SUPERVISORLOGLEVEL=info
+ENV DASUPERVISORUSERNAME=user
+ENV DASUPERVISORPASSWORD=password
+
+RUN useradd -m -s /bin/bash testuser && chown -R testuser:testuser /tmp/src && chown -R testuser:testuser /usr/share/docassemble
+USER testuser
+
+RUN /usr/bin/supervisord -c /etc/supervisor/conf.d/docassemble.conf && \
+    /tmp/Docker/wait-for-postgres.sh localhost bash -c "source /usr/share/docassemble/local3.12/bin/activate && python3 -m unittest discover tests" && \
+    supervisorctl -c /etc/supervisor/conf.d/docassemble.conf shutdown
+
+# Stage 4: Final image
+FROM base AS final
+
+# Copy Python environment from builder stage
+COPY --from=builder /usr/share/docassemble/local3.12 /usr/share/docassemble/local3.12
+
+# Copy application code
+COPY . /usr/share/docassemble/webapp/
+WORKDIR /usr/share/docassemble/webapp/
+
+# Final setup
+RUN chown -R www-data:www-data /usr/share/docassemble && \
+    # Perform other final setup steps from the original Dockerfile
+    sed -i -e 's/^\(daemonize\s*\)yes\s*$/\1no/g' -e 's/^bind 127.0.0.1/bind 0.0.0.0/g' /etc/redis/redis.conf && \
+    sed -i -e 's/#APACHE_ULIMIT_MAX_FILES/APACHE_ULIMIT_MAX_FILES/' -e 's/ulimit -n 65536/ulimit -n 8192/' /etc/apache2/envvars && \
+    sed -i '/session    required     pam_loginuid.so/c\#session    required   pam_loginuid.so' /etc/pam.d/cron && \
+    LANG=en_US.UTF-8 && \
+    a2dismod ssl && a2enmod rewrite && a2enmod xsendfile && a2enmod proxy && a2enmod proxy_http && a2enmod proxy_wstunnel && a2enmod headers && a2enconf docassemble && \
+    echo 'export TERM=xterm' >> /etc/bash.bashrc
 
 USER www-data
-RUN bash -c \
-"source /usr/share/docassemble/local3.12/bin/activate \
-&& python /tmp/docassemble/Docker/nltkdownload.py \
-&& cd /var/www/nltk_data/corpora \
-&& unzip -o wordnet.zip \
-&& unzip -o omw-1.4.zip \
-&& cd /tmp \
-&& mkdir -p /tmp/conv \
-&& pandoc --pdf-engine=lualatex -M latextmpdir=./conv -M pdfa=false /usr/share/docassemble/local3.12/lib/python3.12/site-packages/docassemble/base/data/templates/Legal-Template.yml --template=/usr/share/docassemble/local3.12/lib/python3.12/site-packages/docassemble/base/data/templates/Legal-Template.tex --from=markdown+raw_tex-latex_macros -s -o /tmp/temp.pdf /usr/share/docassemble/local3.12/lib/python3.12/site-packages/docassemble/base/data/templates/hello.md \
-&& rm /tmp/temp.pdf \
-&& pandoc --pdf-engine=lualatex -M latextmpdir=./conv -M pdfa=false --template=/usr/share/docassemble/local3.12/lib/python3.12/site-packages/docassemble/base/data/templates/Legal-Template.rtf -s -o /tmp/temp.rtf /usr/share/docassemble/local3.12/lib/python3.12/site-packages/docassemble/base/data/templates/hello.md \
-&& rm /tmp/temp.rtf"
+RUN source /usr/share/docassemble/local3.12/bin/activate && \
+    python /usr/share/docassemble/webapp/Docker/nltkdownload.py && \
+    # Other USER www-data commands
+    cd /var/www/nltk_data/corpora && unzip -o wordnet.zip && unzip -o omw-1.4.zip
 
 USER root
-RUN rm -rf /tmp/docassemble
-
 EXPOSE 80 443 9001 514 25 465 8080 8081 8082 5432 6379 4369 5671 5672 25672
 ENV \
 CONTAINERROLE="all" \

@@ -1,0 +1,172 @@
+# Default values for docassemble
+replicaCount: 1
+
+image:
+  repository: docassemble
+  pullPolicy: Never
+  # Using local image built from this repository
+  # repository: docassemble/docassemble (original remote image)
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+# Database Configuration (Supabase)
+database:
+  # External PostgreSQL (Supabase) - Using Session Pooler for IPv4
+  external: true
+  host: "db.ceiplvxfrxlopndgviyc.supabase.co"
+  port: 5432  # Direct PostgreSQL connection
+  name: "postgres"
+  user: "postgres"
+  password: "fU0DEkf11dAyraeO"
+  sslMode: "require"
+  tablePrefix: ""
+
+# Redis Configuration
+redis:
+  # Use external Redis or deploy internal
+  external: false
+  # If external: true, set these:
+  # host: "your-redis-host"
+  # port: 6379
+  # password: ""
+  
+  # Internal Redis configuration
+  internal:
+    enabled: true
+    image: "redis:7-alpine"
+    persistence:
+      enabled: true
+      size: 1Gi
+
+# Docassemble Configuration
+docassemble:
+  # Basic settings
+  debug: true
+  enablePlayground: true
+  allowLogViewing: true
+  allowDemo: true
+  
+  # URL and SSL settings
+  hostname: "docassemble.local"
+  useHttps: false
+  useLetsEncrypt: false
+  behindHttpsLoadBalancer: false
+  
+  # Storage settings (S3 optional)
+  storage:
+    s3:
+      enabled: false
+      accessKey: ""
+      secretKey: ""
+      bucket: ""
+      region: ""
+  
+  # Email settings
+  mail:
+    server: "localhost"
+    defaultSender: '"Administrator" <no-reply@example.com>'
+  
+  # Admin settings
+  admin:
+    email: "admin@admin.com"
+    password: "password"  # Change this!
+  
+  # Supervisor settings
+  supervisor:
+    username: "admin"
+    password: "password"  # Change this!
+
+# Service Account
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+  name: ""
+
+# Pod annotations and labels
+podAnnotations: {}
+podLabels: {}
+
+# Service configuration
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+# Ingress configuration
+ingress:
+  enabled: true
+  className: ""
+  annotations:
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: docassemble.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+  #  - secretName: docassemble-tls
+  #    hosts:
+  #      - docassemble.local
+
+# Resource configuration
+resources:
+  limits:
+    cpu: 1000m
+    memory: 2Gi
+  requests:
+    cpu: 500m
+    memory: 1Gi
+
+# Health checks - Disabled for initial setup/development
+livenessProbe: {}
+readinessProbe: {}
+
+# Auto-scaling
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+# Node selection
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+# Persistence for docassemble data
+persistence:
+  enabled: true
+  storageClass: ""
+  accessMode: ReadWriteOnce
+  size: 5Gi
+
+# Security context
+securityContext:
+  runAsNonRoot: false
+  runAsUser: 0
+
+podSecurityContext: {}
+
+# Additional volumes and volume mounts
+volumes: 
+  - name: webapp-source
+    hostPath:
+      path: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp
+      type: Directory
+  - name: webapp-cache
+    hostPath:
+      path: /Users/draw/development/docassemble/webapp-cache
+      type: DirectoryOrCreate
+volumeMounts:
+  - name: webapp-source
+    mountPath: /usr/share/docassemble/local3.12/lib/python3.12/site-packages/docassemble/webapp
+    readOnly: false
+  - name: webapp-cache
+    mountPath: /usr/share/docassemble/local3.12/lib/python3.12/site-packages/docassemble/webapp/__pycache__
+    readOnly: false
