@@ -1,0 +1,1408 @@
+---
+# Ontario Family Law Form 13.1 - Financial Statement (Simple)
+# For income under $150,000 and straightforward financial situations
+# Ontario Court Form 13.1 under the Family Law Rules
+# Version: 1.0.0
+# Last Updated: 2025-08-09
+
+include:
+  - ontario-family-law-common.yml
+
+metadata:
+  title: Form 13.1 - Financial Statement (Simple)
+  short title: Form 13.1 Financial Statement
+  description: |
+    Simplified financial disclosure form for Ontario Family Court matters
+    involving annual income under $150,000 and straightforward financial
+    situations without complex business interests or investments.
+  version: "1.0.0"
+  authors:
+    - name: Ontario Family Law Forms Development Team
+  tags:
+    - ontario
+    - family-law
+    - form-13-1
+    - financial-statement
+    - simple-finances
+    - child-support
+    - spousal-support
+
+---
+# MODULES AND IMPORTS
+modules:
+  - re
+  - datetime
+  - decimal
+  - calendar
+  - .child_support_calculator
+  - .simple_financial_calculators
+
+---
+# OBJECTS AND VARIABLES
+
+objects:
+  - form131_applicant: Individual
+  - form131_respondent: Individual
+  - form131_children: DAList.using(object_type=Individual)
+  - form131_income: DAObject
+  - form131_expenses: DAObject
+  - form131_assets: DAObject
+  - form131_debts: DAObject
+
+---
+# INITIALIZATION AND ROUTING
+
+mandatory: True
+code: |
+  # Privacy and legal notices
+  understand_simple_financial_privacy
+  understand_simple_legal_requirements
+  
+  # Determine if Form 13.1 is appropriate
+  if not form131_eligibility_check:
+    if suggest_form_13:
+      redirect_to_form_13
+    else:
+      ineligible_for_simple_statement
+  
+  # Collect party information
+  form131_applicant_info
+  form131_respondent_info
+  form131_children_info
+  
+  # Collect simplified financial information
+  form131_income_collection
+  form131_expense_collection
+  form131_asset_collection
+  form131_debt_collection
+  
+  # Calculate totals
+  form131_calculate_totals
+  form131_calculate_child_support
+  
+  # Review and validation
+  form131_review_screen
+  form131_final_validation
+  
+  # Generate documents
+  form131_generate_documents
+  form131_completion
+
+---
+# ELIGIBILITY AND ROUTING
+
+question: |
+  Form 13.1 Eligibility Check
+subquestion: |
+  **Form 13.1 (Simple Financial Statement)** is appropriate for cases with:
+  
+  ✓ Annual income under $150,000  
+  ✓ Primarily employment income  
+  ✓ Basic assets (home, car, savings accounts)  
+  ✓ No business ownership  
+  ✓ No complex investments  
+  ✓ Straightforward financial situation  
+  
+  **Form 13 (Complex)** is required for:
+  
+  ⚠ Annual income over $150,000  
+  ⚠ Business or professional practice ownership  
+  ⚠ Complex investment portfolios  
+  ⚠ Multiple properties  
+  ⚠ Trust or estate interests  
+  
+  **Please confirm your financial situation:**
+fields:
+  - What is your estimated annual gross income?: applicant_annual_income_estimate
+    datatype: currency
+    help: |
+      Include all sources before taxes and deductions
+  - Do you own or have interest in any business?: has_any_business
+    datatype: yesnoradio
+  - Do you have investments beyond basic savings accounts?: has_complex_investments_simple
+    datatype: yesnoradio
+    help: |
+      This includes stocks, bonds, mutual funds, or investment properties
+  - Do you own more than one property?: has_multiple_properties_simple
+    datatype: yesnoradio
+  - Do you receive income from trusts or estates?: has_trust_estate_income
+    datatype: yesnoradio
+
+---
+code: |
+  form131_eligibility_check = (
+    applicant_annual_income_estimate < 150000 and
+    not has_any_business and
+    not has_complex_investments_simple and
+    not has_multiple_properties_simple and
+    not has_trust_estate_income
+  )
+
+---
+code: |
+  suggest_form_13 = (
+    applicant_annual_income_estimate >= 150000 or
+    has_any_business or
+    has_complex_investments_simple or
+    has_multiple_properties_simple or
+    has_trust_estate_income
+  )
+
+---
+event: redirect_to_form_13
+question: |
+  Form 13 (Complex) is Required
+subquestion: |
+  Based on your responses, **Form 13 (Complex Financial Statement)** is required for your situation.
+  
+  Form 13 is required when you have:
+  % if applicant_annual_income_estimate >= 150000:
+  - Annual income of $150,000 or more
+  % endif
+  % if has_any_business:
+  - Business or professional practice interests
+  % endif  
+  % if has_complex_investments_simple:
+  - Complex investment holdings
+  % endif
+  % if has_multiple_properties_simple:
+  - Multiple property ownership
+  % endif
+  % if has_trust_estate_income:
+  - Trust or estate income/interests
+  % endif
+  
+  Form 13 provides the detailed disclosure required for complex financial situations.
+  
+  **Would you like to proceed with Form 13 instead?**
+buttons:
+  - Continue with Form 13: redirect
+    url: |
+      ${ url_of('ontario-family-law/form-13-financial-statement.yml') }
+  - Continue with Form 13.1 anyway: continue
+    color: secondary
+    help: |
+      Only select this if you believe your situation is actually simple
+  - Get Professional Advice: exit
+    help: |
+      Consult with a lawyer about which form is appropriate
+
+---
+event: ineligible_for_simple_statement
+question: |
+  Unable to Determine Appropriate Form
+subquestion: |
+  We need more information to determine the correct financial statement form.
+  
+  Please consult with a lawyer or paralegal to determine:
+  - Whether a financial statement is required
+  - Which form (13 or 13.1) is appropriate
+  - What supporting documentation is needed
+  
+  **Legal Resources:**
+  - Law Society of Ontario Referral Service: 1-855-947-5787
+  - Legal Aid Ontario: 1-800-668-8258
+  - Pro Bono Ontario: 1-855-255-7256
+
+---
+# PRIVACY AND LEGAL NOTICES
+
+question: |
+  Privacy Protection - Simple Financial Statement
+subquestion: |
+  ${ privacy_disclaimer }
+  
+  **Privacy Notice for Form 13.1:**
+  
+  Even though this is a "simple" financial statement, it still contains sensitive personal and financial information that is protected by:
+  
+  - Court confidentiality rules
+  - Privacy legislation (federal and Ontario)
+  - Family Law Rules regarding disclosure
+  
+  **Your Information Will Be:**
+  - Stored securely with encryption
+  - Only accessible to court staff and parties to the case
+  - Subject to court orders regarding confidentiality
+  - Protected from unauthorized disclosure
+  
+  **Information Sharing:**
+  This statement will be shared with:
+  - The court
+  - Other parties in your case (spouse, their lawyer)
+  - Court-appointed experts if ordered
+  - Support enforcement agencies if applicable
+  
+  **Your Rights:**
+  - You can request sealing orders for sensitive information
+  - You can object to unnecessary disclosure
+  - You have the right to correct errors
+field: understand_simple_financial_privacy
+datatype: checkboxes
+choices:
+  - I understand how my financial information will be used and protected: privacy_simple_understood
+  - I understand this information will be shared with other parties in the case: sharing_simple_understood
+  - I understand the importance of providing accurate information: accuracy_simple_understood
+validation code: |
+  if not all([privacy_simple_understood, sharing_simple_understood, accuracy_simple_understood]):
+    validation_error("You must acknowledge all privacy requirements to proceed.")
+
+---
+question: |
+  Legal Requirements - Form 13.1
+subquestion: |
+  ${ legal_disclaimer }
+  
+  **Legal Requirements for Form 13.1:**
+  
+  **1. Accuracy and Completeness**
+  - All information must be accurate and complete
+  - You are signing this document under oath
+  - False statements can result in perjury charges
+  - Missing information can affect your case outcome
+  
+  **2. Required Supporting Documents**
+  - Most recent Notice of Assessment from CRA
+  - Most recent pay stub or employment letter
+  - Recent bank statements
+  - Proof of other income sources
+  - Documents showing expenses (rent receipts, etc.)
+  
+  **3. Income Under $150,000**
+  - Form 13.1 is only for income under $150,000
+  - If your income is higher, you must use Form 13
+  - Include ALL sources of income
+  
+  **4. Updates Required**
+  - You must update your financial statement if significant changes occur
+  - Court may order updated statements
+  - Changes affecting child support must be reported
+  
+  **5. Professional Help Available**
+  - You can get help completing this form
+  - Duty counsel available at most family courts
+  - Legal Aid may be available based on income
+field: understand_simple_legal_requirements
+datatype: checkboxes
+choices:
+  - I understand the accuracy and completeness requirements: accuracy_simple_required
+  - I understand the documentation requirements: documentation_simple_required
+  - I confirm my income is under $150,000 annually: income_threshold_confirmed
+  - I understand the penalties for false information: penalties_simple_understood
+  - I understand I may need to update this statement: updates_simple_understood
+validation code: |
+  required_acknowledgments = [accuracy_simple_required, documentation_simple_required, income_threshold_confirmed, penalties_simple_understood, updates_simple_understood]
+  if not all(required_acknowledgments):
+    validation_error("You must acknowledge all legal requirements to proceed.")
+
+---
+# PARTY INFORMATION
+
+question: |
+  Your Information (Applicant)
+subquestion: |
+  Please provide your personal information.
+fields:
+  - First Name: form131_applicant.name.first
+  - Last Name: form131_applicant.name.last
+  - Date of Birth: form131_applicant.birthdate
+    datatype: date
+    validate: |
+      lambda x: validate_legal_date(x, 'birth_date')['valid']
+  - Social Insurance Number: form131_applicant.sin
+    help: |
+      Required for court identification and child support calculations
+    validate: |
+      lambda x: validate_sin_number(x, 'court_filing')['valid']
+  - Occupation/Job Title: form131_applicant.occupation
+  - Employer Name: form131_applicant.employer
+    required: False
+    help: |
+      Leave blank if self-employed or unemployed
+  - Work Phone: form131_applicant.phone_work
+    required: False
+validation code: |
+  date_validation = validate_legal_date(form131_applicant.birthdate, 'birth_date')
+  if not date_validation['valid']:
+    validation_error(date_validation['message'])
+  
+  sin_validation = validate_sin_number(form131_applicant.sin, 'court_filing')
+  if not sin_validation['valid']:
+    validation_error(sin_validation['message'])
+  form131_applicant.sin_masked = sin_validation['masked']
+  
+  if form131_applicant.phone_work:
+    phone_validation = format_canadian_phone(form131_applicant.phone_work)
+    if not phone_validation['valid']:
+      validation_error(phone_validation['message'])
+    form131_applicant.phone_work = phone_validation['formatted']
+---
+code: |
+  form131_applicant_info = True
+
+---
+question: |
+  Other Party Information (Respondent)
+subquestion: |
+  Please provide information about the other party (respondent).
+fields:
+  - First Name: form131_respondent.name.first
+  - Last Name: form131_respondent.name.last
+  - Date of Birth: form131_respondent.birthdate
+    datatype: date
+    required: False
+    help: |
+      If known
+  - Occupation: form131_respondent.occupation
+    required: False
+    help: |
+      If known
+  - Employer: form131_respondent.employer
+    required: False
+    help: |
+      If known
+---
+code: |
+  form131_respondent_info = True
+
+---
+question: |
+  Children of the Relationship
+subquestion: |
+  ${ privacy_disclaimer }
+  
+  Please provide information about each child involved in this case.
+  
+  **For privacy protection, you may use initials instead of full names.**
+list collect: True
+fields:
+  - Child's first name: form131_children[i].name.first
+    help: |
+      You may use first initial only (e.g., "J.")
+  - Child's last name: form131_children[i].name.last
+    help: |
+      You may use initial only (e.g., "S.")
+  - Date of birth: form131_children[i].birthdate
+    datatype: date
+    validate: |
+      lambda x: validate_legal_date(x, 'birth_date')['valid']
+  - Child lives primarily with: form131_children[i].primary_residence
+    choices:
+      - Me (applicant)
+      - Other parent (respondent)  
+      - Both parents equally (50/50)
+      - Other person (specify below)
+  - If other person, who?: form131_children[i].lives_with_other
+    show if:
+      variable: form131_children[i].primary_residence
+      is: "Other person (specify below)"
+  - Does this child have special needs?: form131_children[i].has_special_needs
+    datatype: yesnoradio
+  - Special needs details: form131_children[i].special_needs_description
+    datatype: area
+    show if: form131_children[i].has_special_needs
+    required: False
+    help: |
+      Describe any special needs, medical conditions, or other circumstances
+validation code: |
+  date_validation = validate_legal_date(form131_children[i].birthdate, 'birth_date')
+  if not date_validation['valid']:
+    validation_error(date_validation['message'])
+  
+  # Calculate age
+  age_calc = calculate_age(form131_children[i].birthdate)
+  form131_children[i].age = age_calc['years']
+  form131_children[i].age_string = age_calc['age_string']
+  
+  # Validate child is eligible (under 18 or special needs)
+  if form131_children[i].age >= 18 and not form131_children[i].has_special_needs:
+    validation_error(f"Child {form131_children[i].name.first} is {form131_children[i].age} years old. Children 18 and over are generally not eligible for support unless they have special needs or are still in school.")
+
+---
+code: |
+  form131_children_info = True
+
+---
+# INCOME INFORMATION (SIMPLIFIED)
+
+question: |
+  Your Income Information
+subquestion: |
+  **Current Year Income (Gross Amounts)**
+  
+  Please provide your gross (before tax) income from all sources. If you're not sure of exact amounts, provide your best estimate.
+  
+  **Employment Income:**
+fields:
+  - Primary job - employer: form131_income.primary_employer
+    required: False
+  - Primary job - annual income: form131_income.primary_job_income
+    datatype: currency
+    required: False
+    help: |
+      Gross annual income from your main job
+  - Second job - employer: form131_income.secondary_employer
+    required: False
+  - Second job - annual income: form131_income.secondary_job_income
+    datatype: currency
+    required: False
+  - Overtime pay (annual): form131_income.overtime_income
+    datatype: currency
+    required: False
+  - Commission/bonus (annual): form131_income.commission_bonus
+    datatype: currency
+    required: False
+  - Tips and gratuities (annual): form131_income.tips_income
+    datatype: currency
+    required: False
+
+---
+question: |
+  Other Income Sources
+subquestion: |
+  **Other Sources of Income**
+  
+  Include all other sources of income, even if small amounts.
+fields:
+  - Self-employment income (annual net): form131_income.self_employment
+    datatype: currency
+    required: False
+    help: |
+      Net income after business expenses
+  - Rental income (annual net): form131_income.rental_income
+    datatype: currency
+    required: False
+    help: |
+      Rental income minus expenses
+  - Investment income (interest, dividends): form131_income.investment_income
+    datatype: currency
+    required: False
+  - Pension income: form131_income.pension_income
+    datatype: currency
+    required: False
+  - Employment Insurance (EI): form131_income.ei_income
+    datatype: currency
+    required: False
+  - Social assistance/welfare: form131_income.social_assistance
+    datatype: currency
+    required: False
+  - Disability benefits: form131_income.disability_income
+    datatype: currency
+    required: False
+  - Workers' compensation: form131_income.workers_comp
+    datatype: currency
+    required: False
+  - Child support you receive: form131_income.child_support_received
+    datatype: currency
+    required: False
+  - Spousal support you receive: form131_income.spousal_support_received
+    datatype: currency
+    required: False
+  - Any other income: form131_income.other_income
+    datatype: currency
+    required: False
+  - Describe other income: form131_income.other_income_description
+    show if: form131_income.other_income
+    required: False
+
+---
+question: |
+  Last Year's Income (Tax Return)
+subquestion: |
+  **Previous Tax Year Information**
+  
+  Please provide information from your most recently filed tax return.
+fields:
+  - Tax year: form131_income.tax_year
+    datatype: integer
+    default: ${ datetime.date.today().year - 1 }
+  - Line 15000 - Total income: form131_income.line_15000_total
+    datatype: currency
+    help: |
+      From line 15000 of your tax return
+  - Line 23600 - Net income: form131_income.line_23600_net
+    datatype: currency
+    help: |
+      From line 23600 of your tax return
+  - Have you filed your most recent tax return?: form131_income.recent_tax_filed
+    datatype: yesnoradio
+  - If not filed, why not?: form131_income.tax_not_filed_reason
+    show if:
+      variable: form131_income.recent_tax_filed
+      is: False
+    choices:
+      - Still gathering documents
+      - Extension granted by CRA
+      - Can't afford to have it prepared
+      - Other reason
+  - Other reason for not filing: form131_income.tax_not_filed_other
+    show if:
+      variable: form131_income.tax_not_filed_reason
+      is: "Other reason"
+
+---
+code: |
+  # Calculate total income
+  income_sources = [
+    'primary_job_income', 'secondary_job_income', 'overtime_income', 'commission_bonus', 
+    'tips_income', 'self_employment', 'rental_income', 'investment_income',
+    'pension_income', 'ei_income', 'social_assistance', 'disability_income',
+    'workers_comp', 'child_support_received', 'spousal_support_received', 'other_income'
+  ]
+  
+  form131_income.total_annual = sum(
+    getattr(form131_income, source, 0) or 0 for source in income_sources
+  )
+  
+  form131_income.total_monthly = form131_income.total_annual / 12 if form131_income.total_annual else 0
+  
+  # Validate income is under $150,000 threshold
+  if form131_income.total_annual >= 150000:
+    income_over_threshold = True
+  else:
+    income_over_threshold = False
+  
+  form131_income_collection = True
+
+---
+# EXPENSE INFORMATION (SIMPLIFIED)
+
+question: |
+  Your Monthly Expenses
+subquestion: |
+  **Regular Monthly Living Expenses**
+  
+  List your typical monthly expenses. If some expenses vary by season, estimate an average monthly amount.
+  
+  **Housing Costs:**
+fields:
+  - Rent OR mortgage payment: form131_expenses.housing_payment
+    datatype: currency
+    help: |
+      Your monthly rent or mortgage payment (principal and interest)
+  - Property taxes: form131_expenses.property_taxes_monthly
+    datatype: currency
+    required: False
+    help: |
+      Monthly amount (annual taxes ÷ 12)
+  - Home/tenant insurance: form131_expenses.home_insurance
+    datatype: currency
+    required: False
+  - Utilities (heat, hydro, water): form131_expenses.utilities
+    datatype: currency
+    required: False
+  - Phone/cell phone: form131_expenses.phone
+    datatype: currency
+    required: False
+  - Internet/cable: form131_expenses.internet_cable
+    datatype: currency
+    required: False
+
+---
+question: |
+  Living Expenses
+subquestion: |
+  **Daily Living Expenses:**
+fields:
+  - Groceries and household items: form131_expenses.groceries
+    datatype: currency
+  - Eating out/takeout: form131_expenses.eating_out
+    datatype: currency
+    required: False
+  - Clothing for you and children: form131_expenses.clothing
+    datatype: currency
+    required: False
+  - Medical/dental not covered by insurance: form131_expenses.medical_dental
+    datatype: currency
+    required: False
+  - Childcare costs: form131_expenses.childcare
+    datatype: currency
+    required: False
+    help: |
+      Daycare, babysitting, after-school care
+  - Children's activities (sports, lessons): form131_expenses.children_activities
+    datatype: currency
+    required: False
+  - School expenses: form131_expenses.school_expenses
+    datatype: currency
+    required: False
+  - Personal care (haircuts, toiletries): form131_expenses.personal_care
+    datatype: currency
+    required: False
+
+---
+question: |
+  Transportation and Other Expenses
+subquestion: |
+  **Transportation Costs:**
+fields:
+  - Car payment: form131_expenses.car_payment
+    datatype: currency
+    required: False
+  - Car insurance: form131_expenses.car_insurance
+    datatype: currency
+    required: False
+  - Gas and car maintenance: form131_expenses.car_expenses
+    datatype: currency
+    required: False
+  - Public transportation: form131_expenses.public_transit
+    datatype: currency
+    required: False
+  
+  - note: |
+      **Other Monthly Expenses:**
+  - Entertainment/recreation: form131_expenses.entertainment
+    datatype: currency
+    required: False
+  - Life insurance premiums: form131_expenses.life_insurance
+    datatype: currency
+    required: False
+  - Credit card minimum payments: form131_expenses.credit_card_minimum
+    datatype: currency
+    required: False
+    help: |
+      Just the minimum monthly payments
+  - Loan payments: form131_expenses.loan_payments
+    datatype: currency
+    required: False
+  - Support payments you make: form131_expenses.support_payments_made
+    datatype: currency
+    required: False
+  - Other regular expenses: form131_expenses.other_expenses
+    datatype: currency
+    required: False
+  - Describe other expenses: form131_expenses.other_expenses_description
+    show if: form131_expenses.other_expenses
+    required: False
+
+---
+code: |
+  # Calculate total monthly expenses
+  expense_categories = [
+    'housing_payment', 'property_taxes_monthly', 'home_insurance', 'utilities', 'phone', 'internet_cable',
+    'groceries', 'eating_out', 'clothing', 'medical_dental', 'childcare', 'children_activities',
+    'school_expenses', 'personal_care', 'car_payment', 'car_insurance', 'car_expenses',
+    'public_transit', 'entertainment', 'life_insurance', 'credit_card_minimum',
+    'loan_payments', 'support_payments_made', 'other_expenses'
+  ]
+  
+  form131_expenses.total_monthly = sum(
+    getattr(form131_expenses, category, 0) or 0 for category in expense_categories
+  )
+  
+  form131_expense_collection = True
+
+---
+# ASSET INFORMATION (SIMPLIFIED)
+
+question: |
+  Your Assets - Real Estate
+subquestion: |
+  **Real Estate You Own**
+fields:
+  - Do you own a home or other real estate?: owns_real_estate
+    datatype: yesnoradio
+  - Type of property: form131_assets.property_type
+    show if: owns_real_estate
+    choices:
+      - Principal residence (home I live in)
+      - Rental property
+      - Cottage/vacation property
+      - Other
+  - Address of property: form131_assets.property_address
+    show if: owns_real_estate
+  - Current estimated value: form131_assets.property_value
+    datatype: currency
+    show if: owns_real_estate
+    help: |
+      Current market value estimate
+  - Your ownership share: form131_assets.property_ownership_percent
+    datatype: number
+    default: 100
+    show if: owns_real_estate
+    help: |
+      Percentage you own (e.g., 50 if you own 50%)
+  - Outstanding mortgage balance: form131_assets.mortgage_balance
+    datatype: currency
+    required: False
+    show if: owns_real_estate
+  - Monthly mortgage payment: form131_assets.mortgage_payment_monthly
+    datatype: currency
+    required: False
+    show if: owns_real_estate
+
+---
+question: |
+  Your Assets - Vehicles
+subquestion: |
+  **Vehicles You Own**
+fields:
+  - Do you own any vehicles?: owns_vehicles
+    datatype: yesnoradio
+  - Number of vehicles: form131_assets.vehicle_count
+    datatype: integer
+    show if: owns_vehicles
+    default: 1
+list collect: form131_assets.vehicles
+show if: owns_vehicles
+fields:
+  - Year: form131_assets.vehicles[i].year
+    datatype: integer
+  - Make and model: form131_assets.vehicles[i].make_model
+    help: |
+      e.g., "2018 Honda Civic"
+  - Estimated current value: form131_assets.vehicles[i].current_value
+    datatype: currency
+    help: |
+      Use Canadian Black Book or similar estimate
+  - Outstanding loan balance: form131_assets.vehicles[i].loan_balance
+    datatype: currency
+    required: False
+  - Monthly loan payment: form131_assets.vehicles[i].monthly_payment
+    datatype: currency
+    required: False
+
+---
+question: |
+  Your Assets - Bank Accounts and Savings
+subquestion: |
+  **Bank Accounts, Savings, and Investments**
+fields:
+  - Chequing account balance: form131_assets.chequing_balance
+    datatype: currency
+    required: False
+    help: |
+      Current balance in your main chequing account
+  - Savings account balance: form131_assets.savings_balance
+    datatype: currency
+    required: False
+  - Other bank accounts (total): form131_assets.other_bank_accounts
+    datatype: currency
+    required: False
+  - GICs/Term deposits: form131_assets.gics_total
+    datatype: currency
+    required: False
+  - RRSP total value: form131_assets.rrsp_value
+    datatype: currency
+    required: False
+  - TFSA total value: form131_assets.tfsa_value
+    datatype: currency
+    required: False
+  - Other investments: form131_assets.other_investments
+    datatype: currency
+    required: False
+    help: |
+      Stocks, bonds, mutual funds, etc.
+  - Describe other investments: form131_assets.other_investments_description
+    show if: form131_assets.other_investments
+    required: False
+
+---
+question: |
+  Your Assets - Personal Property
+subquestion: |
+  **Other Assets Worth More Than $500**
+  
+  Include only items worth more than $500 each.
+fields:
+  - Household contents and furniture: form131_assets.household_contents
+    datatype: currency
+    required: False
+    help: |
+      Estimated total value of furniture, appliances, etc.
+  - Jewelry: form131_assets.jewelry
+    datatype: currency
+    required: False
+  - Collections (art, antiques, etc.): form131_assets.collections
+    datatype: currency
+    required: False
+  - Tools/equipment for work: form131_assets.work_tools
+    datatype: currency
+    required: False
+  - Sports/recreation equipment: form131_assets.sports_equipment
+    datatype: currency
+    required: False
+  - Other valuable items: form131_assets.other_valuables
+    datatype: currency
+    required: False
+  - Describe other valuable items: form131_assets.other_valuables_description
+    show if: form131_assets.other_valuables
+    required: False
+
+---
+code: |
+  # Calculate total assets
+  real_estate_net = 0
+  if owns_real_estate and hasattr(form131_assets, 'property_value'):
+    property_value = (form131_assets.property_value or 0) * (form131_assets.property_ownership_percent or 100) / 100
+    mortgage_balance = form131_assets.mortgage_balance or 0
+    real_estate_net = property_value - mortgage_balance
+  
+  vehicle_net = 0
+  if owns_vehicles and hasattr(form131_assets, 'vehicles'):
+    for vehicle in form131_assets.vehicles:
+      vehicle_value = vehicle.get('current_value', 0) or 0
+      loan_balance = vehicle.get('loan_balance', 0) or 0
+      vehicle_net += vehicle_value - loan_balance
+  
+  cash_and_investments = sum([
+    getattr(form131_assets, 'chequing_balance', 0) or 0,
+    getattr(form131_assets, 'savings_balance', 0) or 0,
+    getattr(form131_assets, 'other_bank_accounts', 0) or 0,
+    getattr(form131_assets, 'gics_total', 0) or 0,
+    getattr(form131_assets, 'rrsp_value', 0) or 0,
+    getattr(form131_assets, 'tfsa_value', 0) or 0,
+    getattr(form131_assets, 'other_investments', 0) or 0
+  ])
+  
+  personal_property = sum([
+    getattr(form131_assets, 'household_contents', 0) or 0,
+    getattr(form131_assets, 'jewelry', 0) or 0,
+    getattr(form131_assets, 'collections', 0) or 0,
+    getattr(form131_assets, 'work_tools', 0) or 0,
+    getattr(form131_assets, 'sports_equipment', 0) or 0,
+    getattr(form131_assets, 'other_valuables', 0) or 0
+  ])
+  
+  form131_assets.total_value = real_estate_net + vehicle_net + cash_and_investments + personal_property
+  form131_asset_collection = True
+
+---
+# DEBT INFORMATION (SIMPLIFIED)
+
+question: |
+  Your Debts and Liabilities
+subquestion: |
+  **Credit Cards and Lines of Credit**
+fields:
+  - Credit card balances (total): form131_debts.credit_card_total
+    datatype: currency
+    required: False
+    help: |
+      Total balance on all credit cards
+  - Line of credit balance: form131_debts.line_of_credit
+    datatype: currency
+    required: False
+  - Personal loans: form131_debts.personal_loans
+    datatype: currency
+    required: False
+    help: |
+      Bank loans, finance company loans, etc.
+  - Student loans: form131_debts.student_loans
+    datatype: currency
+    required: False
+  - Money owed to family/friends: form131_debts.family_loans
+    datatype: currency
+    required: False
+  - Income tax owed: form131_debts.tax_debt
+    datatype: currency
+    required: False
+  - Other debts: form131_debts.other_debts
+    datatype: currency
+    required: False
+  - Describe other debts: form131_debts.other_debts_description
+    show if: form131_debts.other_debts
+    required: False
+
+---
+code: |
+  # Calculate total debts (excluding mortgages and vehicle loans already counted)
+  debt_categories = [
+    'credit_card_total', 'line_of_credit', 'personal_loans', 'student_loans',
+    'family_loans', 'tax_debt', 'other_debts'
+  ]
+  
+  form131_debts.total_other_debt = sum(
+    getattr(form131_debts, category, 0) or 0 for category in debt_categories
+  )
+  
+  form131_debt_collection = True
+
+---
+# CALCULATIONS
+
+code: |
+  # Calculate net worth  
+  total_assets = form131_assets.total_value
+  total_debts = form131_debts.total_other_debt
+  net_worth_simple = total_assets - total_debts
+  
+  # Calculate monthly surplus/deficit
+  monthly_surplus_deficit_simple = form131_income.total_monthly - form131_expenses.total_monthly
+  
+  form131_calculate_totals = True
+
+---
+# CHILD SUPPORT CALCULATION
+
+question: |
+  Child Support Calculation
+subquestion: |
+  **Child Support Guidelines Calculation**
+  
+  Based on your income and the number of children:
+  - **Your Annual Income**: ${ format_currency_for_document(form131_income.total_annual) }
+  - **Number of Children**: ${ form131_children.number() }
+  
+  % if form131_children.number() > 0:
+  **Federal Child Support Guidelines - Ontario:**
+  
+  Estimated monthly child support based on income of ${ format_currency_for_document(form131_income.total_annual) }:
+  
+  - **Table Amount**: ${ calculate_simple_child_support(form131_income.total_annual, form131_children.number()) }
+  
+  *Note: This is an estimate. Exact amounts must be calculated using the official Federal Child Support Guidelines tables.*
+  % endif
+fields:
+  - Are there special expenses for the children?: has_special_child_expenses
+    datatype: yesnoradio
+    help: |
+      This includes childcare, medical/dental, educational, or extraordinary expenses
+  - Annual childcare costs: special_childcare_annual
+    datatype: currency
+    show if: has_special_child_expenses
+    required: False
+  - Annual medical/dental costs: special_medical_annual
+    datatype: currency  
+    show if: has_special_child_expenses
+    required: False
+  - Annual educational costs: special_education_annual
+    datatype: currency
+    show if: has_special_child_expenses
+    required: False
+  - Other special expenses: special_other_annual
+    datatype: currency
+    show if: has_special_child_expenses
+    required: False
+  - Describe other special expenses: special_other_description
+    show if: special_other_annual
+    required: False
+
+---
+code: |
+  # Simplified child support calculation
+  def calculate_simple_child_support(annual_income, num_children):
+    # Simplified Ontario table amounts (approximate)
+    if annual_income <= 0:
+      return "$0.00/month"
+    
+    # Basic table amounts for Ontario (approximate)
+    base_amounts = {
+      1: min(400 + (annual_income - 30000) * 0.007, 1200) if annual_income >= 30000 else 0,
+      2: min(650 + (annual_income - 30000) * 0.011, 2000) if annual_income >= 30000 else 0,
+      3: min(850 + (annual_income - 30000) * 0.014, 2600) if annual_income >= 30000 else 0,
+      4: min(1000 + (annual_income - 30000) * 0.016, 3000) if annual_income >= 30000 else 0
+    }
+    
+    if num_children <= 4:
+      amount = max(0, base_amounts.get(num_children, 0))
+      return f"${amount:.2f}/month"
+    else:
+      return f"See Child Support Guidelines table"
+  
+  # Calculate special expenses
+  if has_special_child_expenses:
+    total_special_expenses = sum([
+      special_childcare_annual or 0,
+      special_medical_annual or 0, 
+      special_education_annual or 0,
+      special_other_annual or 0
+    ])
+    special_expenses_monthly = total_special_expenses / 12
+  else:
+    total_special_expenses = 0
+    special_expenses_monthly = 0
+  
+  form131_calculate_child_support = True
+
+---
+# INCOME THRESHOLD WARNING
+
+question: |
+  Income Over $150,000 - Form 13 Required
+subquestion: |
+  **⚠ Your total annual income is ${ format_currency_for_document(form131_income.total_annual) }**
+  
+  This exceeds the $150,000 threshold for Form 13.1 (Simple Financial Statement).
+  
+  **You must use Form 13 (Complex Financial Statement) instead.**
+  
+  Form 13 is required for income over $150,000 because:
+  - More detailed income disclosure is required
+  - Complex asset and business information may be needed
+  - Professional valuations may be required
+  - Additional supporting documentation is needed
+  
+  **Options:**
+field: income_threshold_action
+choices:
+  - Switch to Form 13 (Recommended): switch_to_form13
+  - Continue with Form 13.1 anyway: continue_form131
+    help: |
+      This is not recommended and may cause issues with your court filing
+  - Get professional advice: get_advice
+buttons:
+  - Exit and Get Advice: exit
+    color: info
+show if: income_over_threshold
+
+---
+# REVIEW SCREEN
+
+question: |
+  Review Your Financial Statement
+subquestion: |
+  **Please review your Form 13.1 Financial Statement:**
+  
+  **INCOME INFORMATION**
+  - **Total Annual Income**: ${ format_currency_for_document(form131_income.total_annual) }
+  - **Total Monthly Income**: ${ format_currency_for_document(form131_income.total_monthly) }
+  
+  **EXPENSE INFORMATION**  
+  - **Total Monthly Expenses**: ${ format_currency_for_document(form131_expenses.total_monthly) }
+  - **Monthly Surplus/Deficit**: ${ format_currency_for_document(monthly_surplus_deficit_simple) }
+  
+  **ASSET INFORMATION**
+  - **Total Net Assets**: ${ format_currency_for_document(form131_assets.total_value) }
+  % if owns_real_estate:
+  - Real Estate: ${ format_currency_for_document(real_estate_net) } (net)
+  % endif
+  % if owns_vehicles:
+  - Vehicles: ${ format_currency_for_document(vehicle_net) } (net)
+  % endif
+  - Cash/Investments: ${ format_currency_for_document(cash_and_investments) }
+  
+  **DEBT INFORMATION**
+  - **Total Other Debts**: ${ format_currency_for_document(form131_debts.total_other_debt) }
+  
+  **NET WORTH**
+  - **Total Net Worth**: ${ format_currency_for_document(net_worth_simple) }
+  
+  **CHILDREN**
+  % if form131_children.number() > 0:
+  % for child in form131_children:
+  - ${ child.name.first } ${ child.name.last } (age ${ child.age })
+  % endfor
+  % else:
+  - No children listed
+  % endif
+  
+  **CHILD SUPPORT ESTIMATE**
+  % if form131_children.number() > 0:
+  - Table Amount: ${ calculate_simple_child_support(form131_income.total_annual, form131_children.number()) }
+  % if has_special_child_expenses:
+  - Special Expenses: ${ format_currency_for_document(special_expenses_monthly) }/month
+  % endif
+  % endif
+  
+  **Is this information accurate and complete?**
+field: form131_review_screen
+datatype: checkboxes
+choices:
+  - My income information is accurate and complete: income_review_accurate
+  - My expense information is accurate and complete: expense_review_accurate  
+  - My asset information is accurate and complete: asset_review_accurate
+  - My debt information is accurate and complete: debt_review_accurate
+  - My children's information is accurate and complete: children_review_accurate
+  - I understand this will be filed with the court under oath: oath_understanding
+validation code: |
+  all_confirmations = [income_review_accurate, expense_review_accurate, asset_review_accurate, debt_review_accurate, children_review_accurate, oath_understanding]
+  if not all(all_confirmations):
+    validation_error("You must confirm all information is accurate before proceeding.")
+
+---
+# FINAL VALIDATION
+
+code: |
+  validation_issues = []
+  
+  # Income validation
+  if form131_income.total_annual <= 0:
+    validation_issues.append("You must have some source of income to complete a financial statement.")
+  
+  if form131_income.total_annual >= 150000:
+    validation_issues.append("Your income exceeds $150,000. Form 13 (Complex) is required instead of Form 13.1.")
+  
+  # Children validation
+  for child in form131_children:
+    if child.age >= 18 and not child.has_special_needs:
+      validation_issues.append(f"Child {child.name.first} is {child.age} years old. Verify eligibility for support.")
+  
+  # Basic completeness check
+  if not hasattr(form131_expenses, 'housing_payment') or not form131_expenses.housing_payment:
+    validation_issues.append("Housing expenses (rent/mortgage) must be provided.")
+  
+  if validation_issues:
+    form131_final_validation = False
+    validation_issue_list = validation_issues
+  else:
+    form131_final_validation = True
+
+---
+event: validation_issues_screen  
+question: |
+  Issues to Address
+subquestion: |
+  **Please address the following before completing your financial statement:**
+  
+  % for issue in validation_issue_list:
+  - ${ issue }
+  % endfor
+buttons:
+  - Back to Fix Issues: restart
+  - Get Professional Help: exit
+show if: not form131_final_validation
+
+---
+# DOCUMENT GENERATION
+
+question: |
+  Generate Your Form 13.1
+subquestion: |
+  **Your Form 13.1 Financial Statement is ready.**
+  
+  **Document Options:**
+fields:
+  - Select documents to generate: form131_document_options
+    datatype: checkboxes
+    choices:
+      - Court filing copy: court_filing
+      - Personal records copy: personal_records  
+      - Document checklist: document_checklist
+      - Summary sheet: summary_sheet
+    default: |
+      ['court_filing', 'document_checklist']
+
+---
+code: |
+  form131_generate_documents = True
+
+---
+# COMPLETION
+
+event: form131_completion
+question: |
+  Form 13.1 Financial Statement Complete
+subquestion: |
+  **Your Form 13.1 (Simple Financial Statement) is complete!**
+  
+  **Summary:**
+  - **Annual Income**: ${ format_currency_for_document(form131_income.total_annual) }
+  - **Monthly Surplus/Deficit**: ${ format_currency_for_document(monthly_surplus_deficit_simple) }
+  - **Net Worth**: ${ format_currency_for_document(net_worth_simple) }
+  - **Children**: ${ form131_children.number() }
+  
+  % if form131_children.number() > 0:
+  **Estimated Child Support**: ${ calculate_simple_child_support(form131_income.total_annual, form131_children.number()) }
+  % endif
+  
+  **Next Steps:**
+  
+  1. **Review Documents**: Carefully review all generated documents
+  2. **Gather Supporting Documents**: Use the checklist to gather required attachments:
+     - Recent pay stubs
+     - Tax return and Notice of Assessment  
+     - Bank statements
+     - Proof of expenses
+  3. **File with Court**: Submit to the court with filing fees
+  4. **Serve Other Parties**: Provide copies to all other parties
+  
+  **Important Reminders:**
+  - This statement is sworn under oath
+  - Update if your financial situation changes significantly
+  - Keep copies of all supporting documents
+  - Professional help is available if needed
+  
+  **Warning Signs You May Need Form 13 Instead:**
+  - Your situation becomes more complex
+  - You acquire business interests
+  - Your income exceeds $150,000
+  - You need professional asset valuations
+buttons:
+  - Download All Documents: continue
+  - Start Over: restart
+  - Exit: exit
+
+---
+# DOCUMENT TEMPLATES
+
+attachment:
+  name: Form 13.1 Financial Statement  
+  filename: Form_13.1_Financial_Statement_${ form131_applicant.name.last }_${ format_date(today()).replace(' ', '_') }
+  pdf template file: form-13-1-ontario-template.pdf
+  fields:
+    # Personal Information
+    - "applicant_name": ${ form131_applicant.name.full() }
+    - "applicant_birthdate": ${ format_date_for_document(form131_applicant.birthdate) }
+    - "applicant_sin_masked": ${ form131_applicant.sin_masked }
+    - "applicant_occupation": ${ form131_applicant.occupation }
+    - "applicant_employer": ${ getattr(form131_applicant, 'employer', '') }
+    
+    # Income
+    - "annual_income": ${ format_currency_for_document(form131_income.total_annual) }
+    - "monthly_income": ${ format_currency_for_document(form131_income.total_monthly) }
+    - "employment_income": ${ format_currency_for_document(getattr(form131_income, 'primary_job_income', 0) + getattr(form131_income, 'secondary_job_income', 0)) }
+    - "other_income": ${ format_currency_for_document(form131_income.total_annual - (getattr(form131_income, 'primary_job_income', 0) + getattr(form131_income, 'secondary_job_income', 0))) }
+    
+    # Expenses
+    - "monthly_expenses": ${ format_currency_for_document(form131_expenses.total_monthly) }
+    - "housing_expenses": ${ format_currency_for_document(getattr(form131_expenses, 'housing_payment', 0)) }
+    - "childcare_expenses": ${ format_currency_for_document(getattr(form131_expenses, 'childcare', 0)) }
+    
+    # Assets and Debts
+    - "total_assets": ${ format_currency_for_document(form131_assets.total_value) }
+    - "total_debts": ${ format_currency_for_document(form131_debts.total_other_debt) }
+    - "net_worth": ${ format_currency_for_document(net_worth_simple) }
+    
+    # Children
+    - "number_children": ${ form131_children.number() }
+    
+    # Calculations
+    - "monthly_surplus": ${ format_currency_for_document(monthly_surplus_deficit_simple) }
+    
+    # Completion
+    - "completion_date": ${ format_date_for_document(today()) }
+
+---
+# DOCUMENT CHECKLIST
+
+attachment:
+  name: Form 13.1 Document Checklist
+  filename: Form_13.1_Document_Checklist_${ form131_applicant.name.last }_${ format_date(today()).replace(' ', '_') }
+  content: |
+    # Form 13.1 Financial Statement - Document Checklist
+    
+    **Applicant**: ${ form131_applicant.name.full() }  
+    **Date**: ${ format_date_for_document(today()) }  
+    **Annual Income**: ${ format_currency_for_document(form131_income.total_annual) }
+    
+    ## Required Documents for All Form 13.1 Filings
+    
+    ### Income Documentation
+    - [ ] **Most recent Notice of Assessment** from Canada Revenue Agency
+    - [ ] **Complete copy of most recent tax return** (all pages and schedules)
+    % if form131_income.primary_employer:
+    - [ ] **Current pay stub** from ${ form131_income.primary_employer }
+    - [ ] **Employment letter** confirming income and employment status
+    % endif
+    % if form131_income.secondary_employer:
+    - [ ] **Pay stub from second job** (${ form131_income.secondary_employer })
+    % endif
+    % if getattr(form131_income, 'self_employment', 0):
+    - [ ] **Self-employment income documentation** (invoices, receipts, business records)
+    % endif
+    
+    ### Bank and Financial Statements  
+    - [ ] **Bank statements** for all accounts (most recent month)
+      % if getattr(form131_assets, 'chequing_balance', 0):
+      - Chequing account statements
+      % endif
+      % if getattr(form131_assets, 'savings_balance', 0):
+      - Savings account statements  
+      % endif
+    % if getattr(form131_assets, 'rrsp_value', 0):
+    - [ ] **RRSP statements**
+    % endif
+    % if getattr(form131_assets, 'tfsa_value', 0):  
+    - [ ] **TFSA statements**
+    % endif
+    % if getattr(form131_assets, 'other_investments', 0):
+    - [ ] **Investment account statements**
+    % endif
+    
+    ### Property Documentation
+    % if owns_real_estate:
+    - [ ] **Property tax assessment** for ${ getattr(form131_assets, 'property_address', 'your property') }
+    - [ ] **Current mortgage statement** (if applicable)
+    % endif
+    
+    ### Vehicle Documentation
+    % if owns_vehicles:
+    % for vehicle in form131_assets.get('vehicles', []):
+    - [ ] **Vehicle registration** for ${ vehicle.get('make_model', 'vehicle') }
+    % if vehicle.get('loan_balance'):
+    - [ ] **Vehicle loan statement** for ${ vehicle.get('make_model', 'vehicle') }
+    % endif
+    % endfor
+    % endif
+    
+    ### Debt Documentation
+    % if getattr(form131_debts, 'credit_card_total', 0):
+    - [ ] **Credit card statements** (most recent)
+    % endif
+    % if getattr(form131_debts, 'line_of_credit', 0):
+    - [ ] **Line of credit statement**
+    % endif
+    % if getattr(form131_debts, 'personal_loans', 0):
+    - [ ] **Personal loan statements**
+    % endif
+    % if getattr(form131_debts, 'student_loans', 0):
+    - [ ] **Student loan statements**
+    % endif
+    
+    ### Children Documentation
+    % for child in form131_children:
+    - [ ] **Birth certificate** for ${ child.name.first } (certified copy)
+    % if getattr(form131_expenses, 'childcare', 0):
+    - [ ] **Childcare receipts** for ${ child.name.first }
+    % endif
+    % if child.has_special_needs:
+    - [ ] **Medical documentation** for special needs - ${ child.name.first }
+    % endif
+    % endfor
+    
+    ### Expense Documentation  
+    % if getattr(form131_expenses, 'housing_payment', 0):
+    - [ ] **Rent receipts** OR **mortgage statement**
+    % endif
+    % if getattr(form131_expenses, 'childcare', 0):
+    - [ ] **Childcare receipts**
+    % endif
+    % if has_special_child_expenses:
+    - [ ] **Special expense receipts** (medical, educational, extraordinary expenses)
+    % endif
+    
+    ## Court Filing Requirements
+    
+    - [ ] **Original signed Form 13.1** Financial Statement
+    - [ ] **Copies of all supporting documents** (clear and legible)
+    - [ ] **Court filing fee**: Check current fee schedule
+    - [ ] **Service on other parties** as required by Family Law Rules
+    
+    ## Additional Notes
+    
+    **Income Verification:**
+    - All income sources must be documented
+    - Pay stubs should be recent (within 30 days)
+    - If unemployed, provide documentation of job search efforts
+    
+    **Asset Valuation:**
+    - Use reasonable estimates for asset values
+    - Keep records of how values were determined
+    - Professional appraisals not required for Form 13.1 unless ordered by court
+    
+    **Debt Verification:**  
+    - All significant debts must be disclosed
+    - Statements should be current
+    - Include minimum payment amounts
+    
+    **Updates Required:**
+    - Must update if income changes by more than 10%
+    - Must update if new assets or debts acquired
+    - Court may order updated statements
+    
+    ## Professional Help Available
+    
+    - **Duty Counsel**: Available at most family courts (free)
+    - **Legal Aid Ontario**: 1-800-668-8258 (income-based eligibility)
+    - **Law Society Referral Service**: 1-855-947-5787 (30-minute consultation)
+    - **Family Court Information Centres**: Available at courthouses
+    
+    ---
+    **Important**: This is a simplified checklist. Specific court requirements may vary. 
+    Check with your local court registry for any additional requirements.
+    
+    ${ create_document_footer() }
+
+---
+# END OF FORM 13.1 FINANCIAL STATEMENT

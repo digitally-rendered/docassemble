@@ -1,0 +1,73 @@
+---
+metadata:
+  title: Ontario Family Law Forms Wizard
+  short title: Forms Wizard
+  description: Interactive guide to determine which Ontario family law forms you need
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-11
+---
+mandatory: True
+code: |
+  wizard_introduction
+  
+  # Check for emergency situation
+  emergency_situation
+  
+  # For now, continue to test complete
+  test_complete
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Wizard
+subquestion: |
+  This interactive guide will help you determine exactly which forms you need to start your family law case in Ontario.
+  
+  This wizard will:
+  
+  * Ask you questions about your situation
+  * Determine which forms you need
+  * Explain the order to complete them
+  * Provide direct links to each form
+  * Estimate timelines for your case
+  
+  Before we begin, have ready:
+  
+  * Information about your marriage/relationship
+  * Whether you have children together
+  * Any property or support issues
+  
+  This should take about 5 minutes.
+  
+  Legal Disclaimer: This tool provides procedural information only, not legal advice.
+continue button field: wizard_introduction
+---
+# Emergency check
+question: |
+  Is this an emergency situation?
+subquestion: |
+  **You may have an emergency if you are experiencing:**
+  
+  * Immediate physical danger or threats
+  * Domestic violence or abuse
+  * Fear for your safety or your children's safety
+  * Someone threatening to take your children
+  * Someone threatening to harm you or your property
+fields:
+  - "Are you or your children in immediate danger?": emergency_situation
+    datatype: yesnoradio
+    default: False
+---
+# Temporary test complete
+event: test_complete
+question: |
+  Wizard Introduction Loaded Successfully
+subquestion: |
+  The wizard is working! Introduction loaded properly.
+  
+  Next steps:
+  - Enable emergency situation check
+  - Enable MIP information
+  - Enable relationship status questions
+  - Enable party information collection
+---

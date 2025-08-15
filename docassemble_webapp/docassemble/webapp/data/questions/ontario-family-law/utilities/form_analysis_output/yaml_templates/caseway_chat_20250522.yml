@@ -1,0 +1,76 @@
+---
+# Ontario Family Law Form: caseway_chat_20250522
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Caseway Chat 20250522
+  short title: |
+    CASEWAY
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  user
+  i_would_like_to_validate_all_the_points_in_this_for_income_imputation_in_the_us_and_provide_all_the_cases_that_back_up_the_poitns_listed_the_legal_framework_for_income_imputation_in_the_united_states_a_statespecific_guidelines_and_statutes
+  caseway
+  ill_analyze_the_legal_framework_for_income_imputation_in_us_child_support_cases_based_on_the_information_youve_provided_and_the_relevant_case_law_retrieved_analysis_of_income_imputation_in_us_child_support_cases_overview_of_state_variations_in_income_imputation_law_the_united_states_takes_a_statespecific_approach_to_income_imputation_unlike_canadas_more_unified_federal_system_while_i_can_validate_many_points_in_your_document_its_important_to_note_that_the_retrieved_case_law_primarily_reflects_canadian_jurisprudence_which_provides_useful_comparisons_but_isnt_directly_controlling_in_us_jurisdictions_key_legal_principles_supported_by_case_law_1_definition_of_voluntary_unemploymentunderemployment_your_document_correctly_identifies_that_most_states_authorize_income_imputation_when_a_parent_is_voluntarily_unemployed_or_underemployed_this_is_consistent_with_the_general_principle_articulated_in_cases_like_drygala_v_pauli
+  sources
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  User:
+fields:
+  - "User": user
+---
+question: |
+  i would like to validate all the points in this for income imputation in the us and provide all the 
+fields:
+  - "I Would Like To Validate All The Points In This For Income Imputation In The Us And Provide All The Cases That Back Up The Poitns Listed The Legal Framework For Income Imputation In The United States A Statespecific Guidelines And Statutes": i_would_like_to_validate_all_the_points_in_this_for_income_imputation_in_the_us_and_provide_all_the_cases_that_back_up_the_poitns_listed_the_legal_framework_for_income_imputation_in_the_united_states_a_statespecific_guidelines_and_statutes
+    required: True
+---
+question: |
+  Caseway:
+fields:
+  - "Caseway": caseway
+---
+question: |
+  I'll analyze the legal framework for income imputation in US child support cases based on the inform
+fields:
+  - "Ill Analyze The Legal Framework For Income Imputation In Us Child Support Cases Based On The Information Youve Provided And The Relevant Case Law Retrieved Analysis Of Income Imputation In Us Child Support Cases Overview Of State Variations In Income Imputation Law The United States Takes A Statespecific Approach To Income Imputation Unlike Canadas More Unified Federal System While I Can Validate Many Points In Your Document Its Important To Note That The Retrieved Case Law Primarily Reflects Canadian Jurisprudence Which Provides Useful Comparisons But Isnt Directly Controlling In Us Jurisdictions Key Legal Principles Supported By Case Law 1 Definition Of Voluntary Unemploymentunderemployment Your Document Correctly Identifies That Most States Authorize Income Imputation When A Parent Is Voluntarily Unemployed Or Underemployed This Is Consistent With The General Principle Articulated In Cases Like Drygala V Pauli": ill_analyze_the_legal_framework_for_income_imputation_in_us_child_support_cases_based_on_the_information_youve_provided_and_the_relevant_case_law_retrieved_analysis_of_income_imputation_in_us_child_support_cases_overview_of_state_variations_in_income_imputation_law_the_united_states_takes_a_statespecific_approach_to_income_imputation_unlike_canadas_more_unified_federal_system_while_i_can_validate_many_points_in_your_document_its_important_to_note_that_the_retrieved_case_law_primarily_reflects_canadian_jurisprudence_which_provides_useful_comparisons_but_isnt_directly_controlling_in_us_jurisdictions_key_legal_principles_supported_by_case_law_1_definition_of_voluntary_unemploymentunderemployment_your_document_correctly_identifies_that_most_states_authorize_income_imputation_when_a_parent_is_voluntarily_unemployed_or_underemployed_this_is_consistent_with_the_general_principle_articulated_in_cases_like_drygala_v_pauli
+    required: True
+---
+question: |
+  Sources:
+fields:
+  - "Sources": sources
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

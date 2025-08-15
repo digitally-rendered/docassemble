@@ -1,0 +1,576 @@
+---
+# Ontario Family Law Financial Statement Selector
+# Helps users choose between Form 13 (Complex) and Form 13.1 (Simple)
+# Version: 1.0.0
+# Last Updated: 2025-08-09
+
+include:
+  - ontario-family-law-common.yml
+
+metadata:
+  title: Financial Statement Form Selection
+  short title: Form 13 vs 13.1 Selection
+  description: |
+    Interactive tool to help Ontario family law litigants choose between
+    Form 13 (Complex Financial Statement) and Form 13.1 (Simple Financial Statement)
+    based on income thresholds and financial complexity.
+  version: "1.0.0"
+  authors:
+    - name: Ontario Family Law Forms Development Team
+  tags:
+    - ontario
+    - family-law
+    - form-selection
+    - financial-statement
+    - routing
+
+---
+# MODULES AND IMPORTS
+modules:
+  - re
+  - datetime
+  - decimal
+
+---
+# MAIN FLOW
+
+mandatory: True
+code: |
+  # Introduction and privacy notice
+  financial_statement_intro
+  
+  # Determine financial complexity
+  financial_complexity_assessment
+  
+  # Income threshold check
+  income_threshold_check
+  
+  # Business and investment assessment
+  business_investment_assessment
+  
+  # Final form recommendation
+  form_recommendation
+  
+  # Route to appropriate form
+  route_to_selected_form
+
+---
+# INTRODUCTION
+
+question: |
+  Ontario Financial Statement Forms - Which Do You Need?
+subquestion: |
+  ${ privacy_disclaimer }
+  
+  **You need to complete a Financial Statement if you are:**
+  - Applying for or responding to child support
+  - Applying for or responding to spousal support  
+  - Involved in property division proceedings
+  - Filing any family law application involving financial issues
+  
+  **There are two types of Financial Statement forms:**
+  
+  **Form 13.1 - Simple Financial Statement**
+  - For income under $150,000 annually
+  - Basic assets and straightforward finances
+  - Primarily employment income
+  - No business ownership
+  - Faster to complete
+  
+  **Form 13 - Complex Financial Statement**  
+  - For income over $150,000 annually
+  - Business or professional practice ownership
+  - Complex investments or multiple properties
+  - Trust or estate interests
+  - More comprehensive disclosure required
+  
+  **This tool will help you determine which form you need based on your specific financial situation.**
+  
+  Do you want to proceed with the form selection assessment?
+field: financial_statement_intro
+datatype: yesnoradio
+
+---
+event: exit_selector
+question: |
+  Form Selection Cancelled
+subquestion: |
+  If you need help determining which financial statement form to use, consider:
+  
+  - **Duty Counsel** at your local courthouse (free legal advice)
+  - **Legal Aid Ontario**: 1-800-668-8258
+  - **Law Society Referral Service**: 1-855-947-5787
+  - **Family Court Information Centres** at courthouses
+buttons:
+  - Exit: exit
+show if: not financial_statement_intro
+
+---
+# FINANCIAL COMPLEXITY ASSESSMENT
+
+question: |
+  Financial Situation Assessment
+subquestion: |
+  **Step 1: Basic Financial Overview**
+  
+  Let's start with some basic questions about your financial situation to determine which form is appropriate.
+fields:
+  - What is your approximate annual gross income?: estimated_annual_income
+    datatype: currency
+    help: |
+      Include ALL sources of income before taxes and deductions.
+      If you're not sure, provide your best estimate.
+  - What is your primary source of income?: primary_income_source
+    choices:
+      - Employment (salary/wages)
+      - Self-employment/Business
+      - Professional practice (doctor, lawyer, etc.)
+      - Pension/Retirement income
+      - Investment income
+      - Social assistance/Disability
+      - Combination of sources
+      - Currently unemployed
+  - How would you describe your financial situation?: financial_complexity_level
+    choices:
+      - Simple (job, house, car, basic savings)
+      - Moderate (multiple income sources or investments)
+      - Complex (business, multiple properties, significant investments)
+      - Very complex (professional practice, trusts, significant assets)
+      - I'm not sure
+validation code: |
+  if estimated_annual_income < 0:
+    validation_error("Income cannot be negative. If you have no income, enter 0.")
+
+---
+code: |
+  financial_complexity_assessment = True
+
+---
+# INCOME THRESHOLD CHECK
+
+question: |
+  Income Threshold Analysis
+subquestion: |
+  **Step 2: Income Analysis**
+  
+  Based on your estimated annual income of **${ format_currency_for_document(estimated_annual_income) }**, here's what this means for form selection:
+  
+  % if estimated_annual_income >= 150000:
+  **⚠ Your income is $150,000 or more**
+  
+  - **Form 13 (Complex) is REQUIRED** for income over $150,000
+  - The Family Law Rules mandate Form 13 for high-income situations
+  - More detailed disclosure and documentation is required
+  - Professional valuations may be needed for assets
+  
+  **Recommendation: Form 13 (Complex)**
+  % elif estimated_annual_income >= 120000:
+  **⚠ Your income is close to the $150,000 threshold**
+  
+  - You may use Form 13.1 (Simple) if your finances are straightforward
+  - However, consider Form 13 (Complex) if you have:
+    - Variable income that might exceed $150,000
+    - Business interests or complex investments
+    - Significant assets requiring professional valuation
+  
+  **Recommendation: Depends on complexity (we'll assess further)**
+  % else:
+  **✓ Your income is under $120,000**
+  
+  - Form 13.1 (Simple) may be appropriate if your finances are straightforward
+  - However, Form 13 (Complex) may still be required if you have complex assets or business interests
+  
+  **Recommendation: Depends on complexity (we'll assess further)**
+  % endif
+  
+  **Additional Income Questions:**
+fields:
+  - Does your income vary significantly from year to year?: income_variable
+    datatype: yesnoradio
+    help: |
+      For example, seasonal work, commission-based income, or business income
+  - Do you expect your income to increase significantly in the near future?: income_increasing
+    datatype: yesnoradio
+  - Do you have income sources that are difficult to document?: income_difficult_to_document
+    datatype: yesnoradio
+    help: |
+      For example, cash income, foreign income, or unreported income
+
+---
+code: |
+  # Determine if income factors suggest Form 13
+  income_suggests_form13 = (
+    estimated_annual_income >= 150000 or
+    (estimated_annual_income >= 120000 and (income_variable or income_increasing)) or
+    income_difficult_to_document
+  )
+  
+  income_threshold_check = True
+
+---
+# BUSINESS AND INVESTMENT ASSESSMENT
+
+question: |
+  Business Interests and Investment Assessment  
+subquestion: |
+  **Step 3: Assets and Business Interests**
+  
+  The complexity of your assets and business interests is a major factor in determining which form to use.
+fields:
+  - Do you own or have interest in any business?: owns_business
+    datatype: yesnoradio
+  - Business details: business_details
+    datatype: checkboxes
+    show if: owns_business
+    choices:
+      - Sole proprietorship: sole_prop
+      - Partnership interest: partnership
+      - Corporate shares: corporate_shares
+      - Professional corporation: prof_corp
+      - Multiple businesses: multiple_business
+  - Estimated value of business interests: business_value_estimate
+    datatype: currency
+    show if: owns_business
+    help: |
+      Your ownership share of the total business value
+  
+  - Do you own real estate other than your principal residence?: owns_other_real_estate
+    datatype: yesnoradio
+  - Additional real estate: other_real_estate_types
+    datatype: checkboxes
+    show if: owns_other_real_estate
+    choices:
+      - Rental property: rental_property
+      - Cottage/vacation property: vacation_property
+      - Commercial real estate: commercial_property
+      - Vacant land: vacant_land
+      - Investment properties: investment_properties
+  
+  - Do you have complex investments?: has_complex_investments
+    datatype: yesnoradio
+    help: |
+      Beyond basic savings accounts, GICs, and simple RRSPs
+  - Investment types: investment_types
+    datatype: checkboxes
+    show if: has_complex_investments
+    choices:
+      - Stocks and bonds portfolio: stocks_bonds
+      - Mutual funds (significant amounts): mutual_funds
+      - Investment real estate: investment_real_estate
+      - Foreign investments: foreign_investments
+      - Cryptocurrency: cryptocurrency
+      - Collectibles/art: collectibles
+      - Other complex investments: other_investments
+  
+  - Do you have interests in trusts or estates?: has_trust_estate_interests
+    datatype: yesnoradio
+  
+  - Do you anticipate needing professional valuations?: needs_professional_valuations
+    datatype: yesnoradio
+    help: |
+      For businesses, professional practices, or unique assets
+
+---
+code: |
+  # Assess business and investment complexity
+  has_significant_business = owns_business and (business_value_estimate > 10000 if business_value_estimate else False)
+  
+  asset_complexity_factors = sum([
+    owns_business,
+    owns_other_real_estate, 
+    has_complex_investments,
+    has_trust_estate_interests,
+    needs_professional_valuations,
+    has_significant_business
+  ])
+  
+  # Complex assets suggest Form 13
+  assets_suggest_form13 = asset_complexity_factors >= 2 or has_significant_business
+  
+  business_investment_assessment = True
+
+---
+# FORM RECOMMENDATION
+
+question: |
+  Financial Statement Form Recommendation
+subquestion: |
+  **Based on your responses, here is our recommendation:**
+  
+  ---
+  
+  % if income_suggests_form13 or assets_suggest_form13:
+  ## **Recommendation: Form 13 (Complex Financial Statement)**
+  
+  **Reasons for this recommendation:**
+  % if estimated_annual_income >= 150000:
+  - ✓ **Income over $150,000** (${ format_currency_for_document(estimated_annual_income) }) - Form 13 is REQUIRED
+  % endif
+  % if owns_business:
+  - ✓ **Business ownership** requires detailed disclosure
+  % endif
+  % if business_value_estimate and business_value_estimate > 10000:
+  - ✓ **Significant business value** (${ format_currency_for_document(business_value_estimate) }) may require professional valuation
+  % endif
+  % if owns_other_real_estate:
+  - ✓ **Multiple real estate properties** require complex disclosure
+  % endif  
+  % if has_complex_investments:
+  - ✓ **Complex investment portfolio** needs detailed reporting
+  % endif
+  % if has_trust_estate_interests:
+  - ✓ **Trust or estate interests** require Form 13 disclosure
+  % endif
+  % if needs_professional_valuations:
+  - ✓ **Professional valuations needed** - Form 13 accommodates this requirement
+  % endif
+  % if income_variable or income_difficult_to_document:
+  - ✓ **Complex income situation** requires detailed Form 13 disclosure
+  % endif
+  
+  **What this means:**
+  - More comprehensive financial disclosure required
+  - Professional valuations may be needed for significant assets
+  - Additional supporting documentation required
+  - More time required to complete (typically 2-4 hours)
+  - Professional review recommended
+  
+  % else:
+  ## **Recommendation: Form 13.1 (Simple Financial Statement)**
+  
+  **Why Form 13.1 is appropriate for you:**
+  - ✓ **Income under $150,000** (${ format_currency_for_document(estimated_annual_income) })
+  - ✓ **Straightforward financial situation**
+  - ✓ **No significant business interests**
+  - ✓ **Basic asset structure**
+  - ✓ **No complex investments or valuations needed**
+  
+  **What this means:**
+  - Simplified disclosure requirements
+  - Faster to complete (typically 30-60 minutes)
+  - Less supporting documentation required
+  - Appropriate for most employment-based income situations
+  
+  **You could still choose Form 13 if:**
+  - You prefer more detailed disclosure
+  - Your situation might become complex in the future
+  - Professional advice recommends it
+  % endif
+  
+  ---
+  
+  **Professional Review Recommended:**
+  % if income_suggests_form13 or assets_suggest_form13:
+  Given the complexity of your financial situation, we strongly recommend having a lawyer, accountant, or financial advisor review your financial statement before filing.
+  % else:
+  While Form 13.1 is simpler, professional review can still be valuable, especially if this is your first family law proceeding.
+  % endif
+  
+  **Which form would you like to proceed with?**
+field: form_recommendation
+choices:
+  % if income_suggests_form13 or assets_suggest_form13:
+  - Form 13 (Complex) - Recommended: form_13
+  - Form 13.1 (Simple) - Not recommended but available: form_13_1
+  % else:
+  - Form 13.1 (Simple) - Recommended: form_13_1  
+  - Form 13 (Complex) - Also available: form_13
+  % endif
+  - I need professional advice first: need_advice
+  - Exit without completing: exit_now
+
+---
+# ROUTE TO SELECTED FORM
+
+code: |
+  if form_recommendation == 'form_13':
+    selected_form = 'Form 13 (Complex Financial Statement)'
+    selected_form_url = url_of('ontario-family-law/form-13-financial-statement.yml')
+  elif form_recommendation == 'form_13_1':
+    selected_form = 'Form 13.1 (Simple Financial Statement)'  
+    selected_form_url = url_of('ontario-family-law/form-13-1-financial-statement-simple.yml')
+  elif form_recommendation == 'need_advice':
+    route_to_professional_advice
+  else:
+    route_to_exit
+  
+  route_to_selected_form = True
+
+---
+event: route_to_professional_advice
+question: |
+  Professional Legal Advice
+subquestion: |
+  **Getting Professional Help**
+  
+  Based on your financial situation, professional advice would be valuable to ensure you:
+  - Choose the correct form
+  - Complete it accurately  
+  - Gather appropriate supporting documentation
+  - Understand the legal implications
+  
+  **Free and Low-Cost Legal Resources:**
+  
+  **Duty Counsel (Free)**
+  - Available at most family courthouses
+  - Provides free legal advice on the day of your court appearance
+  - Can help with form selection and basic questions
+  
+  **Legal Aid Ontario**
+  - Phone: 1-800-668-8258
+  - Website: www.legalaid.on.ca
+  - Income-based eligibility for legal aid certificates
+  - May cover lawyer representation for your case
+  
+  **Law Society Referral Service**  
+  - Phone: 1-855-947-5787
+  - Website: lsrs.lso.ca
+  - 30-minute consultation with a lawyer (fees may apply)
+  - Can help determine which form you need
+  
+  **Pro Bono Ontario**
+  - Phone: 1-855-255-7256
+  - Website: www.probonoontario.org
+  - Free legal services for those who cannot afford a lawyer
+  
+  **Family Court Information Centres**
+  - Located at most courthouses
+  - Staff can provide information about court procedures and forms
+  - Cannot provide legal advice but can help with form selection
+  
+  **Accounting/Financial Advice**
+  For complex financial situations, consider consulting:
+  - Certified Public Accountant (CPA)
+  - Business valuator (CBV designation)
+  - Financial advisor
+  
+  **When to Seek Professional Help:**
+  - Business valuation needed
+  - Complex investment portfolio
+  - International assets or income
+  - Tax implications of settlement
+  - Unusual financial circumstances
+buttons:
+  - Find a Lawyer: continue
+    url: https://lsrs.lso.ca
+  - Contact Legal Aid: continue  
+    url: https://www.legalaid.on.ca
+  - Back to Form Selection: restart
+  - Exit: exit
+
+---
+event: route_to_exit
+question: |
+  Form Selection Cancelled  
+subquestion: |
+  You can return to complete a financial statement form at any time.
+  
+  **Remember:**
+  - Financial statements are required for most family law matters involving support or property
+  - The court may order you to file a financial statement
+  - Deadlines may apply depending on your court case
+  
+  **If you need help:**
+  - Contact the court office where your case is filed
+  - Speak with duty counsel at the courthouse
+  - Consult with a lawyer or paralegal
+buttons:
+  - Exit: exit
+
+---
+# FINAL ROUTING
+
+event: proceed_to_selected_form
+question: |
+  Proceeding to ${ selected_form }
+subquestion: |
+  **You have selected: ${ selected_form }**
+  
+  **Before you begin:**
+  
+  **Gather Required Documents:**
+  - Most recent tax return and Notice of Assessment
+  - Recent pay stubs or employment letters
+  - Bank statements for all accounts  
+  - Investment account statements
+  % if owns_business:
+  - Business financial statements
+  % endif
+  % if owns_other_real_estate:
+  - Property tax assessments
+  % endif
+  - Proof of expenses (rent receipts, etc.)
+  - Documentation for all debts
+  
+  **Time Required:**
+  % if form_recommendation == 'form_13':
+  - Form 13: Typically 2-4 hours to complete
+  % else:
+  - Form 13.1: Typically 30-60 minutes to complete
+  % endif
+  
+  **Privacy Reminder:**
+  - Financial statements contain sensitive personal information
+  - Information will be shared with other parties in your case
+  - Court confidentiality rules apply
+  - Consider requesting sealing orders for highly sensitive information
+  
+  **Professional Review:**
+  % if income_suggests_form13 or assets_suggest_form13:
+  Given your complex financial situation, professional review is strongly recommended before filing.
+  % else:
+  Professional review can help ensure accuracy and completeness.
+  % endif
+  
+  **Are you ready to proceed?**
+buttons:
+  - Begin ${ selected_form }: continue
+    url: ${ selected_form_url }
+  - Back to Selection: restart
+  - Get Professional Advice First: redirect
+    url: route_to_professional_advice  
+  - Exit: exit
+
+---
+code: |
+  route_to_selected_form = True
+
+---
+# SUMMARY INFORMATION TEMPLATE
+
+template: selection_summary
+content: |
+  **Financial Statement Form Selection Summary**
+  
+  **Date:** ${ format_date_for_document(today()) }
+  **Estimated Annual Income:** ${ format_currency_for_document(estimated_annual_income) }
+  **Primary Income Source:** ${ primary_income_source }
+  **Financial Complexity Level:** ${ financial_complexity_level }
+  
+  **Assessment Results:**
+  - Income suggests Form 13: ${ "Yes" if income_suggests_form13 else "No" }
+  - Assets suggest Form 13: ${ "Yes" if assets_suggest_form13 else "No" }
+  
+  **Recommendation:** ${ selected_form if defined('selected_form') else 'Not yet determined' }
+  
+  **Key Factors:**
+  % if owns_business:
+  - Business ownership: Yes
+  % endif
+  % if owns_other_real_estate:
+  - Additional real estate: Yes
+  % endif
+  % if has_complex_investments:
+  - Complex investments: Yes
+  % endif
+  % if has_trust_estate_interests:
+  - Trust/estate interests: Yes
+  % endif
+  % if needs_professional_valuations:
+  - Professional valuations needed: Yes
+  % endif
+  
+  This summary is for your records and to share with professional advisors.
+
+---
+# END OF FINANCIAL STATEMENT SELECTOR

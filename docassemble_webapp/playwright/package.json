@@ -1,0 +1,29 @@
+{
+  "name": "ontario-family-law-wizard-tests",
+  "version": "1.0.0",
+  "description": "End-to-end tests for Ontario Family Law Forms Wizard using Playwright",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "test:ui": "npx playwright test --ui",
+    "test:emergency": "npx playwright test tests/emergency-pathways.spec.js",
+    "test:married": "npx playwright test tests/married-pathways.spec.js",
+    "test:common-law": "npx playwright test tests/common-law-pathways.spec.js",
+    "test:never-together": "npx playwright test tests/never-together-pathways.spec.js",
+    "test:comprehensive": "./run-comprehensive-tests.sh",
+    "test:loading": "npx playwright test tests/ontario-family-law-wizard-comprehensive.spec.js",
+    "test:person-objects": "npx playwright test tests/person-objects-enhanced.spec.js",
+    "test:lawyers": "npx playwright test tests/lawyer-individual-organization.spec.js",
+    "test:validation": "npx playwright test tests/validation-comprehensive.spec.js",
+    "test:workflows": "npx playwright test tests/workflow-scenarios-comprehensive.spec.js",
+    "report": "npx playwright show-report",
+    "install": "npx playwright install"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

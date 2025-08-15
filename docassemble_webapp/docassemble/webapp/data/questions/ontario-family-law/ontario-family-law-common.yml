@@ -33,9 +33,6 @@ modules:
   - re
   - datetime
   - decimal
-  - .privacy_protection
-  - .court_data
-  - .validation_helpers
 
 ---
 # PRIVACY AND LEGAL DISCLAIMERS
@@ -46,6 +43,7 @@ content: |
   Ontario and federal privacy legislation. Information about children is
   subject to additional privacy protections.
 
+---
 template: legal_disclaimer
 content: |
   **Legal Disclaimer**: This system provides assistance with form completion
@@ -692,162 +690,43 @@ data:
 # REUSABLE QUESTION BLOCKS
 
 # Ontario Address Collection
-question: |
-  What is ${ person_name if defined('person_name') else 'your' } address in Ontario?
-fields:
-  - Street Address: address.address
-    address autocomplete: True
-  - Unit/Apartment: address.unit
-    required: False
-  - City: address.city
-  - Province: address.province
-    default: "Ontario"
-    disabled: True
-  - Postal Code: address.postal_code
-    validate: |
-      lambda x: validate_ontario_postal_code(x)['valid']
-validation code: |
-  postal_validation = validate_ontario_postal_code(address.postal_code)
-  if not postal_validation['valid']:
-    validation_error(postal_validation['message'])
-  address.postal_code = postal_validation['formatted']
+template: ontario_address_collection
+content: |
+  # This template provides reusable address collection
+  # Include this in forms that need address collection
 ---
-# Phone Number Collection
-question: |
-  What is ${ person_name if defined('person_name') else 'your' } phone number?
-fields:
-  - Primary Phone: contact.phone_primary
-    validate: |
-      lambda x: format_canadian_phone(x)['valid']
-  - Secondary Phone: contact.phone_secondary
-    required: False
-    validate: |
-      lambda x: not x or format_canadian_phone(x)['valid']
-  - Preferred contact method: contact.preferred_method
-    choices:
-      - Primary phone
-      - Secondary phone
-      - Email
-validation code: |
-  primary_validation = format_canadian_phone(contact.phone_primary)
-  if not primary_validation['valid']:
-    validation_error(primary_validation['message'])
-  contact.phone_primary = primary_validation['formatted']
-  
-  if contact.phone_secondary:
-    secondary_validation = format_canadian_phone(contact.phone_secondary)
-    if not secondary_validation['valid']:
-      validation_error(secondary_validation['message'])
-    contact.phone_secondary = secondary_validation['formatted']
+# Phone Number Collection Template
+template: phone_collection_template
+content: |
+  # This template provides reusable phone collection
+  # Include this in forms that need phone number collection
 ---
-# Legal Representation Questions
-question: |
-  Do you have a lawyer or paralegal representing you in this matter?
-yesno: legal_rep.has_representation
+# Legal Representation Template
+template: legal_representation_template
+content: |
+  # This template provides reusable legal representation questions
+  # Include this in forms that need legal representation information
+
 ---
-question: |
-  Please provide your legal representative's information.
-fields:
-  - Representative Type: legal_rep.rep_type
-    choices:
-      - Lawyer
-      - Paralegal
-  - Name: legal_rep.name
-  - Law Firm/Organization: legal_rep.firm
-    required: False
-  - Phone Number: legal_rep.phone
-    validate: |
-      lambda x: format_canadian_phone(x)['valid']
-  - Email: legal_rep.email
-    datatype: email
-  - Law Society Number: legal_rep.lso_number
-    help: |
-      The Law Society of Ontario license number for your representative
-validation code: |
-  phone_validation = format_canadian_phone(legal_rep.phone)
-  if not phone_validation['valid']:
-    validation_error(phone_validation['message'])
-  legal_rep.phone = phone_validation['formatted']
+# Service Method Template  
+template: service_method_template
+content: |
+  # This template provides reusable service method selection
+  # Include this in forms that need service method selection
+
 ---
-# Service Method Selection
-question: |
-  How do you want to serve the documents on the other party?
-field: service_method
-choices: service_methods
-help: |
-  The court rules require that all parties be properly served with court documents.
-  Personal service is usually required unless the court orders otherwise or the
-  other party consents to alternative service.
+# Financial Disclosure Template
+template: financial_disclosure_template
+content: |
+  # This template provides reusable financial disclosure questions
+  # Include this in forms that need financial information
+
 ---
-# Financial Disclosure Questions
-question: |
-  Financial Information
-subquestion: |
-  The court requires financial disclosure for support and property matters.
-  All amounts should be gross (before tax) income.
-fields:
-  - Annual Employment Income: finances.employment_income
-    datatype: currency
-    required: False
-  - Annual Self-Employment Income: finances.self_employment_income
-    datatype: currency
-    required: False
-  - Annual Investment Income: finances.investment_income
-    datatype: currency
-    required: False
-  - Annual Other Income: finances.other_income
-    datatype: currency
-    required: False
-  - Describe other income: finances.other_income_description
-    required: False
-    show if: finances.other_income
-validation code: |
-  for income_type in ['employment_income', 'self_employment_income', 'investment_income', 'other_income']:
-    if hasattr(finances, income_type) and getattr(finances, income_type):
-      amount = getattr(finances, income_type)
-      validation = validate_income_amount(amount, 'annual')
-      if not validation['valid']:
-        validation_error(f"{income_type.replace('_', ' ').title()}: {validation['message']}")
----
-# Children Information Collection
-question: |
-  Information about the child${ 'ren' if child_info.number() != 1 else '' }
-subquestion: |
-  ${ privacy_disclaimer }
-  
-  Please provide information about each child involved in this case.
-list collect: True
-fields:
-  - Child's first name: child_info[i].first_name
-  - Child's last name or initial: child_info[i].last_name
-    help: |
-      You may use only the child's initial for privacy protection
-  - Date of birth: child_info[i].birth_date
-    datatype: date
-    validate: |
-      lambda x: validate_legal_date(x, 'birth_date')['valid']
-  - Child lives with: child_info[i].lives_with
-    choices:
-      - "Applicant"
-      - "Respondent" 
-      - "Both parties (shared)"
-      - "Other person"
-  - Other person details: child_info[i].other_person_details
-    show if:
-      variable: child_info[i].lives_with
-      is: "Other person"
-  - Special needs or circumstances: child_info[i].special_needs
-    datatype: area
-    required: False
-validation code: |
-  date_validation = validate_legal_date(child_info[i].birth_date, 'birth_date')
-  if not date_validation['valid']:
-    validation_error(date_validation['message'])
-  
-  # Calculate age automatically
-  age_calc = calculate_age(child_info[i].birth_date)
-  child_info[i].age = age_calc['years']
-  child_info[i].age_string = age_calc['age_string']
+# Children Information Template
+template: children_information_template
+content: |
+  # This template provides reusable children information collection
+  # Include this in forms that need child information
 ---
 # ACCESSIBILITY AND BILINGUAL SUPPORT
 
@@ -919,6 +798,7 @@ code: |
       return "$0.00"
     return f"${amount:,.2f}"
 
+---
 code: |
   def format_date_for_document(date_obj):
     """Format dates for legal documents"""
@@ -926,6 +806,7 @@ code: |
       return date_obj.strftime("%B %d, %Y")
     return str(date_obj)
 
+---
 code: |
   def create_document_footer():
     """Standard footer for Ontario family law documents"""
@@ -968,6 +849,7 @@ content: |
   Please correct the highlighted field and try again.
   If you need assistance, contact the court office at the phone number listed above.
 
+---
 template: system_error_template  
 content: |
   **System Error**: An unexpected error occurred while processing your request.

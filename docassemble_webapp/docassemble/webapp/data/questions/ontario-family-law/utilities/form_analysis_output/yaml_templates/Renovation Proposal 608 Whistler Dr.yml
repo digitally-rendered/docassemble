@@ -1,0 +1,80 @@
+---
+# Ontario Family Law Form: Renovation Proposal 608 Whistler Dr
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Renovation Proposal 608 Whistler Dr
+  short title: |
+    RENOVATION PROPOSAL 608 WHISTLER DR
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  company_name
+  client_name
+  project_address
+  date
+  project_overview
+  project_overview
+  project_name
+  project_location
+  proposed_scope_of_work
+  h
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Company Name: Renovation 24
+fields:
+  - "Company Name": company_name
+---
+question: |
+  Client Name: Drew Carmichael
+fields:
+  - "Client Name": client_name
+---
+question: |
+  Project Address: 608 Whistler Dr Oshawa L1J8K2
+fields:
+  - "Project Address": project_address
+---
+question: |
+  Date: 2025-03-19
+fields:
+  - "Date": date
+    datatype: date
+---
+question: |
+  Project Overview: ..................................................................................
+fields:
+  - "Project Overview": project_overview
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

@@ -1,0 +1,93 @@
+---
+# Ontario Family Law Form: Reference Guide for Enterprise Pipeline Candidates
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Reference Guide For Enterprise Pipeline Candidates
+  short title: |
+    REFERENCE GUIDE FOR ENTERPRISE PIPELINE CANDIDATES
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  reference_guide_for_enterprise_pipeline_candidates
+  these_teams_will_use_this_document_to_understand_and_help_complete_the_documentation_requirements_necessary_to_support_the_enterprise_pipeline
+  the_following_approach_is_recommended_to_assess_the_suitability_for_the_product_team_to_onboard_to_enterprise
+  product_team_reviews_assesses_and_considers_the_following
+  team_persona_and_culture_guidelines
+  application_profile_guidelines
+  skill_set_alignment_guidelines
+  prerequisite_artifacts_guidelines
+  product_team_incorporates_information_considerations_from_the_above_guidelines_into_enterprise_deployment_candidate_maturity_model
+  the_following_are_guidelines_for_the_team_persona_and_culture
+
+  # Table Cell Section
+  confirmed_list_of_stories
+  artifact_is_deployed_in
+  stories_are_in
+  artifacts_deployment_approach_valid
+  auto_no_measure
+  auto_measure
+  auto_measure
+  auto_measure
+  auto_measure
+  manual_static_analysis
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Reference Guide for Enterprise Pipeline Candidates
+fields:
+  - "Reference Guide For Enterprise Pipeline Candidates": reference_guide_for_enterprise_pipeline_candidates
+    datatype: date
+---
+question: |
+  These teams will use this document to understand and help complete the documentation / requirements 
+fields:
+  - "These Teams Will Use This Document To Understand And Help Complete The Documentation Requirements Necessary To Support The Enterprise Pipeline": these_teams_will_use_this_document_to_understand_and_help_complete_the_documentation_requirements_necessary_to_support_the_enterprise_pipeline
+    datatype: currency
+---
+question: |
+  The following approach is recommended to assess the suitability for the Product Team to onboard to E
+fields:
+  - "The Following Approach Is Recommended To Assess The Suitability For The Product Team To Onboard To Enterprise": the_following_approach_is_recommended_to_assess_the_suitability_for_the_product_team_to_onboard_to_enterprise
+---
+question: |
+  Product Team reviews, assesses and considers the following:
+fields:
+  - "Product Team Reviews Assesses And Considers The Following": product_team_reviews_assesses_and_considers_the_following
+---
+question: |
+  Team Persona and Culture Guidelines (See below for details)
+fields:
+  - "Team Persona And Culture Guidelines": team_persona_and_culture_guidelines
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

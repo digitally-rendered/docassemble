@@ -1,0 +1,88 @@
+---
+# Ontario Family Law Form: Canada Pension Plan Investment Fund NDA (SNPS comments)-2018.07.18
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Canada Pension Plan Investment Fund Nda (Snps Comments)-2018.07.18
+  short title: |
+    CANADA PENSION PLAN INVESTMENT FUND NDA (SNPS COMMENTS)-2018.07.18
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  this_nondisclosure_agreement
+  between
+  and
+  unnamed_field
+  in_consideration_of_and_as_a_condition_to_the_provision_of_certain_information
+  the_term_information_does_not_include_information_which
+  without_the_prior_written_consent_of_the_discloser_the_recipient_will_not_and_will_direct_the_recipients_representatives_not_to_disclose_the_information_to_any_person_unless_in_the_view_of_the_recipients_counsel_disclosure_is_required_by_law_rule_regulation_or_order_or_required_by_a_court_regulatory_body_administrative_agency_security_regulators_or_other_governmental_or_selfregulatory_body_with_jurisdiction_over_the_recipient_provided_however_that_if_the_recipient_proposes_to_make_any_disclosure_based_upon_such_view_of_its_counsel_as_aforesaid_the_recipient_will_to_the_extent_practicable_and_permissible_by_law_advise_and_consult_with_the_discloser_prior_to_such_disclosure_concerning_the_information_it_proposes_to_disclose_in_the_event_that_the_recipient_is_requested_or_required_by_law_rule_regulation_or_order_or_required_by_a_court_regulatory_body_administrative_agency_security_regulator_or_other_governmental_or_selfregulatory_body_with_jurisdiction_over_the_recipient_to_disclose_any_information_supplied_to_the_recipient_in_the_course_of_its_dealings_with_the_discloser_it_is_agreed_that_the_recipient_will_to_the_extent_practicable_and_permissible_by_law_provide_the_discloser_with_prompt_notice_of_such_request
+  upon_written_request_of_the_discloser_the_recipient_will_cease_any_further_use_of_any_information_and_all_information_disclosed_in_any_form
+  the_terms_of_this_agreement_shall_terminate_upon_the_earlier_of
+  in_witness_to_which_the_parties_have_executed_this_agreement_as_of_the_effective_date
+
+  # Table Cell Section
+  by
+  by
+  name
+  name
+  title
+  title
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  This Non-Disclosure Agreement (this “Agreement”) is made and entered into this       day of      , 2
+fields:
+  - "This Nondisclosure Agreement": this_nondisclosure_agreement
+    datatype: date
+---
+question: |
+  BETWEEN:	CANADA PENSION PLAN INVESTMENT BOARD, One Queen Street East, Suite 2500, Toronto, Ontario, 
+fields:
+  - "Between": between
+---
+question: |
+  AND:	Black Duck Software,Inc. (“Counterparty”) 800 District Avenue, Burlington, MA 01803.
+fields:
+  - "And": and
+---
+question: |
+  (individually a “Party” and collectively the “Parties”)
+fields:
+  - "Unnamed Field": unnamed_field
+---
+question: |
+  In consideration of and as a condition to the provision of certain information (the “Information”, a
+fields:
+  - "In Consideration Of And As A Condition To The Provision Of Certain Information": in_consideration_of_and_as_a_condition_to_the_provision_of_certain_information
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

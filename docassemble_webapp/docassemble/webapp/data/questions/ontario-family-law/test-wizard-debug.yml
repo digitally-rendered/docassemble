@@ -1,0 +1,116 @@
+---
+metadata:
+  title: Debug Ontario Family Law Forms Wizard
+  short title: Debug Wizard
+---
+features:
+  debug: True
+---
+modules:
+  - re
+  - datetime
+---
+objects:
+  - user_situation: DAObject
+  - recommended_forms: DAList
+  - form_package: DAObject
+  # Parties as Person objects (people in legal proceedings)
+  - applicant: Person
+  - respondent: Person
+  # Lawyers as Individual objects (need full personal/professional details)
+  - user_lawyer: Individual
+  - other_lawyer: Individual
+  # Law firms as Organization objects
+  - user_law_firm: Organization
+  - other_law_firm: Organization
+  # Court as a full object with address
+  - court: DAObject
+  - court.address: Address
+  # Initialize organization names
+  - user_law_firm.name: IndividualName
+  - other_law_firm.name: IndividualName
+---
+# Test the mandatory code block from the original
+mandatory: True
+code: |
+  try:
+    # Introduction
+    wizard_introduction
+    
+    # Check for emergency situation first
+    emergency_situation
+    
+    # Show emergency warning if applicable but continue
+    if emergency_situation:
+      emergency_forms_needed
+    
+    # MIP requirement (skip if emergency)
+    if not emergency_situation:
+      mip_information
+      
+    # Test completed
+    final_screen
+  except Exception as e:
+    error_screen
+    error_message = str(e)
+    error_type = type(e).__name__
+---
+question: |
+  Welcome to the Ontario Family Law Forms Wizard
+subquestion: |
+  This is a debug version to find errors.
+continue button field: wizard_introduction
+---
+question: |
+  Is this an emergency situation?
+field: emergency_situation
+buttons:
+  - "Yes": True
+  - "No": False
+---
+question: |
+  ⚠️ URGENT: Emergency Filing Required
+subquestion: |
+  Your situation requires immediate action.
+continue button field: emergency_forms_needed
+---
+question: |
+  Mandatory Information Program (MIP) Requirement
+subquestion: |
+  Have you attended MIP?
+field: mip_completed
+buttons:
+  - "Yes": True
+  - "No": False
+  - "Not sure": unsure
+---
+code: |
+  mip_information = True
+---
+event: final_screen
+question: |
+  Debug Test Successful
+subquestion: |
+  The wizard loaded without errors!
+  
+  Objects working:
+  - Parties: Person
+  - Lawyers: Individual  
+  - Law firms: Organization
+---
+event: error_screen
+question: |
+  ⚠️ Debug: Error Detected
+subquestion: |
+  % if defined('error_message'):
+  **Error Type:** ${ error_type }
+  
+  **Error Message:**
+  ```
+  ${ error_message }
+  ```
+  % else:
+  An unknown error occurred.
+  % endif
+  
+  This helps identify what's breaking in the wizard.

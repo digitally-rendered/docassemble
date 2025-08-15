@@ -1,0 +1,336 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 13 - Financial Statement (Support Claims)
+  short title: |
+    Form 13 - Financial Statement
+  description: |
+    Complete financial disclosure for support claims.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-13---financial-statement-support-flr-13-may21-en-fil
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - financial: DAObject
+  - marriage: DAObject
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.money_owed_to_you
+  
+  # Applicant Information
+  applicant
+  
+  # Respondent Information
+  respondent
+  
+  # Children Information
+  children.you_must_complete_this_form_if_you_are_making_or_responding_to_a_claim_for_child_or_spousal_support_or_a_claim_to_change_support_unless_your_only_claim_for_support_is_a_claim_for_child_support_in_the_table_amount_under_the_child_support_guidelines_you_may_also_be_required_to_complete_and_attach_additional_schedules_based_on_the_claims_that_have_been_made_in_your_case_or_your_financial_circumstances
+  children.if_you_have_made_or_responded_to_a_claim_for_child_support_that_involves_undue_hardship_or_a_claim_for_spousal_support_you_must_also_complete_schedule_b
+  children.if_you_or_the_other_party_has_sought_a_contribution_towards_special_or_extraordinary_expenses_for_the_child
+  
+  # Financial Information
+  financial.form_13
+  financial.if_you_have_income_that_is_not_shown_in_part_i_of_the_financial_statement
+  financial.notes
+  
+  # Marriage Information
+  marriage.i_am_living_with
+  
+  # Other
+  full_legal_name
+  address
+  phone_fax
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+fields:
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+fields:
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  Money Owed to You (for example, any court judgments in your favour, estate money and income tax refu
+fields:
+  - "Money Owed to You (for example, any court judgments in your favour, estate money and income tax refu": court_info.money_owed_to_you
+    datatype: currency
+    min: 0
+---
+question: |
+  Pursuant to the Child Support Guidelines, a court can order that the parents of a child share the co
+fields:
+  - "Pursuant to the Child Support Guidelines, a court can order that the parents of a child share the co": court_info.pursuant_to_the_child_support_guidelines_a_court_can_order_that_the_parents_of_a_child_share_the_costs_of_the_following_expenses_for_the_child
+    datatype: currency
+    min: 0
+---
+
+# Applicant Information Questions
+question: |
+  Applicant(s) Lawyer
+fields:
+  - "Applicant(s) Lawyer": applicant
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s) Lawyer
+fields:
+  - "Respondent(s) Lawyer": respondent
+---
+
+# Children Information Questions
+question: |
+  You must complete this form if you are making or responding to a claim for child or spousal support 
+fields:
+  - "You must complete this form if you are making or responding to a claim for child or spousal support ": children.you_must_complete_this_form_if_you_are_making_or_responding_to_a_claim_for_child_or_spousal_support_or_a_claim_to_change_support_unless_your_only_claim_for_support_is_a_claim_for_child_support_in_the_table_amount_under_the_child_support_guidelines_you_may_also_be_required_to_complete_and_attach_additional_schedules_based_on_the_claims_that_have_been_made_in_your_case_or_your_financial_circumstances
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  If you have made or responded to a claim for child support that involves undue hardship or a claim f
+fields:
+  - "If you have made or responded to a claim for child support that involves undue hardship or a claim f": children.if_you_have_made_or_responded_to_a_claim_for_child_support_that_involves_undue_hardship_or_a_claim_for_spousal_support_you_must_also_complete_schedule_b
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  If you or the other party has sought a contribution towards special or extraordinary expenses for th
+fields:
+  - "If you or the other party has sought a contribution towards special or extraordinary expenses for th": children.if_you_or_the_other_party_has_sought_a_contribution_towards_special_or_extraordinary_expenses_for_the_child
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  Child Tax Benefits or Tax Rebates (e.g. GST)
+fields:
+  - "Child Tax Benefits or Tax Rebates (e.g. GST)": children.child_tax_benefits_or_tax_rebates
+---
+question: |
+  Entertainment/recreation (including children)
+fields:
+  - "Entertainment/recreation (including children)": children.entertainmentrecreation
+---
+
+# Financial Information Questions
+question: |
+  Form 13: Financial Statement (Support Claims) sworn/affirmed
+fields:
+  - "Form 13: Financial Statement (Support Claims) sworn/affirmed": financial.form_13
+    datatype: currency
+    min: 0
+---
+question: |
+  If you have income that is not shown in Part I of the financial statement (for example, partnership 
+fields:
+  - "If you have income that is not shown in Part I of the financial statement (for example, partnership ": financial.if_you_have_income_that_is_not_shown_in_part_i_of_the_financial_statement
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  NOTES:  You must fully and truthfully complete this financial statement, including any applicable sc
+fields:
+  - "NOTES:  You must fully and truthfully complete this financial statement, including any applicable sc": financial.notes
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  PART 1: INCOME
+fields:
+  - "PART 1: INCOME": financial.part_1
+    datatype: currency
+    min: 0
+---
+question: |
+  Financial Statement (Support Claims)
+fields:
+  - "Financial Statement (Support Claims)": financial_statement
+    datatype: currency
+    min: 0
+---
+
+# Marriage Information Questions
+question: |
+  I am living with (full legal name of person you are married to or cohabiting with)
+fields:
+  - "I am living with (full legal name of person you are married to or cohabiting with)": marriage.i_am_living_with
+---
+
+# Other Questions
+question: |
+  Full legal name:
+fields:
+  - "Full legal name:": full_legal_name
+---
+question: |
+  Address:
+fields:
+  - "Address:": address
+---
+question: |
+  Phone & fax:
+fields:
+  - "Phone & fax:": phone_fax
+---
+question: |
+  Email:
+fields:
+  - "Email:": email
+    datatype: email
+---
+question: |
+  This form is filed by:
+fields:
+  - "This form is filed by:": this_form_is_filed_by
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${applicant.name.full() if defined('applicant.name.first') else 'Not provided'}
+  * Address: ${applicant.address.on_one_line() if defined('applicant.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${respondent.name.full() if defined('respondent.name.first') else 'Not provided'}
+  * Address: ${respondent.address.on_one_line() if defined('respondent.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: ${form_name.replace('_', ' ').title()}
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

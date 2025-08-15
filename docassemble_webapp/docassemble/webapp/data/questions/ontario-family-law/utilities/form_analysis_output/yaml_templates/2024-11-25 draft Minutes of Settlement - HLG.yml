@@ -1,0 +1,81 @@
+---
+# Ontario Family Law Form: 2024-11-25 draft Minutes of Settlement - HLG
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    2024-11-25 Draft Minutes Of Settlement - Hlg
+  short title: |
+    2024-11-25 DRAFT MINUTES OF SETTLEMENT - HLG
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  lisa_and_drew_are_the_parents_of_dax_born_july_13_2017_there_is_a_court_order_in_place_which_details_the_decisionmaking_responsibilities_for_dax
+  drew_and_lisa_agree_that_the_following_principles_are_necessary_to_sustain_their_parenting_plan
+  lisa_and_drew_will_support_each_other_to_be_the_best_parent_they_can_they_will_share_information_and_concerns_about_their_child_with_each_other_so_that_both_may_guide_and_care_for_dax_appropriately
+  drew_and_lisa_will_not_do_anything_that_makes_dax_feel_upset_for_supporting_enjoying_or_loving_the_other_parent_they_will_not_ask_nor_expect_dax_to_prefer_one_of_them_over_the_other
+  march_break
+  christmas
+  mothers_dayfathers_day
+  halloween
+  childs_birthday
+  summer_vacation
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Lisa and Drew are the parents of Dax, born July 13, 2017. There is a court order in place which deta
+fields:
+  - "Lisa And Drew Are The Parents Of Dax Born July 13 2017 There Is A Court Order In Place Which Details The Decisionmaking Responsibilities For Dax": lisa_and_drew_are_the_parents_of_dax_born_july_13_2017_there_is_a_court_order_in_place_which_details_the_decisionmaking_responsibilities_for_dax
+---
+question: |
+  Drew and Lisa agree that the following principles are necessary to sustain their parenting plan:
+fields:
+  - "Drew And Lisa Agree That The Following Principles Are Necessary To Sustain Their Parenting Plan": drew_and_lisa_agree_that_the_following_principles_are_necessary_to_sustain_their_parenting_plan
+---
+question: |
+  Lisa and Drew will support each other to be the best parent they can. They will share information an
+fields:
+  - "Lisa And Drew Will Support Each Other To Be The Best Parent They Can They Will Share Information And Concerns About Their Child With Each Other So That Both May Guide And Care For Dax Appropriately": lisa_and_drew_will_support_each_other_to_be_the_best_parent_they_can_they_will_share_information_and_concerns_about_their_child_with_each_other_so_that_both_may_guide_and_care_for_dax_appropriately
+    datatype: currency
+---
+question: |
+  Drew and Lisa will not do anything that makes Dax feel upset for supporting, enjoying, or loving the
+fields:
+  - "Drew And Lisa Will Not Do Anything That Makes Dax Feel Upset For Supporting Enjoying Or Loving The Other Parent They Will Not Ask Nor Expect Dax To Prefer One Of Them Over The Other": drew_and_lisa_will_not_do_anything_that_makes_dax_feel_upset_for_supporting_enjoying_or_loving_the_other_parent_they_will_not_ask_nor_expect_dax_to_prefer_one_of_them_over_the_other
+    datatype: currency
+---
+question: |
+  March Break: Dax will spend 7 days of March break with one parent, alternating each year. March Brea
+fields:
+  - "March Break": march_break
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

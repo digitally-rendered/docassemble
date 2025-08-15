@@ -1,0 +1,235 @@
+---
+metadata:
+  title: Ontario Family Law Form 8 - Application (General)
+  short title: Form 8 - Application
+  description: Complete Ontario Family Court Form 8 - Application (General) to start
+    family court proceedings.
+  authors:
+  - name: Ontario Family Law Forms System
+  revision_date: '2025-08-09'
+  tags:
+  - ontario
+  - family-law
+  - form-26---statement-money-owed-flr-26-apr16-en-fil
+  - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: true
+  navigation: true
+  progress bar: true
+  show progress bar percentage: true
+  css: ontario-family-law.css
+---
+objects:
+  - court_info: DAObject
+  - financial: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.name_of_court
+  court_info.court_office_address
+  
+  # Financial Information
+  financial.form_26
+  financial.instructions_for_completing_form_26
+  financial.if_the_lump_sum
+  
+  # Claims
+  claims.if_your_order_or_domestic
+  claims.state_nature_of_order_judgment_or_contract
+  
+  # Other
+  recipient
+  full_legal_name_address_for
+  lawyers_name_address_street_number
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  "Court File Number"
+fields:
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  "(Name of court)"
+fields:
+  - "(Name of court)": court_info.name_of_court
+---
+question: |
+  "Court office address"
+fields:
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  "for each overdue or partially overdue payment, calculate in dollars and cents the amount of inter..."
+fields:
+  - "for each overdue or partially overdue payment, calculate ...": court_info.for_each_overdue_or_partially
+    datatype: date
+---
+question: |
+  "The total amount enforceable in this court that I am claiming against the payor is as follows:"
+fields:
+  - "The total amount enforceable in this court that I am clai...": court_info.the_total_amount_enforceable_in
+---
+# Financial Information Questions
+question: |
+  "Form 26: Statement of Money Owed dated"
+fields:
+  - "Form 26: Statement of Money Owed dated": financial.form_26
+    datatype: date
+---
+question: |
+  "instructions for completing form 26 (Statement of Money Owed) (continued)"
+fields:
+  - "instructions for completing form 26 (Statement of Money O...": financial.instructions_for_completing_form_26
+---
+question: |
+  "if the lump sum (whether by way of order, forfeiture, fine or support in a domestic contract) is ..."
+fields:
+  - "if the lump sum (whether by way of order, forfeiture, fin...": financial.if_the_lump_sum
+    datatype: currency
+    min: 0
+---
+question: |
+  "support"
+fields:
+  - "support": financial.support
+    datatype: currency
+    min: 0
+---
+question: |
+  "of the total lump-sum support."
+fields:
+  - "of the total lump-sum support.": financial.of_the_total_lumpsum_support
+    datatype: currency
+    min: 0
+---
+# Claims Questions
+question: |
+  "if your order or domestic contract actually forbids you to claim interest. (If your order or dome..."
+fields:
+  - "if your order or domestic contract actually forbids you t...": claims.if_your_order_or_domestic
+---
+question: |
+  "(State nature of order, judgment or contract.)"
+fields:
+  - "(State nature of order, judgment or contract.)": claims.state_nature_of_order_judgment_or_contract
+---
+# Other Questions
+question: |
+  "Recipient(s)"
+fields:
+  - "Recipient(s)": recipient
+---
+question: |
+  "Full legal name & address for service — street & number, municipality, postal code, telephone & f..."
+fields:
+  - "Full legal name & address for service — street & number, ...": full_legal_name_address_for
+---
+question: |
+  "Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and..."
+fields:
+  - "Lawyer’s name & address — street & number, municipality, ...": lawyers_name_address_street_number
+---
+question: |
+  "My name is (full legal name)"
+fields:
+  - "My name is (full legal name)": my_name_is
+---
+question: |
+  "I live in (municipality and province)"
+fields:
+  - "I live in (municipality and province)": i_live_in
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided.
+  
+  % if defined('applicant.name.first'):
+  **Applicant:** ${ applicant.name }
+  % endif
+  
+  % if defined('respondent.name.first'):
+  **Respondent:** ${ respondent.name }
+  % endif
+  
+  % if defined('court_info.file_number'):
+  **Court File Number:** ${ court_info.file_number }
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---

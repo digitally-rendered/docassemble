@@ -1,0 +1,91 @@
+---
+# Ontario Family Law Form: 35.1 Affidavit (decision-making responsibility, parenting time, contact).(draft)docx
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    35.1 Affidavit (Decision-Making Responsibility, Parenting Time, Contact).(Draft)Docx
+  short title: |
+    35.1 AFFIDAVIT (DECISION-MAKING RESPONSIBILITY, PARENTING TIME, CONTACT).(DRAFT)DOCX
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  i_swearaffirm_that_the_following_is_true
+  part_a
+  unnamed_field
+  field_2_the_child
+  field_3_i_am_also_the_parent_of_or_have_acted_as_a_parent
+  field_4_i_am_or_have_been_a_party_in_the_following_family_court_case
+  field_5_i_have_been_involved_in_the_following_civil_protection_proceedings
+  field_6_i_have_been_found_guilty_of_the_following_criminal_offence
+  field_7_i_am_now_charged_with_the_following_criminal_offence
+  field_8_when_the_court_is_assessing_a_persons_ability_to_act_as_a_parent_s_24
+
+  # Table Cell Section
+  court_file_number
+  unnamed_field
+  form_351
+  form_351
+  unnamed_field
+  form_351
+  form_351
+  applicant
+  applicant
+  full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  I swear/affirm that the following is true:
+fields:
+  - "I Swearaffirm That The Following Is True": i_swearaffirm_that_the_following_is_true
+---
+question: |
+  PART A:
+fields:
+  - "Part A": part_a
+---
+question: |
+  (Write "N/A" if any of the paragraphs do not apply to you or the child(ren).)
+fields:
+  - "Unnamed Field": unnamed_field
+---
+question: |
+  2.	The child(ren) in this case is/are:
+fields:
+  - "Field 2 The Child": field_2_the_child
+---
+question: |
+  3.	I am also the parent of or have acted as a parent (for example, as a step-parent, legal guardian 
+fields:
+  - "Field 3 I Am Also The Parent Of Or Have Acted As A Parent": field_3_i_am_also_the_parent_of_or_have_acted_as_a_parent
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

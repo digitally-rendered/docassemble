@@ -1,0 +1,80 @@
+---
+# Ontario Family Law Form: RQ06319 - Sr DevOps Engineer
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Rq06319 - Sr Devops Engineer
+  short title: |
+    RQ06319 - SR DEVOPS ENGINEER
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  location
+  contract
+  field_20_dundas_st_w_5th_floor
+  knowledge_of_the_following_amazon_web_services
+  previous_public_sector_experience_is_an_asset
+  provide_design_build_and_support_for_cloud_environments_to_create_solutions_for_contact_center_domain
+  lead_the_design_development_and_implementation_of_an_amazon_connect_cloudbased_contact_center_solution_services_including_but_not_limited_to
+  extensive_experience_in_design_development_and_implementation_of_an_amazon_connect_cloudbased_contact_center_solution_services_including_but_not_limited_to
+  knowledge_of_the_following_amazon_web_services
+  field_10_years_of_experience_with
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Location: Toronto (3 days onsite)
+fields:
+  - "Location": location
+---
+question: |
+  Contract: ~16 mon. to start, 11/27/2023 – 03/31/2025 [MM/DD/YYYY]
+fields:
+  - "Contract": contract
+---
+question: |
+  20 Dundas St. W, 5th floor (Atrium on Bay), M5G 2C2
+fields:
+  - "Field 20 Dundas St W 5Th Floor": field_20_dundas_st_w_5th_floor
+---
+question: |
+  Knowledge of the following Amazon Web Services (AWS) technologies Amazon Pinpoint, Amazon DynamoDB, 
+fields:
+  - "Knowledge Of The Following Amazon Web Services": knowledge_of_the_following_amazon_web_services
+---
+question: |
+  Previous Public Sector experience is an asset.
+fields:
+  - "Previous Public Sector Experience Is An Asset": previous_public_sector_experience_is_an_asset
+    datatype: currency
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

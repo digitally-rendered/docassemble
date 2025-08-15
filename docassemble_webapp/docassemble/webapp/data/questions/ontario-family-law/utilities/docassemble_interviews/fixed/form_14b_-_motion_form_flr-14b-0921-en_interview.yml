@@ -1,0 +1,255 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-14b---motion-form-flr-14b-0921-en
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - court_info: DAObject
+  - financial: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.next_scheduled_court_date
+  
+  # Applicant Information
+  applicant
+  
+  # Respondent Information
+  respondent
+  
+  # Financial Information
+  financial.note_to_person_making_this_motion
+  
+  # Claims
+  claims.with_the_consent_of_all_persons_affected
+  
+  # Other
+  form_14b
+  i_am
+  responding_to_a_motion
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  Next scheduled court date (if any):
+  - "Next scheduled court date (if any):": court_info.next_scheduled_court_date
+    datatype: date
+---
+question: |
+  Name of case management judge (if any):
+  - "Name of case management judge (if any):": court_info.name_of_case_management_judge
+---
+question: |
+  NOTE TO ALL:
+fields:
+  - "NOTE TO ALL: 
+The court will deal with this motion by relying on written material unless the court d": court_info.note_to_all
+    input type: area
+    rows: 4
+    required: True
+---
+
+# Applicant Information Questions
+question: |
+  Applicant:
+  - "Applicant:": applicant
+---
+
+# Respondent Information Questions
+question: |
+  Respondent:
+  - "Respondent:": respondent
+---
+
+# Financial Information Questions
+question: |
+  NOTE TO PERSON MAKING THIS MOTION:
+fields:
+  - "NOTE TO PERSON MAKING THIS MOTION:
+You may not serve or file a reply to a response from any person a": financial.note_to_person_making_this_motion
+    datatype: currency
+    min: 0
+    required: True
+---
+
+# Claims Questions
+question: |
+  with the consent of all persons affected
+fields:
+  - "with the consent of all persons affected 
+(this means that all persons affected agree to the propose": claims.with_the_consent_of_all_persons_affected
+---
+
+# Other Questions
+question: |
+  Form 14B:  Motion Form
+  - "Form 14B:  Motion Form": form_14b
+---
+question: |
+  I am:
+  - "I am:": i_am
+---
+question: |
+  Responding to a motion (Form 14B) already filed
+  - "Responding to a motion (Form 14B) already filed": responding_to_a_motion
+---
+question: |
+  Names of parties:
+  - "Names of parties:": names_of_parties
+---
+question: |
+  This form is filed by:
+  - "This form is filed by:": this_form_is_filed_by
+---
+# Review screen
+question: |
+  Review Your Information
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${showifdef("applicant.name.first", applicant.name.full())}
+  * Address: ${showifdef("applicant.address.address", applicant.address.on_one_line())}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${showifdef("respondent.name.first", respondent.name.full())}
+  * Address: ${showifdef("respondent.address.address", respondent.address.on_one_line())}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: Ontario Family Law Form
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

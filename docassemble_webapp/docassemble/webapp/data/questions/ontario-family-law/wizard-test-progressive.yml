@@ -1,0 +1,57 @@
+---
+metadata:
+  title: Ontario Family Law Forms Wizard - Progressive Test
+  short title: Forms Wizard Test
+---
+modules:
+  - re
+  - datetime
+---
+objects:
+  - user_situation: DAObject
+  - recommended_forms: DAList
+  - form_package: DAObject
+  # Parties as Person objects (people in legal proceedings)
+  - applicant: Person
+  - respondent: Person
+  # Lawyers as Individual objects (need full personal/professional details)
+  - user_lawyer: Individual
+  - other_lawyer: Individual
+  # Law firms as Organization objects
+  - user_law_firm: Organization
+  - other_law_firm: Organization
+  # Court as a full object with address
+  - court: DAObject
+  - court.address: Address
+  # Initialize organization names
+  - user_law_firm.name: IndividualName
+  - other_law_firm.name: IndividualName
+---
+# Main interview flow - simplified
+mandatory: True
+code: |
+  wizard_introduction
+  emergency_situation
+  final_test
+---
+question: |
+  Welcome to the Ontario Family Law Forms Wizard
+continue button field: wizard_introduction
+---
+question: |
+  Is this an emergency?
+field: emergency_situation
+buttons:
+  - "Yes": True
+  - "No": False
+---
+event: final_test
+question: |
+  Test Complete
+subquestion: |
+  The progressive test worked!
+  
+  Objects loaded:
+  - Parties as Person objects
+  - Lawyers as Individual objects
+  - Law firms as Organization objects

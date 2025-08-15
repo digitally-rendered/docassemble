@@ -1,0 +1,258 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-8d---application-adoption-flr-8d-may25-en-fil
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.if_you_want_to_oppose_this_adoption_you_or_your_lawyer_must_serve_and_file_an_answer
+  
+  # Applicant Information
+  applicant
+  applicant.the_applicant
+  
+  # Respondent Information
+  respondent
+  respondent.note_to_the_respondents
+  
+  # Children Information
+  children.if_the_adoption_order_is_made_pursuant_to_s_217
+  
+  # Other
+  form_8d
+  full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+fields:
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+fields:
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  IF YOU WANT TO OPPOSE THIS ADOPTION, you or your lawyer must serve and file an Answer (Form 10). IF 
+fields:
+  - "IF YOU WANT TO OPPOSE THIS ADOPTION, you or your lawyer must serve and file an Answer (Form 10). IF ": court_info.if_you_want_to_oppose_this_adoption_you_or_your_lawyer_must_serve_and_file_an_answer
+    required: True
+---
+question: |
+  Date of issue by clerk of the court
+fields:
+  - "Date of issue by clerk of the court": court_info.date_of_issue_by_clerk_of_the_court
+    datatype: date
+---
+
+# Applicant Information Questions
+question: |
+  Applicant(s) (The first letter of the applicant’s surname may be used)
+fields:
+  - "Applicant(s) (The first letter of the applicant’s surname may be used)": applicant
+---
+question: |
+  THE APPLICANT(S) ASK FOR AN ORDER FOR THE ADOPTION OF: (Give full legal name, date of birth, sex and
+fields:
+  - "THE APPLICANT(S) ASK FOR AN ORDER FOR THE ADOPTION OF: (Give full legal name, date of birth, sex and": applicant.the_applicant
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s) (If there is a respondent, the first letter of the respondent’s surname may be used)
+fields:
+  - "Respondent(s) (If there is a respondent, the first letter of the respondent’s surname may be used)": respondent
+---
+question: |
+  NOTE TO THE RESPONDENTS: You are also being served with a notice of motion to dispense with your con
+fields:
+  - "NOTE TO THE RESPONDENTS: You are also being served with a notice of motion to dispense with your con": respondent.note_to_the_respondents
+---
+
+# Children Information Questions
+question: |
+  If the adoption order is made, pursuant to s. 217(2)(b) of the Child, Youth and Family Services Act,
+fields:
+  - "If the adoption order is made, pursuant to s. 217(2)(b) of the Child, Youth and Family Services Act,": children.if_the_adoption_order_is_made_pursuant_to_s_217
+---
+
+# Other Questions
+question: |
+  Form 8D: Application (Adoption)
+fields:
+  - "Form 8D: Application (Adoption)": form_8d
+---
+question: |
+  Full legal name & address for service — street & number, municipality, postal code, telephone & fax 
+fields:
+  - "Full legal name & address for service — street & number, municipality, postal code, telephone & fax ": full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+---
+question: |
+  Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-
+fields:
+  - "Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-": lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+---
+question: |
+  The application is for a(n) (check all boxes that apply):
+fields:
+  - "The application is for a(n) (check all boxes that apply):": the_application_is_for_a
+---
+question: |
+  section 199(1)(b) adoption
+fields:
+  - "section 199(1)(b) adoption": section_199
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${applicant.name.full() if defined('applicant.name.first') else 'Not provided'}
+  * Address: ${applicant.address.on_one_line() if defined('applicant.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${respondent.name.full() if defined('respondent.name.first') else 'Not provided'}
+  * Address: ${respondent.address.on_one_line() if defined('respondent.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: ${form_name.replace('_', ' ').title()}
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

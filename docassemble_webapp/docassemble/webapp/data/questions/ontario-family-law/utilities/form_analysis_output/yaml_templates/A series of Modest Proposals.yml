@@ -1,0 +1,79 @@
+---
+# Ontario Family Law Form: A series of Modest Proposals
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    A Series Of Modest Proposals
+  short title: |
+    A SERIES OF MODEST PROPOSALS
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  follw_aws_best_practice_on_things_orgs_account_etc
+  field_50gbs_backbone
+  prod
+  shared
+  enterprise_vs_cloud
+  concourse
+  cache_dev_release_repos
+  split_brain_git_lifecycle_is_terribe_and_means_git_users_need_to_learn_the_okta_way
+  merry_go_round_test_infra
+  redis_supports_16_concurrent_dbs_can_we_use_them_to_cycle_redis_use
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Follw aws best practice on things .. orgs account etc ( aws.2.0 in my old world )
+fields:
+  - "Follw Aws Best Practice On Things Orgs Account Etc": follw_aws_best_practice_on_things_orgs_account_etc
+---
+question: |
+  50GBS backbone ( aws ) , this is much better than vpn
+fields:
+  - "Field 50Gbs Backbone": field_50gbs_backbone
+---
+question: |
+  Prod ( per cel ? Region ? )
+fields:
+  - "Prod": prod
+---
+question: |
+  Shared ( valut , git , tfe, af )
+fields:
+  - "Shared": shared
+---
+question: |
+  Enterprise vs cloud ( OKTA works better with Ent than it does with cloud
+fields:
+  - "Enterprise Vs Cloud": enterprise_vs_cloud
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

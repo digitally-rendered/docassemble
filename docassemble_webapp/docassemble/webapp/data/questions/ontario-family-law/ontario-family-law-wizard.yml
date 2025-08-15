@@ -1,0 +1,393 @@
+---
+metadata:
+  title: Ontario Family Law Forms Wizard
+  short title: Forms Wizard
+  description: Interactive guide to determine which Ontario family law forms you need
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-11
+---
+mandatory: True
+code: |
+  # Introduction
+  wizard_introduction
+  
+  # Check for emergency situation
+  emergency_situation
+  
+  # Show emergency warning if applicable but continue
+  if emergency_situation:
+    emergency_forms_needed
+  
+  # MIP requirement (skip if emergency)
+  if not emergency_situation:
+    mip_completed
+    mip_information
+  
+  # Determine relationship status
+  relationship_status
+  
+  # Ask what orders they're seeking based on relationship
+  if relationship_status == "never_together":
+    never_together_orders
+    # Set standard variables based on never_together responses
+    seeking_divorce = False
+    seeking_custody = never_together_custody
+    seeking_child_support = never_together_child_support
+    seeking_spousal_support = False
+    seeking_property = False
+    seeking_exclusive_possession = False
+    seeking_restraining_order = never_together_restraining
+    seeking_enforcement = False
+    seeking_other = never_together_other
+  else:
+    # For married couples, ask about divorce first
+    if relationship_status == "married":
+      seeking_divorce
+    else:
+      seeking_divorce = False
+    
+    # Then ask about other orders
+    orders_sought
+  
+  # If seeking divorce, determine complexity
+  if relationship_status == "married" and seeking_divorce:
+    # Check if ONLY divorce or divorce plus other things
+    other_orders = (seeking_custody or seeking_child_support or 
+                   seeking_spousal_support or seeking_property or 
+                   seeking_exclusive_possession or seeking_restraining_order or 
+                   seeking_enforcement)
+    
+    if not other_orders:
+      # Divorce only - ask about contested/uncontested
+      divorce_complexity
+      if divorce_complexity == "uncontested_simple":
+        children_involved_simple
+    else:
+      # Divorce with other issues - it's contested by definition
+      divorce_complexity = "contested"
+  
+  # Check if financial forms are needed
+  needs_financial_forms
+  
+  # Financial situation - only ask if needed
+  if needs_financial_forms:
+    financial_complexity
+  
+  # For now, continue to test complete
+  test_complete
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Wizard
+subquestion: |
+  This interactive guide will help you determine exactly which forms you need to start your family law case in Ontario.
+  
+  This wizard will:
+  
+  * Ask you questions about your situation
+  * Determine which forms you need
+  * Explain the order to complete them
+  * Provide direct links to each form
+  * Estimate timelines for your case
+  
+  Before we begin, have ready:
+  
+  * Information about your marriage/relationship
+  * Whether you have children together
+  * Any property or support issues
+  
+  This should take about 5 minutes.
+  
+  Legal Disclaimer: This tool provides procedural information only, not legal advice.
+continue button field: wizard_introduction
+---
+# Emergency check
+question: |
+  Is this an emergency situation?
+subquestion: |
+  **You may have an emergency if you are experiencing:**
+  
+  * Immediate physical danger or threats
+  * Domestic violence or abuse
+  * Fear for your safety or your children's safety
+  * Someone threatening to take your children
+  * Someone threatening to harm you or your property
+field: emergency_situation
+buttons:
+  - "Yes, this is an emergency": True
+  - "No, this is not an emergency": False
+---
+# Emergency forms screen
+question: |
+  ⚠️ URGENT: Emergency Filing Required
+subquestion: |
+  **Your situation requires immediate action.** You should file emergency forms TODAY.
+  
+  ## Emergency Forms You Need NOW:
+  1. **Form 8 - Application (General)** 
+  2. **Form 14B - Notice of Motion** (for urgent relief)
+  3. **Form 14A - Supporting Affidavit** (explain the emergency)
+  4. **Form 14D - Order Without Notice** (if seeking order before serving other party)
+  
+  **If seeking restraining order:**
+  - **Form 25F - Restraining Order**
+  
+  ## Immediate Actions:
+  1. **If in danger, call 911 NOW**
+  2. Complete emergency forms immediately
+  3. Go directly to courthouse (emergency filings possible after hours)
+  4. You may get a temporary order the same day
+  
+  ## Crisis Resources:
+  - **Emergency: 911**
+  - **Assaulted Women's Helpline: 1-866-863-0511**
+  - **Legal Aid Ontario: 1-800-668-8258**
+  
+  ---
+  
+  **We'll continue gathering information about your full case needs, but please prioritize your safety and file emergency forms first.**
+  
+continue button field: emergency_forms_needed
+continue button label: Continue (I understand the urgency)
+---
+# MIP Information
+question: |
+  Mandatory Information Program (MIP) Requirement
+subquestion: |
+  **Before filing any family court application in Ontario, you must attend the Mandatory Information Program (MIP).**
+  
+  **What is MIP?**
+  - Free 2-hour information session
+  - Available online or in-person
+  - Covers family law basics, court procedures, and alternatives to court
+  - Provides certificate required for filing
+  
+  **Have you already attended MIP?**
+field: mip_completed
+buttons:
+  - "Yes, I have my certificate": True
+  - "No, I need to attend": False
+  - "I'm not sure": unsure
+---
+# MIP follow-up
+question: |
+  MIP Session Information
+subquestion: |
+  % if mip_completed == False or mip_completed == "unsure":
+  **You must attend MIP before filing your application.**
+  
+  **How to Register:**
+  1. Contact your local courthouse
+  2. Visit Ontario Court Services for online sessions
+  3. Register for next available session
+  4. Attend and receive your certificate
+  
+  The certificate does not expire, so you can attend MIP now and file later when ready.
+  % else:
+  Great! You have your MIP certificate. Keep it handy as you'll need to file it with your application.
+  % endif
+  
+  **Note:** You can complete your forms while waiting for your MIP session, but cannot file them until after attending.
+continue button field: mip_information
+---
+# Relationship status
+question: |
+  What is your relationship status?
+field: relationship_status
+buttons:
+  - "Married": married
+  - "Common-law partners": common_law
+  - "Never lived together": never_together
+---
+# Unified question for what orders are being sought
+question: |
+  What other orders are you seeking?
+subquestion: |
+  % if relationship_status == "married" and seeking_divorce:
+  Besides divorce, what other orders do you need? Select all that apply:
+  % elif relationship_status == "married":
+  What family law orders are you seeking? Select all that apply:
+  % else:
+  As common-law partners, what family law orders are you seeking? Select all that apply:
+  % endif
+fields:
+  - "Child custody and/or access": seeking_custody
+    datatype: yesno
+    default: False
+  - "Child support": seeking_child_support
+    datatype: yesno
+    default: False
+  - "Spousal support": seeking_spousal_support
+    datatype: yesno
+    default: False
+  - "Property division (equalization/division of assets)": seeking_property
+    datatype: yesno
+    default: False
+  - "Exclusive possession of matrimonial home": seeking_exclusive_possession
+    datatype: yesno
+    default: False
+  - "Restraining order/Non-communication order": seeking_restraining_order
+    datatype: yesno
+    default: False
+  - "Enforcement of existing agreement or order": seeking_enforcement
+    datatype: yesno
+    default: False
+  - "Other relief": seeking_other
+    datatype: yesno
+    default: False
+continue button field: orders_sought
+---
+# Separate divorce question for married couples
+question: |
+  Are you seeking a divorce?
+subquestion: |
+  As a married couple, you have the option to seek a divorce along with other family law orders, or just seek other orders without divorcing.
+field: seeking_divorce
+buttons:
+  - "Yes, I want a divorce": True
+  - "No, just other orders": False
+---
+# Orders for people who never lived together
+question: |
+  What orders are you seeking?
+subquestion: |
+  Since you never lived together, you may still have family law matters to resolve.
+  
+  Select all that apply:
+fields:
+  - "Child custody and/or access": never_together_custody
+    datatype: yesno
+    default: False
+    help: If you have children together
+  - "Child support": never_together_child_support
+    datatype: yesno
+    default: False
+    help: Financial support for children
+  - "Paternity/Parentage declaration": never_together_paternity
+    datatype: yesno
+    default: False
+    help: Legal determination of parentage
+  - "Restraining order/Non-contact order": never_together_restraining
+    datatype: yesno
+    default: False
+    help: Protection from harassment or violence
+  - "Other relief": never_together_other
+    datatype: yesno
+    default: False
+continue button field: never_together_orders
+---
+# Divorce complexity
+question: |
+  Is your divorce contested or uncontested?
+subquestion: |
+  **Uncontested means:**
+  - Both parties agree to the divorce
+  - You agree on all issues (or have no issues to resolve)
+  - No disputes about children, support, or property
+  
+  **Contested means:**
+  - Your spouse doesn't agree to divorce, OR
+  - You disagree on custody, support, or property
+field: divorce_complexity
+buttons:
+  - "Uncontested - we agree on everything": uncontested_simple
+  - "Contested - we have disagreements": contested
+---
+# Children for simple divorce
+question: |
+  Do you have children together?
+subquestion: |
+  Include all children under 18, or adult children who are dependent due to disability or education.
+field: children_involved_simple
+buttons:
+  - "Yes": True
+  - "No": False
+---
+# Financial complexity
+question: |
+  What is your financial situation?
+subquestion: |
+  This helps determine which financial forms you need:
+fields:
+  - "Total value of property/assets": property_value
+    datatype: currency
+    min: 0
+  - "Are you claiming or paying support?": support_involved
+    datatype: yesnoradio
+  - "Do you own a business?": business_owner
+    datatype: yesnoradio
+  - "Do you have pensions or retirement accounts?": pension_involved
+    datatype: yesnoradio
+continue button field: financial_complexity
+---
+# Check if financial forms needed
+code: |
+  needs_financial_forms = False
+  
+  # Check if any financial-related orders are being sought
+  if defined('seeking_child_support') and seeking_child_support:
+    needs_financial_forms = True
+  elif defined('seeking_spousal_support') and seeking_spousal_support:
+    needs_financial_forms = True
+  elif defined('seeking_property') and seeking_property:
+    needs_financial_forms = True
+  elif defined('seeking_exclusive_possession') and seeking_exclusive_possession:
+    needs_financial_forms = True
+  elif defined('never_together_child_support') and never_together_child_support:
+    needs_financial_forms = True
+---
+# Temporary test complete showing what we've collected
+event: test_complete
+question: |
+  Information Collection Complete
+subquestion: |
+  ## Summary of Your Situation:
+  
+  **Emergency Status:** ${ "Yes - URGENT" if emergency_situation else "No" }
+  
+  % if not emergency_situation:
+  **MIP Status:** ${ "Completed" if mip_completed == True else "Need to attend" if mip_completed == False else "Unsure" }
+  % endif
+  
+  **Relationship:** ${ "Married" if relationship_status == "married" else "Common-law" if relationship_status == "common_law" else "Never lived together" }
+  
+  % if relationship_status != "never_together":
+  **Orders Sought:**
+  % if defined('seeking_divorce') and seeking_divorce:
+  - Divorce
+  % endif
+  % if seeking_custody:
+  - Child custody/access
+  % endif
+  % if seeking_child_support:
+  - Child support
+  % endif
+  % if seeking_spousal_support:
+  - Spousal support
+  % endif
+  % if seeking_property:
+  - Property division
+  % endif
+  % else:
+  **Orders Sought:**
+  % if never_together_custody:
+  - Child custody/access
+  % endif
+  % if never_together_child_support:
+  - Child support
+  % endif
+  % endif
+  
+  % if needs_financial_forms:
+  **Financial Forms Required:** Yes
+  % endif
+  
+  ---
+  
+  **Next Steps Would Be:**
+  - Collect party information
+  - Collect lawyer information
+  - Generate form recommendations
+  - Provide filing instructions
+---

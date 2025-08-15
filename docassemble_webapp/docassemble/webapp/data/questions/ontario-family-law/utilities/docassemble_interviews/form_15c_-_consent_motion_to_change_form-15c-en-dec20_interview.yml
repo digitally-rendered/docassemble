@@ -1,0 +1,352 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-15c---consent-motion-to-change-form-15c-en-dec20
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - financial: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.we_have_filedare_filing_financial_statements
+  
+  # Applicant Information
+  applicant
+  applicant.date_of_applicants_signature
+  
+  # Respondent Information
+  respondent
+  respondent.date_of_respondents_signature
+  
+  # Children Information
+  children.you_may_not_use_this_form_to_change_a_notice_of_calculation_made_by_the_online_child_support_service
+  children.since_the_orderagreement_for_child_support_was_made_a_notice_of_recalculation_was_issued_by_the
+  children.online_child_support_service_dated
+  
+  # Financial Information
+  financial.assignee_of_support_order
+  financial.the_party_receiving_support
+  financial.based_on_the_payors_annual_income_of
+  
+  # Claims
+  claims.we_agree_that_paragraph
+  
+  # Other
+  form_15c
+  full_legal_name
+  name
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+fields:
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+fields:
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  We have filed/are filing Financial Statements (Form 13 or 13.1) with the court.
+fields:
+  - "We have filed/are filing Financial Statements (Form 13 or 13.1) with the court.": court_info.we_have_filedare_filing_financial_statements
+---
+question: |
+  We have attached the existing final order or support agreement and ask the court to make an order th
+fields:
+  - "We have attached the existing final order or support agreement and ask the court to make an order th": court_info.we_have_attached_the_existing_final_order_or_support_agreement_and_ask_the_court_to_make_an_order_that_changes_that_order_or_agreement_as_set_out_below
+    datatype: currency
+    min: 0
+---
+question: |
+  of Justice (name of judge)
+fields:
+  - "of Justice (name of judge)": court_info.of_justice
+---
+
+# Applicant Information Questions
+question: |
+  Applicant(s) Lawyer
+fields:
+  - "Applicant(s) Lawyer": applicant
+---
+question: |
+  Date of applicant's signature
+fields:
+  - "Date of applicant's signature": applicant.date_of_applicants_signature
+    datatype: date
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s) Lawyer
+fields:
+  - "Respondent(s) Lawyer": respondent
+---
+question: |
+  Date of respondent's signature
+fields:
+  - "Date of respondent's signature": respondent.date_of_respondents_signature
+    datatype: date
+---
+
+# Children Information Questions
+question: |
+  YOU MAY NOT USE THIS FORM TO CHANGE A NOTICE OF CALCULATION MADE BY THE ONLINE CHILD SUPPORT SERVICE
+fields:
+  - "YOU MAY NOT USE THIS FORM TO CHANGE A NOTICE OF CALCULATION MADE BY THE ONLINE CHILD SUPPORT SERVICE": children.you_may_not_use_this_form_to_change_a_notice_of_calculation_made_by_the_online_child_support_service
+    datatype: currency
+    min: 0
+---
+question: |
+  Since the order/agreement for child support was made, a Notice of Recalculation was issued by the
+fields:
+  - "Since the order/agreement for child support was made, a Notice of Recalculation was issued by the": children.since_the_orderagreement_for_child_support_was_made_a_notice_of_recalculation_was_issued_by_the
+    datatype: currency
+    min: 0
+---
+question: |
+  online Child Support Service dated
+fields:
+  - "online Child Support Service dated": children.online_child_support_service_dated
+    datatype: date
+---
+question: |
+  PARENTING OR CONTACT
+(Complete only if the parties are asking for a change in parenting or contact.)
+fields:
+  - "PARENTING OR CONTACT
+(Complete only if the parties are asking for a change in parenting or contact.)": children.parenting_or_contact
+---
+question: |
+  shall have decision-making responsibility for the following child(ren) as described in the attached 
+fields:
+  - "shall have decision-making responsibility for the following child(ren) as described in the attached ": children.shall_have_decisionmaking_responsibility_for_the_following_child
+    input type: area
+    rows: 4
+---
+
+# Financial Information Questions
+question: |
+  Assignee of Support Order (if applicable)
+fields:
+  - "Assignee of Support Order (if applicable)": financial.assignee_of_support_order
+    datatype: currency
+    min: 0
+---
+question: |
+  The party receiving support
+fields:
+  - "The party receiving support": financial.the_party_receiving_support
+    datatype: currency
+    min: 0
+---
+question: |
+  Based on the payor’s annual income of $
+fields:
+  - "Based on the payor’s annual income of $": financial.based_on_the_payors_annual_income_of
+    datatype: currency
+    min: 0
+---
+question: |
+  following special or extraordinary expenses:
+fields:
+  - "following special or extraordinary expenses:": financial.following_special_or_extraordinary_expenses
+    datatype: currency
+    min: 0
+---
+question: |
+  Type of expense
+fields:
+  - "Type of expense": financial.type_of_expense
+    datatype: currency
+    min: 0
+---
+
+# Claims Questions
+question: |
+  We agree that paragraph(s) (specify which paragraphs of the order are to be changed)
+fields:
+  - "We agree that paragraph(s) (specify which paragraphs of the order are to be changed)": claims.we_agree_that_paragraph
+---
+
+# Other Questions
+question: |
+  Form 15C:  Consent 
+Motion to Change
+fields:
+  - "Form 15C:  Consent 
+Motion to Change": form_15c
+---
+question: |
+  Full legal name:
+fields:
+  - "Full legal name:": full_legal_name
+---
+question: |
+  Name:
+fields:
+  - "Name:": name
+---
+question: |
+  Address:
+fields:
+  - "Address:": address
+---
+question: |
+  Phone & fax:
+fields:
+  - "Phone & fax:": phone_fax
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${applicant.name.full() if defined('applicant.name.first') else 'Not provided'}
+  * Address: ${applicant.address.on_one_line() if defined('applicant.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${respondent.name.full() if defined('respondent.name.first') else 'Not provided'}
+  * Address: ${respondent.address.on_one_line() if defined('respondent.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: ${form_name.replace('_', ' ').title()}
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

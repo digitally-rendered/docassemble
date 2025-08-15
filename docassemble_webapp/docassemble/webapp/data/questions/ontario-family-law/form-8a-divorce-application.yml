@@ -1,0 +1,649 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8A - Application (Divorce)
+  short title: |
+    Form 8A - Divorce Application
+  description: |
+    Complete Form 8A to apply for divorce in Ontario, including claims for custody,
+    support, and property division under the Divorce Act and Family Law Act.
+  authors:
+    - name: Ontario Family Law Navigator
+  revision_date: 2025-01-15
+  version: "1.0"
+  jurisdiction: "Ontario, Canada"
+---
+include:
+  - ontario-family-law-common.yml
+---
+# Legal disclaimer and mandatory warning
+mandatory: True
+question: |
+  ## Important Legal Information - Divorce Application (Form 8A)
+  
+  **DISCLAIMER**: This system provides general legal information and procedural guidance for family law in Ontario. This is not legal advice and cannot replace consultation with a qualified lawyer who can advise you on your specific situation. All information is for educational purposes only.
+  
+  ### Before You Begin
+  
+  **You should consult with a lawyer if:**
+  - You are unsure about your legal rights or obligations
+  - Your situation involves complex property or support issues
+  - There are concerns about domestic violence or child safety
+  - Your spouse contests the divorce or related claims
+  
+  **This application is for divorce only.** If you are not married, you cannot use this form. Common-law couples must use different procedures.
+  
+  **Court Location**: This application is designed for Ontario courts only. You must meet Ontario residence requirements.
+field: legal_disclaimer_acknowledged
+datatype: yesnoradio
+---
+# Initial eligibility screening
+mandatory: True
+question: |
+  ## Divorce Application Eligibility Check
+  
+  Before we begin your Form 8A, let's confirm you meet the basic requirements for divorce in Ontario.
+fields:
+  - "Are you currently legally married?": currently_married
+    datatype: yesnoradio
+    help: |
+      You must be legally married to apply for divorce. Common-law relationships, 
+      even long-term ones, do not qualify for divorce proceedings.
+  
+  - "Do you or your spouse currently live in Ontario?": ontario_resident
+    datatype: yesnoradio
+    help: |
+      At least one spouse must have been ordinarily resident in Ontario for at 
+      least one year immediately before starting this application.
+  
+  - "How long have you lived in Ontario?": applicant_ontario_residence_period
+    show if: ontario_resident
+    help: |
+      You need at least 12 months of ordinary residence in Ontario to establish 
+      jurisdiction for divorce.
+validation code: |
+  if not currently_married:
+    validation_error("You must be legally married to apply for divorce. If you are in a common-law relationship, different legal procedures apply. Please consult with a lawyer about your options.")
+  
+  if not ontario_resident:
+    validation_error("At least one spouse must reside in Ontario to apply for divorce here. You may need to apply in the province where you or your spouse lives.")
+---
+# Marriage information
+mandatory: True
+question: |
+  ## Marriage Information
+  
+  Please provide details about your marriage. This information must match your marriage certificate exactly.
+fields:
+  - "Date of marriage": marriage_date
+    datatype: date
+    help: |
+      Enter the exact date from your marriage certificate. This must be accurate 
+      as the court will verify against official records.
+  
+  - "Place of marriage (city/town)": marriage_place_city
+    help: |
+      Enter the city or town where you were married.
+  
+  - "Province/state/country of marriage": marriage_place_jurisdiction
+    help: |
+      Enter the province (if in Canada), state (if in USA), or country where you were married.
+  
+  - "Name of person who performed the ceremony": marriage_officiant_name
+    required: False
+    help: |
+      This could be a religious official, judge, justice of the peace, or other 
+      authorized person. Leave blank if unknown.
+  
+  - "Your full legal name at time of marriage": applicant_name_at_marriage
+    help: |
+      Enter your complete legal name as it appeared on the marriage certificate.
+  
+  - "Your spouse's full legal name at time of marriage": spouse_name_at_marriage
+    help: |
+      Enter your spouse's complete legal name as it appeared on the marriage certificate.
+validation code: |
+  import datetime
+  if marriage_date >= today():
+    validation_error("Marriage date cannot be in the future.")
+---
+# Current names and contact information
+mandatory: True
+question: |
+  ## Current Information
+  
+  Please provide current legal names and contact information.
+fields:
+  - "Your current full legal name": applicant_current_name
+    help: |
+      If your name has changed since marriage (through marriage, divorce, or legal name change), 
+      enter your current legal name.
+  
+  - "Your spouse's current full legal name": spouse_current_name
+    help: |
+      Enter your spouse's current legal name, even if it has changed since your marriage.
+  
+  - "Your current address": applicant_address
+    input type: area
+    help: |
+      Provide your complete current address including postal code.
+  
+  - "Your spouse's current address (if known)": spouse_address
+    input type: area
+    required: False
+    help: |
+      If you know your spouse's current address, provide it here. If unknown, 
+      you may need special procedures to serve the documents.
+---
+# Separation information - key legal requirement
+mandatory: True
+question: |
+  ## Separation Information
+  
+  **This is crucial information for your divorce application.** In Ontario, you must have legal grounds for divorce.
+fields:
+  - "What is the main ground for your divorce?": divorce_ground
+    datatype: radio
+    choices:
+      - "Separation for one year or more": separation
+      - "Adultery": adultery  
+      - "Physical or mental cruelty": cruelty
+    help: |
+      **Separation** (most common): You and your spouse have lived separate and apart 
+      for at least one year with intention that the marriage has broken down.
+      
+      **Adultery**: Your spouse committed adultery and you have not forgiven them 
+      or resumed cohabitation.
+      
+      **Cruelty**: Your spouse treated you with physical or mental cruelty making 
+      continued cohabitation intolerable.
+  
+  - "Date you and your spouse separated": separation_date
+    datatype: date
+    show if: 
+      variable: divorce_ground
+      is: "separation"
+    help: |
+      This is the date you began living separate and apart with the intention 
+      that your marriage was over. You can be separated while living in the same home.
+  
+  - "Have you lived separate and apart since the separation date?": lived_separate_since
+    datatype: yesnoradio
+    show if: 
+      variable: divorce_ground
+      is: "separation"
+    help: |
+      Brief periods of reconciliation (up to 90 days total) do not restart the 
+      separation period, but longer periods might.
+
+validation code: |
+  if divorce_ground == "separation":
+    if separation_date >= today():
+      validation_error("Separation date cannot be in the future.")
+    
+    # Calculate days separated
+    days_separated = (today() - separation_date).days
+    if days_separated < 365:
+      future_date = separation_date.plus(days=365)
+      validation_error(f"You have been separated for {days_separated} days. You need at least 365 days (1 year) of separation to apply for divorce on this ground. You can prepare your application now, but cannot file it until you reach the one-year mark on {future_date}.")
+---
+# Additional details for fault-based grounds
+question: |
+  ## Details About Adultery
+  
+  **Note**: Adultery can be difficult to prove in court. You should consult with a lawyer about evidence requirements.
+fields:
+  - "Approximate date when adultery occurred": adultery_date
+    datatype: date
+    required: False
+    help: |
+      If you know when the adultery occurred, provide the approximate date.
+  
+  - "Have you forgiven your spouse or resumed cohabitation since learning of the adultery?": forgiven_adultery
+    datatype: yesnoradio
+    help: |
+      If you forgave your spouse or resumed living together as a married couple 
+      after learning of the adultery, this may affect your ability to use this ground.
+  
+  - "Do you have evidence of the adultery?": have_adultery_evidence
+    datatype: yesnoradio
+    help: |
+      The court requires proof of adultery. Consider whether you have sufficient evidence 
+      before proceeding on this ground.
+show if:
+  variable: divorce_ground
+  is: "adultery"
+validation code: |
+  if forgiven_adultery:
+    validation_error("If you have forgiven your spouse or resumed cohabitation after the adultery, you may not be able to use adultery as grounds for divorce. Please consult with a lawyer.")
+---
+question: |
+  ## Details About Cruelty
+  
+  **Important**: Cruelty cases often involve complex evidence and safety concerns. You should strongly consider consulting with a lawyer.
+fields:
+  - "Describe the nature of the cruelty": cruelty_description
+    input type: area
+    help: |
+      Provide a brief description of the physical or mental cruelty. You do not need 
+      to include all details here, but give enough information to establish the ground.
+  
+  - "Approximate date(s) when cruelty occurred": cruelty_dates
+    help: |
+      Provide approximate dates or time periods when the cruelty occurred.
+  
+  - "Are there any safety concerns?": safety_concerns
+    datatype: yesnoradio
+    help: |
+      If you have concerns about your safety or your children's safety, you may need 
+      special procedures or protection orders.
+show if:
+  variable: divorce_ground
+  is: "cruelty"
+validation code: |
+  if safety_concerns:
+    validation_error("Given your safety concerns, you should consult with a lawyer immediately before proceeding. Consider contacting a women's shelter or legal aid for assistance with safety planning and legal representation.")
+---
+# Children information - critical for many divorce cases
+mandatory: True
+question: |
+  ## Children of the Marriage
+  
+  The court needs to know about all children of your marriage to ensure their interests are protected.
+fields:
+  - "Do you and your spouse have any children together (including adopted children)?": have_children_of_marriage
+    datatype: yesnoradio
+    help: |
+      Include all children born to or adopted by you and your spouse during the marriage, 
+      regardless of their current age or where they live.
+  
+  - "How many children do you have together?": number_of_children
+    datatype: integer
+    min: 1
+    show if: have_children_of_marriage
+  
+  - "Are any of these children under 18 years old?": have_minor_children
+    datatype: yesnoradio
+    show if: have_children_of_marriage
+    help: |
+      Minor children require special consideration for custody, access, and support.
+---
+# Children details
+question: |
+  ## Details About Your Children
+  
+  Please provide information about each child. **For privacy protection, this information will be kept confidential** and only disclosed as required by court rules.
+fields:
+  - "Child ${ i + 1 } information": children[i].name
+    show if: have_children_of_marriage
+under: |
+  % for i in range(number_of_children):
+  **Child ${ i + 1 }:**
+  
+  - Full name: ${ children[i].name }
+  - Date of birth: ${ children[i].birthdate }
+  - Current address: ${ children[i].address }
+  - Who does this child currently live with?: ${ children[i].current_residence }
+  % endfor
+fields:
+  - code: |
+      children_fields = []
+      for i in range(number_of_children):
+        children_fields.extend([
+          { f"children[{i}].name": f"Child {i+1} - Full name" },
+          { f"children[{i}].birthdate": { 
+              "label": f"Child {i+1} - Date of birth",
+              "datatype": "date"
+            }},
+          { f"children[{i}].address": { 
+              "label": f"Child {i+1} - Current address",
+              "input type": "area"
+            }},
+          { f"children[{i}].current_residence": {
+              "label": f"Child {i+1} - Who does this child currently live with?",
+              "choices": ["With me", "With my spouse", "With both of us", "With someone else"]
+            }}
+        ])
+show if: have_children_of_marriage
+---
+# Previous court proceedings
+mandatory: True
+question: |
+  ## Previous Court Proceedings
+  
+  The court needs to know about any previous legal proceedings involving you and your spouse.
+fields:
+  - "Have you or your spouse been involved in any previous court cases about your relationship, children, or property?": previous_proceedings
+    datatype: yesnoradio
+    help: |
+      Include any family court cases, even if they were withdrawn or settled. 
+      This includes separation agreements that were filed with the court.
+  
+  - "Provide details about previous court proceedings": previous_proceedings_details
+    input type: area
+    show if: previous_proceedings
+    help: |
+      Include: court name, case number (if known), type of proceeding, current status.
+      For example: "Ontario Court of Justice in Toronto, case #FS-19-12345, custody and access application, settled in 2020"
+---
+# Claims being made in this application
+mandatory: True
+question: |
+  ## Claims in This Application
+  
+  **Besides divorce**, what else are you asking the court to order? You can add or change these claims later, but it's better to include everything you might want now.
+fields:
+  - "I am claiming (check all that apply)": claims_requested
+    datatype: checkboxes
+    choices:
+      - "Custody of children": custody
+      - "Access to children": access
+      - "Child support": child_support
+      - "Spousal support": spousal_support
+      - "Division of property": property_division
+      - "Exclusive possession of matrimonial home": exclusive_possession
+      - "Restraining order": restraining_order
+      - "Other relief": other_relief
+    help: |
+      **Custody**: Legal decision-making authority for children
+      **Access**: Parenting time/visitation with children  
+      **Child support**: Financial support for children
+      **Spousal support**: Financial support between spouses
+      **Property division**: Division of property acquired during marriage
+      **Exclusive possession**: Right to remain in the matrimonial home
+      **Restraining order**: Court order restricting your spouse's conduct
+  
+  - "Describe any other relief you are seeking": other_relief_details
+    input type: area
+    show if: 
+      variable: claims_requested['other_relief']
+      is: True
+    required: False
+---
+# Property and support details - for complex cases
+question: |
+  ## Property and Support Details
+  
+  To help you prepare for court and settlement discussions, please provide some basic information about property and support.
+fields:
+  - "Do you and your spouse own a home together?": own_matrimonial_home
+    datatype: yesnoradio
+    show if: claims_requested['property_division'] or claims_requested['exclusive_possession']
+  
+  - "Approximate value of matrimonial home": home_value
+    datatype: currency
+    show if: own_matrimonial_home
+    required: False
+    help: |
+      Provide an estimate. You'll need a formal appraisal later if the case proceeds.
+  
+  - "Your approximate annual income": applicant_annual_income
+    datatype: currency
+    show if: claims_requested['child_support'] or claims_requested['spousal_support']
+    required: False
+    help: |
+      This is for initial calculations only. You'll need to provide detailed 
+      financial disclosure later.
+  
+  - "Your spouse's approximate annual income (if known)": spouse_annual_income
+    datatype: currency
+    show if: claims_requested['child_support'] or claims_requested['spousal_support']
+    required: False
+    help: |
+      If unknown, leave blank. The court can order your spouse to provide 
+      financial disclosure.
+---
+# Reconciliation - required legal question
+mandatory: True
+question: |
+  ## Reconciliation Efforts
+  
+  **The Divorce Act requires the court to consider whether there is any possibility of reconciliation.**
+fields:
+  - "Have you and your spouse attempted reconciliation or marriage counselling?": attempted_reconciliation
+    datatype: yesnoradio
+    help: |
+      This includes formal counselling, mediation, or informal efforts to save the marriage.
+  
+  - "Briefly describe reconciliation efforts": reconciliation_details
+    input type: area
+    show if: attempted_reconciliation
+    help: |
+      For example: "Attended marriage counselling with Dr. Smith from June to August 2023" 
+      or "Attempted reconciliation in January 2024 but separated again after two weeks."
+  
+  - "Is there any reasonable possibility that you and your spouse might reconcile?": possibility_of_reconciliation
+    datatype: yesnoradio
+    help: |
+      Answer honestly. The court's role is to consider reconciliation, not to force it.
+---
+# Service of documents
+mandatory: True
+question: |
+  ## Service of Documents
+  
+  After you file this application, you must serve (deliver) a copy to your spouse according to specific legal rules.
+fields:
+  - "How do you plan to serve your spouse with this application?": service_method
+    datatype: radio
+    choices:
+      - "Personal service (have someone deliver it directly)": personal_service
+      - "Mail to last known address": mail_service  
+      - "Through their lawyer": lawyer_service
+      - "I don't know their current address": unknown_address
+    help: |
+      **Personal service** is usually required for divorce applications. 
+      Other methods may need court permission.
+  
+  - "What is your spouse's lawyer's name and contact information?": spouse_lawyer_info
+    input type: area
+    show if: 
+      variable: service_method
+      is: "lawyer_service"
+  
+  - "When did you last have contact with your spouse?": last_contact_date
+    datatype: date
+    show if: 
+      variable: service_method
+      is: "unknown_address"
+    required: False
+    help: |
+      If you cannot locate your spouse, you may need to apply for substituted service 
+      or service by advertisement.
+---
+# Central Divorce Registry
+mandatory: True
+question: |
+  ## Central Divorce Registry Search
+  
+  **Before filing for divorce in Ontario, you must search the Central Divorce Registry** to ensure no divorce proceedings are already underway elsewhere in Canada.
+fields:
+  - "Have you completed a Central Divorce Registry search?": cdr_search_completed
+    datatype: yesnoradio
+    help: |
+      This search ensures no other divorce proceedings involving you and your spouse 
+      are active in Canada. You must complete this search before filing.
+  
+  - "CDR search certificate number": cdr_certificate_number
+    show if: cdr_search_completed
+    required: False
+    help: |
+      If you have received your CDR search certificate, enter the certificate number here.
+validation code: |
+  if not cdr_search_completed:
+    validation_error("You must complete a Central Divorce Registry search before filing your divorce application. You can search online at: https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides/guide-0200-search-central-divorce-registry.html")
+---
+# Certificate vs Judgment
+mandatory: True
+question: |
+  ## Certificate of Divorce vs. Judgment
+  
+  **Important**: There are two ways to obtain a divorce in Ontario, with different procedures and costs.
+fields:
+  - "Which type of divorce order do you want?": divorce_order_type
+    datatype: radio
+    choices:
+      - "Certificate of Divorce (Simple Divorce)": certificate
+      - "Divorce Judgment": judgment
+    help: |
+      **Certificate of Divorce**: Available if your case is uncontested (your spouse agrees 
+      or doesn't respond) and you're not claiming other relief like support or property 
+      division. Faster and less expensive.
+      
+      **Divorce Judgment**: Required if your case is contested or if you're claiming 
+      other relief (custody, support, property). Requires court hearings.
+validation code: |
+  # If claiming other relief, must use judgment process
+  if divorce_order_type == "certificate" and (claims_requested.get('custody') or 
+      claims_requested.get('access') or claims_requested.get('child_support') or 
+      claims_requested.get('spousal_support') or claims_requested.get('property_division')):
+    validation_error("You cannot use the Certificate of Divorce process if you are claiming custody, support, or property division. You must proceed with a Divorce Judgment.")
+---
+# Final review and document preparation
+mandatory: True
+question: |
+  ## Review Your Application
+  
+  Please review the information below carefully. Once you file this application with the court, amendments may require additional fees and procedures.
+  
+  ### Marriage Information
+  - **Date of marriage**: ${ marriage_date }
+  - **Place of marriage**: ${ marriage_place_city }, ${ marriage_place_jurisdiction }
+  - **Your name at marriage**: ${ applicant_name_at_marriage }
+  - **Spouse's name at marriage**: ${ spouse_name_at_marriage }
+  
+  ### Current Information  
+  - **Your current name**: ${ applicant_current_name }
+  - **Spouse's current name**: ${ spouse_current_name }
+  
+  ### Divorce Ground
+  - **Ground for divorce**: ${ divorce_ground }
+  % if divorce_ground == "separation":
+  - **Separation date**: ${ separation_date }
+  - **Days separated**: ${ (today() - separation_date).days } days
+  % endif
+  
+  ### Children
+  % if have_children_of_marriage:
+  - **Number of children**: ${ number_of_children }
+  - **Minor children**: ${ "Yes" if have_minor_children else "No" }
+  % else:
+  - **No children of the marriage**
+  % endif
+  
+  ### Claims
+  % if len(claims_requested.true_values()) > 0:
+  **You are claiming:**
+  % for claim in claims_requested.true_values():
+  - ${ claim }
+  % endfor
+  % else:
+  - **Divorce only**
+  % endif
+  
+  ### Next Steps
+  1. **Print and sign** Form 8A (generated from this information)
+  2. **Gather required documents** (marriage certificate, CDR search, etc.)
+  3. **File with the court** and pay required fees
+  4. **Serve your spouse** according to Family Law Rules
+  
+  **Court fees** (as of 2024): 
+  - Application fee: $447
+  - Trial scheduling fee: $280 (if case goes to trial)
+  
+field: application_review_complete
+datatype: yesnoradio
+under: |
+  **Important**: This application is based on the information you provided. You are responsible 
+  for ensuring all information is accurate and complete. Providing false information to the 
+  court may result in serious legal consequences.
+---
+# Generate the actual form
+mandatory: True
+code: |
+  # Mark the interview as complete
+  form_8a_complete = True
+---
+# Final instructions and resources
+mandatory: True
+question: |
+  ## Your Form 8A Application is Ready
+  
+  **Congratulations!** You have completed the information gathering for your divorce application.
+  
+  ### What You Need to Do Next
+  
+  1. **Print your completed Form 8A** (the system will generate this based on your answers)
+  
+  2. **Gather required supporting documents:**
+     - Certified copy of marriage certificate
+     - Central Divorce Registry search certificate  
+     - Any previous court orders or agreements
+     - Financial documents (if claiming support)
+  
+  3. **File with the appropriate court:**
+     - **Ontario Court of Justice**: For divorce only or with child-related claims
+     - **Superior Court of Justice**: For claims involving property over $35,000
+  
+  4. **Pay court fees** (bring cash, certified cheque, or money order)
+  
+  5. **Serve your spouse** within 6 months of filing
+  
+  ### Important Legal Resources
+  
+  - **Law Society of Ontario Referral Service**: 1-855-947-5255
+  - **Legal Aid Ontario**: 1-800-668-8258  
+  - **Family Court Support Worker Program**: Available at most courthouses
+  - **Mandatory Information Program (MIP)**: Required before first court appearance
+  
+  ### Emergency Resources
+  
+  If you have safety concerns:
+  - **Assaulted Women's Helpline**: 1-866-863-0511
+  - **Ontario Domestic Violence Helpline**: 1-800-799-7233
+  
+  **Remember**: This form provides legal information, not legal advice. Consider consulting 
+  with a qualified family law lawyer about your specific situation, especially if your 
+  case involves complex issues or if your spouse contests the divorce.
+  
+buttons:
+  - "Download Form 8A": exit
+    url: ${ url_of('download', filename='form-8a-divorce-application.pdf') }
+  - "Return to Main Menu": restart
+---
+# Document assembly for PDF generation
+attachment:
+  name: Form 8A - Application (Divorce)
+  filename: form-8a-divorce-application  
+  docx template file: form-8a-template.docx
+  valid formats:
+    - pdf
+    - docx
+---
+# Data validation functions
+code: |
+  def validate_separation_period(sep_date):
+    """Validate that separation period meets one-year requirement"""
+    if not sep_date:
+      return False
+    days_separated = (today() - sep_date).days
+    return days_separated >= 365
+  
+  def calculate_separation_days(sep_date):
+    """Calculate days separated for user display"""
+    if not sep_date:
+      return 0
+    return (today() - sep_date).days
+  
+  def format_currency_estimate(amount):
+    """Format currency for estimates and ranges"""
+    if not amount:
+      return "Not specified"
+    return f"${amount:,.2f}"
+  
+  def validate_ontario_residence(period_text):
+    """Validate Ontario residence requirement"""
+    # This would contain logic to parse and validate residence period
+    # For now, simple text validation
+    return len(period_text.strip()) > 0
+---

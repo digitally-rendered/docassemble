@@ -5,7 +5,7 @@ SHELL ["/bin/bash", "-c"]
 
 RUN DEBIAN_FRONTEND=noninteractive TERM=xterm LC_CTYPE=C.UTF-8 LANG=C.UTF-8 \
     bash -c \
-    "apt-get -y update && ln -s /var/mail/mail /var/mail/root"
+    "apt-get -y update && apt-get install -y inotify-tools && ln -s /var/mail/mail /var/mail/root"
 
 # Copy configuration files and scripts that don't change often
 COPY Docker/ /tmp/Docker/
@@ -33,6 +33,10 @@ RUN DEBIAN_FRONTEND=noninteractive TERM=xterm LC_CTYPE=C.UTF-8 LANG=C.UTF-8 \
     cp /tmp/Docker/docassemble.conf /etc/apache2/conf-available/ && \
     cp /tmp/Docker/docassemble-behindlb.conf /etc/apache2/conf-available/ && \
     cp /tmp/Docker/docassemble-supervisor.conf /etc/supervisor/conf.d/docassemble.conf && \
+    cp /tmp/Docker/supervisor-yaml-watcher.conf /etc/supervisor/conf.d/ && \
+    mkdir -p /usr/share/docassemble/scripts && \
+    cp /tmp/Docker/watch-yaml-changes.sh /usr/share/docassemble/scripts/ && \
+    chmod +x /usr/share/docassemble/scripts/watch-yaml-changes.sh && \
     cp /tmp/Docker/ssl/* /usr/share/docassemble/certs/ && \
     cp -r /tmp/Docker/ssl /usr/share/docassemble/config/defaultcerts && \
     chmod og-rwx /usr/share/docassemble/certs/* && \

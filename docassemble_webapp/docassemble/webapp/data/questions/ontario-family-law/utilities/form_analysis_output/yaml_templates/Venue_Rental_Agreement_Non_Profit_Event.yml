@@ -1,0 +1,86 @@
+---
+# Ontario Family Law Form: Venue_Rental_Agreement_Non_Profit_Event
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Venue Rental Agreement Non Profit Event
+  short title: |
+    VENUE
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  this_venue_rental_agreement
+  venue_owner
+  nonprofit_organization
+  the_owner_agrees_to_rent_to_the_renter_the_following_premises
+  date_of_event
+  the_renter_acknowledges_that_alcohol_will_be_served_at_the_event_and_agrees_to_the_following_conditions
+  in_the_event_of_cancellation_by_the_renter_the_following_refund_policy_applies
+  cancellation_more_than_60_days_before_the_event
+  cancellation_3060_days_before_the_event
+  cancellation_less_than_30_days_before_the_event
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  This Venue Rental Agreement (the "Agreement") is made and entered into on [DATE], by and between:
+fields:
+  - "This Venue Rental Agreement": this_venue_rental_agreement
+    datatype: date
+---
+question: |
+  Venue Owner: [VENUE OWNER NAME] ("Owner")
+Address: [VENUE ADDRESS]
+fields:
+  - "Venue Owner": venue_owner
+---
+question: |
+  Non-Profit Organization: [NON-PROFIT NAME] ("Renter")
+Address: [NON-PROFIT ADDRESS]
+Tax ID: [NON-PRO
+fields:
+  - "Nonprofit Organization": nonprofit_organization
+---
+question: |
+  The Owner agrees to rent to the Renter the following premises: [VENUE NAME AND DESCRIPTION] (the "Pr
+fields:
+  - "The Owner Agrees To Rent To The Renter The Following Premises": the_owner_agrees_to_rent_to_the_renter_the_following_premises
+---
+question: |
+  Date of Event: [EVENT DATE]
+Time of Event: [START TIME] to [END TIME]
+Type of Event: [BRIEF DESCRIPT
+fields:
+  - "Date Of Event": date_of_event
+    datatype: date
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

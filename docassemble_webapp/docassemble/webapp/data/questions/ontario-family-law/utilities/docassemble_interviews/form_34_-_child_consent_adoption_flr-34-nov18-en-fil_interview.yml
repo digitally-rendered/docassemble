@@ -1,0 +1,271 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-34---child-consent-adoption-flr-34-nov18-en-fil
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.i_know_that_the_applicant
+  
+  # Applicant Information
+  applicant
+  applicant.i_agree_to_being_adopted_by_the_applicant
+  
+  # Respondent Information
+  respondent
+  
+  # Children Information
+  children.form_34
+  children.my_name_is
+  children.i_explained_to
+  
+  # Claims
+  claims.i_understand_that_once_i_turn_nineteen_years_old_my_birth_parent
+  
+  # Other
+  full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  i_was_born_on
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+fields:
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+fields:
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  I know that the applicant(s) is/are asking the court to make an order to adopt me.
+fields:
+  - "I know that the applicant(s) is/are asking the court to make an order to adopt me.": court_info.i_know_that_the_applicant
+---
+
+# Applicant Information Questions
+question: |
+  Applicant(s) (The first letter of the applicant’s surname may be used)
+fields:
+  - "Applicant(s) (The first letter of the applicant’s surname may be used)": applicant
+---
+question: |
+  I agree to being adopted by the applicant(s).
+fields:
+  - "I agree to being adopted by the applicant(s).": applicant.i_agree_to_being_adopted_by_the_applicant
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s) (If there is a respondent, the first letter of the respondent’s surname may be used)
+fields:
+  - "Respondent(s) (If there is a respondent, the first letter of the respondent’s surname may be used)": respondent
+---
+
+# Children Information Questions
+question: |
+  Form 34: Child’s Consent to Adoption
+fields:
+  - "Form 34: Child’s Consent to Adoption": children.form_34
+---
+question: |
+  My name is (child’s full legal name)
+fields:
+  - "My name is (child’s full legal name)": children.my_name_is
+---
+question: |
+  I explained to (child’s full legal name)
+fields:
+  - "I explained to (child’s full legal name)": children.i_explained_to
+---
+
+# Claims Questions
+question: |
+  I understand that once I turn nineteen years old, my birth parent(s) can apply for information from 
+fields:
+  - "I understand that once I turn nineteen years old, my birth parent(s) can apply for information from ": claims.i_understand_that_once_i_turn_nineteen_years_old_my_birth_parent
+---
+
+# Other Questions
+question: |
+  Full legal name & address for service — street & number, municipality, postal code, telephone & fax 
+fields:
+  - "Full legal name & address for service — street & number, municipality, postal code, telephone & fax ": full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+---
+question: |
+  Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-
+fields:
+  - "Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-": lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+---
+question: |
+  I was born on (give date of birth)
+fields:
+  - "I was born on (give date of birth)": i_was_born_on
+    datatype: date
+---
+question: |
+  I understand the nature and effect of this consent.  I understand that I may withdraw this consent w
+fields:
+  - "I understand the nature and effect of this consent.  I understand that I may withdraw this consent w": i_understand_the_nature_and_effect_of_this_consent_i_understand_that_i_may_withdraw_this_consent_within_21_days_by_attending_at_the_office_of_the_lawyer_who_witnessed_the_consent_located_at
+---
+question: |
+  who has explained adoption to me,
+fields:
+  - "who has explained adoption to me,": who_has_explained_adoption_to_me
+    input type: area
+    rows: 4
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${applicant.name.full() if defined('applicant.name.first') else 'Not provided'}
+  * Address: ${applicant.address.on_one_line() if defined('applicant.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${respondent.name.full() if defined('respondent.name.first') else 'Not provided'}
+  * Address: ${respondent.address.on_one_line() if defined('respondent.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: ${form_name.replace('_', ' ').title()}
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

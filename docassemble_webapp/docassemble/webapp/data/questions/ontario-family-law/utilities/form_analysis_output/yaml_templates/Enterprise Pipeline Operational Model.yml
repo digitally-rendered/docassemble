@@ -1,0 +1,92 @@
+---
+# Ontario Family Law Form: Enterprise Pipeline Operational Model
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Enterprise Pipeline Operational Model
+  short title: |
+    ENTERPRISE PIPELINE OPERATIONAL MODEL
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  enabling_velocity_for_cppib_delivery_teams
+  the_devops_team_creating_and_implementing_a_new_release_process_and_deployment_pipeline_for_agile_product_development_teams_that_satisfies_control_objectives_and_results_in_the_following_benefits
+  empower_product_team
+  team_owns_the_application_operations_and_support
+  repeatable_reliable_process
+  consistency_of_deployment
+  enterprise_security_audit_and_operations_controls_compliant
+  increase_productivity_of_the_team
+  increase_product_quality
+  reduced_time_to_release_daily_releases
+
+  # Table Cell Section
+  field_1_datacentre
+  field_1_datacentre
+  field_1_datacentre
+  field_1_datacentre
+  field_1_datacentre
+  field_1_datacentre
+  field_1_datacentre
+  field_1_datacentre
+  field_1_datacentre
+  field_2_servers
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Enabling Velocity for CPPIB Delivery Teams
+fields:
+  - "Enabling Velocity For Cppib Delivery Teams": enabling_velocity_for_cppib_delivery_teams
+---
+question: |
+  The Devops team creating and implementing a new release process and deployment pipeline for agile pr
+fields:
+  - "The Devops Team Creating And Implementing A New Release Process And Deployment Pipeline For Agile Product Development Teams That Satisfies Control Objectives And Results In The Following Benefits": the_devops_team_creating_and_implementing_a_new_release_process_and_deployment_pipeline_for_agile_product_development_teams_that_satisfies_control_objectives_and_results_in_the_following_benefits
+---
+question: |
+  Empower Product Team:
+fields:
+  - "Empower Product Team": empower_product_team
+---
+question: |
+  Team owns the application operations and support
+fields:
+  - "Team Owns The Application Operations And Support": team_owns_the_application_operations_and_support
+    datatype: currency
+---
+question: |
+  Repeatable & Reliable Process:
+fields:
+  - "Repeatable Reliable Process": repeatable_reliable_process
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

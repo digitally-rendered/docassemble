@@ -1,0 +1,63 @@
+---
+# Ontario Family Law Form: West Lynde Community Update Sept. 30
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    West Lynde Community Update Sept. 30
+  short title: |
+    WEST LYNDE COMMUNITY UPDATE SEPT. 30
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  dear_parentsguardians
+  we_are_continuing_to_have_another_great_week_at_west_lynde_as_students_are_settling_into_the_routines_of_school_in_classrooms_students_are_continuing_to_work_on_connecting_with_others_and_overall_wellbeing_here_are_a_few_updatesreminders
+  tonight_we_will_be_having_our_first_scc_meeting_at_6
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Dear Parents/Guardians:
+fields:
+  - "Dear Parentsguardians": dear_parentsguardians
+---
+question: |
+  We are continuing to have another great week at West Lynde as students are settling into the routine
+fields:
+  - "We Are Continuing To Have Another Great Week At West Lynde As Students Are Settling Into The Routines Of School In Classrooms Students Are Continuing To Work On Connecting With Others And Overall Wellbeing Here Are A Few Updatesreminders": we_are_continuing_to_have_another_great_week_at_west_lynde_as_students_are_settling_into_the_routines_of_school_in_classrooms_students_are_continuing_to_work_on_connecting_with_others_and_overall_wellbeing_here_are_a_few_updatesreminders
+    datatype: date
+---
+question: |
+  Tonight we will be having our first SCC meeting at 6:30pm.  Here is the google meet link if you woul
+fields:
+  - "Tonight We Will Be Having Our First Scc Meeting At 6": tonight_we_will_be_having_our_first_scc_meeting_at_6
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

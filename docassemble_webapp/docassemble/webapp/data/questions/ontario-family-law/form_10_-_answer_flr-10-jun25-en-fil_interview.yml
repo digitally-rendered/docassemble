@@ -1,0 +1,333 @@
+---
+metadata:
+  title: Ontario Family Law Form 10 - Answer
+  short title: Form 10 - Answer
+  description: Complete Ontario Family Court Form 10 - Answer to respond to an application.
+  authors:
+  - name: Ontario Family Law Forms System
+  revision_date: '2025-08-09'
+  tags:
+  - ontario
+  - family-law
+  - form-10---answer-flr-10-jun25-en-fil
+  - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: true
+  navigation: true
+  progress bar: true
+  show progress bar percentage: true
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - financial: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.name_of_court
+  court_info.court_office_address
+  
+  # Applicant Information
+  applicant
+  applicant.to_the_applicant
+  applicant.if_you_are_making_a
+  
+  # Respondent Information
+  respondent
+  respondent.attach_a_claim_by_respondent
+  
+  # Children Information
+  children.name_address_of_childrens_lawyers
+  children.you_are_responding_to_a_claim_for_child_support_or
+  children.you_are_making_a_claim
+  
+  # Financial Information
+  financial.instructions
+  financial.complete_a_financial_statement
+  financial.you_are_making_or_responding
+  
+  # Claims
+  claims.in_numbered_paragraphs_set_out
+  claims.fill_out_a_separate_claim
+  claims.if_your_claim_is_against
+  
+  # Other
+  form_10
+  full_legal_name
+  name
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  "Court File Number"
+fields:
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  "(Name of court)"
+fields:
+  - "(Name of court)": court_info.name_of_court
+---
+question: |
+  "Court office address"
+fields:
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  "I ASK THE COURT FOR THE FOLLOWING:"
+fields:
+  - "I ASK THE COURT FOR THE FOLLOWING:": court_info.i_ask_the_court_for_the_following
+---
+question: |
+  "Claims under the Divorce Act (Check boxes in this column only if you are asking for a divorce and..."
+fields:
+  - "Claims under the Divorce Act (Check boxes in this column ...": court_info.claims_under_the_divorce_act
+---
+# Applicant Information Questions
+question: |
+  "Applicant(s)"
+fields:
+  - "Applicant(s)": applicant
+---
+question: |
+  "TO THE APPLICANT(S):"
+fields:
+  - "TO THE APPLICANT(S):": applicant.to_the_applicant
+---
+question: |
+  "If you are making a claim against someone who is not an applicant, insert the person’s name and a..."
+fields:
+  - "If you are making a claim against someone who is not an a...": applicant.if_you_are_making_a
+---
+question: |
+  "I agree with the following claim(s) made by the applicant: (Refer to the numbers alongside the bo..."
+fields:
+  - "I agree with the following claim(s) made by the applicant...": applicant.i_agree_with_the_following_claim
+---
+question: |
+  "I do not agree with the following claim(s) made by the applicant: (Again, refer to the numbers al..."
+fields:
+  - "I do not agree with the following claim(s) made by the ap...": applicant.i_do_not_agree_with_the_following_claim
+---
+# Respondent Information Questions
+question: |
+  "Respondent(s)"
+fields:
+  - "Respondent(s)": respondent
+---
+question: |
+  "(Attach a “Claim by Respondent” page and include it as page 3. Otherwise, do not attach it.)"
+fields:
+  - "(Attach a “Claim by Respondent” page and include it as pa...": respondent.attach_a_claim_by_respondent
+---
+# Children Information Questions
+question: |
+  "Name & address of Children's Lawyer's agent for service (street & number, municipality, postal co..."
+fields:
+  - "Name & address of Children's Lawyer's agent for service (...": children.name_address_of_childrens_lawyers
+    datatype: email
+---
+question: |
+  "you are responding to a claim for child support; or"
+fields:
+  - "you are responding to a claim for child support; or": children.you_are_responding_to_a_claim_for_child_support_or
+    datatype: currency
+    min: 0
+---
+question: |
+  "you are making a claim for child support in an amount different from the table amount specified u..."
+fields:
+  - "you are making a claim for child support in an amount dif...": children.you_are_making_a_claim
+    datatype: currency
+    min: 0
+---
+question: |
+  "Sections 7.1 to 7.5 of the Divorce Act and section 33.1 of the Children’s Law Reform Act require ..."
+fields:
+  - "Sections 7.1 to 7.5 of the Divorce Act and section 33.1 o...": children.sections_71_to_75_of
+    datatype: date
+---
+question: |
+  "support for child(ren) – table amount"
+fields:
+  - "support for child(ren) – table amount": children.support_for_child
+    datatype: currency
+    min: 0
+---
+# Financial Information Questions
+question: |
+  "INSTRUCTIONS: Financial Statement"
+fields:
+  - "INSTRUCTIONS: Financial Statement": financial.instructions
+---
+question: |
+  "COMPLETE A FINANCIAL STATEMENT (Form 13) IF:"
+fields:
+  - "COMPLETE A FINANCIAL STATEMENT (Form 13) IF:": financial.complete_a_financial_statement
+---
+question: |
+  "you are making or responding to a claim for property or exclusive possession of the matrimonial h..."
+fields:
+  - "you are making or responding to a claim for property or e...": financial.you_are_making_or_responding
+    datatype: currency
+    min: 0
+---
+question: |
+  "support for me"
+fields:
+  - "support for me": financial.support_for_me
+    datatype: currency
+    min: 0
+---
+question: |
+  "freezing assets"
+fields:
+  - "freezing assets": financial.freezing_assets
+    datatype: currency
+    min: 0
+---
+# Claims Questions
+question: |
+  "(In numbered paragraphs, set out the facts that form the legal basis for your claim(s). Attach an..."
+fields:
+  - "(In numbered paragraphs, set out the facts that form the ...": claims.in_numbered_paragraphs_set_out
+    input type: area
+    rows: 4
+---
+question: |
+  "Fill out a separate claim page for each person against whom you are making your claim(s)."
+fields:
+  - "Fill out a separate claim page for each person against wh...": claims.fill_out_a_separate_claim
+---
+question: |
+  "(If your claim is against an added party, make sure that this person’s name appears on page 1 of ..."
+fields:
+  - "(If your claim is against an added party, make sure that ...": claims.if_your_claim_is_against
+---
+question: |
+  "(Claims below include claims for temporary orders.)"
+fields:
+  - "(Claims below include claims for temporary orders.)": claims_below_include_claims_for_temporary_orders
+---
+# Other Questions
+question: |
+  "Form 10: Answer"
+fields:
+  - "Form 10: Answer": form_10
+---
+question: |
+  "Full legal name:"
+fields:
+  - "Full legal name:": full_legal_name
+---
+question: |
+  "(name)"
+fields:
+  - "(name)": name
+---
+question: |
+  "Address:"
+fields:
+  - "Address:": address
+---
+question: |
+  "Phone & fax:"
+fields:
+  - "Phone & fax:": phone_fax
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided.
+  
+  % if defined('applicant.name.first'):
+  **Applicant:** ${ applicant.name }
+  % endif
+  
+  % if defined('respondent.name.first'):
+  **Respondent:** ${ respondent.name }
+  % endif
+  
+  % if defined('court_info.file_number'):
+  **Court File Number:** ${ court_info.file_number }
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---

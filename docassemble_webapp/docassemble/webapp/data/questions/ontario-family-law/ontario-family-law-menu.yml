@@ -1,0 +1,44 @@
+---
+metadata:
+  title: Ontario Family Law Forms
+  short title: ON Family Law
+  description: |
+    Access all Ontario family law forms in one place. Complete court forms 
+    for divorce, custody, support, and property matters.
+---
+mandatory: True
+question: |
+  Ontario Family Law Forms System
+subquestion: |
+  Welcome to the Ontario Family Law Forms automation system. Choose the form you need to complete:
+
+  ## Core Application Forms
+  * **[Form 8 - Application (General)](${ url_of('interview', i='docassemble.webapp:ontario-family-law/test-simple-form.yml') })** - Start most family court proceedings
+  * **Form 8A - Divorce Application** - Specialized divorce proceedings  
+  * **Form 10 - Answer** - Respond to an application filed against you
+  * **Form 36 - Affidavit for Divorce** - Sworn statement for uncontested divorce
+
+  ## Financial Disclosure Forms
+  * **[Financial Statement Selector](${ url_of('interview', i='docassemble.webapp:ontario-family-law/test-simple-form.yml') })** - Choose the right financial form
+  * **Form 13 - Financial Statement (Complex)** - For income over $150,000
+  * **Form 13.1 - Financial Statement (Simple)** - For income under $150,000
+
+  ## Getting Help
+  
+  **Legal Advice:** These forms provide legal information, not legal advice. Consider consulting with:
+  - [Legal Aid Ontario](https://www.legalaid.on.ca/) for low-income assistance
+  - [Law Society of Ontario](https://lso.ca/public-resources/finding-a-lawyer-or-paralegal) to find representation
+  - [Pro Bono Ontario](https://www.probonoontario.org/) for free legal clinics
+
+  **Emergency:** If you are in immediate danger, call 911 or contact a local domestic violence shelter.
+  
+  ---
+  
+  *This system is for informational purposes only and does not constitute legal advice.*
+
+buttons:
+  - "Start Form 8 (Test)": 
+      url: ${ url_of('interview', i='docassemble.webapp:ontario-family-law/test-simple-form.yml') }
+  - "Get Legal Help": exit
+    url: https://www.legalaid.on.ca/
+---

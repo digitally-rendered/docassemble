@@ -1,0 +1,91 @@
+---
+# Ontario Family Law Form: Patient Questionnaire  Medical Bariatric -Wilson
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Patient Questionnaire  Medical Bariatric -Wilson
+  short title: |
+    PATIENT QUESTIONNAIRE  MEDICAL BARIATRIC -WILSON
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  the_information_in_this_questionnaire_will_be_reviewed_by_the_members_of_our_multidisciplinary_team
+  please_complete_the_following_information
+  last_name
+  address
+  apt_no
+  date_of_birth
+  telephone_numbers_home
+  work
+  cell
+  email
+
+  # Table Cell Section
+  activity_or_exercise
+  length_of_time_you_are_able_to_do_this_activity
+  if_yes_please_check_all_that_apply
+  if_yes_what_month_year_did_you_stop
+  if_yes_please_check_all_that_apply
+  if_yes_what_year_did_you_stop
+  have_you_ever_had_a_drink_first_thing_in_the_morning
+  have_you_presently_used_street_drugs_or_narcotics
+  if_yes_please_check_all_that_apply
+  neuropathy
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  The information in this questionnaire will be reviewed by the members of our multidisciplinary team 
+fields:
+  - "The Information In This Questionnaire Will Be Reviewed By The Members Of Our Multidisciplinary Team": the_information_in_this_questionnaire_will_be_reviewed_by_the_members_of_our_multidisciplinary_team
+---
+question: |
+  Please complete the following information  (use blue or black ink only – do not use highlighter).
+fields:
+  - "Please Complete The Following Information": please_complete_the_following_information
+---
+question: |
+  Last Name: _____________________________ First Name: _____________________   	 Male 	 Female
+fields:
+  - "Last Name": last_name
+---
+question: |
+  Address: ___________________________________________________________________________
+fields:
+  - "Address": address
+---
+question: |
+  Apt. No.: _________City/Prov.: _________________________ Postal Code: _____________________
+fields:
+  - "Apt No": apt_no
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

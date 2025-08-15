@@ -1,0 +1,82 @@
+---
+# Ontario Family Law Form: EDC - Devops
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Edc - Devops
+  short title: |
+    EDC - DEVOPS
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  expected_start_date_january_2022
+  expected_end_date_july_2022
+  requirements
+  this_work_will_require_enhanced_reliability_status_description_of_service_the_devops_engineer_developer_service_provider_will_provide_design_implementation_technical_support_guidance_and_advice_for_technical_software_development_and_deployment_activities_related_to_the_delivery_of_edcs_customerfacing_digital_services_the_services_include_enabling_all_edc_lines_of_business
+  edcs_services_are_a_large_mix_of_various_cloud_services
+  evangelizes_a_customer_experience
+  development
+  designs_develops_codes_tests_debugs_andor_customizes_information_technology
+  support_nontechnical_team_members_in_understanding_the_technical_implications_of_design_decisions_through_team_trainings_and_through_expressing_daytoday_tradeoffs
+  applies_best_practices_and_advanced_methodologies_including_scrum_techniques_to_address_and_review_system_requirements_business_processes_changing_development_and_technology_environments
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Expected Start Date	January 2022
+fields:
+  - "Expected Start Date January 2022": expected_start_date_january_2022
+    datatype: date
+---
+question: |
+  Expected End Date	July 2022 (with potential 6 month extension)
+fields:
+  - "Expected End Date July 2022": expected_end_date_july_2022
+    datatype: date
+---
+question: |
+  Requirements:
+fields:
+  - "Requirements": requirements
+---
+question: |
+  This work will require Enhanced Reliability status Description of Service The DevOps Engineer/ Devel
+fields:
+  - "This Work Will Require Enhanced Reliability Status Description Of Service The Devops Engineer Developer Service Provider Will Provide Design Implementation Technical Support Guidance And Advice For Technical Software Development And Deployment Activities Related To The Delivery Of Edcs Customerfacing Digital Services The Services Include Enabling All Edc Lines Of Business": this_work_will_require_enhanced_reliability_status_description_of_service_the_devops_engineer_developer_service_provider_will_provide_design_implementation_technical_support_guidance_and_advice_for_technical_software_development_and_deployment_activities_related_to_the_delivery_of_edcs_customerfacing_digital_services_the_services_include_enabling_all_edc_lines_of_business
+    datatype: currency
+---
+question: |
+  EDC’s services are a large mix of various cloud services (IaaS, PaaS, SaaS,) and traditional on-prem
+fields:
+  - "Edcs Services Are A Large Mix Of Various Cloud Services": edcs_services_are_a_large_mix_of_various_cloud_services
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

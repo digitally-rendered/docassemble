@@ -1,0 +1,79 @@
+---
+# Ontario Family Law Form: Medical Bariatric Program Summary
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Medical Bariatric Program Summary
+  short title: |
+    MEDICAL BARIATRIC PROGRAM SUMMARY
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  during_this_program_you_will_learn_and_apply_new_skills_to_help_you_return_to_selfprepared_meals_and_manage_your_weight_longterm_these_skills_include_how_to
+  develop_support_systems
+  purchase_prescribed_amount_of_optifast_replacement_on_a_weekly_basis_from_our_clinic_we_do_not_support_the_use_of_other_meal_replacement_products
+  all_of_our_classes_take_place_tuesdays_and_wednesdays_evenings_and_thursdays_at_11
+  the_cost_of_this_program_only_pertains_to_the_full_optifast_meal_replacement_there_are_optional_items_to_purchase
+  optifast_is_a_total_meal_replacement_that_provides
+  you_are_allowed_to_eat_2_cups
+  physical_activity_exercise_expectations_while_in_the_program
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  During this program you will learn and apply new skills to help you return to self-prepared meals an
+fields:
+  - "During This Program You Will Learn And Apply New Skills To Help You Return To Selfprepared Meals And Manage Your Weight Longterm These Skills Include How To": during_this_program_you_will_learn_and_apply_new_skills_to_help_you_return_to_selfprepared_meals_and_manage_your_weight_longterm_these_skills_include_how_to
+---
+question: |
+  develop support systems
+fields:
+  - "Develop Support Systems": develop_support_systems
+    datatype: currency
+---
+question: |
+  Purchase prescribed amount of Optifast replacement on a weekly basis from our clinic. We do not supp
+fields:
+  - "Purchase Prescribed Amount Of Optifast Replacement On A Weekly Basis From Our Clinic We Do Not Support The Use Of Other Meal Replacement Products": purchase_prescribed_amount_of_optifast_replacement_on_a_weekly_basis_from_our_clinic_we_do_not_support_the_use_of_other_meal_replacement_products
+    datatype: currency
+---
+question: |
+  All of our classes take place Tuesdays and Wednesdays evenings, and Thursdays at 11:00AM or 2:00PM. 
+fields:
+  - "All Of Our Classes Take Place Tuesdays And Wednesdays Evenings And Thursdays At 11": all_of_our_classes_take_place_tuesdays_and_wednesdays_evenings_and_thursdays_at_11
+---
+question: |
+  The cost of this program only pertains to the full Optifast meal replacement. There are optional ite
+fields:
+  - "The Cost Of This Program Only Pertains To The Full Optifast Meal Replacement There Are Optional Items To Purchase": the_cost_of_this_program_only_pertains_to_the_full_optifast_meal_replacement_there_are_optional_items_to_purchase
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

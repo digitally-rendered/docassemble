@@ -1,0 +1,80 @@
+---
+# Ontario Family Law Form: branded career progression plan
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Branded Career Progression Plan
+  short title: |
+    BRANDED CAREER PROGRESSION PLAN
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  this_is_a_2year_plan_for_employees_that_frames_the_next_steps_in_their_career_journey_and_identifies_development_areas_needing_to_be_addressed_to_progress_to_the_next_role_depending_on_the_career_interest
+  once_the_next_career_moves_and_respective_development_areas_are_determined_using_the_career_progression_plan_template_recommend_creating_a_12month_individual_development_plan
+  step_1
+  identify_whether_you_want_to_pursue_a_manager_or_individual_contributor_career_path_and_whether_you_want_to_focus_on_breath_or_depth_of_expertise_select_your_chosen_career_path
+  step_2
+  describe_your_short_and_longterm_career_aspirations_at_okta_what_roles_would_you_like_to_have_in_the_future_and_on_what_job_experiences_would_you_like_to_focus
+  write_down_your_primary_career_interest_for_example
+  identify_longterm_professional_goals
+  longterm_professional_goals
+  become_sys_arch
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  This is a 2-year plan for employees that frames the next steps in their career journey and identifie
+fields:
+  - "This Is A 2Year Plan For Employees That Frames The Next Steps In Their Career Journey And Identifies Development Areas Needing To Be Addressed To Progress To The Next Role Depending On The Career Interest": this_is_a_2year_plan_for_employees_that_frames_the_next_steps_in_their_career_journey_and_identifies_development_areas_needing_to_be_addressed_to_progress_to_the_next_role_depending_on_the_career_interest
+---
+question: |
+  Once the next career moves and respective development areas are determined using the career progress
+fields:
+  - "Once The Next Career Moves And Respective Development Areas Are Determined Using The Career Progression Plan Template Recommend Creating A 12Month Individual Development Plan": once_the_next_career_moves_and_respective_development_areas_are_determined_using_the_career_progression_plan_template_recommend_creating_a_12month_individual_development_plan
+---
+question: |
+  Step 1: Career Path (Highlight preferred option below)
+fields:
+  - "Step 1": step_1
+---
+question: |
+  Identify whether you want to pursue a manager or individual contributor career path, and whether you
+fields:
+  - "Identify Whether You Want To Pursue A Manager Or Individual Contributor Career Path And Whether You Want To Focus On Breath Or Depth Of Expertise Select Your Chosen Career Path": identify_whether_you_want_to_pursue_a_manager_or_individual_contributor_career_path_and_whether_you_want_to_focus_on_breath_or_depth_of_expertise_select_your_chosen_career_path
+    datatype: yesnoradio
+---
+question: |
+  Step 2: Career Aspirations
+fields:
+  - "Step 2": step_2
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

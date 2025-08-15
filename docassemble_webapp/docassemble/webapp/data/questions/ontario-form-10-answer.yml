@@ -1,0 +1,124 @@
+---
+metadata:
+  title: Ontario Form 10 - Answer
+  short title: Form 10 - Answer
+  description: Respond to a family law application filed against you
+---
+objects:
+  - respondent: Individual
+  - applicant: Individual
+  - response_info: DAObject
+---
+mandatory: True
+code: |
+  intro_screen
+  court_file_number
+  respondent.name.first
+  applicant.name.first
+  application_details
+  response_strategy
+  final_summary
+---
+question: |
+  Ontario Form 10 - Answer
+subquestion: |
+  Use this form to respond to a family law application filed against you.
+  
+  **Important:** You typically have **30 days** from when you were served to file your Answer.
+  
+  **Legal Disclaimer:** This provides legal information, not legal advice.
+  Contact a lawyer or Legal Aid Ontario for legal advice.
+field: intro_screen
+---
+question: |
+  Court File Information
+subquestion: |
+  This information should be on the Application you received:
+fields:
+  - Court File Number: court_file_number
+  - Court Location: court_location
+    choices:
+      - Toronto Superior Court: toronto
+      - Ottawa Superior Court: ottawa
+      - Hamilton Superior Court: hamilton
+      - London Superior Court: london
+      - Other: other
+  - Date you were served with the Application: service_date
+    datatype: date
+    max: ${ today() }
+---
+question: |
+  Application Details
+subquestion: |
+  What is the applicant asking the court for?
+fields:
+  - Claims in the Application: claims_against_you
+    datatype: checkboxes
+    choices:
+      - Divorce: divorce
+      - Custody of children: custody
+      - Access to children: access
+      - Child support: child_support
+      - Spousal support: spousal_support
+      - Property division: property
+      - Other: other
+field: application_details
+---
+question: |
+  Your Response Strategy
+subquestion: |
+  How do you want to respond to this application?
+fields:
+  - Do you agree with the application?: agreement_level
+    choices:
+      - I agree with everything: agree_all
+      - I agree with some things: agree_partial
+      - I disagree with everything: disagree_all
+  - Do you want to make your own claims (cross-application)?: cross_application
+    datatype: yesnoradio
+  - If yes, what do you want to claim?: cross_claims
+    datatype: checkboxes
+    choices:
+      - Divorce: divorce
+      - Custody: custody
+      - Support: support
+      - Property: property
+    show if:
+      variable: cross_application
+      is: True
+field: response_strategy
+---
+mandatory: True
+question: |
+  Your Answer Summary
+subquestion: |
+  **Court File:** ${ court_file_number }
+  
+  **You were served on:** ${ service_date }
+  
+  **Filing deadline:** ${ service_date.plus(days=30) }
+  
+  **Your response:** ${ agreement_level.replace('_', ' ').title() }
+  
+  % if cross_application:
+  **Your claims:** 
+  % for claim in cross_claims.true_values():
+  * ${ claim.title() }
+  % endfor
+  % endif
+  
+  **Next Steps:**
+  1. Complete and file Form 10 before your deadline
+  2. Serve a copy on the other party
+  % if cross_application:
+  3. Complete financial statements if claiming support
+  % endif
+  4. Attend court hearings as scheduled
+  
+  **⚠️ Time is Critical:** You must file by ${ service_date.plus(days=30) } or you may lose your right to respond.
+
+buttons:
+  - Restart: restart
+  - Get Legal Help: exit
+    url: https://www.legalaid.on.ca/
+field: final_summary

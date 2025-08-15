@@ -1,0 +1,79 @@
+---
+# Ontario Family Law Form: Secops Engineer V2
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Secops Engineer V2
+  short title: |
+    SECOPS ENGINEER V2
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  set_up_monitoring_dashboards_alerts_log_management_and_other_security_operations_capabilities_by_utilizing_industry_standard_tools_and_platforms
+  monitor_for_provide_analysis_on_and_take_action_on_identifying_and_mitigating_risk
+  conduct_analysis_on_findings_pulling_together_indicators_of_compromise
+  familiar_with_log_management_and_security_analytics_tools_for_aws_including_open_source_tools_such_as_elk
+  experience_with_integrating_security_in_the_continuous_integration_continuous_delivery_and_continuous_deployment
+  proficiency_with_using_and_securing_popular_cloud_services
+  ability_to_combine_information_from_various_sources_into_clear_concise_technical_documents_that_explain_the_background_and_procedures_for_detecting_and_mitigating_risks
+  possess_and_nurture_a_hacker_mentality
+  experience_with_regular_expressions
+  preferred_skills
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Set up monitoring dashboards, alerts, log management, and other security operations capabilities by 
+fields:
+  - "Set Up Monitoring Dashboards Alerts Log Management And Other Security Operations Capabilities By Utilizing Industry Standard Tools And Platforms": set_up_monitoring_dashboards_alerts_log_management_and_other_security_operations_capabilities_by_utilizing_industry_standard_tools_and_platforms
+---
+question: |
+  Monitor for, provide analysis on, and take action on identifying and mitigating risk:
+fields:
+  - "Monitor For Provide Analysis On And Take Action On Identifying And Mitigating Risk": monitor_for_provide_analysis_on_and_take_action_on_identifying_and_mitigating_risk
+---
+question: |
+  Conduct analysis on findings, pulling together indicators of compromise (IoCs), event timeline, and 
+fields:
+  - "Conduct Analysis On Findings Pulling Together Indicators Of Compromise": conduct_analysis_on_findings_pulling_together_indicators_of_compromise
+---
+question: |
+  Familiar with log management and security analytics tools for AWS, including open source tools such 
+fields:
+  - "Familiar With Log Management And Security Analytics Tools For Aws Including Open Source Tools Such As Elk": familiar_with_log_management_and_security_analytics_tools_for_aws_including_open_source_tools_such_as_elk
+---
+question: |
+  Experience with integrating security in the continuous integration, continuous delivery, and continu
+fields:
+  - "Experience With Integrating Security In The Continuous Integration Continuous Delivery And Continuous Deployment": experience_with_integrating_security_in_the_continuous_integration_continuous_delivery_and_continuous_deployment
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

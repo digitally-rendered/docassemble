@@ -1,0 +1,270 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-26---statement-money-owed-flr-26-apr16-en-fil
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - court_info: DAObject
+  - financial: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.for_each_overdue_or_partially_overdue_payment_calculate_in_dollars_and_cents_the_amount_of_interest_allowed_by_subsection_129
+  
+  # Financial Information
+  financial.form_26
+  financial.instructions_for_completing_form_26
+  financial.if_the_lump_sum
+  
+  # Claims
+  claims.if_your_order_or_domestic_contract_actually_forbids_you_to_claim_interest
+  
+  # Other
+  recipient
+  full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+fields:
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+fields:
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  for each overdue or partially overdue payment, calculate in dollars and cents the amount of interest
+fields:
+  - "for each overdue or partially overdue payment, calculate in dollars and cents the amount of interest": court_info.for_each_overdue_or_partially_overdue_payment_calculate_in_dollars_and_cents_the_amount_of_interest_allowed_by_subsection_129
+    datatype: date
+---
+question: |
+  The total amount enforceable in this court that I am claiming against the payor is as follows:
+fields:
+  - "The total amount enforceable in this court that I am claiming against the payor is as follows:": court_info.the_total_amount_enforceable_in_this_court_that_i_am_claiming_against_the_payor_is_as_follows
+---
+question: |
+  unpaid court costs (paragraph 7)
+fields:
+  - "unpaid court costs (paragraph 7)": court_info.unpaid_court_costs
+---
+
+# Financial Information Questions
+question: |
+  Form 26:  Statement of
+Money Owed dated
+fields:
+  - "Form 26:  Statement of
+Money Owed dated": financial.form_26
+    datatype: date
+---
+question: |
+  instructions for completing form 26 (Statement of Money Owed) (continued)
+fields:
+  - "instructions for completing form 26 (Statement of Money Owed) (continued)": financial.instructions_for_completing_form_26
+---
+question: |
+  if the lump sum (whether by way of order, forfeiture, fine or support in a domestic contract) is ful
+fields:
+  - "if the lump sum (whether by way of order, forfeiture, fine or support in a domestic contract) is ful": financial.if_the_lump_sum
+    datatype: currency
+    min: 0
+---
+question: |
+  support
+fields:
+  - "support": financial.support
+    datatype: currency
+    min: 0
+---
+question: |
+  of the total lump-sum support.
+fields:
+  - "of the total lump-sum support.": financial.of_the_total_lumpsum_support
+    datatype: currency
+    min: 0
+---
+
+# Claims Questions
+question: |
+  if your order or domestic contract actually forbids you to claim interest.  (If your order or domest
+fields:
+  - "if your order or domestic contract actually forbids you to claim interest.  (If your order or domest": claims.if_your_order_or_domestic_contract_actually_forbids_you_to_claim_interest
+---
+
+# Other Questions
+question: |
+  Recipient(s)
+fields:
+  - "Recipient(s)": recipient
+---
+question: |
+  Full legal name & address for service — street & number, municipality, postal code, telephone & fax 
+fields:
+  - "Full legal name & address for service — street & number, municipality, postal code, telephone & fax ": full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+---
+question: |
+  Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-
+fields:
+  - "Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-": lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+---
+question: |
+  My name is (full legal name)
+fields:
+  - "My name is (full legal name)": my_name_is
+---
+question: |
+  I live in (municipality and province)
+fields:
+  - "I live in (municipality and province)": i_live_in
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${applicant.name.full() if defined('applicant.name.first') else 'Not provided'}
+  * Address: ${applicant.address.on_one_line() if defined('applicant.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${respondent.name.full() if defined('respondent.name.first') else 'Not provided'}
+  * Address: ${respondent.address.on_one_line() if defined('respondent.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: ${form_name.replace('_', ' ').title()}
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

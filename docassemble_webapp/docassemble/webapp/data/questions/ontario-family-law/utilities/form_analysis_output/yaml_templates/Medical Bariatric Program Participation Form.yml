@@ -1,0 +1,80 @@
+---
+# Ontario Family Law Form: Medical Bariatric Program Participation Form
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Medical Bariatric Program Participation Form
+  short title: |
+    MEDICAL BARIATRIC PROGRAM PARTICIPATION FORM
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  return_to_us_within_24_hours_of_your_virtual_session_along_with_the_patient_questionnaire
+  date_of_info_session
+  last_name
+  address
+  cityprov
+  health_card
+  telephone_numbers
+  work
+  cell
+  email
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  RETURN TO US WITHIN 24 HOURS of your virtual session, along with the Patient Questionnaire : medbari
+fields:
+  - "Return To Us Within 24 Hours Of Your Virtual Session Along With The Patient Questionnaire": return_to_us_within_24_hours_of_your_virtual_session_along_with_the_patient_questionnaire
+---
+question: |
+  DATE OF INFO SESSION:  ___________________________________
+fields:
+  - "Date Of Info Session": date_of_info_session
+    datatype: date
+---
+question: |
+  LAST NAME:  ___________________________________   FIRST NAME: _________________________________
+fields:
+  - "Last Name": last_name
+---
+question: |
+  ADDRESS:  ______________________________________________________________ APT NO: ____________
+fields:
+  - "Address": address
+---
+question: |
+  CITY/PROV: _________________________________________ POSTAL CODE ___________________________
+fields:
+  - "Cityprov": cityprov
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

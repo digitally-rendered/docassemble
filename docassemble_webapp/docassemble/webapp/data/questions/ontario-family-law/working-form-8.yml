@@ -1,0 +1,63 @@
+---
+metadata:
+  title: Ontario Form 8 - Application (General)
+  short title: Form 8
+---
+mandatory: True
+question: |
+  Ontario Family Law Form 8 - Application (General)
+subquestion: |
+  This form is used to start family court proceedings in Ontario for matters including:
+  
+  * Divorce
+  * Custody and access
+  * Child support
+  * Spousal support  
+  * Property division
+  * Other family law matters
+
+  **Important:** This is for demonstration purposes. For actual court filings, please consult with a lawyer or Legal Aid Ontario.
+
+fields:
+  - I understand this is a demonstration: demo_acknowledged
+    datatype: yesnoradio
+  - What type of application do you want to file?: application_type
+    choices:
+      - Divorce: divorce
+      - Custody/Access: custody
+      - Support: support
+      - Property: property
+      - Other: other
+---
+mandatory: True
+question: |
+  Application Type: ${ application_type.title() }
+subquestion: |
+  You have selected to file an application for **${ application_type }**.
+  
+  Next steps would include:
+  
+  % if application_type == 'divorce':
+  * Complete Form 8A (Divorce Application) instead
+  * Gather marriage certificate
+  * Confirm separation period
+  % elif application_type == 'custody':  
+  * Complete custody and access details
+  * Best interests of children assessment
+  * Parenting plan development
+  % elif application_type == 'support':
+  * Complete financial statements (Form 13 or 13.1)
+  * Child Support Guidelines calculations
+  * Income documentation
+  % elif application_type == 'property':
+  * Property valuation
+  * Financial disclosure
+  * Equalization calculations
+  % endif
+  
+  **Remember:** This is a demonstration. For actual legal proceedings, seek professional legal advice.
+
+buttons:
+  - Restart: restart
+  - Get Legal Help: exit
+    url: https://www.legalaid.on.ca/

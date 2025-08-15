@@ -1,0 +1,1235 @@
+---
+metadata:
+  title: "Ontario Family Law Form 8 - Application (General) - Comprehensive Fixed"
+  short title: "Form 8 Comprehensive"
+  description: |
+    Complete Ontario Family Law Form 8 - Application (General) for filing with Ontario courts.
+    This comprehensive version includes all required fields and sections for court filing.
+    Fixed version with corrected YAML syntax and proper Docassemble patterns.
+  authors:
+    - name: Ontario Family Law Navigator
+  revision_date: 2025-08-09
+  tags:
+    - ontario-family-law
+    - form-8
+    - application
+    - court-filing
+    - comprehensive
+    - fixed
+
+# include:
+#   - ontario-family-law-common.yml
+
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - claims_for_relief: DADict
+  - service_info: DADict
+  - previous_orders: DAList.using(object_type=DADict, minimum_number=0)
+
+---
+# Main mandatory interview flow
+mandatory: True
+code: |
+  # Step 1: Legal disclaimer and notice
+  disclaimer_accepted
+  
+  # Step 2: Case type determination  
+  case_type
+  
+  # Step 3: Court information
+  court_location
+  if case_type == "existing":
+    existing_file_number
+  
+  # Step 4: Complete applicant information
+  applicant_info_complete
+  
+  # Step 5: Complete respondent information  
+  respondent_info_complete
+  
+  # Step 6: Relationship information
+  relationship_complete
+  
+  # Step 7: Children information
+  children_complete
+  
+  # Step 8: Claims for relief
+  claims_complete
+  
+  # Step 9: Service information
+  service_complete
+  
+  # Step 10: Previous orders
+  previous_orders_complete
+  
+  # Final step: Form completion
+  form_complete
+
+---
+initial: True
+code: |
+  # Initialize DADict objects
+  claims_for_relief.clear()
+  service_info.clear()
+
+---
+question: |
+  ## Legal Disclaimer and Notice
+  
+  **Important Legal Notice:**
+  
+  This is an official Ontario court form. The information you provide will be used to create
+  legal documents for filing with the Ontario Court of Justice or Superior Court of Justice.
+  
+  - This system provides form completion assistance but does not provide legal advice
+  - You should consult with a lawyer or licensed paralegal for legal advice
+  - False or misleading information may result in legal consequences
+  - All information provided is subject to court rules and procedures
+  
+  **Disclaimer:** This system provides general legal information and procedural 
+  guidance for family law in Ontario. This is not legal advice. 
+  The information provided is not a substitute for consulting with a qualified lawyer who can advise 
+  you on your specific situation. All information is for educational purposes only.
+
+fields:
+  - "I understand this disclaimer and wish to proceed": disclaimer_accepted
+    datatype: yesnoradio
+    required: True
+  - "I confirm I am completing this form for Ontario courts": ontario_jurisdiction
+    datatype: yesnoradio
+    required: True
+
+validation code: |
+  if not disclaimer_accepted:
+    validation_error("You must accept the disclaimer to proceed.")
+  if not ontario_jurisdiction:
+    validation_error("This form is only for Ontario family law matters.")
+
+---
+question: |
+  ## Case Type Determination
+  
+  <div class="form-section">
+  <div class="section-title">Is this a new case or adding to an existing case?</div>
+  
+  This information determines whether you are the Applicant or Respondent, and affects 
+  how your case will be processed by the court.
+  </div>
+  
+  **Choose "Starting a new case" if:**
+  - This is the first time anyone is filing documents with the court for this matter
+  - There is no existing court file number
+  - You have never filed any documents with the court for this matter
+  
+  **Choose "Adding to an existing case" if:**
+  - There is already a court file number assigned to your family law matter
+  - Previous applications, motions, or orders have been filed
+  - You are adding new claims to an existing court file
+
+fields:
+  - "What type of filing is this?": case_type
+    datatype: radio
+    choices:
+      - "Starting a new case": new
+      - "Adding to an existing case": existing
+    required: True
+
+---
+question: |
+  ## Court Location Selection
+  
+  <div class="form-section">
+  <div class="section-title">Court Information</div>
+  Select the Ontario court location where you want to file this application.
+  Generally, you file in the court location nearest to where you or the other party lives.
+  </div>
+
+fields:
+  - "Court Location": court_location
+    datatype: combobox
+    choices:
+      - "Superior Court of Justice - Toronto": toronto_scj
+      - "Superior Court of Justice - Ottawa": ottawa_scj  
+      - "Superior Court of Justice - Hamilton": hamilton_scj
+      - "Superior Court of Justice - London": london_scj
+      - "Superior Court of Justice - Windsor": windsor_scj
+      - "Superior Court of Justice - Thunder Bay": thunderbay_scj
+      - "Superior Court of Justice - Sudbury": sudbury_scj
+      - "Superior Court of Justice - North Bay": northbay_scj
+      - "Superior Court of Justice - Sault Ste. Marie": sault_scj
+      - "Superior Court of Justice - Timmins": timmins_scj
+      - "Superior Court of Justice - Kenora": kenora_scj
+      - "Superior Court of Justice - Bracebridge": bracebridge_scj
+      - "Superior Court of Justice - Barrie": barrie_scj
+      - "Superior Court of Justice - Newmarket": newmarket_scj
+      - "Superior Court of Justice - Oshawa": oshawa_scj
+      - "Superior Court of Justice - Whitby": whitby_scj
+      - "Superior Court of Justice - Peterborough": peterborough_scj
+      - "Superior Court of Justice - Belleville": belleville_scj
+      - "Superior Court of Justice - Kingston": kingston_scj
+      - "Superior Court of Justice - Brockville": brockville_scj
+      - "Superior Court of Justice - Cornwall": cornwall_scj
+      - "Superior Court of Justice - L'Orignal": lorignal_scj
+      - "Superior Court of Justice - Pembroke": pembroke_scj
+      - "Superior Court of Justice - Kitchener": kitchener_scj
+      - "Superior Court of Justice - Guelph": guelph_scj
+      - "Superior Court of Justice - Brantford": brantford_scj
+      - "Superior Court of Justice - St. Catharines": stcatharines_scj
+      - "Superior Court of Justice - Welland": welland_scj
+      - "Superior Court of Justice - Cayuga": cayuga_scj
+      - "Ontario Court of Justice - Multiple Locations": ocj_general
+    required: True
+    help: |
+      If you're unsure which court location to choose, consult with a lawyer or 
+      contact the court directly for guidance.
+
+---
+question: |
+  ## Existing Court File Number
+  
+  <div class="form-section">
+  <div class="section-title">Case Information</div>
+  Please provide the existing court file number for this family law matter.
+  </div>
+
+fields:
+  - "Court File Number": existing_file_number
+    required: True
+    help: |
+      Enter the complete court file number as it appears on previous court documents 
+      (e.g., FS-24-123456, FC-23-987654, or similar format)
+
+validation code: |
+  import re
+  if existing_file_number:
+    cleaned = existing_file_number.strip()
+    if len(cleaned) < 5:
+      validation_error("Please enter a valid court file number with at least 5 characters.")
+    if not re.match(r'^[A-Z]{2}-\d{2}-\d+', cleaned):
+      validation_error("Court file number should be in format like FS-24-123456 or FC-23-987654.")
+
+show if: case_type == "existing"
+
+---
+code: |
+  applicant_info_complete = True
+
+---
+question: |
+  ## Your Information - Full Name
+  
+  <div class="form-section">
+  <div class="section-title">Applicant Information</div>
+  Please provide your complete legal name exactly as it appears on official government-issued identification.
+  </div>
+
+fields:
+  - "First Name": applicant.name.first
+    required: True
+  - "Middle Name(s)": applicant.name.middle
+    required: False
+    help: "Include all middle names if you have them"
+  - "Last Name": applicant.name.last
+    required: True
+  - "Former Name(s)": applicant.name.former
+    required: False
+    help: "Include any former names, maiden names, or aliases you have used"
+
+---
+question: |
+  ## Your Information - Date of Birth and Personal Details
+  
+  <div class="form-section">
+  <div class="section-title">Personal Information</div>
+  This information is required for court records and identification purposes.
+  </div>
+
+fields:
+  - "Date of Birth": applicant.birthdate
+    datatype: date
+    required: True
+  - "Gender": applicant.gender
+    datatype: radio
+    choices:
+      - Female
+      - Male
+      - Non-binary
+      - Prefer not to disclose
+    required: False
+  - "Occupation": applicant.occupation
+    required: False
+    help: "Your current job or profession"
+
+---
+question: |
+  ## Your Information - Complete Address
+  
+  <div class="form-section">
+  <div class="section-title">Current Address</div>
+  Provide your current residential address. This is where court documents will be served.
+  </div>
+
+fields:
+  - "Street Address": applicant.address.address
+    required: True
+    help: "Include unit/apartment number if applicable"
+  - "City": applicant.address.city
+    required: True
+  - "Province": applicant.address.state
+    default: "Ontario"
+    required: True
+  - "Postal Code": applicant.address.zip
+    required: True
+    help: "Format: A1A 1A1"
+  - "Country": applicant.address.country
+    default: "Canada"
+    required: True
+
+validation code: |
+  import re
+  if applicant.address.zip:
+    postal_code = applicant.address.zip.upper().replace(' ', '')
+    if not re.match(r'^[A-Z]\d[A-Z]\d[A-Z]\d$', postal_code):
+      validation_error("Please enter a valid postal code in format A1A 1A1")
+    # Check if Ontario postal code
+    ontario_prefixes = ['K', 'L', 'M', 'N', 'P']
+    if postal_code[0] not in ontario_prefixes:
+      validation_error("Please enter an Ontario postal code (starts with K, L, M, N, or P)")
+    # Format with space
+    applicant.address.zip = f"{postal_code[:3]} {postal_code[3:]}"
+
+---
+question: |
+  ## Your Information - Contact Details
+  
+  <div class="form-section">
+  <div class="section-title">Contact Information</div>
+  Provide current contact information where the court and other parties can reach you.
+  </div>
+
+fields:
+  - "Phone Number (Primary)": applicant.phone_number
+    required: True
+    help: "Include area code (e.g., 416-555-1234)"
+  - "Phone Number (Secondary)": applicant.mobile_number
+    required: False
+    help: "Cell phone or alternate number"
+  - "Email Address": applicant.email
+    datatype: email
+    required: False
+    help: "Court may send notices by email"
+  - "Fax Number": applicant.fax_number
+    required: False
+
+validation code: |
+  import re
+  if applicant.phone_number:
+    phone = re.sub(r'[^\d]', '', applicant.phone_number)
+    if len(phone) != 10:
+      validation_error("Please enter a 10-digit phone number")
+
+---
+question: |
+  ## Your Information - Legal Representation
+  
+  <div class="form-section">
+  <div class="section-title">Legal Representation</div>
+  Do you have a lawyer or licensed paralegal representing you in this matter?
+  </div>
+
+fields:
+  - "Do you have legal representation?": applicant_has_lawyer
+    datatype: yesnoradio
+    required: True
+  - "Lawyer/Paralegal Name": applicant_lawyer_name
+    required: True
+    show if: applicant_has_lawyer
+  - "Law Firm Name": applicant_lawyer_firm
+    required: False
+    show if: applicant_has_lawyer
+  - "Lawyer Phone Number": applicant_lawyer_phone
+    required: True
+    show if: applicant_has_lawyer
+  - "Lawyer Email": applicant_lawyer_email
+    datatype: email
+    required: False
+    show if: applicant_has_lawyer
+
+---
+code: |
+  respondent_info_complete = True
+
+---
+question: |
+  ## Other Party Information - Full Name
+  
+  <div class="form-section">
+  <div class="section-title">Respondent Information</div>
+  Please provide the complete legal name of the other party (respondent) exactly as it appears 
+  on official documents, if known.
+  </div>
+
+fields:
+  - "First Name": respondent.name.first
+    required: True
+  - "Middle Name(s)": respondent.name.middle
+    required: False
+    help: "Include all middle names if you know them"
+  - "Last Name": respondent.name.last
+    required: True
+  - "Former Name(s)": respondent.name.former
+    required: False
+    help: "Include any former names, maiden names, or aliases they have used"
+
+---
+question: |
+  ## Other Party Information - Personal Details
+  
+  <div class="form-section">
+  <div class="section-title">Respondent Personal Information</div>
+  Provide as much information as you know about the other party.
+  </div>
+
+fields:
+  - "Date of Birth": respondent.birthdate
+    datatype: date
+    required: False
+    help: "If you don't know the exact date, leave blank"
+  - "Gender": respondent.gender
+    datatype: radio
+    choices:
+      - Female
+      - Male
+      - Non-binary
+      - Unknown
+    required: False
+  - "Occupation": respondent.occupation
+    required: False
+    help: "Current job or profession, if known"
+
+---
+question: |
+  ## Other Party Information - Complete Address
+  
+  <div class="form-section">
+  <div class="section-title">Respondent Current Address</div>
+  Provide the current residential address of the other party. This is where court documents will be served.
+  If you don't know their current address, provide the last known address.
+  </div>
+
+fields:
+  - "Street Address": respondent.address.address
+    required: True
+    help: "Include unit/apartment number if applicable"
+  - "City": respondent.address.city
+    required: True
+  - "Province": respondent.address.state
+    default: "Ontario"
+    required: True
+  - "Postal Code": respondent.address.zip
+    required: False
+    help: "Format: A1A 1A1 (if known)"
+  - "Country": respondent.address.country
+    default: "Canada"
+    required: True
+  - "Is this their current address?": respondent_address_current
+    datatype: yesnoradio
+    required: True
+  - "When did they live at this address?": respondent_address_period
+    required: False
+    show if: 
+      variable: respondent_address_current
+      is: False
+    help: "e.g., 'January 2023 to June 2024' or 'Last known address as of March 2024'"
+
+---
+question: |
+  ## Other Party Information - Contact Details
+  
+  <div class="form-section">
+  <div class="section-title">Respondent Contact Information</div>
+  Provide contact information for the other party, if known.
+  </div>
+
+fields:
+  - "Phone Number (Primary)": respondent.phone_number
+    required: False
+    help: "Include area code (e.g., 416-555-1234)"
+  - "Phone Number (Secondary)": respondent.mobile_number
+    required: False
+    help: "Cell phone or alternate number"
+  - "Email Address": respondent.email
+    datatype: email
+    required: False
+  - "Fax Number": respondent.fax_number
+    required: False
+
+---
+question: |
+  ## Other Party Information - Legal Representation
+  
+  <div class="form-section">
+  <div class="section-title">Respondent Legal Representation</div>
+  Does the other party have a lawyer or licensed paralegal representing them?
+  </div>
+
+fields:
+  - "Do they have legal representation?": respondent_has_lawyer
+    datatype: radio
+    choices:
+      - "Yes": True
+      - "No": False
+      - "Unknown": unknown
+    required: True
+  - "Lawyer/Paralegal Name": respondent_lawyer_name
+    required: True
+    show if: 
+      variable: respondent_has_lawyer
+      is: True
+  - "Law Firm Name": respondent_lawyer_firm
+    required: False
+    show if: 
+      variable: respondent_has_lawyer
+      is: True
+  - "Lawyer Phone Number": respondent_lawyer_phone
+    required: False
+    show if: 
+      variable: respondent_has_lawyer
+      is: True
+  - "Lawyer Email": respondent_lawyer_email
+    datatype: email
+    required: False
+    show if: 
+      variable: respondent_has_lawyer
+      is: True
+
+---
+code: |
+  relationship_complete = True
+
+---
+question: |
+  ## Relationship Information
+  
+  <div class="form-section">
+  <div class="section-title">Relationship Details</div>
+  Please provide information about your relationship with the other party.
+  </div>
+
+fields:
+  - "What is/was your relationship?": relationship_type
+    datatype: radio
+    choices:
+      - "Married": married
+      - "Common-law partners": common_law
+      - "Dating relationship": dating
+      - "Other family relationship": other_family
+      - "No romantic relationship": no_relationship
+    required: True
+  - "Date relationship began": relationship_start_date
+    datatype: date
+    required: False
+    help: "When did your relationship begin?"
+  - "Are you currently separated?": currently_separated
+    datatype: yesnoradio
+    required: False
+    show if: 
+      code: |
+        relationship_type in ['married', 'common_law']
+  - "Date of separation": separation_date
+    datatype: date
+    required: False
+    show if: currently_separated
+    help: "When did you separate?"
+
+---
+question: |
+  ## Marriage Information
+  
+  <div class="form-section">
+  <div class="section-title">Marriage Details</div>
+  Please provide details about your marriage.
+  </div>
+
+fields:
+  - "Date of Marriage": marriage_date
+    datatype: date
+    required: True
+  - "Place of Marriage (City)": marriage_city
+    required: True
+  - "Place of Marriage (Province/State)": marriage_province
+    required: True
+  - "Place of Marriage (Country)": marriage_country
+    default: "Canada"
+    required: True
+  - "Do you have your marriage certificate?": has_marriage_certificate
+    datatype: yesnoradio
+    required: True
+
+show if: 
+  variable: relationship_type
+  is: married
+
+---
+question: |
+  ## Children Information
+  
+  <div class="form-section">
+  <div class="section-title">Children of the Relationship</div>
+  Do you have any children together with the other party? This includes biological children,
+  adopted children, and children you have acted as parents to together.
+  </div>
+
+fields:
+  - "Do you have children together?": has_children
+    datatype: yesnoradio
+    required: True
+
+---
+code: |
+  children_complete = True
+
+---
+question: |
+  ## Children Details
+  
+  <div class="form-section">
+  <div class="section-title">Child Information</div>
+  Please provide information about each child of the relationship.
+  </div>
+
+list collect: True
+fields:
+  - "Child's First Name": children[i].name.first
+    required: True
+  - "Child's Last Name": children[i].name.last
+    required: True
+  - "Date of Birth": children[i].birthdate
+    datatype: date
+    required: True
+  - "Current Age": children[i].age
+    datatype: integer
+    required: False
+    help: "Age will be calculated from birth date"
+  - "Who does this child currently live with?": children[i].current_custody
+    datatype: radio
+    choices:
+      - "With me (applicant)": applicant
+      - "With other party (respondent)": respondent
+      - "Shared between both parents": shared
+      - "With other family member": other_family
+      - "Other arrangement": other
+    required: True
+  - "Details about current living arrangement": children[i].custody_details
+    datatype: area
+    required: False
+    help: "Provide details about the child's current living situation"
+
+show if: has_children
+
+---
+code: |
+  claims_complete = True
+
+---
+question: |
+  ## Claims for Relief - What Orders Are You Seeking?
+  
+  <div class="form-section">
+  <div class="section-title">Court Orders Requested</div>
+  Please select ALL the orders you are asking the court to make. You can select multiple options.
+  These are your "claims for relief."
+  </div>
+
+fields:
+  - "What orders are you seeking?": claims_selection
+    datatype: checkboxes
+    choices:
+      - "Divorce": divorce
+      - "Sole custody of child(ren)": sole_custody
+      - "Joint custody of child(ren)": joint_custody  
+      - "Access/parenting time": access_parenting
+      - "Child support": child_support
+      - "Spousal support": spousal_support
+      - "Property division/equalization": property_division
+      - "Exclusive possession of matrimonial home": exclusive_possession
+      - "Restraining order": restraining_order
+      - "Other court order": other_claim
+    required: True
+    help: "Select all that apply"
+  - "Describe other claim(s)": other_claim_details
+    datatype: area
+    required: True
+    show if: 
+      code: |
+        'other_claim' in claims_selection
+
+---
+code: |
+  # Process claims selection into claims_for_relief dict
+  for claim in claims_selection:
+    claims_for_relief[claim] = True
+
+---
+question: |
+  ## Divorce Details
+  
+  <div class="form-section">
+  <div class="section-title">Grounds for Divorce</div>
+  Under the Divorce Act, you can get a divorce on one ground: marriage breakdown.
+  You must prove marriage breakdown in one of three ways.
+  </div>
+
+fields:
+  - "Grounds for divorce": divorce_grounds
+    datatype: radio
+    choices:
+      - "Separation for at least one year": separation_one_year
+      - "Adultery": adultery
+      - "Physical or mental cruelty": cruelty
+    required: True
+    help: "Most people use separation for one year as it's usually easiest to prove"
+  - "Have you made any attempts at reconciliation?": reconciliation_steps
+    datatype: yesnoradio
+    required: True
+  - "Details of reconciliation attempts": reconciliation_details
+    datatype: area
+    required: False
+    show if: reconciliation_steps
+
+show if: 
+  code: |
+    'divorce' in claims_selection
+
+---
+question: |
+  ## Child Support Details
+  
+  <div class="form-section">
+  <div class="section-title">Child Support Request</div>
+  Please provide details about the child support you are requesting.
+  </div>
+
+fields:
+  - "Who should pay child support?": child_support_payor
+    datatype: radio
+    choices:
+      - "The other party (respondent)": respondent
+      - "Me (applicant)": applicant
+    required: True
+  - "Requested monthly amount": child_support_amount
+    datatype: currency
+    required: False
+    help: "Leave blank if you want the court to determine the amount"
+  - "When should support start?": child_support_start_date
+    datatype: date
+    required: False
+  - "Are you requesting retroactive (back) support?": retroactive_child_support
+    datatype: yesnoradio
+    required: False
+  - "From what date?": retroactive_support_start_date
+    datatype: date
+    required: False
+    show if: retroactive_child_support
+  - "Are there special or extraordinary expenses?": special_expenses
+    datatype: yesnoradio
+    required: False
+    help: "Daycare, medical, educational, extracurricular costs not covered by basic support"
+  - "Details of special expenses": special_expenses_details
+    datatype: area
+    required: False
+    show if: special_expenses
+
+show if: 
+  code: |
+    'child_support' in claims_selection
+
+---
+question: |
+  ## Custody Details
+  
+  <div class="form-section">
+  <div class="section-title">Custody Request</div>
+  Please provide details about the custody arrangement you are requesting.
+  </div>
+
+fields:
+  - "Proposed custody schedule": custody_schedule
+    datatype: area
+    required: True
+    help: "Describe when children would be with each parent"
+  - "Reasons supporting your custody request": custody_reasons
+    datatype: area
+    required: True
+    help: "Explain why this custody arrangement is in the children's best interests"
+
+show if: 
+  code: |
+    'sole_custody' in claims_selection or 'joint_custody' in claims_selection
+
+---
+question: |
+  ## Access and Parenting Time Details
+  
+  <div class="form-section">
+  <div class="section-title">Access/Parenting Time Request</div>
+  Please provide details about the access or parenting time you are requesting.
+  </div>
+
+fields:
+  - "Proposed access/parenting schedule": access_schedule
+    datatype: area
+    required: True
+    help: "Describe when and how often access should occur"
+  - "Should access be supervised?": supervised_access
+    datatype: yesnoradio
+    required: False
+  - "Details about supervision": supervision_details
+    datatype: area
+    required: False
+    show if: supervised_access
+
+show if: 
+  code: |
+    'access_parenting' in claims_selection
+
+---
+question: |
+  ## Spousal Support Details
+  
+  <div class="form-section">
+  <div class="section-title">Spousal Support Request</div>
+  Please provide details about the spousal support you are requesting.
+  </div>
+
+fields:
+  - "Who should pay spousal support?": spousal_support_payor
+    datatype: radio
+    choices:
+      - "The other party (respondent)": respondent
+      - "Me (applicant)": applicant
+    required: True
+  - "Requested monthly amount": spousal_support_amount
+    datatype: currency
+    required: False
+    help: "Leave blank if you want the court to determine the amount"
+  - "When should support start?": spousal_support_start_date
+    datatype: date
+    required: False
+  - "How long should support last?": spousal_support_duration
+    datatype: radio
+    choices:
+      - "Indefinite (no end date)": indefinite
+      - "Limited term (specific end date)": limited_term
+      - "Until a specific event occurs": specific_event
+    required: True
+  - "End date for support": spousal_support_end_date
+    datatype: date
+    required: False
+    show if: 
+      variable: spousal_support_duration
+      is: limited_term
+  - "Event that would end support": spousal_support_end_event
+    required: False
+    show if: 
+      variable: spousal_support_duration
+      is: specific_event
+  - "Reasons for spousal support request": spousal_support_reasons
+    datatype: area
+    required: True
+
+show if: 
+  code: |
+    'spousal_support' in claims_selection
+
+---
+question: |
+  ## Property Division Details
+  
+  <div class="form-section">
+  <div class="section-title">Property Division Request</div>
+  Please provide details about the property division you are requesting.
+  </div>
+
+fields:
+  - "Major assets to be divided": major_assets
+    datatype: area
+    required: True
+    help: "List major assets like matrimonial home, vehicles, investments, pensions, etc."
+  - "Proposed division of property": property_division_proposal
+    datatype: area
+    required: True
+    help: "How do you think the property should be divided?"
+  - "Estimated total value of property": property_total_value
+    datatype: currency
+    required: False
+
+show if: 
+  code: |
+    'property_division' in claims_selection
+
+---
+question: |
+  ## Restraining Order Details
+  
+  <div class="form-section">
+  <div class="section-title">Restraining Order Request</div>
+  Please provide details about the restraining order you are requesting.
+  </div>
+
+fields:
+  - "What type of restraining order?": restraining_order_type
+    datatype: checkboxes
+    choices:
+      - "No contact": no_contact
+      - "No harassment": no_harassment
+      - "Stay away from residence": stay_away_home
+      - "Stay away from workplace": stay_away_work
+      - "Other restrictions": other_restrictions
+    required: True
+  - "Details of other restrictions": other_restrictions_details
+    datatype: area
+    required: False
+    show if: 
+      code: |
+        'other_restrictions' in restraining_order_type
+  - "Is this request urgent?": restraining_order_urgent
+    datatype: yesnoradio
+    required: True
+  - "Explain urgency": restraining_order_urgency_details
+    datatype: area
+    required: False
+    show if: restraining_order_urgent
+
+show if: 
+  code: |
+    'restraining_order' in claims_selection
+
+---
+code: |
+  service_complete = True
+
+---
+question: |
+  ## Service Information
+  
+  <div class="form-section">
+  <div class="section-title">How Will You Serve the Other Party?</div>
+  You must serve (deliver) a copy of this application and supporting documents to the other party.
+  There are several ways to serve documents in Ontario family law cases.
+  </div>
+
+fields:
+  - "How will you serve the other party?": service_method
+    datatype: radio
+    choices:
+      - "Personal service": personal
+      - "Service at address for service": address_service
+      - "Mail service": mail
+      - "Courier service": courier
+      - "Email service (with consent)": email
+      - "Fax service (with consent)": fax
+      - "Substituted service (court order required)": substituted
+      - "Advertisement (court order required)": advertisement
+    required: True
+    help: "Personal service is most common and reliable"
+  - "Person who will serve documents": person_serving
+    datatype: radio
+    choices:
+      - "Process server": process_server
+      - "Sheriff": sheriff
+      - "Another adult (not a party)": other_adult
+      - "By mail/courier": mail_courier
+    required: True
+    show if: 
+      variable: service_method
+      is: personal
+  - "Details about service": service_details
+    datatype: area
+    required: False
+    help: "Any additional details about how service will be completed"
+
+---
+code: |
+  previous_orders_complete = True
+
+---
+question: |
+  ## Previous Court Orders
+  
+  <div class="form-section">
+  <div class="section-title">Previous Orders or Agreements</div>
+  Have there been any previous court orders, agreements, or other legal documents dealing with 
+  any of the issues in this case?
+  </div>
+
+fields:
+  - "Are there previous orders or agreements?": has_previous_orders
+    datatype: yesnoradio
+    required: True
+
+---
+question: |
+  ## Details of Previous Orders
+  
+  <div class="form-section">
+  <div class="section-title">Previous Order Information</div>
+  Please provide details about previous orders or agreements.
+  </div>
+
+list collect: True
+fields:
+  - "Type of document": previous_orders[i]['type']
+    datatype: radio
+    choices:
+      - "Court Order": court_order
+      - "Separation Agreement": separation_agreement
+      - "Marriage Contract": marriage_contract
+      - "Cohabitation Agreement": cohabitation_agreement
+      - "Consent Order": consent_order
+      - "Other": other
+    required: True
+  - "Date of document": previous_orders[i]['date']
+    datatype: date
+    required: True
+  - "Court location (if court order)": previous_orders[i]['court']
+    required: False
+    show if: 
+      code: |
+        previous_orders[i]['type'] == 'court_order'
+  - "What did this document deal with?": previous_orders[i]['subject']
+    datatype: checkboxes
+    choices:
+      - "Custody": custody
+      - "Access/Parenting time": access
+      - "Child support": child_support
+      - "Spousal support": spousal_support
+      - "Property division": property
+      - "Other": other
+    required: True
+  - "Is this document still in effect?": previous_orders[i]['still_effective']
+    datatype: yesnoradio
+    required: True
+  - "Details": previous_orders[i]['details']
+    datatype: area
+    required: False
+    help: "Brief description of what the document says"
+
+show if: has_previous_orders
+
+---
+code: |
+  form_complete = True
+
+---
+question: |
+  ## Form 8 Application Complete
+  
+  <div class="success-message">
+  <strong>Your Form 8 Application is now complete!</strong>
+  </div>
+  
+  <div class="form-section">
+  <div class="section-title">Summary of Your Application</div>
+  
+  **Case Type:** ${ "New case" if case_type == "new" else "Adding to existing case" }
+  
+  **Court Location:** ${ court_location.replace('_', ' ').title() }
+  
+  % if case_type == "existing":
+  **Existing File Number:** ${ existing_file_number }
+  % endif
+  
+  **Applicant:** ${ applicant.name }
+  
+  **Respondent:** ${ respondent.name }
+  
+  **Claims for Relief:** 
+  % for claim in claims_selection:
+  - ${ claim.replace('_', ' ').title() }
+  % endfor
+  % if 'other_claim' in claims_selection:
+  
+  **Other Claims:** ${ other_claim_details }
+  % endif
+  
+  % if has_children:
+  **Children:** ${ len(children) } child(ren)
+  % endif
+  
+  **Service Method:** ${ service_method.replace('_', ' ').title() }
+  
+  % if has_previous_orders:
+  **Previous Orders:** Yes (${ len(previous_orders) } previous order(s)/agreement(s))
+  % else:
+  **Previous Orders:** None
+  % endif
+  </div>
+  
+  <div class="warning">
+  <strong>Next Steps:</strong>
+  
+  1. **Review all information carefully** - ensure all details are accurate
+  2. **Print and sign the form** - you must sign the original documents
+  3. **Prepare required attachments** - marriage certificate, financial documents, etc.
+  4. **File with the court** - bring original and copies to the court office
+  5. **Pay filing fees** - check current fee schedule with the court
+  6. **Serve the other party** - follow the service method you selected
+  7. **File proof of service** - once you have served the other party
+  
+  **Important:** This form completion assistance does not constitute legal advice. 
+  Consider consulting with a lawyer or licensed paralegal before filing.
+  </div>
+
+buttons:
+  - "Download Form Information": download_form
+    action: download_summary
+  - "Start Over": restart
+  - "Exit": exit
+
+---
+attachment:
+  - name: Form 8 Application Summary
+    filename: Form_8_Application_Summary
+    docx template file: form-8-template.docx
+    valid formats:
+      - pdf
+      - docx
+    variable name: form_summary_attachment
+    content: |
+      # ONTARIO FAMILY LAW FORM 8 - APPLICATION (GENERAL)
+      
+      ## COURT INFORMATION
+      - Court Location: ${ court_location.replace('_', ' ').title() }
+      - Case Type: ${ "New case" if case_type == "new" else "Adding to existing case" }
+      % if case_type == "existing":
+      - Court File Number: ${ existing_file_number }
+      % endif
+      
+      ## APPLICANT INFORMATION
+      - Full Name: ${ applicant.name.full() }
+      % if defined('applicant.name.former') and applicant.name.former:
+      - Former Name(s): ${ applicant.name.former }
+      % endif
+      - Date of Birth: ${ applicant.birthdate.format('yyyy-MM-dd') if defined('applicant.birthdate') else "" }
+      - Address: ${ applicant.address.on_one_line() if defined('applicant.address.address') else "" }
+      - Phone: ${ applicant.phone_number if defined('applicant.phone_number') else "" }
+      % if defined('applicant.email') and applicant.email:
+      - Email: ${ applicant.email }
+      % endif
+      % if defined('applicant_has_lawyer') and applicant_has_lawyer:
+      - Legal Representation: ${ applicant_lawyer_name } ${ "(" + applicant_lawyer_firm + ")" if defined('applicant_lawyer_firm') and applicant_lawyer_firm else "" }
+      % endif
+      
+      ## RESPONDENT INFORMATION  
+      - Full Name: ${ respondent.name.full() }
+      % if defined('respondent.name.former') and respondent.name.former:
+      - Former Name(s): ${ respondent.name.former }
+      % endif
+      - Date of Birth: ${ respondent.birthdate.format('yyyy-MM-dd') if defined('respondent.birthdate') else "Unknown" }
+      - Address: ${ respondent.address.on_one_line() if defined('respondent.address.address') else "Unknown" }
+      % if not respondent_address_current:
+      - Address Status: Last known address (${ respondent_address_period if defined('respondent_address_period') else "" })
+      % endif
+      - Phone: ${ respondent.phone_number if defined('respondent.phone_number') and respondent.phone_number else "Unknown" }
+      % if defined('respondent_has_lawyer') and respondent_has_lawyer == True:
+      - Legal Representation: ${ respondent_lawyer_name if defined('respondent_lawyer_name') else "" }
+      % endif
+      
+      ## RELATIONSHIP INFORMATION
+      - Relationship Type: ${ relationship_type.replace('_', ' ').title() if defined('relationship_type') else "" }
+      % if defined('marriage_date'):
+      - Date of Marriage: ${ marriage_date.format('yyyy-MM-dd') }
+      - Place of Marriage: ${ marriage_city }, ${ marriage_province }, ${ marriage_country }
+      % endif
+      % if defined('currently_separated') and currently_separated:
+      - Date of Separation: ${ separation_date.format('yyyy-MM-dd') if defined('separation_date') else "" }
+      % endif
+      
+      ## CHILDREN INFORMATION
+      % if has_children:
+      - Number of Children: ${ len(children) }
+      % for child in children:
+      - Child: ${ child.name.full() }, DOB: ${ child.birthdate.format('yyyy-MM-dd') }, Currently lives with: ${ child.current_custody.replace('_', ' ').title() }
+      % endfor
+      % else:
+      - Children: None
+      % endif
+      
+      ## CLAIMS FOR RELIEF
+      % for claim in claims_selection:
+      - ${ claim.replace('_', ' ').title() }
+      % endfor
+      % if 'other_claim' in claims_selection:
+      - Other: ${ other_claim_details }
+      % endif
+      
+      ## SPECIFIC CLAIM DETAILS
+      % if 'divorce' in claims_selection:
+      - Divorce Grounds: ${ divorce_grounds.replace('_', ' ').title() if defined('divorce_grounds') else "" }
+      % endif
+      
+      % if 'child_support' in claims_selection:
+      - Child Support Payor: ${ child_support_payor.title() if defined('child_support_payor') else "" }
+      - Child Support Amount: ${ "$" + str(child_support_amount) if defined('child_support_amount') and child_support_amount else "To be determined by court" }
+      % if defined('retroactive_child_support') and retroactive_child_support:
+      - Retroactive Support: Yes, from ${ retroactive_support_start_date.format('yyyy-MM-dd') if defined('retroactive_support_start_date') else "" }
+      % endif
+      % endif
+      
+      % if 'spousal_support' in claims_selection:
+      - Spousal Support Payor: ${ spousal_support_payor.title() if defined('spousal_support_payor') else "" }
+      - Spousal Support Amount: ${ "$" + str(spousal_support_amount) if defined('spousal_support_amount') and spousal_support_amount else "To be determined by court" }
+      - Duration: ${ spousal_support_duration.replace('_', ' ').title() if defined('spousal_support_duration') else "" }
+      % endif
+      
+      ## SERVICE INFORMATION
+      - Service Method: ${ service_method.replace('_', ' ').title() if defined('service_method') else "" }
+      % if defined('person_serving'):
+      - Person Serving: ${ person_serving.replace('_', ' ').title() }
+      % endif
+      
+      ## PREVIOUS ORDERS
+      % if has_previous_orders:
+      - Previous Orders: Yes (${ len(previous_orders) } order(s)/agreement(s))
+      % for order in previous_orders:
+      - ${ order['type'].replace('_', ' ').title() }, Date: ${ order['date'].format('yyyy-MM-dd') }, Subject: ${ ', '.join([s.replace('_', ' ').title() for s in order['subject']]) }
+      % endfor
+      % else:
+      - Previous Orders: None
+      % endif
+      
+      ---
+      
+      **IMPORTANT DISCLAIMER:** This form summary is for informational purposes only and does not constitute legal advice. Before filing with the court, consult with a qualified lawyer or licensed paralegal. Ensure all information is accurate and complete before submitting to the court.
+      
+      Generated: ${ today().format('yyyy-MM-dd') }
+
+event: download_form
+code: |
+  form_summary_attachment
+
+---
+event: download_summary
+code: |
+  log("User downloaded form summary")
+
+---
+event: restart  
+code: |
+  command('restart')
+
+---
+event: exit
+code: |
+  command('exit')

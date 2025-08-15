@@ -1,0 +1,275 @@
+metadata:
+  authors:
+  - name: Ontario Family Law Forms System
+  description: Complete Ontario Family Court Form 8 - Application (General) to start
+    family court proceedings.
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+  revision_date: '2025-08-09'
+  short title: Form 8 - Application
+  tags:
+  - ontario
+  - family-law
+  - form-17c---settlement-conference-brief-flr-17c-sep23-en
+  - court-forms
+  title: Ontario Family Law Form 8 - Application (General)
+include:
+  - ontario-family-law-common.yml
+features:
+  css: ontario-family-law.css
+  navigation: true
+  progress bar: true
+  question help button: true
+  show progress bar percentage: true
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - financial: DAObject
+  - marriage: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  
+  # Applicant Information
+  applicant
+  
+  # Respondent Information
+  respondent
+  
+  # Children Information
+  children.name_address_of_childrens_lawyers_agent
+  children.the_basic_information_about_the_child
+  children.childs_full_legal_name
+  
+  # Financial Information
+  financial.spousal_support
+  financial.ownership_of_property
+  financial.equalization_of_net_family_property
+  
+  # Marriage Information
+  marriage.relationship_dates
+  marriage.married_on
+  
+  # Claims
+  claims.an_order_dated
+  
+  # Other
+  form_17c
+  date_of_settlement_conference
+  full_legal_name_address_for
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+fields:
+  - Court File Number: court_info.court_file_number
+---
+question: |
+  Court office address
+fields:
+  - Court office address: court_info.court_office_address
+---
+# Applicant Information Questions
+question: |
+  Applicant(s)
+fields:
+  - Applicant(s): applicant
+---
+# Respondent Information Questions
+question: |
+  Respondent(s)
+fields:
+  - Respondent(s): respondent
+---
+# Children Information Questions
+question: |
+  "Name & address of Children’s Lawyer’s agent (street & number, municipality, postal code, telephon..."
+fields:
+  - "Name & address of Children’s Lawyer’s agent (street & number": children.name_address_of_childrens_lawyers_agent
+---
+question: |
+  "The basic information about the child(ren) is as follows:"
+fields:
+  - "The basic information about the child(ren) is as follows:": children.the_basic_information_about_the_child
+---
+question: |
+  Child’s full legal name
+fields:
+  - Child’s full legal name: children.childs_full_legal_name
+---
+question: |
+  child support
+fields:
+  - child support: children.child_support
+    datatype: currency
+    min: 0
+---
+question: |
+  "If child or spousal support is an issue, give the income of the parties:"
+fields:
+  - If child or spousal support is an issue, give the income of: children.if_child_or_spousal_support
+    datatype: currency
+    min: 0
+---
+# Financial Information Questions
+question: |
+  spousal support
+fields:
+  - spousal support: financial.spousal_support
+    datatype: currency
+    min: 0
+---
+question: |
+  ownership of property
+fields:
+  - ownership of property: financial.ownership_of_property
+    datatype: currency
+    min: 0
+---
+question: |
+  equalization of net family property
+fields:
+  - equalization of net family property: financial.equalization_of_net_family_property
+    datatype: currency
+    min: 0
+---
+# Marriage Information Questions
+question: |
+  "RELATIONSHIP DATES:"
+fields:
+  - "RELATIONSHIP DATES:": marriage.relationship_dates
+    datatype: date
+---
+question: |
+  Married on (date)
+fields:
+  - Married on (date): marriage.married_on
+    datatype: date
+---
+# Claims Questions
+question: |
+  an order dated
+fields:
+  - an order dated: claims.an_order_dated
+    datatype: date
+---
+# Other Questions
+question: |
+  "Form 17C: Settlement Conference Brief - General"
+fields:
+  - "Form 17C: Settlement Conference Brief - General": form_17c
+---
+question: |
+  Date of settlement conference
+fields:
+  - Date of settlement conference: date_of_settlement_conference
+    datatype: date
+---
+question: |
+  "Full legal name & address for service — street & number, municipality, postal code, telephone & f..."
+fields:
+  - "Full legal name & address for service — street & number, mun": full_legal_name_address_for
+---
+question: |
+  "Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and..."
+fields:
+  - "Lawyer’s name & address — street & number, municipality, pos": lawyers_name_address_street_number
+---
+question: |
+  "PART 1: FAMILY FACTS"
+fields:
+  - "PART 1: FAMILY FACTS": part_1
+    input type: area
+    rows: 4
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided.
+  
+  % if defined('applicant.name.first'):
+  **Applicant:** ${ applicant.name }
+  % endif
+  
+  % if defined('respondent.name.first'):
+  **Respondent:** ${ respondent.name }
+  % endif
+  
+  % if defined('court_info.file_number'):
+  **Court File Number:** ${ court_info.file_number }
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---

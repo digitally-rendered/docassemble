@@ -44,6 +44,9 @@ code: |
   introduction_screen
   legal_disclaimer_accepted
   
+  # Case type determination
+  case_type_determination
+  
   # Court information
   court_info.level
   court_info.location
@@ -52,6 +55,7 @@ code: |
   
   # Applicant information
   applicant.name.first
+  applicant.birthdate
   applicant.address.address
   applicant.phone_number
   applicant.email
@@ -59,6 +63,7 @@ code: |
   
   # Respondent information  
   respondent.name.first
+  respondent.birthdate
   respondent.address.address
   respondent_service_info
   
@@ -67,6 +72,11 @@ code: |
   if children_involved:
     children.gather()
     children_privacy_protection
+  
+  # Relationship information
+  relationship_type
+  if relationship_type in ('married', 'civil_partnership'):
+    marriage_details
   
   # Claims being made
   claims_selection
@@ -78,6 +88,12 @@ code: |
   # Service information
   service_method
   service_details
+  
+  # Additional case information
+  additional_info.previous_orders
+  
+  # Interim orders
+  interim_orders_needed
   
   # Review and confirmation
   review_information
@@ -109,11 +125,11 @@ subquestion: |
   **Time required:** This interview typically takes 20-30 minutes to complete.
 field: introduction_screen
 datatype: checkboxes
-minlength: 1
 choices:
   - I have read and understand the above information: understood
-validation messages:
-  minlength: You must confirm you have read the information before continuing.
+validation code: |
+  if not introduction_screen.get('understood'):
+    validation_error("You must confirm you have read the information before continuing.")
 ---
 # Legal disclaimer
 question: |
@@ -143,6 +159,23 @@ subquestion: |
   - [Community legal clinics](https://www.legalaid.on.ca/legal-clinics/)
 field: legal_disclaimer_accepted
 datatype: yesnoradio
+---
+# Case Type Determination
+question: |
+  Is this a new case or are you adding to an existing case?
+subquestion: |
+  This determines how your application will be processed and what information is required.
+  
+  **New Case:** You are starting a new family court proceeding
+  
+  **Existing Case:** You are adding new claims to a case that has already been filed
+field: case_type_determination
+choices:
+  - This is a new case: new
+  - This is an existing case: existing
+help: |
+  If you already have a court file number for this matter, choose "existing case".
+  If this is the first time you are going to court about this family matter, choose "new case".
 ---
 # Court Information Section
 question: |
@@ -198,15 +231,24 @@ validation code: |
     validation_error("Please enter a court location.")
 ---
 question: |
+  % if case_type_determination == 'existing':
+  Court File Number
+  % else:
   Court File Number (if known)
+  % endif
 subquestion: |
+  % if case_type_determination == 'existing':
+  Enter the court file number for the existing case you are adding to.
+  % else:
   If this is a new application, leave this blank. If you're adding to an existing case, enter the court file number.
+  % endif
 field: court_info.file_number
-required: False
 help: |
   Court file numbers typically look like: FC-12-345678 or similar format depending on the court.
 validation code: |
   import re
+  if case_type_determination == 'existing' and not court_info.file_number:
+    validation_error("Court file number is required for existing cases.")
   if court_info.file_number and not re.match(r'^[A-Z]{1,3}-\d{2}-\d{6}$', court_info.file_number.upper()):
     validation_error("Please enter a valid court file number format (e.g., FC-12-345678)")
 ---
@@ -240,23 +282,39 @@ validation code: |
     validation_error("Last name must be at least 2 characters long.")
 ---
 question: |
+  Your Date of Birth
+subquestion: |
+  This information is required for court records and identification purposes.
+field: applicant.birthdate
+datatype: date
+validation code: |
+  from datetime import date, timedelta
+  if applicant.birthdate > date.today():
+    validation_error("Birth date cannot be in the future.")
+  if applicant.birthdate < date.today() - timedelta(days=36500):  # About 100 years
+    validation_error("Please verify the birth date entered.")
+  age = (date.today() - applicant.birthdate).days // 365
+  if age < 18:
+    validation_error("You must be at least 18 years old to file a court application.")
+---
+question: |
   Your Address
 subquestion: |
   This should be your current residential address where you can receive court documents.
 fields:
   - Street Address: applicant.address.address
-    required: True
+    required: true
   - Unit/Apartment: applicant.address.unit
-    required: False
+    required: false
   - City: applicant.address.city
-    required: True
+    required: true
   - Province: applicant.address.state
-    required: True
+    required: true
     default: Ontario
-    code: |
-      provinces_list
+    choices:
+      - Ontario
   - Postal Code: applicant.address.zip
-    required: True
+    required: true
     help: Format: A1A 1A1
 validation code: |
   import re
@@ -335,6 +393,20 @@ validation code: |
     validation_error("Last name must be at least 2 characters long.")
 ---
 question: |
+  Other Party's Date of Birth
+subquestion: |
+  Enter the respondent's date of birth if known. This helps with identification in court records.
+field: respondent.birthdate
+datatype: date
+required: False
+validation code: |
+  from datetime import date, timedelta
+  if respondent.birthdate and respondent.birthdate > date.today():
+    validation_error("Birth date cannot be in the future.")
+  if respondent.birthdate and respondent.birthdate < date.today() - timedelta(days=36500):  # About 100 years
+    validation_error("Please verify the birth date entered.")
+---
+question: |
   Other Party's Address
 subquestion: |
   Enter the respondent's current address if known. This is where court documents will be served.
@@ -408,6 +480,14 @@ fields:
       - Ontario: ontario
       - Other Canadian province: other_canada
       - Outside Canada: outside_canada
+  - Child support currently paid?: children[i].support_status
+    datatype: yesnoradio
+    required: False
+  - Special needs or circumstances: children[i].special_circumstances
+    datatype: area
+    required: False
+    rows: 2
+    help: Include any medical, educational, or other special needs
 show if: children_involved
 validation code: |
   from datetime import date
@@ -430,6 +510,60 @@ field: children_privacy_protection
 datatype: yesnoradio
 show if: children_involved
 ---
+# Relationship Information Section
+question: |
+  What is your relationship to the other party?
+subquestion: |
+  Select the type of relationship you have or had with the respondent.
+field: relationship_type
+choices:
+  - Married: married
+  - Civil partnership/union: civil_partnership
+  - Common-law partners: common_law
+  - Dating relationship: dating
+  - Other family relationship: family_other
+  - No romantic relationship: no_relationship
+help: |
+  This information helps determine what laws apply to your situation and what orders the court can make.
+---
+question: |
+  Marriage/Partnership Details
+subquestion: |
+  Please provide details about your marriage or civil partnership.
+fields:
+  - Date of marriage/partnership: marriage_details.date
+    datatype: date
+    required: True
+  - Place of marriage/partnership: marriage_details.place
+    required: True
+    help: Include city, province/state, and country
+  - Are you still living together?: marriage_details.still_together
+    datatype: yesnoradio
+  - Date of separation (if separated): marriage_details.separation_date
+    datatype: date
+    required: False
+    show if:
+      variable: marriage_details.still_together
+      is: False
+  - Reason for separation: marriage_details.separation_reason
+    datatype: area
+    required: False
+    rows: 3
+    show if:
+      variable: marriage_details.still_together
+      is: False
+show if:
+  code: |
+    relationship_type in ('married', 'civil_partnership')
+validation code: |
+  from datetime import date
+  if marriage_details.date > date.today():
+    validation_error("Marriage/partnership date cannot be in the future.")
+  if marriage_details.separation_date and marriage_details.separation_date <= marriage_details.date:
+    validation_error("Separation date must be after marriage/partnership date.")
+  if marriage_details.separation_date and marriage_details.separation_date > date.today():
+    validation_error("Separation date cannot be in the future.")
+---
 # Claims Section
 question: |
   What are you asking the court to order?
@@ -448,9 +582,9 @@ choices:
   - Exclusive possession of matrimonial home: exclusive_possession
   - Restraining order: restraining_order
   - Other relief: other_relief
-minlength: 1
-validation messages:
-  minlength: You must select at least one claim.
+validation code: |
+  if not any(claims_selection.true_values()):
+    validation_error("You must select at least one claim.")
 help: |
   **Definitions:**
   - **Custody:** Legal responsibility for major decisions about children
@@ -478,8 +612,8 @@ fields:
   - Place of marriage: claims.marriage_place
     required: True
 show if:
-  variable: claims_selection
-  is: divorce
+  code: |
+    'divorce' in claims_selection
 validation code: |
   from datetime import date, timedelta
   if claims.separation_date <= claims.marriage_date:
@@ -502,8 +636,8 @@ fields:
     rows: 4
     help: Describe any specific custody arrangements you want the court to consider
 show if:
-  variable: claims_selection
-  is: custody
+  code: |
+    'custody' in claims_selection
 ---
 question: |
   Access/Parenting Time Details
@@ -521,8 +655,8 @@ fields:
     rows: 4
     help: Describe the specific access schedule you want
 show if:
-  variable: claims_selection
-  is: access
+  code: |
+    'access' in claims_selection
 ---
 question: |
   Child Support Details
@@ -538,8 +672,8 @@ fields:
     datatype: yesnoradio
     help: Activities, medical, education, or childcare expenses beyond basic support
 show if:
-  variable: claims_selection
-  is: child_support
+  code: |
+    'child_support' in claims_selection
 ---
 question: |
   Spousal Support Details
@@ -557,8 +691,22 @@ fields:
     datatype: date
     default: ${ today() }
 show if:
-  variable: claims_selection
-  is: spousal_support
+  code: |
+    'spousal_support' in claims_selection
+---
+question: |
+  Other Relief Details
+subquestion: |
+  Please describe the other relief or orders you are seeking from the court.
+fields:
+  - Specific other relief requested: claims.other_relief_details
+    datatype: area
+    rows: 6
+    required: True
+    help: Be specific about what orders you want the court to make
+show if:
+  code: |
+    'other_relief' in claims_selection
 ---
 question: |
   Property Division Details
@@ -579,8 +727,8 @@ fields:
       - Respondent to keep: respondent_keep
       - Continue joint ownership: joint_ownership
 show if:
-  variable: claims_selection
-  is: property_division
+  code: |
+    'property_division' in claims_selection
 ---
 # Financial Information Section
 code: |
@@ -632,7 +780,7 @@ subquestion: |
 fields:
   - Expected service date: service_info.expected_date
     datatype: date
-    default: ${ today() + datetime.timedelta(days=7) }
+    default: ${ today().plus(days=7) }
   - Name of person who will serve: service_info.server_name
     required: False
     show if:
@@ -647,6 +795,71 @@ fields:
     datatype: area
     required: False
     rows: 3
+  - Proof of service will be filed: service_info.proof_filing
+    datatype: yesnoradio
+    help: You must file proof that the respondent was properly served
+---
+# Additional Requirements Section
+question: |
+  Additional Case Information
+subquestion: |
+  Please provide any additional information that may be relevant to your case.
+fields:
+  - Previous court orders about this matter: additional_info.previous_orders
+    datatype: yesnoradio
+  - Details of previous orders: additional_info.previous_orders_details
+    datatype: area
+    rows: 4
+    required: False
+    show if: additional_info.previous_orders
+  - Protection orders or restraining orders: additional_info.protection_orders
+    datatype: yesnoradio
+  - Details of protection orders: additional_info.protection_orders_details
+    datatype: area
+    rows: 4
+    required: False
+    show if: additional_info.protection_orders
+  - Child protection involvement: additional_info.child_protection
+    datatype: yesnoradio
+  - Details of child protection involvement: additional_info.child_protection_details
+    datatype: area
+    rows: 4
+    required: False
+    show if: additional_info.child_protection
+---
+# Court Orders Section
+question: |
+  Interim Orders Requested
+subquestion: |
+  Do you need any emergency or interim orders while your case is being processed?
+field: interim_orders_needed
+datatype: yesnoradio
+help: |
+  Interim orders are temporary orders that can be made quickly while your case is being processed.
+---
+question: |
+  Interim Order Details
+subquestion: |
+  What interim orders do you need?
+fields:
+  - Emergency custody order: interim_orders.emergency_custody
+    datatype: yesnoradio
+  - Interim support order: interim_orders.interim_support
+    datatype: yesnoradio
+  - Restraining order: interim_orders.restraining_order
+    datatype: yesnoradio
+  - Exclusive possession of home: interim_orders.exclusive_possession
+    datatype: yesnoradio
+  - Other interim relief: interim_orders.other_relief
+    datatype: area
+    rows: 3
+    required: False
+  - Urgency explanation: interim_orders.urgency_reason
+    datatype: area
+    rows: 4
+    required: True
+    help: Explain why these interim orders are needed urgently
+show if: interim_orders_needed
 ---
 # Review Section
 question: |
@@ -654,23 +867,38 @@ question: |
 subquestion: |
   Please review all the information you have entered. Make sure everything is accurate and complete.
   
+  **Case Type:** ${ case_type_determination.title() } case
+  
   **Court Information:**
-  - Court Level: ${ court_info.level.title() }
+  - Court Level: ${ court_info.level }
   - Location: ${ court_info.location }
   - File Number: ${ court_info.file_number if defined('court_info.file_number') and court_info.file_number else 'New Application' }
   
-  **Applicant:** ${ applicant.name.full() }
-  **Address:** ${ applicant.address.block() }
-  **Phone:** ${ applicant.phone_number }
-  **Email:** ${ applicant.email }
+  **Applicant:** ${ applicant.name.first } ${ applicant.name.last }
+  - Birth Date: ${ applicant.birthdate }
+  - Address: ${ applicant.address.address }, ${ applicant.address.city }, ${ applicant.address.state } ${ applicant.address.zip }
+  - Phone: ${ applicant.phone_number }
+  - Email: ${ applicant.email }
+  - Legal Representation: ${ 'Yes' if applicant_legal_representation else 'No' }
   
-  **Respondent:** ${ respondent.name.full() }
-  **Address:** ${ respondent.address.block() }
+  **Respondent:** ${ respondent.name.first } ${ respondent.name.last }
+  - Birth Date: ${ respondent.birthdate if defined('respondent.birthdate') and respondent.birthdate else 'Not provided' }
+  - Address: ${ respondent.address.address }, ${ respondent.address.city }, ${ respondent.address.state } ${ respondent.address.zip }
+  - Service Method: ${ service_method }
+  
+  **Relationship:** ${ relationship_type.replace('_', ' ').title() }
+  % if relationship_type in ('married', 'civil_partnership') and defined('marriage_details.date'):
+  - Marriage/Partnership Date: ${ marriage_details.date }
+  - Place: ${ marriage_details.place }
+  % if defined('marriage_details.separation_date') and marriage_details.separation_date:
+  - Separation Date: ${ marriage_details.separation_date }
+  % endif
+  % endif
   
   % if children_involved:
-  **Children:** ${ children.number_as_word().title() } child${ 'ren' if children.number() > 1 else '' }
+  **Children:** ${ children.number() } child${ 'ren' if children.number() > 1 else '' }
   % for child in children:
-  - ${ child.name.full() }, born ${ child.birthdate }
+  - ${ child.name.first } ${ child.name.last }, born ${ child.birthdate }
   % endfor
   % endif
   
@@ -679,7 +907,7 @@ subquestion: |
   - ${ claim.replace('_', ' ').title() }
   % endfor
   
-  **Service Method:** ${ service_method.replace('_', ' ').title() }
+  **Service Method:** ${ service_method }
 field: review_information
 datatype: yesnoradio
 ---
@@ -731,11 +959,22 @@ subquestion: |
   - Ontario Court of Justice: $157
   - Fee waiver may be available if you meet financial criteria
   
-  **Important Reminders:**
-  - Keep copies of all documents for your records
-  - Serve the respondent within 6 months of filing
-  - The respondent has 30 days to file an Answer
-  - Consider getting legal advice for complex matters
+  **Important Legal Reminders:**
+  
+  - **Filing Requirements:** Keep copies of all documents for your records
+  - **Service Requirements:** Serve the respondent within 6 months of filing
+  - **Response Time:** The respondent has 30 days to file an Answer (Form 10)
+  - **Additional Forms:** You may need to file additional forms such as:
+    - Form 13 or 13.1 (Financial Statement) if claiming support or property
+    - Form 35.1 (Affidavit) if claiming custody or access
+  - **Legal Representation:** Consider getting legal advice for complex matters
+  - **Court Appearance:** You may need to attend court hearings
+  - **Updates:** Notify the court of any address changes
+  
+  **Ontario Family Law Compliance Notice:**
+  This form has been designed to comply with Ontario Family Law Rules. However, you are responsible for ensuring all information is accurate and complete. Seek legal advice if you are unsure about your rights or obligations.
+  
+  **Privacy Protection:** Information about children will be protected according to Ontario Family Law Rules and privacy legislation.
   
   [Download Form 8](${ url_action('download_form8') })
 buttons:

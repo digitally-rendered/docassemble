@@ -1,0 +1,975 @@
+---
+metadata:
+  title: Ontario Family Law Forms Wizard
+  short title: Forms Wizard
+  description: Interactive guide to determine which Ontario family law forms you need
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-10
+  tags:
+    - ontario
+    - family-law
+    - wizard
+    - forms-selector
+---
+# include:
+#   - ontario-family-law-common.yml
+---
+# Import needed modules directly
+modules:
+  - re
+  - datetime
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+  debug: True
+---
+objects:
+  - user_situation: DAObject
+  - recommended_forms: DAList
+  - form_package: DAObject
+  # Parties as full Individual objects with all fields
+  - applicant: Individual
+  - respondent: Individual
+  # Lawyers as Individual objects with firm info as attributes
+  - user_lawyer: Individual
+  - other_lawyer: Individual
+  # Court as a full object with address
+  - court: DAObject
+  - court.address: Address
+---
+# Main interview flow
+mandatory: True
+code: |
+  # Introduction
+  wizard_introduction
+  
+  # Check for emergency situation first
+  emergency_situation
+  
+  # Show emergency warning if applicable but continue
+  if emergency_situation:
+    emergency_forms_needed
+  
+  # MIP requirement (skip if emergency)
+  if not emergency_situation:
+    mip_information
+  
+  # Determine relationship status
+  relationship_status
+  
+  # Ask what orders they're seeking (unified question for all)
+  if relationship_status != "never_together":
+    orders_sought
+    # Variables are set by the orders_sought question
+  else:
+    # Ask what specific relief they need for never_together cases
+    never_together_orders
+    # Now set the standard variables based on never_together responses
+    seeking_divorce = False
+    seeking_custody = never_together_custody
+    seeking_child_support = never_together_child_support
+    seeking_spousal_support = False
+    seeking_property = False
+    seeking_exclusive_possession = False
+    seeking_restraining_order = never_together_restraining
+    seeking_enforcement = False
+    seeking_other = never_together_other
+  
+  # If seeking divorce, determine complexity
+  if relationship_status == "married" and defined('seeking_divorce') and seeking_divorce:
+    # Check if ONLY divorce or divorce plus other things
+    other_orders = ((defined('seeking_custody') and seeking_custody) or 
+                   (defined('seeking_child_support') and seeking_child_support) or 
+                   (defined('seeking_spousal_support') and seeking_spousal_support) or
+                   (defined('seeking_property') and seeking_property) or 
+                   (defined('seeking_exclusive_possession') and seeking_exclusive_possession) or
+                   (defined('seeking_restraining_order') and seeking_restraining_order) or 
+                   (defined('seeking_enforcement') and seeking_enforcement))
+    
+    if not other_orders:
+      # Divorce only - ask about contested/uncontested
+      divorce_complexity
+      if divorce_complexity == "uncontested_simple":
+        children_involved_simple
+    else:
+      # Divorce with other issues - it's contested by definition
+      divorce_complexity = "contested"
+  
+  # Now check if financial forms are needed (after issues are defined)
+  needs_financial_forms
+  
+  # Financial situation - only ask if needed
+  if needs_financial_forms:
+    financial_complexity
+  
+  # PARTY INFORMATION COLLECTION - UNIVERSAL FOR ALL FLOWS
+  # Every legal case needs party information regardless of type
+  user_role
+  collect_user_party_info
+  collect_other_party_info
+  user_has_lawyer
+  if user_has_lawyer:
+    collect_user_lawyer_info
+  other_party_has_lawyer
+  if other_party_has_lawyer:
+    collect_other_party_lawyer_info
+  collect_court_info
+  
+  # Generate recommendations
+  generate_form_recommendations
+  
+  # Show recommendations
+  show_recommendations
+  
+  # Generate data block for workflow manager
+  generate_workflow_data
+  
+  # Final screen based on emergency status
+  if emergency_situation:
+    final_screen_emergency_complete
+  else:
+    final_screen_normal
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Wizard
+subquestion: |
+  This interactive guide will help you determine exactly which forms you need to start your family law case in Ontario.
+  
+  **What this wizard will do:**
+  - Ask you questions about your situation
+  - Determine which forms you need
+  - Explain the order to complete them
+  - Provide direct links to each form
+  - Estimate timelines for your case
+  
+  **Before we begin:**
+  - Have information about your marriage/relationship ready
+  - Know whether you have children together
+  - Consider whether you have property or support issues
+  - This should take about 5 minutes
+  
+  **Legal Disclaimer:**
+  This tool provides procedural information only, not legal advice. Consider consulting a lawyer for complex cases.
+continue button field: wizard_introduction
+---
+# Emergency check
+question: |
+  Is this an emergency situation?
+subquestion: |
+  **Emergency situations include:**
+  - Risk of domestic violence or abuse
+  - Concerns about child abduction
+  - Immediate risk of significant financial harm
+  - Urgent safety concerns for you or your children
+  
+  If yes, you may bypass the Mandatory Information Program (MIP) and file immediately.
+field: emergency_situation
+buttons:
+  - "Yes, this is an emergency": True
+  - "No, this is not an emergency": False
+---
+# Emergency forms screen
+question: |
+  ⚠️ URGENT: Emergency Filing Required
+subquestion: |
+  **Your situation requires immediate action.** You should file emergency forms TODAY.
+  
+  ## Emergency Forms You Need NOW:
+  1. **[Form 8 - Application (General)](/interview?i=docassemble.webapp:ontario-family-law/form_8_-_application_general_flr-8-jun25-en_interview.yml)**
+  2. **[Form 14 - Notice of Motion](/interview?i=docassemble.webapp:ontario-family-law/form_14b_-_motion_form_flr-14b-0921-en_interview.yml)** (for urgent relief)
+  3. **Form 14A - Supporting Affidavit** (explain the emergency)
+  4. **Form 14D - Order Without Notice** (if seeking order before serving other party)
+  
+  **If seeking restraining order:**
+  - **[Form 25F - Restraining Order](/interview?i=docassemble.webapp:ontario-family-law/form_25f_-_restraining_order_flr-25f-sep09-en-fil_interview.yml)**
+  
+  ## Immediate Actions:
+  1. **If in danger, call 911 NOW**
+  2. Complete emergency forms immediately
+  3. Go directly to courthouse (emergency filings possible after hours)
+  4. You may get a temporary order the same day
+  
+  ## Crisis Resources:
+  - **Emergency: 911**
+  - **Assaulted Women's Helpline: 1-866-863-0511**
+  - **Legal Aid Ontario: 1-800-668-8258**
+  
+  ---
+  
+  **We'll continue gathering information about your full case needs, but please prioritize your safety and file emergency forms first.**
+  
+continue button field: emergency_forms_needed
+continue button label: Continue (I understand the urgency)
+---
+# MIP Information
+question: |
+  Mandatory Information Program (MIP) Requirement
+subquestion: |
+  **Before filing any family court application in Ontario, you must attend the Mandatory Information Program (MIP).**
+  
+  **What is MIP?**
+  - Free 2-hour information session
+  - Available online or in-person
+  - Covers family law basics, court procedures, and alternatives to court
+  - Provides certificate required for filing
+  
+  **Have you already attended MIP?**
+field: mip_completed
+buttons:
+  - "Yes, I have my certificate": True
+  - "No, I need to attend": False
+  - "I'm not sure": unsure
+---
+# MIP follow-up
+question: |
+  MIP Session Information
+subquestion: |
+  % if mip_completed == False or mip_completed == "unsure":
+  **You must attend MIP before filing your application.**
+  
+  **How to Register:**
+  1. Contact your local courthouse
+  2. Visit [Ontario Court Services](https://www.ontario.ca/page/mandatory-information-program) for online sessions
+  3. Register for next available session
+  4. Attend and receive your certificate
+  
+  The certificate does not expire, so you can attend MIP now and file later when ready.
+  % else:
+  Great! You have your MIP certificate. Keep it handy as you'll need to file it with your application.
+  % endif
+  
+  **Note:** You can complete your forms while waiting for your MIP session, but cannot file them until after attending.
+continue button field: mip_information
+---
+# Relationship status
+question: |
+  What is your relationship status?
+field: relationship_status
+buttons:
+  - "Married": married
+  - "Common-law partners": common_law
+  - "Never lived together": never_together
+---
+# Unified question for what orders are being sought
+question: |
+  What orders are you seeking?
+subquestion: |
+  % if relationship_status == "married":
+  Select all that apply. As a married couple, you can seek divorce and/or other orders:
+  % else:
+  Select all that apply. As common-law partners, you cannot get divorced but can seek other family law orders:
+  % endif
+fields:
+  - "Divorce": seeking_divorce
+    datatype: yesno
+    default: False
+    show if:
+      variable: relationship_status
+      is: "married"
+  - "Child custody and/or access": seeking_custody
+    datatype: yesno
+    default: False
+  - "Child support": seeking_child_support
+    datatype: yesno
+    default: False
+  - "Spousal support": seeking_spousal_support
+    datatype: yesno
+    default: False
+  - "Property division (equalization/division of assets)": seeking_property
+    datatype: yesno
+    default: False
+  - "Exclusive possession of matrimonial home": seeking_exclusive_possession
+    datatype: yesno
+    default: False
+  - "Restraining order/Non-communication order": seeking_restraining_order
+    datatype: yesno
+    default: False
+  - "Enforcement of existing agreement or order": seeking_enforcement
+    datatype: yesno
+    default: False
+  - "Other relief": seeking_other
+    datatype: yesno
+    default: False
+continue button field: orders_sought
+---
+# Orders for people who never lived together
+question: |
+  What orders are you seeking?
+subquestion: |
+  Since you never lived together, you may still have family law matters to resolve.
+  
+  Select all that apply:
+fields:
+  - "Child custody and/or access": never_together_custody
+    datatype: yesno
+    default: False
+    help: |
+      If you have children together
+  - "Child support": never_together_child_support
+    datatype: yesno
+    default: False
+    help: |
+      Financial support for children
+  - "Paternity/Parentage declaration": never_together_paternity
+    datatype: yesno
+    default: False
+    help: |
+      Legal determination of parentage
+  - "Restraining order/Non-contact order": never_together_restraining
+    datatype: yesno
+    default: False
+    help: |
+      Protection from harassment or violence
+  - "Other relief": never_together_other
+    datatype: yesno
+    default: False
+continue button field: never_together_orders
+---
+# Divorce complexity
+question: |
+  Is your divorce contested or uncontested?
+subquestion: |
+  **Uncontested means:**
+  - Both parties agree to the divorce
+  - You agree on all issues (or have no issues to resolve)
+  - No disputes about children, support, or property
+  
+  **Contested means:**
+  - Your spouse doesn't agree to divorce, OR
+  - You disagree on custody, support, or property
+field: divorce_complexity
+buttons:
+  - "Uncontested - we agree on everything": uncontested_simple
+  - "Contested - we have disagreements": contested
+---
+# Children for simple divorce
+question: |
+  Do you have children together?
+subquestion: |
+  Include all children under 18, or adult children who are dependent due to disability or education.
+field: children_involved_simple
+buttons:
+  - "Yes": True
+  - "No": False
+---
+# Financial complexity
+question: |
+  What is your financial situation?
+subquestion: |
+  This helps determine which financial forms you need:
+fields:
+  - "Total value of property/assets": property_value
+    datatype: currency
+    min: 0
+    html: |
+      <span data-testid="property-value-field"></span>
+  - "Are you claiming or paying support?": support_involved
+    datatype: yesnoradio
+    html: |
+      <span data-testid="support-involved-field"></span>
+  - "Do you own a business?": business_owner
+    datatype: yesnoradio
+    html: |
+      <span data-testid="business-owner-field"></span>
+  - "Do you have pensions or retirement accounts?": pension_involved
+    datatype: yesnoradio
+    html: |
+      <span data-testid="pension-involved-field"></span>
+continue button field: financial_complexity
+---
+code: |
+  # Determine which financial statement form is needed
+  if property_value > 75000:
+    financial_form_needed = "form_13_1"
+    financial_form_name = "Form 13.1 - Financial Statement (Property and Support)"
+  else:
+    financial_form_needed = "form_13"
+    financial_form_name = "Form 13 - Financial Statement (Support Claims)"
+---
+# Check if financial forms needed
+code: |
+  needs_financial_forms = False
+  
+  # Check if any financial-related orders are being sought
+  if defined('seeking_child_support') and seeking_child_support:
+    needs_financial_forms = True
+  elif defined('seeking_spousal_support') and seeking_spousal_support:
+    needs_financial_forms = True
+  elif defined('seeking_property') and seeking_property:
+    needs_financial_forms = True
+  elif defined('seeking_exclusive_possession') and seeking_exclusive_possession:
+    needs_financial_forms = True
+  elif defined('never_together_child_support') and never_together_child_support:
+    needs_financial_forms = True
+---
+# Generate recommendations
+code: |
+  form_package.forms = []
+  form_package.timeline = ""
+  form_package.court = ""
+  form_package.next_steps = []
+  
+  # Determine primary application form
+  if emergency_situation:
+    form_package.forms.append("Form 8 - Application (General)")
+    form_package.forms.append("Form 14 - Notice of Motion")
+    form_package.forms.append("Form 14A - Supporting Affidavit")
+    if ((defined('seeking_restraining_order') and seeking_restraining_order) or 
+        (defined('never_together_restraining') and never_together_restraining)):
+      form_package.forms.append("Form 25F - Restraining Order")
+    form_package.timeline = "Immediate filing"
+    
+  elif relationship_status == "married" and defined('seeking_divorce') and seeking_divorce:
+    form_package.forms.append("Form 8A - Application (Divorce)")
+    form_package.forms.append("Form 36 - Affidavit for Divorce")
+    
+    if defined('divorce_complexity') and divorce_complexity == "uncontested_simple" and not (defined('children_involved_simple') and children_involved_simple):
+      form_package.forms.append("Form 25A - Divorce Order")
+      form_package.timeline = "4-6 months"
+    else:
+      form_package.timeline = "12-18+ months"
+      
+  else:  # Not seeking divorce or common-law
+    form_package.forms.append("Form 8 - Application (General)")
+    form_package.timeline = "12-18 months"
+  
+  # Add financial forms if needed
+  if needs_financial_forms:
+    if defined('financial_form_name'):
+      form_package.forms.append(financial_form_name)
+    else:
+      form_package.forms.append("Form 13 - Financial Statement (Support Claims)")
+    form_package.forms.append("Form 13A - Certificate of Financial Disclosure")
+  
+  # Add custody affidavit if children involved
+  if ((defined('seeking_custody') and seeking_custody) or 
+      (defined('children_involved_simple') and children_involved_simple) or
+      (defined('never_together_custody') and never_together_custody)):
+    form_package.forms.append("Form 35.1 - Affidavit (Custody/Access)")
+  
+  # Add paternity form if needed
+  if defined('never_together_paternity') and never_together_paternity:
+    form_package.forms.append("Form 34A - Affidavit of Parentage")
+  
+  # Add service form
+  form_package.forms.append("Form 6B - Affidavit of Service")
+  
+  # Determine court
+  if relationship_status == "married" and defined('seeking_divorce') and seeking_divorce:
+    form_package.court = "Superior Court of Justice"
+  elif defined('property_value') and property_value > 35000:
+    form_package.court = "Superior Court of Justice"
+  elif defined('seeking_property') and seeking_property and relationship_status == "married":
+    form_package.court = "Superior Court of Justice"  # Property division for married couples
+  else:
+    form_package.court = "Ontario Court of Justice (or Unified Family Court where available)"
+  
+  # Set next steps
+  form_package.next_steps = [
+    "Attend MIP if not already completed",
+    "Complete the forms in the order listed",
+    "File at " + form_package.court,
+    "Serve the other party within 6 months",
+    "Wait for response (30 days)",
+    "Attend first court date"
+  ]
+  
+  generate_form_recommendations = True
+---
+# Show recommendations
+question: |
+  Your Personalized Forms Package
+subquestion: |
+  Based on your answers, here are the forms you need:
+  
+  ## Required Forms (in order):
+  % for form in form_package.forms:
+  % if "Form 8A" in form:
+  1. **[Form 8A - Application (Divorce)](/interview?i=docassemble.webapp:ontario-family-law/form_8a_-_application_divorce_flr-8a-apr24-en-fil_interview.yml)**
+  % elif "Form 8" in form and "8A" not in form:
+  1. **[Form 8 - Application (General)](/interview?i=docassemble.webapp:ontario-family-law/form_8_-_application_general_flr-8-jun25-en_interview.yml)**
+  % elif "Form 36" in form:
+  2. **[Form 36 - Affidavit for Divorce](/interview?i=docassemble.webapp:ontario-family-law/form_36_-_affidavit_for_divorce_flr-36-apr24-en-fil_interview.yml)**
+  % elif "Form 13.1" in form:
+  3. **[Form 13.1 - Financial Statement (Property & Support)](/interview?i=docassemble.webapp:ontario-family-law/form_13.1_-_financial_statement_property_flr-13-1-may21-en-fil_interview.yml)**
+  % elif "Form 13" in form and "13A" not in form:
+  3. **[Form 13 - Financial Statement (Support Claims)](/interview?i=docassemble.webapp:ontario-family-law/form_13_-_financial_statement_support_flr-13-may21-en-fil_interview.yml)**
+  % elif "Form 13A" in form:
+  4. **[Form 13A - Certificate of Financial Disclosure](/interview?i=docassemble.webapp:ontario-family-law/form_13a_-_certificate_financial_disclosure_flr-13a-may21-en-fil_interview.yml)**
+  % elif "Form 6B" in form:
+  5. **[Form 6B - Affidavit of Service](/interview?i=docassemble.webapp:ontario-family-law/form_6b_-_affidavit_service_flr-06b-apr16-en-fil_interview.yml)**
+  % else:
+  - **${ form }**
+  % endif
+  % endfor
+  
+  ## Timeline
+  **Estimated timeline:** ${ form_package.timeline }
+  
+  ## Court
+  **File at:** ${ form_package.court }
+  
+  ## Next Steps
+  % for step in form_package.next_steps:
+  - ${ step }
+  % endfor
+  
+  ## Response Forms
+  The other party will need to file:
+  - **[Form 10 - Answer](/interview?i=docassemble.webapp:ontario-family-law/form_10_-_answer_flr-10-jun25-en-fil_interview.yml)** (within 30 days)
+  - Matching financial forms if applicable
+  
+  ## Save This Information
+  You can bookmark this page or print it for reference.
+  
+  **Ready to start?** Click on the first form link above to begin.
+continue button field: show_recommendations
+---
+# Final screen - normal
+event: final_screen_normal
+question: |
+  Ready to Start Your Family Law Case
+subquestion: |
+  You now have a clear roadmap for your family law case in Ontario.
+  
+  ## Workflow Data Summary
+  This data can be used by your case management system:
+  
+  ```
+  Relationship: ${ relationship_status }
+  Orders Sought: ${ ", ".join([k.replace('_', ' ').title() for k,v in workflow_data['orders_sought'].items() if v]) if workflow_data['orders_sought'] else "None specified" }
+  Financial Forms: ${ "Yes - " + (financial_form_name if defined('financial_form_name') else "Form 13") if needs_financial_forms else "No" }
+  Timeline: ${ form_package.timeline }
+  Court: ${ form_package.court }
+  Forms Count: ${ len(form_package.forms) }
+  ```
+  
+  ## Your Forms (Total: ${ len(form_package.forms) })
+  % for i, form in enumerate(form_package.forms, 1):
+  ${ i }. ${ form }
+  % endfor
+  
+  ## Important Reminders
+  - Complete forms in the order shown
+  - Keep copies of everything
+  - Meet all deadlines (especially the 30-day response time)
+  - Consider legal advice for complex issues
+  
+  ## Get Legal Help
+  - [Legal Aid Ontario](https://www.legalaid.on.ca/): 1-800-668-8258
+  - [Law Society Referral Service](https://lso.ca): 1-855-947-5255 (free 30-minute consultation)
+  - [Family Law Information Centres](https://www.ontario.ca/page/family-law-information-centres)
+  
+buttons:
+  - "Print This Page": window.print()
+  - "Run Wizard Again": restart
+  - "Return to Forms Index": exit
+    url: /interview?i=docassemble.webapp:ontario-family-law-index.yml
+---
+# PARTY INFORMATION COLLECTION
+# User role determination
+question: |
+  Your Role in the Legal Proceeding
+subquestion: |
+  **Applicant**: The person who first filed court documents to start the case
+  **Respondent**: The person responding to the case that was filed against them
+  
+  If this is a brand new case that hasn't been filed yet, you will be the Applicant.
+field: user_role
+buttons:
+  - "I am starting a new case (Applicant)": applicant
+  - "I am responding to a case filed against me (Respondent)": respondent
+  - "I'm not sure / Need help determining": unsure
+---
+# Map user role to party objects
+code: |
+  if user_role == "applicant":
+    user_party = applicant
+    other_party = respondent
+    user_party_title = "Applicant"
+    other_party_title = "Respondent"
+  elif user_role == "respondent":
+    user_party = respondent
+    other_party = applicant
+    user_party_title = "Respondent"
+    other_party_title = "Applicant"
+  else:  # unsure
+    user_party = applicant  # Default to applicant
+    other_party = respondent
+    user_party_title = "Party 1"
+    other_party_title = "Party 2"
+---
+# User Information - Full Individual object with validation
+question: |
+  Your Information (${ user_party_title })
+subquestion: |
+  Please provide your complete information. All fields marked with * are required.
+  
+  **Note**: This information will be used in all court documents.
+fields:
+  # Name fields - Individual object properties
+  - "First Name *": user_party.name.first
+    required: True
+    maxlength: 50
+  - "Middle Name(s)": user_party.name.middle
+    required: False
+    maxlength: 50
+  - "Last Name *": user_party.name.last
+    required: True
+    maxlength: 50
+  - "Any other names used": user_party.name.suffix
+    required: False
+    help: Include maiden name, aliases, or names from previous marriages
+    maxlength: 100
+  # Personal details
+  - "Date of Birth *": user_party.birthdate
+    datatype: date
+    required: True
+    validation code: |
+      from datetime import datetime, timedelta
+      min_age = datetime.now() - timedelta(days=18*365)
+      if user_party.birthdate > min_age.date():
+        validation_error("You must be at least 18 years old to file.")
+  - "Gender": user_party.gender
+    required: False
+    choices:
+      - Male: male
+      - Female: female  
+      - Other: other
+      - Prefer not to say: unknown
+  # Contact information
+  - "Phone Number (Primary) *": user_party.phone_number
+    datatype: phone
+    required: True
+    international: True
+  - "Phone Number (Alternative)": user_party.mobile_number
+    datatype: phone
+    required: False
+    international: True
+  - "Email Address": user_party.email
+    datatype: email
+    required: False
+    validation code: |
+      import re
+      if user_party.email and not re.match(r'^[\w\.\-]+@[\w\.\-]+\.\w+$', user_party.email):
+        validation_error("Please enter a valid email address")
+  # Address fields
+  - "Street Address *": user_party.address.address
+    required: True
+    maxlength: 100
+  - "Unit/Apt Number": user_party.address.unit
+    required: False
+    maxlength: 20
+  - "City *": user_party.address.city
+    required: True
+    maxlength: 50
+  - "Province *": user_party.address.state
+    default: "Ontario"
+    code: |
+      ['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick',
+       'Newfoundland and Labrador', 'Northwest Territories', 'Nova Scotia',
+       'Nunavut', 'Ontario', 'Prince Edward Island', 'Quebec',
+       'Saskatchewan', 'Yukon']
+  - "Postal Code *": user_party.address.postal_code
+    required: True
+    validation code: |
+      import re
+      postal_pattern = r'^[A-Z]\d[A-Z]\s?\d[A-Z]\d$'
+      if not re.match(postal_pattern, user_party.address.postal_code.upper()):
+        validation_error("Please enter a valid Canadian postal code (e.g., M5H 2N2)")
+  - "Country": user_party.address.country
+    default: "Canada"
+    choices:
+      - Canada
+      - United States
+      - Other
+continue button field: collect_user_party_info
+---
+# Other Party Information - Full Individual object
+question: |
+  Other Party's Information (${ other_party_title })
+subquestion: |
+  Please provide as much information as you know about the other party.
+  
+  **Important**: Accurate information is required for proper service of documents.
+fields:
+  # Name fields
+  - "First Name *": other_party.name.first
+    required: True
+    maxlength: 50
+  - "Middle Name(s)": other_party.name.middle
+    required: False
+    maxlength: 50
+  - "Last Name *": other_party.name.last
+    required: True
+    maxlength: 50
+  - "Any other names used": other_party.name.suffix
+    required: False
+    help: Include maiden name, aliases, or names you know them by
+    maxlength: 100
+  # Personal details
+  - "Date of Birth": other_party.birthdate
+    datatype: date
+    required: False
+    help: Important for child/spousal support calculations
+  - "Gender": other_party.gender
+    required: False
+    choices:
+      - Male: male
+      - Female: female
+      - Other: other
+      - Unknown: unknown
+  # Contact information
+  - "Phone Number (Primary)": other_party.phone_number
+    datatype: phone
+    required: False
+    international: True
+  - "Phone Number (Alternative)": other_party.mobile_number
+    datatype: phone
+    required: False
+    international: True
+  - "Email Address": other_party.email
+    datatype: email
+    required: False
+    validation code: |
+      import re
+      if other_party.email and not re.match(r'^[\w\.\-]+@[\w\.\-]+\.\w+$', other_party.email):
+        validation_error("Please enter a valid email address")
+  # Address for service
+  - "Street Address": other_party.address.address
+    required: False
+    help: Required for service of documents
+    maxlength: 100
+  - "Unit/Apt Number": other_party.address.unit
+    required: False
+    maxlength: 20
+  - "City": other_party.address.city
+    required: False
+    maxlength: 50
+  - "Province": other_party.address.state
+    default: "Ontario"
+    required: False
+    code: |
+      ['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick',
+       'Newfoundland and Labrador', 'Northwest Territories', 'Nova Scotia',
+       'Nunavut', 'Ontario', 'Prince Edward Island', 'Quebec',
+       'Saskatchewan', 'Yukon']
+  - "Postal Code": other_party.address.postal_code
+    required: False
+    validation code: |
+      import re
+      if other_party.address.postal_code:
+        postal_pattern = r'^[A-Z]\d[A-Z]\s?\d[A-Z]\d$'
+        if not re.match(postal_pattern, other_party.address.postal_code.upper()):
+          validation_error("Please enter a valid Canadian postal code (e.g., M5H 2N2)")
+  - "Country": other_party.address.country
+    default: "Canada"
+    required: False
+    choices:
+      - Canada
+      - United States
+      - Other
+continue button field: collect_other_party_info
+---
+# Lawyer questions
+question: |
+  Do you have a lawyer?
+field: user_has_lawyer
+buttons:
+  - "Yes, I have a lawyer": True
+  - "No, I am self-represented": False
+---
+question: |
+  Does the other party have a lawyer?
+field: other_party_has_lawyer
+buttons:
+  - "Yes, they have a lawyer": True
+  - "No, they are self-represented": False
+  - "I don't know": unknown
+---
+# User's Lawyer Information - Person object for lawyer, Organization for firm
+question: |
+  Your Lawyer's Information
+subquestion: |
+  Please provide your lawyer's complete contact information.
+  
+  **Note**: Your lawyer will receive copies of all court documents.
+fields:
+  # Lawyer as Person object
+  - "Lawyer's First Name *": user_lawyer.name.first
+    required: True
+    maxlength: 50
+  - "Lawyer's Last Name *": user_lawyer.name.last
+    required: True
+    maxlength: 50
+  - "Professional Title": user_lawyer.name.suffix
+    default: "LL.B."
+    required: False
+    help: e.g., LL.B., J.D., LL.M.
+  # Law Firm
+  - "Law Firm Name *": user_lawyer.firm_name
+    required: True
+    maxlength: 100
+  # Contact information
+  - "Office Phone *": user_lawyer.phone_number
+    datatype: phone
+    required: True
+    international: True
+  - "Email Address *": user_lawyer.email
+    datatype: email
+    required: True
+    validation code: |
+      import re
+      if not re.match(r'^[\w\.\-]+@[\w\.\-]+\.\w+$', user_lawyer.email):
+        validation_error("Please enter a valid email address")
+  # Office address
+  - "Office Street Address *": user_lawyer.address.address
+    required: True
+    maxlength: 100
+  - "Suite/Unit Number": user_lawyer.address.unit
+    required: False
+    maxlength: 20
+  - "City *": user_lawyer.address.city
+    required: True
+    maxlength: 50
+  - "Province *": user_lawyer.address.state
+    default: "Ontario"
+    code: |
+      ['Ontario', 'Alberta', 'British Columbia', 'Manitoba',
+       'New Brunswick', 'Newfoundland and Labrador', 'Northwest Territories',
+       'Nova Scotia', 'Nunavut', 'Prince Edward Island', 'Quebec',
+       'Saskatchewan', 'Yukon']
+  - "Postal Code *": user_lawyer.address.postal_code
+    required: True
+    validation code: |
+      import re
+      postal_pattern = r'^[A-Z]\d[A-Z]\s?\d[A-Z]\d$'
+      if not re.match(postal_pattern, user_lawyer.address.postal_code.upper()):
+        validation_error("Please enter a valid Canadian postal code (e.g., M5H 2N2)")
+continue button field: collect_user_lawyer_info
+---
+# Other Party's Lawyer Information - Person object for lawyer, Organization for firm
+question: |
+  Other Party's Lawyer Information
+subquestion: |
+  Please provide any information you have about the other party's lawyer.
+  
+  **Note**: If represented, all communication should go through their lawyer.
+fields:
+  # Lawyer as Person object
+  - "Lawyer's First Name": other_lawyer.name.first
+    required: False
+    maxlength: 50
+  - "Lawyer's Last Name": other_lawyer.name.last
+    required: False
+    maxlength: 50
+  - "Professional Title": other_lawyer.name.suffix
+    required: False
+    help: e.g., LL.B., J.D., LL.M.
+  # Law Society Number
+  - "Law Society Number": other_lawyer.law_society_number
+    required: False
+    help: If known - Ontario Law Society member number
+    validation code: |
+      import re
+      if other_lawyer.law_society_number and not re.match(r'^\d{5}[A-Z]?$', str(other_lawyer.law_society_number)):
+        validation_error("Please enter a valid LSO number (e.g., 12345A)")
+  # Law Firm  
+  - "Law Firm Name": other_lawyer.firm_name
+    required: False
+    maxlength: 100
+  - "Firm Type": other_lawyer.firm_type
+    required: False
+    choices:
+      - Law Firm: law_firm
+      - Legal Aid: legal_aid
+      - Law Clinic: law_clinic
+      - Sole Practice: sole_practice
+      - Unknown: unknown
+  # Contact information
+  - "Office Phone": other_lawyer.phone_number
+    datatype: phone
+    required: False
+    international: True
+  - "Direct Line": other_lawyer.work_phone
+    datatype: phone
+    required: False
+    international: True
+  - "Fax Number": other_lawyer.fax_number
+    datatype: phone
+    required: False
+    international: True
+  - "Email Address": other_lawyer.email
+    datatype: email
+    required: False
+    validation code: |
+      import re
+      if other_lawyer.email and not re.match(r'^[\w\.\-]+@[\w\.\-]+\.\w+$', other_lawyer.email):
+        validation_error("Please enter a valid email address")
+  # Office address if known
+  - "Office Street Address": other_lawyer.address.address
+    required: False
+    maxlength: 100
+  - "Suite/Unit Number": other_lawyer.address.unit
+    required: False
+    maxlength: 20
+  - "City": other_lawyer.address.city
+    required: False
+    maxlength: 50
+  - "Province": other_lawyer.address.state
+    default: "Ontario"
+    required: False
+    code: |
+      ['Ontario', 'Alberta', 'British Columbia', 'Manitoba',
+       'New Brunswick', 'Newfoundland and Labrador', 'Northwest Territories',
+       'Nova Scotia', 'Nunavut', 'Prince Edward Island', 'Quebec',
+       'Saskatchewan', 'Yukon']
+  - "Postal Code": other_lawyer.address.postal_code
+    required: False
+    validation code: |
+      import re
+      if other_lawyer.address.postal_code:
+        postal_pattern = r'^[A-Z]\d[A-Z]\s?\d[A-Z]\d$'
+        if not re.match(postal_pattern, other_lawyer.address.postal_code.upper()):
+          validation_error("Please enter a valid Canadian postal code (e.g., M5H 2N2)")
+  # Preferred contact method if known
+  - "Known Contact Preference": other_lawyer.preferred_contact
+    required: False
+    choices:
+      - Email: email
+      - Phone: phone
+      - Fax: fax
+      - Unknown: unknown
+continue button field: collect_other_party_lawyer_info
+---
+# Court Information
+question: |
+  Court Information
+subquestion: |
+  Please provide court information. **File numbers are optional** - leave blank if you haven't filed yet.
+fields:
+  - "Court Name *": court.name
+    required: True
+    default: "Superior Court of Justice"
+    choices:
+      - "Superior Court of Justice"
+      - "Ontario Court of Justice"
+      - "Unified Family Court"
+  - "Court Location *": court.location
+    required: True
+    help: The city where the courthouse is located
+  - "Court Address *": court.address.address
+    required: True
+  - "Court File Number": court.file_number
+    required: False
+    help: Leave blank if you haven't filed yet
+  - "Date Case Started": court.date_commenced
+    datatype: date
+    required: False
+continue button field: collect_court_info

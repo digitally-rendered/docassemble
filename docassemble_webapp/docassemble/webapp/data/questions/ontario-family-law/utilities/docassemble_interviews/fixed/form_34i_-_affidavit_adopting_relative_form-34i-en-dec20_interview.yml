@@ -1,0 +1,245 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-34i---affidavit-adopting-relative-form-34i-en-dec20
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  
+  # Applicant Information
+  applicant
+  applicant.i_understand_the
+  
+  # Respondent Information
+  respondent
+  
+  # Children Information
+  children.i_am_a
+  children.a_parent_of_the_child_under_section_6_8_9_10_11_or_13_of_the_childrens_law_reform_act
+  children.an_individual_described_in_subsection_7
+  
+  # Other
+  form_34i
+  full_legal_name_address_for
+  lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+  - "Court office address": court_info.court_office_address
+---
+
+# Applicant Information Questions
+question: |
+  Applicant(s) (The first letter of the applicant’s surname may be used)
+  - "Applicant(s) (The first letter of the applicant’s surname may be used)": applicant
+---
+question: |
+  I understand the nature and effect of this consent.  I understand that I may wit...
+  - "I understand the nature and effect of this consent.  I understand that I may ...": applicant.i_understand_the
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s) (If there is a respondent, the first letter of the respondent’s surname may be used)
+  - "Respondent(s) (If there is a respondent, the first letter of the respondent’s surname may be used)": respondent
+---
+
+# Children Information Questions
+question: |
+  I am a parent of the child within the meaning of Part VIII of the Child, Youth a...
+  - "I am a parent of the child within the meaning of Part VIII of the Child, Yout...": children.i_am_a
+---
+question: |
+  a parent of the child under section 6, 8, 9, 10, 11 or 13 of the Children’s Law ...
+  - "a parent of the child under section 6, 8, 9, 10, 11 or 13 of the Children’s L...": children.a_parent_of
+---
+question: |
+  an individual described in subsection 7(2) of the Children’s Law Reform Act.
+  - "an individual described in subsection 7(2) of the Children’s Law Reform Act.": children.an_individual_described_in_subsection_7
+    input type: area
+    rows: 4
+---
+question: |
+  a parent under section 217 or 218 of the Child, Youth and Family Services Act, 2...
+  - "a parent under section 217 or 218 of the Child, Youth and Family Services Act...": children.a_parent_under
+---
+question: |
+  an individual with lawful custody of (including decision-making responsibility for) the child.
+  - "an individual with lawful custody of (including decision-making responsibility for) the child.": children.an_individual_with_lawful_custody_of
+---
+
+# Other Questions
+question: |
+  Form 34I:  Parent’s Consent to Adoption by Spouse
+  - "Form 34I:  Parent’s Consent to Adoption by Spouse": form_34i
+---
+question: |
+  Full legal name & address for service — street & number, municipality, postal co...
+  - "Full legal name & address for service — street & number, municipality, postal...": full_legal_name_address_for
+---
+question: |
+  Lawyer’s name & address — street & number, municipality, postal code, telephone ...
+  - "Lawyer’s name & address — street & number, municipality, postal code, telepho...": lawyers_name_address_street_number
+---
+question: |
+  Date of birth
+  - "Date of birth": date_of_birth
+    datatype: date
+---
+question: |
+  My name is (full legal name)
+  - "My name is (full legal name)": my_name_is
+---
+# Review screen
+question: |
+  Review Your Information
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${showifdef("applicant.name.first", applicant.name.full())}
+  * Address: ${showifdef("applicant.address.address", applicant.address.on_one_line())}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${showifdef("respondent.name.first", respondent.name.full())}
+  * Address: ${showifdef("respondent.address.address", respondent.address.on_one_line())}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: Ontario Family Law Form
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

@@ -1,0 +1,271 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-29a---notice-garnishment-lump-sum-flr-29a-apr16-en-fil
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - court_info: DAObject
+  - financial: DAObject
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.you_must_therefore_pay_to_the_clerk_of_the_court_or_the_director_of_the_family_responsibility_office
+  
+  # Financial Information
+  financial.form_29a
+  financial.the_recipient_claims_that_you_owe_or_will_owe_the_payor_a_debt_in_the_form_of_one_or_more_lumpsum_amounts
+  financial.your_payment_in_accordance_with_this_notice_is_to_the_extent_of_the_payment_a_valid_discharge_of_your_debt_to_the_payor_and_in_the_case_of_a_joint_debt_to_the_payor_and_one_or_more_other_persons_a_valid_discharge_of_your_debt_to_the_payor_and_the_other_person
+  
+  # Other
+  full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  to
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+fields:
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+fields:
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  YOU MUST THEREFORE PAY TO the clerk of the court or the Director of the Family Responsibility Office
+fields:
+  - "YOU MUST THEREFORE PAY TO the clerk of the court or the Director of the Family Responsibility Office": court_info.you_must_therefore_pay_to_the_clerk_of_the_court_or_the_director_of_the_family_responsibility_office
+    required: True
+---
+question: |
+  If your debt is jointly owed to the payor and to one or more other persons, you must pay half of the
+fields:
+  - "If your debt is jointly owed to the payor and to one or more other persons, you must pay half of the": court_info.if_your_debt_is_jointly_owed_to_the_payor_and_to_one_or_more_other_persons_you_must_pay_half_of_the_amount_now_payable_or_that_becomes_payable_or_such_fraction_as_the_court_may_order
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  This notice of garnishment enforces the support provisions of a court order or domestic contract. Un
+fields:
+  - "This notice of garnishment enforces the support provisions of a court order or domestic contract. Un": court_info.this_notice_of_garnishment_enforces_the_support_provisions_of_a_court_order_or_domestic_contract_under_subsection_4
+    datatype: currency
+    min: 0
+    required: True
+---
+
+# Financial Information Questions
+question: |
+  Form 29A: Notice of
+Garnishment
+(lump-sum debt)
+fields:
+  - "Form 29A: Notice of
+Garnishment
+(lump-sum debt)": financial.form_29a
+    datatype: currency
+    min: 0
+---
+question: |
+  The recipient claims that you owe or will owe the payor a debt in the form of one or more lump-sum a
+fields:
+  - "The recipient claims that you owe or will owe the payor a debt in the form of one or more lump-sum a": financial.the_recipient_claims_that_you_owe_or_will_owe_the_payor_a_debt_in_the_form_of_one_or_more_lumpsum_amounts
+    datatype: currency
+    min: 0
+---
+question: |
+  Your payment in accordance with this notice is, to the extent of the payment, a valid discharge of y
+fields:
+  - "Your payment in accordance with this notice is, to the extent of the payment, a valid discharge of y": financial.your_payment_in_accordance_with_this_notice_is_to_the_extent_of_the_payment_a_valid_discharge_of_your_debt_to_the_payor_and_in_the_case_of_a_joint_debt_to_the_payor_and_one_or_more_other_persons_a_valid_discharge_of_your_debt_to_the_payor_and_the_other_person
+    datatype: currency
+    min: 0
+---
+question: |
+  Notice of Garnishment (lump-sum debt)
+fields:
+  - "Notice of Garnishment (lump-sum debt)": financial.notice_of_garnishment
+    datatype: currency
+    min: 0
+---
+question: |
+  If your debt is jointly owed to the payor and to one or more other persons, YOU MUST IMMEDIATELY MAI
+fields:
+  - "If your debt is jointly owed to the payor and to one or more other persons, YOU MUST IMMEDIATELY MAI": financial.if_your_debt_is_jointly_owed_to_the_payor_and_to_one_or_more_other_persons_you_must_immediately_mail_a_notice_to_coowner_of_the_debt
+    datatype: currency
+    min: 0
+    required: True
+---
+
+# Other Questions
+question: |
+  Full legal name & address for service — street & number, municipality, postal code, telephone & fax 
+fields:
+  - "Full legal name & address for service — street & number, municipality, postal code, telephone & fax ": full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+---
+question: |
+  Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-
+fields:
+  - "Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-": lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+---
+question: |
+  TO: (garnishee’s full legal name and address)
+fields:
+  - "TO: (garnishee’s full legal name and address)": to
+---
+question: |
+  at (address)
+fields:
+  - "at (address)": at
+---
+question: |
+  The payor (name)
+fields:
+  - "The payor (name)": the_payor
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${applicant.name.full() if defined('applicant.name.first') else 'Not provided'}
+  * Address: ${applicant.address.on_one_line() if defined('applicant.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${respondent.name.full() if defined('respondent.name.first') else 'Not provided'}
+  * Address: ${respondent.address.on_one_line() if defined('respondent.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: ${form_name.replace('_', ' ').title()}
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

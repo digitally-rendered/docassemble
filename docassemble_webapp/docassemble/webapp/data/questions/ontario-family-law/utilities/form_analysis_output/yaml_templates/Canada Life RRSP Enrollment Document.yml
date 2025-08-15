@@ -1,0 +1,91 @@
+---
+# Ontario Family Law Form: Canada Life RRSP Enrollment Document
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Canada Life Rrsp Enrollment Document
+  short title: |
+    CANADA LIFE RRSP ENROLLMENT DOCUMENT
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  in_this_application_you_and_your_refer_to_the_person_who_is_applying_to_become_an_annuitantmember_of_the_group_retirement_savings_plan
+  where_permitted_by_law_you_can_appoint_one_or_more_beneficiaries_note
+  primary_beneficiary
+  important
+  if_you_appoint_your_married_or_civil_union_spouse_as_your_beneficiary_they_will_be_irrevocable
+  the_death_benefit_will_be_paid_to_the_tutor
+  unless_the_law_requires_otherwise_if_one_of_your_primary_beneficiaries_predeceases_you_their_share_will_be_paid_to_the_surviving_primary_beneficiaries_in_equal_shares_or_if_there_is_no_surviving_primary_beneficiary
+  contingent_beneficiary
+  application_for_membership_in_a_group_retirement_savings_plan
+  trustee
+
+  # Table Cell Section
+  section_2_information_about_you
+  section_2_information_about_you
+  section_2_information_about_you
+  section_2_information_about_you
+  section_2_information_about_you
+  section_2_information_about_you
+  section_2_information_about_you
+  section_2_information_about_you
+  section_2_information_about_you
+  section_2_information_about_you
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  In this application, “you” and “your” refer to the person who is applying to become an annuitant/mem
+fields:
+  - "In This Application You And Your Refer To The Person Who Is Applying To Become An Annuitantmember Of The Group Retirement Savings Plan": in_this_application_you_and_your_refer_to_the_person_who_is_applying_to_become_an_annuitantmember_of_the_group_retirement_savings_plan
+---
+question: |
+  Where permitted by law, you can appoint one or more beneficiaries. Note: pension legislation may req
+fields:
+  - "Where Permitted By Law You Can Appoint One Or More Beneficiaries Note": where_permitted_by_law_you_can_appoint_one_or_more_beneficiaries_note
+---
+question: |
+  Primary beneficiary(ies) on your death
+fields:
+  - "Primary Beneficiary": primary_beneficiary
+---
+question: |
+  Important: Quebec residents
+fields:
+  - "Important": important
+---
+question: |
+  If you appoint your married or civil union spouse as your beneficiary, they will be irrevocable (mea
+fields:
+  - "If You Appoint Your Married Or Civil Union Spouse As Your Beneficiary They Will Be Irrevocable": if_you_appoint_your_married_or_civil_union_spouse_as_your_beneficiary_they_will_be_irrevocable
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

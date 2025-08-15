@@ -1,0 +1,82 @@
+---
+# Ontario Family Law Form: Rapid Antigen Tests Letter to School Communities Jan.24.2022
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Rapid Antigen Tests Letter To School Communities Jan.24.2022
+  short title: |
+    RAPID ANTIGEN TESTS LETTER TO SCHOOL COMMUNITIES JAN.24.2022
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  in_alignment_with_the_updated_testing_guidance_from_ontarios_chief_medical_officer_of_health_individuals_may_use_rapid_antigen_tests_if_they_are_experiencing_symptoms_compatible_with_covid19_the_test_kit_provided_to_you_contains_two_rapid_antigen_tests_this_testing_option_is_voluntary_for_students_children_and_staff_if_a_symptomatic_individual_chooses_not_to_participate_they_are_presumed_positive_and_should_isolate_immediately_and_follow_updated_testing_guidance
+  when_to_use_a_takehome_rapid_antigen_screening_kit
+  for_individuals_choosing_to_participate_in_this_testing_option_they_must_display_symptoms_commonly_associated_with_covid19_as_outlined_in_the_updated_guidance
+  two_or_more_of
+  gastrointestinal_symptoms
+  using_the_takehome_rapid_antigen_screening_kit
+  there_are_3_different_varieties_of_rapid_antigen_tests_that_are_being_distributed_by_the_province_please_see_the_links_below_for_instructions_on_how_to_use_each_variety
+  btxn_rapid_response
+  sd_biosensor
+  trimedic_fastep
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  In alignment with the updated testing guidance from Ontario’s Chief Medical Officer of Health, indiv
+fields:
+  - "In Alignment With The Updated Testing Guidance From Ontarios Chief Medical Officer Of Health Individuals May Use Rapid Antigen Tests If They Are Experiencing Symptoms Compatible With Covid19 The Test Kit Provided To You Contains Two Rapid Antigen Tests This Testing Option Is Voluntary For Students Children And Staff If A Symptomatic Individual Chooses Not To Participate They Are Presumed Positive And Should Isolate Immediately And Follow Updated Testing Guidance": in_alignment_with_the_updated_testing_guidance_from_ontarios_chief_medical_officer_of_health_individuals_may_use_rapid_antigen_tests_if_they_are_experiencing_symptoms_compatible_with_covid19_the_test_kit_provided_to_you_contains_two_rapid_antigen_tests_this_testing_option_is_voluntary_for_students_children_and_staff_if_a_symptomatic_individual_chooses_not_to_participate_they_are_presumed_positive_and_should_isolate_immediately_and_follow_updated_testing_guidance
+    datatype: date
+---
+question: |
+  When to Use a Take-home Rapid Antigen Screening Kit:
+fields:
+  - "When To Use A Takehome Rapid Antigen Screening Kit": when_to_use_a_takehome_rapid_antigen_screening_kit
+---
+question: |
+  For individuals choosing to participate in this testing option, they must display symptoms commonly 
+fields:
+  - "For Individuals Choosing To Participate In This Testing Option They Must Display Symptoms Commonly Associated With Covid19 As Outlined In The Updated Guidance": for_individuals_choosing_to_participate_in_this_testing_option_they_must_display_symptoms_commonly_associated_with_covid19_as_outlined_in_the_updated_guidance
+    datatype: date
+    required: True
+---
+question: |
+  Two or more of:
+fields:
+  - "Two Or More Of": two_or_more_of
+---
+question: |
+  gastrointestinal symptoms (i.e. vomiting or diarrhea)
+fields:
+  - "Gastrointestinal Symptoms": gastrointestinal_symptoms
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

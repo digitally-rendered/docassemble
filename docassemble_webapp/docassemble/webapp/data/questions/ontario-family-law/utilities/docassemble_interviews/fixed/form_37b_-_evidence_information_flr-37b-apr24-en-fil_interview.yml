@@ -1,0 +1,276 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-37b---evidence-information-flr-37b-apr24-en-fil
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - financial: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.this_court_considered
+  
+  # Applicant Information
+  applicant
+  applicant.you_the_ontario
+  
+  # Respondent Information
+  respondent
+  
+  # Children Information
+  children.the_convention_on
+  
+  # Financial Information
+  financial.the_ontario_interjurisdictional_support_orders_unit
+  financial.the_interjurisdictional_support_orders_act_2002
+  
+  # Claims
+  claims.at_the_hearing_a_temporary_order
+  
+  # Other
+  form_37b
+  full_legal_name_address_for
+  lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  This court considered the application for support or the application to change a...
+  - "This court considered the application for support or the application to chang...": court_info.this_court_considered
+    datatype: currency
+    min: 0
+---
+question: |
+  THE COURT ADJOURNED THE HEARING OF THE CASE TO (date)
+  - "THE COURT ADJOURNED THE HEARING OF THE CASE TO (date)": court_info.the_court_adjourned_the_hearing_of_the_case_to
+    datatype: date
+---
+question: |
+  This court requires the following information or documents: (attach extra paper ...
+  - "This court requires the following information or documents: (attach extra pap...": court_info.this_court_requires
+    required: True
+---
+
+# Applicant Information Questions
+question: |
+  APPLICANT(S):
+  - "APPLICANT(S):": applicant
+---
+question: |
+  You, the Ontario Interjurisdictional Support Orders Unit, are directed to contac...
+  - "You, the Ontario Interjurisdictional Support Orders Unit, are directed to con...": applicant.you_the_ontario
+    datatype: currency
+    min: 0
+    required: True
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s)
+  - "Respondent(s)": respondent
+---
+
+# Children Information Questions
+question: |
+  The Convention on the International Recovery of Child Support and Other Forms of...
+  - "The Convention on the International Recovery of Child Support and Other Forms...": children.the_convention_on
+    datatype: currency
+    min: 0
+---
+
+# Financial Information Questions
+question: |
+  THE ONTARIO INTERJURISDICTIONAL SUPPORT ORDERS UNIT:
+  - "THE ONTARIO INTERJURISDICTIONAL SUPPORT ORDERS UNIT:": financial.the_ontario_interjurisdictional
+    datatype: currency
+    min: 0
+---
+question: |
+  The Interjurisdictional Support Orders Act, 2002
+  - "The Interjurisdictional Support Orders Act, 2002": financial.the_interjurisdictional_support_orders_act_2002
+    datatype: currency
+    min: 0
+---
+
+# Claims Questions
+question: |
+  At the hearing, a temporary order:
+  - "At the hearing, a temporary order:": claims.at_the_hearing_a_temporary_order
+---
+
+# Other Questions
+question: |
+  Form 37B: Direction to Request Further Information
+  - "Form 37B: Direction to Request Further Information": form_37b
+---
+question: |
+  Full legal name & address for service — street & number, municipality, postal co...
+  - "Full legal name & address for service — street & number, municipality, postal...": full_legal_name_address_for
+---
+question: |
+  Lawyer’s name & address — street & number, municipality, postal code, telephone ...
+  - "Lawyer’s name & address — street & number, municipality, postal code, telepho...": lawyers_name_address_street_number
+---
+question: |
+  TO THE (check appropriate box(es)
+  - "TO THE (check appropriate box(es)": to_the
+---
+question: |
+  on (date)
+  - "on (date)": on
+    datatype: date
+---
+# Review screen
+question: |
+  Review Your Information
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${showifdef("applicant.name.first", applicant.name.full())}
+  * Address: ${showifdef("applicant.address.address", applicant.address.on_one_line())}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${showifdef("respondent.name.first", respondent.name.full())}
+  * Address: ${showifdef("respondent.address.address", respondent.address.on_one_line())}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: Ontario Family Law Form
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

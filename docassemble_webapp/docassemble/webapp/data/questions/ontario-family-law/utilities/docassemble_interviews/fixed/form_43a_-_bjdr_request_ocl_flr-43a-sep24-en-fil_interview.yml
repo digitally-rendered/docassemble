@@ -1,0 +1,255 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-43a---bjdr-request-ocl-flr-43a-sep24-en-fil
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.field_3_i
+  court_info.field_4_i_intend_to_present_the_views_and_preferences_of_the_child
+  court_info.field_6_i
+  
+  # Applicant Information
+  applicant.field_2_i
+  applicant
+  
+  # Respondent Information
+  respondent
+  
+  # Children Information
+  children.parenting_time_or_contact
+  children.field_8_i_am_aware_that_after_filing_this_signed_form_43a
+  children.field_10_i
+  
+  # Other
+  decisionmaking_responsibility
+  other
+  field_5_the_following_is
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  3. I,      , consent to the court conducting a binding judicial dispute resoluti...
+  - "3. I,      , consent to the court conducting a binding judicial dispute resol...": court_info.field_3_i
+---
+question: |
+  4. I intend to present the views and preferences of the child(ren) to the court ...
+  - "4. I intend to present the views and preferences of the child(ren) to the cou...": court_info.field_4_i
+---
+question: |
+  6. I understand that I should only submit evidence that is relevant and non-repe...
+  - "6. I understand that I should only submit evidence that is relevant and non-r...": court_info.field_6_i
+---
+question: |
+  9. I am aware that unless I have the court’s permission, I may not adjourn the d...
+  - "9. I am aware that unless I have the court’s permission, I may not adjourn th...": court_info.field_9_i
+    datatype: date
+---
+question: |
+  The hearing will start with settlement discussions, with the judge assisting the...
+  - "The hearing will start with settlement discussions, with the judge assisting ...": court_info.the_hearing_will
+---
+
+# Applicant Information Questions
+question: |
+  2. I have reviewed the parties’ Request and Consent for Binding Judicial Dispute...
+  - "2. I have reviewed the parties’ Request and Consent for Binding Judicial Disp...": applicant.field_2_i
+    datatype: date
+---
+question: |
+  Applicant(s)
+  - "Applicant(s)": applicant
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s)
+  - "Respondent(s)": respondent
+---
+
+# Children Information Questions
+question: |
+  Parenting time or contact:
+  - "Parenting time or contact:": children.parenting_time_or_contact
+---
+question: |
+  8. I am aware that after filing this signed Form 43A: Binding Judicial Dispute R...
+  - "8. I am aware that after filing this signed Form 43A: Binding Judicial Disput...": children.field_8_i
+---
+question: |
+  10. I am aware that if I fail to participate in the process after filing this si...
+  - "10. I am aware that if I fail to participate in the process after filing this...": children.field_10_i
+---
+question: |
+  Form 43A: Binding Judicial Dispute Resolution Hearing Request and Consent – Offi...
+  - "Form 43A: Binding Judicial Dispute Resolution Hearing Request and Consent – O...": children.form_43a
+---
+
+# Other Questions
+question: |
+  Decision-making responsibility:
+  - "Decision-making responsibility:": decisionmaking_responsibility
+---
+question: |
+  Other:
+  - "Other:": other
+---
+question: |
+  5. The following is a list of the types of additional documents that I intend to...
+  - "5. The following is a list of the types of additional documents that I intend...": field_5_the_following_is
+---
+question: |
+  12. I understand that a binding judicial dispute resolution hearing will be cond...
+  - "12. I understand that a binding judicial dispute resolution hearing will be c...": field_12_i_understand_that
+---
+question: |
+  I will file my Form 43C: Confirmation of Binding Judicial Dispute Resolution Hea...
+  - "I will file my Form 43C: Confirmation of Binding Judicial Dispute Resolution ...": i_will_file_my_form_43c
+    datatype: date
+    required: True
+---
+# Review screen
+question: |
+  Review Your Information
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${showifdef("applicant.name.first", applicant.name.full())}
+  * Address: ${showifdef("applicant.address.address", applicant.address.on_one_line())}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${showifdef("respondent.name.first", respondent.name.full())}
+  * Address: ${showifdef("respondent.address.address", respondent.address.on_one_line())}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: Ontario Family Law Form
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

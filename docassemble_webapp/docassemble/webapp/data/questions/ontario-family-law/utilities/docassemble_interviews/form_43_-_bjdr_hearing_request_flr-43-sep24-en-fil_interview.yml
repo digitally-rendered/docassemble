@@ -1,0 +1,289 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-43---bjdr-hearing-request-flr-43-sep24-en-fil
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - financial: DAObject
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.field_5_i_will_serve_on_all_parties_and_file_with_the_court_the_documents_listed_in_subrule_43
+  court_info.field_7_i_understand_that_if_i_fail_to_serve_and_file_my_documents_according_to_the_timelines_the_information_in_them_may_not_be_relied_on_by_the_judge_deciding_my_case
+  court_info.field_11_i_am_aware_that_unless_i_have_the_courts_permission_i_cannot_adjourn_the_date_scheduled_for_my_binding_judicial_dispute_resolution_hearing_even_with_the_other_partys_consent
+  
+  # Applicant Information
+  applicant
+  
+  # Respondent Information
+  respondent
+  
+  # Children Information
+  children.parenting_time_or_contact
+  children.child_support
+  children.you_are_strongly_encouraged_to_get_legal_advice_before_completing_this_form_the_following_services_may_help_you_access_legal_advice_or_retain_counsel
+  
+  # Financial Information
+  financial.spousal_support
+  
+  # Other
+  field_2_i_request_a_binding_judicial_dispute_resolution_hearing_on_the_issues_listed_here
+  check_off_the_issues_in_your_case_that_have_not_yet_been_resolved_and_provide_a_brief_description_note_that_the_binding_judicial_dispute_resolution_hearing_can_only_deal_with_issues_that_you_included_in_your_pleadings
+  decisionmaking_responsibility
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  5.  I will serve on all parties and file with the court the documents listed in subrule 43 (12) and 
+fields:
+  - "5.  I will serve on all parties and file with the court the documents listed in subrule 43 (12) and ": court_info.field_5_i_will_serve_on_all_parties_and_file_with_the_court_the_documents_listed_in_subrule_43
+---
+question: |
+  7.  I understand that if I fail to serve and file my documents according to the timelines, the infor
+fields:
+  - "7.  I understand that if I fail to serve and file my documents according to the timelines, the infor": court_info.field_7_i_understand_that_if_i_fail_to_serve_and_file_my_documents_according_to_the_timelines_the_information_in_them_may_not_be_relied_on_by_the_judge_deciding_my_case
+---
+question: |
+  11. I am aware that unless I have the court’s permission, I cannot adjourn the date scheduled for my
+fields:
+  - "11. I am aware that unless I have the court’s permission, I cannot adjourn the date scheduled for my": court_info.field_11_i_am_aware_that_unless_i_have_the_courts_permission_i_cannot_adjourn_the_date_scheduled_for_my_binding_judicial_dispute_resolution_hearing_even_with_the_other_partys_consent
+    datatype: date
+---
+question: |
+  12. I am aware that if I fail to participate in the process after filing my signed Form 43: Binding 
+fields:
+  - "12. I am aware that if I fail to participate in the process after filing my signed Form 43: Binding ": court_info.field_12_i_am_aware_that_if_i_fail_to_participate_in_the_process_after_filing_my_signed_form_43
+---
+question: |
+  The hearing will start with settlement discussions, with the judge assisting the parties to resolve 
+fields:
+  - "The hearing will start with settlement discussions, with the judge assisting the parties to resolve ": court_info.the_hearing_will_start_with_settlement_discussions_with_the_judge_assisting_the_parties_to_resolve_issues_on_consent
+---
+
+# Applicant Information Questions
+question: |
+  Applicant(s)
+fields:
+  - "Applicant(s)": applicant
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s)
+fields:
+  - "Respondent(s)": respondent
+---
+
+# Children Information Questions
+question: |
+  Parenting time or contact:
+fields:
+  - "Parenting time or contact:": children.parenting_time_or_contact
+---
+question: |
+  Child support:
+fields:
+  - "Child support:": children.child_support
+    datatype: currency
+    min: 0
+---
+question: |
+  YOU ARE STRONGLY ENCOURAGED TO GET LEGAL ADVICE BEFORE COMPLETING THIS FORM. The following services 
+fields:
+  - "YOU ARE STRONGLY ENCOURAGED TO GET LEGAL ADVICE BEFORE COMPLETING THIS FORM. The following services ": children.you_are_strongly_encouraged_to_get_legal_advice_before_completing_this_form_the_following_services_may_help_you_access_legal_advice_or_retain_counsel
+---
+question: |
+  Office of the Children’s Lawyer (OCL)
+fields:
+  - "Office of the Children’s Lawyer (OCL)": children.office_of_the_childrens_lawyer
+---
+question: |
+  The child(ren) is/are represented by a lawyer from the Office of the Children’s Lawyer in these proc
+fields:
+  - "The child(ren) is/are represented by a lawyer from the Office of the Children’s Lawyer in these proc": children.the_child
+---
+
+# Financial Information Questions
+question: |
+  Spousal support:
+fields:
+  - "Spousal support:": financial.spousal_support
+    datatype: currency
+    min: 0
+---
+
+# Other Questions
+question: |
+  2.  I,      , request a binding judicial dispute resolution hearing on the issues listed here:
+fields:
+  - "2.  I,      , request a binding judicial dispute resolution hearing on the issues listed here:": field_2_i_request_a_binding_judicial_dispute_resolution_hearing_on_the_issues_listed_here
+---
+question: |
+  Check off the issues in your case that have not yet been resolved and provide a brief description. N
+fields:
+  - "Check off the issues in your case that have not yet been resolved and provide a brief description. N": check_off_the_issues_in_your_case_that_have_not_yet_been_resolved_and_provide_a_brief_description_note_that_the_binding_judicial_dispute_resolution_hearing_can_only_deal_with_issues_that_you_included_in_your_pleadings
+---
+question: |
+  Decision-making responsibility:
+fields:
+  - "Decision-making responsibility:": decisionmaking_responsibility
+---
+question: |
+  Division of property:
+fields:
+  - "Division of property:": division_of_property
+    datatype: currency
+    min: 0
+---
+question: |
+  Other:
+fields:
+  - "Other:": other
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${applicant.name.full() if defined('applicant.name.first') else 'Not provided'}
+  * Address: ${applicant.address.on_one_line() if defined('applicant.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${respondent.name.full() if defined('respondent.name.first') else 'Not provided'}
+  * Address: ${respondent.address.on_one_line() if defined('respondent.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: ${form_name.replace('_', ' ').title()}
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

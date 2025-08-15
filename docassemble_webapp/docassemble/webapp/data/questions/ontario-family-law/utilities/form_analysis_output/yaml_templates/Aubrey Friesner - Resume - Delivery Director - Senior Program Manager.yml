@@ -1,0 +1,89 @@
+---
+# Ontario Family Law Form: Aubrey Friesner - Resume - Delivery Director - Senior Program Manager
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Aubrey Friesner - Resume - Delivery Director - Senior Program Manager
+  short title: |
+    AUBREY FRIESNER - RESUME - DELIVERY DIRECTOR - SENIOR PROGRAM MANAGER
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  https
+  technology_and_strategic_solutions_senior_leader_who_has_managed_large_diverse_teams_across_multiple_geographies_and_time_zones
+  technology_agnostic_with_a_solid_knowledge_of_web_development
+  personal_endeavors_and_travel_year
+  see_end_of_resume_for_personal_activities_2019_was_dedicated_to
+  senior_program_manager_vice_president_of_solution_delivery_intellect_seec
+  successfully_conducted_agile_program_delivery_and_managed_client_relationships_for_a_multiproduct_and_multiyear_agile
+  awarded_highest_level_of_recognition
+  forged_relationships_with_key_clients
+  senior_projectprogram_manager_cancer_care_ontario
+
+  # Table Cell Section
+  regulatory_compliance
+  quality_assurance
+  fct
+  presidents_choice
+  city_of_mississauga
+  city_of_brampton
+  central_east_community_care_access_centre
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  https://www.linkedin.com/in/aubreyfriesner/
+fields:
+  - "Https": https
+---
+question: |
+  Technology and strategic solutions Senior Leader who has managed large, diverse teams across multipl
+fields:
+  - "Technology And Strategic Solutions Senior Leader Who Has Managed Large Diverse Teams Across Multiple Geographies And Time Zones": technology_and_strategic_solutions_senior_leader_who_has_managed_large_diverse_teams_across_multiple_geographies_and_time_zones
+---
+question: |
+  Technology agnostic with a solid knowledge of web development (Java/J2EE) & mobile technologies expe
+fields:
+  - "Technology Agnostic With A Solid Knowledge Of Web Development": technology_agnostic_with_a_solid_knowledge_of_web_development
+    datatype: currency
+---
+question: |
+  Personal Endeavors and Travel Year (2/2019 – present)
+fields:
+  - "Personal Endeavors And Travel Year": personal_endeavors_and_travel_year
+---
+question: |
+  * See end of resume for personal activities 2019 was dedicated to:
+fields:
+  - "See End Of Resume For Personal Activities 2019 Was Dedicated To": see_end_of_resume_for_personal_activities_2019_was_dedicated_to
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

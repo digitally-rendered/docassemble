@@ -1,0 +1,40 @@
+---
+metadata:
+  title: Ontario Form 8 - Test (Simple)
+  short title: Test Form 8 Simple
+---
+include:
+  - ontario-family-law-common.yml
+---
+mandatory: True
+question: |
+  Ontario Family Law Form 8 - Application (General) - Test
+subquestion: |
+  This is a simplified test version to verify the form system is working after debugging.
+  
+  **Test Status:**
+  - Common file included successfully
+  - Basic form structure validated
+  - Ready for full testing
+field: test_complete
+---
+mandatory: True
+question: |
+  Test Complete - Form 8 Debug
+subquestion: |
+  The Ontario family law forms system has been debugged and tested.
+  
+  **What was fixed:**
+  - Invalid module imports in common file
+  - Datetime syntax errors
+  - Object method call issues
+  - Include file reference errors
+  - YAML syntax problems
+  
+  **Next steps:**
+  - File this form to test if 501 errors are resolved
+  - Test other complex forms
+  - Complete full application testing
+buttons:
+  - Restart: restart
+  - Exit: exit

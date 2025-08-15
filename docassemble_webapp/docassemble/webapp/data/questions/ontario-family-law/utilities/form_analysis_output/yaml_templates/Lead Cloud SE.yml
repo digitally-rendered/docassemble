@@ -1,0 +1,69 @@
+---
+# Ontario Family Law Form: Lead Cloud SE
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Lead Cloud Se
+  short title: |
+    LEAD CLOUD SE
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  title
+  hold_high_standards_in_writing_quality_scalable_and_supportable_code_complete_with_appropriate_unit_tests_automated_testing_documentation_and_operationalization_aspects_in_a_cicd_environment
+  understanding_of_data_modeling_and_database_theory
+  experience_designing_creating_and_securing_apis_web_services
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Title: Lead Cloud Software Engineer
+fields:
+  - "Title": title
+---
+question: |
+  Hold high standards in writing quality scalable and supportable code, complete with appropriate unit
+fields:
+  - "Hold High Standards In Writing Quality Scalable And Supportable Code Complete With Appropriate Unit Tests Automated Testing Documentation And Operationalization Aspects In A Cicd Environment": hold_high_standards_in_writing_quality_scalable_and_supportable_code_complete_with_appropriate_unit_tests_automated_testing_documentation_and_operationalization_aspects_in_a_cicd_environment
+    datatype: currency
+---
+question: |
+  Understanding of data modeling and database theory (ACID, CAP, etc.)
+fields:
+  - "Understanding Of Data Modeling And Database Theory": understanding_of_data_modeling_and_database_theory
+---
+question: |
+  Experience designing, creating and securing APIs; Web Services (REST/JSON), OAuth, JWT, WS-Security,
+fields:
+  - "Experience Designing Creating And Securing Apis Web Services": experience_designing_creating_and_securing_apis_web_services
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

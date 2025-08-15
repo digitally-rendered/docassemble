@@ -1,0 +1,77 @@
+---
+# Ontario Family Law Form: MonarchMoneyPrincipaDevOpsSREPlatformInfra
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Monarchmoneyprincipadevopssreplatforminfra
+  short title: |
+    MONARCHMONEYPRINCIPADEVOPSSREPLATFORMINFRA
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  principal_engineer_platform_infrastructure
+  we_founded_the_company_as_a_fullyremote_team
+  as_our_first_platforminfrastructurefocused_engineer_you_will_lead_our_technical_efforts_as_we_grow_our_user_base
+  online_data_services
+  offline_data_services
+  python_web_apps
+  medical_dental_and_vision_benefits
+  field_401k
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Principal Engineer - Platform & Infrastructure (DevOps/SRE)
+fields:
+  - "Principal Engineer Platform Infrastructure": principal_engineer_platform_infrastructure
+---
+question: |
+  We founded the company as a fully-remote team (pre Covid!) and are open to applicants that live with
+fields:
+  - "We Founded The Company As A Fullyremote Team": we_founded_the_company_as_a_fullyremote_team
+---
+question: |
+  As our first platform/infrastructure-focused engineer, you will lead our technical efforts as we gro
+fields:
+  - "As Our First Platforminfrastructurefocused Engineer You Will Lead Our Technical Efforts As We Grow Our User Base": as_our_first_platforminfrastructurefocused_engineer_you_will_lead_our_technical_efforts_as_we_grow_our_user_base
+---
+question: |
+  Online data services (PostgreSQL, Redis).
+fields:
+  - "Online Data Services": online_data_services
+---
+question: |
+  Offline data services (job queues, batch/stream processing).
+fields:
+  - "Offline Data Services": offline_data_services
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

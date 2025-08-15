@@ -1,0 +1,83 @@
+---
+# Ontario Family Law Form: Initial-state-devops.doc
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Initial-State-Devops.Doc
+  short title: |
+    INITIAL-STATE-DEVOPS.DOC
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  should_only_support_pipelines_and_deployments
+  should_not_provide_l1_l2_support_for_the_development_teams
+  devops_team_should_only_support_pipeline_and_onboarding_support
+  tools_for_devops_team_are_also_not_currently_ha_dr_and_the_support_for_l1_l2_l3_needs_some_attention
+  coreservices
+  internally_developed_tools_should_be_supported_and_deployed_using_the_devops_pipeline
+  developers_should_be_able_to_handle_l1_l2_support
+  no_team_currently_to_support_the_suite_of_apps_listed_as_the_previous_coretech_mandate
+  coreservices
+  l1_l2_support_should_be_vendor_support
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Should only support pipelines and deployments
+fields:
+  - "Should Only Support Pipelines And Deployments": should_only_support_pipelines_and_deployments
+    datatype: currency
+---
+question: |
+  Should not provide L1, L2 support for the development teams
+fields:
+  - "Should Not Provide L1 L2 Support For The Development Teams": should_not_provide_l1_l2_support_for_the_development_teams
+    datatype: currency
+---
+question: |
+  DevOps Team should only support pipeline and onboarding support
+fields:
+  - "Devops Team Should Only Support Pipeline And Onboarding Support": devops_team_should_only_support_pipeline_and_onboarding_support
+    datatype: currency
+---
+question: |
+  Tools for DevOps team are also not currently HA / DR and the support for L1, L2, L3 needs some atten
+fields:
+  - "Tools For Devops Team Are Also Not Currently Ha Dr And The Support For L1 L2 L3 Needs Some Attention": tools_for_devops_team_are_also_not_currently_ha_dr_and_the_support_for_l1_l2_l3_needs_some_attention
+    datatype: currency
+---
+question: |
+  Core-Services (Core Tech) ITAM ETC -> non cots apps (Previously Natalie? Blonde woman)
+fields:
+  - "Coreservices": coreservices
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

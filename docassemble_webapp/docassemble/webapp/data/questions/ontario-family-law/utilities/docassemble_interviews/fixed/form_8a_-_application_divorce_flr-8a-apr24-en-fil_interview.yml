@@ -1,0 +1,350 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-8a---application-divorce-flr-8a-apr24-en-fil
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - financial: DAObject
+  - marriage: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.to_the_respondent
+  
+  # Applicant Information
+  applicant
+  applicant.respondentjoint_applicant
+  
+  # Respondent Information
+  respondent
+  
+  # Children Information
+  children.however_if_your
+  children.the_child
+  children.now_living_with
+  
+  # Financial Information
+  financial.if_you_want
+  # financial.if_you_want  # Duplicate removed
+  financial.spousal_support
+  
+  # Marriage Information
+  marriage.form_8a
+  marriage.simple
+  marriage.application
+  
+  # Claims
+  claims_relating_to_property
+  
+  # Other
+  full_legal_name
+  name
+  address
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  TO THE RESPONDENT(S): A COURT CASE FOR DIVORCE HAS BEEN STARTED AGAINST YOU IN T...
+  - "TO THE RESPONDENT(S): A COURT CASE FOR DIVORCE HAS BEEN STARTED AGAINST YOU I...": court_info.to_the_respondent
+---
+question: |
+  IF YOU WANT TO OPPOSE ANY CLAIM IN THIS CASE, you or your lawyer must prepare an...
+  - "IF YOU WANT TO OPPOSE ANY CLAIM IN THIS CASE, you or your lawyer must prepare...": court_info.if_you_want
+    required: True
+---
+question: |
+  IF YOU WANT TO MAKE A CLAIM OF YOUR OWN, you or your lawyer must fill out the cl...
+  - "IF YOU WANT TO MAKE A CLAIM OF YOUR OWN, you or your lawyer must fill out the...": court_info.if_you_want
+    required: True
+---
+
+# Applicant Information Questions
+question: |
+  Applicant(s) Lawyer
+  - "Applicant(s) Lawyer": applicant
+---
+question: |
+  RESPONDENT/JOINT APPLICANT:
+  - "RESPONDENT/JOINT APPLICANT:": applicant.respondentjoint_applicant
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s) Lawyer
+  - "Respondent(s) Lawyer": respondent
+---
+
+# Children Information Questions
+question: |
+  However, if your only claim for support is for child support in the table amount...
+  - "However, if your only claim for support is for child support in the table amo...": children.however_if_your
+    datatype: currency
+    min: 0
+---
+question: |
+  THE CHILD(REN)
+  - "THE CHILD(REN)": children.the_child
+---
+question: |
+  Now Living With
+fields:
+  - "Now Living With
+(name of person and relationship to child)": children.now_living_with
+---
+question: |
+  Has a Notice of Calculation and/or a Notice of Recalculation been issued by the ...
+  - "Has a Notice of Calculation and/or a Notice of Recalculation been issued by t...": children.has_a_notice
+    datatype: currency
+    min: 0
+---
+question: |
+  support for child(ren) –
+fields:
+  - "support for child(ren) –
+other than table amount": children.support_for_child
+    datatype: currency
+    min: 0
+---
+
+# Financial Information Questions
+question: |
+  If you want to make a claim for support but do not want to make a claim for prop...
+  - "If you want to make a claim for support but do not want to make a claim for p...": financial.if_you_want
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  If you want to make a claim for property or exclusive possession of the matrimon...
+  - "If you want to make a claim for property or exclusive possession of the matri...": financial.if_you_want
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  spousal support
+  - "spousal support": financial.spousal_support
+    datatype: currency
+    min: 0
+---
+question: |
+  freezing assets
+  - "freezing assets": financial.freezing_assets
+    datatype: currency
+    min: 0
+---
+question: |
+  indexing spousal support
+  - "indexing spousal support": financial.indexing_spousal_support
+    datatype: currency
+    min: 0
+---
+
+# Marriage Information Questions
+question: |
+  Form 8A:  Application
+fields:
+  - "Form 8A:  Application
+(Divorce)": marriage.form_8a
+---
+question: |
+  Simple (divorce only)
+  - "Simple (divorce only)": marriage.simple
+---
+question: |
+  Application (Divorce)
+  - "Application (Divorce)": marriage.application
+---
+question: |
+  First name on the day before the marriage date:
+  - "First name on the day before the marriage date:": marriage.first_name_on_the_day_before_the_marriage_date
+---
+question: |
+  Last name on the day before the marriage date:
+  - "Last name on the day before the marriage date:": marriage.last_name_on_the_day_before_the_marriage_date
+---
+
+# Claims Questions
+question: |
+  Claims relating to property
+  - "Claims relating to property": claims_relating_to_property
+    datatype: currency
+    min: 0
+---
+
+# Other Questions
+question: |
+  Full legal name:
+  - "Full legal name:": full_legal_name
+---
+question: |
+  Name:
+  - "Name:": name
+---
+question: |
+  Address:
+  - "Address:": address
+---
+question: |
+  Phone & fax:
+  - "Phone & fax:": phone_fax
+---
+question: |
+  Email:
+  - "Email:": email
+    datatype: email
+---
+# Review screen
+question: |
+  Review Your Information
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${showifdef("applicant.name.first", applicant.name.full())}
+  * Address: ${showifdef("applicant.address.address", applicant.address.on_one_line())}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${showifdef("respondent.name.first", respondent.name.full())}
+  * Address: ${showifdef("respondent.address.address", respondent.address.on_one_line())}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: Ontario Family Law Form
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

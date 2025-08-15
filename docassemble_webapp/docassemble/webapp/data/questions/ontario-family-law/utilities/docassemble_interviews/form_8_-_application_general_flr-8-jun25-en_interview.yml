@@ -1,0 +1,382 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-8---application-general-flr-8-jun25-en
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - financial: DAObject
+  - marriage: DAObject
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.the_first_court_date_is
+  
+  # Applicant Information
+  applicant
+  applicant.the_respondent_has_treated_the_applicant_with_physical_or_mental_cruelty_of_such_a_kind_as_to_make_continued_cohabitation_intolerable
+  
+  # Respondent Information
+  respondent
+  respondent.to_the_respondent
+  respondent.the_respondent_has_committed_adultery
+  
+  # Children Information
+  children.however_if_your_only_claim_for_support_is_for_child_support_in_the_table_amount_specified_under_the_child_support_guidelines_you_do_not_need_to_fill_out_serve_or_file_a_financial_statement
+  children.the_child
+  children.now_living_with
+  
+  # Financial Information
+  financial.this_case_includes_a_claim_for_support_it_does_not_include_a_claim_for_property_or_exclusive_possession_of_the_matrimonial_home_and_its_contents_you_must_fill_out_a_financial_statement
+  financial.this_case_includes_a_claim_for_property_or_exclusive_possession_of_the_matrimonial_home_and_its_contents_you_must_fill_out_a_financial_statement
+  financial.if_you_want_to_make_a_claim_for_support_but_do_not_want_to_make_a_claim_for_property_or_exclusive_possession_of_the_matrimonial_home_and_its_contents_you_must_fill_out_a_financial_statement
+  
+  # Marriage Information
+  marriage.first_name_on_the_day_before_the_marriage_date
+  marriage.last_name_on_the_day_before_the_marriage_date
+  marriage.gender_on_the_day_before_the_marriage_date
+  
+  # Other
+  form_8
+  full_legal_name
+  name
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+fields:
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+fields:
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  THE FIRST COURT DATE IS (date)
+fields:
+  - "THE FIRST COURT DATE IS (date)": court_info.the_first_court_date_is
+    datatype: date
+---
+question: |
+  NOTE: If this is a divorce case, no date will be set unless an Answer is filed. If you have also bee
+fields:
+  - "NOTE: If this is a divorce case, no date will be set unless an Answer is filed. If you have also bee": court_info.note
+    datatype: date
+---
+question: |
+  THIS CASE IS ON THE FAST TRACK OF THE CASE MANAGEMENT SYSTEM. A case management judge will be assign
+fields:
+  - "THIS CASE IS ON THE FAST TRACK OF THE CASE MANAGEMENT SYSTEM. A case management judge will be assign": court_info.this_case_is_on_the_fast_track_of_the_case_management_system_a_case_management_judge_will_be_assigned_by_the_time_this_case_first_comes_before_a_judge
+---
+
+# Applicant Information Questions
+question: |
+  Applicant(s) Lawyer
+fields:
+  - "Applicant(s) Lawyer": applicant
+---
+question: |
+  The respondent has treated the applicant with physical or mental cruelty of such a kind as to make c
+fields:
+  - "The respondent has treated the applicant with physical or mental cruelty of such a kind as to make c": applicant.the_respondent_has_treated_the_applicant_with_physical_or_mental_cruelty_of_such_a_kind_as_to_make_continued_cohabitation_intolerable
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s) Lawyer
+fields:
+  - "Respondent(s) Lawyer": respondent
+---
+question: |
+  TO THE RESPONDENT(S):
+fields:
+  - "TO THE RESPONDENT(S):": respondent.to_the_respondent
+---
+question: |
+  The respondent has committed adultery. (Give details. It is not necessary to name any other person i
+fields:
+  - "The respondent has committed adultery. (Give details. It is not necessary to name any other person i": respondent.the_respondent_has_committed_adultery
+    required: True
+---
+
+# Children Information Questions
+question: |
+  However, if your only claim for support is for child support in the table amount specified under the
+fields:
+  - "However, if your only claim for support is for child support in the table amount specified under the": children.however_if_your_only_claim_for_support_is_for_child_support_in_the_table_amount_specified_under_the_child_support_guidelines_you_do_not_need_to_fill_out_serve_or_file_a_financial_statement
+    datatype: currency
+    min: 0
+---
+question: |
+  THE CHILD(REN)
+fields:
+  - "THE CHILD(REN)": children.the_child
+---
+question: |
+  Now Living With
+(name of person and relationship to child)
+fields:
+  - "Now Living With
+(name of person and relationship to child)": children.now_living_with
+---
+question: |
+  Has a Notice of Calculation and/or a Notice of Recalculation been issued by the online Child Support
+fields:
+  - "Has a Notice of Calculation and/or a Notice of Recalculation been issued by the online Child Support": children.has_a_notice_of_calculation_andor_a_notice_of_recalculation_been_issued_by_the_online_child_support_service_in_this_case
+    datatype: currency
+    min: 0
+---
+question: |
+  support for child(ren) – other than table amount
+fields:
+  - "support for child(ren) – other than table amount": children.support_for_child
+    datatype: currency
+    min: 0
+---
+
+# Financial Information Questions
+question: |
+  This case includes a claim for support. It does not include a claim for property or exclusive posses
+fields:
+  - "This case includes a claim for support. It does not include a claim for property or exclusive posses": financial.this_case_includes_a_claim_for_support_it_does_not_include_a_claim_for_property_or_exclusive_possession_of_the_matrimonial_home_and_its_contents_you_must_fill_out_a_financial_statement
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  This case includes a claim for property or exclusive possession of the matrimonial home and its cont
+fields:
+  - "This case includes a claim for property or exclusive possession of the matrimonial home and its cont": financial.this_case_includes_a_claim_for_property_or_exclusive_possession_of_the_matrimonial_home_and_its_contents_you_must_fill_out_a_financial_statement
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  If you want to make a claim for support but do not want to make a claim for property or exclusive po
+fields:
+  - "If you want to make a claim for support but do not want to make a claim for property or exclusive po": financial.if_you_want_to_make_a_claim_for_support_but_do_not_want_to_make_a_claim_for_property_or_exclusive_possession_of_the_matrimonial_home_and_its_contents_you_must_fill_out_a_financial_statement
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  If you want to make a claim for property or exclusive possession of the matrimonial home and its con
+fields:
+  - "If you want to make a claim for property or exclusive possession of the matrimonial home and its con": financial.if_you_want_to_make_a_claim_for_property_or_exclusive_possession_of_the_matrimonial_home_and_its_contents_whether_or_not_it_includes_a_claim_for_support_you_must_fill_out_a_financial_statement
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  support for me
+fields:
+  - "support for me": financial.support_for_me
+    datatype: currency
+    min: 0
+---
+
+# Marriage Information Questions
+question: |
+  First name on the day before the marriage date:
+fields:
+  - "First name on the day before the marriage date:": marriage.first_name_on_the_day_before_the_marriage_date
+---
+question: |
+  Last name on the day before the marriage date:
+fields:
+  - "Last name on the day before the marriage date:": marriage.last_name_on_the_day_before_the_marriage_date
+---
+question: |
+  Gender on the day before the marriage date:
+fields:
+  - "Gender on the day before the marriage date:": marriage.gender_on_the_day_before_the_marriage_date
+    datatype: date
+---
+question: |
+  Married on (date)
+fields:
+  - "Married on (date)": marriage.married_on
+    datatype: date
+---
+question: |
+  Separation:
+fields:
+  - "Separation:": marriage.separation
+---
+
+# Other Questions
+question: |
+  Form 8:  Application (General)
+fields:
+  - "Form 8:  Application (General)": form_8
+---
+question: |
+  Full legal name:
+fields:
+  - "Full legal name:": full_legal_name
+---
+question: |
+  Name:
+fields:
+  - "Name:": name
+---
+question: |
+  Address:
+fields:
+  - "Address:": address
+---
+question: |
+  Phone & fax:
+fields:
+  - "Phone & fax:": phone_fax
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${applicant.name.full() if defined('applicant.name.first') else 'Not provided'}
+  * Address: ${applicant.address.on_one_line() if defined('applicant.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${respondent.name.full() if defined('respondent.name.first') else 'Not provided'}
+  * Address: ${respondent.address.on_one_line() if defined('respondent.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: ${form_name.replace('_', ' ').title()}
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

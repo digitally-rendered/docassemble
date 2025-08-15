@@ -1,0 +1,81 @@
+---
+# Ontario Family Law Form: Tech Debt by product
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Tech Debt By Product
+  short title: |
+    TECH DEBT BY PRODUCT
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  tech_debt_by_product
+  all_metrics_and_kpis_used_on_core_should_work
+  automate_release_life_cycles_so_nothing_needs_manual_deployments_or_a_release_engineer_style_deployment
+  clean_up_datatime_mappings_define_standard_for_mysql_timestamp_vs_datetime_use
+  if_we_dont_upgrade_drop_wizard_migration_to_a_spring_app_to_fall_in_line_with_enterprise_standards
+  swagger_generated_doc_for_api_endpoints
+  clean_dead_legacy_stuff_that_is_not_used_from_the_repo
+  currency_changes_to_get_to_a_current_node_version
+  validate_mobile_experience
+  centralize_kpi_monitoring_and_logging_to_one_cogent_platform
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Tech Debt by product
+fields:
+  - "Tech Debt By Product": tech_debt_by_product
+    datatype: currency
+---
+question: |
+  all metrics and KPIs used on core should work ( home page etc ) for all eng-prod projects
+fields:
+  - "All Metrics And Kpis Used On Core Should Work": all_metrics_and_kpis_used_on_core_should_work
+---
+question: |
+  Automate release life cycles so nothing needs manual deployments or a release engineer style deploym
+fields:
+  - "Automate Release Life Cycles So Nothing Needs Manual Deployments Or A Release Engineer Style Deployment": automate_release_life_cycles_so_nothing_needs_manual_deployments_or_a_release_engineer_style_deployment
+---
+question: |
+  Clean up DataTime Mappings. Define Standard for MYSQL timestamp vs DATETIME use.
+fields:
+  - "Clean Up Datatime Mappings Define Standard For Mysql Timestamp Vs Datetime Use": clean_up_datatime_mappings_define_standard_for_mysql_timestamp_vs_datetime_use
+    datatype: date
+---
+question: |
+  If we don't upgrade drop wizard migration to a spring app to fall in line with enterprise standards 
+fields:
+  - "If We Dont Upgrade Drop Wizard Migration To A Spring App To Fall In Line With Enterprise Standards": if_we_dont_upgrade_drop_wizard_migration_to_a_spring_app_to_fall_in_line_with_enterprise_standards
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

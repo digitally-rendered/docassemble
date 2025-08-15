@@ -1,0 +1,86 @@
+---
+# Ontario Family Law Form: 2020.12.16 LT Masemann
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    2020.12.16 Lt Masemann
+  short title: |
+    2020.12.16 LT MASEMANN
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  sent_via_email
+  dear
+  we_have_been_advised_by_our_client_that_on_november_25_2020_ms_cockburn_informed_mr_carmichael_of_her_unilateral_decision_to_move_from_her_residence_in_toronto
+  we_are_in_the_process_of_issuing_an_application_please_advise_if_you_have_instructions_to_accept_service_of_same_on_behalf_of_your_client_if_we_do_not_hear_from_you_by_friday_december_18_2020_at_12
+  yours_truly_halpern_law_group_per
+
+  # Table Cell Section
+  re
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Sent via Email: rosemary@masemannlaw.com
+fields:
+  - "Sent Via Email": sent_via_email
+    datatype: email
+---
+question: |
+  Dear      :
+fields:
+  - "Dear": dear
+---
+question: |
+  We have been advised by our client that on November 25, 2020, Ms. Cockburn informed Mr. Carmichael o
+fields:
+  - "We Have Been Advised By Our Client That On November 25 2020 Ms Cockburn Informed Mr Carmichael Of Her Unilateral Decision To Move From Her Residence In Toronto": we_have_been_advised_by_our_client_that_on_november_25_2020_ms_cockburn_informed_mr_carmichael_of_her_unilateral_decision_to_move_from_her_residence_in_toronto
+    required: True
+---
+question: |
+  We are in the process of issuing an Application. Please advise if you have instructions to accept se
+fields:
+  - "We Are In The Process Of Issuing An Application Please Advise If You Have Instructions To Accept Service Of Same On Behalf Of Your Client If We Do Not Hear From You By Friday December 18 2020 At 12": we_are_in_the_process_of_issuing_an_application_please_advise_if_you_have_instructions_to_accept_service_of_same_on_behalf_of_your_client_if_we_do_not_hear_from_you_by_friday_december_18_2020_at_12
+---
+question: |
+  Yours truly,
+
+halpern law group
+Per:
+
+
+Jessica Brown
+Senior Associate
+fields:
+  - "Yours Truly Halpern Law Group Per": yours_truly_halpern_law_group_per
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

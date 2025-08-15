@@ -1,0 +1,96 @@
+---
+# Ontario Family Law Form: Income Imputation_ US and Canada_
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Income Imputation  Us And Canada 
+  short title: |
+    INCOME IMPUTATION
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  income_imputation_in_family_law
+  i_introduction_to_income_imputation_in_family_law
+  a_defining_income_imputation_and_its_rationale
+  in_the_realm_of_family_law_particularly_concerning_the_financial_obligations_arising_from_separation_or_divorce_the_concept_of_income_imputation_serves_as_a_critical_judicial_tool_income_imputation_is_the_legal_process_whereby_a_court_assigns_a_hypothetical_income_to_a_party_involved_in_proceedings_typically_for_the_calculation_of_child_support_or_spousal_support
+  the_application_of_income_imputation_typically_arises_when_one_party_successfully_demonstrates_that_the_other_party_is_voluntarily_unemployed_or_underemployed_meaning_they_possess_the_ability
+  b_the_purpose_of_imputing_income_in_support_determinations
+  the_primary_objective_of_imputing_income_is_to_establish_fair_and_equitable_child_support_and_spousal_supportalimony_orders_that_accurately_reflect_a_partys_capacity_to_contribute_financially2_by_basing_calculations_on_potential_earnings_rather_than_potentially_suppressed_actual_earnings_courts_aim_to_protect_the_financial_wellbeing_of_recipient_spouses_and_most_significantly_children_involved_in_the_dissolution_of_a_family_unit_in_canada_section_37
+  while_paramount_in_child_support_income_imputation_also_plays_a_role_in_spousal_support_determinations_it_can_be_applied_not_only_to_the_payor_spouse_to_ensure_they_meet_their_obligations_but_also_in_some_circumstances_to_the_recipient_spouse3_if_a_recipient_spouse_is_deemed_capable_of_contributing_to_their_own_support_but_is_not_making_reasonable_efforts_towards_selfsufficiency_a_court_might_impute_income_to_them_thereby_potentially_reducing_the_amount_or_duration_of_spousal_support_payable20_this_reflects_a_dual_objective_in_spousal_support_cases
+  ii_the_legal_framework_for_income_imputation_in_canada
+  a_federal_child_support_guidelines
+
+  # Table Cell Section
+  canada
+  us
+  intentional_underunemployment
+  voluntary_unemploymentunderemployment
+  similar_concept_tests_vary
+  failure_to_disclose_income
+  failure_to_provide_income_info
+  failure_to_disclose
+  diversion_of_income
+  income_diverted
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Income Imputation in Family Law: A Comparative Analysis of Approaches in the United States and Canad
+fields:
+  - "Income Imputation In Family Law": income_imputation_in_family_law
+    datatype: currency
+---
+question: |
+  I. Introduction to Income Imputation in Family Law
+fields:
+  - "I Introduction To Income Imputation In Family Law": i_introduction_to_income_imputation_in_family_law
+    datatype: currency
+---
+question: |
+  A. Defining Income Imputation and Its Rationale
+fields:
+  - "A Defining Income Imputation And Its Rationale": a_defining_income_imputation_and_its_rationale
+    datatype: currency
+---
+question: |
+  In the realm of family law, particularly concerning the financial obligations arising from separatio
+fields:
+  - "In The Realm Of Family Law Particularly Concerning The Financial Obligations Arising From Separation Or Divorce The Concept Of Income Imputation Serves As A Critical Judicial Tool Income Imputation Is The Legal Process Whereby A Court Assigns A Hypothetical Income To A Party Involved In Proceedings Typically For The Calculation Of Child Support Or Spousal Support": in_the_realm_of_family_law_particularly_concerning_the_financial_obligations_arising_from_separation_or_divorce_the_concept_of_income_imputation_serves_as_a_critical_judicial_tool_income_imputation_is_the_legal_process_whereby_a_court_assigns_a_hypothetical_income_to_a_party_involved_in_proceedings_typically_for_the_calculation_of_child_support_or_spousal_support
+    datatype: currency
+---
+question: |
+  The application of income imputation typically arises when one party successfully demonstrates that 
+fields:
+  - "The Application Of Income Imputation Typically Arises When One Party Successfully Demonstrates That The Other Party Is Voluntarily Unemployed Or Underemployed Meaning They Possess The Ability": the_application_of_income_imputation_typically_arises_when_one_party_successfully_demonstrates_that_the_other_party_is_voluntarily_unemployed_or_underemployed_meaning_they_possess_the_ability
+    datatype: currency
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

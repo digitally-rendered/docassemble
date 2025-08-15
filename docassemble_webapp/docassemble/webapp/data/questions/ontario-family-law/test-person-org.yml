@@ -1,0 +1,43 @@
+---
+metadata:
+  title: Test Person and Organization Objects
+---
+objects:
+  - party: Person
+  - lawyer: Individual
+  - firm: Organization
+---
+mandatory: True
+question: |
+  Test Person and Organization
+subquestion: |
+  This tests if Person and Organization objects work.
+continue button field: intro
+---
+question: |
+  Party Information (Person object)
+fields:
+  - First Name: party.name.first
+  - Last Name: party.name.last
+---
+question: |
+  Lawyer Information (Individual object)
+fields:
+  - First Name: lawyer.name.first
+  - Last Name: lawyer.name.last
+  - Email: lawyer.email
+    datatype: email
+---
+question: |
+  Firm Information (Organization object)
+fields:
+  - Firm Name: firm.name.text
+  - Business Type: firm.business_type
+---
+event: final
+question: |
+  Test Complete
+subquestion: |
+  - Party: ${ party.name }
+  - Lawyer: ${ lawyer.name }
+  - Firm: ${ firm.name }

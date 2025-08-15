@@ -1,0 +1,40 @@
+---
+metadata:
+  title: Debug Wizard - Validation Test
+  short title: Debug Validation
+  description: Test validation code blocks
+---
+modules:
+  - re
+  - datetime
+---
+objects:
+  - test_person: Person
+---
+# Test validation code in a simple field
+question: |
+  Test Validation
+fields:
+  - "Test Email": test_person.email
+    datatype: email
+    required: False
+    validation code: |
+      import re
+      if test_person.email and not re.match(r'^[\w\.\-]+@[\w\.\-]+\.\w+$', test_person.email):
+        validation_error("Please enter a valid email address")
+  - "Test Date": test_person.birthdate
+    datatype: date
+    required: False
+    validation code: |
+      from datetime import datetime, timedelta
+      if test_person.birthdate:
+        min_age = datetime.now() - timedelta(days=18*365)
+        if test_person.birthdate > min_age.date():
+          validation_error("Must be at least 18 years old")
+continue button field: validation_test_complete
+---
+event: final_screen
+question: |
+  Validation Test Complete
+subquestion: |
+  Validation code blocks are working properly.

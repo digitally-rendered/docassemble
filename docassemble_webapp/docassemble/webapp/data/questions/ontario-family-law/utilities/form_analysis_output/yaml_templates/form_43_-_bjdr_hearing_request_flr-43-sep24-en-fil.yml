@@ -1,0 +1,92 @@
+---
+# Ontario Family Law Form: form_43_-_bjdr_hearing_request_flr-43-sep24-en-fil
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Form 43 - Bjdr Hearing Request Flr-43-Sep24-En-Fil
+  short title: |
+    FORM
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  field_2_i_request_a_binding_judicial_dispute_resolution_hearing_on_the_issues_listed_here
+  check_off_the_issues_in_your_case_that_have_not_yet_been_resolved_and_provide_a_brief_description_note_that_the_binding_judicial_dispute_resolution_hearing_can_only_deal_with_issues_that_you_included_in_your_pleadings
+  decisionmaking_responsibility
+  parenting_time_or_contact
+  child_support
+  spousal_support
+  division_of_property
+  other
+  field_3_provide_a_brief_summary_of_why_you_believe_a_binding_judicial_dispute_resolution_hearing_would_be_an_effective_way_to_resolve_the_issues_listed_above
+  field_4_i_confirm_that_this_case_is_suitable_for_binding_judicial_dispute_resolution_and_that
+
+  # Table Cell Section
+  court_file_number
+  unnamed_field
+  unnamed_field
+  unnamed_field
+  unnamed_field
+  unnamed_field
+  unnamed_field
+  unnamed_field
+  form_43
+  form_43
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  2.  I,      , request a binding judicial dispute resolution hearing on the issues listed here:
+fields:
+  - "Field 2 I Request A Binding Judicial Dispute Resolution Hearing On The Issues Listed Here": field_2_i_request_a_binding_judicial_dispute_resolution_hearing_on_the_issues_listed_here
+---
+question: |
+  Check off the issues in your case that have not yet been resolved and provide a brief description. N
+fields:
+  - "Check Off The Issues In Your Case That Have Not Yet Been Resolved And Provide A Brief Description Note That The Binding Judicial Dispute Resolution Hearing Can Only Deal With Issues That You Included In Your Pleadings": check_off_the_issues_in_your_case_that_have_not_yet_been_resolved_and_provide_a_brief_description_note_that_the_binding_judicial_dispute_resolution_hearing_can_only_deal_with_issues_that_you_included_in_your_pleadings
+---
+question: |
+  Decision-making responsibility:
+fields:
+  - "Decisionmaking Responsibility": decisionmaking_responsibility
+---
+question: |
+  Parenting time or contact:
+fields:
+  - "Parenting Time Or Contact": parenting_time_or_contact
+---
+question: |
+  Child support:
+fields:
+  - "Child Support": child_support
+    datatype: currency
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

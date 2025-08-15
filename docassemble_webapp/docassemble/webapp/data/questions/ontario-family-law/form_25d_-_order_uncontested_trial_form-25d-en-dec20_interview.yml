@@ -1,0 +1,308 @@
+---
+metadata:
+  title: Ontario Family Law Form 8 - Application (General)
+  short title: Form 8 - Application
+  description: Complete Ontario Family Court Form 8 - Application (General) to start
+    family court proceedings.
+  authors:
+  - name: Ontario Family Law Forms System
+  revision_date: '2025-08-09'
+  tags:
+  - ontario
+  - family-law
+  - form-25d---order-uncontested-trial-form-25d-en-dec20
+  - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: true
+  navigation: true
+  progress bar: true
+  show progress bar percentage: true
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - financial: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.name_of_court
+  court_info.court_office_address
+  
+  # Applicant Information
+  applicant
+  
+  # Respondent Information
+  respondent
+  
+  # Children Information
+  children.name_address_of_childrens_lawyers_agent
+  children.this_order_affects_the_following_children
+  children.childs_full_legal_name
+  
+  # Financial Information
+  financial.has_an_income_of
+  financial.nature_of_special_or_extraordinary_expense
+  financial.spousal_support
+  
+  # Claims
+  claims.form_25d
+  claims.date_of_order
+  claims.order
+  
+  # Other
+  full_legal_name_address_for
+  lawyers_name_address_street_number
+  date_of_birth
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  "Court File Number"
+fields:
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  "(Name of court)"
+fields:
+  - "(Name of court)": court_info.name_of_court
+---
+question: |
+  "Court office address"
+fields:
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  "Judge (print or type name)"
+fields:
+  - "Judge (print or type name)": court_info.judge
+---
+question: |
+  "The court considered an application/motion made by (name of person or persons)"
+fields:
+  - "The court considered an application/motion made by (name ...": court_info.the_court_considered_an_applicationmotion_made_by
+---
+# Applicant Information Questions
+question: |
+  "Applicant(s)"
+fields:
+  - "Applicant(s)": applicant
+---
+# Respondent Information Questions
+question: |
+  "Respondent(s)"
+fields:
+  - "Respondent(s)": respondent
+---
+# Children Information Questions
+question: |
+  "Name & address of Children’s Lawyer’s agent (street & number, municipality, postal code, telephon..."
+fields:
+  - "Name & address of Children’s Lawyer’s agent (street & num...": children.name_address_of_childrens_lawyers_agent
+---
+question: |
+  "This order affects the following children:"
+fields:
+  - "This order affects the following children:": children.this_order_affects_the_following_children
+---
+question: |
+  "Child’s full legal name"
+fields:
+  - "Child’s full legal name": children.childs_full_legal_name
+---
+question: |
+  "parenting time with each child mentioned above. The terms of parenting time are:"
+fields:
+  - "parenting time with each child mentioned above. The terms...": children.parenting_time_with_each_child
+---
+question: |
+  "List any other special days such as religious festivals, Christmas Day, birthdays, Mother’s Day, ..."
+fields:
+  - "List any other special days such as religious festivals, ...": children.list_any_other_special_days
+    datatype: date
+---
+# Financial Information Questions
+question: |
+  "has an income of $"
+fields:
+  - "has an income of $": financial.has_an_income_of
+    datatype: currency
+    min: 0
+---
+question: |
+  "Nature of special or extraordinary expense"
+fields:
+  - "Nature of special or extraordinary expense": financial.nature_of_special_or_extraordinary_expense
+    datatype: currency
+    min: 0
+---
+question: |
+  "SPOUSAL SUPPORT"
+fields:
+  - "SPOUSAL SUPPORT": financial.spousal_support
+    datatype: currency
+    min: 0
+---
+question: |
+  "spousal support in the amount of $"
+fields:
+  - "spousal support in the amount of $": financial.spousal_support_in_the_amount_of
+    datatype: currency
+    min: 0
+---
+question: |
+  "SUPPORT MONEY OWED"
+fields:
+  - "SUPPORT MONEY OWED": financial.support_money_owed
+    datatype: currency
+    min: 0
+---
+# Claims Questions
+question: |
+  "Form 25D: Order (Uncontested Trial)"
+fields:
+  - "Form 25D: Order (Uncontested Trial)": claims.form_25d
+---
+question: |
+  "Date of order"
+fields:
+  - "Date of order": claims.date_of_order
+    datatype: date
+---
+question: |
+  "Order (Uncontested Trial)"
+fields:
+  - "Order (Uncontested Trial)": claims.order
+---
+question: |
+  "ORDERS that (name of payor)"
+fields:
+  - "ORDERS that (name of payor)": claims.orders_that
+---
+question: |
+  "IT ORDERS that (name of payor)"
+fields:
+  - "IT ORDERS that (name of payor)": claims.it_orders_that
+---
+# Other Questions
+question: |
+  "Full legal name & address for service — street & number, municipality, postal code, telephone & f..."
+fields:
+  - "Full legal name & address for service — street & number, ...": full_legal_name_address_for
+---
+question: |
+  "Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and..."
+fields:
+  - "Lawyer’s name & address — street & number, municipality, ...": lawyers_name_address_street_number
+---
+question: |
+  "Date of birth (d, m, y)"
+fields:
+  - "Date of birth (d, m, y)": date_of_birth
+    datatype: date
+---
+question: |
+  "other (Specify.)"
+fields:
+  - "other (Specify.)": other
+---
+question: |
+  "Form 25D:"
+fields:
+  - "Form 25D:": form_25d
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided.
+  
+  % if defined('applicant.name.first'):
+  **Applicant:** ${ applicant.name }
+  % endif
+  
+  % if defined('respondent.name.first'):
+  **Respondent:** ${ respondent.name }
+  % endif
+  
+  % if defined('court_info.file_number'):
+  **Court File Number:** ${ court_info.file_number }
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---

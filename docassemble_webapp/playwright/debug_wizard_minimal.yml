@@ -1,0 +1,21 @@
+---
+metadata:
+  title: Debug Wizard - Minimal Test
+  short title: Debug Test
+  description: Minimal test to isolate YAML parsing issue
+---
+# Test basic structure first
+question: |
+  Test Question
+subquestion: |
+  This is a minimal test to check if basic YAML structure works.
+field: test_field
+buttons:
+  - "Continue": True
+---
+# Test completion
+event: final_screen
+question: |
+  Test Complete
+subquestion: |
+  Basic YAML structure is working.

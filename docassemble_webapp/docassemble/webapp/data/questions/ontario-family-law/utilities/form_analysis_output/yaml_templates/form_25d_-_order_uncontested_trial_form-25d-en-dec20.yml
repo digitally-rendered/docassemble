@@ -1,0 +1,79 @@
+---
+# Ontario Family Law Form: form_25d_-_order_uncontested_trial_form-25d-en-dec20
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Form 25D - Order Uncontested Trial Form-25D-En-Dec20
+  short title: |
+    FORM
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Table Cell Section
+  court_file_number
+  court_file_number
+  court_file_number
+  unnamed_field
+  unnamed_field
+  unnamed_field
+  unnamed_field
+  form_25d
+  form_25d
+  form_25d
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Court File Number
+fields:
+  - "Court File Number": court_file_number
+---
+question: |
+  Court File Number
+fields:
+  - "Court File Number": court_file_number
+---
+question: |
+  Court File Number
+fields:
+  - "Court File Number": court_file_number
+---
+question: |
+  (Name of court)
+fields:
+  - "Unnamed Field": unnamed_field
+---
+question: |
+  (Name of court)
+fields:
+  - "Unnamed Field": unnamed_field
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

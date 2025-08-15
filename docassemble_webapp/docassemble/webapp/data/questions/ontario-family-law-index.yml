@@ -1,0 +1,111 @@
+---
+metadata:
+  title: Ontario Family Law Forms
+  short title: ON Family Law
+  description: Access all Ontario family law forms
+---
+mandatory: True
+question: |
+  # Ontario Family Law Forms System
+subquestion: |
+  ## 🧭 NEW! Not Sure Where to Start?
+  **[Launch the Forms Wizard](/interview?i=docassemble.webapp:ontario-family-law/ontario-family-law-wizard.yml)** - Answer a few questions and get a personalized list of exactly which forms you need!
+  
+  ---
+  
+  Welcome! Choose the family law form you need to complete:
+
+  ## 📋 Core Application Forms
+  * **[Form 4 - Notice of Change in Representation](/interview?i=docassemble.webapp:ontario-family-law/form_4_-_notice_change_representation_flr-04-jun25-en-fil_interview.yml)**
+  * **[Form 6B - Affidavit of Service](/interview?i=docassemble.webapp:ontario-family-law/form_6b_-_affidavit_service_flr-06b-apr16-en-fil_interview.yml)**
+  * **[Form 6C - Certificate of Service](/interview?i=docassemble.webapp:ontario-family-law/form_6c_-_certificate_service_flr-6c-apr23-en-fil_interview.yml)**
+  * **[Form 8 - Application (General)](/interview?i=docassemble.webapp:ontario-family-law/form_8_-_application_general_flr-8-jun25-en_interview.yml)** ⭐
+  * **[Form 8A - Application for Divorce](/interview?i=docassemble.webapp:ontario-family-law/form_8a_-_application_divorce_flr-8a-apr24-en-fil_interview.yml)** ⭐
+  * **[Form 8B - Application (Child Protection)](/interview?i=docassemble.webapp:ontario-family-law/form_8b_-_application_child_protection_form-8b-feb_1_2022-en_interview.yml)**
+  * **[Form 8D - Application for Adoption](/interview?i=docassemble.webapp:ontario-family-law/form_8d_-_application_adoption_flr-8d-may25-en-fil_interview.yml)**
+  * **[Form 10 - Answer](/interview?i=docassemble.webapp:ontario-family-law/form_10_-_answer_flr-10-jun25-en-fil_interview.yml)** ⭐
+
+  ## 💰 Financial Disclosure Forms
+  * **[Form 13 - Financial Statement (Support Claims)](/interview?i=docassemble.webapp:ontario-family-law/form_13_-_financial_statement_support_flr-13-may21-en-fil_interview.yml)** ⭐
+  * **[Form 13.1 - Financial Statement (Property & Support)](/interview?i=docassemble.webapp:ontario-family-law/form_13.1_-_financial_statement_property_flr-13-1-may21-en-fil_interview.yml)** ⭐
+  * **[Form 13A - Certificate of Financial Disclosure](/interview?i=docassemble.webapp:ontario-family-law/form_13a_-_certificate_financial_disclosure_flr-13a-may21-en-fil_interview.yml)**
+  * **[Form 13B - Net Family Property Statement](/interview?i=docassemble.webapp:ontario-family-law/form_13b_-_net_family_property_statement_flr-13b-may09-en-fil-tables_interview.yml)**
+  * **[Form 13C - Comparison of Net Family Property](/interview?i=docassemble.webapp:ontario-family-law/form_13c_-_comparison_net_family_property_flr-13c-may21-en-fil_interview.yml)**
+
+  ## ⚖️ Motion Forms
+  * **[Form 14B - Motion Form](/interview?i=docassemble.webapp:ontario-family-law/form_14b_-_motion_form_flr-14b-0921-en_interview.yml)**
+  * **[Form 14C - Confirmation of Motion](/interview?i=docassemble.webapp:ontario-family-law/form_14c_-_confirmation_motion_flr-14c-sep24-en-fil_interview.yml)**
+  * **[Form 15 - Motion to Change](/interview?i=docassemble.webapp:ontario-family-law/form_15_-_motion_to_change_flr-15-0921-en_interview.yml)**
+  * **[Form 15B - Response to Motion to Change](/interview?i=docassemble.webapp:ontario-family-law/form_15b_-_response_motion_to_change_form-15b-en-dec20_interview.yml)**
+  * **[Form 15C - Consent Motion to Change](/interview?i=docassemble.webapp:ontario-family-law/form_15c_-_consent_motion_to_change_form-15c-en-dec20_interview.yml)**
+
+  ## 📝 Conference & Trial Forms
+  * **[Form 17A - Case Conference Brief](/interview?i=docassemble.webapp:ontario-family-law/form_17a_-_case_conference_brief_flr-17a-sep23-en_interview.yml)**
+  * **[Form 17C - Settlement Conference Brief](/interview?i=docassemble.webapp:ontario-family-law/form_17c_-_settlement_conference_brief_flr-17c-sep23-en_interview.yml)**
+  * **[Form 17F - Confirmation of Conference](/interview?i=docassemble.webapp:ontario-family-law/form_17f_-_confirmation_conference_flr-17f-sep24-en-fil_interview.yml)**
+
+  ## 📜 Court Orders
+  * **[Form 25 - Order (General)](/interview?i=docassemble.webapp:ontario-family-law/form_25_-_order_general_form-25-en-dec20_interview.yml)**
+  * **[Form 25C - Adoption Order](/interview?i=docassemble.webapp:ontario-family-law/form_25c_-_adoption_order_flr-25c-may25-en-fil_interview.yml)**
+  * **[Form 25D - Order (Uncontested Trial)](/interview?i=docassemble.webapp:ontario-family-law/form_25d_-_order_uncontested_trial_form-25d-en-dec20_interview.yml)**
+  * **[Form 25F - Restraining Order](/interview?i=docassemble.webapp:ontario-family-law/form_25f_-_restraining_order_flr-25f-sep09-en-fil_interview.yml)**
+
+  ## 💸 Enforcement Forms
+  * **[Form 26 - Statement of Money Owed](/interview?i=docassemble.webapp:ontario-family-law/form_26_-_statement_money_owed_flr-26-apr16-en-fil_interview.yml)**
+  * **[Form 27 - Request for Financial Statement](/interview?i=docassemble.webapp:ontario-family-law/form_27_-_request_financial_statement_flr-27-apr16-en-fil_interview.yml)**
+  * **[Form 28 - Writ of Seizure and Sale](/interview?i=docassemble.webapp:ontario-family-law/form_28_-_writ_seizure_sale_flr-28-apr16-en-fil_interview.yml)**
+  * **[Form 29 - Request for Garnishment](/interview?i=docassemble.webapp:ontario-family-law/form_29_-_request_garnishment_flr-29-apr16-en-fil_interview.yml)**
+  * **[Form 29A - Notice of Garnishment (Lump Sum)](/interview?i=docassemble.webapp:ontario-family-law/form_29a_-_notice_garnishment_lump_sum_flr-29a-apr16-en-fil_interview.yml)**
+  * **[Form 29B - Notice of Garnishment (Periodic)](/interview?i=docassemble.webapp:ontario-family-law/form_29b_-_notice_garnishment_periodic_flr-29b-apr16-en-fil_interview.yml)**
+  * **[Form 30 - Notice of Default Hearing](/interview?i=docassemble.webapp:ontario-family-law/form_30_-_notice_default_hearing_flr-30-apr16-en-fil_interview.yml)**
+
+  ## 👨‍👩‍👧‍👦 Family & Children Forms
+  * **[Form 33F - Access Application](/interview?i=docassemble.webapp:ontario-family-law/form_33f_-_access_application_flr-33f-may21-en-fil_interview.yml)**
+  * **[Form 34 - Child's Consent to Adoption](/interview?i=docassemble.webapp:ontario-family-law/form_34_-_child_consent_adoption_flr-34-nov18-en-fil_interview.yml)**
+  * **[Form 34A - Affidavit of Parentage](/interview?i=docassemble.webapp:ontario-family-law/form_34a_-_affidavit_parentage_form-34a-en-dec20_interview.yml)**
+  * **[Form 34F - Parent's Consent to Adoption](/interview?i=docassemble.webapp:ontario-family-law/form_34f_-_consents_adoption_form-34f-en-dec20_interview.yml)**
+  * **[Form 34G - Affidavit of Adopting Parent](/interview?i=docassemble.webapp:ontario-family-law/form_34g_-_affidavit_adopting_parent_form-34g-en-dec20_interview.yml)**
+  * **[Form 34I - Affidavit of Adopting Relative](/interview?i=docassemble.webapp:ontario-family-law/form_34i_-_affidavit_adopting_relative_form-34i-en-dec20_interview.yml)**
+
+  ## 💔 Divorce Forms
+  * **[Form 36 - Affidavit for Divorce](/interview?i=docassemble.webapp:ontario-family-law/form_36_-_affidavit_for_divorce_flr-36-apr24-en-fil_interview.yml)** ⭐
+  * **[Form 36A - Certificate of Clerk (Divorce)](/interview?i=docassemble.webapp:ontario-family-law/form_36a_-_certificate_divorce_flr-36a-dec20-en-fil_interview.yml)**
+
+  ## 🌎 Interjurisdictional Support
+  * **[Form 37 - Notice of Interjurisdictional Support Order](/interview?i=docassemble.webapp:ontario-family-law/form_37_-_interjurisdictional_support_order_flr-37-apr24-en-fil_interview.yml)**
+  * **[Form 37A - Affidavit for Interjurisdictional Support](/interview?i=docassemble.webapp:ontario-family-law/form_37a_-_affidavit_interjurisdictional_support_flr-37a-apr24-en-fil_interview.yml)**
+  * **[Form 37B - Information & Evidence Brief](/interview?i=docassemble.webapp:ontario-family-law/form_37b_-_evidence_information_flr-37b-apr24-en-fil_interview.yml)**
+
+  ## 🎯 Dispute Resolution Forms
+  * **[Form 43 - Request for Brief Legal Advice](/interview?i=docassemble.webapp:ontario-family-law/form_43_-_bjdr_hearing_request_flr-43-sep24-en-fil_interview.yml)**
+  * **[Form 43A - Request for Online Consultation](/interview?i=docassemble.webapp:ontario-family-law/form_43a_-_bjdr_request_ocl_flr-43a-sep24-en-fil_interview.yml)**
+  * **[Form 43B - Affidavit for Brief Legal Advice](/interview?i=docassemble.webapp:ontario-family-law/form_43b_-_affidavit_bjdr_hearing_flr-43b-sep24-en-fil_interview.yml)**
+
+  ---
+  
+  ⭐ = Most commonly used forms
+  
+  ## ⚖️ Legal Resources
+  - **[Legal Aid Ontario](https://www.legalaid.on.ca/)** - Free legal assistance for low-income individuals
+  - **[Law Society of Ontario](https://lso.ca/public-resources/finding-a-lawyer-or-paralegal)** - Find a lawyer or paralegal
+  - **[Pro Bono Ontario](https://www.probonoontario.org/)** - Free legal clinics
+  - **[Family Law Information Centres](https://www.ontariocourts.ca/ocj/family-court/family-law-info-centres/)** - Court-based help
+
+  ## 📱 How to Access Forms
+  **Bookmark this page:** `/interview?i=docassemble.webapp:ontario-family-law-index.yml`
+  
+  **Direct Links:** Click the blue links above to go directly to each form.
+
+  ---
+  
+  ⚠️ **Important Legal Disclaimer:** This system provides legal information, not legal advice. Always consult with a qualified lawyer for legal advice specific to your situation.
+
+buttons:
+  - "Start Form 8 - Application": 
+      url: "/interview?i=docassemble.webapp:ontario-family-law/form_8_-_application_general_flr-8-jun25-en_interview.yml"
+  - "Form 10 - Answer": 
+      url: "/interview?i=docassemble.webapp:ontario-family-law/form_10_-_answer_flr-10-jun25-en-fil_interview.yml"
+  - "Get Legal Help": exit
+    url: "https://www.legalaid.on.ca/"
+field: menu_choice
+---

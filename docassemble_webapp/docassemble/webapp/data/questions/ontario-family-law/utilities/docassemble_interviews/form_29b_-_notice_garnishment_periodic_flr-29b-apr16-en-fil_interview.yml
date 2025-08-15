@@ -1,0 +1,280 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-29b---notice-garnishment-periodic-flr-29b-apr16-en-fil
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - court_info: DAObject
+  - financial: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.that_is_enforceable_in_this_court_or_that_is_enforceable_by_a_garnishment_process_from_outside_ontario_and_recognized_by_this_court_the_recipient_claims_that_you_owe_or_will_owe_the_payor_a_debt_in_the_form_of_wages_salary_pension_payments_rent_annuity_or_other_debt_that_you_pay_out_periodically_or_by_instalments
+  
+  # Financial Information
+  financial.form_29b
+  financial.to_reduce_the_payors_accumulated_debts_of
+  financial.of_any_debt
+  
+  # Claims
+  claims.under_subsection_4
+  
+  # Other
+  full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  to
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+fields:
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+fields:
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  that is enforceable in this court or that is enforceable by a garnishment process from outside Ontar
+fields:
+  - "that is enforceable in this court or that is enforceable by a garnishment process from outside Ontar": court_info.that_is_enforceable_in_this_court_or_that_is_enforceable_by_a_garnishment_process_from_outside_ontario_and_recognized_by_this_court_the_recipient_claims_that_you_owe_or_will_owe_the_payor_a_debt_in_the_form_of_wages_salary_pension_payments_rent_annuity_or_other_debt_that_you_pay_out_periodically_or_by_instalments
+    datatype: currency
+    min: 0
+---
+question: |
+  This notice of garnishment enforces the support provisions of a court order, domestic contract or pa
+fields:
+  - "This notice of garnishment enforces the support provisions of a court order, domestic contract or pa": court_info.this_notice_of_garnishment_enforces_the_support_provisions_of_a_court_order_domestic_contract_or_paternity_agreement
+    datatype: currency
+    min: 0
+---
+question: |
+  A blank Form 29C should be attached to this notice.  If it is missing, you should talk to your own l
+fields:
+  - "A blank Form 29C should be attached to this notice.  If it is missing, you should talk to your own l": court_info.a_blank_form_29c_should_be_attached_to_this_notice_if_it_is_missing_you_should_talk_to_your_own_lawyer_or_the_court_office
+---
+
+# Financial Information Questions
+question: |
+  Form 29B:  Notice of
+Garnishment
+(periodic debt)
+fields:
+  - "Form 29B:  Notice of
+Garnishment
+(periodic debt)": financial.form_29b
+    datatype: currency
+    min: 0
+---
+question: |
+  to reduce the payor’s accumulated debts of $
+fields:
+  - "to reduce the payor’s accumulated debts of $": financial.to_reduce_the_payors_accumulated_debts_of
+    datatype: currency
+    min: 0
+---
+question: |
+  % of any debt (other than wages) now payable by you to the
+fields:
+  - "% of any debt (other than wages) now payable by you to the": financial.of_any_debt
+    datatype: currency
+    min: 0
+---
+question: |
+  AND YOU MUST PAY THIS DEDUCTION to the clerk or the Director (as indicated above) within 10 days aft
+fields:
+  - "AND YOU MUST PAY THIS DEDUCTION to the clerk or the Director (as indicated above) within 10 days aft": financial.and_you_must_pay_this_deduction_to_the_clerk_or_the_director
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  Notice of Garnishment (periodic debt)
+fields:
+  - "Notice of Garnishment (periodic debt)": financial.notice_of_garnishment
+    datatype: currency
+    min: 0
+---
+
+# Claims Questions
+question: |
+  Under subsection 4(1) of the Creditors’ Relief Act, YOU MUST GIVE THIS NOTICE OF GARNISHMENT PRIORIT
+fields:
+  - "Under subsection 4(1) of the Creditors’ Relief Act, YOU MUST GIVE THIS NOTICE OF GARNISHMENT PRIORIT": claims.under_subsection_4
+    required: True
+---
+
+# Other Questions
+question: |
+  Full legal name & address for service — street & number, municipality, postal code, telephone & fax 
+fields:
+  - "Full legal name & address for service — street & number, municipality, postal code, telephone & fax ": full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+---
+question: |
+  Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-
+fields:
+  - "Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-": lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+---
+question: |
+  TO:  (garnishee’s full legal name and address)
+fields:
+  - "TO:  (garnishee’s full legal name and address)": to
+---
+question: |
+  at (address)
+fields:
+  - "at (address)": at
+---
+question: |
+  The payor (name)
+fields:
+  - "The payor (name)": the_payor
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${applicant.name.full() if defined('applicant.name.first') else 'Not provided'}
+  * Address: ${applicant.address.on_one_line() if defined('applicant.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${respondent.name.full() if defined('respondent.name.first') else 'Not provided'}
+  * Address: ${respondent.address.on_one_line() if defined('respondent.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: ${form_name.replace('_', ' ').title()}
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

@@ -1,0 +1,253 @@
+---
+metadata:
+  title: Ontario Family Law Form 8 - Application (General)
+  short title: Form 8 - Application
+  description: Complete Ontario Family Court Form 8 - Application (General) to start
+    family court proceedings.
+  authors:
+  - name: Ontario Family Law Forms System
+  revision_date: '2025-08-09'
+  tags:
+  - ontario
+  - family-law
+  - form-43---bjdr-hearing-request-flr-43-sep24-en-fil
+  - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: true
+  navigation: true
+  progress bar: true
+  show progress bar percentage: true
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - financial: DAObject
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.field_2_i_request_a
+  court_info.check_off_the_issues_in
+  court_info.field_3_provide_a_brief
+  
+  # Applicant Information
+  applicant
+  
+  # Respondent Information
+  respondent
+  
+  # Children Information
+  children.parenting_time_or_contact
+  children.child_support
+  children.you_are_strongly_encouraged_to
+  
+  # Financial Information
+  financial.spousal_support
+  financial.division_of_property
+  
+  # Other
+  decisionmaking_responsibility
+  other
+  field_4_i_confirm_that
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  "2. I, , request a binding judicial dispute resolution hearing on the issues listed here:"
+fields:
+  - "2. I, , request a binding judicial dispute resolution hea...": court_info.field_2_i_request_a
+---
+question: |
+  "Check off the issues in your case that have not yet been resolved and provide a brief description..."
+fields:
+  - "Check off the issues in your case that have not yet been ...": court_info.check_off_the_issues_in
+---
+question: |
+  "3. Provide a brief summary of why you believe a binding judicial dispute resolution hearing would..."
+fields:
+  - "3. Provide a brief summary of why you believe a binding j...": court_info.field_3_provide_a_brief
+---
+question: |
+  "I do not plan to rely on testimony from witnesses (other than the parties) at the hearing;"
+fields:
+  - "I do not plan to rely on testimony from witnesses (other ...": court_info.i_do_not_plan_to_rely_on_testimony_from_witnesses
+---
+question: |
+  "5. I will serve on all parties and file with the court the documents listed in subrule 43 (12) an..."
+fields:
+  - "5. I will serve on all parties and file with the court th...": court_info.field_5_i_will_serve
+---
+# Applicant Information Questions
+question: |
+  "Applicant(s)"
+fields:
+  - "Applicant(s)": applicant
+---
+# Respondent Information Questions
+question: |
+  "Respondent(s)"
+fields:
+  - "Respondent(s)": respondent
+---
+# Children Information Questions
+question: |
+  "Parenting time or contact:"
+fields:
+  - "Parenting time or contact:": children.parenting_time_or_contact
+---
+question: |
+  "Child support:"
+fields:
+  - "Child support:": children.child_support
+    datatype: currency
+    min: 0
+---
+question: |
+  "YOU ARE STRONGLY ENCOURAGED TO GET LEGAL ADVICE BEFORE COMPLETING THIS FORM. The following servic..."
+fields:
+  - "YOU ARE STRONGLY ENCOURAGED TO GET LEGAL ADVICE BEFORE CO...": children.you_are_strongly_encouraged_to
+---
+question: |
+  "Office of the Children’s Lawyer (OCL)"
+fields:
+  - "Office of the Children’s Lawyer (OCL)": children.office_of_the_childrens_lawyer
+---
+question: |
+  "The child(ren) is/are represented by a lawyer from the Office of the Children’s Lawyer in these p..."
+fields:
+  - "The child(ren) is/are represented by a lawyer from the Of...": children.the_child
+---
+# Financial Information Questions
+question: |
+  "Spousal support:"
+fields:
+  - "Spousal support:": financial.spousal_support
+    datatype: currency
+    min: 0
+---
+question: |
+  "Division of property:"
+fields:
+  - "Division of property:": financial.division_of_property
+    datatype: currency
+    min: 0
+---
+# Other Questions
+question: |
+  "Decision-making responsibility:"
+fields:
+  - "Decision-making responsibility:": decisionmaking_responsibility
+---
+question: |
+  "Other:"
+fields:
+  - "Other:": other
+---
+question: |
+  "4. I confirm that this case is suitable for binding judicial dispute resolution and that:"
+fields:
+  - "4. I confirm that this case is suitable for binding judic...": field_4_i_confirm_that
+---
+question: |
+  "The Law Society of Ontario’s Lawyer Referral Service; (referrals and free 30-minute consultations)"
+fields:
+  - "The Law Society of Ontario’s Lawyer Referral Service; (re...": the_law_society_of_ontarios
+---
+question: |
+  "Legal Aid Ontario: 1-800-668-8258 (free legal services for those who qualify)"
+fields:
+  - "Legal Aid Ontario: 1-800-668-8258 (free legal services fo...": legal_aid_ontario
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided.
+  
+  % if defined('applicant.name.first'):
+  **Applicant:** ${ applicant.name }
+  % endif
+  
+  % if defined('respondent.name.first'):
+  **Respondent:** ${ respondent.name }
+  % endif
+  
+  % if defined('court_info.file_number'):
+  **Court File Number:** ${ court_info.file_number }
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---

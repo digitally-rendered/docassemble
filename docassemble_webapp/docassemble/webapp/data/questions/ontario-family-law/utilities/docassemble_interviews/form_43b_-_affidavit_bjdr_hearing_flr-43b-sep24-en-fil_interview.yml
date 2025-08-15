@@ -1,0 +1,335 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-43b---affidavit-bjdr-hearing-flr-43b-sep24-en-fil
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - financial: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.if_you_have_made_an_application_for_divorce_and
+  court_info.field_6_i_am_asking_the_court_for_a_final_order_for
+  court_info.field_9_i_ask_that_the_court_address_the_child
+  
+  # Applicant Information
+  applicant
+  
+  # Respondent Information
+  respondent.selfemployment_as
+  respondent
+  
+  # Children Information
+  children.if_your_case_involves_parenting_issues_updated_form_351_affidavit
+  children.decisionmaking_responsibility_for_the_child
+  children.parenting_time_with_the_child
+  
+  # Financial Information
+  financial.if_your_case_involves_a_property_claim_or_claim_for_exclusive_possession_of_a_matrimonial_home
+  financial.support_calculations_to_help_establish_the_amount_and_duration_of_support_payments
+  financial.statement_of_arrears_from_the_family_responsibility_office_or_form_26
+  
+  # Claims
+  claims.field_7_i_agree_to_the_following_orders_that_the_other_party_has_included_in_their_draft_order_if_any
+  
+  # Other
+  instructions
+  the_following_attachments_noted_in_bold_throughout_the_document_must_be_attached_if_relevant_to_your_case_and_are_not_included_in_the_page_count
+  field_1_my_full_legal_name_is
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  If you have made an application for divorce and (i) you have paid the necessary fees, and (ii) the c
+fields:
+  - "If you have made an application for divorce and (i) you have paid the necessary fees, and (ii) the c": court_info.if_you_have_made_an_application_for_divorce_and
+---
+question: |
+  6.  I am asking the court for a final order for:
+fields:
+  - "6.  I am asking the court for a final order for:": court_info.field_6_i_am_asking_the_court_for_a_final_order_for
+---
+question: |
+  9.  I ask that the court address the child(ren)’s special needs as follows:
+fields:
+  - "9.  I ask that the court address the child(ren)’s special needs as follows:": court_info.field_9_i_ask_that_the_court_address_the_child
+---
+question: |
+  10.  I want the court to read the attached reports from the Office of the Children’s Lawyer, school 
+fields:
+  - "10.  I want the court to read the attached reports from the Office of the Children’s Lawyer, school ": court_info.field_10_i_want_the_court_to_read_the_attached_reports_from_the_office_of_the_childrens_lawyer_school_or_other_professional_regarding_the_child
+---
+question: |
+  28.  The important facts about the other issues that the Court will be dealing with are:
+fields:
+  - "28.  The important facts about the other issues that the Court will be dealing with are:": court_info.field_28_the_important_facts_about_the_other_issues_that_the_court_will_be_dealing_with_are
+    input type: area
+    rows: 4
+---
+
+# Applicant Information Questions
+question: |
+  Applicant(s)
+fields:
+  - "Applicant(s)": applicant
+---
+
+# Respondent Information Questions
+question: |
+  self-employment as (name or nature of respondent’s business)
+fields:
+  - "self-employment as (name or nature of respondent’s business)": respondent.selfemployment_as
+---
+question: |
+  Respondent(s)
+fields:
+  - "Respondent(s)": respondent
+---
+
+# Children Information Questions
+question: |
+  If your case involves parenting issues, updated Form 35.1 affidavit (decision-making responsibility,
+fields:
+  - "If your case involves parenting issues, updated Form 35.1 affidavit (decision-making responsibility,": children.if_your_case_involves_parenting_issues_updated_form_351_affidavit
+    datatype: date
+---
+question: |
+  decision-making responsibility for the child(ren)
+fields:
+  - "decision-making responsibility for the child(ren)": children.decisionmaking_responsibility_for_the_child
+---
+question: |
+  parenting time with the child(ren)
+fields:
+  - "parenting time with the child(ren)": children.parenting_time_with_the_child
+---
+question: |
+  contact with the child(ren)
+fields:
+  - "contact with the child(ren)": children.contact_with_the_child
+---
+question: |
+  support for the child(ren)
+fields:
+  - "support for the child(ren)": children.support_for_the_child
+    datatype: currency
+    min: 0
+---
+
+# Financial Information Questions
+question: |
+  If your case involves a property claim or claim for exclusive possession of a matrimonial home (with
+fields:
+  - "If your case involves a property claim or claim for exclusive possession of a matrimonial home (with": financial.if_your_case_involves_a_property_claim_or_claim_for_exclusive_possession_of_a_matrimonial_home
+    datatype: date
+---
+question: |
+  Support calculations to help establish the amount and duration of support payments.
+fields:
+  - "Support calculations to help establish the amount and duration of support payments.": financial.support_calculations_to_help_establish_the_amount_and_duration_of_support_payments
+    datatype: currency
+    min: 0
+---
+question: |
+  Statement of Arrears from the Family Responsibility Office or Form 26: Statement of Money Owed.
+fields:
+  - "Statement of Arrears from the Family Responsibility Office or Form 26: Statement of Money Owed.": financial.statement_of_arrears_from_the_family_responsibility_office_or_form_26
+---
+question: |
+  Receipts for past special or extraordinary expenses that you are asking the other party to pay back.
+fields:
+  - "Receipts for past special or extraordinary expenses that you are asking the other party to pay back.": financial.receipts_for_past_special_or_extraordinary_expenses_that_you_are_asking_the_other_party_to_pay_back
+    datatype: currency
+    min: 0
+---
+question: |
+  Documents supporting disputed property issues, including any reports of an expert or other professio
+fields:
+  - "Documents supporting disputed property issues, including any reports of an expert or other professio": financial.documents_supporting_disputed_property_issues_including_any_reports_of_an_expert_or_other_professional_relating_to_those_issues
+    datatype: currency
+    min: 0
+---
+
+# Claims Questions
+question: |
+  7.  I agree to the following orders that the other party has included in their draft order, if any:
+fields:
+  - "7.  I agree to the following orders that the other party has included in their draft order, if any:": claims.field_7_i_agree_to_the_following_orders_that_the_other_party_has_included_in_their_draft_order_if_any
+---
+
+# Other Questions
+question: |
+  Instructions:
+fields:
+  - "Instructions:": instructions
+---
+question: |
+  The following attachments noted in bold throughout the document must be attached if relevant to your
+fields:
+  - "The following attachments noted in bold throughout the document must be attached if relevant to your": the_following_attachments_noted_in_bold_throughout_the_document_must_be_attached_if_relevant_to_your_case_and_are_not_included_in_the_page_count
+    required: True
+---
+question: |
+  1.  My full legal name is:
+fields:
+  - "1.  My full legal name is:": field_1_my_full_legal_name_is
+---
+question: |
+  2.  I live in (include municipality and province):
+fields:
+  - "2.  I live in (include municipality and province):": field_2_i_live_in
+---
+question: |
+  4.  The other party and I (check applicable boxes and provide applicable dates):
+fields:
+  - "4.  The other party and I (check applicable boxes and provide applicable dates):": field_4_the_other_party_and_i
+    datatype: date
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${applicant.name.full() if defined('applicant.name.first') else 'Not provided'}
+  * Address: ${applicant.address.on_one_line() if defined('applicant.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${respondent.name.full() if defined('respondent.name.first') else 'Not provided'}
+  * Address: ${respondent.address.on_one_line() if defined('respondent.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: ${form_name.replace('_', ' ').title()}
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

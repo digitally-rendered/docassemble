@@ -1,0 +1,1596 @@
+---
+# Ontario Family Law Form 13 - Financial Statement (Complex)
+# For income over $150,000 or complex property/business situations
+# Ontario Court Form 13 under the Family Law Rules
+# Version: 1.0.0
+# Last Updated: 2025-08-09
+
+include:
+  - ontario-family-law-common.yml
+
+metadata:
+  title: Form 13 - Financial Statement (Complex)
+  short title: Form 13 Financial Statement
+  description: |
+    Complete financial disclosure form for Ontario Family Court matters
+    involving income over $150,000 or complex financial situations including
+    business interests, complex investments, or significant assets.
+  version: "1.0.0"
+  authors:
+    - name: Ontario Family Law Forms Development Team
+  tags:
+    - ontario
+    - family-law
+    - form-13
+    - financial-statement
+    - complex-finances
+    - child-support
+    - spousal-support
+    - property-division
+
+---
+# MODULES AND IMPORTS
+modules:
+  - re
+  - datetime
+  - decimal
+  - calendar
+  - .child_support_calculator
+  - .business_valuation_helpers
+  - .investment_calculators
+
+---
+# OBJECTS AND VARIABLES
+
+objects:
+  - form13_applicant: Individual
+  - form13_respondent: Individual
+  - form13_children: DAList.using(object_type=Individual)
+  - form13_assets: DADict
+  - form13_liabilities: DADict
+  - form13_income: DADict
+  - form13_expenses: DADict
+  - form13_business_interests: DAList.using(object_type=DAObject)
+  - form13_investments: DAList.using(object_type=DAObject)
+  - form13_professional_valuations: DAList.using(object_type=DAObject)
+
+---
+# INITIALIZATION AND ROUTING
+
+mandatory: True
+code: |
+  # Privacy and legal notices
+  understand_financial_privacy
+  understand_legal_requirements
+  
+  # Determine if Form 13 is appropriate
+  if not form13_eligibility_check:
+    if suggest_form_13_1:
+      redirect_to_form_13_1
+    else:
+      ineligible_for_financial_statement
+  
+  # Collect party information
+  form13_applicant_info
+  form13_respondent_info
+  form13_children_info
+  
+  # Collect comprehensive financial information
+  form13_income_collection
+  form13_expense_collection
+  form13_asset_collection
+  form13_liability_collection
+  
+  # Business and investment details
+  form13_business_collection
+  form13_investment_collection
+  
+  # Professional valuations required
+  form13_professional_valuations_needed
+  
+  # Calculate totals and net worth
+  form13_calculate_totals
+  form13_calculate_child_support
+  
+  # Review and validation
+  form13_review_screen
+  form13_final_validation
+  
+  # Generate documents
+  form13_generate_documents
+  form13_completion
+
+---
+# ELIGIBILITY AND ROUTING
+
+question: |
+  Financial Statement Type - Form 13 or Form 13.1?
+subquestion: |
+  To determine which financial statement form you need, please answer these questions:
+  
+  **Form 13 (Complex)** is required if you have:
+  - Annual income over $150,000
+  - Business or professional practice ownership
+  - Complex investment portfolio
+  - Multiple properties or significant assets
+  - Trust or estate interests
+  - Partnership interests
+  
+  **Form 13.1 (Simple)** can be used if you have:
+  - Annual income under $150,000
+  - Employment income primarily
+  - Basic assets (home, car, savings)
+  - Simple financial situation
+fields:
+  - Annual gross income: applicant_annual_income
+    datatype: currency
+    help: |
+      Include all sources of income before taxes and deductions
+  - Do you own or have interest in a business or professional practice?: has_business_interest
+    datatype: yesnoradio
+  - Do you have complex investments (stocks, bonds, mutual funds, real estate investments)?: has_complex_investments
+    datatype: yesnoradio
+  - Do you own multiple properties?: has_multiple_properties
+    datatype: yesnoradio
+  - Do you have trust or estate interests?: has_trust_estate_interests
+    datatype: yesnoradio
+  - Do you anticipate needing professional valuations for your assets?: needs_professional_valuations
+    datatype: yesnoradio
+
+---
+code: |
+  form13_eligibility_check = (
+    applicant_annual_income > 150000 or
+    has_business_interest or
+    has_complex_investments or
+    has_multiple_properties or
+    has_trust_estate_interests or
+    needs_professional_valuations
+  )
+
+---
+code: |
+  suggest_form_13_1 = applicant_annual_income < 150000 and not any([
+    has_business_interest,
+    has_complex_investments,
+    has_multiple_properties,
+    has_trust_estate_interests,
+    needs_professional_valuations
+  ])
+
+---
+event: redirect_to_form_13_1
+question: |
+  Form 13.1 (Simple) is More Appropriate
+subquestion: |
+  Based on your responses, **Form 13.1 (Simple Financial Statement)** would be more appropriate for your situation.
+  
+  Form 13.1 is designed for situations with:
+  - Annual income under $150,000
+  - Primarily employment income
+  - Basic assets and straightforward finances
+  
+  **Would you like to proceed with Form 13.1 instead?**
+buttons:
+  - Continue with Form 13.1: redirect
+    url: |
+      ${ url_of('ontario-family-law/form-13-1-financial-statement-simple.yml') }
+  - Continue with Form 13 anyway: continue
+    color: secondary
+  - Exit: exit
+
+---
+event: ineligible_for_financial_statement
+question: |
+  Additional Information Required
+subquestion: |
+  To complete a financial statement, we need more information about your financial situation.
+  
+  Please consult with a lawyer or paralegal to determine the appropriate form and requirements for your case.
+  
+  **Resources:**
+  - Law Society of Ontario Referral Service: 1-855-947-5787
+  - Legal Aid Ontario: 1-800-668-8258
+  - Pro Bono Ontario: 1-855-255-7256
+
+---
+# PRIVACY AND LEGAL NOTICES
+
+question: |
+  Privacy Protection for Financial Information
+subquestion: |
+  ${ privacy_disclaimer }
+  
+  **Important Privacy Notice:**
+  
+  Financial statements contain highly sensitive personal and financial information.
+  This information is subject to:
+  - Court confidentiality rules
+  - Privacy protection under applicable legislation
+  - Restricted access by court personnel only
+  - Potential disclosure to other parties in the legal proceeding
+  
+  **Security Measures:**
+  - All data is encrypted and stored securely
+  - Access is logged and monitored
+  - Information is only shared as required by court rules
+  - You can request sealing orders for highly sensitive information
+  
+  **Professional Review Recommended:**
+  Given the complexity of Form 13, it is strongly recommended that you have an accountant, financial advisor, or lawyer review your financial statement before filing.
+field: understand_financial_privacy
+datatype: checkboxes
+choices:
+  - I understand the privacy implications of financial disclosure: privacy_understood
+  - I understand this information may be shared with other parties: sharing_understood
+  - I understand the importance of accurate financial disclosure: accuracy_understood
+validation code: |
+  if not (privacy_understood and sharing_understood and accuracy_understood):
+    validation_error("You must acknowledge all privacy and legal requirements to proceed.")
+
+---
+question: |
+  Legal Requirements for Financial Statements
+subquestion: |
+  ${ legal_disclaimer }
+  
+  **Legal Requirements - Form 13:**
+  
+  1. **Accuracy**: All information must be complete and accurate. Deliberately false or misleading statements can result in:
+     - Contempt of court charges
+     - Perjury charges
+     - Adverse cost orders
+     - Loss of credibility with the court
+  
+  2. **Documentation**: You must attach supporting documents including:
+     - Most recent tax return and Notice of Assessment
+     - Most recent pay stub or employment letter
+     - Business financial statements (if applicable)
+     - Professional valuations (if required)
+     - Investment statements
+     - Bank statements
+  
+  3. **Updates**: You must update your financial statement if material changes occur.
+  
+  4. **Professional Valuations**: Required for:
+     - Business interests over $10,000
+     - Professional practices
+     - Complex investment portfolios
+     - Unique or significant assets
+  
+  **Penalties for False Information:**
+  Providing false information to the court is a serious offense and can result in criminal charges.
+field: understand_legal_requirements
+datatype: checkboxes
+choices:
+  - I understand the accuracy requirements: accuracy_required
+  - I understand the documentation requirements: documentation_required
+  - I understand the penalties for false information: penalties_understood
+  - I will obtain professional valuations where required: valuations_understood
+validation code: |
+  if not all([accuracy_required, documentation_required, penalties_understood, valuations_understood]):
+    validation_error("You must acknowledge all legal requirements to proceed.")
+
+---
+# PARTY INFORMATION
+
+question: |
+  Applicant Information
+subquestion: |
+  Please provide information about the applicant (person filing this financial statement).
+fields:
+  - First Name: form13_applicant.name.first
+  - Last Name: form13_applicant.name.last
+  - Date of Birth: form13_applicant.birthdate
+    datatype: date
+    validate: |
+      lambda x: validate_legal_date(x, 'birth_date')['valid']
+  - Social Insurance Number: form13_applicant.sin
+    help: |
+      Required for court identification and support calculations.
+      Will be masked for privacy protection in documents.
+    validate: |
+      lambda x: validate_sin_number(x, 'court_filing')['valid']
+  - Occupation: form13_applicant.occupation
+  - Employer: form13_applicant.employer
+    required: False
+  - Work Phone: form13_applicant.phone_work
+    required: False
+validation code: |
+  date_validation = validate_legal_date(form13_applicant.birthdate, 'birth_date')
+  if not date_validation['valid']:
+    validation_error(date_validation['message'])
+  
+  sin_validation = validate_sin_number(form13_applicant.sin, 'court_filing')
+  if not sin_validation['valid']:
+    validation_error(sin_validation['message'])
+  form13_applicant.sin_masked = sin_validation['masked']
+  
+  if form13_applicant.phone_work:
+    phone_validation = format_canadian_phone(form13_applicant.phone_work)
+    if not phone_validation['valid']:
+      validation_error(phone_validation['message'])
+    form13_applicant.phone_work = phone_validation['formatted']
+---
+code: |
+  form13_applicant_info = True
+
+---
+question: |
+  Respondent Information
+subquestion: |
+  Please provide information about the respondent (other party).
+fields:
+  - First Name: form13_respondent.name.first
+  - Last Name: form13_respondent.name.last
+  - Date of Birth: form13_respondent.birthdate
+    datatype: date
+    required: False
+    help: |
+      Include if known and relevant to the proceedings
+  - Known Occupation: form13_respondent.occupation
+    required: False
+  - Known Employer: form13_respondent.employer
+    required: False
+---
+code: |
+  form13_respondent_info = True
+
+---
+question: |
+  Children Information
+subquestion: |
+  ${ privacy_disclaimer }
+  
+  Please provide information about all children involved in this proceeding.
+list collect: True
+fields:
+  - Child's first name: form13_children[i].name.first
+  - Child's last name (or initial for privacy): form13_children[i].name.last
+    help: |
+      You may use only initials for privacy protection
+  - Date of birth: form13_children[i].birthdate
+    datatype: date
+    validate: |
+      lambda x: validate_legal_date(x, 'birth_date')['valid']
+  - Child lives primarily with: form13_children[i].lives_with
+    choices:
+      - Applicant
+      - Respondent
+      - Both parents equally
+      - Other (specify below)
+  - If other, specify: form13_children[i].lives_with_other
+    show if:
+      variable: form13_children[i].lives_with
+      is: "Other (specify below)"
+  - Special needs or circumstances: form13_children[i].special_needs
+    datatype: area
+    required: False
+    help: |
+      Include information about special needs, medical conditions, 
+      or other circumstances affecting child support calculations
+  - Annual childcare costs: form13_children[i].childcare_costs
+    datatype: currency
+    required: False
+  - Annual extraordinary expenses: form13_children[i].extraordinary_expenses
+    datatype: currency
+    required: False
+    help: |
+      Medical, dental, educational, or other extraordinary expenses
+validation code: |
+  date_validation = validate_legal_date(form13_children[i].birthdate, 'birth_date')
+  if not date_validation['valid']:
+    validation_error(date_validation['message'])
+  
+  # Calculate age
+  age_calc = calculate_age(form13_children[i].birthdate)
+  form13_children[i].age = age_calc['years']
+  form13_children[i].age_string = age_calc['age_string']
+---
+code: |
+  form13_children_info = True
+
+---
+# INCOME INFORMATION
+
+question: |
+  Employment Income - Current Year
+subquestion: |
+  **Current Year Income Information**
+  
+  Provide your gross (before tax) income from all employment sources for the current year.
+  Include projected income if the year is not complete.
+fields:
+  - Primary employer: form13_income.primary_employer
+    required: False
+  - Primary employment income (annual): form13_income.primary_employment
+    datatype: currency
+    required: False
+  - Secondary employer: form13_income.secondary_employer
+    required: False
+  - Secondary employment income (annual): form13_income.secondary_employment
+    datatype: currency
+    required: False
+  - Overtime income (annual): form13_income.overtime
+    datatype: currency
+    required: False
+  - Commission income (annual): form13_income.commission
+    datatype: currency
+    required: False
+  - Bonus income (annual): form13_income.bonus
+    datatype: currency
+    required: False
+  - Tips and gratuities (annual): form13_income.tips
+    datatype: currency
+    required: False
+  - Other employment income: form13_income.other_employment
+    datatype: currency
+    required: False
+  - Describe other employment income: form13_income.other_employment_description
+    show if: form13_income.other_employment
+    required: False
+
+---
+question: |
+  Self-Employment and Business Income
+subquestion: |
+  **Business and Self-Employment Income**
+  
+  Include income from all business activities, professional practices, partnerships, and self-employment.
+fields:
+  - Business/practice name: form13_income.business_name
+    required: False
+  - Nature of business: form13_income.business_nature
+    required: False
+  - Business income (annual gross): form13_income.business_gross
+    datatype: currency
+    required: False
+  - Business expenses (annual): form13_income.business_expenses
+    datatype: currency
+    required: False
+  - Net business income: form13_income.business_net
+    datatype: currency
+    required: False
+    default: |
+      ${(form13_income.business_gross or 0) - (form13_income.business_expenses or 0)}
+  - Professional practice income: form13_income.professional_practice
+    datatype: currency
+    required: False
+  - Partnership income: form13_income.partnership
+    datatype: currency
+    required: False
+  - Rental property income (gross): form13_income.rental_gross
+    datatype: currency
+    required: False
+  - Rental property expenses: form13_income.rental_expenses
+    datatype: currency
+    required: False
+  - Net rental income: form13_income.rental_net
+    datatype: currency
+    required: False
+    default: |
+      ${(form13_income.rental_gross or 0) - (form13_income.rental_expenses or 0)}
+
+---
+question: |
+  Investment and Other Income
+subquestion: |
+  **Investment Income and Other Sources**
+  
+  Include all investment income and other sources of income.
+fields:
+  - Interest income: form13_income.interest
+    datatype: currency
+    required: False
+  - Dividend income: form13_income.dividends
+    datatype: currency
+    required: False
+  - Capital gains: form13_income.capital_gains
+    datatype: currency
+    required: False
+  - RRSP/RRIF income: form13_income.rrsp_rrif
+    datatype: currency
+    required: False
+  - Pension income: form13_income.pension
+    datatype: currency
+    required: False
+  - Employment Insurance benefits: form13_income.ei_benefits
+    datatype: currency
+    required: False
+  - Social assistance: form13_income.social_assistance
+    datatype: currency
+    required: False
+  - Disability benefits: form13_income.disability_benefits
+    datatype: currency
+    required: False
+  - Workers' compensation: form13_income.workers_comp
+    datatype: currency
+    required: False
+  - Child support received: form13_income.child_support_received
+    datatype: currency
+    required: False
+  - Spousal support received: form13_income.spousal_support_received
+    datatype: currency
+    required: False
+  - Trust income: form13_income.trust_income
+    datatype: currency
+    required: False
+  - Estate income: form13_income.estate_income
+    datatype: currency
+    required: False
+  - Other income: form13_income.other
+    datatype: currency
+    required: False
+  - Describe other income: form13_income.other_description
+    datatype: area
+    show if: form13_income.other
+    required: False
+
+---
+question: |
+  Previous Year Income Verification
+subquestion: |
+  **Previous Tax Year Income**
+  
+  Provide income information from your most recent filed tax return.
+fields:
+  - Tax year: form13_income.tax_year
+    datatype: integer
+    default: ${ datetime.date.today().year - 1 }
+  - Line 15000 - Total income: form13_income.total_income_line_15000
+    datatype: currency
+    help: |
+      From line 15000 of your tax return (total income)
+  - Line 23600 - Net income: form13_income.net_income_line_23600
+    datatype: currency
+    help: |
+      From line 23600 of your tax return (net income)
+  - Line 26000 - Taxable income: form13_income.taxable_income_line_26000
+    datatype: currency
+    help: |
+      From line 26000 of your tax return (taxable income)
+  - Have you filed your most recent tax return?: form13_income.tax_return_filed
+    datatype: yesnoradio
+  - If not filed, reason: form13_income.tax_return_not_filed_reason
+    show if:
+      variable: form13_income.tax_return_filed
+      is: False
+    choices:
+      - Extension granted
+      - Awaiting documents
+      - Other (specify below)
+  - Other reason: form13_income.tax_return_other_reason
+    show if:
+      variable: form13_income.tax_return_not_filed_reason
+      is: "Other (specify below)"
+
+---
+code: |
+  # Calculate total annual income
+  income_sources = [
+    'primary_employment', 'secondary_employment', 'overtime', 'commission', 'bonus', 'tips',
+    'other_employment', 'business_net', 'professional_practice', 'partnership', 'rental_net',
+    'interest', 'dividends', 'capital_gains', 'rrsp_rrif', 'pension', 'ei_benefits',
+    'social_assistance', 'disability_benefits', 'workers_comp', 'child_support_received',
+    'spousal_support_received', 'trust_income', 'estate_income', 'other'
+  ]
+  
+  form13_income.total_annual = sum(
+    getattr(form13_income, source, 0) or 0 
+    for source in income_sources
+  )
+  
+  form13_income.total_monthly = form13_income.total_annual / 12
+  form13_income_collection = True
+
+---
+# EXPENSE INFORMATION
+
+question: |
+  Monthly Living Expenses
+subquestion: |
+  **Regular Monthly Expenses**
+  
+  List your average monthly expenses. If expenses vary seasonally, use annual amounts divided by 12.
+fields:
+  - Housing (rent/mortgage payment): form13_expenses.housing
+    datatype: currency
+    help: |
+      Include principal and interest for mortgage, or rent amount
+  - Property taxes: form13_expenses.property_taxes
+    datatype: currency
+    help: |
+      Monthly amount (annual amount ÷ 12)
+  - Home insurance: form13_expenses.home_insurance
+    datatype: currency
+  - Utilities (heat, hydro, water): form13_expenses.utilities
+    datatype: currency
+  - Telephone/cell phone: form13_expenses.telephone
+    datatype: currency
+  - Internet/cable/streaming: form13_expenses.internet_cable
+    datatype: currency
+  - Groceries and household supplies: form13_expenses.groceries
+    datatype: currency
+  - Meals out/takeout: form13_expenses.meals_out
+    datatype: currency
+  - Clothing: form13_expenses.clothing
+    datatype: currency
+  - Medical/dental expenses: form13_expenses.medical_dental
+    datatype: currency
+    help: |
+      Not covered by insurance or health plan
+  - Life insurance premiums: form13_expenses.life_insurance
+    datatype: currency
+  - Car payments: form13_expenses.car_payments
+    datatype: currency
+  - Car insurance: form13_expenses.car_insurance
+    datatype: currency
+  - Gas and car maintenance: form13_expenses.car_maintenance
+    datatype: currency
+  - Public transportation: form13_expenses.public_transport
+    datatype: currency
+
+---
+question: |
+  Additional Monthly Expenses
+subquestion: |
+  **Other Regular Monthly Expenses**
+fields:
+  - Childcare expenses: form13_expenses.childcare
+    datatype: currency
+  - Children's activities/sports: form13_expenses.children_activities
+    datatype: currency
+  - School expenses: form13_expenses.school_expenses
+    datatype: currency
+  - Personal care (haircuts, etc.): form13_expenses.personal_care
+    datatype: currency
+  - Entertainment/recreation: form13_expenses.entertainment
+    datatype: currency
+  - Gifts and charitable donations: form13_expenses.gifts_charity
+    datatype: currency
+  - Professional fees (lawyer, accountant): form13_expenses.professional_fees
+    datatype: currency
+  - Bank charges and fees: form13_expenses.bank_charges
+    datatype: currency
+  - Credit card payments (minimum): form13_expenses.credit_card_payments
+    datatype: currency
+    help: |
+      Minimum monthly payments only
+  - Loan payments: form13_expenses.loan_payments
+    datatype: currency
+  - Support payments to others: form13_expenses.support_paid
+    datatype: currency
+  - Other expenses: form13_expenses.other
+    datatype: currency
+  - Describe other expenses: form13_expenses.other_description
+    datatype: area
+    show if: form13_expenses.other
+    required: False
+
+---
+code: |
+  # Calculate total monthly expenses
+  expense_categories = [
+    'housing', 'property_taxes', 'home_insurance', 'utilities', 'telephone', 'internet_cable',
+    'groceries', 'meals_out', 'clothing', 'medical_dental', 'life_insurance',
+    'car_payments', 'car_insurance', 'car_maintenance', 'public_transport',
+    'childcare', 'children_activities', 'school_expenses', 'personal_care',
+    'entertainment', 'gifts_charity', 'professional_fees', 'bank_charges',
+    'credit_card_payments', 'loan_payments', 'support_paid', 'other'
+  ]
+  
+  form13_expenses.total_monthly = sum(
+    getattr(form13_expenses, category, 0) or 0 
+    for category in expense_categories
+  )
+  
+  form13_expenses.total_annual = form13_expenses.total_monthly * 12
+  form13_expense_collection = True
+
+---
+# ASSET INFORMATION
+
+question: |
+  Real Estate Assets
+subquestion: |
+  **Real Estate Holdings**
+  
+  List all real estate you own or have an interest in.
+list collect: True
+fields:
+  - Property type: form13_assets.real_estate[i].property_type
+    choices:
+      - Principal residence
+      - Secondary residence/cottage
+      - Rental property
+      - Commercial property
+      - Vacant land
+      - Other
+  - Address: form13_assets.real_estate[i].address
+  - Ownership percentage: form13_assets.real_estate[i].ownership_percentage
+    datatype: number
+    default: 100
+    help: |
+      Your percentage ownership (e.g., 50 for 50%)
+  - Current market value: form13_assets.real_estate[i].current_value
+    datatype: currency
+    help: |
+      Current estimated market value
+  - Purchase price: form13_assets.real_estate[i].purchase_price
+    datatype: currency
+  - Purchase date: form13_assets.real_estate[i].purchase_date
+    datatype: date
+  - Outstanding mortgage balance: form13_assets.real_estate[i].mortgage_balance
+    datatype: currency
+    required: False
+  - Professional appraisal obtained?: form13_assets.real_estate[i].professionally_appraised
+    datatype: yesnoradio
+  - Appraisal date: form13_assets.real_estate[i].appraisal_date
+    datatype: date
+    show if: form13_assets.real_estate[i].professionally_appraised
+  - Appraisal value: form13_assets.real_estate[i].appraisal_value
+    datatype: currency
+    show if: form13_assets.real_estate[i].professionally_appraised
+
+---
+question: |
+  Vehicles and Personal Property
+subquestion: |
+  **Vehicles and Significant Personal Property**
+fields:
+  - Number of vehicles owned: form13_assets.vehicles.count
+    datatype: integer
+    default: 0
+list collect: form13_assets.vehicles
+fields:
+  - Vehicle year: form13_assets.vehicles[i].year
+    datatype: integer
+  - Make and model: form13_assets.vehicles[i].make_model
+  - Current value: form13_assets.vehicles[i].current_value
+    datatype: currency
+    help: |
+      Use Canadian Black Book or similar valuation
+  - Outstanding loan balance: form13_assets.vehicles[i].loan_balance
+    datatype: currency
+    required: False
+  - Is vehicle necessary for employment?: form13_assets.vehicles[i].employment_necessity
+    datatype: yesnoradio
+
+---
+question: |
+  Bank Accounts and Cash Assets
+subquestion: |
+  **Cash and Bank Account Assets**
+list collect: True
+fields:
+  - Institution name: form13_assets.bank_accounts[i].institution
+  - Account type: form13_assets.bank_accounts[i].account_type
+    choices:
+      - Chequing account
+      - Savings account
+      - Term deposit/GIC
+      - High interest savings
+      - US dollar account
+      - Other currency account
+      - Other
+  - Current balance: form13_assets.bank_accounts[i].balance
+    datatype: currency
+  - Account number (last 4 digits): form13_assets.bank_accounts[i].account_number_partial
+    help: |
+      For identification purposes - last 4 digits only for security
+
+---
+question: |
+  Investment Assets
+subquestion: |
+  **Investment Portfolio**
+  
+  Include all investment assets including RRSPs, TFSAs, stocks, bonds, mutual funds.
+list collect: True
+fields:
+  - Investment type: form13_assets.investments[i].investment_type
+    choices:
+      - RRSP
+      - TFSA
+      - RESP
+      - Non-registered investment account
+      - Stocks/shares
+      - Bonds
+      - Mutual funds
+      - ETFs
+      - Cryptocurrency
+      - Other
+  - Institution/Broker: form13_assets.investments[i].institution
+  - Current value: form13_assets.investments[i].current_value
+    datatype: currency
+  - Original investment: form13_assets.investments[i].original_investment
+    datatype: currency
+    required: False
+  - Account number (partial): form13_assets.investments[i].account_partial
+    help: |
+      Last 4 digits for identification
+    required: False
+
+---
+question: |
+  Business Interests and Professional Practice
+subquestion: |
+  **Business Ownership and Professional Practices**
+  
+  Detail all business interests, partnerships, and professional practices.
+list collect: form13_business_interests
+fields:
+  - Business/practice name: form13_business_interests[i].name
+  - Nature of business: form13_business_interests[i].nature
+  - Ownership percentage: form13_business_interests[i].ownership_percentage
+    datatype: number
+    help: |
+      Your percentage ownership
+  - Type of interest: form13_business_interests[i].interest_type
+    choices:
+      - Sole proprietorship
+      - Partnership
+      - Corporation (shares)
+      - Professional corporation
+      - Trust beneficiary
+      - Other
+  - Current estimated value: form13_business_interests[i].estimated_value
+    datatype: currency
+  - Basis for valuation: form13_business_interests[i].valuation_basis
+    choices:
+      - Professional appraisal
+      - Financial statements
+      - Asset-based valuation
+      - Income-based valuation
+      - Market comparables
+      - Other estimate
+  - Professional valuation date: form13_business_interests[i].professional_valuation_date
+    datatype: date
+    required: False
+  - Appraiser name: form13_business_interests[i].appraiser_name
+    required: False
+  - Annual income from business: form13_business_interests[i].annual_income
+    datatype: currency
+    help: |
+      Your annual income/distribution from this business
+
+---
+question: |
+  Pension and Retirement Assets
+subquestion: |
+  **Pension Plans and Retirement Assets**
+fields:
+  - Employer pension plan: form13_assets.pension.employer_plan_value
+    datatype: currency
+    required: False
+    help: |
+      Current commuted value if available
+  - Pension plan name: form13_assets.pension.employer_plan_name
+    required: False
+  - RRSP total value: form13_assets.pension.rrsp_total
+    datatype: currency
+    required: False
+  - RRIF value: form13_assets.pension.rrif_value
+    datatype: currency
+    required: False
+  - Locked-in retirement account (LIRA): form13_assets.pension.lira_value
+    datatype: currency
+    required: False
+  - Life Income Fund (LIF): form13_assets.pension.lif_value
+    datatype: currency
+    required: False
+  - Other retirement savings: form13_assets.pension.other_retirement
+    datatype: currency
+    required: False
+  - Describe other retirement savings: form13_assets.pension.other_description
+    show if: form13_assets.pension.other_retirement
+    required: False
+
+---
+question: |
+  Other Significant Assets
+subquestion: |
+  **Other Assets Over $500**
+  
+  Include any other assets with significant value.
+list collect: True
+fields:
+  - Asset description: form13_assets.other_assets[i].description
+  - Current value: form13_assets.other_assets[i].value
+    datatype: currency
+  - How value was determined: form13_assets.other_assets[i].valuation_method
+    choices:
+      - Professional appraisal
+      - Market research
+      - Purchase price
+      - Insurance valuation
+      - Estimate
+      - Other
+
+---
+code: |
+  # Calculate total assets
+  total_real_estate = sum(
+    (asset.get('current_value', 0) * asset.get('ownership_percentage', 100) / 100)
+    for asset in form13_assets.get('real_estate', [])
+  )
+  
+  total_vehicles = sum(
+    vehicle.get('current_value', 0) for vehicle in form13_assets.get('vehicles', [])
+  )
+  
+  total_bank_accounts = sum(
+    account.get('balance', 0) for account in form13_assets.get('bank_accounts', [])
+  )
+  
+  total_investments = sum(
+    investment.get('current_value', 0) for investment in form13_assets.get('investments', [])
+  )
+  
+  total_business = sum(
+    business.get('estimated_value', 0) * business.get('ownership_percentage', 100) / 100
+    for business in form13_business_interests
+  )
+  
+  pension_categories = ['employer_plan_value', 'rrsp_total', 'rrif_value', 'lira_value', 'lif_value', 'other_retirement']
+  total_pension = sum(
+    form13_assets.pension.get(category, 0) or 0 for category in pension_categories
+  )
+  
+  total_other_assets = sum(
+    asset.get('value', 0) for asset in form13_assets.get('other_assets', [])
+  )
+  
+  form13_assets.total_value = (
+    total_real_estate + total_vehicles + total_bank_accounts + 
+    total_investments + total_business + total_pension + total_other_assets
+  )
+  
+  form13_asset_collection = True
+
+---
+# LIABILITY INFORMATION
+
+question: |
+  Mortgage and Real Estate Debt
+subquestion: |
+  **Mortgages and Real Estate Related Debt**
+list collect: True
+fields:
+  - Property address: form13_liabilities.mortgages[i].property_address
+  - Lender: form13_liabilities.mortgages[i].lender
+  - Current balance: form13_liabilities.mortgages[i].balance
+    datatype: currency
+  - Monthly payment: form13_liabilities.mortgages[i].monthly_payment
+    datatype: currency
+  - Interest rate: form13_liabilities.mortgages[i].interest_rate
+    datatype: number
+    step: 0.01
+    help: |
+      Annual interest rate (e.g., 5.5 for 5.5%)
+  - Maturity date: form13_liabilities.mortgages[i].maturity_date
+    datatype: date
+  - Your responsibility percentage: form13_liabilities.mortgages[i].responsibility_percentage
+    datatype: number
+    default: 100
+    help: |
+      Your percentage responsibility for this debt
+
+---
+question: |
+  Credit Cards and Lines of Credit
+subquestion: |
+  **Credit Card Balances and Lines of Credit**
+list collect: True
+fields:
+  - Creditor: form13_liabilities.credit[i].creditor
+  - Type: form13_liabilities.credit[i].type
+    choices:
+      - Credit card
+      - Line of credit
+      - Personal line of credit
+      - Home equity line of credit
+      - Other revolving credit
+  - Current balance: form13_liabilities.credit[i].balance
+    datatype: currency
+  - Credit limit: form13_liabilities.credit[i].limit
+    datatype: currency
+  - Minimum monthly payment: form13_liabilities.credit[i].minimum_payment
+    datatype: currency
+  - Interest rate: form13_liabilities.credit[i].interest_rate
+    datatype: number
+    step: 0.01
+    help: |
+      Annual interest rate
+
+---
+question: |
+  Loans and Other Debt
+subquestion: |
+  **Personal Loans, Vehicle Loans, and Other Debt**
+list collect: True
+fields:
+  - Creditor: form13_liabilities.loans[i].creditor
+  - Type of loan: form13_liabilities.loans[i].loan_type
+    choices:
+      - Vehicle loan
+      - Personal loan
+      - Student loan
+      - Business loan
+      - Family loan
+      - Other
+  - Original loan amount: form13_liabilities.loans[i].original_amount
+    datatype: currency
+  - Current balance: form13_liabilities.loans[i].balance
+    datatype: currency
+  - Monthly payment: form13_liabilities.loans[i].monthly_payment
+    datatype: currency
+  - Interest rate: form13_liabilities.loans[i].interest_rate
+    datatype: number
+    step: 0.01
+    required: False
+  - Final payment date: form13_liabilities.loans[i].final_payment_date
+    datatype: date
+    required: False
+
+---
+question: |
+  Contingent Liabilities and Guarantees
+subquestion: |
+  **Contingent Liabilities and Guarantees**
+  
+  Include any guarantees you have provided or potential liabilities.
+fields:
+  - Do you have any contingent liabilities or guarantees?: has_contingent_liabilities
+    datatype: yesnoradio
+list collect: form13_liabilities.contingent
+show if: has_contingent_liabilities
+fields:
+  - Type of contingent liability: form13_liabilities.contingent[i].type
+    choices:
+      - Personal guarantee for business loan
+      - Co-signer on loan
+      - Potential lawsuit liability
+      - Tax reassessment exposure
+      - Other
+  - Creditor/Description: form13_liabilities.contingent[i].description
+  - Potential liability amount: form13_liabilities.contingent[i].amount
+    datatype: currency
+  - Likelihood of liability: form13_liabilities.contingent[i].likelihood
+    choices:
+      - Remote
+      - Possible
+      - Probable
+      - Certain
+
+---
+code: |
+  # Calculate total liabilities
+  total_mortgages = sum(
+    mortgage.get('balance', 0) * mortgage.get('responsibility_percentage', 100) / 100
+    for mortgage in form13_liabilities.get('mortgages', [])
+  )
+  
+  total_credit = sum(
+    credit.get('balance', 0) for credit in form13_liabilities.get('credit', [])
+  )
+  
+  total_loans = sum(
+    loan.get('balance', 0) for loan in form13_liabilities.get('loans', [])
+  )
+  
+  total_contingent = sum(
+    contingent.get('amount', 0) for contingent in form13_liabilities.get('contingent', [])
+    if contingent.get('likelihood') in ['Probable', 'Certain']
+  )
+  
+  form13_liabilities.total_debt = total_mortgages + total_credit + total_loans
+  form13_liabilities.total_with_contingent = form13_liabilities.total_debt + total_contingent
+  
+  form13_liability_collection = True
+
+---
+# PROFESSIONAL VALUATIONS
+
+question: |
+  Professional Valuations Required
+subquestion: |
+  **Professional Valuations and Appraisals**
+  
+  Based on your financial information, the following assets may require professional valuations:
+  
+  % if total_business > 10000:
+  - **Business interests** (estimated value over $10,000)
+  % endif
+  % if any(asset.get('current_value', 0) > 100000 for asset in form13_assets.get('real_estate', [])):
+  - **Significant real estate assets** (over $100,000)
+  % endif
+  % if form13_income.total_annual > 200000:
+  - **Professional practice** (high income suggests significant practice value)
+  % endif
+  
+  **Court Requirements:**
+  - Business interests over $10,000 typically require professional valuation
+  - Unique or significant assets should be professionally appraised
+  - Complex investment portfolios may need professional assessment
+  
+  **Have you obtained or arranged for professional valuations?**
+fields:
+  - Professional valuations obtained or arranged: valuations_status
+    choices:
+      - All required valuations obtained
+      - Some valuations obtained, others pending
+      - Valuations scheduled but not yet complete
+      - No valuations obtained yet
+      - Dispute whether valuations are required
+  - Explanation of valuation status: valuations_explanation
+    datatype: area
+    help: |
+      Explain the status of professional valuations and any pending arrangements
+
+---
+list collect: form13_professional_valuations
+question: |
+  Professional Valuation Details
+subquestion: |
+  **Details of Professional Valuations**
+fields:
+  - Asset/business valued: form13_professional_valuations[i].asset_description
+  - Valuation purpose: form13_professional_valuations[i].purpose
+    choices:
+      - Property division
+      - Support calculation
+      - Court requirement
+      - Other
+  - Valuator/appraiser name: form13_professional_valuations[i].valuator_name
+  - Professional designation: form13_professional_valuations[i].valuator_designation
+    help: |
+      e.g., CBV, ASA, AACI, etc.
+  - Valuation date: form13_professional_valuations[i].valuation_date
+    datatype: date
+  - Valuation amount: form13_professional_valuations[i].valuation_amount
+    datatype: currency
+  - Valuation report available?: form13_professional_valuations[i].report_available
+    datatype: yesnoradio
+  - Date report will be available: form13_professional_valuations[i].report_date
+    datatype: date
+    show if:
+      variable: form13_professional_valuations[i].report_available
+      is: False
+
+---
+code: |
+  form13_professional_valuations_needed = True
+
+---
+# CALCULATIONS AND TOTALS
+
+code: |
+  # Calculate net worth
+  net_worth = form13_assets.total_value - form13_liabilities.total_debt
+  
+  # Calculate monthly surplus/deficit
+  monthly_surplus_deficit = form13_income.total_monthly - form13_expenses.total_monthly
+  
+  form13_calculate_totals = True
+
+---
+# CHILD SUPPORT CALCULATIONS
+
+question: |
+  Child Support Calculation
+subquestion: |
+  **Child Support Guidelines Calculation**
+  
+  Based on your financial information:
+  - **Annual Income**: ${ format_currency_for_document(form13_income.total_annual) }
+  - **Number of children**: ${ form13_children.number() }
+  
+  % if form13_children.number() > 0:
+  **Federal Child Support Guidelines Table Amounts:**
+  
+  % for child in form13_children:
+  - **${ child.name.first }** (age ${ child.age }): 
+    ${ calculate_child_support_table_amount(form13_income.total_annual, 1, 'Ontario') }
+  % endfor
+  
+  **Total Table Amount**: ${ calculate_child_support_total(form13_income.total_annual, form13_children.number(), 'Ontario') }
+  % endif
+fields:
+  - Are there special or extraordinary expenses?: has_special_expenses
+    datatype: yesnoradio
+  - Special expenses details: special_expenses_details
+    datatype: area
+    show if: has_special_expenses
+  - Annual special expenses amount: special_expenses_amount
+    datatype: currency
+    show if: has_special_expenses
+  - Proposed sharing of special expenses: special_expenses_sharing
+    choices:
+      - Proportional to income
+      - 50/50 split
+      - Other arrangement
+    show if: has_special_expenses
+
+---
+code: |
+  # This would integrate with a proper child support calculator
+  def calculate_child_support_table_amount(income, children, province):
+    # Placeholder for actual Child Support Guidelines calculation
+    # Would integrate with official tables
+    base_amounts = {
+      1: {50000: 456, 75000: 646, 100000: 836, 150000: 1187, 200000: 1537},
+      2: {50000: 742, 75000: 1051, 100000: 1360, 150000: 1929, 200000: 2499},
+      3: {50000: 1002, 75000: 1420, 100000: 1837, 150000: 2604, 200000: 3371}
+    }
+    
+    if children <= 3 and income in base_amounts[children]:
+      return f"${base_amounts[children][income]:,.2f}/month"
+    else:
+      return "Amount requires calculation - see Child Support Guidelines"
+  
+  def calculate_child_support_total(income, children, province):
+    # Simplified calculation for demonstration
+    if children == 1 and income >= 150000:
+      return "$1,187.00/month"
+    elif children == 2 and income >= 150000:
+      return "$1,929.00/month"
+    else:
+      return "Amount requires detailed calculation"
+  
+  form13_calculate_child_support = True
+
+---
+# REVIEW SCREEN
+
+question: |
+  Financial Statement Summary - Review
+subquestion: |
+  **Please review your financial statement summary:**
+  
+  **INCOME SUMMARY**
+  - Total Annual Income: ${ format_currency_for_document(form13_income.total_annual) }
+  - Total Monthly Income: ${ format_currency_for_document(form13_income.total_monthly) }
+  
+  **EXPENSE SUMMARY**
+  - Total Monthly Expenses: ${ format_currency_for_document(form13_expenses.total_monthly) }
+  - Total Annual Expenses: ${ format_currency_for_document(form13_expenses.total_annual) }
+  
+  **MONTHLY SURPLUS/DEFICIT**
+  - Monthly Surplus/Deficit: ${ format_currency_for_document(monthly_surplus_deficit) }
+  
+  **ASSET SUMMARY**
+  - Total Assets: ${ format_currency_for_document(form13_assets.total_value) }
+  
+  **LIABILITY SUMMARY**
+  - Total Liabilities: ${ format_currency_for_document(form13_liabilities.total_debt) }
+  
+  **NET WORTH**
+  - Net Worth: ${ format_currency_for_document(net_worth) }
+  
+  **CHILDREN**
+  % if form13_children.number() > 0:
+  % for child in form13_children:
+  - ${ child.name.first } ${ child.name.last } (age ${ child.age })
+  % endfor
+  % else:
+  - No children listed
+  % endif
+  
+  **PROFESSIONAL VALUATIONS**
+  - Status: ${ valuations_status }
+  
+  **Is this information accurate and complete?**
+field: form13_review_screen
+datatype: checkboxes
+choices:
+  - All income information is accurate and complete: income_accurate
+  - All expense information is accurate and complete: expenses_accurate
+  - All asset information is accurate and complete: assets_accurate
+  - All liability information is accurate and complete: liabilities_accurate
+  - Children information is accurate and complete: children_accurate
+  - I understand this information will be used for legal proceedings: legal_understanding
+validation code: |
+  required_confirmations = [income_accurate, expenses_accurate, assets_accurate, liabilities_accurate, children_accurate, legal_understanding]
+  if not all(required_confirmations):
+    validation_error("You must confirm all information is accurate and complete.")
+
+---
+# FINAL VALIDATION
+
+code: |
+  validation_errors = []
+  
+  # Income validation
+  if form13_income.total_annual <= 0:
+    validation_errors.append("Total annual income must be greater than zero.")
+  
+  # Asset validation
+  if len(form13_assets.get('bank_accounts', [])) == 0:
+    validation_errors.append("At least one bank account must be listed.")
+  
+  # Professional valuation validation
+  if total_business > 10000 and not form13_professional_valuations.number():
+    validation_errors.append("Professional valuation required for business interests over $10,000.")
+  
+  # Children validation
+  for child in form13_children:
+    if child.age >= 18 and not child.special_needs:
+      validation_errors.append(f"Child {child.name.first} is over 18 - confirm eligibility for support.")
+  
+  if validation_errors:
+    form13_final_validation = False
+    validation_error_list = validation_errors
+  else:
+    form13_final_validation = True
+
+---
+event: validation_errors_screen
+question: |
+  Validation Errors Detected
+subquestion: |
+  **The following issues need to be resolved:**
+  
+  % for error in validation_error_list:
+  - ${ error }
+  % endfor
+  
+  Please use the **Back** button to correct these issues.
+buttons:
+  - Back: restart
+
+---
+# DOCUMENT GENERATION
+
+question: |
+  Document Generation Options
+subquestion: |
+  **Your Form 13 Financial Statement is ready to generate.**
+  
+  **Available Document Options:**
+  
+  1. **Court Filing Package** - Complete Form 13 with all schedules
+  2. **Professional Review Copy** - For accountant/lawyer review before filing
+  3. **Personal Records Copy** - For your personal files
+  4. **Supporting Document Checklist** - List of required attachments
+fields:
+  - Select documents to generate: document_options
+    datatype: checkboxes
+    choices:
+      - Court Filing Package: court_package
+      - Professional Review Copy: professional_copy
+      - Personal Records Copy: personal_copy
+      - Supporting Document Checklist: checklist
+    default: |
+      ['court_package', 'checklist']
+
+---
+code: |
+  form13_generate_documents = True
+
+---
+# COMPLETION SCREEN
+
+event: form13_completion
+question: |
+  Form 13 Financial Statement Complete
+subquestion: |
+  **Your Form 13 Financial Statement has been completed.**
+  
+  **Summary:**
+  - **Form Type**: Ontario Court Form 13 - Financial Statement (Complex)
+  - **Annual Income**: ${ format_currency_for_document(form13_income.total_annual) }
+  - **Net Worth**: ${ format_currency_for_document(net_worth) }
+  - **Children**: ${ form13_children.number() } child${ 'ren' if form13_children.number() != 1 else '' }
+  
+  **Next Steps:**
+  
+  1. **Professional Review**: Have an accountant, financial advisor, or lawyer review your statement
+  2. **Gather Supporting Documents**: Use the document checklist to gather required attachments
+  3. **File with Court**: Submit to the court registry with appropriate filing fees
+  4. **Serve Other Parties**: Serve copies on all other parties as required by court rules
+  
+  **Important Reminders:**
+  - Update your financial statement if material changes occur
+  - Keep copies of all supporting documentation
+  - Professional valuations may be required for certain assets
+  - Penalties apply for providing false or misleading information
+  
+  **Documents Generated:**
+  % if 'court_package' in document_options:
+  - Court Filing Package (Form 13 with schedules)
+  % endif
+  % if 'professional_copy' in document_options:
+  - Professional Review Copy
+  % endif
+  % if 'personal_copy' in document_options:
+  - Personal Records Copy
+  % endif
+  % if 'checklist' in document_options:
+  - Supporting Document Checklist
+  % endif
+buttons:
+  - Download Documents: continue
+  - Start New Form: restart
+  - Exit: exit
+
+---
+# SUPPORTING DOCUMENT ATTACHMENT TEMPLATE
+
+attachment:
+  name: Form 13 Financial Statement
+  filename: Form_13_Financial_Statement_${ form13_applicant.name.last }_${ format_date(today()).replace(' ', '_') }
+  pdf template file: form-13-ontario-template.pdf
+  fields:
+    # Applicant Information
+    - "applicant_name": ${ form13_applicant.name.full() }
+    - "applicant_birthdate": ${ format_date_for_document(form13_applicant.birthdate) }
+    - "applicant_sin_masked": ${ form13_applicant.sin_masked }
+    - "applicant_occupation": ${ form13_applicant.occupation }
+    - "applicant_employer": ${ getattr(form13_applicant, 'employer', '') }
+    
+    # Income Information
+    - "total_annual_income": ${ format_currency_for_document(form13_income.total_annual) }
+    - "employment_income": ${ format_currency_for_document(getattr(form13_income, 'primary_employment', 0)) }
+    - "self_employment_income": ${ format_currency_for_document(getattr(form13_income, 'business_net', 0)) }
+    - "investment_income": ${ format_currency_for_document(getattr(form13_income, 'interest', 0) + getattr(form13_income, 'dividends', 0)) }
+    - "other_income": ${ format_currency_for_document(getattr(form13_income, 'other', 0)) }
+    
+    # Expense Information  
+    - "total_monthly_expenses": ${ format_currency_for_document(form13_expenses.total_monthly) }
+    - "housing_expenses": ${ format_currency_for_document(getattr(form13_expenses, 'housing', 0)) }
+    - "childcare_expenses": ${ format_currency_for_document(getattr(form13_expenses, 'childcare', 0)) }
+    
+    # Assets
+    - "total_assets": ${ format_currency_for_document(form13_assets.total_value) }
+    - "real_estate_value": ${ format_currency_for_document(total_real_estate) }
+    - "bank_accounts_total": ${ format_currency_for_document(total_bank_accounts) }
+    - "investments_total": ${ format_currency_for_document(total_investments) }
+    - "business_interests_total": ${ format_currency_for_document(total_business) }
+    
+    # Liabilities
+    - "total_liabilities": ${ format_currency_for_document(form13_liabilities.total_debt) }
+    - "mortgage_debt": ${ format_currency_for_document(total_mortgages) }
+    - "credit_card_debt": ${ format_currency_for_document(total_credit) }
+    - "other_debt": ${ format_currency_for_document(total_loans) }
+    
+    # Net Worth
+    - "net_worth": ${ format_currency_for_document(net_worth) }
+    
+    # Children Information
+    - "number_of_children": ${ form13_children.number() }
+    
+    # Footer
+    - "completion_date": ${ format_date_for_document(today()) }
+    - "form_version": "1.0.0"
+
+---
+# SUPPORTING DOCUMENT CHECKLIST
+
+attachment:
+  name: Form 13 Supporting Document Checklist
+  filename: Form_13_Document_Checklist_${ form13_applicant.name.last }_${ format_date(today()).replace(' ', '_') }
+  content: |
+    # Form 13 Financial Statement - Required Supporting Documents
+    
+    **Case Information:**
+    - Applicant: ${ form13_applicant.name.full() }
+    - Date Completed: ${ format_date_for_document(today()) }
+    - Annual Income: ${ format_currency_for_document(form13_income.total_annual) }
+    
+    ## Required Documents - All Cases
+    
+    ### Tax and Income Documents
+    - [ ] Most recent Notice of Assessment from Canada Revenue Agency
+    - [ ] Most recent filed tax return (complete copy including all schedules)
+    - [ ] Current pay stub or letter from employer confirming income
+    % if form13_income.get('self_employment') or form13_income.get('business_net'):
+    - [ ] Business financial statements (most recent year)
+    - [ ] Business tax returns
+    % endif
+    
+    ### Employment Documents
+    % if form13_applicant.employer:
+    - [ ] Letter from employer confirming employment and income
+    - [ ] Pay stubs for last 3 months
+    % endif
+    
+    ### Bank and Investment Statements
+    % for account in form13_assets.get('bank_accounts', []):
+    - [ ] Bank statement for ${ account.get('institution', 'Unknown') } account (...${ account.get('account_number_partial', '') })
+    % endfor
+    % for investment in form13_assets.get('investments', []):
+    - [ ] Investment statement for ${ investment.get('investment_type', 'Investment') } at ${ investment.get('institution', 'Unknown') }
+    % endfor
+    
+    ### Real Estate Documents
+    % for property in form13_assets.get('real_estate', []):
+    - [ ] Property tax assessment for ${ property.get('address', 'property') }
+    % if property.get('professionally_appraised'):
+    - [ ] Professional appraisal for ${ property.get('address', 'property') } dated ${ property.get('appraisal_date', '') }
+    % endif
+    % if property.get('mortgage_balance'):
+    - [ ] Current mortgage statement for ${ property.get('address', 'property') }
+    % endif
+    % endfor
+    
+    ## Business and Professional Practice Documents
+    % for business in form13_business_interests:
+    - [ ] Professional valuation report for ${ business.get('name', 'business') }
+    - [ ] Business financial statements (3 years)
+    - [ ] Business tax returns (3 years)
+    - [ ] Partnership agreements or corporate documents
+    % endfor
+    
+    ## Professional Valuations Required
+    % if total_business > 10000:
+    - [ ] **Business valuation report** (Required for interests over $10,000)
+    % endif
+    % for valuation in form13_professional_valuations:
+    - [ ] Professional valuation report for ${ valuation.get('asset_description', 'asset') }
+      - Valuator: ${ valuation.get('valuator_name', 'TBD') }
+      - Date: ${ valuation.get('valuation_date', 'TBD') }
+    % endfor
+    
+    ## Debt Documentation
+    % for mortgage in form13_liabilities.get('mortgages', []):
+    - [ ] Current mortgage statement for ${ mortgage.get('property_address', 'property') }
+    % endfor
+    % for credit in form13_liabilities.get('credit', []):
+    - [ ] Credit card/line of credit statement for ${ credit.get('creditor', 'account') }
+    % endfor
+    % for loan in form13_liabilities.get('loans', []):
+    - [ ] Loan statement for ${ loan.get('loan_type', 'loan') } with ${ loan.get('creditor', 'lender') }
+    % endfor
+    
+    ## Children Documentation
+    % for child in form13_children:
+    - [ ] Birth certificate for ${ child.name.first } (copy)
+    % if child.get('childcare_costs'):
+    - [ ] Childcare receipts for ${ child.name.first }
+    % endif
+    % if child.get('extraordinary_expenses'):
+    - [ ] Extraordinary expense receipts for ${ child.name.first }
+    % endif
+    % endfor
+    
+    ## Additional Requirements for High-Income Cases (Over $150,000)
+    
+    - [ ] **Detailed business valuation** (if business ownership)
+    - [ ] **Professional practice valuation** (if applicable)
+    - [ ] **Investment portfolio analysis** (for complex investments)
+    - [ ] **Trust documentation** (if trust beneficiary)
+    - [ ] **Estate documentation** (if estate beneficiary)
+    
+    ## Court Filing Requirements
+    
+    - [ ] Original signed Form 13 Financial Statement
+    - [ ] Copy of all supporting documents
+    - [ ] Filing fee: ${ calculate_filing_fees(['Form 13'])['total_fee'] }
+    - [ ] Service on all parties (as required by Family Law Rules)
+    
+    ## Professional Review Recommended
+    
+    Given the complexity of this financial statement, professional review is recommended:
+    - [ ] Accountant review of income and tax calculations
+    - [ ] Lawyer review of legal implications
+    - [ ] Financial advisor review of asset valuations
+    
+    **Important Notes:**
+    - All documents must be current (within 30 days of filing where applicable)
+    - Copies must be clear and legible
+    - Professional valuations must be from qualified appraisers
+    - Business valuations typically required for interests over $10,000
+    - Updates required if material changes occur after filing
+    
+    **Court Contact Information:**
+    Contact your local Superior Court of Justice for specific filing requirements and fees.
+    
+    ---
+    Generated on ${ format_date_for_document(today()) }
+    Form 13 Financial Statement - Ontario Family Law
+    
+    ${ create_document_footer() }
+
+---
+# END OF FORM 13 FINANCIAL STATEMENT

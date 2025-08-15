@@ -1,0 +1,405 @@
+---
+# PARTY INFORMATION COLLECTION EXTENSION
+# This file adds standardized party information collection to the wizard
+# Include this at the end of ontario-family-law-wizard.yml
+
+# Determine the user's role in the original proceeding
+question: |
+  Your Role in the Legal Proceeding
+subquestion: |
+  In family law cases, parties are identified based on who started the original court case.
+  
+  **Applicant**: The person who first filed court documents to start the case
+  **Respondent**: The person responding to the case that was filed against them
+  
+  If this is a brand new case that hasn't been filed yet, you will be the Applicant.
+field: user_role
+buttons:
+  - "I am starting a new case (Applicant)": applicant
+  - "I am responding to a case filed against me (Respondent)": respondent
+  - "I'm not sure / Need help determining": unsure
+---
+# Determine procedural position for existing cases
+question: |
+  Current Procedural Position
+subquestion: |
+  Are you currently making a motion or responding to one?
+  
+  This helps determine the correct forms and titles for your current filing.
+field: procedural_position
+buttons:
+  - "Making a new application/motion (Moving Party)": moving_party
+  - "Responding to a motion/application (Responding Party)": responding_party
+  - "Continuing with existing proceeding": continuing
+  - "Not applicable - new case": new_case
+show if: |
+  user_role != "applicant"
+---
+# Set procedural position for new cases
+code: |
+  if user_role == "applicant":
+    procedural_position = "new_case"
+  determine_procedural_position = True
+---
+# Code to determine actual roles
+code: |
+  if user_role == "applicant":
+    user_party_title = "Applicant"
+    other_party_title = "Respondent"
+    user_party = applicant
+    other_party = respondent
+  elif user_role == "respondent":
+    user_party_title = "Respondent"
+    other_party_title = "Applicant"
+    user_party = respondent
+    other_party = applicant
+  else:  # unsure
+    user_party_title = "Party 1"
+    other_party_title = "Party 2"
+    user_party = applicant  # Use applicant object for user
+    other_party = respondent  # Use respondent object for other
+  
+  determine_user_role = True
+---
+# User's Information - All on one page
+question: |
+  Your Information (${ user_party_title })
+subquestion: |
+  Please provide your information.
+  All fields marked with * are required.
+fields:
+  - "Legal Name": user_name_label
+    label above field: True
+  - "First Name *": user_party.name.first
+    required: True
+  - "Middle Name(s)": user_party.name.middle
+    required: False
+  - "Last Name *": user_party.name.last
+    required: True
+  - "Date of Birth *": user_party.birthdate
+    datatype: date
+    required: True
+  - "Contact Information": user_contact_label
+    label above field: True
+  - "Phone Number *": user_party.phone_number
+    datatype: phone
+    required: True
+  - "Email Address": user_party.email
+    datatype: email
+    required: False
+  - "Address Information": user_address_label
+    label above field: True
+  - "Street Address *": user_party.address.address
+    required: True
+  - "Unit/Apt Number": user_party.address.unit
+    required: False
+  - "City *": user_party.address.city
+    required: True
+  - "Province *": user_party.address.state
+    default: "Ontario"
+    code: |
+      provinces_list
+  - "Postal Code *": user_party.address.postal_code
+    required: True
+    validation code: |
+      import re
+      cleaned = re.sub(r'[^A-Za-z0-9]', '', user_party.address.postal_code.upper())
+      if not re.match(r'^[A-Z]\d[A-Z]\d[A-Z]\d$', cleaned):
+        validation_error("Please enter a valid Canadian postal code (e.g., M5H 2N2)")
+      ontario_prefixes = ['K', 'L', 'M', 'N', 'P']
+      if user_party.address.state == "Ontario" and cleaned[0] not in ontario_prefixes:
+        validation_error("This doesn't appear to be an Ontario postal code")
+continue button field: collect_user_party_info
+---
+# Other Party Information - All on one page
+question: |
+  Other Party's Information (${ other_party_title })
+subquestion: |
+  Please provide information about the other party in this proceeding.
+  Enter as much information as you know.
+fields:
+  - "Legal Name": other_name_label
+    label above field: True
+  - "First Name *": other_party.name.first
+    required: True
+  - "Middle Name(s)": other_party.name.middle
+    required: False
+  - "Last Name *": other_party.name.last
+    required: True
+  - "Date of Birth": other_party.birthdate
+    datatype: date
+    required: False
+    help: |
+      If you don't know the exact date, you can leave this blank
+  - "Contact Information": other_contact_label
+    label above field: True
+  - "Phone Number": other_party.phone_number
+    datatype: phone
+    required: False
+  - "Email Address": other_party.email
+    datatype: email
+    required: False
+  - "Address Information": other_address_label
+    label above field: True
+  - "Street Address": other_party.address.address
+    required: False
+    help: |
+      If you don't know the current address, enter the last known address
+  - "Unit/Apt Number": other_party.address.unit
+    required: False
+  - "City": other_party.address.city
+    required: False
+  - "Province": other_party.address.state
+    default: "Ontario"
+    required: False
+    code: |
+      provinces_list
+  - "Postal Code": other_party.address.postal_code
+    required: False
+continue button field: collect_other_party_info
+---
+# Ask about legal representation
+question: |
+  Do you have a lawyer?
+field: user_has_lawyer
+buttons:
+  - "Yes, I have a lawyer": True
+  - "No, I am self-represented": False
+---
+question: |
+  Does the other party have a lawyer?
+subquestion: |
+  Select "I don't know" if you're not sure whether they have legal representation.
+field: other_party_has_lawyer
+buttons:
+  - "Yes, they have a lawyer": True
+  - "No, they are self-represented": False
+  - "I don't know": unknown
+---
+# User's Lawyer Information
+question: |
+  Your Lawyer's Information
+subquestion: |
+  Please provide your lawyer's contact information.
+fields:
+  - "Law Firm Name": user_lawyer.firm
+    required: False
+  - "Lawyer's Name *": user_lawyer.name.text
+    required: True
+  - "Law Society Number": user_lawyer.lsuc_number
+    required: False
+    help: |
+      The Law Society of Ontario number (e.g., 12345A)
+  - "Contact Information": lawyer_contact_label
+    label above field: True
+  - "Phone Number *": user_lawyer.phone_number
+    datatype: phone
+    required: True
+  - "Fax Number": user_lawyer.fax_number
+    datatype: phone
+    required: False
+  - "Email Address *": user_lawyer.email
+    datatype: email
+    required: True
+  - "Office Address": lawyer_address_label
+    label above field: True
+  - "Street Address *": user_lawyer.address.address
+    required: True
+  - "Suite/Unit": user_lawyer.address.unit
+    required: False
+  - "City *": user_lawyer.address.city
+    required: True
+  - "Province *": user_lawyer.address.state
+    default: "Ontario"
+    code: |
+      provinces_list
+  - "Postal Code *": user_lawyer.address.postal_code
+    required: True
+continue button field: collect_user_lawyer_info
+---
+# Other Party's Lawyer Information
+question: |
+  Other Party's Lawyer Information
+subquestion: |
+  If you know the other party's lawyer information, please provide it.
+  Leave blank any fields you don't know.
+fields:
+  - "Law Firm Name": other_lawyer.firm
+    required: False
+  - "Lawyer's Name": other_lawyer.name.text
+    required: False
+  - "Law Society Number": other_lawyer.lsuc_number
+    required: False
+  - "Phone Number": other_lawyer.phone_number
+    datatype: phone
+    required: False
+  - "Fax Number": other_lawyer.fax_number
+    datatype: phone
+    required: False
+  - "Email Address": other_lawyer.email
+    datatype: email
+    required: False
+  - "Office Address": lawyer_address_label_other
+    label above field: True
+  - "Street Address": other_lawyer.address.address
+    required: False
+  - "Suite/Unit": other_lawyer.address.unit
+    required: False
+  - "City": other_lawyer.address.city
+    required: False
+  - "Province": other_lawyer.address.state
+    default: "Ontario"
+    required: False
+    code: |
+      provinces_list
+  - "Postal Code": other_lawyer.address.postal_code
+    required: False
+continue button field: collect_other_party_lawyer_info
+---
+# Court Information
+question: |
+  Court Information
+subquestion: |
+  Please provide information about the court where you will file or have filed your case.
+  
+  **Note:** File numbers are optional. Leave blank if you haven't filed yet.
+fields:
+  - "Court Name *": court.name
+    required: True
+    default: |
+      ${ "Superior Court of Justice" if form_package.court and "Superior" in form_package.court else "Ontario Court of Justice" }
+    code: |
+      ontario_courts
+  - "Court Location/Municipality *": court.location
+    required: True
+    help: |
+      The city or town where the courthouse is located (e.g., Toronto, Ottawa, London)
+  - "Court Address *": court.address.address
+    required: True
+  - "Court File Number": court.file_number
+    required: False
+    help: |
+      Leave blank if you haven't filed yet. Format: FC-12-34567-00
+  - "Date Case Started": court.date_commenced
+    datatype: date
+    required: False
+    help: |
+      The date you filed or will file your first court document
+  - "Is this a new case or continuing?": court.case_status
+    default: "new"
+    choices:
+      - "New case - no file number yet": new
+      - "Continuing case - have file number": continuing
+      - "Motion to change existing order": motion_to_change
+continue button field: collect_court_info
+---
+# Code blocks and data lists
+code: |
+  ontario_courts = [
+    "Superior Court of Justice",
+    "Ontario Court of Justice", 
+    "Unified Family Court",
+    "Family Court Branch of the Superior Court of Justice"
+  ]
+---
+code: |
+  provinces_list = [
+    ['Ontario', 'Ontario'],
+    ['Alberta', 'Alberta'],
+    ['British Columbia', 'British Columbia'],
+    ['Manitoba', 'Manitoba'],
+    ['New Brunswick', 'New Brunswick'],
+    ['Newfoundland and Labrador', 'Newfoundland and Labrador'],
+    ['Northwest Territories', 'Northwest Territories'],
+    ['Nova Scotia', 'Nova Scotia'],
+    ['Nunavut', 'Nunavut'],
+    ['Prince Edward Island', 'Prince Edward Island'],
+    ['Quebec', 'Quebec'],
+    ['Saskatchewan', 'Saskatchewan'],
+    ['Yukon', 'Yukon']
+  ]
+---
+# Additional objects for party info (main objects defined in wizard)
+objects:
+  - user_lawyer: Person
+  - other_lawyer: Person
+---
+# Update workflow data to include party information
+code: |
+  # Initialize workflow_data if not already done
+  if not defined('workflow_data'):
+    workflow_data = {}
+  
+  # Add party information to workflow data
+  workflow_data['parties'] = {
+    'user_role': user_role,
+    'procedural_position': procedural_position if defined('procedural_position') else 'new_case',
+    'user_party_title': user_party_title,
+    'other_party_title': other_party_title
+  }
+  
+  # Map parties to applicant/respondent for forms
+  workflow_data['applicant'] = {
+    'name': applicant.name.full() if defined('applicant.name.first') else None,
+    'birthdate': str(applicant.birthdate) if defined('applicant.birthdate') else None,
+    'phone': applicant.phone_number if defined('applicant.phone_number') else None,
+    'email': applicant.email if defined('applicant.email') else None,
+    'address': {
+      'street': applicant.address.address if defined('applicant.address.address') else None,
+      'unit': applicant.address.unit if defined('applicant.address.unit') else None,
+      'city': applicant.address.city if defined('applicant.address.city') else None,
+      'province': applicant.address.state if defined('applicant.address.state') else None,
+      'postal_code': applicant.address.postal_code if defined('applicant.address.postal_code') else None
+    }
+  }
+  
+  workflow_data['respondent'] = {
+    'name': respondent.name.full() if defined('respondent.name.first') else None,
+    'birthdate': str(respondent.birthdate) if defined('respondent.birthdate') else None,
+    'phone': respondent.phone_number if defined('respondent.phone_number') else None,
+    'email': respondent.email if defined('respondent.email') else None,
+    'address': {
+      'street': respondent.address.address if defined('respondent.address.address') else None,
+      'unit': respondent.address.unit if defined('respondent.address.unit') else None,
+      'city': respondent.address.city if defined('respondent.address.city') else None,
+      'province': respondent.address.state if defined('respondent.address.state') else None,
+      'postal_code': respondent.address.postal_code if defined('respondent.address.postal_code') else None
+    }
+  }
+  
+  # Legal representation
+  workflow_data['legal_representation'] = {
+    'user_has_lawyer': user_has_lawyer,
+    'other_party_has_lawyer': other_party_has_lawyer
+  }
+  
+  if user_has_lawyer:
+    workflow_data['user_lawyer'] = {
+      'name': user_lawyer.name.text if defined('user_lawyer.name.text') else None,
+      'firm': user_lawyer.firm if defined('user_lawyer.firm') else None,
+      'lsuc': user_lawyer.lsuc_number if defined('user_lawyer.lsuc_number') else None,
+      'phone': user_lawyer.phone_number if defined('user_lawyer.phone_number') else None,
+      'email': user_lawyer.email if defined('user_lawyer.email') else None
+    }
+  
+  if other_party_has_lawyer == True:
+    workflow_data['other_lawyer'] = {
+      'name': other_lawyer.name.text if defined('other_lawyer.name.text') else None,
+      'firm': other_lawyer.firm if defined('other_lawyer.firm') else None,
+      'lsuc': other_lawyer.lsuc_number if defined('other_lawyer.lsuc_number') else None,
+      'phone': other_lawyer.phone_number if defined('other_lawyer.phone_number') else None,
+      'email': other_lawyer.email if defined('other_lawyer.email') else None
+    }
+  
+  # Court information
+  workflow_data['court_info'] = {
+    'name': court.name if defined('court.name') else None,
+    'location': court.location if defined('court.location') else None,
+    'address': court.address.address if defined('court.address.address') else None,
+    'file_number': court.file_number if defined('court.file_number') else None,
+    'date_commenced': str(court.date_commenced) if defined('court.date_commenced') else None,
+    'case_status': court.case_status if defined('court.case_status') else 'new'
+  }
+  
+  update_workflow_data_with_parties = True
+---

@@ -1,0 +1,310 @@
+metadata:
+  authors:
+  - name: Ontario Family Law Forms System
+  description: Affidavit required for uncontested divorce proceedings.
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+  revision_date: '2025-08-09'
+  short title: Form 36 - Divorce Affidavit
+  tags:
+  - ontario
+  - family-law
+  - form-36---affidavit-for-divorce-flr-36-apr24-en-fil
+  - court-forms
+  title: Ontario Family Law Form 36 - Affidavit for Divorce
+include:
+  - ontario-family-law-common.yml
+features:
+  css: ontario-family-law.css
+  navigation: true
+  progress bar: true
+  question help button: true
+  show progress bar percentage: true
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - financial: DAObject
+  - marriage: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.i_want_the_divorce_order
+  
+  # Applicant Information
+  applicant
+  
+  # Respondent Information
+  respondent
+  respondent.the_certificate_or_registration_of
+  respondent.the_certificate_of_my_marriage
+  
+  # Children Information
+  children_of_the_marriage
+  children.full_legal_name_of_child
+  children.the_parenting_arrangements_for_the_child
+  
+  # Financial Information
+  financial.i_am_aware_that_it
+  
+  # Marriage Information
+  marriage.form_36
+  marriage.at
+  marriage.the_marriage_was_performed_by
+  
+  # Claims
+  claims.a_domestic_contract_order_dated
+  claims.i_am_claiming_costs_in
+  
+  # Other
+  full_legal_name_address_for
+  lawyers_name_address_street_number
+  my_name_is
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+fields:
+  - Court File Number: court_info.court_file_number
+---
+question: |
+  Court office address
+fields:
+  - Court office address: court_info.court_office_address
+---
+question: |
+  I want the divorce order to include the following paragraph numbers of the attached consent, sett...
+fields:
+  - I want the divorce order to include the following paragraph: court_info.i_want_the_divorce_order
+---
+question: |
+  a court order dated (date)
+fields:
+  - a court order dated (date): court_info.a_court_order_dated
+    datatype: date
+---
+question: |
+  a court order or written agreement dated (date)
+fields:
+  - a court order or written agreement dated (date): court_info.a_court_order_or_written_agreement_dated
+    datatype: date
+---
+# Applicant Information Questions
+question: |
+  Applicant(s)
+fields:
+  - Applicant(s): applicant
+---
+# Respondent Information Questions
+question: |
+  Respondent(s)
+fields:
+  - Respondent(s): respondent
+---
+question: |
+  The certificate or registration of my marriage to the respondent has been signed and sealed by th...
+fields:
+  - The certificate or registration of my marriage to the respon: respondent.the_certificate_or_registration_of
+---
+question: |
+  The certificate of my marriage to the respondent was issued outside Ontario. It is called (title ...
+fields:
+  - The certificate of my marriage to the respondent was issued: respondent.the_certificate_of_my_marriage
+---
+question: |
+  I have not been able to get a certificate or registration of my marriage. I was married to the re...
+fields:
+  - I have not been able to get a certificate or registration of: respondent.i_have_not_been_able
+    datatype: date
+---
+question: |
+  "The respondent’s address last known to me is: (Give address.)"
+fields:
+  - "The respondent’s address last known to me is: (Give address": respondent.the_respondents_address_last_known_to_me_is
+---
+# Children Information Questions
+question: |
+  "children of the marriage. (Write “NONE” if there are no children of the marriage). They are:"
+fields:
+  - children of the marriage. (Write “NONE” if there are no chil: children_of_the_marriage
+---
+question: |
+  Full legal name of child
+fields:
+  - Full legal name of child: children.full_legal_name_of_child
+---
+question: |
+  "The parenting arrangements for the child(ren) are as follows: (Give summary.)"
+fields:
+  - The parenting arrangements for the child(ren) are as follows: children.the_parenting_arrangements_for_the_child
+---
+question: |
+  "These are the arrangements that have been made for the support of the child(ren) of the marriage:"
+fields:
+  - These are the arrangements that have been made for the suppo: children.these_are_the_arrangements_that
+    datatype: currency
+    min: 0
+---
+question: |
+  The income of the party paying child support is $
+fields:
+  - The income of the party paying child support is $: children.the_income_of_the_party_paying_child_support_is
+    datatype: currency
+    min: 0
+---
+# Financial Information Questions
+question: |
+  I am aware that it may be legally impossible to make a claim for division of property six years a...
+fields:
+  - I am aware that it may be legally impossible to make a claim: financial.i_am_aware_that_it
+    datatype: date
+---
+# Marriage Information Questions
+question: |
+  "Form 36: Affidavit for Divorce"
+fields:
+  - "Form 36: Affidavit for Divorce": marriage.form_36
+---
+question: |
+  at (place of marriage)
+fields:
+  - at (place of marriage): marriage.at
+---
+question: |
+  The marriage was performed by (name and title)
+fields:
+  - The marriage was performed by (name and title): marriage.the_marriage_was_performed_by
+---
+question: |
+  "The legal basis for the divorce is:"
+fields:
+  - "The legal basis for the divorce is:": marriage.the_legal_basis_for_the_divorce_is
+---
+# Claims Questions
+question: |
+  a domestic contract order dated (date)
+fields:
+  - a domestic contract order dated (date): claims.a_domestic_contract_order_dated
+    datatype: date
+---
+question: |
+  "I am claiming costs in this case. The details of this claim are as follows: (Give details.)"
+fields:
+  - I am claiming costs in this case. The details of this claim: claims.i_am_claiming_costs_in
+---
+# Other Questions
+question: |
+  "Full legal name & address for service — street & number, municipality, postal code, telephone & f..."
+fields:
+  - "Full legal name & address for service — street & number, mun": full_legal_name_address_for
+---
+question: |
+  "Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and..."
+fields:
+  - "Lawyer’s name & address — street & number, municipality, pos": lawyers_name_address_street_number
+---
+question: |
+  My name is (full legal name)
+fields:
+  - My name is (full legal name): my_name_is
+---
+question: |
+  "I live in (municipality & province)"
+fields:
+  - "I live in (municipality & province)": i_live_in
+---
+question: |
+  "and I swear/affirm that the following is true:"
+fields:
+  - "and I swear/affirm that the following is true:": and_i_swearaffirm_that_the_following_is_true
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided.
+  
+  % if defined('applicant.name.first'):
+  **Applicant:** ${ applicant.name }
+  % endif
+  
+  % if defined('respondent.name.first'):
+  **Respondent:** ${ respondent.name }
+  % endif
+  
+  % if defined('court_info.file_number'):
+  **Court File Number:** ${ court_info.file_number }
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---

@@ -1,0 +1,79 @@
+---
+# Ontario Family Law Form: caseway_chat_20250508
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Caseway Chat 20250508
+  short title: |
+    CASEWAY
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  user
+  can_we_vet_this_structure_for_the_legal_case_that_back_up_methrodologies_for_imputing_income_to_people_in_legal_contextssuch_as_personal_injury_claims_medical_malpractice_workers_compensation_longterm_disability_disputes_or_even_family_law
+  caseway
+  based_on_the_legal_cases_ive_retrieved_i_can_provide_you_with_an_analysis_of_the_vocational_assessment_structure_youve_outlined_for_income_determination_in_legal_contexts_let_me_assess_how_well_your_proposed_methodology_aligns_with_established_legal_precedents_legal_support_for_vocational_assessment_methodology_in_income_determination_your_proposed_structure_is_wellaligned_with_legal_standards_recognized_in_several_key_cases_heres_how_the_case_law_supports_your_methodology
+  sources
+  field_2011_bcsc_329_jozipovic_v_british_columbia
+  field_2011_abqb_523_patrus_v_alberta
+  field_2013_nsca_131_ellsworth_v_nova_scotia
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  User:
+fields:
+  - "User": user
+---
+question: |
+  can we vet this structure for the legal case that back up methrodologies for imputing income to peop
+fields:
+  - "Can We Vet This Structure For The Legal Case That Back Up Methrodologies For Imputing Income To People In Legal Contextssuch As Personal Injury Claims Medical Malpractice Workers Compensation Longterm Disability Disputes Or Even Family Law": can_we_vet_this_structure_for_the_legal_case_that_back_up_methrodologies_for_imputing_income_to_people_in_legal_contextssuch_as_personal_injury_claims_medical_malpractice_workers_compensation_longterm_disability_disputes_or_even_family_law
+    required: True
+---
+question: |
+  Caseway:
+fields:
+  - "Caseway": caseway
+---
+question: |
+  Based on the legal cases I've retrieved, I can provide you with an analysis of the vocational assess
+fields:
+  - "Based On The Legal Cases Ive Retrieved I Can Provide You With An Analysis Of The Vocational Assessment Structure Youve Outlined For Income Determination In Legal Contexts Let Me Assess How Well Your Proposed Methodology Aligns With Established Legal Precedents Legal Support For Vocational Assessment Methodology In Income Determination Your Proposed Structure Is Wellaligned With Legal Standards Recognized In Several Key Cases Heres How The Case Law Supports Your Methodology": based_on_the_legal_cases_ive_retrieved_i_can_provide_you_with_an_analysis_of_the_vocational_assessment_structure_youve_outlined_for_income_determination_in_legal_contexts_let_me_assess_how_well_your_proposed_methodology_aligns_with_established_legal_precedents_legal_support_for_vocational_assessment_methodology_in_income_determination_your_proposed_structure_is_wellaligned_with_legal_standards_recognized_in_several_key_cases_heres_how_the_case_law_supports_your_methodology
+    required: True
+---
+question: |
+  Sources:
+fields:
+  - "Sources": sources
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

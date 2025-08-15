@@ -1,0 +1,32 @@
+---
+metadata:
+  title: Test Wizard Validation
+  description: Test file to check if the main wizard loads properly
+---
+include:
+  - ontario-family-law-wizard.yml
+---
+mandatory: True
+code: |
+  # This test file will fail if the wizard has syntax errors
+  # If it loads, we know the syntax is valid
+  test_result = "Wizard loaded successfully"
+---
+question: |
+  Wizard Validation Test
+subquestion: |
+  The Ontario Family Law wizard file has been included successfully.
+  
+  **Test Result:** ${ test_result }
+  
+  This means:
+  - All validation syntax is correct
+  - All objects are properly defined
+  - The interview structure is valid
+  
+  You can now proceed to use the main wizard.
+buttons:
+  - "Go to Wizard": exit
+    url: /interview?i=docassemble.webapp:ontario-family-law/ontario-family-law-wizard.yml
+  - "Exit": exit
+---

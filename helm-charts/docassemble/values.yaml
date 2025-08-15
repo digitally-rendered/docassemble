@@ -155,18 +155,11 @@ podSecurityContext: {}
 
 # Additional volumes and volume mounts
 volumes: 
-  - name: webapp-source
+  - name: interview-questions
     hostPath:
-      path: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp
+      path: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions
       type: Directory
-  - name: webapp-cache
-    hostPath:
-      path: /Users/draw/development/docassemble/webapp-cache
-      type: DirectoryOrCreate
 volumeMounts:
-  - name: webapp-source
-    mountPath: /usr/share/docassemble/local3.12/lib/python3.12/site-packages/docassemble/webapp
-    readOnly: false
-  - name: webapp-cache
-    mountPath: /usr/share/docassemble/local3.12/lib/python3.12/site-packages/docassemble/webapp/__pycache__
+  - name: interview-questions
+    mountPath: /usr/share/docassemble/local3.12/lib/python3.12/site-packages/docassemble/webapp/data/questions
     readOnly: false

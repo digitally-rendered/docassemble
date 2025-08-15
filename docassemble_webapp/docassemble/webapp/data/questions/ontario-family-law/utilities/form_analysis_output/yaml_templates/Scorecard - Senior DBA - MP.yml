@@ -1,0 +1,60 @@
+---
+# Ontario Family Law Form: Scorecard - Senior DBA - MP
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Scorecard - Senior Dba - Mp
+  short title: |
+    SCORECARD - SENIOR DBA - MP
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Table Cell Section
+  senior_it_analyst
+  score
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Senior IT Analyst (DBA) – Marcello Panaccione
+
+Utilizes their extensive knowledge of SQL Server arch
+fields:
+  - "Senior It Analyst": senior_it_analyst
+    datatype: currency
+---
+question: |
+  SCORE
+(1-3)
+fields:
+  - "Score": score
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

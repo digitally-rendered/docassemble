@@ -1,0 +1,89 @@
+---
+# Ontario Family Law Form: resume24-v1
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Resume24-V1
+  short title: |
+    RESUME24-V1
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  implemented_vault_for_ci_and_customers_runs_at_scale_supporting_50000_ci_workers_daily
+  lead_the_team_built_and_delivered_a_standardized_pipeline_for_supporting_java_node_python_and_scala
+  lead_aws_cloud_engineering_and_devops_practice_defining_operations_and_practices_in_a_green_field_cloud_deployments
+  designed_and_refined_large_scale_cross_account_security_policies_with_iam_to_support_data_and_tennant_isolation_while_allowing_for_shared_services_across_multiple_aws_accounts
+  championed_hashicorp_and_landed_vault_and_terraform_enterprise
+  defined_terraform_iac_practice_with_in_the_organization_to_support_large_100_account_aws_organization
+  provided_thought_leadership_on_aws_cloud_transitions_and_app_development
+  director_consulting
+  green_field_application_pipelines_to_drive_velocity_and_automation_for_deployment_to_later_stage_environments
+  created_turnkey_devops_tooling_platform_using_aws_terraform_and_salt_stack_to_deploy_all_atlassian_tools_and_jenkins_git_for_increasing_devops_adoption_rates_and_ease_new_clients_into_a_mature_tooling_stack
+
+  # Table Cell Section
+  drew_carmichael_phone
+  field_608_whistler_drive_oshawa_ontario_email
+  hackathon_3rd_place_build_caching_system_reduced_build_times_locally_and_in_ci_by_25_mpac_aboutmypropertyca_pickering
+  computer_systems_technology_nait
+  high_school_diploma
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Implemented Vault for CI and customers, Runs at scale supporting 50,000 Ci workers daily.
+fields:
+  - "Implemented Vault For Ci And Customers Runs At Scale Supporting 50000 Ci Workers Daily": implemented_vault_for_ci_and_customers_runs_at_scale_supporting_50000_ci_workers_daily
+    datatype: currency
+---
+question: |
+  Lead the team built and delivered a standardized pipeline for supporting Java, Node, python and Scal
+fields:
+  - "Lead The Team Built And Delivered A Standardized Pipeline For Supporting Java Node Python And Scala": lead_the_team_built_and_delivered_a_standardized_pipeline_for_supporting_java_node_python_and_scala
+    datatype: currency
+---
+question: |
+  Lead AWS cloud engineering and Devops practice, defining operations and practices in a green field c
+fields:
+  - "Lead Aws Cloud Engineering And Devops Practice Defining Operations And Practices In A Green Field Cloud Deployments": lead_aws_cloud_engineering_and_devops_practice_defining_operations_and_practices_in_a_green_field_cloud_deployments
+---
+question: |
+  Designed and refined large scale cross account security policies with IAM to support data and Tennan
+fields:
+  - "Designed And Refined Large Scale Cross Account Security Policies With Iam To Support Data And Tennant Isolation While Allowing For Shared Services Across Multiple Aws Accounts": designed_and_refined_large_scale_cross_account_security_policies_with_iam_to_support_data_and_tennant_isolation_while_allowing_for_shared_services_across_multiple_aws_accounts
+    datatype: currency
+---
+question: |
+  Championed HashiCorp and landed Vault and Terraform enterprise ( Terraform, Vault AWS )
+fields:
+  - "Championed Hashicorp And Landed Vault And Terraform Enterprise": championed_hashicorp_and_landed_vault_and_terraform_enterprise
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

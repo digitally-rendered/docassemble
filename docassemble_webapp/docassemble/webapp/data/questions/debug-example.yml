@@ -1,0 +1,97 @@
+---
+metadata:
+  title: Debug Example with Enhanced Error Display
+  short title: Debug Example
+---
+modules:
+  - .ontario-family-law.debug_helpers
+---
+features:
+  debug: True
+---
+mandatory: True
+question: |
+  # Enhanced Error Display Example
+subquestion: |
+  This interview demonstrates the enhanced error display capabilities.
+  
+  Choose an action to test:
+field: test_action
+choices:
+  - "Normal flow (no error)": normal
+  - "Test undefined variable": undefined
+  - "Test division by zero": division
+  - "Test type error": type_error
+  - "Test safe execution": safe_exec
+---
+code: |
+  if test_action == "normal":
+    test_result = "Everything worked correctly!"
+  elif test_action == "undefined":
+    try:
+      # This will cause an error
+      test_result = undefined_variable_xyz
+    except:
+      error_display = show_error()
+  elif test_action == "division":
+    try:
+      test_result = 10 / 0
+    except:
+      error_display = show_error()
+      log_debug_error("Division by zero test")
+  elif test_action == "type_error":
+    try:
+      test_result = "string" + 123
+    except:
+      error_display = show_error()
+  elif test_action == "safe_exec":
+    def risky_function():
+      return 1 / 0
+    
+    result = DebugHelper.safe_execute(risky_function)
+    if result.get('error'):
+      error_display = DebugHelper.format_error_display(result['error_info'])
+      test_result = "Function failed safely"
+    else:
+      test_result = result['result']
+---
+mandatory: True
+question: |
+  ## Test Result
+subquestion: |
+  % if defined('error_display'):
+  ${ error_display }
+  
+  ### How to Use Debug Helpers:
+  
+  1. **Import the module:**
+     ```yaml
+     modules:
+       - .ontario-family-law.debug_helpers
+     ```
+  
+  2. **Capture errors:**
+     ```python
+     try:
+       # risky code
+     except:
+       error_display = show_error()
+     ```
+  
+  3. **Log errors:**
+     ```python
+     log_debug_error("Context description")
+     ```
+  
+  4. **Safe execution:**
+     ```python
+     result = DebugHelper.safe_execute(function_name, arg1, arg2)
+     ```
+  
+  % else:
+  **Result:** ${ test_result }
+  % endif
+buttons:
+  - Try Again: restart
+  - Exit: exit
+---

@@ -1,0 +1,33 @@
+---
+metadata:
+  title: Ontario Family Law Wizard Fresh
+---
+mandatory: True
+code: |
+  try:
+    intro
+    complete
+  except Exception as e:
+    error_message = str(e)
+    error_type = type(e).__name__
+    show_error
+---
+question: |
+  Welcome to Ontario Family Law Wizard
+subquestion: |
+  This wizard will help you determine which forms you need.
+continue button field: intro
+---
+event: complete
+question: |
+  Test Complete
+subquestion: |
+  The wizard loaded successfully!
+---
+event: show_error  
+question: |
+  Error Occurred
+subquestion: |
+  Error Type: ${ error_type }
+  
+  Error Message: ${ error_message }

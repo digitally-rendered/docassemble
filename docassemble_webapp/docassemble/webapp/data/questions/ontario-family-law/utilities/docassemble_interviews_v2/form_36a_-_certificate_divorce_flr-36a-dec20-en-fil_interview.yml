@@ -1,0 +1,341 @@
+metadata:
+  authors:
+  - name: Ontario Family Law Forms System
+  description: Affidavit required for uncontested divorce proceedings.
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+  revision_date: '2025-08-09'
+  short title: Form 36 - Divorce Affidavit
+  tags:
+  - ontario
+  - family-law
+  - form-36a---certificate-divorce-flr-36a-dec20-en-fil
+  - court-forms
+  title: Ontario Family Law Form 36 - Affidavit for Divorce
+include:
+  - ontario-family-law-common.yml
+features:
+  css: ontario-family-law.css
+  navigation: true
+  progress bar: true
+  question help button: true
+  show progress bar percentage: true
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - financial: DAObject
+  - marriage: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.the_clerk_of_the_court_certifies_as_follows
+  
+  # Applicant Information
+  applicants_last_name
+  applicant_resident_in_ontario_since
+  
+  # Respondent Information
+  respondents_last_name
+  respondent_resident_in_ontario_since
+  respondent.address_for_service_of_order
+  
+  # Children Information
+  children.claim_for_child_support_details_in_part_9_below
+  children.child_support_guidelines_information_supplied
+  children.recipients_income_required_for_special_expenses
+  
+  # Financial Information
+  financial.claim_for_spousal_support_details_in_application
+  financial.claim_for_property_details_in_application
+  financial.payors_income
+  
+  # Marriage Information
+  marriage.form_36a
+  marriage.under_subrule_12
+  marriage.separation_since
+  
+  # Claims
+  claims.order_dated
+  claims.answer_struck_out_by_order_dated
+  claims.agreementconsent_with_explanation_for_claim
+  
+  # Other
+  jurisdiction_application_filed_in_correct
+  field_1
+  other
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+fields:
+  - Court File Number: court_info.court_file_number
+---
+question: |
+  Court office address
+fields:
+  - Court office address: court_info.court_office_address
+---
+question: |
+  "The clerk of the court certifies as follows:"
+fields:
+  - "The clerk of the court certifies as follows:": court_info.the_clerk_of_the_court_certifies_as_follows
+---
+question: |
+  Applicant notified of deficiencies but requests to submit papers to judge despite them.
+fields:
+  - Applicant notified of deficiencies but requests to submit pa: court_info.applicant_notified_of_deficiencies_but
+---
+# Applicant Information Questions
+question: |
+  Applicant’s last name
+fields:
+  - Applicant’s last name: applicants_last_name
+---
+question: |
+  Applicant resident in Ontario since (date)
+fields:
+  - Applicant resident in Ontario since (date): applicant_resident_in_ontario_since
+    datatype: date
+---
+# Respondent Information Questions
+question: |
+  Respondent’s last name
+fields:
+  - Respondent’s last name: respondents_last_name
+---
+question: |
+  Respondent resident in Ontario since (date)
+fields:
+  - Respondent resident in Ontario since (date): respondent_resident_in_ontario_since
+    datatype: date
+---
+question: |
+  Address for service of order on respondent is same as
+fields:
+  - Address for service of order on respondent is same as: respondent.address_for_service_of_order
+---
+# Children Information Questions
+question: |
+  Claim for child support [details in part 9 below]
+fields:
+  - Claim for child support [details in part 9 below]: children.claim_for_child_support_details_in_part_9_below
+    datatype: currency
+    min: 0
+---
+question: |
+  Child support guidelines information supplied – Continuing record
+fields:
+  - Child support guidelines information supplied – Continuing r: children.child_support_guidelines_information_supplied
+    datatype: currency
+    min: 0
+---
+question: |
+  "recipient’s income [REQUIRED for special expenses (add-ons), split and shared parenting time, pay..."
+fields:
+  - "recipient’s income [REQUIRED for special expenses (add-ons),": children.recipients_income_required_for_special_expenses
+    datatype: currency
+    min: 0
+    required: True
+---
+# Financial Information Questions
+question: |
+  Claim for spousal support – details in application
+fields:
+  - Claim for spousal support – details in application: financial.claim_for_spousal_support_details_in_application
+    datatype: currency
+    min: 0
+---
+question: |
+  Claim for property – details in application
+fields:
+  - Claim for property – details in application: financial.claim_for_property_details_in_application
+    datatype: currency
+    min: 0
+---
+question: |
+  Payor’s income
+fields:
+  - Payor’s income: financial.payors_income
+    datatype: currency
+    min: 0
+---
+question: |
+  "details of special expenses (add-ons)"
+fields:
+  - "details of special expenses (add-ons)": financial.details_of_special_expenses
+    datatype: currency
+    min: 0
+---
+question: |
+  "Draft Order - no support claimed."
+fields:
+  - "Draft Order - no support claimed.": financial.draft_order_no_support_claimed
+    datatype: currency
+    min: 0
+---
+# Marriage Information Questions
+question: |
+  "Form 36A: Certificate of Clerk (Divorce)"
+fields:
+  - "Form 36A: Certificate of Clerk (Divorce)": marriage.form_36a
+---
+question: |
+  , under subrule 12(6), splitting divorce
+fields:
+  - , under subrule 12(6), splitting divorce: marriage.under_subrule_12
+---
+question: |
+  Separation since (date)
+fields:
+  - Separation since (date): marriage.separation_since
+    datatype: date
+---
+question: |
+  Certificate of Clerk (Divorce)
+fields:
+  - Certificate of Clerk (Divorce): marriage.certificate_of_clerk
+---
+question: |
+  Request for early effective date for divorce; agreements and undertakings filed not to appeal
+fields:
+  - Request for early effective date for divorce; agreements and: marriage.request_for_early_effective_date
+    datatype: date
+---
+# Claims Questions
+question: |
+  Order dated
+fields:
+  - Order dated: claims.order_dated
+    datatype: date
+---
+question: |
+  Answer struck out by order dated
+fields:
+  - Answer struck out by order dated: claims.answer_struck_out_by_order_dated
+    datatype: date
+---
+question: |
+  agreement/consent with explanation for claim less than table amount
+fields:
+  - agreement/consent with explanation for claim less than table: claims.agreementconsent_with_explanation_for_claim
+    datatype: currency
+    min: 0
+---
+# Other Questions
+question: |
+  Jurisdiction – Application filed in correct municipality
+fields:
+  - Jurisdiction – Application filed in correct municipality: jurisdiction_application_filed_in_correct
+---
+question: |
+  1(a)
+fields:
+  - 1(a): field_1
+---
+question: |
+  Other (specify.)
+fields:
+  - Other (specify.): other
+---
+question: |
+  Service took place in (province or country)
+fields:
+  - Service took place in (province or country): service_took_place_in
+---
+question: |
+  Service was carried out on (date)
+fields:
+  - Service was carried out on (date): service_was_carried_out_on
+    datatype: date
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided.
+  
+  % if defined('applicant.name.first'):
+  **Applicant:** ${ applicant.name }
+  % endif
+  
+  % if defined('respondent.name.first'):
+  **Respondent:** ${ respondent.name }
+  % endif
+  
+  % if defined('court_info.file_number'):
+  **Court File Number:** ${ court_info.file_number }
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---

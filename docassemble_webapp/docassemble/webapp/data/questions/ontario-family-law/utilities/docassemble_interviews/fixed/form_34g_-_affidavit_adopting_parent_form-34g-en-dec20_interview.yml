@@ -1,0 +1,252 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-34g---affidavit-adopting-parent-form-34g-en-dec20
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.the_outstanding_order
+  
+  # Applicant Information
+  applicant
+  
+  # Respondent Information
+  respondent
+  
+  # Children Information
+  children.the_name_of_the_child_being_placed_for_adoption_is
+  children.an_employee_of
+  children.i_have_made_reasonable_inquiries_about_the_existence_of_any_person_other_than_the_person
+  
+  # Other
+  form_34g
+  full_legal_name_address_for
+  lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  the outstanding order(s) is/are as follows: (For each order, give the name of th...
+  - "the outstanding order(s) is/are as follows: (For each order, give the name of...": court_info.the_outstanding_order
+---
+question: |
+  the details of the other adoption application(s) are as follows: (For each appli...
+  - "the details of the other adoption application(s) are as follows: (For each ap...": court_info.the_details_of_the_other_adoption_application
+---
+question: |
+  I have made reasonable inquiries whether the person(s) who filed the consent(s) ...
+  - "I have made reasonable inquiries whether the person(s) who filed the consent(...": court_info.i_have_made
+---
+
+# Applicant Information Questions
+question: |
+  Applicant(s) (The first letter of the applicant’s surname may be used)
+  - "Applicant(s) (The first letter of the applicant’s surname may be used)": applicant
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s) (If there is a respondent, the first letter of the respondent’s surname may be used)
+  - "Respondent(s) (If there is a respondent, the first letter of the respondent’s surname may be used)": respondent
+---
+
+# Children Information Questions
+question: |
+  The name of the child being placed for adoption is: (Give full legal name, date ...
+  - "The name of the child being placed for adoption is: (Give full legal name, da...": children.the_name_of_the_child_being_placed_for_adoption_is
+---
+question: |
+  an employee of (full legal name of children’s aid society)
+  - "an employee of (full legal name of children’s aid society)": children.an_employee_of
+---
+question: |
+  I have made reasonable inquiries about the existence of any person — other than ...
+  - "I have made reasonable inquiries about the existence of any person — other th...": children.i_have_made
+---
+question: |
+  I also ensured that the child received independent legal advice from  (lawyer’s name)
+  - "I also ensured that the child received independent legal advice from  (lawyer’s name)": children.i_also_ensured
+---
+question: |
+  I offered the child’s parent(s) a chance to get counselling about the consent an...
+  - "I offered the child’s parent(s) a chance to get counselling about the consent...": children.i_offered_the_childs_parent
+---
+
+# Other Questions
+question: |
+  Form 34G:  Affidavit of Adoption Licensee or Society Employee,
+fields:
+  - "Form 34G:  Affidavit of Adoption Licensee or Society Employee,
+sworn/affirmed": form_34g
+---
+question: |
+  Full legal name & address for service — street & number, municipality, postal co...
+  - "Full legal name & address for service — street & number, municipality, postal...": full_legal_name_address_for
+---
+question: |
+  Lawyer’s name & address — street & number, municipality, postal code, telephone ...
+  - "Lawyer’s name & address — street & number, municipality, postal code, telepho...": lawyers_name_address_street_number
+---
+question: |
+  My name is (full legal name)
+  - "My name is (full legal name)": my_name_is
+---
+question: |
+  I live in (municipality & province)
+  - "I live in (municipality & province)": i_live_in
+---
+# Review screen
+question: |
+  Review Your Information
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${showifdef("applicant.name.first", applicant.name.full())}
+  * Address: ${showifdef("applicant.address.address", applicant.address.on_one_line())}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${showifdef("respondent.name.first", respondent.name.full())}
+  * Address: ${showifdef("respondent.address.address", respondent.address.on_one_line())}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: Ontario Family Law Form
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

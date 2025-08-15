@@ -1,0 +1,237 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-28---writ-seizure-sale-flr-28-apr16-en-fil
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - court_info: DAObject
+  - financial: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.you_are_therefore_required_under_subsection_143
+  
+  # Financial Information
+  financial.insert_amount_to_be_realized_from_paragraph_4
+  financial.your_fees_and_expenses_in_enforcing_this_writ
+  financial.priority_for_support_payments
+  
+  # Claims
+  claims.you_are_therefore_required_under_subsection_4
+  
+  # Other
+  form_28
+  recipient
+  full_legal_name_address_for
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  YOU ARE THEREFORE REQUIRED, under subsection 143(3) of the Courts of Justice Act...
+  - "YOU ARE THEREFORE REQUIRED, under subsection 143(3) of the Courts of Justice ...": court_info.you_are_therefore_required_under_subsection_143
+    required: True
+---
+
+# Financial Information Questions
+question: |
+  Insert amount to be realized from paragraph 4(b) of the request for a writ of se...
+  - "Insert amount to be realized from paragraph 4(b) of the request for a writ of...": financial.insert_amount_to_be_realized_from_paragraph_4
+    datatype: date
+---
+question: |
+  your fees and expenses in enforcing this writ.
+  - "your fees and expenses in enforcing this writ.": financial.your_fees_and_expenses_in_enforcing_this_writ
+    datatype: currency
+    min: 0
+---
+question: |
+  Priority for support payments: insert amount from paragraph 3 of request for a w...
+  - "Priority for support payments: insert amount from paragraph 3 of request for ...": financial.priority_for_support_payments
+    datatype: currency
+    min: 0
+---
+question: |
+  The sum to be realized includes unpaid support of $
+  - "The sum to be realized includes unpaid support of $": financial.the_sum_to_be_realized_includes_unpaid_support_of
+    datatype: currency
+    min: 0
+---
+
+# Claims Questions
+question: |
+  YOU ARE THEREFORE REQUIRED, under subsection 4(1) of the Creditors’ Relief Act, ...
+  - "YOU ARE THEREFORE REQUIRED, under subsection 4(1) of the Creditors’ Relief Ac...": claims.you_are_therefore_required_under_subsection_4
+    required: True
+---
+
+# Other Questions
+question: |
+  Form 28:  Writ of Seizure and Sale
+  - "Form 28:  Writ of Seizure and Sale": form_28
+---
+question: |
+  Recipient(s)
+  - "Recipient(s)": recipient
+---
+question: |
+  Full legal name & address for service — street & number, municipality, postal co...
+  - "Full legal name & address for service — street & number, municipality, postal...": full_legal_name_address_for
+---
+question: |
+  Lawyer’s name & address — street & number, municipality, postal code, telephone ...
+  - "Lawyer’s name & address — street & number, municipality, postal code, telepho...": lawyers_name_address_street_number
+---
+question: |
+  TO THE SHERIFF FOR THE (name of area)
+  - "TO THE SHERIFF FOR THE (name of area)": to_the_sheriff_for_the
+---
+# Review screen
+question: |
+  Review Your Information
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${showifdef("applicant.name.first", applicant.name.full())}
+  * Address: ${showifdef("applicant.address.address", applicant.address.on_one_line())}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${showifdef("respondent.name.first", respondent.name.full())}
+  * Address: ${showifdef("respondent.address.address", respondent.address.on_one_line())}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: Ontario Family Law Form
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

@@ -1,0 +1,99 @@
+---
+# Ontario Family Law Form: 2020.12.16 Draft Financial Statement
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    2020.12.16 Draft Financial Statement
+  short title: |
+    2020.12.16 DRAFT FINANCIAL STATEMENT
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  you_may_also_be_required_to_complete_and_attach_additional_schedules_based_on_the_claims_that_have_been_made_in_your_case_or_your_financial_circumstances
+  if_you_have_income_that_is_not_shown_in_part_i_of_the_financial_statement
+  if_you_have_made_or_responded_to_a_claim_for_child_support_that_involves_undue_hardship_or_a_claim_for_spousal_support_you_must_also_complete_schedule_b
+  if_you_or_the_other_party_has_sought_a_contribution_towards_special_or_extraordinary_expenses_for_the_child
+  notes
+  you_must_fully_and_truthfully_complete_this_financial_statement_including_any_applicable_schedules_you_must_also_provide_the_other_party_with_documents_relating_to_support_and_property_and_a_certificate_of_financial_disclosure
+  if_you_are_making_or_responding_to_a_claim_for_property_an_equalization_payment_or_the_matrimonial_home_you_must_complete_form_131
+  and_i_swearaffirm_that_the_following_is_true
+  part_1
+  unnamed_field
+
+  # Table Cell Section
+  court_file_number
+  court_file_number
+  unnamed_field
+  unnamed_field
+  form_13
+  form_13
+  form_13
+  court_office_address
+  court_office_address
+  form_13
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  You may also be required to complete and attach additional schedules based on the claims that have b
+fields:
+  - "You May Also Be Required To Complete And Attach Additional Schedules Based On The Claims That Have Been Made In Your Case Or Your Financial Circumstances": you_may_also_be_required_to_complete_and_attach_additional_schedules_based_on_the_claims_that_have_been_made_in_your_case_or_your_financial_circumstances
+    input type: area
+    required: True
+---
+question: |
+  If you have income that is not shown in Part I of the financial statement (for example, partnership 
+fields:
+  - "If You Have Income That Is Not Shown In Part I Of The Financial Statement": if_you_have_income_that_is_not_shown_in_part_i_of_the_financial_statement
+    datatype: currency
+    required: True
+---
+question: |
+  If you have made or responded to a claim for child support that involves undue hardship or a claim f
+fields:
+  - "If You Have Made Or Responded To A Claim For Child Support That Involves Undue Hardship Or A Claim For Spousal Support You Must Also Complete Schedule B": if_you_have_made_or_responded_to_a_claim_for_child_support_that_involves_undue_hardship_or_a_claim_for_spousal_support_you_must_also_complete_schedule_b
+    datatype: currency
+    required: True
+---
+question: |
+  If you or the other party has sought a contribution towards special or extraordinary expenses for th
+fields:
+  - "If You Or The Other Party Has Sought A Contribution Towards Special Or Extraordinary Expenses For The Child": if_you_or_the_other_party_has_sought_a_contribution_towards_special_or_extraordinary_expenses_for_the_child
+    datatype: currency
+    required: True
+---
+question: |
+  NOTES:
+fields:
+  - "Notes": notes
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

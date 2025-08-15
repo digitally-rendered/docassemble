@@ -1,0 +1,19 @@
+---
+metadata:
+  title: Test Wizard Bare Minimum
+---
+objects:
+  - user_party: Person
+---
+mandatory: True
+code: |
+  welcome
+  done
+---
+question: |
+  Welcome
+continue button field: welcome
+---
+event: done
+question: |
+  Done

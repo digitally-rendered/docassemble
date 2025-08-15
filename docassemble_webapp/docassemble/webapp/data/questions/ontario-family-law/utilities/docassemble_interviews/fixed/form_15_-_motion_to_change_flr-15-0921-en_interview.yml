@@ -1,0 +1,324 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-15---motion-to-change-flr-15-0921-en
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - financial: DAObject
+  - marriage: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.the_first_court_date_is
+  court_info.or_as_soon_as_possible_after_that_time_at
+  
+  # Applicant Information
+  applicant
+  
+  # Respondent Information
+  respondent
+  
+  # Children Information
+  children.the_orderagreement_recalculated_by_the_online_child_support_service_on
+  children.information_about_the_child
+  children.now_living_with
+  
+  # Financial Information
+  financial.assignee_of_support_order
+  financial.is_change_of_support_being_requested
+  financial.if_you_are_asking_to_change_support_please_give_information_about_your_income
+  
+  # Marriage Information
+  marriage.date_parties_married
+  
+  # Claims
+  claims.i_want_to_change_the_following_specific_terms_of_the_current_orderagreement
+  
+  # Other
+  form_15
+  full_legal_name
+  name
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  THE FIRST COURT DATE IS
+  - "THE FIRST COURT DATE IS": court_info.the_first_court_date_is
+    datatype: date
+---
+question: |
+  or as soon as possible after that time, at (court address)
+  - "or as soon as possible after that time, at (court address)": court_info.or_as_soon_as_possible_after_that_time_at
+---
+question: |
+  NO COURT DATE HAS BEEN SET FOR THIS CASE. You or another party should schedule a...
+  - "NO COURT DATE HAS BEEN SET FOR THIS CASE. You or another party should schedul...": court_info.no_court_date
+    datatype: date
+---
+question: |
+  YOU MUST RESPOND to this Motion to Change within 30 days (or 60 days if you were...
+  - "YOU MUST RESPOND to this Motion to Change within 30 days (or 60 days if you w...": court_info.you_must_respond
+    required: True
+---
+
+# Applicant Information Questions
+question: |
+  Applicant(s) Lawyer
+  - "Applicant(s) Lawyer": applicant
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s) Lawyer
+  - "Respondent(s) Lawyer": respondent
+---
+
+# Children Information Questions
+question: |
+  the order/agreement recalculated by the online Child Support Service on
+  - "the order/agreement recalculated by the online Child Support Service on": children.the_orderagreement_recalculated
+    datatype: currency
+    min: 0
+---
+question: |
+  Information about the child(ren):
+  - "Information about the child(ren):": children.information_about_the_child
+---
+question: |
+  Now living with
+fields:
+  - "Now living with
+(name of person and relationship to child)": children.now_living_with
+---
+question: |
+  child support – table amount
+  - "child support – table amount": children.child_support_table_amount
+    datatype: currency
+    min: 0
+---
+question: |
+  child support – special or extraordinary expenses
+  - "child support – special or extraordinary expenses": children.child_support_special_or_extraordinary_expenses
+    datatype: currency
+    min: 0
+---
+
+# Financial Information Questions
+question: |
+  Assignee of Support Order (if applicable)
+  - "Assignee of Support Order (if applicable)": financial.assignee_of_support_order
+    datatype: currency
+    min: 0
+---
+question: |
+  Is change of support being requested?
+fields:
+  - "Is change of support being requested?
+(YES or NO)": financial.is_change_of_support_being_requested
+    datatype: currency
+    min: 0
+---
+question: |
+  If you are asking to change support, please give information about your income (...
+  - "If you are asking to change support, please give information about your incom...": financial.if_you_are
+    datatype: currency
+    min: 0
+---
+question: |
+  Requesting party’s income
+  - "Requesting party’s income": financial.requesting_partys_income
+    datatype: currency
+    min: 0
+---
+question: |
+  Income source(s)
+fields:
+  - "Income source(s)
+(for example, employer, self-employment, social assistance, etc.)": financial.income_source
+    datatype: currency
+    min: 0
+---
+
+# Marriage Information Questions
+question: |
+  Date parties married (write “N/A” if not applicable):
+  - "Date parties married (write “N/A” if not applicable):": marriage.date_parties_married
+    datatype: date
+---
+
+# Claims Questions
+question: |
+  I want to change the following specific terms of the current order/agreement (pl...
+  - "I want to change the following specific terms of the current order/agreement ...": claims.i_want_to
+---
+
+# Other Questions
+question: |
+  Form 15:  Motion to Change
+  - "Form 15:  Motion to Change": form_15
+---
+question: |
+  Full legal name:
+  - "Full legal name:": full_legal_name
+---
+question: |
+  Name:
+  - "Name:": name
+---
+question: |
+  Address:
+  - "Address:": address
+---
+question: |
+  Phone & fax:
+  - "Phone & fax:": phone_fax
+---
+# Review screen
+question: |
+  Review Your Information
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${showifdef("applicant.name.first", applicant.name.full())}
+  * Address: ${showifdef("applicant.address.address", applicant.address.on_one_line())}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${showifdef("respondent.name.first", respondent.name.full())}
+  * Address: ${showifdef("respondent.address.address", respondent.address.on_one_line())}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: Ontario Family Law Form
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

@@ -19,6 +19,7 @@ spec:
       {{- end }}
       labels:
         {{- include "docassemble.labels" . | nindent 8 }}
+        app.kubernetes.io/component: web
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -114,6 +115,12 @@ spec:
               value: "false"
             {{- end }}
             
+            # Session Storage Configuration
+            - name: DASESSIONTYPE
+              value: "redis"
+            - name: DACELERYREDIS
+              value: "true"
+            
             # Container Configuration - exclude SQL since using external database
             - name: CONTAINERROLE
               value: "web:worker:websockets:cron:mail"
@@ -163,9 +170,15 @@ spec:
             - name: DAEXTERNALDATABASE
               value: "true"
             
-            # Disable OpenAPI spec generation during startup
+            # Development and Debug Configuration
             - name: PYTHONDONTWRITEBYTECODE
               value: "1"
+            - name: DADEBUG
+              value: "true"
+            - name: DAALLOWUPLOADS
+              value: "true"
+            - name: DAALLOWPLAYGROUND
+              value: "true"
               
           {{- if .Values.livenessProbe }}
           livenessProbe:

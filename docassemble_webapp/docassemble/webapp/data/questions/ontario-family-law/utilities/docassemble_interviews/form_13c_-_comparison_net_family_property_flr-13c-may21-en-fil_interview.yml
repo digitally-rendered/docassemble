@@ -1,0 +1,289 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 13 - Financial Statement (Support Claims)
+  short title: |
+    Form 13 - Financial Statement
+  description: |
+    Complete financial disclosure for support claims.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-13c---comparison-net-family-property-flr-13c-may21-en-fil
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - court_info: DAObject
+  - financial: DAObject
+  - marriage: DAObject
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.this_document_must_be_completed_once_both_parties_have_completed_and_exchanged_net_family_property_statements
+  
+  # Applicant Information
+  applicant
+  
+  # Respondent Information
+  respondent
+  
+  # Financial Information
+  financial.field_1_value_of_assets_owned_on_valuation_date
+  financial.field_2_value_of_debts_and_other_liabilities_on_valuation_date
+  financial.debts_and_other_liabilities
+  
+  # Marriage Information
+  marriage.net_value_of_property_owned_on_date_of_marriage
+  marriage.total_3
+  
+  # Other
+  form_13c
+  full_legal_name
+  address
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+fields:
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  This document must be completed once both parties have completed and exchanged Net Family Property S
+fields:
+  - "This document must be completed once both parties have completed and exchanged Net Family Property S": court_info.this_document_must_be_completed_once_both_parties_have_completed_and_exchanged_net_family_property_statements
+    datatype: currency
+    min: 0
+    required: True
+---
+
+# Applicant Information Questions
+question: |
+  Applicant(s) Lawyer
+fields:
+  - "Applicant(s) Lawyer": applicant
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s) Lawyer
+fields:
+  - "Respondent(s) Lawyer": respondent
+---
+
+# Financial Information Questions
+question: |
+  1.	VALUE OF ASSETS OWNED ON VALUATION DATE
+fields:
+  - "1.	VALUE OF ASSETS OWNED ON VALUATION DATE": financial.field_1_value_of_assets_owned_on_valuation_date
+    datatype: date
+---
+question: |
+  2.	VALUE OF DEBTS AND OTHER LIABILITIES ON VALUATION DATE
+fields:
+  - "2.	VALUE OF DEBTS AND OTHER LIABILITIES ON VALUATION DATE": financial.field_2_value_of_debts_and_other_liabilities_on_valuation_date
+    datatype: date
+---
+question: |
+  DEBTS AND OTHER LIABILITIES
+fields:
+  - "DEBTS AND OTHER LIABILITIES": financial.debts_and_other_liabilities
+    datatype: currency
+    min: 0
+---
+question: |
+  TOTALS: Value of Debts and Other Liabilities, (TOTAL 2)
+fields:
+  - "TOTALS: Value of Debts and Other Liabilities, (TOTAL 2)": financial.totals
+    datatype: currency
+    min: 0
+---
+question: |
+  3.	NET VALUE OF PROPERTY (Other than a Matrimonial Home) AND DEBTS ON DATE OF MARRIAGE
+fields:
+  - "3.	NET VALUE OF PROPERTY (Other than a Matrimonial Home) AND DEBTS ON DATE OF MARRIAGE": financial.field_3_net_value_of_property
+    datatype: date
+---
+
+# Marriage Information Questions
+question: |
+  NET VALUE OF PROPERTY OWNED ON DATE OF MARRIAGE (NET TOTAL 3)
+fields:
+  - "NET VALUE OF PROPERTY OWNED ON DATE OF MARRIAGE (NET TOTAL 3)": marriage.net_value_of_property_owned_on_date_of_marriage
+    datatype: date
+---
+question: |
+  TOTAL 3: Value of Property Owned on the Date of Marriage
+fields:
+  - "TOTAL 3: Value of Property Owned on the Date of Marriage": marriage.total_3
+    datatype: date
+---
+
+# Other Questions
+question: |
+  Form 13C: Comparison of
+ Net Family Property Statements
+fields:
+  - "Form 13C: Comparison of
+ Net Family Property Statements": form_13c
+    datatype: currency
+    min: 0
+---
+question: |
+  Full legal name:
+fields:
+  - "Full legal name:": full_legal_name
+---
+question: |
+  Address:
+fields:
+  - "Address:": address
+---
+question: |
+  Phone & fax:
+fields:
+  - "Phone & fax:": phone_fax
+---
+question: |
+  Email:
+fields:
+  - "Email:": email
+    datatype: email
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${applicant.name.full() if defined('applicant.name.first') else 'Not provided'}
+  * Address: ${applicant.address.on_one_line() if defined('applicant.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${respondent.name.full() if defined('respondent.name.first') else 'Not provided'}
+  * Address: ${respondent.address.on_one_line() if defined('respondent.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: ${form_name.replace('_', ' ').title()}
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

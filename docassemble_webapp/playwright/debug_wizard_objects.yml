@@ -1,0 +1,54 @@
+---
+metadata:
+  title: Debug Wizard - Objects Test
+  short title: Debug Objects
+  description: Test Docassemble object definitions
+---
+# Test modules import
+modules:
+  - re
+  - datetime
+---
+# Test basic objects first
+objects:
+  - user_situation: DAObject
+  - recommended_forms: DAList
+---
+# Test Person objects
+objects:
+  - applicant: Person
+  - respondent: Person
+---
+# Test Individual objects
+objects:
+  - user_lawyer: Individual
+  - other_lawyer: Individual
+---
+# Test Organization objects  
+objects:
+  - user_law_firm: Organization
+  - other_law_firm: Organization
+---
+# Test complex object with address
+objects:
+  - court: DAObject
+  - court.address: Address
+---
+# Simple mandatory flow
+mandatory: True
+code: |
+  test_complete
+---
+question: |
+  Objects Test
+subquestion: |
+  Testing if object definitions work properly.
+field: test_complete
+buttons:
+  - "Continue": True
+---
+event: final_screen
+question: |
+  Objects Test Complete
+subquestion: |
+  All object definitions are working properly.

@@ -1,0 +1,79 @@
+---
+# Ontario Family Law Form: caseway_chat_20250509
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Caseway Chat 20250509
+  short title: |
+    CASEWAY
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  user
+  can_we_validate_the_citations_for_this_imputing_income
+  caseway
+  ill_help_you_validate_the_citations_in_your_document_on_imputing_income_and_vocational_assessments_in_canada_and_the_us_based_on_my_research_of_relevant_case_law_i_can_confirm_many_of_the_canadian_legal_principles_youve_referenced_particularly_regarding_the_drygala_v_pauli_case_which_is_indeed_a_leading_case_on_income_imputation_in_canada_validation_of_key_canadian_legal_citations_drygala_v_pauli_your_document_correctly_identifies_this_as_a_leading_case_on_income_imputation_in_canada_from_the_retrieved_case_law_i_can_confirm
+  user
+  sources
+  field_2018_87267
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  User:
+fields:
+  - "User": user
+---
+question: |
+  can we validate the citations for this Imputing Income: Vocational Assessments and Legal Frameworks 
+fields:
+  - "Can We Validate The Citations For This Imputing Income": can_we_validate_the_citations_for_this_imputing_income
+    required: True
+---
+question: |
+  Caseway:
+fields:
+  - "Caseway": caseway
+---
+question: |
+  I'll help you validate the citations in your document on imputing income and vocational assessments 
+fields:
+  - "Ill Help You Validate The Citations In Your Document On Imputing Income And Vocational Assessments In Canada And The Us Based On My Research Of Relevant Case Law I Can Confirm Many Of The Canadian Legal Principles Youve Referenced Particularly Regarding The Drygala V Pauli Case Which Is Indeed A Leading Case On Income Imputation In Canada Validation Of Key Canadian Legal Citations Drygala V Pauli Your Document Correctly Identifies This As A Leading Case On Income Imputation In Canada From The Retrieved Case Law I Can Confirm": ill_help_you_validate_the_citations_in_your_document_on_imputing_income_and_vocational_assessments_in_canada_and_the_us_based_on_my_research_of_relevant_case_law_i_can_confirm_many_of_the_canadian_legal_principles_youve_referenced_particularly_regarding_the_drygala_v_pauli_case_which_is_indeed_a_leading_case_on_income_imputation_in_canada_validation_of_key_canadian_legal_citations_drygala_v_pauli_your_document_correctly_identifies_this_as_a_leading_case_on_income_imputation_in_canada_from_the_retrieved_case_law_i_can_confirm
+    datatype: date
+    required: True
+---
+question: |
+  User:
+fields:
+  - "User": user
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

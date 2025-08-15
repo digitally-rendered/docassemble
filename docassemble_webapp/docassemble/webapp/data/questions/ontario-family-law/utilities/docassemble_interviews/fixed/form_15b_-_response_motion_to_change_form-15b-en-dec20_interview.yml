@@ -1,0 +1,329 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-15b---response-motion-to-change-form-15b-en-dec20
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - financial: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.note
+  court_info.briefly_give_the
+  
+  # Applicant Information
+  applicant
+  
+  # Respondent Information
+  respondent
+  
+  # Children Information
+  children_community_and_social_services_showing_that
+  children.since_the_orderagreement
+  children.child_support_service_dated
+  
+  # Financial Information
+  financial.assignee_of_support_order
+  financial.i_request_to_convert_this_motion_to_change_support_from_s_17_to_s_181_of_the_divorce_act
+  financial.if_this_motion
+  
+  # Claims
+  claims.i_agree_with
+  claims.i_disagree_with
+  claims.i_disagree_with_the_claims_made_by_the_requesting_party_because
+  
+  # Other
+  form_15b
+  full_legal_name
+  name
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Note: The responding party must either complete the remainder of this form or co...
+  - "Note: The responding party must either complete the remainder of this form or...": court_info.note
+    input type: area
+    rows: 4
+    required: True
+---
+question: |
+  Briefly give the facts that show why the court should change the order/agreement...
+  - "Briefly give the facts that show why the court should change the order/agreem...": court_info.briefly_give_the
+    input type: area
+    rows: 4
+---
+question: |
+  Why didn’t you ask the court to change support sooner?
+  - "Why didn’t you ask the court to change support sooner?": court_info.why_didnt_you
+    datatype: currency
+    min: 0
+---
+
+# Applicant Information Questions
+question: |
+  Applicant(s) Lawyer
+  - "Applicant(s) Lawyer": applicant
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s) Lawyer
+  - "Respondent(s) Lawyer": respondent
+---
+
+# Children Information Questions
+question: |
+  Children, Community and Social Services showing that:
+  - "Children, Community and Social Services showing that:": children_community_and_social_services_showing_that
+---
+question: |
+  Since the order/agreement for child support was made, a Notice of Recalculation ...
+  - "Since the order/agreement for child support was made, a Notice of Recalculati...": children.since_the_orderagreement
+    datatype: currency
+    min: 0
+---
+question: |
+  Child Support Service dated
+  - "Child Support Service dated": children.child_support_service_dated
+    datatype: date
+---
+question: |
+  child support – table amount
+  - "child support – table amount": children.child_support_table_amount
+    datatype: currency
+    min: 0
+---
+question: |
+  child support – special or extraordinary expenses
+  - "child support – special or extraordinary expenses": children.child_support_special_or_extraordinary_expenses
+    datatype: currency
+    min: 0
+---
+
+# Financial Information Questions
+question: |
+  Assignee of Support Order (if applicable)
+  - "Assignee of Support Order (if applicable)": financial.assignee_of_support_order
+    datatype: currency
+    min: 0
+---
+question: |
+  I request to convert this motion to change support from s. 17 to s. 18.1 of the ...
+  - "I request to convert this motion to change support from s. 17 to s. 18.1 of t...": financial.i_request_to
+    datatype: currency
+    min: 0
+---
+question: |
+  If this motion to change includes a request to change support, please complete the following:
+  - "If this motion to change includes a request to change support, please complete the following:": financial.if_this_motion
+    datatype: currency
+    min: 0
+---
+question: |
+  support payor
+  - "support payor": financial.support_payor
+    datatype: currency
+    min: 0
+---
+question: |
+  support recipient
+  - "support recipient": financial.support_recipient
+    datatype: currency
+    min: 0
+---
+
+# Claims Questions
+question: |
+  I agree with the following claims made by the requesting party at paragraph 11 o...
+  - "I agree with the following claims made by the requesting party at paragraph 1...": claims.i_agree_with
+---
+question: |
+  I disagree with the following claims made by the requesting party at paragraph 1...
+  - "I disagree with the following claims made by the requesting party at paragrap...": claims.i_disagree_with
+---
+question: |
+  I disagree with the claims made by the requesting party because (briefly explain...
+  - "I disagree with the claims made by the requesting party because (briefly expl...": claims.i_disagree_with
+    input type: area
+    rows: 4
+---
+question: |
+  The order has been assigned to a government agency. (You must serve a copy of th...
+  - "The order has been assigned to a government agency. (You must serve a copy of...": claims.the_order_has_been_assigned_to_a_government_agency
+    required: True
+---
+question: |
+  I want to change the following specific terms of the current order/agreement (pl...
+  - "I want to change the following specific terms of the current order/agreement ...": claims.i_want_to
+---
+
+# Other Questions
+question: |
+  Form 15B:  Response to Motion to Change
+  - "Form 15B:  Response to Motion to Change": form_15b
+---
+question: |
+  Full legal name:
+  - "Full legal name:": full_legal_name
+---
+question: |
+  Name:
+  - "Name:": name
+---
+question: |
+  Address:
+  - "Address:": address
+---
+question: |
+  Phone & fax:
+  - "Phone & fax:": phone_fax
+---
+# Review screen
+question: |
+  Review Your Information
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${showifdef("applicant.name.first", applicant.name.full())}
+  * Address: ${showifdef("applicant.address.address", applicant.address.on_one_line())}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${showifdef("respondent.name.first", respondent.name.full())}
+  * Address: ${showifdef("respondent.address.address", respondent.address.on_one_line())}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: Ontario Family Law Form
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

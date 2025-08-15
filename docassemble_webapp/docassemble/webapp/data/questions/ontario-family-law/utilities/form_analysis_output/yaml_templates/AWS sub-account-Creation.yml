@@ -1,0 +1,82 @@
+---
+# Ontario Family Law Form: AWS sub-account-Creation
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Aws Sub-Account-Creation
+  short title: |
+    AWS SUB-ACCOUNT-CREATION
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  appendix_d
+  the_following_steps_should_be_done_following_the_creation_of_a_new_aws_subaccount
+  if_using_aws_credential_on_a_server_or_workstation_update_the_credential_files_with_the_profile_of_the_new_aws_subaccount
+  update_bucket_policy_for_infosec_centralized_log_buckets
+  can_be_done_via_terraform_via_https
+  add_new_aws_subaccount_in_updates3bucketpoliciestf_for_all_3_bucket_policies
+  can_be_done_via_this_python_script_https
+  can_be_done_via_this_python_script_https
+  can_be_done_via_this_python_script_https
+  can_be_done_via_this_python_script_https
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Appendix D: Cloud Consoles used by CPPIB & How to Configure
+fields:
+  - "Appendix D": appendix_d
+---
+question: |
+  The following steps should be done following the creation of a new AWS sub-account:
+fields:
+  - "The Following Steps Should Be Done Following The Creation Of A New Aws Subaccount": the_following_steps_should_be_done_following_the_creation_of_a_new_aws_subaccount
+---
+question: |
+  If using AWS credential on a server or workstation, update the credential files with the profile of 
+fields:
+  - "If Using Aws Credential On A Server Or Workstation Update The Credential Files With The Profile Of The New Aws Subaccount": if_using_aws_credential_on_a_server_or_workstation_update_the_credential_files_with_the_profile_of_the_new_aws_subaccount
+    datatype: date
+---
+question: |
+  Update bucket policy for InfoSec centralized log buckets
+fields:
+  - "Update Bucket Policy For Infosec Centralized Log Buckets": update_bucket_policy_for_infosec_centralized_log_buckets
+    datatype: date
+---
+question: |
+  Can be done via Terraform via https://github.cppib.ca/CPPIB/infosec-monitoring/tree/master/update_ce
+fields:
+  - "Can Be Done Via Terraform Via Https": can_be_done_via_terraform_via_https
+    datatype: date
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

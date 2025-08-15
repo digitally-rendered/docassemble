@@ -1,0 +1,323 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-25d---order-uncontested-trial-form-25d-en-dec20
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - financial: DAObject
+  - claims: DADict
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.judge
+  
+  # Applicant Information
+  applicant
+  
+  # Respondent Information
+  respondent
+  
+  # Children Information
+  children.name_address_of_childrens_lawyers_agent
+  children.this_order_affects_the_following_children
+  children.childs_full_legal_name
+  
+  # Financial Information
+  financial.has_an_income_of
+  financial.nature_of_special_or_extraordinary_expense
+  financial.spousal_support
+  
+  # Claims
+  claims.form_25d
+  claims.date_of_order
+  claims.order
+  
+  # Other
+  full_legal_name_address_for
+  lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  date_of_birth
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  Judge
+fields:
+  - "Judge
+(print or type name)": court_info.judge
+---
+question: |
+  The court considered an application/motion made by (name of person or persons)
+  - "The court considered an application/motion made by (name of person or persons)": court_info.the_court_considered_an_applicationmotion_made_by
+---
+question: |
+  The following persons were in court (names of parties and lawyers in court)
+  - "The following persons were in court (names of parties and lawyers in court)": court_info.the_following_persons_were_in_court
+---
+
+# Applicant Information Questions
+question: |
+  Applicant(s)
+  - "Applicant(s)": applicant
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s)
+  - "Respondent(s)": respondent
+---
+
+# Children Information Questions
+question: |
+  Name & address of Children’s Lawyer’s agent (street & number, municipality, post...
+  - "Name & address of Children’s Lawyer’s agent (street & number, municipality, p...": children.name_address_of_childrens_lawyers_agent
+---
+question: |
+  This order affects the following children:
+  - "This order affects the following children:": children.this_order_affects_the_following_children
+---
+question: |
+  Child’s full legal name
+  - "Child’s full legal name": children.childs_full_legal_name
+---
+question: |
+  parenting time with each child mentioned above.  The terms of parenting time are:
+  - "parenting time with each child mentioned above.  The terms of parenting time are:": children.parenting_time_with
+---
+question: |
+  List any other special days such as religious festivals, Christmas Day, birthday...
+  - "List any other special days such as religious festivals, Christmas Day, birth...": children.list_any_other
+    datatype: date
+---
+
+# Financial Information Questions
+question: |
+  has an income of $
+  - "has an income of $": financial.has_an_income_of
+    datatype: currency
+    min: 0
+---
+question: |
+  Nature of special or extraordinary expense
+  - "Nature of special or extraordinary expense": financial.nature_of_special_or_extraordinary_expense
+    datatype: currency
+    min: 0
+---
+question: |
+  SPOUSAL SUPPORT
+  - "SPOUSAL SUPPORT": financial.spousal_support
+    datatype: currency
+    min: 0
+---
+question: |
+  spousal support in the amount of $
+  - "spousal support in the amount of $": financial.spousal_support_in_the_amount_of
+    datatype: currency
+    min: 0
+---
+question: |
+  SUPPORT MONEY OWED
+  - "SUPPORT MONEY OWED": financial.support_money_owed
+    datatype: currency
+    min: 0
+---
+
+# Claims Questions
+question: |
+  Form 25D:  Order (Uncontested Trial)
+  - "Form 25D:  Order (Uncontested Trial)": claims.form_25d
+---
+question: |
+  Date of order
+  - "Date of order": claims.date_of_order
+    datatype: date
+---
+question: |
+  Order (Uncontested Trial)
+  - "Order (Uncontested Trial)": claims.order
+---
+question: |
+  ORDERS that (name of payor)
+  - "ORDERS that (name of payor)": claims.orders_that
+---
+question: |
+  IT ORDERS that (name of payor)
+  - "IT ORDERS that (name of payor)": claims.it_orders_that
+---
+
+# Other Questions
+question: |
+  Full legal name & address for service — street & number, municipality, postal co...
+  - "Full legal name & address for service — street & number, municipality, postal...": full_legal_name_address_for
+---
+question: |
+  Lawyer’s name & address — street & number, municipality, postal code, telephone ...
+  - "Lawyer’s name & address — street & number, municipality, postal code, telepho...": lawyers_name_address_street_number
+---
+question: |
+  Date of birth
+fields:
+  - "Date of birth
+(d, m, y)": date_of_birth
+    datatype: date
+---
+question: |
+  other (Specify.)
+  - "other (Specify.)": other
+---
+question: |
+  as follows:
+  - "as follows:": as_follows
+---
+# Review screen
+question: |
+  Review Your Information
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${showifdef("applicant.name.first", applicant.name.full())}
+  * Address: ${showifdef("applicant.address.address", applicant.address.on_one_line())}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${showifdef("respondent.name.first", respondent.name.full())}
+  * Address: ${showifdef("respondent.address.address", respondent.address.on_one_line())}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: Ontario Family Law Form
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

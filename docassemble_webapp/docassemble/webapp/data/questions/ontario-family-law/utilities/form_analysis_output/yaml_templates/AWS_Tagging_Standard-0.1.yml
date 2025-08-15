@@ -1,0 +1,95 @@
+---
+# Ontario Family Law Form: AWS_Tagging_Standard-0.1
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Aws Tagging Standard-0.1
+  short title: |
+    AWS
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  general_information
+  field_10_tags_per_resources
+
+  # Table Cell Section
+  owner_cppib
+  mandatory
+  activeequities_capitalmarket_privateequity_realassets_totalprotfoliomngt_finance_hrfacilities_legal_technologydata_publicaffair
+  cppib
+  related_to_what_application_cppib
+  cppib
+  contact_name_for_this_resource_cppib
+  related_to_what_role_within_the_application_cppib
+  cppib
+  resource_billed_to_which_cost_center_cppib
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  General Information:
+fields:
+  - "General Information": general_information
+---
+question: |
+  10 tags per resources (Most AWS resources support tags)
+fields:
+  - "Field 10 Tags Per Resources": field_10_tags_per_resources
+    datatype: currency
+---
+question: |
+  Owner?
+
+CPPIB:<Department>:<project name - optional>
+fields:
+  - "Owner Cppib": owner_cppib
+---
+question: |
+  Mandatory 
+
+(Except for “Project Name”)
+fields:
+  - "Mandatory": mandatory
+---
+question: |
+  Active_Equities
+Capital_Market
+Private_Equity
+Real_Assets
+Total_Protfolio_Mngt
+Finance
+HR_Facilities
+fields:
+  - "Activeequities Capitalmarket Privateequity Realassets Totalprotfoliomngt Finance Hrfacilities Legal Technologydata Publicaffair": activeequities_capitalmarket_privateequity_realassets_totalprotfoliomngt_finance_hrfacilities_legal_technologydata_publicaffair
+    datatype: currency
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

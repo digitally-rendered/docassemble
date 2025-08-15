@@ -1,0 +1,83 @@
+---
+# Ontario Family Law Form: Devops Strategy-IAC-0.1
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Devops Strategy-Iac-0.1
+  short title: |
+    DEVOPS STRATEGY-IAC-0.1
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  aro_application_release_orchestration_bill_of_materials_with_testingvalidated_versions_of_components_between_environments
+  aro_need_a_tool_that_does_this_better_than_jenkins_tfe_can_handle_the_deployments_easily_enough_just_need_an_intermediate_tool
+  fan_in_fan_out_pattern_is_supported_with_aro_bom_style_builds_that_snap_shot_a_set_of_services_in_a_known_state_and_allow_that_to_be_propagated_to_higher_environments
+  language_support
+  standardized_patterns_for_supported_technology_stacks
+  focused_on_audit_and_compliance_while_enabling_velocity
+  teams_can_request_new_pipeline_features_to_support_their_use_case
+  currently_we_spend_a_fair_amount_of_time_dealing_win_inconsistencies_and_differences_it_deployments_this_difference_requires_more_man_hours_to_support_and_has_dev_teams_doing_more_reengineering_work_to_build_their_snowflakes_deployments
+  puppet_team_has_a_hard_time_supporting_this_many_variations_and_each_team_does_things_slighting_differently_so_hard_to_codify_and_support
+  make_new_apps_follow_a_dedefined_standard_to_simplify_onboarding_kickoff_and_support
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  ARO – Application Release Orchestration – Bill of Materials with testing/validated versions of compo
+fields:
+  - "Aro Application Release Orchestration Bill Of Materials With Testingvalidated Versions Of Components Between Environments": aro_application_release_orchestration_bill_of_materials_with_testingvalidated_versions_of_components_between_environments
+    datatype: date
+---
+question: |
+  ARO need a tool that does this better than Jenkins, TFE can handle the deployments easily enough jus
+fields:
+  - "Aro Need A Tool That Does This Better Than Jenkins Tfe Can Handle The Deployments Easily Enough Just Need An Intermediate Tool": aro_need_a_tool_that_does_this_better_than_jenkins_tfe_can_handle_the_deployments_easily_enough_just_need_an_intermediate_tool
+---
+question: |
+  Fan in fan out pattern is supported with ARO BOM style builds that snap shot a set of services in a 
+fields:
+  - "Fan In Fan Out Pattern Is Supported With Aro Bom Style Builds That Snap Shot A Set Of Services In A Known State And Allow That To Be Propagated To Higher Environments": fan_in_fan_out_pattern_is_supported_with_aro_bom_style_builds_that_snap_shot_a_set_of_services_in_a_known_state_and_allow_that_to_be_propagated_to_higher_environments
+    datatype: currency
+---
+question: |
+  Language Support ( java, scala, python, node, angular ???? )
+fields:
+  - "Language Support": language_support
+    datatype: currency
+---
+question: |
+  Standardized patterns for supported technology stacks (SpringBoot, Flask, etc)
+fields:
+  - "Standardized Patterns For Supported Technology Stacks": standardized_patterns_for_supported_technology_stacks
+    datatype: currency
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

@@ -1,0 +1,83 @@
+---
+metadata:
+  title: Debug Error Handler
+  short title: Error Debug
+  description: Enhanced error display for development
+---
+modules:
+  - docassemble.base.util
+---
+features:
+  debug: True
+  hide standard menu: False
+---
+code: |
+  # Enhanced error handler for development
+  import sys
+  import traceback
+  
+  def get_error_details():
+    """Get detailed error information for debugging"""
+    exc_type, exc_value, exc_traceback = sys.exc_info()
+    if exc_type:
+      return {
+        'type': exc_type.__name__,
+        'message': str(exc_value),
+        'traceback': traceback.format_tb(exc_traceback),
+        'full_traceback': traceback.format_exc()
+      }
+    return None
+---
+mandatory: True
+code: |
+  error_details = get_error_details() if defined('get_error_details') else None
+---
+question: |
+  % if error_details:
+  ## ⚠️ Development Error Details
+  
+  **Error Type:** `${ error_details.get('type', 'Unknown') }`
+  
+  **Error Message:** 
+  ```
+  ${ error_details.get('message', 'No message available') }
+  ```
+  
+  **Traceback:**
+  ```python
+  ${ error_details.get('full_traceback', 'No traceback available') }
+  ```
+  
+  ### Debug Information:
+  - **Interview:** `${ user_info().filename if defined('user_info') else 'Unknown' }`
+  - **Question ID:** `${ user_info().question.id if defined('user_info') and hasattr(user_info().question, 'id') else 'Unknown' }`
+  - **Session ID:** `${ user_info().session if defined('user_info') else 'Unknown' }`
+  
+  % else:
+  ## Debug Mode Active
+  
+  No errors detected. This page will display detailed error information when errors occur.
+  
+  **Current Configuration:**
+  - Debug Mode: ✅ Enabled
+  - Error Display: ✅ Enhanced
+  - Traceback: ✅ Full
+  % endif
+subquestion: |
+  % if error_details:
+  ### How to Fix:
+  1. Check the YAML syntax in your interview file
+  2. Verify all variable names are defined
+  3. Check Python code blocks for syntax errors
+  4. Review the traceback for the specific line causing the issue
+  
+  ### Common Issues:
+  - **NameError**: Variable not defined - check spelling and question order
+  - **SyntaxError**: YAML or Python syntax issue - check indentation
+  - **KeyError**: Missing dictionary key - verify data structure
+  - **AttributeError**: Object doesn't have the attribute - check object type
+  % endif
+buttons:
+  - Refresh: restart
+  - Back: exit
+---

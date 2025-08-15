@@ -1,0 +1,94 @@
+---
+# Ontario Family Law Form: Okta - Vault POV (2)
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Okta - Vault Pov (2)
+  short title: |
+    OKTA - VAULT POV (2)
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  this_test_plan_for_vault_enterprise_supports_the_following_objectives
+  the_following_environment_must_be_created
+  a_number_of_test_hosts_with_vault_enterprise_and_consul_enterprise_installed_and_configured_see_https
+  the_below_connectivity_between_all_nodes
+  the_customer_and_vendor_must_agree_to_the_test_plan
+  in_order_to_set_up_vault_working_in_cluster_mode_an_ha_backend_is_required_consul_is_the_only_commercial_supported_backend_for_vault_please_refer_to_the_backend_reference_on_https
+  perform_the_following
+  step_1
+  step_2
+  step_3
+
+  # Table Cell Section
+  server_rpc
+  serf_lan
+  serf_wan
+  http_api
+  dns_interface
+  https
+  pass
+  https
+  pass
+  a_number_of_vault_nodes_should_be_configured_with_the_same_consul_based_storage_backend_https
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  This test plan for Vault Enterprise supports the following objectives:
+fields:
+  - "This Test Plan For Vault Enterprise Supports The Following Objectives": this_test_plan_for_vault_enterprise_supports_the_following_objectives
+    datatype: currency
+---
+question: |
+  The following environment must be created:
+fields:
+  - "The Following Environment Must Be Created": the_following_environment_must_be_created
+    required: True
+---
+question: |
+  A number of test hosts with Vault Enterprise and Consul Enterprise installed and configured. See htt
+fields:
+  - "A Number Of Test Hosts With Vault Enterprise And Consul Enterprise Installed And Configured See Https": a_number_of_test_hosts_with_vault_enterprise_and_consul_enterprise_installed_and_configured_see_https
+---
+question: |
+  The below connectivity between all nodes (and preferably between the test environment and all nodes)
+fields:
+  - "The Below Connectivity Between All Nodes": the_below_connectivity_between_all_nodes
+---
+question: |
+  The customer and vendor must agree to the Test Plan (this document) and Test Case Specifications (Ap
+fields:
+  - "The Customer And Vendor Must Agree To The Test Plan": the_customer_and_vendor_must_agree_to_the_test_plan
+    required: True
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

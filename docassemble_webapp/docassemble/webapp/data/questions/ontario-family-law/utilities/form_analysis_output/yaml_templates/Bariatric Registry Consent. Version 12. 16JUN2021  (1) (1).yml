@@ -1,0 +1,87 @@
+---
+# Ontario Family Law Form: Bariatric Registry Consent. Version 12. 16JUN2021  (1) (1)
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Bariatric Registry Consent. Version 12. 16Jun2021  (1) (1)
+  short title: |
+    BARIATRIC REGISTRY CONSENT. VERSION 12. 16JUN2021  (1) (1)
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  title_of_study
+  hrrhprincipal_investigator
+  you_are_being_invited_to_participate_in_the_bariatric_registry_project_the_purpose_of_this_registry_is_to_collect_information_about_patients_who_have_had_or_will_have_bariatric_treatment_across_ontario_there_are_several_organizations_and_hospitals_participating_in_this_project_including_the_centre_for_surgical_invention_and_innovation
+  the_purpose_of_this_the_bariatric_registry_project_is_to_collect_information_on_bariatric_treatment_across_ontario_to_better_understand_different_treatments_effects_and_results_we_collect_from_both_the_surgical_and_the_medical_streams_data_will_be_collected_for_the_duration_of_your_participation_in_the_bariatric_program_depending_on_program_length_and_attendance_this_will_include_the_standard_program
+  you_will_however_be_asked_to_complete_surveys_for_the_registry_during_some_of_your_visits_to_the_bariatric_clinic_or_by_phone
+  the_database_will_have_the_following_information
+  your_gender_and_date_of_birth_postal_code_and_a_uniquely_assigned_study_id_number_the_type_of_health_information_that_will_be_entered
+  o_assessment_surgery_and_followup_information
+  when_your_information_is_entered_into_the_registry_your_name_is_not_included_each_person_in_the_registry_is_assigned_a_unique_study_id_number_this_number_is_designed_to_protect_your_identity_project_related_documents_will_be_kept_for_10_years_after_project_completion_you_will_be_given_a_copy_of_the_signed_consent_form_and_the_original_form_will_be_kept_with_the_project_records_the_study_records_will_be_kept_in_a_secure_locked_area_at_all_times_at_the_bariatric_clinic_at_humber_river_hospital_the_registry_database_will_be_maintained_by_the_population_health_research_institute
+  in_addition_if_you_agree_to_sign_this_consent_your_information_in_this_registry_can_be_provided_to_the_ministry_of_health_and_longterm_care_and_may_be_used_along_with_data_from_government_sources_to_determine_better_ways_to_improve_the_quality_of_care_in_the_province_the_database_may_also_be_linked_to_approved_nationalinternational_registries_and_government_databases_such_as_the_institute_of_evaluative_sciences
+
+  # Table Cell Section
+  phone_number
+  principal_investigator
+  phone_number
+  coinvestigators
+  sponsors
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Title of Study:  	Bariatric Registry
+fields:
+  - "Title Of Study": title_of_study
+---
+question: |
+  HRRH-Principal Investigator:     Dr. Stephen Glazer
+fields:
+  - "Hrrhprincipal Investigator": hrrhprincipal_investigator
+---
+question: |
+  You are being invited to participate in The Bariatric Registry Project. The purpose of this registry
+fields:
+  - "You Are Being Invited To Participate In The Bariatric Registry Project The Purpose Of This Registry Is To Collect Information About Patients Who Have Had Or Will Have Bariatric Treatment Across Ontario There Are Several Organizations And Hospitals Participating In This Project Including The Centre For Surgical Invention And Innovation": you_are_being_invited_to_participate_in_the_bariatric_registry_project_the_purpose_of_this_registry_is_to_collect_information_about_patients_who_have_had_or_will_have_bariatric_treatment_across_ontario_there_are_several_organizations_and_hospitals_participating_in_this_project_including_the_centre_for_surgical_invention_and_innovation
+---
+question: |
+  The purpose of this The Bariatric Registry Project is to collect information on bariatric treatment 
+fields:
+  - "The Purpose Of This The Bariatric Registry Project Is To Collect Information On Bariatric Treatment Across Ontario To Better Understand Different Treatments Effects And Results We Collect From Both The Surgical And The Medical Streams Data Will Be Collected For The Duration Of Your Participation In The Bariatric Program Depending On Program Length And Attendance This Will Include The Standard Program": the_purpose_of_this_the_bariatric_registry_project_is_to_collect_information_on_bariatric_treatment_across_ontario_to_better_understand_different_treatments_effects_and_results_we_collect_from_both_the_surgical_and_the_medical_streams_data_will_be_collected_for_the_duration_of_your_participation_in_the_bariatric_program_depending_on_program_length_and_attendance_this_will_include_the_standard_program
+    required: True
+---
+question: |
+  You will however be asked to complete surveys for the registry during some of your visits to the bar
+fields:
+  - "You Will However Be Asked To Complete Surveys For The Registry During Some Of Your Visits To The Bariatric Clinic Or By Phone": you_will_however_be_asked_to_complete_surveys_for_the_registry_during_some_of_your_visits_to_the_bariatric_clinic_or_by_phone
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

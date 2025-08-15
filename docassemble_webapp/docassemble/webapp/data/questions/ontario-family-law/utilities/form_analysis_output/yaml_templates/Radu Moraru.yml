@@ -1,0 +1,82 @@
+---
+# Ontario Family Law Form: Radu Moraru
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Radu Moraru
+  short title: |
+    RADU MORARU
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Table Cell Section
+  datacenter_and_campus_architecture_design_implementation_security_and_support_network_security_design_implementation_and_support
+  datacenter_and_campus_architecture_design_implementation_security_and_support_network_security_design_implementation_and_support
+  field_112021present_lockheed_martin_corporation
+  field_112021present_lockheed_martin_corporation
+  field_112021present_lockheed_martin_corporation
+  university_of_transylvania_romania_bsc_computer_science_splunk_and_splunk_es_courses_splunk_core_user_certification_cyber_threat_intelligence_and_diamond_model_courses_with_threat_intel_academy_with_sergio_caltagirone_designing_cisco_data_center_infrastructure
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Datacenter and campus architecture, design, implementation, security, and support 
+Network security 
+fields:
+  - "Datacenter And Campus Architecture Design Implementation Security And Support Network Security Design Implementation And Support": datacenter_and_campus_architecture_design_implementation_security_and_support_network_security_design_implementation_and_support
+    datatype: currency
+---
+question: |
+  Datacenter and campus architecture, design, implementation, security, and support 
+Network security 
+fields:
+  - "Datacenter And Campus Architecture Design Implementation Security And Support Network Security Design Implementation And Support": datacenter_and_campus_architecture_design_implementation_security_and_support_network_security_design_implementation_and_support
+    datatype: currency
+---
+question: |
+  11/2021–present        Lockheed Martin Corporation (Contract/Remote)                                
+fields:
+  - "Field 112021Present Lockheed Martin Corporation": field_112021present_lockheed_martin_corporation
+    datatype: email
+---
+question: |
+  11/2021–present        Lockheed Martin Corporation (Contract/Remote)                                
+fields:
+  - "Field 112021Present Lockheed Martin Corporation": field_112021present_lockheed_martin_corporation
+    datatype: email
+---
+question: |
+  11/2021–present        Lockheed Martin Corporation (Contract/Remote)                                
+fields:
+  - "Field 112021Present Lockheed Martin Corporation": field_112021present_lockheed_martin_corporation
+    datatype: email
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

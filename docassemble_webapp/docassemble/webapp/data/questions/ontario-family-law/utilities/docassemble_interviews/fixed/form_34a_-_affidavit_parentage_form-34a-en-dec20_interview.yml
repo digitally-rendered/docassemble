@@ -1,0 +1,275 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-34a---affidavit-parentage-form-34a-en-dec20
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+  - marriage: DAObject
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.by
+  
+  # Applicant Information
+  applicant
+  
+  # Respondent Information
+  respondent
+  
+  # Children Information
+  children.the_childs_full_legal_name_is
+  children.i_am
+  children.the_child_was_born_on
+  
+  # Marriage Information
+  marriage.the_birth_parent_got_a_divorce_or_annulment_from
+  marriage.the_birth_parent_was_living_in_conjugal_relationship_outside_marriage_with
+  marriage.married_to
+  
+  # Other
+  form_34a
+  full_legal_name_address_for
+  lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  by (name of court)
+  - "by (name of court)": court_info.by
+---
+question: |
+  an order of (name of court)
+  - "an order of (name of court)": court_info.an_order_of
+---
+
+# Applicant Information Questions
+question: |
+  Applicant(s) (If the applicant is unknown at the time this affidavit is sworn/af...
+  - "Applicant(s) (If the applicant is unknown at the time this affidavit is sworn...": applicant
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s) (If there is a respondent, the first letter of the respondent’s surname may be used)
+  - "Respondent(s) (If there is a respondent, the first letter of the respondent’s surname may be used)": respondent
+---
+
+# Children Information Questions
+question: |
+  The child's full legal name is: (Give full legal name, date of birth, sex and bi...
+  - "The child's full legal name is: (Give full legal name, date of birth, sex and...": children.the_childs_full_legal_name_is
+---
+question: |
+  I am (State your relationship to the child.)
+  - "I am (State your relationship to the child.)": children.i_am
+---
+question: |
+  The child was born on (date)
+  - "The child was born on (date)": children.the_child_was_born_on
+    datatype: date
+---
+question: |
+  The child’s birth was registered or registration has been requested with the vit...
+  - "The child’s birth was registered or registration has been requested with the ...": children.the_childs_birth
+---
+question: |
+  parentage of the child and provided for the child’s support.
+  - "parentage of the child and provided for the child’s support.": children.parentage_of_the
+    datatype: currency
+    min: 0
+---
+
+# Marriage Information Questions
+question: |
+  the birth parent got a divorce or annulment from (spouse’s full legal name)
+  - "the birth parent got a divorce or annulment from (spouse’s full legal name)": marriage.the_birth_parent_got_a_divorce_or_annulment_from
+---
+question: |
+  the birth parent was living in conjugal relationship outside marriage with (pers...
+  - "the birth parent was living in conjugal relationship outside marriage with (p...": marriage.the_birth_parent
+---
+question: |
+  married to (spouse’s full legal name)
+  - "married to (spouse’s full legal name)": marriage.married_to
+---
+question: |
+  living in a conjugal relationship outside marriage with (spouse’s full legal name)
+  - "living in a conjugal relationship outside marriage with (spouse’s full legal name)": marriage.living_in_a
+---
+
+# Other Questions
+question: |
+  Form 34A:  Affidavit of Parentage,
+fields:
+  - "Form 34A:  Affidavit of Parentage,
+sworn/affirmed": form_34a
+---
+question: |
+  Full legal name & address for service — street & number, municipality, postal co...
+  - "Full legal name & address for service — street & number, municipality, postal...": full_legal_name_address_for
+---
+question: |
+  Lawyer’s name & address — street & number, municipality, postal code, telephone ...
+  - "Lawyer’s name & address — street & number, municipality, postal code, telepho...": lawyers_name_address_street_number
+---
+question: |
+  My name is (full legal name)
+  - "My name is (full legal name)": my_name_is
+---
+question: |
+  I live in (municipality & province)
+  - "I live in (municipality & province)": i_live_in
+---
+# Review screen
+question: |
+  Review Your Information
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${showifdef("applicant.name.first", applicant.name.full())}
+  * Address: ${showifdef("applicant.address.address", applicant.address.on_one_line())}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${showifdef("respondent.name.first", respondent.name.full())}
+  * Address: ${showifdef("respondent.address.address", respondent.address.on_one_line())}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: Ontario Family Law Form
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

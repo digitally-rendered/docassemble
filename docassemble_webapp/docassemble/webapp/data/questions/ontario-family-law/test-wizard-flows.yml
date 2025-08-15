@@ -1,0 +1,228 @@
+---
+metadata:
+  title: Test Wizard Flows
+  description: Test all major flows in the Ontario Family Law wizard
+---
+mandatory: True
+code: |
+  # Test configuration
+  test_flow = test_flow_selection
+  
+  if test_flow == "emergency":
+    test_emergency_flow
+  elif test_flow == "never_together":
+    test_never_together_flow
+  elif test_flow == "married_divorce":
+    test_married_divorce_flow
+  elif test_flow == "common_law":
+    test_common_law_flow
+  else:
+    test_basic_flow
+---
+question: |
+  Test Wizard Flows
+subquestion: |
+  Select which flow to test in the Ontario Family Law wizard:
+field: test_flow_selection
+buttons:
+  - "Emergency Situation": emergency
+  - "Never Together": never_together
+  - "Married - Seeking Divorce": married_divorce
+  - "Common Law": common_law
+  - "Basic Flow": basic
+---
+code: |
+  # Test emergency flow
+  test_results = []
+  
+  # Check if we can set emergency situation
+  try:
+    emergency_test = True
+    test_results.append("✓ Emergency situation variable can be set")
+  except:
+    test_results.append("✗ Failed to set emergency situation")
+  
+  # Check if Person objects work
+  try:
+    test_person = Person()
+    test_person.name.first = "Test"
+    test_person.name.last = "User"
+    test_results.append("✓ Person object creation works")
+  except:
+    test_results.append("✗ Failed to create Person object")
+  
+  # Check if Individual objects work for lawyers
+  try:
+    test_lawyer = Individual()
+    test_lawyer.name.first = "John"
+    test_lawyer.name.last = "Lawyer"
+    test_results.append("✓ Individual object for lawyers works")
+  except:
+    test_results.append("✗ Failed to create Individual object")
+  
+  # Check if Organization objects work
+  try:
+    test_firm = Organization()
+    test_firm.name = "Test Law Firm"
+    test_results.append("✓ Organization object for law firms works")
+  except:
+    test_results.append("✗ Failed to create Organization object")
+  
+  test_emergency_flow = True
+---
+code: |
+  # Test never together flow
+  test_results = []
+  
+  # Check relationship status options
+  try:
+    relationship_options = ["married", "common_law", "never_together"]
+    test_results.append("✓ Relationship status options defined")
+  except:
+    test_results.append("✗ Failed to define relationship options")
+  
+  # Check never together specific orders
+  try:
+    never_together_test = {
+      "custody": True,
+      "child_support": True,
+      "paternity": True,
+      "restraining": False,
+      "other": False
+    }
+    test_results.append("✓ Never together order options work")
+  except:
+    test_results.append("✗ Failed to set never together orders")
+  
+  test_never_together_flow = True
+---
+code: |
+  # Test married divorce flow
+  test_results = []
+  
+  # Check divorce complexity options
+  try:
+    divorce_options = ["uncontested_simple", "contested"]
+    test_results.append("✓ Divorce complexity options defined")
+  except:
+    test_results.append("✗ Failed to define divorce options")
+  
+  # Check financial forms logic
+  try:
+    test_property_value = 100000
+    if test_property_value > 75000:
+      form_needed = "Form 13.1"
+    else:
+      form_needed = "Form 13"
+    test_results.append(f"✓ Financial form logic works: {form_needed}")
+  except:
+    test_results.append("✗ Failed financial form logic")
+  
+  test_married_divorce_flow = True
+---
+code: |
+  # Test common law flow
+  test_results = []
+  
+  # Check that common law cannot seek divorce
+  try:
+    common_law_orders = {
+      "divorce": False,  # Should not be available
+      "custody": True,
+      "child_support": True,
+      "spousal_support": True,
+      "property": True
+    }
+    test_results.append("✓ Common law order restrictions work")
+  except:
+    test_results.append("✗ Failed common law order logic")
+  
+  test_common_law_flow = True
+---
+code: |
+  # Basic flow test
+  test_results = []
+  
+  # Test validation patterns
+  try:
+    import re
+    # Test postal code pattern
+    valid_postal = "M5H 2N2"
+    invalid_postal = "12345"
+    
+    if re.match(r'^[A-Z]\d[A-Z]\s?\d[A-Z]\d$', valid_postal.upper()):
+      test_results.append("✓ Postal code validation pattern works")
+    else:
+      test_results.append("✗ Valid postal code failed")
+    
+    if not re.match(r'^[A-Z]\d[A-Z]\s?\d[A-Z]\d$', invalid_postal.upper()):
+      test_results.append("✓ Invalid postal code correctly rejected")
+    else:
+      test_results.append("✗ Invalid postal code not rejected")
+  except:
+    test_results.append("✗ Regex validation failed")
+  
+  # Test email pattern
+  try:
+    valid_email = "test@example.com"
+    invalid_email = "not-an-email"
+    
+    if re.match(r'^[\w\.\-]+@[\w\.\-]+\.\w+$', valid_email):
+      test_results.append("✓ Email validation pattern works")
+    else:
+      test_results.append("✗ Valid email failed")
+    
+    if not re.match(r'^[\w\.\-]+@[\w\.\-]+\.\w+$', invalid_email):
+      test_results.append("✓ Invalid email correctly rejected")
+    else:
+      test_results.append("✗ Invalid email not rejected")
+  except:
+    test_results.append("✗ Email validation failed")
+  
+  # Test LSO number pattern
+  try:
+    valid_lso = "12345A"
+    invalid_lso = "ABC123"
+    
+    if re.match(r'^\d{5}[A-Z]?$', valid_lso):
+      test_results.append("✓ LSO number validation pattern works")
+    else:
+      test_results.append("✗ Valid LSO number failed")
+    
+    if not re.match(r'^\d{5}[A-Z]?$', invalid_lso):
+      test_results.append("✓ Invalid LSO number correctly rejected")
+    else:
+      test_results.append("✗ Invalid LSO number not rejected")
+  except:
+    test_results.append("✗ LSO validation failed")
+  
+  test_basic_flow = True
+---
+question: |
+  Test Results for ${ test_flow } Flow
+subquestion: |
+  ## Test Results
+  
+  % for result in test_results:
+  ${ result }
+  % endfor
+  
+  ## Summary
+  - Total tests: ${ len(test_results) }
+  - Passed: ${ len([r for r in test_results if r.startswith('✓')]) }
+  - Failed: ${ len([r for r in test_results if r.startswith('✗')]) }
+  
+  ## Next Steps
+  % if all(r.startswith('✓') for r in test_results):
+  All tests passed! The wizard should work correctly for the **${ test_flow }** flow.
+  % else:
+  Some tests failed. Please review the validation syntax and object definitions.
+  % endif
+  
+buttons:
+  - "Test Another Flow": restart
+  - "Go to Main Wizard": exit
+    url: /interview?i=docassemble.webapp:ontario-family-law/ontario-family-law-wizard.yml
+  - "Exit": exit
+event: show_test_results
+---

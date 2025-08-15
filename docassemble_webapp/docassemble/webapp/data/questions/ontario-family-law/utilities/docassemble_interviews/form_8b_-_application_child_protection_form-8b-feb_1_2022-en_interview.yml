@@ -1,0 +1,308 @@
+---
+metadata:
+  title: |
+    Ontario Family Law Form 8 - Application (General)
+  short title: |
+    Form 8 - Application
+  description: |
+    Complete Ontario Family Court Form 8 - Application (General) to start family court proceedings.
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-09
+  tags:
+    - ontario
+    - family-law
+    - form-8b---application-child-protection-form-8b-feb-1-2022-en
+    - court-forms
+  help_url: https://ontariocourtforms.on.ca/en/family-law-forms/
+---
+include:
+  - ontario-family-law-common.yml
+---
+features:
+  question help button: True
+  navigation: True
+  progress bar: True
+  show progress bar percentage: True
+  css: ontario-family-law.css
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual, minimum_number=0)
+  - court_info: DAObject
+---
+mandatory: True
+code: |
+  # Introduction
+  introduction_screen
+  legal_disclaimer_accepted
+  
+  # Main interview flow
+  
+  # Court Information
+  court_info.court_file_number
+  court_info.court_office_address
+  court_info.the_first_court_date_is
+  
+  # Applicant Information
+  applicant
+  applicant.to_the_applicants_best_knowledge_the_child
+  applicant.to_the_applicants_best_knowledge_the_parties_or_the_child
+  
+  # Respondent Information
+  respondent
+  respondent.to_the_respondent
+  
+  # Children Information
+  children.form_8b
+  children.name_address_of_childrens_lawyers_agent_for_service
+  children.if_you_want_to_oppose_any_claim_in_this_case_you_or_your_lawyer_must_prepare_an_answer_and_plan_of_care
+  
+  # Other
+  full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+  or_as_soon_as_possible_after_that_time_at
+  
+  # Review and submission
+  review_screen
+  final_screen
+---
+# Introduction screen
+question: |
+  Welcome to the Ontario Family Law Forms Assistant
+subquestion: |
+  This interview will help you complete your Ontario family law court form.
+  
+  Before you begin, please have the following information ready:
+  
+  * Personal identification for all parties
+  * Contact information
+  * Court file number (if you have one)
+  * Financial information (if applicable)
+  * Details about your case
+  
+  **Important:** This tool provides assistance in completing court forms but does not provide legal advice.
+continue button field: introduction_screen
+---
+# Legal disclaimer
+question: |
+  Legal Information Disclaimer
+subquestion: |
+  **Please read carefully:**
+  
+  This tool helps you complete Ontario family law court forms. It does not provide legal advice.
+  
+  * The information you provide will be used to populate official court forms
+  * You are responsible for the accuracy of all information
+  * Consider consulting a lawyer for legal advice about your case
+  * Court forms must be filed according to the Family Law Rules
+  
+  Do you understand and accept these terms?
+field: legal_disclaimer_accepted
+buttons:
+  - "I understand and accept": True
+  - "I do not accept": False
+---
+# Court Information Questions
+question: |
+  Court File Number
+fields:
+  - "Court File Number": court_info.court_file_number
+---
+question: |
+  Court office address
+fields:
+  - "Court office address": court_info.court_office_address
+---
+question: |
+  THE FIRST COURT DATE IS (date)
+fields:
+  - "THE FIRST COURT DATE IS (date)": court_info.the_first_court_date_is
+    datatype: date
+---
+question: |
+  If you have also been served with a notice of motion, there may be an earlier court date and you or 
+fields:
+  - "If you have also been served with a notice of motion, there may be an earlier court date and you or ": court_info.if_you_have_also_been_served_with_a_notice_of_motion_there_may_be_an_earlier_court_date_and_you_or_your_lawyer_should_come_to_court_for_the_motion
+    datatype: date
+---
+question: |
+  The children’s aid society is also making a claim for child support. You MUST fill out a Financial S
+fields:
+  - "The children’s aid society is also making a claim for child support. You MUST fill out a Financial S": court_info.the_childrens_aid_society_is_also_making_a_claim_for_child_support_you_must_fill_out_a_financial_statement
+    datatype: currency
+    min: 0
+    required: True
+---
+
+# Applicant Information Questions
+question: |
+  Applicant(s) (In most cases, the applicant will be a children’s aid society.)
+fields:
+  - "Applicant(s) (In most cases, the applicant will be a children’s aid society.)": applicant
+---
+question: |
+  To the applicant’s best knowledge, the child(ren)
+fields:
+  - "To the applicant’s best knowledge, the child(ren)": applicant.to_the_applicants_best_knowledge_the_child
+---
+question: |
+  To the applicant’s best knowledge, the parties or the child(ren)
+fields:
+  - "To the applicant’s best knowledge, the parties or the child(ren)": applicant.to_the_applicants_best_knowledge_the_parties_or_the_child
+---
+question: |
+  The following is a brief statement of the facts upon which the applicant is relying in this applicat
+fields:
+  - "The following is a brief statement of the facts upon which the applicant is relying in this applicat": applicant.the_following_is_a_brief_statement_of_the_facts_upon_which_the_applicant_is_relying_in_this_application
+    input type: area
+    rows: 4
+---
+
+# Respondent Information Questions
+question: |
+  Respondent(s) (In most cases, a respondent will be a “parent” within the meaning of section 74 of th
+fields:
+  - "Respondent(s) (In most cases, a respondent will be a “parent” within the meaning of section 74 of th": respondent
+---
+question: |
+  TO THE RESPONDENT(S):
+fields:
+  - "TO THE RESPONDENT(S):": respondent.to_the_respondent
+---
+
+# Children Information Questions
+question: |
+  Form 8B: Application 
+(Child Protection and 
+Status Review)
+fields:
+  - "Form 8B: Application 
+(Child Protection and 
+Status Review)": children.form_8b
+---
+question: |
+  Name & address of Children’s Lawyer’s agent for service (street & number, municipality, postal code,
+fields:
+  - "Name & address of Children’s Lawyer’s agent for service (street & number, municipality, postal code,": children.name_address_of_childrens_lawyers_agent_for_service
+---
+question: |
+  IF YOU WANT TO OPPOSE ANY CLAIM IN THIS CASE, you or your lawyer must prepare an Answer and Plan of 
+fields:
+  - "IF YOU WANT TO OPPOSE ANY CLAIM IN THIS CASE, you or your lawyer must prepare an Answer and Plan of ": children.if_you_want_to_oppose_any_claim_in_this_case_you_or_your_lawyer_must_prepare_an_answer_and_plan_of_care
+    required: True
+---
+question: |
+  Application (Child Protection
+and Status Review)
+fields:
+  - "Application (Child Protection
+and Status Review)": children.application
+---
+question: |
+  the child(ren) has/have been sexually abused or sexually exploited, by the person having charge of t
+fields:
+  - "the child(ren) has/have been sexually abused or sexually exploited, by the person having charge of t": children.the_child
+---
+
+# Other Questions
+question: |
+  Full legal name & address for service — street & number, municipality, postal code, telephone & fax 
+fields:
+  - "Full legal name & address for service — street & number, municipality, postal code, telephone & fax ": full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+---
+question: |
+  Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-
+fields:
+  - "Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-": lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address
+---
+question: |
+  or as soon as possible after that time, at: (address)
+fields:
+  - "or as soon as possible after that time, at: (address)": or_as_soon_as_possible_after_that_time_at
+---
+question: |
+  YOU HAVE ONLY 30 DAYS AFTER THIS APPLICATION IS SERVED ON YOU (60 DAYS IF THIS APPLICATION IS SERVED
+fields:
+  - "YOU HAVE ONLY 30 DAYS AFTER THIS APPLICATION IS SERVED ON YOU (60 DAYS IF THIS APPLICATION IS SERVED": you_have_only_30_days_after_this_application_is_served_on_you
+---
+question: |
+  WARNING: This case is subject to case management, which means that the case runs on a timetable. Tha
+fields:
+  - "WARNING: This case is subject to case management, which means that the case runs on a timetable. Tha": warning
+---
+# Review screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided:
+  
+  % if 'applicant_information' in sections:
+  **Applicant Information**
+  
+  * Name: ${applicant.name.full() if defined('applicant.name.first') else 'Not provided'}
+  * Address: ${applicant.address.on_one_line() if defined('applicant.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'respondent_information' in sections:
+  **Respondent Information**
+  
+  * Name: ${respondent.name.full() if defined('respondent.name.first') else 'Not provided'}
+  * Address: ${respondent.address.on_one_line() if defined('respondent.address.address') else 'Not provided'}
+  % endif
+  
+  % if 'court_information' in sections:
+  **Court Information**
+  
+  * Court: ${court_info.name if defined('court_info.name') else 'Not provided'}
+  * File Number: ${court_info.file_number if defined('court_info.file_number') else 'Not provided'}
+  % endif
+  
+  Is this information correct?
+continue button field: review_screen
+continue button label: Yes, continue
+---
+# Final screen
+event: final_screen
+question: |
+  Form Completed
+subquestion: |
+  Your form has been completed and is ready for download.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Review the form carefully
+  3. Sign the form where required
+  4. File the form with the court
+  5. Serve copies as required by the Family Law Rules
+  
+  **Important Reminders:**
+  
+  * Keep copies of all documents for your records
+  * File your documents on time
+  * Consider seeking legal advice if you have questions
+  
+attachment:
+  - name: Completed Form
+    filename: completed_form
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Your completed form will be attached here]
+buttons:
+  - Exit: exit
+  - Start Over: restart
+---
+# Attachment generation (placeholder)
+attachment:
+  - name: ${form_name.replace('_', ' ').title()}
+    filename: ${form_name}
+    valid formats:
+      - pdf
+      - docx
+    content: |
+      [Form content will be generated here based on the Word template]
+---

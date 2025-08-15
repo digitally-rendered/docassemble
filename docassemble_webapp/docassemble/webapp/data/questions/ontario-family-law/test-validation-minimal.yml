@@ -1,0 +1,31 @@
+---
+metadata:
+  title: Test Validation Minimal
+---
+modules:
+  - re
+  - datetime
+---
+objects:
+  - applicant: Person
+---
+mandatory: True
+code: |
+  collect_applicant
+  final
+---
+question: |
+  Applicant Information
+fields:
+  - "First Name": applicant.name.first
+    required: True
+  - "Email": applicant.email
+    datatype: email
+continue button field: collect_applicant
+---
+event: final
+question: |
+  Test Complete
+subquestion: |
+  Name: ${ applicant.name }
+  Email: ${ applicant.email if defined('applicant.email') else 'Not provided' }

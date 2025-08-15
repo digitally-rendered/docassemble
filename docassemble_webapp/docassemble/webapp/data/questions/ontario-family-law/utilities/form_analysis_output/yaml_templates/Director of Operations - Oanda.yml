@@ -1,0 +1,83 @@
+---
+# Ontario Family Law Form: Director of Operations - Oanda
+# Auto-generated template - requires review and customization
+metadata:
+  title: |
+    Director Of Operations - Oanda
+  short title: |
+    DIRECTOR OF OPERATIONS - OANDA
+  description: |
+    Ontario family law form interview
+  authors:
+    - name: Auto-generated
+  revision_date: 2025-08-09
+---
+mandatory: True
+code: |
+  # Interview order
+  intro_screen
+
+  # Paragraph Section
+  primary_duties
+  responsible_for_the_design_development_monitoring_and_support_of_financial_trading_systems_located_in_multiple_datacentres_globally
+  internal_support_for_multiple_offices_within_our_corporate_environment
+  project_management
+  team_management
+  develop_and_maintain_performance_service_level_objectives
+  identify_technology_solution_opportunities_andor_processes_to_support_business_growth_opportunities
+  education_requirements
+  experience_skills
+  field_8_years_managing_technical_teams_preference_will_be_given_to_candidates_who_can_demonstrate_experience_in_a_variety_of_different_corporate_and_technical_environments
+  
+  final_screen
+---
+question: |
+  Welcome to the {form_structure['form_name'].replace('_', ' ').title()} Interview
+subquestion: |
+  This interview will help you complete the Ontario family law form.
+  
+  Please have the following information ready:
+  * Personal identification
+  * Contact information
+  * Relevant dates
+  * Financial information (if applicable)
+continue button field: intro_screen
+---
+question: |
+  Primary Duties:
+fields:
+  - "Primary Duties": primary_duties
+---
+question: |
+  Responsible for the design, development, monitoring and support of financial trading systems located
+fields:
+  - "Responsible For The Design Development Monitoring And Support Of Financial Trading Systems Located In Multiple Datacentres Globally": responsible_for_the_design_development_monitoring_and_support_of_financial_trading_systems_located_in_multiple_datacentres_globally
+    datatype: currency
+---
+question: |
+  Internal support for multiple offices within our corporate environment: this includes voice/data net
+fields:
+  - "Internal Support For Multiple Offices Within Our Corporate Environment": internal_support_for_multiple_offices_within_our_corporate_environment
+    datatype: email
+---
+question: |
+  Project management: Lead and direct various enterprise project initiatives, to include managing all 
+fields:
+  - "Project Management": project_management
+    datatype: currency
+---
+question: |
+  Team management: Develop, manage and support a set of highly-skilled technical teams. Set priorities
+fields:
+  - "Team Management": team_management
+    datatype: currency
+---
+event: final_screen
+question: |
+  Form Complete
+subquestion: |
+  Your form has been completed. You can now download or print it.
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
