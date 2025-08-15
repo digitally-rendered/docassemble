@@ -1,0 +1,268 @@
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#f9f9f9', 'primaryTextColor':'#333', 'primaryBorderColor':'#7C4DFF', 'lineColor':'#5b5b5b', 'secondaryColor':'#006064', 'tertiaryColor':'#fff'}}}%%
+flowchart TB
+    %% Start of Case
+    Start([Client Consultation]) --> CaseType{Case Type?}
+    
+    %% Service and Representation
+    subgraph Service ["Service & Representation"]
+        F4[Form 4: Change in Representation]
+        F6B[Form 6B: Affidavit of Service]
+        F6C[Form 6C: Certificate of Service]
+    end
+    
+    %% Divorce Process
+    subgraph Divorce ["Divorce Process"]
+        style Divorce fill:#ffe6e6
+        F8A[Form 8A: Application for Divorce]:::common
+        F36[Form 36: Affidavit for Divorce]:::common
+        F36A[Form 36A: Certificate of Clerk]
+        F25A[Form 25A: Divorce Order]:::common
+        
+        F8A --> F36
+        F36 --> F36A
+        F36A --> F25A
+    end
+    
+    %% General Applications
+    subgraph General ["General Applications"]
+        style General fill:#e6f3ff
+        F8[Form 8: Application General]:::common
+        F10[Form 10: Answer]:::common
+        F10A[Form 10A: Reply]
+        F12[Form 12: Notice of Withdrawal]
+        
+        F8 --> F10
+        F10 --> F10A
+    end
+    
+    %% Child Protection
+    subgraph ChildProt ["Child Protection"]
+        style ChildProt fill:#fff0e6
+        F8B[Form 8B: Application Child Protection]
+        F8B1[Form 8B.1: Application Status Review]
+        F8B2[Form 8B.2: Application Temp Care]
+        F33B[Form 33B: Response Child Protection]
+        F33B1[Form 33B.1: Answer & Plan of Care]
+        F33B2[Form 33B.2: Answer Status Review]
+        
+        F8B --> F33B
+        F8B --> F33B1
+        F8B1 --> F33B2
+    end
+    
+    %% Adoption Process
+    subgraph Adoption ["Adoption"]
+        style Adoption fill:#f0e6ff
+        F8D[Form 8D: Application for Adoption]
+        F33F[Form 33F: Access Application]
+        F34[Form 34: Child's Consent]
+        F34A[Form 34A: Affidavit of Parentage]
+        F34F[Form 34F: Parent's Consent]
+        F34G[Form 34G: Affidavit Adopting Parent]
+        F34I[Form 34I: Affidavit Adopting Relative]
+        F25C[Form 25C: Adoption Order]
+        
+        F8D --> F34
+        F8D --> F34F
+        F8D --> F34G
+        F34G --> F25C
+    end
+    
+    %% Financial Disclosure
+    subgraph Financial ["Financial Disclosure"]
+        style Financial fill:#e6ffe6
+        F13[Form 13: Financial Statement Support]:::common
+        F13_1[Form 13.1: Financial Statement Property]:::common
+        F13A[Form 13A: Certificate Financial Disclosure]
+        F13B[Form 13B: Net Family Property]
+        F13C[Form 13C: Comparison NFP]
+        F27[Form 27: Request Financial Statement]
+        F27A[Form 27A: Request Financial Info]
+        F27B[Form 27B: Net Family Property Respondent]
+        F27C[Form 27C: Comparison NFP Respondent]
+        
+        F13 --> F13A
+        F13_1 --> F13B
+        F13B --> F13C
+    end
+    
+    %% Motions
+    subgraph Motions ["Motions"]
+        style Motions fill:#ffe6f0
+        F14[Form 14: Notice of Motion]:::common
+        F14A[Form 14A: Affidavit]:::common
+        F14B[Form 14B: Motion Form]:::common
+        F14C[Form 14C: Confirmation of Motion]
+        F14D[Form 14D: Order on Motion Without Notice]
+        
+        F14 --> F14A
+        F14A --> F14B
+        F14B --> F14C
+    end
+    
+    %% Motion to Change
+    subgraph Change ["Variations/Changes"]
+        style Change fill:#f0f9ff
+        F15[Form 15: Motion to Change]:::common
+        F15A[Form 15A: Change Information Form]
+        F15B[Form 15B: Response to Motion]
+        F15C[Form 15C: Consent Motion]
+        F15D[Form 15D: Consent Change Child Support]
+        
+        F15 --> F15A
+        F15 --> F15B
+        F15 --> F15C
+    end
+    
+    %% Conferences
+    subgraph Conference ["Conferences"]
+        style Conference fill:#fff9e6
+        F17[Form 17: Conference Notice]
+        F17A[Form 17A: Case Conference Brief]:::common
+        F17B[Form 17B: Confirmation]
+        F17C[Form 17C: Settlement Conference Brief]
+        F17D[Form 17D: Status Certificate]
+        F17E[Form 17E: Trial Management Brief]
+        F17F[Form 17F: Confirmation of Conference]
+        
+        F17 --> F17A
+        F17A --> F17C
+        F17C --> F17E
+    end
+    
+    %% Trial Process
+    subgraph Trial ["Trial Process"]
+        style Trial fill:#e6e6ff
+        F20[Form 20: Request for Order]
+        F20_1[Form 20.1: Request Family Arbitration]
+        F20A[Form 20A: Authorization Commissioner]
+        F20B[Form 20B: Questions for Written Examination]
+        F22[Form 22: Request to Admit]
+        F22A[Form 22A: Response to Request]
+        F23[Form 23: Summons to Witness]
+        F23A[Form 23A: Summons Outside Ontario]
+        F23B[Form 23B: Order for Prisoner Attendance]
+        F23C[Form 23C: Affidavit for Uncontested Trial]
+        
+        F20 --> F22
+        F22 --> F22A
+    end
+    
+    %% Court Orders
+    subgraph Orders ["Court Orders"]
+        style Orders fill:#ffffe6
+        F25[Form 25: Order General]:::common
+        F25B[Form 25B: Secure Treatment Order]
+        F25D[Form 25D: Order Uncontested Trial]
+        F25E[Form 25E: Notice Discontinuance]
+        F25F[Form 25F: Restraining Order]
+        F25G[Form 25G: Restraining Order on Motion]
+        F25H[Form 25H: Order Terminating Restraining]
+        
+        F25F --> F25H
+    end
+    
+    %% Enforcement
+    subgraph Enforcement ["Enforcement"]
+        style Enforcement fill:#ffe6e6
+        F26[Form 26: Statement Money Owed]
+        F26A[Form 26A: Affidavit Default Payment]
+        F26B[Form 26B: Affidavit for Filing Support]
+        F26C[Form 26C: Appointment for Assessment]
+        F28[Form 28: Writ of Seizure and Sale]
+        F28A[Form 28A: Request for Writ]
+        F28B[Form 28B: Statutory Declaration Sheriff]
+        F28C[Form 28C: Writ of Temporary Seizure]
+        F29[Form 29: Request for Garnishment]
+        F29A[Form 29A: Notice Garnishment Lump Sum]
+        F29B[Form 29B: Notice Garnishment Periodic]
+        F29C[Form 29C: Notice to Stop Garnishment]
+        F29D[Form 29D: Statutory Declaration Garnishment]
+        F29E[Form 29E: Dispute from Person Garnished]
+        F29F[Form 29F: Dispute from Garnishee]
+        F29G[Form 29G: Dispute from Co-owner]
+        F29H[Form 29H: Dispute from Support Payor]
+        F29I[Form 29I: Notice Garnishment Hearing]
+        F29J[Form 29J: Notice to Stop Garnishment FRO]
+        F30[Form 30: Notice Default Hearing]
+        F30A[Form 30A: Request Default Hearing]
+        F30B[Form 30B: Default Dispute]
+        F31[Form 31: Notice Contempt Motion]
+        F32[Form 32: Bond/Recognizance]
+        F32A[Form 32A: Notice of Forfeiture Motion]
+        F32B[Form 32B: Warrant for Arrest]
+        F32C[Form 32C: Affidavit for Warrant]
+        F32D[Form 32D: Order to Discharge from Custody]
+        
+        F26 --> F29
+        F29 --> F29A
+        F29 --> F29B
+        F30 --> F31
+        F31 --> F32B
+    end
+    
+    %% Interjurisdictional Support
+    subgraph InterJuris ["Interjurisdictional Support"]
+        style InterJuris fill:#e6fff9
+        F37[Form 37: Notice Interjurisdictional Order]
+        F37A[Form 37A: Affidavit Interjurisdictional]
+        F37B[Form 37B: Information & Evidence Brief]
+        F37C[Form 37C: Notice of Hearing]
+        F37D[Form 37D: Notice Registration]
+        F37E[Form 37E: Confirmation of Written Hearing]
+        
+        F37 --> F37A
+        F37A --> F37B
+    end
+    
+    %% Alternative Dispute Resolution
+    subgraph ADR ["Alternative Dispute Resolution"]
+        style ADR fill:#f5e6ff
+        F43[Form 43: Request Brief Legal Advice]
+        F43A[Form 43A: Request Online Consultation]
+        F43B[Form 43B: Affidavit Brief Legal Advice]
+        F43C[Form 43C: Order for Legal Advice]
+        
+        F43 --> F43B
+        F43A --> F43B
+        F43B --> F43C
+    end
+    
+    %% Main Flow Connections
+    CaseType -->|Divorce| F8A
+    CaseType -->|Custody/Support| F8
+    CaseType -->|Child Protection| F8B
+    CaseType -->|Adoption| F8D
+    CaseType -->|Emergency| F25F
+    
+    F8 --> Financial
+    F8A --> Financial
+    F10 --> Financial
+    
+    F8 --> Motions
+    F10 --> Motions
+    
+    Motions --> Conference
+    Conference --> Trial
+    Trial --> Orders
+    
+    Orders --> Enforcement
+    
+    F8 --> Change
+    F25 --> Change
+    
+    %% Service connections
+    F8 -.-> F6B
+    F8A -.-> F6B
+    F14 -.-> F6B
+    F15 -.-> F6B
+    
+    %% Styling for common forms
+    classDef common stroke:#FFD700,stroke-width:3px;
+    classDef optional stroke-dasharray: 5 5;
+    
+    %% Legend
+    subgraph Legend ["Legend"]
+        CommonForm[Most Common Forms]:::common
+        OptionalStep[Optional Process]:::optional
+    end

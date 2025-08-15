@@ -28,6 +28,11 @@ async function completeWizardFlow(wizardPage, scenario) {
   // Handle relationship status
   await wizardPage.handleRelationshipStatus(scenario.relationship_status);
   
+  // Handle divorce question for married couples
+  if (scenario.relationship_status === 'married') {
+    await wizardPage.handleDivorceQuestion(scenario.orders.divorce || false);
+  }
+  
   // Handle orders sought
   if (scenario.relationship_status === 'never_together') {
     await wizardPage.handleNeverTogetherOrders(scenario.orders);

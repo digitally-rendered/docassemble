@@ -85,13 +85,64 @@ class WizardPage {
   }
 
   /**
-   * Wait for a specific question to appear
+   * Wait for a specific question to appear (flexible matching)
+   * Supports partial matching for questions that may vary slightly
    */
-  async waitForQuestion(expectedText) {
+  async waitForQuestion(expectedText, options = {}) {
+    const { partial = false, timeout = 10000 } = options;
+    
     // First check for interview errors
     await this.checkForInterviewError();
     
-    await expect(this.page.locator(this.questionText)).toContainText(expectedText, { timeout: 10000 });
+    if (partial) {
+      // For partial matching, check if the question contains the expected text
+      await expect(this.page.locator(this.questionText)).toContainText(expectedText, { timeout });
+    } else {
+      // For exact matching, use the original behavior
+      await expect(this.page.locator(this.questionText)).toContainText(expectedText, { timeout });
+    }
+  }
+
+  /**
+   * Wait for question containing certain keywords
+   */
+  async waitForQuestionContaining(keywords, maxRetries = 10) {
+    for (let i = 0; i < maxRetries; i++) {
+      // Check for interview errors
+      await this.checkForInterviewError();
+      
+      // Wait for the question element to be visible
+      await this.page.waitForSelector(this.questionText, { timeout: 10000 });
+      
+      // Get the actual question text
+      const questionText = await this.page.locator(this.questionText).textContent();
+      
+      // Also check the subquestion if it exists
+      let subquestionText = '';
+      const subquestionSelector = '.question-subquestionText, .da-subquestion';
+      const subquestionElement = await this.page.locator(subquestionSelector);
+      if (await subquestionElement.count() > 0) {
+        subquestionText = await subquestionElement.textContent();
+      }
+      
+      const fullText = `${questionText} ${subquestionText}`.toLowerCase();
+      
+      // Check if any of the keywords are in the question or subquestion
+      for (const keyword of keywords) {
+        if (fullText.includes(keyword.toLowerCase().replace('?', ''))) {
+          return true;
+        }
+      }
+      
+      // If keywords not found yet, wait a bit and retry
+      if (i < maxRetries - 1) {
+        await this.page.waitForTimeout(500);
+      }
+    }
+    
+    // If we get here after all retries, none of the keywords were found
+    const questionText = await this.page.locator(this.questionText).textContent();
+    throw new Error(`Question "${questionText}" (with subquestion) does not contain any of: ${keywords.join(', ')}`);
   }
 
   /**
@@ -178,24 +229,64 @@ class WizardPage {
         break;
     }
     await this.page.waitForLoadState('networkidle');
+    
+    // Add explicit wait for navigation to ensure we moved to next question
+    await this.page.waitForTimeout(1000);
+  }
+
+  /**
+   * Handle divorce question for married couples
+   */
+  async handleDivorceQuestion(seekingDivorce) {
+    await this.waitForQuestion('Are you seeking a divorce?');
+    
+    if (seekingDivorce) {
+      await this.page.locator('button:has-text("Yes, I want a divorce")').click();
+    } else {
+      await this.page.locator('button:has-text("No, just other orders")').click();
+    }
+    await this.page.waitForLoadState('networkidle');
   }
 
   /**
    * Handle orders sought for married/common-law couples
+   * Updated to handle both "What orders are you seeking?" and "What other orders are you seeking?"
    */
   async handleOrdersSought(orders) {
-    await this.waitForQuestion('What orders are you seeking?');
+    // Don't wait for networkidle here as we should already be on the right page
+    // Just wait for the question to appear
+    await this.waitForQuestionContaining(['orders are you seeking', 'orders do you need', 'family law orders']);
     
     // Click on the label text to check/uncheck boxes since docassemble uses dynamic names
-    if (orders.divorce) await this.page.click('text=Divorce');
-    if (orders.custody) await this.page.click('text=Child custody');
-    if (orders.child_support) await this.page.click('text=Child support');
-    if (orders.spousal_support) await this.page.click('text=Spousal support');
-    if (orders.property) await this.page.click('text=Property division');
-    if (orders.exclusive_possession) await this.page.click('text=Exclusive possession');
-    if (orders.restraining_order) await this.page.click('text=Restraining order');
-    if (orders.enforcement) await this.page.click('text=Enforcement');
-    if (orders.other) await this.page.click('text=Other relief');
+    // Use more flexible selectors that work with checkbox labels
+    // Note: Divorce is handled separately for married couples, so we skip it here
+    if (orders.divorce && !orders.divorce_handled) {
+      await this.page.click('label:has-text("Divorce"), text=Divorce');
+    }
+    if (orders.custody) {
+      await this.page.click('label:has-text("Child custody"), text=Child custody');
+    }
+    if (orders.child_support) {
+      await this.page.click('label:has-text("Child support"), text=Child support');
+    }
+    if (orders.spousal_support) {
+      await this.page.click('label:has-text("Spousal support"), text=Spousal support');
+    }
+    if (orders.property) {
+      await this.page.click('label:has-text("Property division"), text=Property division');
+    }
+    if (orders.exclusive_possession) {
+      await this.page.click('label:has-text("Exclusive possession"), text=Exclusive possession');
+    }
+    if (orders.restraining_order) {
+      await this.page.click('label:has-text("Restraining order"), text=Restraining order');
+    }
+    if (orders.enforcement) {
+      await this.page.click('label:has-text("Enforcement"), text=Enforcement');
+    }
+    if (orders.other) {
+      await this.page.click('label:has-text("Other relief"), text=Other relief');
+    }
     
     await this.clickContinue();
   }
@@ -369,6 +460,109 @@ class WizardPage {
   async waitForNetworkIdle() {
     await this.page.waitForLoadState('networkidle');
     await this.page.waitForTimeout(500); // Additional wait for docassemble
+  }
+  
+  /**
+   * Fill party information fields
+   */
+  async fillPartyInformation(partyType, partyData) {
+    // Wait for party information screen
+    const questionText = await this.page.locator(this.questionText).textContent();
+    
+    // Fill first name
+    if (partyData.firstName) {
+      await this.page.fill('input[name*="first_name"], input[name*="firstName"]', partyData.firstName);
+    }
+    
+    // Fill last name
+    if (partyData.lastName) {
+      await this.page.fill('input[name*="last_name"], input[name*="lastName"]', partyData.lastName);
+    }
+    
+    // Fill address fields
+    if (partyData.address) {
+      await this.page.fill('input[name*="address"], input[name*="street"]', partyData.address);
+    }
+    
+    if (partyData.city) {
+      await this.page.fill('input[name*="city"]', partyData.city);
+    }
+    
+    if (partyData.province) {
+      await this.page.selectOption('select[name*="province"]', partyData.province);
+    }
+    
+    if (partyData.postalCode) {
+      await this.page.fill('input[name*="postal"], input[name*="zip"]', partyData.postalCode);
+    }
+    
+    // Fill contact information
+    if (partyData.phone) {
+      await this.page.fill('input[name*="phone"], input[type="tel"]', partyData.phone);
+    }
+    
+    if (partyData.email) {
+      await this.page.fill('input[name*="email"], input[type="email"]', partyData.email);
+    }
+    
+    // Fill date of birth if present
+    if (partyData.birthDate) {
+      await this.page.fill('input[type="date"], input[name*="birth"]', partyData.birthDate);
+    }
+  }
+  
+  /**
+   * Handle lawyer representation questions
+   */
+  async handleLawyerRepresentation(hasLawyer, lawyerData = null) {
+    // Wait for lawyer question
+    await this.waitForQuestionContaining(['Do you have a lawyer?', 'Are you represented by a lawyer?', 'lawyer']);
+    
+    if (hasLawyer) {
+      await this.page.click('button:has-text("Yes"), input[value="Yes"]');
+      await this.page.waitForLoadState('networkidle');
+      
+      // Fill lawyer information if provided
+      if (lawyerData) {
+        await this.fillLawyerInformation(lawyerData);
+      }
+    } else {
+      await this.page.click('button:has-text("No"), input[value="No"], button:has-text("self-represented")');
+      await this.page.waitForLoadState('networkidle');
+    }
+  }
+  
+  /**
+   * Fill lawyer information
+   */
+  async fillLawyerInformation(lawyerData) {
+    // Fill lawyer name
+    if (lawyerData.firstName) {
+      await this.page.fill('input[name*="lawyer"][name*="first"], input[name*="attorney"][name*="first"]', lawyerData.firstName);
+    }
+    
+    if (lawyerData.lastName) {
+      await this.page.fill('input[name*="lawyer"][name*="last"], input[name*="attorney"][name*="last"]', lawyerData.lastName);
+    }
+    
+    // Fill law firm information
+    if (lawyerData.firmName) {
+      await this.page.fill('input[name*="firm"], input[name*="organization"]', lawyerData.firmName);
+    }
+    
+    // Fill contact information
+    if (lawyerData.phone) {
+      await this.page.fill('input[name*="lawyer"][name*="phone"], input[name*="attorney"][name*="phone"]', lawyerData.phone);
+    }
+    
+    if (lawyerData.email) {
+      await this.page.fill('input[name*="lawyer"][name*="email"], input[name*="attorney"][name*="email"]', lawyerData.email);
+    }
+    
+    // Fill address
+    if (lawyerData.address) {
+      await this.page.fill('input[name*="lawyer"][name*="address"], input[name*="attorney"][name*="address"]', lawyerData.address);
+    }
   }
 }
 
