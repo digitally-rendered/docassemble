@@ -1,0 +1,66 @@
+%%{init: {'theme':'base', 'themeVariables': { 'fontSize':'18px', 'fontFamily':'Arial'}}}%%
+flowchart TB
+    Start([<b>START CASE</b>]) --> Type{<b>CASE TYPE?</b>}
+    
+    %% Main Case Types
+    Type -->|Divorce| DIV[<b>DIVORCE PACKAGE</b><br/>F8A: Application<br/>F36: Affidavit<br/>F13/13.1: Financial<br/>F25A: Divorce Order]
+    Type -->|Family| FAM[<b>FAMILY MATTERS</b><br/>F8: General Application<br/>F10: Answer<br/>F13: Financial Statement]
+    Type -->|Emergency| EMRG[<b>EMERGENCY</b><br/>F25F: Restraining Order<br/>F14D: Ex Parte Order]
+    Type -->|Children| CHILD[<b>CHILDREN</b><br/>F8B: Child Protection<br/>F8D: Adoption<br/>F34 Series: Consents]
+    
+    %% Financial Disclosure Hub
+    DIV --> FIN[<b>FINANCIAL DISCLOSURE</b><br/>F13: Support Only<br/>F13.1: Property & Support<br/>F13B: Net Family Property<br/>F27: Request Financial Info]
+    FAM --> FIN
+    
+    %% Motion Process
+    FAM --> MOT[<b>MOTIONS</b><br/>F14: Notice of Motion<br/>F14A: Affidavit<br/>F14B: Motion Form<br/>F14C: Confirmation]
+    DIV --> MOT
+    
+    %% Changes
+    MOT --> CHG[<b>CHANGES</b><br/>F15: Motion to Change<br/>F15B: Response<br/>F15C: Consent]
+    
+    %% Conference & Settlement
+    MOT --> CONF[<b>CONFERENCES</b><br/>F17A: Case Conference<br/>F17C: Settlement Conference<br/>F17E: Trial Management]
+    CHG --> CONF
+    
+    %% Trial
+    CONF --> TRIAL[<b>TRIAL</b><br/>F20: Request for Order<br/>F22: Request to Admit<br/>F23: Summons<br/>F23C: Uncontested Trial]
+    
+    %% Orders
+    TRIAL --> ORD[<b>COURT ORDERS</b><br/>F25: General Order<br/>F25A: Divorce Order<br/>F25D: Uncontested Order<br/>F25F: Restraining Order]
+    MOT --> ORD
+    EMRG --> ORD
+    
+    %% Enforcement
+    ORD --> ENF[<b>ENFORCEMENT</b><br/>F26: Money Owed<br/>F28: Writ of Seizure<br/>F29: Garnishment<br/>F30: Default Hearing<br/>F31: Contempt]
+    
+    %% Service (Supporting all processes)
+    SERV[<b>SERVICE</b><br/>F4: Change Rep<br/>F6B: Affidavit Service<br/>F6C: Certificate Service]
+    
+    FAM -.-> SERV
+    DIV -.-> SERV
+    MOT -.-> SERV
+    ENF -.-> SERV
+    
+    %% Special Processes
+    INTL[<b>INTERJURISDICTIONAL</b><br/>F37: Notice<br/>F37A: Affidavit<br/>F37B: Evidence Brief]
+    
+    ADR[<b>DISPUTE RESOLUTION</b><br/>F43: Legal Advice Request<br/>F43A: Online Consultation<br/>F43B: Affidavit]
+    
+    Type -->|Cross-Border| INTL
+    Type -->|Mediation| ADR
+    
+    %% Styling
+    classDef mainProcess fill:#e3f2fd,stroke:#1976d2,stroke-width:3px,font-weight:bold
+    classDef financial fill:#e8f5e9,stroke:#4caf50,stroke-width:3px,font-weight:bold
+    classDef motion fill:#fff3e0,stroke:#ff9800,stroke-width:3px,font-weight:bold
+    classDef order fill:#fce4ec,stroke:#e91e63,stroke-width:3px,font-weight:bold
+    classDef enforcement fill:#ffebee,stroke:#f44336,stroke-width:3px,font-weight:bold
+    classDef service fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px,stroke-dasharray: 5 5
+    
+    class DIV,FAM,CHILD,EMRG mainProcess
+    class FIN financial
+    class MOT,CHG motion
+    class ORD,TRIAL,CONF order
+    class ENF enforcement
+    class SERV,INTL,ADR service

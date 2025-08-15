@@ -1,0 +1,86 @@
+%%{init: {'theme':'base', 'themeVariables': {'fontSize':'22px', 'fontFamily':'Arial, sans-serif'}, 'flowchart': {'htmlLabels': true, 'nodeSpacing': 50, 'rankSpacing': 80}}}%%
+
+graph TD
+    Start([Support Issue]) --> Type{New or Change?}
+    
+    Type -->|New Support Claim| NewApp[Form 8: General Application<br/>Child and/or spousal support]
+    Type -->|Change Existing| Change[Form 15: Motion to Change<br/>Support order modification]
+    
+    %% New Support Path
+    NewApp --> Serve1[Form 6B: Affidavit of Service]
+    Serve1 --> Financial1[Form 13: Financial Statement<br/>Mandatory for support]
+    
+    Financial1 --> Disclosure1[Form 13A: Certificate of Financial Disclosure<br/>Confirm complete disclosure]
+    
+    Disclosure1 --> Answer1[Form 10: Answer<br/>Other party's response]
+    Answer1 --> RespFinancial1[Respondent's Form 13<br/>Their financial information]
+    
+    %% Change Support Path
+    Change --> ChangeInfo[Form 15A: Change Information Form<br/>Details of changes]
+    ChangeInfo --> Serve2[Form 6B: Affidavit of Service]
+    Serve2 --> Financial2[Form 13: Updated Financial Statement]
+    
+    Financial2 --> Response{Response type?}
+    Response -->|Contested| Contested[Form 15B: Response to Motion to Change]
+    Response -->|Consent| Consent[Form 15C: Consent Motion to Change]
+    
+    Consent --> ConsentChild[Form 15D: Consent Change Child Support<br/>If child support only]
+    
+    %% Both paths merge at conference
+    RespFinancial1 --> Conference[Form 17A: Case Conference Brief]
+    Contested --> Conference
+    
+    Conference --> Settlement[Form 17C: Settlement Conference Brief]
+    
+    Settlement --> Resolved{Settled?}
+    Resolved -->|Yes| Agreement[Minutes of Settlement]
+    Resolved -->|No| Trial
+    
+    ConsentChild --> OrderConsent[Form 25: Order on Consent]
+    Agreement --> OrderConsent
+    
+    Conference --> Interim{Need interim support?}
+    Interim -->|Yes| InterimMotion[Form 14: Motion for Interim Support<br/>Form 14A: Affidavit of need]
+    InterimMotion --> InterimOrder[Interim Support Order]
+    
+    Interim -->|No| Settlement
+    InterimOrder --> Settlement
+    
+    Trial[Form 17E: Trial Management Conference] --> TrialDocs[Form 20: Request for Order<br/>Form 23: Summons to witnesses]
+    TrialDocs --> TrialProc[Trial Hearing]
+    TrialProc --> FinalOrder[Form 25: Support Order]
+    
+    %% Enforcement Path
+    OrderConsent --> Enforcement{Payment issues?}
+    FinalOrder --> Enforcement
+    
+    Enforcement -->|Yes| EnforcePath{Choose enforcement}
+    
+    EnforcePath -->|FRO| FRO[File with Family Responsibility Office<br/>Automatic enforcement]
+    
+    EnforcePath -->|Court| CourtEnf[Form 26: Statement of Money Owed]
+    CourtEnf --> EnfChoice{Enforcement method?}
+    
+    EnfChoice -->|Garnishment| Garnish[Form 29: Request for Garnishment<br/>Form 29A/B: Garnishment notices]
+    EnfChoice -->|Default| DefHearing[Form 30: Notice of Default Hearing<br/>Form 30A: Request for Default Hearing]
+    EnfChoice -->|Contempt| Contempt[Form 31: Notice of Contempt Motion]
+    EnfChoice -->|Seizure| Writ[Form 28: Writ of Seizure and Sale]
+    
+    Garnish --> Monitor[Monitor payments]
+    DefHearing --> Monitor
+    Contempt --> Arrest[Form 32B: Warrant for Arrest<br/>Form 32C: Affidavit for Warrant]
+    Writ --> Monitor
+    
+    %% Styling
+    classDef startEnd fill:#e8f5e9,stroke:#4caf50,stroke-width:4px,font-weight:bold
+    classDef decision fill:#fff9c4,stroke:#fbc02d,stroke-width:3px,font-weight:bold
+    classDef form fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    classDef financial fill:#c8e6c9,stroke:#66bb6a,stroke-width:3px
+    classDef enforcement fill:#ffebee,stroke:#ef5350,stroke-width:3px
+    classDef order fill:#f3e5f5,stroke:#ab47bc,stroke-width:3px,font-weight:bold
+    
+    class Start startEnd
+    class Type,Response,Resolved,Interim,Enforcement,EnforcePath,EnfChoice decision
+    class Financial1,Financial2,RespFinancial1 financial
+    class CourtEnf,Garnish,DefHearing,Contempt,Writ,Arrest enforcement
+    class OrderConsent,FinalOrder,InterimOrder order

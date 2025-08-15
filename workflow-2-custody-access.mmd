@@ -1,0 +1,68 @@
+%%{init: {'theme':'base', 'themeVariables': {'fontSize':'22px', 'fontFamily':'Arial, sans-serif'}, 'flowchart': {'htmlLabels': true, 'nodeSpacing': 50, 'rankSpacing': 80}}}%%
+
+graph TD
+    Start([Custody or Access Issue]) --> Initial{Emergency?}
+    
+    Initial -->|Yes| Emergency[Form 14D: Motion Without Notice<br/>Form 25F: Restraining Order]
+    Initial -->|No| Application[Form 8: General Application<br/>Custody and/or access claims]
+    
+    Emergency --> Application
+    
+    Application --> Serve[Form 6B: Affidavit of Service<br/>Serve other parent]
+    
+    Serve --> Financial[Form 13: Financial Statement<br/>Required if child support claimed]
+    
+    Financial --> Response{Other party responds?}
+    
+    Response -->|Yes| Answer[Form 10: Answer<br/>Within 30 days]
+    Response -->|No| Default[Form 30: Notice of Default Hearing<br/>Proceed without them]
+    
+    Answer --> Motion{Need urgent change?}
+    Motion -->|Yes| MotionDocs[Form 14: Notice of Motion<br/>Form 14A: Affidavit<br/>Form 14B: Motion Form]
+    Motion -->|No| Conference
+    
+    MotionDocs --> Confirm[Form 14C: Confirmation of Motion<br/>File 3 days before]
+    Confirm --> MotionHearing[Motion Hearing]
+    MotionHearing --> TempOrder[Temporary Order]
+    
+    TempOrder --> Conference[Form 17A: Case Conference Brief<br/>Mandatory first conference]
+    Answer --> Conference
+    Default --> Conference
+    
+    Conference --> OCL{Office of Children's Lawyer?}
+    OCL -->|Ordered| OCLReport[OCL Investigation<br/>Voice of the Child Report]
+    OCL -->|No| Settlement
+    
+    OCLReport --> Settlement[Form 17C: Settlement Conference Brief<br/>Try to reach agreement]
+    
+    Settlement --> Settled{Agreement reached?}
+    
+    Settled -->|Yes| Minutes[Minutes of Settlement<br/>Written agreement]
+    Settled -->|No| TrialMgmt[Form 17E: Trial Management Conference]
+    
+    Minutes --> ConsentOrder[Form 25: Order on Consent<br/>Final custody/access order]
+    
+    TrialMgmt --> TrialPrep[Form 20: Request for Order<br/>Form 23: Summons to Witness]
+    TrialPrep --> Trial[Trial]
+    Trial --> FinalOrder[Form 25: Order General<br/>Judge's decision]
+    
+    ConsentOrder --> Future{Future changes needed?}
+    FinalOrder --> Future
+    
+    Future -->|Yes| Change[Form 15: Motion to Change<br/>Material change in circumstances]
+    Change --> ChangeResponse[Form 15B: Response to Motion to Change]
+    ChangeResponse --> ChangeConf[Form 17A: Case Conference<br/>Start process again]
+    
+    %% Styling
+    classDef startEnd fill:#e8f5e9,stroke:#4caf50,stroke-width:4px,font-weight:bold
+    classDef decision fill:#fff9c4,stroke:#fbc02d,stroke-width:3px,font-weight:bold
+    classDef form fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    classDef conference fill:#f3e5f5,stroke:#9c27b0,stroke-width:3px
+    classDef order fill:#ffebee,stroke:#f44336,stroke-width:3px,font-weight:bold
+    classDef optional fill:#f5f5f5,stroke:#9e9e9e,stroke-width:2px,stroke-dasharray: 5 5
+    
+    class Start startEnd
+    class Initial,Response,Motion,OCL,Settled,Future decision
+    class Conference,Settlement,TrialMgmt conference
+    class ConsentOrder,FinalOrder,TempOrder order
+    class Emergency,Default,OCLReport optional

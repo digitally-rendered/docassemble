@@ -1,0 +1,78 @@
+%%{init: {'theme':'base', 'themeVariables': {'fontSize':'24px', 'fontFamily':'Arial, sans-serif'}, 'flowchart': {'htmlLabels': true, 'nodeSpacing': 30, 'rankSpacing': 50}}}%%
+graph TB
+    Start[Client Consultation] --> CaseType{Select Case Type}
+    
+    %% Primary Case Types with Forms Listed
+    CaseType -->|Divorce| Divorce[Divorce Process<br/>Form 8A: Application for Divorce<br/>Form 36: Affidavit for Divorce<br/>Form 13.1: Financial Statement<br/>Form 25A: Divorce Order]
+    
+    CaseType -->|Family Matters| Family[Family Disputes<br/>Form 8: General Application<br/>Form 10: Answer<br/>Form 10A: Reply]
+    
+    CaseType -->|Children| Children[Children's Matters<br/>Form 8B: Child Protection<br/>Form 8D: Adoption<br/>Form 34: Child's Consent<br/>Form 34F: Parent's Consent]
+    
+    CaseType -->|Emergency| Emergency[Emergency Relief<br/>Form 25F: Restraining Order<br/>Form 14D: Ex Parte Order<br/>Form 25G: Motion Restraining]
+    
+    %% Financial Disclosure Section
+    Divorce --> Financial[Financial Disclosure<br/>Form 13: Support Claims<br/>Form 13.1: Property & Support<br/>Form 13B: Net Family Property<br/>Form 13C: Comparison NFP<br/>Form 27: Request Financial]
+    Family --> Financial
+    
+    %% Motion Process
+    Family --> Motions[Motion Process<br/>Form 14: Notice of Motion<br/>Form 14A: Affidavit<br/>Form 14B: Motion Form<br/>Form 14C: Confirmation]
+    Financial --> Motions
+    
+    %% Motion to Change
+    Motions --> Changes[Changes & Variations<br/>Form 15: Motion to Change<br/>Form 15B: Response<br/>Form 15C: Consent Motion<br/>Form 15D: Consent Child Support]
+    
+    %% Conference Process
+    Motions --> Conference[Conferences<br/>Form 17A: Case Conference Brief<br/>Form 17C: Settlement Conference<br/>Form 17E: Trial Management<br/>Form 17F: Confirmation]
+    Changes --> Conference
+    
+    %% Trial Process
+    Conference --> Trial[Trial Process<br/>Form 20: Request for Order<br/>Form 22: Request to Admit<br/>Form 23: Summons to Witness<br/>Form 23C: Uncontested Trial]
+    
+    %% Court Orders
+    Trial --> Orders[Court Orders<br/>Form 25: General Order<br/>Form 25A: Divorce Order<br/>Form 25D: Uncontested Order<br/>Form 25F: Restraining Order]
+    Emergency --> Orders
+    
+    %% Enforcement
+    Orders --> Enforcement[Enforcement Actions<br/>Form 26: Statement Money Owed<br/>Form 28: Writ of Seizure<br/>Form 29: Garnishment Request<br/>Form 30: Default Hearing<br/>Form 31: Contempt Motion]
+    
+    %% Service Documents (Supporting Process)
+    Service[Service Documents<br/>Form 4: Change Representation<br/>Form 6B: Affidavit of Service<br/>Form 6C: Certificate of Service]
+    
+    %% Special Processes
+    Special[Special Processes<br/>Form 37: Interjurisdictional Support<br/>Form 43: Legal Advice Request<br/>Form 43A: Online Consultation]
+    
+    %% Connect Service to main processes
+    Family -.-> Service
+    Divorce -.-> Service
+    Motions -.-> Service
+    Enforcement -.-> Service
+    
+    CaseType -->|Special Cases| Special
+    
+    %% Styling with colors for different sections
+    classDef divorceClass fill:#ffe6e6,stroke:#d32f2f,stroke-width:3px
+    classDef familyClass fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
+    classDef childClass fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+    classDef emergencyClass fill:#fff3e0,stroke:#f57c00,stroke-width:3px
+    classDef financialClass fill:#e8f5e9,stroke:#388e3c,stroke-width:3px
+    classDef motionClass fill:#fff9c4,stroke:#fbc02d,stroke-width:3px
+    classDef conferenceClass fill:#f3e5f5,stroke:#8e24aa,stroke-width:3px
+    classDef trialClass fill:#fce4ec,stroke:#c2185b,stroke-width:3px
+    classDef orderClass fill:#e8eaf6,stroke:#5e35b1,stroke-width:3px
+    classDef enforceClass fill:#ffebee,stroke:#c62828,stroke-width:3px
+    classDef serviceClass fill:#f5f5f5,stroke:#757575,stroke-width:2px,stroke-dasharray: 5 5
+    classDef specialClass fill:#e0f2f1,stroke:#00796b,stroke-width:3px
+    
+    class Divorce divorceClass
+    class Family familyClass
+    class Children childClass
+    class Emergency emergencyClass
+    class Financial financialClass
+    class Motions,Changes motionClass
+    class Conference conferenceClass
+    class Trial trialClass
+    class Orders orderClass
+    class Enforcement enforceClass
+    class Service serviceClass
+    class Special specialClass

@@ -1,0 +1,118 @@
+%%{init: {'theme':'base', 'flowchart': {'nodeSpacing': 50, 'rankSpacing': 80, 'curve': 'basis', 'defaultRenderer': 'dagre-d3'}}}%%
+graph TB
+    %% Title
+    Title["<h2>Ontario Family Law Forms Workflow</h2>"]
+    Title --> Start
+    
+    %% Starting Point
+    Start["<b>CLIENT INTAKE</b>"] --> CaseType{"<b>What Type of Case?</b>"}
+    
+    %% Primary Paths
+    CaseType -->|"<b>DIVORCE</b>"| Divorce
+    CaseType -->|"<b>FAMILY DISPUTE</b>"| Family
+    CaseType -->|"<b>CHILDREN</b>"| Children
+    CaseType -->|"<b>EMERGENCY</b>"| Emergency
+    
+    %% DIVORCE PATH
+    subgraph Divorce ["<h3>DIVORCE PROCESS</h3>"]
+        D1["<b>Form 8A</b><br/>Application for Divorce"]
+        D2["<b>Form 36</b><br/>Affidavit for Divorce"]
+        D3["<b>Form 13/13.1</b><br/>Financial Statement"]
+        D4["<b>Form 25A</b><br/>Divorce Order"]
+        D1 --> D2 --> D3 --> D4
+    end
+    
+    %% FAMILY MATTERS PATH
+    subgraph Family ["<h3>FAMILY MATTERS</h3>"]
+        F1["<b>Form 8</b><br/>General Application"]
+        F2["<b>Form 10</b><br/>Answer"]
+        F3["<b>Form 13</b><br/>Financial Statement"]
+        F1 --> F2 --> F3
+    end
+    
+    %% CHILDREN PATH
+    subgraph Children ["<h3>CHILDREN'S MATTERS</h3>"]
+        C1["<b>Form 8B</b><br/>Child Protection"]
+        C2["<b>Form 8D</b><br/>Adoption"]
+        C3["<b>Form 34 Series</b><br/>Consents & Affidavits"]
+    end
+    
+    %% EMERGENCY PATH
+    subgraph Emergency ["<h3>EMERGENCY RELIEF</h3>"]
+        E1["<b>Form 25F</b><br/>Restraining Order"]
+        E2["<b>Form 14D</b><br/>Order Without Notice"]
+    end
+    
+    %% COMMON PROCESSES
+    subgraph Motions ["<h3>MOTIONS & CHANGES</h3>"]
+        M1["<b>Form 14</b><br/>Notice of Motion"]
+        M2["<b>Form 15</b><br/>Motion to Change"]
+        M3["<b>Form 14C</b><br/>Confirmation"]
+        M1 --> M3
+        M2 --> M3
+    end
+    
+    %% CONFERENCES
+    subgraph Conferences ["<h3>CONFERENCES</h3>"]
+        CF1["<b>Form 17A</b><br/>Case Conference"]
+        CF2["<b>Form 17C</b><br/>Settlement Conference"]
+        CF3["<b>Form 17E</b><br/>Trial Management"]
+        CF1 --> CF2 --> CF3
+    end
+    
+    %% TRIAL
+    subgraph Trial ["<h3>TRIAL PROCESS</h3>"]
+        T1["<b>Form 20</b><br/>Request for Order"]
+        T2["<b>Form 23</b><br/>Summons to Witness"]
+        T3["<b>Form 25</b><br/>Final Order"]
+        T1 --> T2 --> T3
+    end
+    
+    %% ENFORCEMENT
+    subgraph Enforcement ["<h3>ENFORCEMENT</h3>"]
+        EN1["<b>Form 26</b><br/>Money Owed"]
+        EN2["<b>Form 29</b><br/>Garnishment"]
+        EN3["<b>Form 28</b><br/>Writ of Seizure"]
+        EN1 --> EN2
+        EN1 --> EN3
+    end
+    
+    %% SERVICE DOCUMENTS
+    Service["<h3>SERVICE DOCUMENTS</h3><br/><b>Form 6B:</b> Affidavit of Service<br/><b>Form 6C:</b> Certificate of Service"]
+    
+    %% Connect main flows
+    Family --> Motions
+    Divorce --> Motions
+    Motions --> Conferences
+    Conferences --> Trial
+    Trial --> Enforcement
+    
+    %% Service connections (dashed)
+    Family -.-> Service
+    Divorce -.-> Service
+    Motions -.-> Service
+    
+    %% Styling
+    classDef titleStyle fill:#263238,color:#fff,stroke:none,font-size:24px
+    classDef headerStyle fill:#37474f,color:#fff,stroke:none,font-size:20px
+    classDef divorceStyle fill:#ffebee,stroke:#c62828,stroke-width:3px
+    classDef familyStyle fill:#e3f2fd,stroke:#1565c0,stroke-width:3px
+    classDef childStyle fill:#f3e5f5,stroke:#6a1b9a,stroke-width:3px
+    classDef emergencyStyle fill:#fff3e0,stroke:#e65100,stroke-width:3px
+    classDef motionStyle fill:#e8f5e9,stroke:#2e7d32,stroke-width:3px
+    classDef conferenceStyle fill:#fff9c4,stroke:#f57f17,stroke-width:3px
+    classDef trialStyle fill:#fce4ec,stroke:#ad1457,stroke-width:3px
+    classDef enforceStyle fill:#ffebee,stroke:#b71c1c,stroke-width:3px
+    classDef serviceStyle fill:#f5f5f5,stroke:#616161,stroke-width:2px,stroke-dasharray: 5 5
+    
+    class Title titleStyle
+    class Start,CaseType headerStyle
+    class D1,D2,D3,D4 divorceStyle
+    class F1,F2,F3 familyStyle
+    class C1,C2,C3 childStyle
+    class E1,E2 emergencyStyle
+    class M1,M2,M3 motionStyle
+    class CF1,CF2,CF3 conferenceStyle
+    class T1,T2,T3 trialStyle
+    class EN1,EN2,EN3 enforceStyle
+    class Service serviceStyle

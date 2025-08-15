@@ -1,0 +1,53 @@
+%%{init: {'theme':'base', 'themeVariables': {'fontSize':'22px', 'fontFamily':'Arial, sans-serif'}, 'flowchart': {'htmlLabels': true, 'nodeSpacing': 50, 'rankSpacing': 80}}}%%
+
+graph TD
+    Start([Client Seeks Divorce]) --> Type{Is it contested?}
+    
+    Type -->|Uncontested/Joint| Simple[Form 8A: Application for Divorce<br/>Simple or joint divorce]
+    Type -->|Contested| Complex[Form 8: General Application<br/>Including divorce & other claims]
+    
+    Simple --> Financial1[Form 13: Financial Statement<br/>Only if claiming support]
+    Complex --> Financial2[Form 13.1: Financial Statement<br/>Property and Support Claims]
+    
+    Complex --> Service1[Form 6B: Affidavit of Service<br/>Serve application on spouse]
+    Service1 --> Answer[Form 10: Answer<br/>Spouse responds within 30 days]
+    Answer --> Reply[Form 10A: Reply<br/>Optional response to Answer]
+    
+    Financial2 --> NFP[Form 13B: Net Family Property Statement<br/>Calculate property division]
+    NFP --> Compare[Form 13C: Comparison of NFP<br/>Compare both parties' property]
+    
+    Financial1 --> Affidavit[Form 36: Affidavit for Divorce<br/>Evidence for divorce]
+    Financial2 --> Affidavit
+    Compare --> Affidavit
+    
+    Reply --> Conference[Form 17A: Case Conference Brief<br/>First court appearance]
+    Conference --> Settlement[Form 17C: Settlement Conference Brief<br/>Attempt to settle]
+    Settlement --> Trial{Settlement reached?}
+    
+    Trial -->|No| TrialMgmt[Form 17E: Trial Management Conference<br/>Prepare for trial]
+    TrialMgmt --> TrialDocs[Form 23: Summons to Witness<br/>Form 22: Request to Admit]
+    TrialDocs --> TrialProc[Trial Proceeds]
+    
+    Trial -->|Yes| Uncontested[Form 23C: Affidavit for Uncontested Trial]
+    
+    Affidavit --> Certificate[Form 36A: Certificate of Clerk<br/>Clerk reviews documents]
+    Uncontested --> Certificate
+    TrialProc --> Certificate
+    
+    Certificate --> DivorceOrder[Form 25A: Divorce Order<br/>Final divorce judgment]
+    
+    DivorceOrder --> Enforcement{Need enforcement?}
+    Enforcement -->|Support| Support[Form 26: Statement of Money Owed<br/>Form 29: Garnishment]
+    Enforcement -->|Property| Property[Form 28: Writ of Seizure and Sale]
+    
+    %% Styling
+    classDef startEnd fill:#c8e6c9,stroke:#4caf50,stroke-width:4px,font-weight:bold
+    classDef decision fill:#fff9c4,stroke:#f9a825,stroke-width:3px,font-weight:bold
+    classDef form fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    classDef critical fill:#ffebee,stroke:#c62828,stroke-width:3px,font-weight:bold
+    classDef optional fill:#f5f5f5,stroke:#9e9e9e,stroke-width:2px,stroke-dasharray: 5 5
+    
+    class Start,DivorceOrder startEnd
+    class Type,Trial,Enforcement decision
+    class Certificate,Affidavit critical
+    class Reply,Support,Property optional

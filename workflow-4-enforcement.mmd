@@ -1,0 +1,99 @@
+%%{init: {'theme':'base', 'themeVariables': {'fontSize':'22px', 'fontFamily':'Arial, sans-serif'}, 'flowchart': {'htmlLabels': true, 'nodeSpacing': 50, 'rankSpacing': 80}}}%%
+
+graph TD
+    Start([Court Order Not Being Followed]) --> Type{What type of order?}
+    
+    Type -->|Support Order| Support[Support Enforcement]
+    Type -->|Property Order| Property[Property Enforcement]  
+    Type -->|Access Order| Access[Access Enforcement]
+    Type -->|Other Orders| Other[General Enforcement]
+    
+    %% Support Enforcement Path
+    Support --> FRO{Filed with FRO?}
+    FRO -->|Yes| FROAction[FRO handles enforcement<br/>automatically]
+    FRO -->|No| Register[Form 26B: Affidavit for Filing<br/>Register with FRO]
+    
+    Register --> FROAction
+    FROAction --> FROIssue{FRO having issues?}
+    FROIssue -->|Yes| Withdraw[Form 16: Notice to Withdraw<br/>from FRO]
+    FROIssue -->|No| Monitor1[Continue monitoring]
+    
+    Withdraw --> DirectEnf[Direct Court Enforcement]
+    FRO -->|Enforce yourself| DirectEnf
+    
+    DirectEnf --> Statement[Form 26: Statement of Money Owed<br/>Calculate arrears]
+    Statement --> Method{Choose method}
+    
+    Method -->|Garnishment| GarnishDocs[Form 29: Request for Garnishment]
+    GarnishDocs --> GarnishType{Type?}
+    GarnishType -->|Lump sum| Lump[Form 29A: Notice of Garnishment<br/>Lump sum debts]
+    GarnishType -->|Ongoing| Periodic[Form 29B: Notice of Garnishment<br/>Periodic payments/wages]
+    
+    Lump --> GarnishServe[Serve on garnishee<br/>Bank, employer, etc.]
+    Periodic --> GarnishServe
+    
+    GarnishServe --> Dispute{Dispute filed?}
+    Dispute -->|By payor| PayorDispute[Form 29H: Dispute from Payor]
+    Dispute -->|By garnishee| GarnisheeDispute[Form 29F: Dispute from Garnishee]
+    Dispute -->|No| Payment1[Receive payments]
+    
+    PayorDispute --> Hearing1[Form 29I: Notice of Garnishment Hearing]
+    GarnisheeDispute --> Hearing1
+    
+    Method -->|Default Hearing| Default[Form 30: Notice of Default Hearing<br/>Form 30A: Request for Default Hearing]
+    Default --> DefaultResp{Response?}
+    DefaultResp -->|Dispute| DefaultDispute[Form 30B: Default Dispute]
+    DefaultResp -->|No response| DefaultOrder[Order made at hearing]
+    
+    Method -->|Contempt| Contempt[Form 31: Notice of Contempt Motion]
+    Contempt --> ContemptDocs[Form 32C: Affidavit for Warrant<br/>Evidence of willful breach]
+    ContemptDocs --> ContemptHearing[Contempt Hearing]
+    ContemptHearing --> ContemptFind{Found in contempt?}
+    ContemptFind -->|Yes| Warrant[Form 32B: Warrant for Arrest]
+    ContemptFind -->|No| Dismissed1[Motion dismissed]
+    
+    Warrant --> Custody[Person arrested]
+    Custody --> Release[Form 32D: Order to Discharge<br/>On conditions]
+    
+    %% Property Enforcement Path
+    Property --> Writ[Form 28: Writ of Seizure and Sale]
+    Writ --> WritRequest[Form 28A: Request for Writ<br/>to sheriff]
+    WritRequest --> Sheriff[Sheriff seizes property]
+    Sheriff --> Declaration[Form 28B: Statutory Declaration<br/>to Sheriff about property]
+    Declaration --> Sale[Property sold]
+    Sale --> Proceeds[Proceeds distributed]
+    
+    Property --> WritTemp{Need urgent seizure?}
+    WritTemp -->|Yes| TempWrit[Form 28C: Writ of Temporary Seizure<br/>Preserve assets]
+    TempWrit --> Writ
+    
+    %% Access Enforcement
+    Access --> Police{Police assistance?}
+    Police -->|Available| PoliceEnf[Police enforce access order]
+    Police -->|Refused| AccessMotion[Form 14: Motion to enforce access]
+    
+    AccessMotion --> AccessAff[Form 14A: Affidavit<br/>Document breaches]
+    AccessAff --> AccessHearing[Motion Hearing]
+    AccessHearing --> AccessOrder{Outcome?}
+    
+    AccessOrder -->|Makeup time| Makeup[Order for makeup access time]
+    AccessOrder -->|Contempt| AccessContempt[Form 31: Contempt proceedings]
+    AccessOrder -->|Vary order| Vary[Form 15: Motion to Change<br/>Modify access terms]
+    
+    %% Other Orders
+    Other --> Review[Review specific order terms]
+    Review --> OtherMotion[Form 14: Motion to enforce<br/>Specific to order type]
+    OtherMotion --> OtherHearing[Enforcement Hearing]
+    OtherHearing --> Remedy[Court orders remedy]
+    
+    %% Styling
+    classDef startEnd fill:#ffebee,stroke:#c62828,stroke-width:4px,font-weight:bold
+    classDef decision fill:#fff9c4,stroke:#fbc02d,stroke-width:3px,font-weight:bold
+    classDef form fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    classDef enforcement fill:#ffcdd2,stroke:#d32f2f,stroke-width:3px
+    classDef outcome fill:#c8e6c9,stroke:#4caf50,stroke-width:3px
+    
+    class Start startEnd
+    class Type,FRO,FROIssue,Method,GarnishType,Dispute,DefaultResp,ContemptFind,WritTemp,Police,AccessOrder decision
+    class Statement,GarnishDocs,Default,Contempt,Writ enforcement
+    class Payment1,DefaultOrder,Proceeds,Makeup,Remedy outcome

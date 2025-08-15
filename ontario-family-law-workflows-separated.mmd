@@ -1,0 +1,139 @@
+%%{init: {'theme':'base', 'themeVariables': {'fontSize':'20px', 'fontFamily':'Arial, sans-serif'}, 'flowchart': {'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 60}}}%%
+
+graph TB
+    subgraph Divorce ["Divorce Workflow"]
+        D_Start[Client wants divorce] --> D_Type{Contested?}
+        
+        D_Type -->|Uncontested| D_Simple[Form 8A: Application for Divorce<br/>Joint or Simple]
+        D_Type -->|Contested| D_Complex[Form 8: General Application<br/>with divorce claims]
+        
+        D_Simple --> D_Financial1[Form 13: Financial Statement<br/>if support claims]
+        D_Complex --> D_Financial2[Form 13.1: Financial Statement<br/>Property & Support]
+        
+        D_Complex --> D_Answer[Form 10: Answer<br/>from other party]
+        D_Answer --> D_Reply[Form 10A: Reply<br/>if needed]
+        
+        D_Financial1 --> D_Affidavit[Form 36: Affidavit for Divorce]
+        D_Financial2 --> D_Affidavit
+        
+        D_Financial2 --> D_NFP[Form 13B: Net Family Property<br/>Form 13C: Comparison NFP]
+        
+        D_Affidavit --> D_Certificate[Form 36A: Certificate of Clerk]
+        D_Certificate --> D_Order[Form 25A: Divorce Order]
+        
+        D_Service[Form 6B: Affidavit of Service<br/>Form 6C: Certificate of Service]
+        D_Simple -.-> D_Service
+        D_Complex -.-> D_Service
+    end
+    
+    subgraph Custody ["Custody & Access Workflow"]
+        C_Start[Custody/Access Issue] --> C_App[Form 8: General Application]
+        C_App --> C_Financial[Form 13: Financial Statement<br/>for child support]
+        C_App --> C_Answer[Form 10: Answer]
+        
+        C_Answer --> C_Motion[Form 14: Notice of Motion<br/>Form 14A: Affidavit<br/>Form 14B: Motion Form]
+        C_Motion --> C_Confirm[Form 14C: Confirmation]
+        
+        C_Motion --> C_Conference[Form 17A: Case Conference Brief]
+        C_Conference --> C_Settlement[Form 17C: Settlement Conference Brief]
+        C_Settlement --> C_Trial[Form 17E: Trial Management Brief]
+        
+        C_Trial --> C_Order[Form 25: Order General<br/>custody & access terms]
+        
+        C_Order --> C_Change[Form 15: Motion to Change<br/>if circumstances change]
+        C_Change --> C_Response[Form 15B: Response to Motion]
+        
+        C_Service[Form 6B: Service Documents]
+        C_App -.-> C_Service
+        C_Motion -.-> C_Service
+    end
+    
+    subgraph Support ["Support (Child/Spousal) Workflow"]
+        S_Start[Support Claim] --> S_Type{Application Type?}
+        
+        S_Type -->|New| S_App[Form 8: General Application]
+        S_Type -->|Change| S_Change[Form 15: Motion to Change]
+        
+        S_App --> S_Financial[Form 13: Financial Statement<br/>mandatory for support]
+        S_Change --> S_Financial
+        
+        S_App --> S_Answer[Form 10: Answer]
+        S_Change --> S_Response[Form 15B: Response]
+        
+        S_Financial --> S_Conference[Form 17A: Case Conference]
+        S_Conference --> S_Settlement[Form 17C: Settlement Conference]
+        
+        S_Settlement --> S_Order[Form 25: Support Order]
+        
+        S_Order --> S_Enforce{Enforcement Needed?}
+        S_Enforce -->|Yes| S_Default[Form 26: Statement Money Owed<br/>Form 30: Default Hearing]
+        S_Enforce -->|Garnishment| S_Garnish[Form 29: Request Garnishment<br/>Form 29A/B: Notices]
+        S_Enforce -->|Seizure| S_Writ[Form 28: Writ of Seizure]
+    end
+    
+    subgraph Property ["Property Division Workflow"]
+        P_Start[Property Division] --> P_App[Form 8: General Application]
+        P_App --> P_Financial[Form 13.1: Financial Statement<br/>Property & Support]
+        
+        P_Financial --> P_NFP[Form 13B: Net Family Property Statement]
+        P_NFP --> P_Compare[Form 13C: Comparison of NFP]
+        
+        P_App --> P_Answer[Form 10: Answer]
+        P_Answer --> P_RespFinancial[Respondent's Form 13.1]
+        P_RespFinancial --> P_RespNFP[Form 27B: Respondent's NFP]
+        P_RespNFP --> P_RespCompare[Form 27C: Respondent's Comparison]
+        
+        P_Compare --> P_Conference[Form 17A: Case Conference]
+        P_Conference --> P_Settlement[Form 17C: Settlement Conference]
+        
+        P_Settlement --> P_Order[Form 25: Order<br/>property division]
+        
+        P_Order --> P_Enforcement[Form 28: Writ of Seizure<br/>if not complied]
+    end
+    
+    subgraph Emergency ["Emergency Relief Workflow"]
+        E_Start[Emergency Situation] --> E_Type{Type of Emergency?}
+        
+        E_Type -->|Safety| E_Restraining[Form 25F: Restraining Order]
+        E_Type -->|Urgent Motion| E_ExParte[Form 14D: Order on Motion<br/>Without Notice]
+        
+        E_Restraining --> E_Motion[Form 25G: Restraining Order<br/>on Motion if needed]
+        E_ExParte --> E_Affidavit[Form 14A: Affidavit<br/>supporting evidence]
+        
+        E_Motion --> E_Service[Form 6B: Affidavit of Service<br/>urgent service]
+        E_Affidavit --> E_Service
+        
+        E_Service --> E_Return[Return to Court<br/>on specified date]
+        E_Return --> E_Final[Form 25H: Order Terminating<br/>or Form 25: Continuing Order]
+    end
+    
+    subgraph Adoption ["Adoption Workflow"]
+        A_Start[Adoption Process] --> A_App[Form 8D: Application for Adoption]
+        
+        A_App --> A_Consents{Obtain Consents}
+        A_Consents --> A_Child[Form 34: Child's Consent<br/>if 12 or older]
+        A_Consents --> A_Parent[Form 34F: Parent's Consent]
+        
+        A_Consents --> A_Affidavits{Affidavits}
+        A_Affidavits --> A_Adopting[Form 34G: Affidavit of<br/>Adopting Parent]
+        A_Affidavits --> A_Relative[Form 34I: Affidavit of<br/>Adopting Relative]
+        
+        A_Affidavits --> A_Parentage[Form 34A: Affidavit of Parentage]
+        
+        A_Parentage --> A_Access[Form 33F: Access Application<br/>if access issues]
+        
+        A_Parentage --> A_Order[Form 25C: Adoption Order]
+    end
+    
+    %% Styling
+    classDef startClass fill:#e8f5e9,stroke:#4caf50,stroke-width:3px
+    classDef processClass fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    classDef decisionClass fill:#fff9c4,stroke:#fbc02d,stroke-width:2px
+    classDef documentClass fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
+    classDef orderClass fill:#ffebee,stroke:#f44336,stroke-width:3px
+    classDef serviceClass fill:#f5f5f5,stroke:#9e9e9e,stroke-width:2px,stroke-dasharray: 5 5
+    
+    class D_Start,C_Start,S_Start,P_Start,E_Start,A_Start startClass
+    class D_Type,C_Type,S_Type,P_Type,E_Type,S_Enforce,A_Consents,A_Affidavits decisionClass
+    class D_Order,C_Order,S_Order,P_Order,E_Final,A_Order orderClass
+    class D_Service,C_Service,E_Service serviceClass
