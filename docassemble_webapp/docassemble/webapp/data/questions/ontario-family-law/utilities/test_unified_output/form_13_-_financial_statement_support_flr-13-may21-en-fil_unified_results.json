@@ -1,0 +1,2921 @@
+{
+  "file": "workflow_output/ontario_forms/form_13_-_financial_statement_support_flr-13-may21-en-fil.docx",
+  "timestamp": "2025-08-19T14:29:39.112170",
+  "fields": [
+    {
+      "field_id": "unified_0",
+      "field_name": "court_file_number",
+      "field_type": "court_file_number",
+      "field_label": "Court File Number",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Ontario Court",
+      "validators": []
+    },
+    {
+      "field_id": "unified_1",
+      "field_name": "name_of_court",
+      "field_type": "text",
+      "field_label": "(Name of Court)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_2",
+      "field_name": "form_13_financial_statement_support_claims_sworn_a",
+      "field_type": "text",
+      "field_label": "Form 13: Financial Statement (Support Claims) sworn/affirmed",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_3",
+      "field_name": "court_office_address",
+      "field_type": "text",
+      "field_label": "Court office address",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_4",
+      "field_name": "applicant_s",
+      "field_type": "text",
+      "field_label": "Applicant(s)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_5",
+      "field_name": "applicant_s_lawyer",
+      "field_type": "text",
+      "field_label": "Applicant(s) Lawyer",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_6",
+      "field_name": "full_legal_name",
+      "field_type": "text",
+      "field_label": "Full legal name:",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_7",
+      "field_name": "address",
+      "field_type": "text",
+      "field_label": "Address:",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_8",
+      "field_name": "phone_fax",
+      "field_type": "phone",
+      "field_label": "Phone & fax:",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_9",
+      "field_name": "email",
+      "field_type": "email",
+      "field_label": "Email:",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_10",
+      "field_name": "respondent_s",
+      "field_type": "text",
+      "field_label": "Respondent(s)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_11",
+      "field_name": "respondent_s_lawyer",
+      "field_type": "text",
+      "field_label": "Respondent(s) Lawyer",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_12",
+      "field_name": "this_form_is_filed_by",
+      "field_type": "text",
+      "field_label": "This form is filed by:",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_13",
+      "field_name": "applicant",
+      "field_type": "text",
+      "field_label": "applicant",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_14",
+      "field_name": "respondent",
+      "field_type": "text",
+      "field_label": "respondent",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_15",
+      "field_name": "you_must_complete_this_form_if_you_are_making_or_r",
+      "field_type": "currency",
+      "field_label": "You must complete this form if you are making or responding to a claim for child or spousal support ",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_16",
+      "field_name": "if_you_have_income_that_is_not_shown_in_part_i_of_",
+      "field_type": "currency",
+      "field_label": "If you have income that is not shown in Part I of the financial statement (for example, partnership ",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_17",
+      "field_name": "if_you_have_made_or_responded_to_a_claim_for_child",
+      "field_type": "text",
+      "field_label": "If you have made or responded to a claim for child support that involves undue hardship or a claim f",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_18",
+      "field_name": "if_you_or_the_other_party_has_sought_a_contributio",
+      "field_type": "text",
+      "field_label": "If you or the other party has sought a contribution towards special or extraordinary expenses for th",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_19",
+      "field_name": "notes_you_must_fully_and_truthfully_complete_this_",
+      "field_type": "currency",
+      "field_label": "NOTES:  You must fully and truthfully complete this financial statement, including any applicable sc",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_20",
+      "field_name": "my_name_is_full_legal_name",
+      "field_type": "text",
+      "field_label": "My name is (full legal name)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_21",
+      "field_name": "i_live_in_municipality_province",
+      "field_type": "text",
+      "field_label": "I live in (municipality & province)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_22",
+      "field_name": "and_i_swear_affirm_that_the_following_is_true",
+      "field_type": "text",
+      "field_label": "and I swear/affirm that the following is true:",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_23",
+      "field_name": "part_1_income",
+      "field_type": "currency",
+      "field_label": "PART 1: INCOME",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_24",
+      "field_name": "employed_by_name_and_address_of_employer",
+      "field_type": "text",
+      "field_label": "employed by (name and address of employer)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_25",
+      "field_name": "self_employed_carrying_on_business_under_the_name_",
+      "field_type": "sin",
+      "field_label": "self-employed, carrying on business under the name of (name and address of business)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "PRIVACY: Mask SIN in output",
+      "validators": [
+        "^\\d{3}-\\d{3}-\\d{3}$"
+      ]
+    },
+    {
+      "field_id": "unified_26",
+      "field_name": "unemployed_since_date_when_last_employed",
+      "field_type": "sin",
+      "field_label": "unemployed since (date when last employed)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "PRIVACY: Mask SIN in output",
+      "validators": [
+        "^\\d{3}-\\d{3}-\\d{3}$"
+      ]
+    },
+    {
+      "field_id": "unified_27",
+      "field_name": "form_13",
+      "field_type": "text",
+      "field_label": "Form 13:",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_28",
+      "field_name": "financial_statement_support_claims",
+      "field_type": "text",
+      "field_label": "Financial Statement (Support Claims)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_29",
+      "field_name": "page_2",
+      "field_type": "text",
+      "field_label": "(page 2)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_30",
+      "field_name": "i_attach_proof_of_my_year_to_date_income_from_all_",
+      "field_type": "date",
+      "field_label": "I attach proof of my year-to-date income from all sources, including my most recent (attach all that",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_31",
+      "field_name": "employment_insurance_stub_and_last_record_of_emplo",
+      "field_type": "text",
+      "field_label": "employment insurance stub and last Record of Employment",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_32",
+      "field_name": "statement_of_income_and_expenses_professional_acti",
+      "field_type": "currency",
+      "field_label": "statement of income and expenses/ professional activities (for self-employed individuals)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_33",
+      "field_name": "other_e_g_a_letter_from_your_employer_confirming_a",
+      "field_type": "date",
+      "field_label": "other (e.g. a letter from your employer confirming all income received to date this year)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_34",
+      "field_name": "last_year_my_gross_income_from_all_sources_was",
+      "field_type": "currency",
+      "field_label": "Last year, my gross income from all sources was $",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_35",
+      "field_name": "do_not_subtract_any_taxes_that_have_been",
+      "field_type": "text",
+      "field_label": "(do not subtract any taxes that have been",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_36",
+      "field_name": "deducted_from_this_income",
+      "field_type": "currency",
+      "field_label": "deducted from this income).",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_37",
+      "field_name": "i_am_attaching_all_of_the_following_required_docum",
+      "field_type": "currency",
+      "field_label": "I am attaching all of the following required documents to this financial statement as proof of my in",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_38",
+      "field_name": "a_copy_of_my_personal_income_tax_returns_for_each_",
+      "field_type": "currency",
+      "field_label": "a copy of my personal income tax returns for each of the past three taxation years, including any ma",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_39",
+      "field_name": "a_copy_of_my_notices_of_assessment_and_any_notices",
+      "field_type": "text",
+      "field_label": "a copy of my notices of assessment and any notices of reassessment for each of the past three taxati",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_40",
+      "field_name": "where_my_notices_of_assessment_and_reassessment_ar",
+      "field_type": "currency",
+      "field_label": "where my notices of assessment and reassessment are unavailable for any of the past three taxation y",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_41",
+      "field_name": "note_an_income_and_deductions_printout_is_availabl",
+      "field_type": "currency",
+      "field_label": "Note:  An Income and Deductions printout is available from Canada Revenue Agency.  Please call custo",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_42",
+      "field_name": "i_am_an_indian_within_the_meaning_of_the_indian_ac",
+      "field_type": "currency",
+      "field_label": "I am an Indian within the meaning of the Indian Act (Canada) and I have chosen not to file income ta",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_43",
+      "field_name": "in_this_table_you_must_show_all_of_the_income_that",
+      "field_type": "currency",
+      "field_label": "(In this table you must show all of the income that you are currently receiving whether taxable or n",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_44",
+      "field_name": "income_source",
+      "field_type": "currency",
+      "field_label": "Income Source",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_45",
+      "field_name": "amount_received_month",
+      "field_type": "currency",
+      "field_label": "Amount Received/Month",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_46",
+      "field_name": "employment_income_before_deductions",
+      "field_type": "currency",
+      "field_label": "Employment income (before deductions)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_47",
+      "field_name": "commissions_tips_and_bonuses",
+      "field_type": "text",
+      "field_label": "Commissions, tips and bonuses",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_48",
+      "field_name": "self_employment_income_monthly_amount_before_expen",
+      "field_type": "currency",
+      "field_label": "Self-employment income (Monthly amount before expenses: $ \u2002\u2002\u2002\u2002\u2002)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_49",
+      "field_name": "social_assistance_income_including_odsp_payments",
+      "field_type": "currency",
+      "field_label": "Social assistance income (including ODSP payments)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_50",
+      "field_name": "interest_and_investment_income",
+      "field_type": "currency",
+      "field_label": "Interest and investment income",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_51",
+      "field_name": "pension_income_including_cpp_and_oas",
+      "field_type": "currency",
+      "field_label": "Pension income (including CPP and OAS)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_52",
+      "field_name": "spousal_support_received_from_a_former_spouse_part",
+      "field_type": "text",
+      "field_label": "Spousal support received from a former spouse/partner",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_53",
+      "field_name": "child_tax_benefits_or_tax_rebates_e_g_gst",
+      "field_type": "text",
+      "field_label": "Child Tax Benefits or Tax Rebates (e.g. GST)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_54",
+      "field_name": "other_sources_of_income_e_g_rrsp_withdrawals_capit",
+      "field_type": "currency",
+      "field_label": "Other sources of income (e.g. RRSP withdrawals, capital gains) (*attach Schedule A and divide annual",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_55",
+      "field_name": "total_monthly_income_from_all_sources",
+      "field_type": "currency",
+      "field_label": "Total monthly income from all sources:",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_56",
+      "field_name": "total_monthly_income_x_12_total_annual_income",
+      "field_type": "currency",
+      "field_label": "Total monthly income X 12 = Total annual income:",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_57",
+      "field_name": "page_3",
+      "field_type": "text",
+      "field_label": "(page 3)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_58",
+      "field_name": "provide_details_of_any_non_cash_benefits_that_your",
+      "field_type": "text",
+      "field_label": "Provide details of any non-cash benefits that your employer provides to you or are paid for by your ",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_59",
+      "field_name": "yearly_market_value",
+      "field_type": "currency",
+      "field_label": "Yearly Market Value",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_60",
+      "field_name": "part_2_expenses",
+      "field_type": "text",
+      "field_label": "PART 2: EXPENSES",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_61",
+      "field_name": "monthly_amount",
+      "field_type": "currency",
+      "field_label": "Monthly Amount",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_62",
+      "field_name": "income_taxes",
+      "field_type": "currency",
+      "field_label": "Income taxes",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_63",
+      "field_name": "car_insurance_and_license",
+      "field_type": "text",
+      "field_label": "Car insurance and license",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_64",
+      "field_name": "car_loan_or_lease_payments",
+      "field_type": "currency",
+      "field_label": "Car Loan or Lease Payments",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_65",
+      "field_name": "rent_or_mortgage",
+      "field_type": "text",
+      "field_label": "Rent or mortgage",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_66",
+      "field_name": "electricity",
+      "field_type": "text",
+      "field_label": "Electricity",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_67",
+      "field_name": "page_4",
+      "field_type": "text",
+      "field_label": "(page 4)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_68",
+      "field_name": "telephone",
+      "field_type": "phone",
+      "field_label": "Telephone",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_69",
+      "field_name": "cell_phone",
+      "field_type": "phone",
+      "field_label": "Cell phone",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_70",
+      "field_name": "meals_outside_the_home",
+      "field_type": "text",
+      "field_label": "Meals outside the home",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_71",
+      "field_name": "school_fees_and_supplies",
+      "field_type": "text",
+      "field_label": "School fees and supplies",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_72",
+      "field_name": "laundry_and_dry_cleaning",
+      "field_type": "text",
+      "field_label": "Laundry and Dry Cleaning",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_73",
+      "field_name": "support_paid_for_other_children",
+      "field_type": "text",
+      "field_label": "Support paid for other children",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_74",
+      "field_name": "other_expenses_not_shown_above_specify",
+      "field_type": "text",
+      "field_label": "Other expenses not shown above (specify)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_75",
+      "field_name": "total_amount_of_monthly_expenses",
+      "field_type": "currency",
+      "field_label": "Total Amount of Monthly Expenses",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_76",
+      "field_name": "total_amount_of_yearly_expenses",
+      "field_type": "currency",
+      "field_label": "Total Amount of Yearly Expenses",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_77",
+      "field_name": "part_3_assets",
+      "field_type": "text",
+      "field_label": "PART 3: ASSETS",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_78",
+      "field_name": "value_or_amount",
+      "field_type": "currency",
+      "field_label": "Value or Amount",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_79",
+      "field_name": "state_address_of_each_property_and_nature_of_owner",
+      "field_type": "text",
+      "field_label": "State Address of Each Property and Nature of Ownership",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_80",
+      "field_name": "page_5",
+      "field_type": "text",
+      "field_label": "(page 5)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_81",
+      "field_name": "address_where_located",
+      "field_type": "text",
+      "field_label": "Address Where Located",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_82",
+      "field_name": "other_possessions_of_value_e_g_computers_jewellery",
+      "field_type": "currency",
+      "field_label": "Other Possessions of Value (e.g. computers, jewellery, collections)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_83",
+      "field_name": "type_issuer_due_date_number_of_shares",
+      "field_type": "date",
+      "field_label": "Type \u2013 Issuer \u2013 Due Date \u2013 Number of Shares",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_84",
+      "field_name": "investments_e_g_bonds_shares_term_deposits_and_mut",
+      "field_type": "text",
+      "field_label": "Investments (e.g. bonds, shares, term deposits and mutual funds)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_85",
+      "field_name": "name_and_address_of_institution",
+      "field_type": "text",
+      "field_label": "Name and Address of Institution",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_86",
+      "field_name": "account_number",
+      "field_type": "number",
+      "field_label": "Account Number",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_87",
+      "field_name": "savings_plans_r_r_s_p_s_pension_plans_r_e_s_p_s",
+      "field_type": "text",
+      "field_label": "Savings Plans R.R.S.P.s \nPension Plans R.E.S.P.s",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_88",
+      "field_name": "type_beneficiary_face_amount",
+      "field_type": "currency",
+      "field_label": "Type \u2013 Beneficiary \u2013 Face Amount",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_89",
+      "field_name": "cash_surrender_value",
+      "field_type": "currency",
+      "field_label": "Cash Surrender Value",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_90",
+      "field_name": "name_and_address_of_business",
+      "field_type": "sin",
+      "field_label": "Name and Address of Business",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "PRIVACY: Mask SIN in output",
+      "validators": [
+        "^\\d{3}-\\d{3}-\\d{3}$"
+      ]
+    },
+    {
+      "field_id": "unified_91",
+      "field_name": "interest_in_business_attach_separate_year_end_stat",
+      "field_type": "sin",
+      "field_label": "Interest in Business (*attach separate year-end statement for each business)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "PRIVACY: Mask SIN in output",
+      "validators": [
+        "^\\d{3}-\\d{3}-\\d{3}$"
+      ]
+    },
+    {
+      "field_id": "unified_92",
+      "field_name": "name_and_address_of_debtors",
+      "field_type": "text",
+      "field_label": "Name and Address of Debtors",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_93",
+      "field_name": "money_owed_to_you_for_example_any_court_judgments_",
+      "field_type": "currency",
+      "field_label": "Money Owed to You (for example, any court judgments in your favour, estate money and income tax refu",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_94",
+      "field_name": "total_value_of_all_property",
+      "field_type": "currency",
+      "field_label": "Total Value of All Property",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_95",
+      "field_name": "page_6",
+      "field_type": "text",
+      "field_label": "(page 6)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_96",
+      "field_name": "part_4_debts",
+      "field_type": "text",
+      "field_label": "PART 4: DEBTS",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_97",
+      "field_name": "creditor_name_and_address",
+      "field_type": "text",
+      "field_label": "Creditor (name and address)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_98",
+      "field_name": "full_amount_now_owing",
+      "field_type": "currency",
+      "field_label": "Full Amount\nNow Owing",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_99",
+      "field_name": "mortgages_lines_of_credits_or_other_loans_from_a_b",
+      "field_type": "text",
+      "field_label": "Mortgages, Lines of Credits or other Loans from a Bank, Trust or Finance Company",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_100",
+      "field_name": "outstanding_credit_card_balances",
+      "field_type": "text",
+      "field_label": "Outstanding Credit Card Balances",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_101",
+      "field_name": "unpaid_support_amounts",
+      "field_type": "currency",
+      "field_label": "Unpaid Support Amounts",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_102",
+      "field_name": "total_amount_of_debts_outstanding",
+      "field_type": "currency",
+      "field_label": "Total Amount of Debts Outstanding",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_103",
+      "field_name": "part_5_summary_of_assets_and_liabilities",
+      "field_type": "text",
+      "field_label": "PART 5: SUMMARY OF ASSETS AND LIABILITIES",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_104",
+      "field_name": "note_this_financial_statement_must_be_updated_befo",
+      "field_type": "date",
+      "field_label": "NOTE: This financial statement must be updated before any court event if it is:",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_105",
+      "field_name": "more_than_60_days_old_by_the_time_of_the_case_conf",
+      "field_type": "text",
+      "field_label": "more than 60 days old by the time of the case conference,",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_106",
+      "field_name": "more_than_30_days_old_by_the_time_the_motion_is_he",
+      "field_type": "text",
+      "field_label": "more than 30 days old by the time the motion is heard, or",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_107",
+      "field_name": "more_than_40_days_old_by_the_start_of_the_trial_or",
+      "field_type": "text",
+      "field_label": "more than 40 days old by the start of the trial or the start of the trial sitting, whichever comes f",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_108",
+      "field_name": "you_may_update_this_financial_statement_by_either_",
+      "field_type": "date",
+      "field_label": "You may update this financial statement by either completing and filing:",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_109",
+      "field_name": "a_new_financial_statement_with_updated_information",
+      "field_type": "date",
+      "field_label": "a new financial statement with updated information, or",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_110",
+      "field_name": "an_affidavit_in_form_14a_setting_out_the_details_o",
+      "field_type": "text",
+      "field_label": "an affidavit in Form 14A setting out the details of any minor changes or confirming that the informa",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_111",
+      "field_name": "sworn_affirmed_before_me_at",
+      "field_type": "text",
+      "field_label": "Sworn/Affirmed before me at",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_112",
+      "field_name": "province_state_or_country",
+      "field_type": "number",
+      "field_label": "province, state or country",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_113",
+      "field_name": "this_form_is_to_be_signed_in_front_of_a_lawyer_jus",
+      "field_type": "signature",
+      "field_label": "(This form is to be signed in front of a lawyer, justice of the peace, notary public or commissioner",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_114",
+      "field_name": "date",
+      "field_type": "date",
+      "field_label": "date",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_115",
+      "field_name": "commissioner_for_taking_affidavits",
+      "field_type": "text",
+      "field_label": "Commissioner for taking affidavits",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_116",
+      "field_name": "type_or_print_name_below_if_signature_is_illegible",
+      "field_type": "signature",
+      "field_label": "(Type or print name below if signature is illegible.)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_117",
+      "field_name": "schedule_a_additional_sources_of_income",
+      "field_type": "currency",
+      "field_label": "Schedule A\nAdditional Sources of Income",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_118",
+      "field_name": "annual_amount",
+      "field_type": "currency",
+      "field_label": "Annual Amount",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_119",
+      "field_name": "net_partnership_income",
+      "field_type": "currency",
+      "field_label": "Net partnership income",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_120",
+      "field_name": "net_rental_income_gross_annual_rental_income_of",
+      "field_type": "currency",
+      "field_label": "Net rental income (Gross annual rental income of $ \u2002\u2002\u2002\u2002\u2002)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_121",
+      "field_name": "total_amount_of_dividends_received_from_taxable_ca",
+      "field_type": "currency",
+      "field_label": "Total amount of dividends received from taxable Canadian corporations",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_122",
+      "field_name": "total_capital_gains_less_capital_losses",
+      "field_type": "currency",
+      "field_label": "Total capital gains ($ \u2002\u2002\u2002\u2002\u2002) less capital losses ($ \u2002\u2002\u2002\u2002\u2002)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_123",
+      "field_name": "registered_retirement_savings_plan_withdrawals",
+      "field_type": "text",
+      "field_label": "Registered retirement savings plan withdrawals",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_124",
+      "field_name": "income_from_a_registered_retirement_income_fund_or",
+      "field_type": "currency",
+      "field_label": "Income from a Registered Retirement Income Fund or Annuity",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_125",
+      "field_name": "any_other_income_specify_source",
+      "field_type": "currency",
+      "field_label": "Any other income (specify source)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_126",
+      "field_name": "subtotal",
+      "field_type": "text",
+      "field_label": "Subtotal:",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_127",
+      "field_name": "schedule_b_other_income_earners_in_the_home",
+      "field_type": "currency",
+      "field_label": "Schedule B\nOther Income Earners in the Home",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_128",
+      "field_name": "complete_this_part_only_if_you_are_making_or_respo",
+      "field_type": "text",
+      "field_label": "Complete this part only if you are making or responding to a claim for undue hardship or spousal sup",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_129",
+      "field_name": "i_am_living_with_full_legal_name_of_person_you_are",
+      "field_type": "text",
+      "field_label": "I am living with (full legal name of person you are married to or cohabiting with)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_130",
+      "field_name": "i_we_live_with_the_following_other_adult_s",
+      "field_type": "text",
+      "field_label": "I/we live with the following other adult(s):",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_131",
+      "field_name": "i_we_have_give_number",
+      "field_type": "number",
+      "field_label": "I/we have (give number)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_132",
+      "field_name": "child_ren_who_live_s_in_the_home",
+      "field_type": "text",
+      "field_label": "child(ren) who live(s) in the home.",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_133",
+      "field_name": "works_at_place_of_work_or_business",
+      "field_type": "sin",
+      "field_label": "works at (place of work or business)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "PRIVACY: Mask SIN in output",
+      "validators": [
+        "^\\d{3}-\\d{3}-\\d{3}$"
+      ]
+    },
+    {
+      "field_id": "unified_134",
+      "field_name": "does_not_work_outside_the_home",
+      "field_type": "text",
+      "field_label": "does not work outside the home.",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_135",
+      "field_name": "earns_give_amount",
+      "field_type": "currency",
+      "field_label": "earns (give amount) $",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_136",
+      "field_name": "does_not_earn_any_income",
+      "field_type": "currency",
+      "field_label": "does not earn any income.",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_137",
+      "field_name": "my_spouse_partner_or_other_adult_residing_in_the_h",
+      "field_type": "currency",
+      "field_label": "My spouse/partner or other adult residing in the home contributes about $",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_138",
+      "field_name": "towards_the_household_expenses",
+      "field_type": "text",
+      "field_label": "towards the household expenses.",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_139",
+      "field_name": "schedule_c_special_or_extraordinary_expenses_for_t",
+      "field_type": "text",
+      "field_label": "Schedule C\nSpecial or Extraordinary Expenses for the Child(ren)",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_140",
+      "field_name": "child_s_name",
+      "field_type": "text",
+      "field_label": "Child\u2019s Name",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_141",
+      "field_name": "amount_yr",
+      "field_type": "currency",
+      "field_label": "Amount/yr.",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_142",
+      "field_name": "available_tax_credits_or_deductions",
+      "field_type": "text",
+      "field_label": "Available Tax Credits or Deductions*",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_143",
+      "field_name": "total_net_annual_amount",
+      "field_type": "currency",
+      "field_label": "Total Net Annual Amount",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_144",
+      "field_name": "total_net_monthly_amount",
+      "field_type": "currency",
+      "field_label": "Total Net Monthly Amount",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_145",
+      "field_name": "some_of_these_expenses_can_be_claimed_in_a_parent_",
+      "field_type": "currency",
+      "field_label": "* Some of these expenses can be claimed in a parent\u2019s income tax return in relation to a tax credit ",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_146",
+      "field_name": "i_earn",
+      "field_type": "currency",
+      "field_label": "I earn $",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_147",
+      "field_name": "per_year_which_should_be_used_to_determine_my_shar",
+      "field_type": "text",
+      "field_label": "per year which should be used to determine my share of the above expenses.",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_148",
+      "field_name": "note",
+      "field_type": "text",
+      "field_label": "NOTE:",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_149",
+      "field_name": "pursuant_to_the_child_support_guidelines_a_court_c",
+      "field_type": "currency",
+      "field_label": "Pursuant to the Child Support Guidelines, a court can order that the parents of a child share the co",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_150",
+      "field_name": "medical_insurance_premiums_and_certain_health_rela",
+      "field_type": "currency",
+      "field_label": "Medical insurance premiums and certain health-related expenses for the child that cost more than $10",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": [
+        "^\\$?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$"
+      ]
+    },
+    {
+      "field_id": "unified_151",
+      "field_name": "extraordinary_expenses_for_the_child_s_education",
+      "field_type": "text",
+      "field_label": "Extraordinary expenses for the child\u2019s education;",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_152",
+      "field_name": "post_secondary_school_expenses_and",
+      "field_type": "text",
+      "field_label": "Post-secondary school expenses; and,",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    },
+    {
+      "field_id": "unified_153",
+      "field_name": "extraordinary_expenses_for_extracurricular_activit",
+      "field_type": "text",
+      "field_label": "Extraordinary expenses for extracurricular activities.",
+      "value": null,
+      "required": false,
+      "confidence_scores": {
+        "python-docx-table": 0.75
+      },
+      "extraction_methods": [
+        "python-docx-table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "validators": []
+    }
+  ],
+  "validation_report": {
+    "total_fields": 154,
+    "high_confidence": 154,
+    "medium_confidence": 0,
+    "low_confidence": 0,
+    "single_method": 154,
+    "multi_method": 0,
+    "method_agreement": {},
+    "field_types": {
+      "number": 4,
+      "text": 79,
+      "phone": 3,
+      "email": 1,
+      "currency": 57,
+      "date": 8,
+      "signature": 2
+    },
+    "warnings": []
+  }
+}

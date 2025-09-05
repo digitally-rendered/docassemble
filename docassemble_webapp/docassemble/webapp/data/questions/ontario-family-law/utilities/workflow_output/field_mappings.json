@@ -1,0 +1,5240 @@
+[
+  {
+    "form": "form_15",
+    "field": "full_legal_name_full_legal_name_full_legal_name_na",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_na",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15",
+    "field": "address_address_address_address_address_address_ad",
+    "mapping": {
+      "variable": "address_address_address_address_address_address_ad",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15",
+    "field": "full_legal_name_full_legal_name_full_legal_name_na",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_na",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15",
+    "field": "address_address_address_address_address_address_ad",
+    "mapping": {
+      "variable": "address_address_address_address_address_address_ad",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15",
+    "field": "full_legal_name_full_legal_name_full_legal_name_na",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_na",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15",
+    "field": "address_address_address_address_address_address_ad",
+    "mapping": {
+      "variable": "address_address_address_address_address_address_ad",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15",
+    "field": "4_requesting_party_s_birth_date_requesting_party_s",
+    "mapping": {
+      "variable": "4_requesting_partys_birth_date_requesting_partys_b",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15",
+    "field": "5_responding_party_s_birth_date_responding_party_s",
+    "mapping": {
+      "variable": "5_responding_partys_birth_date_responding_partys_b",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15",
+    "field": "before_today_give_exact_date_d_m_y_before_today_gi",
+    "mapping": {
+      "variable": "before_today_give_exact_date_d_m_y_before_today_gi",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10",
+    "field": "full_legal_name_full_legal_name_full_legal_name_fu",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10",
+    "field": "address_address_address_address_address",
+    "mapping": {
+      "variable": "address_address_address_address_address",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10",
+    "field": "full_legal_name_full_legal_name_full_legal_name_fu",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10",
+    "field": "address_address_address_address_address",
+    "mapping": {
+      "variable": "address_address_address_address_address",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "full_legal_name_full_legal_name_full_legal_name_fu",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "address_address_address_address_address_address_ad",
+    "mapping": {
+      "variable": "address_address_address_address_address_address_ad",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "full_legal_name_full_legal_name_full_legal_name_fu",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "address_address_address_address_address_address_ad",
+    "mapping": {
+      "variable": "address_address_address_address_address_address_ad",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "full_legal_name_full_legal_name_full_legal_name_fu",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "address_address_address_address_address_address_ad",
+    "mapping": {
+      "variable": "address_address_address_address_address_address_ad",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "based_on_the_payor_s_annual_income_of_based_on_the",
+    "mapping": {
+      "variable": "based_on_the_payors_annual_income_of_based_on_the_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "shall_pay_to_name_of_party_shall_pay_to_name_of_pa",
+    "mapping": {
+      "variable": "shall_pay_to_name_of_party_shall_pay_to_name_of_pa",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "shall_pay_name_of_party_shall_pay_name_of_party_sh",
+    "mapping": {
+      "variable": "shall_pay_name_of_party_shall_pay_name_of_party_sh",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "fixed_at_fixed_at_fixed_at_fixed_at_fixed_at_fixed",
+    "mapping": {
+      "variable": "fixed_at_fixed_at_fixed_at_fixed_at_fixed_at_fixed",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "per_month_with_payments_to_begin_on_date_per_month",
+    "mapping": {
+      "variable": "_per_month_with_payments_to_begin_on_date_per_mont",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "fixed_at_fixed_at_fixed_at_fixed_at_fixed_at_fixed",
+    "mapping": {
+      "variable": "fixed_at_fixed_at_fixed_at_fixed_at_fixed_at_fixed",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "per_month_with_payments_to_begin_on_date_per_month",
+    "mapping": {
+      "variable": "_per_month_with_payments_to_begin_on_date_per_mont",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "per_month_with_payments_to_begin_on_date_per_month",
+    "mapping": {
+      "variable": "_per_month_with_payments_to_begin_on_date_per_mont",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "fixed_at_fixed_at_fixed_at_fixed_at_fixed_at_fixed",
+    "mapping": {
+      "variable": "fixed_at_fixed_at_fixed_at_fixed_at_fixed_at_fixed",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "per_month_with_payments_to_begin_on_date_per_month",
+    "mapping": {
+      "variable": "_per_month_with_payments_to_begin_on_date_per_mont",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "shall_be_fixed_at_shall_be_fixed_at_shall_be_fixed",
+    "mapping": {
+      "variable": "shall_be_fixed_at_shall_be_fixed_at_shall_be_fixed",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15C",
+    "field": "per_month_with_payments_to_begin_on_date_per_month",
+    "mapping": {
+      "variable": "_per_month_with_payments_to_begin_on_date_per_mont",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13A",
+    "field": "full_legal_name_full_legal_name_full_legal_name_fu",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13A",
+    "field": "address_address_address_address_address_address",
+    "mapping": {
+      "variable": "address_address_address_address_address_address",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13A",
+    "field": "full_legal_name_full_legal_name_full_legal_name_fu",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13A",
+    "field": "address_address_address_address_address_address",
+    "mapping": {
+      "variable": "address_address_address_address_address_address",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_36",
+    "field": "a_a_the_income_of_the_party_paying_child_support_i",
+    "mapping": {
+      "variable": "a_a_the_income_of_the_party_paying_child_support_i",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_36",
+    "field": "per_month_per_month_per_month_per_month_per_month_",
+    "mapping": {
+      "variable": "_per_month_per_month_per_month_per_month_per_month",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_36",
+    "field": "d_d_the_amount_of_child_support_actually_being_pai",
+    "mapping": {
+      "variable": "d_d_the_amount_of_child_support_actually_being_pai",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_36",
+    "field": "b_the_child_support_clauses_of_this_order_or_agree",
+    "mapping": {
+      "variable": "b_the_child_support_clauses_of_this_order_or_agree",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].courtDetails[0].courtFileNo[0]",
+    "mapping": {
+      "variable": "court_file_number",
+      "datatype": "number",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].courtDetails[0].court[0].nameOfCourt[0]",
+    "mapping": {
+      "variable": "name_of_court_select_from_the_drop_down_menu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].courtDetails[0].court[0].courtOfficeAddress[0]",
+    "mapping": {
+      "variable": "court_office_address",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].courtDetails[0].application[0]",
+    "mapping": {
+      "variable": "application",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].applicants[0].appliant[0].textfield[0]",
+    "mapping": {
+      "variable": "applicant_1_full_legal_name_address_for_service_st",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].applicants[0].appliant[0].textfield[1]",
+    "mapping": {
+      "variable": "applicant_2_full_legal_name_address_for_service_st",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].applicants[0].applicantLawyer[0].textfield[0]",
+    "mapping": {
+      "variable": "applicant_1_lawyers_name_address_street_number_mun",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].applicants[0].applicantLawyer[0].textfield[1]",
+    "mapping": {
+      "variable": "applicant_2_lawyers_name_address_street_number_mun",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].respondents[0].respondant[0].textfield[0]",
+    "mapping": {
+      "variable": "respondent_1_full_legal_name_address_for_service_s",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].respondents[0].respondant[0].textfield[1]",
+    "mapping": {
+      "variable": "respondent_2_full_legal_name_address_for_service_s",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].respondents[0].respondantLawyer[0].textfield[0]",
+    "mapping": {
+      "variable": "respondent_1_lawyers_name_address_street_number_mu",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].respondents[0].respondantLawyer[0].textfield[1]",
+    "mapping": {
+      "variable": "respondent_2_lawyers_name_address_street_number_mu",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].childrensLawyer[0].lawyer[0].textfield[0]",
+    "mapping": {
+      "variable": "childrens_lawyer_name_address_of_childrens_lawyers",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].instrunctionFinancial[0].applicant[0].q2[0].info[0]",
+    "mapping": {
+      "variable": "1_my_name_is_full_legal_name",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].instrunctionFinancial[0].applicant[0].q2[1].sub[0].info[0]",
+    "mapping": {
+      "variable": "2_i_agree_with_the_following_claims_made_by_the_re",
+      "datatype": "number",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].instrunctionFinancial[0].applicant[0].q3[0].sub[0].info[0]",
+    "mapping": {
+      "variable": "3_i_do_not_agree_with_the_following_claims_made_by",
+      "datatype": "number",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].instrunctionFinancial[0].applicant[0].q4[0].claim[0]",
+    "mapping": {
+      "variable": "4_i_am_asking_that_the_respondents_claim_except_fo",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].#subform[5].courtFileNumber[0]",
+    "mapping": {
+      "variable": "court_file_number",
+      "datatype": "number",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].body[0].q5[0].sub[0].info[0]",
+    "mapping": {
+      "variable": "5_the_important_facts_supporting_my_position_in_pa",
+      "datatype": "number",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].signature[0].signature[0].Date[0]",
+    "mapping": {
+      "variable": "date_of_signature",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].signature[0].signature[0].sig[0]",
+    "mapping": {
+      "variable": "signature",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].navigationBtns[0].saveForm[0]",
+    "mapping": {
+      "variable": "save_form",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].navigationBtns[0].Print[0]",
+    "mapping": {
+      "variable": "print_form",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_10A",
+    "field": "form1[0].page1[0].navigationBtns[0].Reset[0]",
+    "mapping": {
+      "variable": "clear_form",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_29B",
+    "field": "check_the_first_circle_if_you_want_the_garnishment",
+    "mapping": {
+      "variable": "check_the_first_circle_if_you_want_the_garnishment",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_29B",
+    "field": "check_the_first_circle_if_you_want_the_garnishment",
+    "mapping": {
+      "variable": "check_the_first_circle_if_you_want_the_garnishment",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_29B",
+    "field": "check_the_first_circle_if_you_want_the_garnishment",
+    "mapping": {
+      "variable": "check_the_first_circle_if_you_want_the_garnishment",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_6B",
+    "field": "including_travel_including_travel_including_travel",
+    "mapping": {
+      "variable": "_including_travel_including_travel_including_trave",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "full_legal_name_full_legal_name_full_legal_name",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "address_address_address",
+    "mapping": {
+      "variable": "address_address_address",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "full_legal_name_full_legal_name_full_legal_name",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "address_address_address",
+    "mapping": {
+      "variable": "address_address_address",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "valuation_date_statement_date_statement_date_state",
+    "mapping": {
+      "variable": "valuation_date_statement_date_statement_date_state",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "matrimonial_home_matrimonial_home",
+    "mapping": {
+      "variable": "matrimonial_home_matrimonial_home_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "a_totals_value_of_land_a_totals_value_of_land_a_to",
+    "mapping": {
+      "variable": "a_totals_value_of_land_a_totals_value_of_land_a_to",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "household_goods_furniture",
+    "mapping": {
+      "variable": "household_goods_furniture_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "cars_boats_vehicles",
+    "mapping": {
+      "variable": "cars_boats_vehicles_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "jewellery_art_electronics_tools_sports_hobby_equip",
+    "mapping": {
+      "variable": "jewellery_art_electronics_tools_sports_hobby_equip",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "other_special_items",
+    "mapping": {
+      "variable": "other_special_items_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "b_totals_value_of_general_household_items_and_vehi",
+    "mapping": {
+      "variable": "b_totals_value_of_general_household_items_and_vehi",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "c_totals_value_of_accounts_and_savings_c_totals_va",
+    "mapping": {
+      "variable": "c_totals_value_of_accounts_and_savings_c_totals_va",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "company_type_policy_no_owner_beneficiary_face_amou",
+    "mapping": {
+      "variable": "company_type_policy_no_owner_beneficiary_face_amou",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "company_type_policy_no_owner_beneficiary_face_amou",
+    "mapping": {
+      "variable": "company_type_policy_no_owner_beneficiary_face_amou",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "d_totals_cash_surrender_value_of_insurance_policie",
+    "mapping": {
+      "variable": "d_totals_cash_surrender_value_of_insurance_policie",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "e_totals_value_of_business_interests_e_totals_valu",
+    "mapping": {
+      "variable": "e_totals_value_of_business_interests_e_totals_valu",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "f_totals_money_owed_to_you_f_totals_money_owed_to_",
+    "mapping": {
+      "variable": "f_totals_money_owed_to_you_f_totals_money_owed_to_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "g_totals_value_of_other_property_g_totals_value_of",
+    "mapping": {
+      "variable": "g_totals_value_of_other_property_g_totals_value_of",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "value_of_property_owned_on_the_valuation_date_tota",
+    "mapping": {
+      "variable": "value_of_property_owned_on_the_valuation_date_tota",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "totals_value_of_debts_and_other_liabilities_total_",
+    "mapping": {
+      "variable": "totals_value_of_debts_and_other_liabilities_total_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "assets",
+    "mapping": {
+      "variable": "assets_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "total_of_property_items_total_of_property_items_to",
+    "mapping": {
+      "variable": "total_of_property_items_total_of_property_items_to",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "debts_and_other_liabilities",
+    "mapping": {
+      "variable": "debts_and_other_liabilities_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "total_of_debts_items_total_of_debts_items_total_of",
+    "mapping": {
+      "variable": "total_of_debts_items_total_of_debts_items_total_of",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "net_value_of_property_owned_on_date_of_marriage_ne",
+    "mapping": {
+      "variable": "net_value_of_property_owned_on_date_of_marriage_ne",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "totals_value_of_excluded_property_total_4_totals_v",
+    "mapping": {
+      "variable": "totals_value_of_excluded_property_total_4_totals_v",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "total_2_debts_and_other_liabilities",
+    "mapping": {
+      "variable": "total_2_debts_and_other_liabilities_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "total_3_value_of_property_owned_on_the_date_of_mar",
+    "mapping": {
+      "variable": "total_3_value_of_property_owned_on_the_date_of_mar",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "total_4_value_of_excluded_property",
+    "mapping": {
+      "variable": "total_4_value_of_excluded_property_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "total_5_total_2_total_3_total_4",
+    "mapping": {
+      "variable": "total_5_total_2_total_3_total_4_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "total_1_value_of_property_owned_on_valuation_date",
+    "mapping": {
+      "variable": "total_1_value_of_property_owned_on_valuation_date_",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "total_5_from_above",
+    "mapping": {
+      "variable": "total_5_from_above_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "total_6_net_family_property_subtract_total_1_minus",
+    "mapping": {
+      "variable": "total_6_net_family_property_subtract_total_1_minus",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13C",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8A",
+    "field": "full_legal_name_full_legal_name_full_legal_name_na",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_na",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8A",
+    "field": "address_address_address_address",
+    "mapping": {
+      "variable": "address_address_address_address",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8A",
+    "field": "full_legal_name_full_legal_name_full_legal_name_na",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_na",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8A",
+    "field": "address_address_address_address",
+    "mapping": {
+      "variable": "address_address_address_address",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8A",
+    "field": "applicant_applicant_applicant_applicant_applicant_",
+    "mapping": {
+      "variable": "applicant_applicant_applicant_applicant_applicant_",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8A",
+    "field": "first_name_on_the_day_before_the_marriage_date_fir",
+    "mapping": {
+      "variable": "first_name_on_the_day_before_the_marriage_date_fir",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8A",
+    "field": "last_name_on_the_day_before_the_marriage_date_last",
+    "mapping": {
+      "variable": "last_name_on_the_day_before_the_marriage_date_last",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8A",
+    "field": "gender_on_the_day_before_the_marriage_date_gender_",
+    "mapping": {
+      "variable": "gender_on_the_day_before_the_marriage_date_gender_",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8A",
+    "field": "respondent_joint_applicant_respondent_joint_applic",
+    "mapping": {
+      "variable": "respondentjoint_applicant_respondentjoint_applican",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8A",
+    "field": "first_name_on_the_day_before_the_marriage_date_fir",
+    "mapping": {
+      "variable": "first_name_on_the_day_before_the_marriage_date_fir",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8A",
+    "field": "last_name_on_the_day_before_the_marriage_date_last",
+    "mapping": {
+      "variable": "last_name_on_the_day_before_the_marriage_date_last",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8A",
+    "field": "gender_on_the_day_before_the_marriage_date_gender_",
+    "mapping": {
+      "variable": "gender_on_the_day_before_the_marriage_date_gender_",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "insert_amount_to_be_realized_from_paragraph_4_b_of",
+    "mapping": {
+      "variable": "insert_amount_to_be_realized_from_paragraph_4b_of_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "priority_for_support_payments_insert_amount_from_p",
+    "mapping": {
+      "variable": "priority_for_support_payments_insert_amount_from_p",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "assignment_of_costs_to_legal_aid_ontario_insert_am",
+    "mapping": {
+      "variable": "assignment_of_costs_to_legal_aid_ontario_insert_am",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "fine_bond_or_recognizance_fine_bond_or_recognizanc",
+    "mapping": {
+      "variable": "fine_bond_or_recognizance_fine_bond_or_recognizanc",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "field",
+    "mapping": {
+      "variable": "field",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "name_of_court_name_of_court_name_of_court_name_of_",
+    "mapping": {
+      "variable": "_name_of_court_name_of_court_name_of_court_name_of",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "at_at_at_name_address_telephone_fax_numbers_and_e_",
+    "mapping": {
+      "variable": "_at_at_at_name_address_telephone_fax_numbers_and_e",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "court_office_address_court_office_address_court_of",
+    "mapping": {
+      "variable": "_court_office_address_court_office_address_court_o",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "field",
+    "mapping": {
+      "variable": "field",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "writ_of_seizure_and_sale_writ_of_seizure_and_sale",
+    "mapping": {
+      "variable": "_writ_of_seizure_and_sale_writ_of_seizure_and_sale",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "writ_of_seizure_and_sale_writ_of_seizure_and_sale",
+    "mapping": {
+      "variable": "_writ_of_seizure_and_sale_writ_of_seizure_and_sale",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "field",
+    "mapping": {
+      "variable": "field",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "note_this_writ_has_no_automatic_expiry_date_it_rem",
+    "mapping": {
+      "variable": "_note_this_writ_has_no_automatic_expiry_date_it_re",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "a_until_it_is_withdrawn_by_or_on_behalf_of_the_par",
+    "mapping": {
+      "variable": "_a_until_it_is_withdrawn_by_or_on_behalf_of_the_pa",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "b_until_it_is_set_aside_or_suspended_by_order_of_a",
+    "mapping": {
+      "variable": "_b_until_it_is_set_aside_or_suspended_by_order_of_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "field",
+    "mapping": {
+      "variable": "field",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "field",
+    "mapping": {
+      "variable": "field",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_28",
+    "field": "field",
+    "mapping": {
+      "variable": "field",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "3_3_the_total_of_the_periodic_payments_that_remain",
+    "mapping": {
+      "variable": "3_3_the_total_of_the_periodic_payments_that_remain",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "is_the_detailed_interest_calculations_are_attached",
+    "mapping": {
+      "variable": "is_the_detailed_interest_calculations_are_attached",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "b_b_if_your_order_or_domestic_contract_does_not_re",
+    "mapping": {
+      "variable": "b_b_if_your_order_or_domestic_contract_does_not_re",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "if_your_order_or_domestic_contract_does_not_requir",
+    "mapping": {
+      "variable": "if_your_order_or_domestic_contract_does_not_requir",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "if_your_order_or_domestic_contract_does_not_requir",
+    "mapping": {
+      "variable": "if_your_order_or_domestic_contract_does_not_requir",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "if_your_order_or_domestic_contract_does_not_requir",
+    "mapping": {
+      "variable": "if_your_order_or_domestic_contract_does_not_requir",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "if_your_order_or_domestic_contract_does_not_requir",
+    "mapping": {
+      "variable": "if_your_order_or_domestic_contract_does_not_requir",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "if_your_order_or_domestic_contract_does_not_requir",
+    "mapping": {
+      "variable": "if_your_order_or_domestic_contract_does_not_requir",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "if_your_order_or_domestic_contract_does_not_requir",
+    "mapping": {
+      "variable": "if_your_order_or_domestic_contract_does_not_requir",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "if_your_order_or_domestic_contract_does_not_requir",
+    "mapping": {
+      "variable": "if_your_order_or_domestic_contract_does_not_requir",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "if_your_order_or_domestic_contract_does_not_requir",
+    "mapping": {
+      "variable": "if_your_order_or_domestic_contract_does_not_requir",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "if_there_have_been_partial_payments_on_the_lump_su",
+    "mapping": {
+      "variable": "if_there_have_been_partial_payments_on_the_lump_su",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "if_there_have_been_partial_payments_on_the_lump_su",
+    "mapping": {
+      "variable": "if_there_have_been_partial_payments_on_the_lump_su",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "if_there_have_been_partial_payments_on_the_lump_su",
+    "mapping": {
+      "variable": "if_there_have_been_partial_payments_on_the_lump_su",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "if_there_have_been_partial_payments_on_the_lump_su",
+    "mapping": {
+      "variable": "if_there_have_been_partial_payments_on_the_lump_su",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "that_remains_unpaid_today_is_that_remains_unpaid_t",
+    "mapping": {
+      "variable": "that_remains_unpaid_today_is_that_remains_unpaid_t",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "6_6_6_the_total_amount_of_unpaid_interest_on_the_l",
+    "mapping": {
+      "variable": "6_6_6_the_total_amount_of_unpaid_interest_on_the_l",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "7_7_7_the_amount_of_court_costs_remaining_unpaid_t",
+    "mapping": {
+      "variable": "7_7_7_the_amount_of_court_costs_remaining_unpaid_t",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "8_8_8_the_amount_of_unpaid_interest_on_court_costs",
+    "mapping": {
+      "variable": "8_8_8_the_amount_of_unpaid_interest_on_court_costs",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "9_9_9_of_the_money_in_paragraphs_5_and_6_i_attribu",
+    "mapping": {
+      "variable": "9_9_9_of_the_money_in_paragraphs_5_and_6_i_attribu",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "10_10_10_of_the_money_in_paragraphs_3_and_4_i_attr",
+    "mapping": {
+      "variable": "10_10_10_of_the_money_in_paragraphs_3_and_4_i_attr",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "11_11_11_the_total_of_the_sums_in_paragraphs_9_and",
+    "mapping": {
+      "variable": "11_11_11_the_total_of_the_sums_in_paragraphs_9_and",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "a_unpaid_amounts_of_periodic_payments_paragraph_3_",
+    "mapping": {
+      "variable": "a_unpaid_amounts_of_periodic_payments_paragraph_3_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "b_interest_on_unpaid_amounts_of_periodic_payments_",
+    "mapping": {
+      "variable": "b_interest_on_unpaid_amounts_of_periodic_payments_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "c_unpaid_lump_sum_debt_paragraph_5_unpaid_lump_sum",
+    "mapping": {
+      "variable": "c_unpaid_lumpsum_debt_paragraph_5_unpaid_lumpsum_d",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "d_interest_on_unpaid_lump_sum_debt_paragraph_6_int",
+    "mapping": {
+      "variable": "d_interest_on_unpaid_lumpsum_debt_paragraph_6_inte",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "e_unpaid_court_costs_paragraph_7_unpaid_court_cost",
+    "mapping": {
+      "variable": "e_unpaid_court_costs_paragraph_7_unpaid_court_cost",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "f_interest_on_unpaid_court_costs_paragraph_8_inter",
+    "mapping": {
+      "variable": "f_interest_on_unpaid_court_costs_paragraph_8_inter",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "total_total_total_total_total_total_total_total_to",
+    "mapping": {
+      "variable": "total_total_total_total_total_total_total_total_to",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_26",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15B",
+    "field": "full_legal_name_full_legal_name_full_legal_name_fu",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15B",
+    "field": "address_address_address_address_address_address_ad",
+    "mapping": {
+      "variable": "address_address_address_address_address_address_ad",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15B",
+    "field": "full_legal_name_full_legal_name_full_legal_name_fu",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15B",
+    "field": "address_address_address_address_address_address_ad",
+    "mapping": {
+      "variable": "address_address_address_address_address_address_ad",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15B",
+    "field": "full_legal_name_full_legal_name_full_legal_name_fu",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15B",
+    "field": "address_address_address_address_address_address_ad",
+    "mapping": {
+      "variable": "address_address_address_address_address_address_ad",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_15B",
+    "field": "before_today_give_exact_date_d_m_y_before_today_gi",
+    "mapping": {
+      "variable": "before_today_give_exact_date_d_m_y_before_today_gi",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_29A",
+    "field": "the_total_amount_of_your_payments_is_not_to_exceed",
+    "mapping": {
+      "variable": "the_total_amount_of_your_payments_is_not_to_exceed",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25D",
+    "field": "5_this_court_finds_that_name_of_payor_this_court_f",
+    "mapping": {
+      "variable": "5_this_court_finds_that_name_of_payor_this_court_f",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25D",
+    "field": "the_sum_of_the_sum_of_the_sum_of_the_sum_of_the_su",
+    "mapping": {
+      "variable": "the_sum_of_the_sum_of_the_sum_of_the_sum_of_the_su",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25D",
+    "field": "this_court_finds_that_name_of_recipient_this_court",
+    "mapping": {
+      "variable": "this_court_finds_that_name_of_recipient_this_court",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25D",
+    "field": "the_sum_of_the_sum_of_the_sum_of_the_sum_of_the_su",
+    "mapping": {
+      "variable": "the_sum_of_the_sum_of_the_sum_of_the_sum_of_the_su",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25D",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25D",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25D",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25D",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25D",
+    "field": "spousal_support_in_the_amount_of_spousal_support_i",
+    "mapping": {
+      "variable": "spousal_support_in_the_amount_of_spousal_support_i",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25D",
+    "field": "8_this_court_finds_that_the_amount_of_support_owed",
+    "mapping": {
+      "variable": "8_this_court_finds_that_the_amount_of_support_owed",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25D",
+    "field": "at_the_rate_of_at_the_rate_of_at_the_rate_of_at_th",
+    "mapping": {
+      "variable": "at_the_rate_of_at_the_rate_of_at_the_rate_of_at_th",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25D",
+    "field": "serve_and_file_the_following_before_the_next_court",
+    "mapping": {
+      "variable": "serve_and_file_the_following_before_the_next_court",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25D",
+    "field": "to_name_to_name_to_name_fixed_at_fixed_at_fixed_at",
+    "mapping": {
+      "variable": "to_name_to_name_to_name_fixed_at_fixed_at_fixed_at",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_17A",
+    "field": "1_1_applicant_applicant_applicant_age_age_age_birt",
+    "mapping": {
+      "variable": "1_1_applicant_applicant_applicant_age_age_age_birt",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_17A",
+    "field": "2_2_respondent_respondent_respondent_age_age_age_b",
+    "mapping": {
+      "variable": "2_2_respondent_respondent_respondent_age_age_age_b",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_17A",
+    "field": "applicant_applicant_applicant_applicant_per_year_f",
+    "mapping": {
+      "variable": "applicant_applicant_applicant_applicant_per_year_f",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_17A",
+    "field": "respondent_respondent_respondent_respondent_per_ye",
+    "mapping": {
+      "variable": "respondent_respondent_respondent_respondent_per_ye",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].courtDetails[0].courtFileNumber[0]",
+    "mapping": {
+      "variable": "court_file_number",
+      "datatype": "number",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].courtDetails[0].court[0].nameOfCourt[0]",
+    "mapping": {
+      "variable": "name_of_court_select_from_the_drop_down_menu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].courtDetails[0].court[0].courtOfficeAddress[0]",
+    "mapping": {
+      "variable": "court_office_address",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].appl[0].#subform[0].judge[0]",
+    "mapping": {
+      "variable": "judge_print_or_type_name",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].appl[0].#subform[0].dateofOrder[0]",
+    "mapping": {
+      "variable": "date_of_order",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].appl[0].start[0].applicants[0].appliant[0].textfield[0]",
+    "mapping": {
+      "variable": "applicant_1_full_legal_name_address_for_service_st",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].appl[0].start[0].applicants[0].appliant[0].textfield[1]",
+    "mapping": {
+      "variable": "applicant_2_full_legal_name_address_for_service_st",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].appl[0].start[0].applicants[0].applicantLawyer[0].textfield[0]",
+    "mapping": {
+      "variable": "applicant_1_lawyers_name_address_street_number_mun",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].appl[0].start[0].applicants[0].applicantLawyer[0].textfield[1]",
+    "mapping": {
+      "variable": "applicant_2_lawyers_name_address_street_number_mun",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].appl[0].start[0].respondents[0].respondant[0].textfield[0]",
+    "mapping": {
+      "variable": "respondent_1_full_legal_name_address_for_service_s",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].appl[0].start[0].respondents[0].respondant[0].textfield[1]",
+    "mapping": {
+      "variable": "respondent_2_full_legal_name_address_for_service_s",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].appl[0].start[0].respondents[0].respondantLawyer[0].textfield[0]",
+    "mapping": {
+      "variable": "respondent_1_lawyers_name_address_street_number_mu",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].appl[0].start[0].respondents[0].respondantLawyer[0].textfield[1]",
+    "mapping": {
+      "variable": "respondent_2_lawyers_name_address_street_number_mu",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].line1[0].application[0]",
+    "mapping": {
+      "variable": "the_court_considered_an_application_of_name",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].onDate[0].textfield[0]",
+    "mapping": {
+      "variable": "date",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].line2[0].specify[0]",
+    "mapping": {
+      "variable": "the_following_persons_were_in_court_give_names_of_",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].names[0].textfield[0]",
+    "mapping": {
+      "variable": "name_or_names",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].orders[0].textfield[0]",
+    "mapping": {
+      "variable": "full_legal_names_of_spouses",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].orders[0].textfield[1]",
+    "mapping": {
+      "variable": "place",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].orders[0].textfield[2]",
+    "mapping": {
+      "variable": "date",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p1[0].textfield[0]",
+    "mapping": {
+      "variable": "add_further_paragraphs_where_the_court_orders_othe",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p2[0].#subform[0].courtFileNumber[0]",
+    "mapping": {
+      "variable": "court_file_number",
+      "datatype": "number",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p2[0].textfield[0]",
+    "mapping": {
+      "variable": "add_further_paragraphs_where_the_court_orders_othe",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p2[0].dateofSignature[0]",
+    "mapping": {
+      "variable": "date_of_signature",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].p2[0].judgeSignature[0]",
+    "mapping": {
+      "variable": "signature_of_judge_or_clerk_of_the_court",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].navigationBtns[0].saveForm[0]",
+    "mapping": {
+      "variable": "save_form",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].navigationBtns[0].Print[0]",
+    "mapping": {
+      "variable": "print_form",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_25A",
+    "field": "form1[0].page1[0].navigationBtns[0].Reset[0]",
+    "mapping": {
+      "variable": "clear_form",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_33F",
+    "field": "birthdate_birthdate_birthdate_birthdate_birthdate_",
+    "mapping": {
+      "variable": "birthdate_birthdate_birthdate_birthdate_birthdate_",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "1",
+    "mapping": {
+      "variable": "1_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "total_1",
+    "mapping": {
+      "variable": "total_1_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "1_1",
+    "mapping": {
+      "variable": "1_1_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "total_2_total_2",
+    "mapping": {
+      "variable": "total_2_total_2_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "total_of_property_items_total_of_property_items",
+    "mapping": {
+      "variable": "total_of_property_items_total_of_property_items_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "total_of_debt_items_total_of_debt_items",
+    "mapping": {
+      "variable": "total_of_debt_items_total_of_debt_items_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "net_total_3_3_a_minus_3_b_net_total_3_3_a_minus_3_",
+    "mapping": {
+      "variable": "net_total_3_3a_minus_3b_net_total_3_3a_minus_3b_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "total_4",
+    "mapping": {
+      "variable": "total_4_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "total_2_from_page_2",
+    "mapping": {
+      "variable": "total_2_from_page_2_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "total_3_from_page_2",
+    "mapping": {
+      "variable": "total_3_from_page_2_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "total_4_from_page_3",
+    "mapping": {
+      "variable": "total_4_from_page_3_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "total_5_total_2_total_3_total_4",
+    "mapping": {
+      "variable": "total_5_total_2_total_3_total_4_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "total_1_from_page_1",
+    "mapping": {
+      "variable": "total_1_from_page_1_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "total_5_from_above",
+    "mapping": {
+      "variable": "total_5_from_above_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13B",
+    "field": "total_6_net_family_property_total_1_minus_total_5",
+    "mapping": {
+      "variable": "total_6_net_family_property_total_1_minus_total_5_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_6C",
+    "field": "including_travel_including_travel_including_travel",
+    "mapping": {
+      "variable": "_including_travel_including_travel_including_trave",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_6C",
+    "field": "lawyer_paralegal_s_name_lawyer_paralegal_s_name_la",
+    "mapping": {
+      "variable": "lawyerparalegals_name_lawyerparalegals_name_lawyer",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_6C",
+    "field": "street_address_street_address_street_address_stree",
+    "mapping": {
+      "variable": "street_address_street_address_street_address_stree",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_6C",
+    "field": "email_address_email_address_email_address_email_ad",
+    "mapping": {
+      "variable": "email_address_email_address_email_address_email_ad",
+      "datatype": "email",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "full_legal_name_full_legal_name_full_legal_name_fu",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "address_address_address_address_address_address_ad",
+    "mapping": {
+      "variable": "address_address_address_address_address_address_ad",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "full_legal_name_full_legal_name_full_legal_name_fu",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "address_address_address_address_address_address_ad",
+    "mapping": {
+      "variable": "address_address_address_address_address_address_ad",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "4_last_year_my_gross_income_from_all_sources_was_l",
+    "mapping": {
+      "variable": "4_last_year_my_gross_income_from_all_sources_was_l",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "1_1_employment_income_before_deductions_employment",
+    "mapping": {
+      "variable": "1_1_employment_income_before_deductions_employment",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "2_2_commissions_tips_and_bonuses_commissions_tips_",
+    "mapping": {
+      "variable": "2_2_commissions_tips_and_bonuses_commissions_tips_",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "3_3_self_employment_income_monthly_amount_before_e",
+    "mapping": {
+      "variable": "3_3_selfemployment_income_monthly_amount_before_ex",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "4_4_employment_insurance_benefits_employment_insur",
+    "mapping": {
+      "variable": "4_4_employment_insurance_benefits_employment_insur",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "5_5_workers_compensation_benefits_workers_compensa",
+    "mapping": {
+      "variable": "5_5_workers_compensation_benefits_workers_compensa",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "6_6_social_assistance_income_including_odsp_paymen",
+    "mapping": {
+      "variable": "6_6_social_assistance_income_including_odsp_paymen",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "7_7_interest_and_investment_income_interest_and_in",
+    "mapping": {
+      "variable": "7_7_interest_and_investment_income_interest_and_in",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "8_8_pension_income_including_cpp_and_oas_pension_i",
+    "mapping": {
+      "variable": "8_8_pension_income_including_cpp_and_oas_pension_i",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "9_9_spousal_support_received_from_a_former_spouse_",
+    "mapping": {
+      "variable": "9_9_spousal_support_received_from_a_former_spousep",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "10_10_child_tax_benefits_or_tax_rebates_e_g_gst_ch",
+    "mapping": {
+      "variable": "10_10_child_tax_benefits_or_tax_rebates_eg_gst_chi",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "11_11_other_sources_of_income_e_g_rrsp_withdrawals",
+    "mapping": {
+      "variable": "11_11_other_sources_of_income_eg_rrsp_withdrawals_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "12_12_total_monthly_income_from_all_sources_total_",
+    "mapping": {
+      "variable": "12_12_total_monthly_income_from_all_sources_total_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "13_13_total_monthly_income_x_12_total_annual_incom",
+    "mapping": {
+      "variable": "13_13_total_monthly_income_x_12_total_annual_incom",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "field",
+    "mapping": {
+      "variable": "field",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "field",
+    "mapping": {
+      "variable": "field",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "field",
+    "mapping": {
+      "variable": "field",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "field",
+    "mapping": {
+      "variable": "field",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "cpp_contributions_cpp_contributions_cpp_contributi",
+    "mapping": {
+      "variable": "cpp_contributions_cpp_contributions_cpp_contributi",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "ei_premiums_ei_premiums_ei_premiums_gas_and_oil_ga",
+    "mapping": {
+      "variable": "ei_premiums_ei_premiums_ei_premiums_gas_and_oil_ga",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "income_taxes_income_taxes_income_taxes_car_insuran",
+    "mapping": {
+      "variable": "income_taxes_income_taxes_income_taxes_car_insuran",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "employee_pension_contributions_employee_pension_co",
+    "mapping": {
+      "variable": "employee_pension_contributions_employee_pension_co",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "union_dues_union_dues_union_dues_parking_parking_p",
+    "mapping": {
+      "variable": "union_dues_union_dues_union_dues_parking_parking_p",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "subtotal_subtotal_subtotal_car_loan_or_lease_payme",
+    "mapping": {
+      "variable": "subtotal_subtotal_subtotal_car_loan_or_lease_payme",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "housing_housing_housing_housing_housing_subtotal_s",
+    "mapping": {
+      "variable": "housing_housing_housing_housing_housing_subtotal_s",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "rent_or_mortgage_rent_or_mortgage_rent_or_mortgage",
+    "mapping": {
+      "variable": "rent_or_mortgage_rent_or_mortgage_rent_or_mortgage",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "property_taxes_property_taxes_property_taxes_healt",
+    "mapping": {
+      "variable": "property_taxes_property_taxes_property_taxes_healt",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "property_insurance_property_insurance_property_ins",
+    "mapping": {
+      "variable": "property_insurance_property_insurance_property_ins",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "condominium_fees_condominium_fees_condominium_fees",
+    "mapping": {
+      "variable": "condominium_fees_condominium_fees_condominium_fees",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "repairs_and_maintenance_repairs_and_maintenance_re",
+    "mapping": {
+      "variable": "repairs_and_maintenance_repairs_and_maintenance_re",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+    "mapping": {
+      "variable": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "water_water_water_clothing_clothing_clothing_cloth",
+    "mapping": {
+      "variable": "water_water_water_clothing_clothing_clothing_cloth",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "heat_heat_heat_hair_care_and_beauty_hair_care_and_",
+    "mapping": {
+      "variable": "heat_heat_heat_hair_care_and_beauty_hair_care_and_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "electricity_electricity_electricity_alcohol_and_to",
+    "mapping": {
+      "variable": "electricity_electricity_electricity_alcohol_and_to",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "telephone_telephone_telephone_telephone_education_",
+    "mapping": {
+      "variable": "telephone_telephone_telephone_telephone_education_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "cell_phone_cell_phone_cell_phone_cell_phone_entert",
+    "mapping": {
+      "variable": "cell_phone_cell_phone_cell_phone_cell_phone_entert",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "cable_cable_cable_cable_gifts_gifts_gifts_gifts_gi",
+    "mapping": {
+      "variable": "cable_cable_cable_cable_gifts_gifts_gifts_gifts_gi",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "internet_internet_internet_internet_subtotal_subto",
+    "mapping": {
+      "variable": "internet_internet_internet_internet_subtotal_subto",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "subtotal_subtotal_subtotal_subtotal_other_expenses",
+    "mapping": {
+      "variable": "subtotal_subtotal_subtotal_subtotal_other_expenses",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "household_expenses_household_expenses_household_ex",
+    "mapping": {
+      "variable": "household_expenses_household_expenses_household_ex",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "groceries_groceries_groceries_groceries_rrsp_resp_",
+    "mapping": {
+      "variable": "groceries_groceries_groceries_groceries_rrspresp_w",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "household_supplies_household_supplies_household_su",
+    "mapping": {
+      "variable": "household_supplies_household_supplies_household_su",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "meals_outside_the_home_meals_outside_the_home_meal",
+    "mapping": {
+      "variable": "meals_outside_the_home_meals_outside_the_home_meal",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "pet_care_pet_care_pet_care_pet_care_clothing_for_c",
+    "mapping": {
+      "variable": "pet_care_pet_care_pet_care_pet_care_clothing_for_c",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "laundry_and_dry_cleaning_laundry_and_dry_cleaning_",
+    "mapping": {
+      "variable": "laundry_and_dry_cleaning_laundry_and_dry_cleaning_",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "subtotal_subtotal_subtotal_subtotal_summer_camp_ex",
+    "mapping": {
+      "variable": "subtotal_subtotal_subtotal_subtotal_summer_camp_ex",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "childcare_costs_childcare_costs_childcare_costs_ch",
+    "mapping": {
+      "variable": "childcare_costs_childcare_costs_childcare_costs_ch",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "daycare_expense_daycare_expense_daycare_expense_da",
+    "mapping": {
+      "variable": "daycare_expense_daycare_expense_daycare_expense_da",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "babysitting_costs_babysitting_costs_babysitting_co",
+    "mapping": {
+      "variable": "babysitting_costs_babysitting_costs_babysitting_co",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+    "mapping": {
+      "variable": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "total_amount_of_monthly_expenses_total_amount_of_m",
+    "mapping": {
+      "variable": "total_amount_of_monthly_expenses_total_amount_of_m",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "total_amount_of_yearly_expenses_total_amount_of_ye",
+    "mapping": {
+      "variable": "total_amount_of_yearly_expenses_total_amount_of_ye",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "real_estate_real_estate_1",
+    "mapping": {
+      "variable": "real_estate_real_estate_1_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "real_estate_real_estate_2",
+    "mapping": {
+      "variable": "real_estate_real_estate_2_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "real_estate_real_estate_3",
+    "mapping": {
+      "variable": "real_estate_real_estate_3_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "cars_boats_vehicles_cars_boats_vehicles_1",
+    "mapping": {
+      "variable": "cars_boats_vehicles_cars_boats_vehicles_1_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "cars_boats_vehicles_cars_boats_vehicles_2",
+    "mapping": {
+      "variable": "cars_boats_vehicles_cars_boats_vehicles_2_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "cars_boats_vehicles_cars_boats_vehicles_3",
+    "mapping": {
+      "variable": "cars_boats_vehicles_cars_boats_vehicles_3_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "other_possessions_of_value_e_g_computers_jewellery",
+    "mapping": {
+      "variable": "other_possessions_of_value_eg_computers_jewellery_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "other_possessions_of_value_e_g_computers_jewellery",
+    "mapping": {
+      "variable": "other_possessions_of_value_eg_computers_jewellery_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "other_possessions_of_value_e_g_computers_jewellery",
+    "mapping": {
+      "variable": "other_possessions_of_value_eg_computers_jewellery_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "investments_e_g_bonds_shares_term_deposits_and_mut",
+    "mapping": {
+      "variable": "investments_eg_bonds_shares_term_deposits_and_mutu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "investments_e_g_bonds_shares_term_deposits_and_mut",
+    "mapping": {
+      "variable": "investments_eg_bonds_shares_term_deposits_and_mutu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "investments_e_g_bonds_shares_term_deposits_and_mut",
+    "mapping": {
+      "variable": "investments_eg_bonds_shares_term_deposits_and_mutu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "bank_accounts_bank_accounts_1",
+    "mapping": {
+      "variable": "bank_accounts_bank_accounts_1_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "bank_accounts_bank_accounts_2",
+    "mapping": {
+      "variable": "bank_accounts_bank_accounts_2_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "bank_accounts_bank_accounts_3",
+    "mapping": {
+      "variable": "bank_accounts_bank_accounts_3_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "savings_plans_r_r_s_p_s_pension_plans_r_e_s_p_s_sa",
+    "mapping": {
+      "variable": "savings_plans_rrsps_pension_plans_resps_savings_pl",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "savings_plans_r_r_s_p_s_pension_plans_r_e_s_p_s_sa",
+    "mapping": {
+      "variable": "savings_plans_rrsps_pension_plans_resps_savings_pl",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "savings_plans_r_r_s_p_s_pension_plans_r_e_s_p_s_sa",
+    "mapping": {
+      "variable": "savings_plans_rrsps_pension_plans_resps_savings_pl",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "life_insurance_life_insurance_1",
+    "mapping": {
+      "variable": "life_insurance_life_insurance_1_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "life_insurance_life_insurance_2",
+    "mapping": {
+      "variable": "life_insurance_life_insurance_2_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "life_insurance_life_insurance_3",
+    "mapping": {
+      "variable": "life_insurance_life_insurance_3_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "interest_in_business_attach_separate_year_end_stat",
+    "mapping": {
+      "variable": "interest_in_business_attach_separate_yearend_state",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "interest_in_business_attach_separate_year_end_stat",
+    "mapping": {
+      "variable": "interest_in_business_attach_separate_yearend_state",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "interest_in_business_attach_separate_year_end_stat",
+    "mapping": {
+      "variable": "interest_in_business_attach_separate_yearend_state",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "money_owed_to_you_for_example_any_court_judgments_",
+    "mapping": {
+      "variable": "money_owed_to_you_for_example_any_court_judgments_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "money_owed_to_you_for_example_any_court_judgments_",
+    "mapping": {
+      "variable": "money_owed_to_you_for_example_any_court_judgments_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "money_owed_to_you_for_example_any_court_judgments_",
+    "mapping": {
+      "variable": "money_owed_to_you_for_example_any_court_judgments_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "other_assets_other_assets_1",
+    "mapping": {
+      "variable": "other_assets_other_assets_1_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "other_assets_other_assets_2",
+    "mapping": {
+      "variable": "other_assets_other_assets_2_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "other_assets_other_assets_3",
+    "mapping": {
+      "variable": "other_assets_other_assets_3_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "total_value_of_all_property_total_value_of_all_pro",
+    "mapping": {
+      "variable": "total_value_of_all_property_total_value_of_all_pro",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "mortgages_lines_of_credits_or_other_loans_from_a_b",
+    "mapping": {
+      "variable": "mortgages_lines_of_credits_or_other_loans_from_a_b",
+      "datatype": "number",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "mortgages_lines_of_credits_or_other_loans_from_a_b",
+    "mapping": {
+      "variable": "mortgages_lines_of_credits_or_other_loans_from_a_b",
+      "datatype": "number",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "mortgages_lines_of_credits_or_other_loans_from_a_b",
+    "mapping": {
+      "variable": "mortgages_lines_of_credits_or_other_loans_from_a_b",
+      "datatype": "number",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "outstanding_credit_card_balances_outstanding_credi",
+    "mapping": {
+      "variable": "outstanding_credit_card_balances_outstanding_credi",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "outstanding_credit_card_balances_outstanding_credi",
+    "mapping": {
+      "variable": "outstanding_credit_card_balances_outstanding_credi",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "outstanding_credit_card_balances_outstanding_credi",
+    "mapping": {
+      "variable": "outstanding_credit_card_balances_outstanding_credi",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "unpaid_support_amounts_unpaid_support_amounts_unpa",
+    "mapping": {
+      "variable": "unpaid_support_amounts_unpaid_support_amounts_unpa",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "unpaid_support_amounts_unpaid_support_amounts_unpa",
+    "mapping": {
+      "variable": "unpaid_support_amounts_unpaid_support_amounts_unpa",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "unpaid_support_amounts_unpaid_support_amounts_unpa",
+    "mapping": {
+      "variable": "unpaid_support_amounts_unpaid_support_amounts_unpa",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "other_debts_other_debts_other_debts_other_debts_ot",
+    "mapping": {
+      "variable": "other_debts_other_debts_other_debts_other_debts_ot",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "other_debts_other_debts_other_debts_other_debts_ot",
+    "mapping": {
+      "variable": "other_debts_other_debts_other_debts_other_debts_ot",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "other_debts_other_debts_other_debts_other_debts_ot",
+    "mapping": {
+      "variable": "other_debts_other_debts_other_debts_other_debts_ot",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "total_amount_of_debts_outstanding_total_amount_of_",
+    "mapping": {
+      "variable": "total_amount_of_debts_outstanding_total_amount_of_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "total_assets_total_assets_total_assets_total_asset",
+    "mapping": {
+      "variable": "total_assets_total_assets_total_assets_total_asset",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "subtract_total_debts_subtract_total_debts_subtract",
+    "mapping": {
+      "variable": "subtract_total_debts_subtract_total_debts_subtract",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "net_worth_net_worth_net_worth_net_worth_net_worth_",
+    "mapping": {
+      "variable": "net_worth_net_worth_net_worth_net_worth_net_worth_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "1_1_net_partnership_income_net_partnership_income_",
+    "mapping": {
+      "variable": "1_1_net_partnership_income_net_partnership_income_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "2_2_net_rental_income_gross_annual_rental_income_o",
+    "mapping": {
+      "variable": "2_2_net_rental_income_gross_annual_rental_income_o",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "3_3_total_amount_of_dividends_received_from_taxabl",
+    "mapping": {
+      "variable": "3_3_total_amount_of_dividends_received_from_taxabl",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "4_4_total_capital_gains_less_capital_losses_total_",
+    "mapping": {
+      "variable": "4_4_total_capital_gains_less_capital_losses_total_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "5_5_registered_retirement_savings_plan_withdrawals",
+    "mapping": {
+      "variable": "5_5_registered_retirement_savings_plan_withdrawals",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "6_6_income_from_a_registered_retirement_income_fun",
+    "mapping": {
+      "variable": "6_6_income_from_a_registered_retirement_income_fun",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "7_7_any_other_income_specify_source_any_other_inco",
+    "mapping": {
+      "variable": "7_7_any_other_income_specify_source_any_other_inco",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+    "mapping": {
+      "variable": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "6_my_spouse_partner_my_spouse_partner_my_spouse_pa",
+    "mapping": {
+      "variable": "6_my_spousepartner_my_spousepartner_my_spousepartn",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "7_my_spouse_partner_or_other_adult_residing_in_the",
+    "mapping": {
+      "variable": "7_my_spousepartner_or_other_adult_residing_in_the_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "1",
+    "mapping": {
+      "variable": "1_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "2",
+    "mapping": {
+      "variable": "2_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "3",
+    "mapping": {
+      "variable": "3_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "4",
+    "mapping": {
+      "variable": "4_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "5",
+    "mapping": {
+      "variable": "5_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "6",
+    "mapping": {
+      "variable": "6_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "7",
+    "mapping": {
+      "variable": "7_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "8",
+    "mapping": {
+      "variable": "8_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "9",
+    "mapping": {
+      "variable": "9_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "10_10",
+    "mapping": {
+      "variable": "10_10_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "total_net_annual_amount_total_net_annual_amount_to",
+    "mapping": {
+      "variable": "total_net_annual_amount_total_net_annual_amount_to",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "total_net_monthly_amount_total_net_monthly_amount_",
+    "mapping": {
+      "variable": "total_net_monthly_amount_total_net_monthly_amount_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "i_earn_per_year_which_should_be_used_to_determine_",
+    "mapping": {
+      "variable": "i_earn_per_year_which_should_be_used_to_determine_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13",
+    "field": "medical_insurance_premiums_and_certain_health_rela",
+    "mapping": {
+      "variable": "_medical_insurance_premiums_and_certain_healthrela",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8",
+    "field": "full_legal_name_full_legal_name_name_name",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_name_name",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8",
+    "field": "address_address_address_address",
+    "mapping": {
+      "variable": "address_address_address_address",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8",
+    "field": "full_legal_name_full_legal_name_name_name",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_name_name",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8",
+    "field": "address_address_address_address",
+    "mapping": {
+      "variable": "address_address_address_address",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8",
+    "field": "applicant_applicant_applicant_applicant_applicant_",
+    "mapping": {
+      "variable": "applicant_applicant_applicant_applicant_applicant_",
+      "datatype": "number",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8",
+    "field": "first_name_on_the_day_before_the_marriage_date_fir",
+    "mapping": {
+      "variable": "first_name_on_the_day_before_the_marriage_date_fir",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8",
+    "field": "last_name_on_the_day_before_the_marriage_date_last",
+    "mapping": {
+      "variable": "last_name_on_the_day_before_the_marriage_date_last",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8",
+    "field": "gender_on_the_day_before_the_marriage_date_gender_",
+    "mapping": {
+      "variable": "gender_on_the_day_before_the_marriage_date_gender_",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8",
+    "field": "respondent_respondent_respondent_respondent_respon",
+    "mapping": {
+      "variable": "respondent_respondent_respondent_respondent_respon",
+      "datatype": "number",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8",
+    "field": "first_name_on_the_day_before_the_marriage_date_fir",
+    "mapping": {
+      "variable": "first_name_on_the_day_before_the_marriage_date_fir",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8",
+    "field": "last_name_on_the_day_before_the_marriage_date_last",
+    "mapping": {
+      "variable": "last_name_on_the_day_before_the_marriage_date_last",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_8",
+    "field": "gender_on_the_day_before_the_marriage_date_gender_",
+    "mapping": {
+      "variable": "gender_on_the_day_before_the_marriage_date_gender_",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "full_legal_name_full_legal_name_full_legal_name_fu",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "address_address_address_address_address_address_ad",
+    "mapping": {
+      "variable": "address_address_address_address_address_address_ad",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "full_legal_name_full_legal_name_full_legal_name_fu",
+    "mapping": {
+      "variable": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "address_address_address_address_address_address_ad",
+    "mapping": {
+      "variable": "address_address_address_address_address_address_ad",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "4_last_year_my_gross_income_from_all_sources_was_l",
+    "mapping": {
+      "variable": "4_last_year_my_gross_income_from_all_sources_was_l",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "1_1_employment_income_before_deductions_employment",
+    "mapping": {
+      "variable": "1_1_employment_income_before_deductions_employment",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "2_2_commissions_tips_and_bonuses_commissions_tips_",
+    "mapping": {
+      "variable": "2_2_commissions_tips_and_bonuses_commissions_tips_",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "3_3_self_employment_income_monthly_amount_before_e",
+    "mapping": {
+      "variable": "3_3_selfemployment_income_monthly_amount_before_ex",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "4_4_employment_insurance_benefits_employment_insur",
+    "mapping": {
+      "variable": "4_4_employment_insurance_benefits_employment_insur",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "5_5_workers_compensation_benefits_workers_compensa",
+    "mapping": {
+      "variable": "5_5_workers_compensation_benefits_workers_compensa",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "6_6_social_assistance_income_including_odsp_paymen",
+    "mapping": {
+      "variable": "6_6_social_assistance_income_including_odsp_paymen",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "7_7_interest_and_investment_income_interest_and_in",
+    "mapping": {
+      "variable": "7_7_interest_and_investment_income_interest_and_in",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "8_8_pension_income_including_cpp_and_oas_pension_i",
+    "mapping": {
+      "variable": "8_8_pension_income_including_cpp_and_oas_pension_i",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "9_9_spousal_support_received_from_a_former_spouse_",
+    "mapping": {
+      "variable": "9_9_spousal_support_received_from_a_former_spousep",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "10_10_child_tax_benefits_or_tax_rebates_e_g_gst_ch",
+    "mapping": {
+      "variable": "10_10_child_tax_benefits_or_tax_rebates_eg_gst_chi",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "11_11_other_sources_of_income_e_g_rrsp_withdrawals",
+    "mapping": {
+      "variable": "11_11_other_sources_of_income_eg_rrsp_withdrawals_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "12_12_total_monthly_income_from_all_sources_total_",
+    "mapping": {
+      "variable": "12_12_total_monthly_income_from_all_sources_total_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "13_13_total_monthly_income_x_12_total_annual_incom",
+    "mapping": {
+      "variable": "13_13_total_monthly_income_x_12_total_annual_incom",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "field",
+    "mapping": {
+      "variable": "field",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "field",
+    "mapping": {
+      "variable": "field",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "field",
+    "mapping": {
+      "variable": "field",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "field",
+    "mapping": {
+      "variable": "field",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "cpp_contributions_cpp_contributions_cpp_contributi",
+    "mapping": {
+      "variable": "cpp_contributions_cpp_contributions_cpp_contributi",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "ei_premiums_ei_premiums_ei_premiums_gas_and_oil_ga",
+    "mapping": {
+      "variable": "ei_premiums_ei_premiums_ei_premiums_gas_and_oil_ga",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "income_taxes_income_taxes_income_taxes_car_insuran",
+    "mapping": {
+      "variable": "income_taxes_income_taxes_income_taxes_car_insuran",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "employee_pension_contributions_employee_pension_co",
+    "mapping": {
+      "variable": "employee_pension_contributions_employee_pension_co",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "union_dues_union_dues_union_dues_parking_parking_p",
+    "mapping": {
+      "variable": "union_dues_union_dues_union_dues_parking_parking_p",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "subtotal_subtotal_subtotal_car_loan_or_lease_payme",
+    "mapping": {
+      "variable": "subtotal_subtotal_subtotal_car_loan_or_lease_payme",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "housing_housing_housing_housing_housing_subtotal_s",
+    "mapping": {
+      "variable": "housing_housing_housing_housing_housing_subtotal_s",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "rent_or_mortgage_rent_or_mortgage_rent_or_mortgage",
+    "mapping": {
+      "variable": "rent_or_mortgage_rent_or_mortgage_rent_or_mortgage",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "property_taxes_property_taxes_property_taxes_healt",
+    "mapping": {
+      "variable": "property_taxes_property_taxes_property_taxes_healt",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "property_insurance_property_insurance_property_ins",
+    "mapping": {
+      "variable": "property_insurance_property_insurance_property_ins",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "condominium_fees_condominium_fees_condominium_fees",
+    "mapping": {
+      "variable": "condominium_fees_condominium_fees_condominium_fees",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "repairs_and_maintenance_repairs_and_maintenance_re",
+    "mapping": {
+      "variable": "repairs_and_maintenance_repairs_and_maintenance_re",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+    "mapping": {
+      "variable": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "water_water_water_clothing_clothing_clothing_cloth",
+    "mapping": {
+      "variable": "water_water_water_clothing_clothing_clothing_cloth",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "heat_heat_heat_hair_care_and_beauty_hair_care_and_",
+    "mapping": {
+      "variable": "heat_heat_heat_hair_care_and_beauty_hair_care_and_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "electricity_electricity_electricity_alcohol_and_to",
+    "mapping": {
+      "variable": "electricity_electricity_electricity_alcohol_and_to",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "telephone_telephone_telephone_telephone_telephone_",
+    "mapping": {
+      "variable": "telephone_telephone_telephone_telephone_telephone_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "cell_phone_cell_phone_cell_phone_cell_phone_cell_p",
+    "mapping": {
+      "variable": "cell_phone_cell_phone_cell_phone_cell_phone_cell_p",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "cable_cable_cable_cable_cable_cable_cable_gifts_gi",
+    "mapping": {
+      "variable": "cable_cable_cable_cable_cable_cable_cable_gifts_gi",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "internet_internet_internet_internet_internet_inter",
+    "mapping": {
+      "variable": "internet_internet_internet_internet_internet_inter",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+    "mapping": {
+      "variable": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "household_expenses_household_expenses_household_ex",
+    "mapping": {
+      "variable": "household_expenses_household_expenses_household_ex",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "groceries_groceries_groceries_groceries_groceries_",
+    "mapping": {
+      "variable": "groceries_groceries_groceries_groceries_groceries_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "household_supplies_household_supplies_household_su",
+    "mapping": {
+      "variable": "household_supplies_household_supplies_household_su",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "meals_outside_the_home_meals_outside_the_home_meal",
+    "mapping": {
+      "variable": "meals_outside_the_home_meals_outside_the_home_meal",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "pet_care_pet_care_pet_care_pet_care_pet_care_pet_c",
+    "mapping": {
+      "variable": "pet_care_pet_care_pet_care_pet_care_pet_care_pet_c",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "laundry_and_dry_cleaning_laundry_and_dry_cleaning_",
+    "mapping": {
+      "variable": "laundry_and_dry_cleaning_laundry_and_dry_cleaning_",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+    "mapping": {
+      "variable": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "childcare_costs_childcare_costs_childcare_costs_ch",
+    "mapping": {
+      "variable": "childcare_costs_childcare_costs_childcare_costs_ch",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "daycare_expense_daycare_expense_daycare_expense_da",
+    "mapping": {
+      "variable": "daycare_expense_daycare_expense_daycare_expense_da",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "babysitting_costs_babysitting_costs_babysitting_co",
+    "mapping": {
+      "variable": "babysitting_costs_babysitting_costs_babysitting_co",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+    "mapping": {
+      "variable": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "total_amount_of_monthly_expenses_total_amount_of_m",
+    "mapping": {
+      "variable": "total_amount_of_monthly_expenses_total_amount_of_m",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "total_amount_of_yearly_expenses_total_amount_of_ye",
+    "mapping": {
+      "variable": "total_amount_of_yearly_expenses_total_amount_of_ye",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "6_my_spouse_partner_my_spouse_partner_my_spouse_pa",
+    "mapping": {
+      "variable": "6_my_spousepartner_my_spousepartner_my_spousepartn",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "7_my_spouse_partner_or_other_adult_residing_in_the",
+    "mapping": {
+      "variable": "7_my_spousepartner_or_other_adult_residing_in_the_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "15_total_value_of_land_15_total_value_of_land_15_t",
+    "mapping": {
+      "variable": "15_total_value_of_land_15_total_value_of_land_15_t",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "household_goods_furniture_household_goods_furnitur",
+    "mapping": {
+      "variable": "household_goods_furniture_household_goods_furnitur",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "cars_boats_vehicles_cars_boats_vehicles",
+    "mapping": {
+      "variable": "cars_boats_vehicles_cars_boats_vehicles_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "jewellery_art_electronics_tools_sports_hobby_equip",
+    "mapping": {
+      "variable": "jewellery_art_electronics_tools_sports_hobby_equip",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "other_special_items_other_special_items",
+    "mapping": {
+      "variable": "other_special_items_other_special_items_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "16_total_value_of_general_household_items_and_vehi",
+    "mapping": {
+      "variable": "16_total_value_of_general_household_items_and_vehi",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "17_total_value_of_accounts_savings_securities_and_",
+    "mapping": {
+      "variable": "17_total_value_of_accounts_savings_securities_and_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "18_total_cash_surrender_value_of_insurance_policie",
+    "mapping": {
+      "variable": "18_total_cash_surrender_value_of_insurance_policie",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "19_total_value_of_business_interests_19_total_valu",
+    "mapping": {
+      "variable": "19_total_value_of_business_interests_19_total_valu",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "20_total_of_money_owed_to_you_20_total_of_money_ow",
+    "mapping": {
+      "variable": "20_total_of_money_owed_to_you_20_total_of_money_ow",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "21_total_value_of_other_property_21_total_value_of",
+    "mapping": {
+      "variable": "21_total_value_of_other_property_21_total_value_of",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "22_value_of_all_property_owned_on_the_valuation_da",
+    "mapping": {
+      "variable": "22_value_of_all_property_owned_on_the_valuation_da",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "23_total_of_debts_and_other_liabilities_23_total_o",
+    "mapping": {
+      "variable": "23_total_of_debts_and_other_liabilities_23_total_o",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "totals_totals_totals_totals",
+    "mapping": {
+      "variable": "totals_totals_totals_totals_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "24_net_value_of_property_owned_on_date_of_marriage",
+    "mapping": {
+      "variable": "24_net_value_of_property_owned_on_date_of_marriage",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "25_value_of_all_deductions_add_items_23_and_24_25_",
+    "mapping": {
+      "variable": "25_value_of_all_deductions_add_items_23_and_24_25_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "field",
+    "mapping": {
+      "variable": "_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "26_total_value_of_excluded_property_26_total_value",
+    "mapping": {
+      "variable": "26_total_value_of_excluded_property_26_total_value",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "27_total_value_of_disposed_of_property_27_total_va",
+    "mapping": {
+      "variable": "27_total_value_of_disposedof_property_27_total_val",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "value_of_all_property_owned_on_valuation_date_from",
+    "mapping": {
+      "variable": "value_of_all_property_owned_on_valuation_date_from",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "subtract_value_of_all_deductions_from_item_25_abov",
+    "mapping": {
+      "variable": "subtract_value_of_all_deductions_from_item_25_abov",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "subtract_total_value_of_excluded_property_from_ite",
+    "mapping": {
+      "variable": "subtract_total_value_of_excluded_property_from_ite",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "28_net_family_property_28_net_family_property_28_n",
+    "mapping": {
+      "variable": "28_net_family_property_28_net_family_property_28_n",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "1_1_1_1_1_net_partnership_income_net_partnership_i",
+    "mapping": {
+      "variable": "1_1_1_1_1_net_partnership_income_net_partnership_i",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "2_2_2_2_2_net_rental_income_gross_annual_rental_in",
+    "mapping": {
+      "variable": "2_2_2_2_2_net_rental_income_gross_annual_rental_in",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "3_3_3_3_3_total_amount_of_dividends_received_from_",
+    "mapping": {
+      "variable": "3_3_3_3_3_total_amount_of_dividends_received_from_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "4_4_4_4_4_total_capital_gains_less_capital_losses_",
+    "mapping": {
+      "variable": "4_4_4_4_4_total_capital_gains_less_capital_losses_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "5_5_5_5_5_registered_retirement_savings_plan_withd",
+    "mapping": {
+      "variable": "5_5_5_5_5_registered_retirement_savings_plan_withd",
+      "datatype": "text",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "6_6_6_6_6_income_from_a_registered_retirement_inco",
+    "mapping": {
+      "variable": "6_6_6_6_6_income_from_a_registered_retirement_inco",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "7_7_7_7_7_any_other_income_specify_source_any_othe",
+    "mapping": {
+      "variable": "7_7_7_7_7_any_other_income_specify_source_any_othe",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "subtotal_subtotal_subtotal",
+    "mapping": {
+      "variable": "subtotal_subtotal_subtotal_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "1",
+    "mapping": {
+      "variable": "1_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "2",
+    "mapping": {
+      "variable": "2_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "3",
+    "mapping": {
+      "variable": "3_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "4",
+    "mapping": {
+      "variable": "4_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "5",
+    "mapping": {
+      "variable": "5_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "6",
+    "mapping": {
+      "variable": "6_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "7",
+    "mapping": {
+      "variable": "7_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "8",
+    "mapping": {
+      "variable": "8_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "9",
+    "mapping": {
+      "variable": "9_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "10_10",
+    "mapping": {
+      "variable": "10_10_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "total_net_annual_amount_total_net_annual_amount_to",
+    "mapping": {
+      "variable": "total_net_annual_amount_total_net_annual_amount_to",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "total_net_monthly_amount_total_net_monthly_amount_",
+    "mapping": {
+      "variable": "total_net_monthly_amount_total_net_monthly_amount_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "i_earn_i_earn_per_year_which_should_be_used_to_det",
+    "mapping": {
+      "variable": "i_earn_i_earn_per_year_which_should_be_used_to_det",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_13.1",
+    "field": "medical_insurance_premiums_and_certain_health_rela",
+    "mapping": {
+      "variable": "_medical_insurance_premiums_and_certain_healthrela",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_29",
+    "field": "2_i_want_to_enforce_by_way_of_garnishment_the_sum_",
+    "mapping": {
+      "variable": "2_i_want_to_enforce_by_way_of_garnishment_the_sum_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_29",
+    "field": "i_also_want_the_garnishment_to_collect_ongoing_pay",
+    "mapping": {
+      "variable": "i_also_want_the_garnishment_to_collect_ongoing_pay",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_29",
+    "field": "garnishee_s_address_garnishee_s_address_garnishee_",
+    "mapping": {
+      "variable": "garnishees_address_garnishees_address_garnishees_a",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_29",
+    "field": "periodic_amounts_periodic_amounts_periodic_amounts",
+    "mapping": {
+      "variable": "periodic_amounts_periodic_amounts_periodic_amounts",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_29",
+    "field": "lump_sum_amount_lump_sum_amount_lump_sum_amount_lu",
+    "mapping": {
+      "variable": "lumpsum_amount_lumpsum_amount_lumpsum_amount_lumps",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_29",
+    "field": "garnishee_s_address_garnishee_s_address_garnishee_",
+    "mapping": {
+      "variable": "garnishees_address_garnishees_address_garnishees_a",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_29",
+    "field": "periodic_amounts_periodic_amounts_periodic_amounts",
+    "mapping": {
+      "variable": "periodic_amounts_periodic_amounts_periodic_amounts",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_29",
+    "field": "lump_sum_amount_lump_sum_amount_lump_sum_amount_lu",
+    "mapping": {
+      "variable": "lumpsum_amount_lumpsum_amount_lumpsum_amount_lumps",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_29",
+    "field": "garnishee_s_address_garnishee_s_address_garnishee_",
+    "mapping": {
+      "variable": "garnishees_address_garnishees_address_garnishees_a",
+      "datatype": "address",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_29",
+    "field": "periodic_amounts_periodic_amounts_periodic_amounts",
+    "mapping": {
+      "variable": "periodic_amounts_periodic_amounts_periodic_amounts",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_29",
+    "field": "lump_sum_amount_lump_sum_amount_lump_sum_amount_lu",
+    "mapping": {
+      "variable": "lumpsum_amount_lumpsum_amount_lumpsum_amount_lumps",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_17C",
+    "field": "1_applicant_applicant_applicant_applicant_age_age_",
+    "mapping": {
+      "variable": "1_applicant_applicant_applicant_applicant_age_age_",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_17C",
+    "field": "2_respondent_respondent_respondent_respondent_age_",
+    "mapping": {
+      "variable": "2_respondent_respondent_respondent_respondent_age_",
+      "datatype": "date",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_17C",
+    "field": "applicant_applicant_applicant_per_year_for_the_yea",
+    "mapping": {
+      "variable": "applicant_applicant_applicant_per_year_for_the_yea",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_17C",
+    "field": "respondent_respondent_respondent_per_year_for_the_",
+    "mapping": {
+      "variable": "respondent_respondent_respondent_per_year_for_the_",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  },
+  {
+    "form": "form_36A",
+    "field": "recipient_s_income_required_for_special_expenses_a",
+    "mapping": {
+      "variable": "recipients_income_required_for_special_expenses_ad",
+      "datatype": "currency",
+      "requires_object": false
+    }
+  }
+]

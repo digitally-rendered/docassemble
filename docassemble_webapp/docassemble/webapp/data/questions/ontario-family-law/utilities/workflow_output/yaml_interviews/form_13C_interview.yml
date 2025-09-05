@@ -1,0 +1,241 @@
+---
+metadata:
+  title: may21-en-fil
+  short title: Form 13C
+  description: 'Ontario Family Law Form 13C: may21-en-fil
+
+
+    This interview uses docassemble standard objects for better data management.
+
+    Generated: 2025-08-26 21:11:49'
+  authors:
+  - name: Ontario Family Law Forms Automation System
+    organization: Fixed YAML Processing
+  revision_date: '2025-08-26'
+  form_number: 13C
+  form_category: financial
+  form_type: general
+  uses_standard_objects: true
+include:
+- docassemble.base:data/questions/basic-questions.yml
+features:
+  navigation: true
+  progress bar: true
+  progress bar method: stepped
+  show progress bar percentage: true
+  navigation back button: true
+  question back button: true
+  review button: true
+  hide navbar: false
+  hide standard menu: false
+objects:
+- applicant: Individual
+- respondent: Individual
+- court_info: DAObject
+- children: DAList.using(object_type=Individual)
+- assets: DAList
+- debts: DAList
+- income_sources: DAList
+- expenses: DAList
+mandatory: true
+code: 'form_intro_seen
+
+  applicant.name.first
+
+  respondent.name.first
+
+  form_complete'
+question: Form 13C - may21-en-fil
+subquestion: 'This interview will help you complete the official Ontario family law form.
+
+
+  You will need:
+
+  - Personal information for all parties
+
+  - Court case information (if applicable)
+
+  - Financial information (if applicable)'
+continue button field: form_intro_seen
+continue button label: Start Interview
+question: Information - Part 1
+fields:
+- label: 'Full legal name: Full legal name: Full legal name:'
+  field: full_legal_name_full_legal_name_full_legal_name
+- label: 'Address: Address: Address:'
+  field: address_address_address
+- label: 'Full legal name: Full legal name: Full legal name:'
+  field: full_legal_name_full_legal_name_full_legal_name
+- label: 'Address: Address: Address:'
+  field: address_address_address
+- label: 'Valuation Date: Statement Date: Statement Date: Statement Date: Statement Date:'
+  field: valuation_date_statement_date_statement_date_statement_date_statement_date
+  datatype: date
+question: Information - Part 2
+fields:
+- label: Matrimonial Home Matrimonial Home $ $ $ $ $
+  field: matrimonial_home_matrimonial_home
+  datatype: currency
+- label: $ $ $ $ $
+  field: field_1
+  datatype: currency
+- label: $ $ $ $ $
+  field: field_1
+  datatype: currency
+- label: '(A) TOTALS: Value of Land (A) TOTALS: Value of Land (A) TOTALS: Value of Land (A) TOTALS: Value of L'
+  field: a_totals_value_of_land_a_totals_value_of_land_a_totals_value_of_land_a_totals_value_of_l
+- label: Household goods & furniture $ $ $ $
+  field: household_goods_furniture
+  datatype: currency
+question: Information - Part 3
+fields:
+- label: Cars, boats, vehicles $ $ $ $
+  field: cars_boats_vehicles
+  datatype: currency
+- label: Jewellery, art, electronics, tools, sports & hobby, equipment $ $ $ $
+  field: jewellery_art_electronics_tools_sports_hobby_equipment
+  datatype: currency
+- label: Other special items $ $ $ $
+  field: other_special_items
+  datatype: currency
+- label: '(B) TOTALS: Value of General Household Items and Vehicles (B) TOTALS: Value of General Household Ite'
+  field: b_totals_value_of_general_household_items_and_vehicles_b_totals_value_of_general_household_ite
+- label: $ $ $ $
+  field: field_2
+  datatype: currency
+question: Information - Part 4
+fields:
+- label: $ $ $ $
+  field: field_2
+  datatype: currency
+- label: $ $ $ $
+  field: field_2
+  datatype: currency
+- label: '(C) TOTALS: Value of Accounts and Savings (C) TOTALS: Value of Accounts and Savings (C) TOTALS: Valu'
+  field: c_totals_value_of_accounts_and_savings_c_totals_value_of_accounts_and_savings_c_totals_valu
+  datatype: number
+- label: 'COMPANY TYPE & POLICY NO. OWNER BENEFICIARY FACE
+
+    AMOUNT ($) COMMENTS Document Number Applicant’s Pos'
+  field: company_type_policy_no_owner_beneficiary_face_amount_comments_document_number_applicants_pos
+  datatype: currency
+- label: 'COMPANY TYPE & POLICY NO. OWNER BENEFICIARY FACE
+
+    AMOUNT ($) COMMENTS Document Number APPLICANT RESPO'
+  field: company_type_policy_no_owner_beneficiary_face_amount_comments_document_number_applicant_respo
+  datatype: currency
+question: Information - Part 5
+fields:
+- label: '(D) TOTALS: Cash Surrender Value of Insurance Policies (D) TOTALS: Cash Surrender Value of Insurance'
+  field: d_totals_cash_surrender_value_of_insurance_policies_d_totals_cash_surrender_value_of_insurance
+- label: '(E) TOTALS: Value of Business Interests (E) TOTALS: Value of Business Interests (E) TOTALS: Value of'
+  field: e_totals_value_of_business_interests_e_totals_value_of_business_interests_e_totals_value_of
+- label: '(F) TOTALS: Money Owed to You (F) TOTALS: Money Owed to You (F) TOTALS: Money Owed to You $ $ $ $'
+  field: f_totals_money_owed_to_you_f_totals_money_owed_to_you_f_totals_money_owed_to_you
+  datatype: currency
+- label: '(G) TOTALS: Value of Other Property (G) TOTALS: Value of Other Property (G) TOTALS: Value of Other P'
+  field: g_totals_value_of_other_property_g_totals_value_of_other_property_g_totals_value_of_other_p
+- label: 'VALUE OF PROPERTY OWNED ON THE VALUATION DATE, (TOTAL 1)
+
+    (Add: item A to item G inclusive) $ $ $ $'
+  field: value_of_property_owned_on_the_valuation_date_total_1_add_item_a_to_item_g_inclusive
+  datatype: date
+question: Information - Part 6
+fields:
+- label: $ $ $ $
+  field: field_2
+  datatype: currency
+- label: 'TOTALS: Value of Debts and Other Liabilities, (TOTAL 2) TOTALS: Value of Debts and Other Liabilities'
+  field: totals_value_of_debts_and_other_liabilities_total_2_totals_value_of_debts_and_other_liabilities
+- label: Assets $ $ $ $
+  field: assets
+  datatype: currency
+- label: TOTAL OF PROPERTY ITEMS TOTAL OF PROPERTY ITEMS TOTAL OF PROPERTY ITEMS $ $ $ $
+  field: total_of_property_items_total_of_property_items_total_of_property_items
+  datatype: currency
+- label: Debts and other liabilities $ $ $ $
+  field: debts_and_other_liabilities
+  datatype: currency
+question: Information - Part 7
+fields:
+- label: $ $ $ $
+  field: field_2
+  datatype: currency
+- label: TOTAL OF DEBTS ITEMS TOTAL OF DEBTS ITEMS TOTAL OF DEBTS ITEMS $ $ $ $
+  field: total_of_debts_items_total_of_debts_items_total_of_debts_items
+  datatype: currency
+- label: NET VALUE OF PROPERTY OWNED ON DATE OF MARRIAGE (NET TOTAL 3) NET VALUE OF PROPERTY OWNED ON DATE OF
+  field: net_value_of_property_owned_on_date_of_marriage_net_total_3_net_value_of_property_owned_on_date_of
+  datatype: date
+- label: 'TOTALS: Value of Excluded Property (TOTAL 4) TOTALS: Value of Excluded Property (TOTAL 4) TOTALS: Va'
+  field: totals_value_of_excluded_property_total_4_totals_value_of_excluded_property_total_4_totals_va
+- label: 'TOTAL 2: Debts and Other Liabilities $ $ $ $'
+  field: total_2_debts_and_other_liabilities
+  datatype: currency
+question: Information - Part 8
+fields:
+- label: 'TOTAL 3: Value of Property Owned on the Date of Marriage $ $ $ $'
+  field: total_3_value_of_property_owned_on_the_date_of_marriage
+  datatype: date
+- label: 'TOTAL 4: Value of Excluded Property $ $ $ $'
+  field: total_4_value_of_excluded_property
+  datatype: currency
+- label: 'TOTAL 5: (TOTAL 2 + TOTAL 3 + TOTAL 4) $ $ $ $'
+  field: total_5_total_2_total_3_total_4
+  datatype: currency
+- label: 'TOTAL 1: Value of Property Owned on Valuation Date $ $ $ $'
+  field: total_1_value_of_property_owned_on_valuation_date
+  datatype: date
+- label: 'TOTAL 5: (from above) $ $ $ $'
+  field: total_5_from_above
+  datatype: currency
+question: Information - Part 9
+fields:
+- label: 'TOTAL 6: NET FAMILY PROPERTY (Subtract: TOTAL 1 minus TOTAL 5) $ $ $ $'
+  field: total_6_net_family_property_subtract_total_1_minus_total_5
+  datatype: currency
+- label: $ $ $ $
+  field: field_2
+  datatype: currency
+review:
+- note: '### Review Your Information'
+- label: 'Full legal name: Full legal name: Full legal name:'
+  field: full_legal_name_full_legal_name_full_legal_name
+- label: 'Address: Address: Address:'
+  field: address_address_address
+- label: 'Full legal name: Full legal name: Full legal name:'
+  field: full_legal_name_full_legal_name_full_legal_name
+- label: 'Address: Address: Address:'
+  field: address_address_address
+- label: 'Valuation Date: Statement Date: Statement Date: Statement Date: Statement Date:'
+  field: valuation_date_statement_date_statement_date_statement_date_statement_date
+- label: Matrimonial Home Matrimonial Home $ $ $ $ $
+  field: matrimonial_home_matrimonial_home
+- label: $ $ $ $ $
+  field: field_1
+- label: $ $ $ $ $
+  field: field_1
+- label: '(A) TOTALS: Value of Land (A) TOTALS: Value of Land (A) TOTALS: Value of Land (A) TOTALS: Value of L'
+  field: a_totals_value_of_land_a_totals_value_of_land_a_totals_value_of_land_a_totals_value_of_l
+- label: Household goods & furniture $ $ $ $
+  field: household_goods_furniture
+question: Review Your Answers
+subquestion: Please review your information. Click any item to edit.
+event: form_complete
+question: Form 13C Complete
+subquestion: 'Your form is ready.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate court'
+buttons:
+- Exit: exit
+- Start Over: restart
+code: "# Validation functions\ndef validate_ontario_postal_code(postal_code):\n    import re\n    if not postal_code:\n        return True\n    pattern = r'^[A-Z]\\d[A-Z]\\s?\\d[A-Z]\\d$'\n    return bool(re.match(pattern, postal_code.upper()))\n\ndef validate_phone_number(phone):\n    import re\n    if not phone:\n        return True\n    pattern = r'^[\\d\\s\\(\\)\\-\\.\\+]+$'\n    return bool(re.match(pattern, phone))\n\ndef format_currency(amount):\n    try:\n        return f\"${float(amount):,.2f}\"\n    except:\n        return \"$0.00\"\n"

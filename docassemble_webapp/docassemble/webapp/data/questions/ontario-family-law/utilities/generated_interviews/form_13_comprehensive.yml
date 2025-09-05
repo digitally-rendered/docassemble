@@ -1,0 +1,829 @@
+metadata:
+  title: Form 13 - Financial Statement with Document Collection
+  short_title: Financial Statement
+  description: Complete financial disclosure with supporting documentation
+---
+modules:
+  - .debug_helpers
+  - docassemble.base.util
+---
+features:
+  debug: True
+  question help button: True
+  question back button: True
+  progress bar: True
+  progress bar method: percentage
+  progress bar multiplier: 1.5
+---
+objects:
+  - error_log: DAList.using(object_type=DAObject, there_are_any=False)
+  - debug_info: DAObject
+---
+code: |
+  if not defined('debug_mode'):
+    debug_mode = get_config('debug', False)
+---
+code: |
+  def capture_form_error(context="", field_name=""):
+    '''Capture and log form validation errors'''
+    from .debug_helpers import DebugHelper
+    error_info = DebugHelper.capture_error()
+    if error_info:
+      error_entry = DAObject()
+      error_entry.timestamp = current_datetime()
+      error_entry.context = context
+      error_entry.field = field_name
+      error_entry.error = error_info
+      error_log.append(error_entry)
+      if debug_mode:
+        log(f"Form error in {context}: {error_info['message']}", 'error')
+    return error_info
+---
+code: |
+  def safe_get_field(obj, field_name, default=""):
+    '''Safely access object fields with error handling'''
+    try:
+      if hasattr(obj, field_name):
+        value = getattr(obj, field_name)
+        return value if value is not None else default
+      return default
+    except Exception as e:
+      capture_form_error(f"safe_get_field({field_name})", field_name)
+      return default
+---
+code: |
+  def handle_validation_error(field_name, value, validation_type=""):
+    '''Handle field validation errors with user-friendly messages'''
+    error_messages = {
+      'required': f"The field '{field_name}' is required.",
+      'date': f"Please enter a valid date for '{field_name}'.",
+      'email': f"Please enter a valid email address for '{field_name}'.",
+      'phone': f"Please enter a valid phone number for '{field_name}'.",
+      'currency': f"Please enter a valid dollar amount for '{field_name}'.",
+      'number': f"Please enter a valid number for '{field_name}'.",
+      'percentage': f"Please enter a valid percentage for '{field_name}'.",
+      'postal_code': f"Please enter a valid postal code for '{field_name}'."
+    }
+    message = error_messages.get(validation_type, f"Invalid value for '{field_name}': {value}")
+    if debug_mode:
+      log(f"Validation error: {message}", 'error')
+    validation_errors.append({
+      'field': field_name,
+      'value': value,
+      'type': validation_type,
+      'message': message
+    })
+    return message
+---
+code: |
+  if not defined('validation_errors'):
+    validation_errors = []
+---
+code: |
+  def validate_field(field_name, value, validation_rules):
+    '''Validate a field against multiple rules'''
+    errors = []
+    # Required field check
+    if 'required' in validation_rules and validation_rules['required']:
+      if not value or (isinstance(value, str) and not value.strip()):
+        errors.append(handle_validation_error(field_name, value, 'required'))
+    # Type-specific validation
+    if value and 'type' in validation_rules:
+      field_type = validation_rules['type']
+      if field_type == 'date':
+        try:
+          # Validate date format
+          if isinstance(value, str):
+            from datetime import datetime
+            datetime.strptime(value, '%Y-%m-%d')
+        except:
+          errors.append(handle_validation_error(field_name, value, 'date'))
+      elif field_type == 'email':
+        import re
+        if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', str(value)):
+          errors.append(handle_validation_error(field_name, value, 'email'))
+      elif field_type == 'phone':
+        import re
+        phone_str = re.sub(r'[^0-9]', '', str(value))
+        if len(phone_str) not in [10, 11]:
+          errors.append(handle_validation_error(field_name, value, 'phone'))
+      elif field_type == 'currency' or field_type == 'number':
+        try:
+          float(str(value).replace('$', '').replace(',', ''))
+        except:
+          errors.append(handle_validation_error(field_name, value, field_type))
+    return errors
+---
+event: show_form_errors
+question: |
+  Form Validation Errors
+subquestion: |
+  % if len(validation_errors) > 0:
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Please correct the following errors:</h4>
+    <ul>
+    % for error in validation_errors:
+      <li><strong>${ error['field'] }:</strong> ${ error['message'] }</li>
+    % endfor
+    </ul>
+  </div>
+  % endif
+  % if debug_mode and len(error_log) > 0:
+  <details>
+    <summary>Debug Information (${len(error_log)} errors logged)</summary>
+    % for entry in error_log:
+    <div class="card mb-2">
+      <div class="card-body">
+        <h6 class="card-title">Error at ${ entry.timestamp }</h6>
+        <p class="card-text">
+          <strong>Context:</strong> ${ entry.context }<br>
+          <strong>Field:</strong> ${ entry.field }<br>
+          <strong>Type:</strong> ${ entry.error['type'] }<br>
+          <strong>Message:</strong> ${ entry.error['message'] }
+        </p>
+        % if debug_mode:
+        <details>
+          <summary>Stack Trace</summary>
+          <pre>${ entry.error.get('formatted_exception', 'N/A') }</pre>
+        </details>
+        % endif
+      </div>
+    </div>
+    % endfor
+  </details>
+  % endif
+buttons:
+  - "Go Back": restart
+  - "Exit": exit
+---
+event: show_debug_info
+question: |
+  Debug Information
+subquestion: |
+  <div class="alert alert-info">
+    <h4>Session Information</h4>
+    <ul>
+      <li><strong>Interview:</strong> ${ user_info().filename }</li>
+      <li><strong>Session ID:</strong> ${ user_info().session }</li>
+      <li><strong>Debug Mode:</strong> ${ debug_mode }</li>
+      <li><strong>Errors Logged:</strong> ${ len(error_log) }</li>
+      <li><strong>Validation Errors:</strong> ${ len(validation_errors) }</li>
+    </ul>
+  </div>
+  % if defined('user_party'):
+  <h4>User Information</h4>
+  <ul>
+    <li><strong>Name:</strong> ${ safe_get_field(user_party, 'name', 'Not provided') }</li>
+    % if hasattr(user_party, 'email'):
+    <li><strong>Email:</strong> ${ safe_get_field(user_party, 'email', 'Not provided') }</li>
+    % endif
+  </ul>
+  % endif
+  <h4>Form Progress</h4>
+  <ul>
+    % for var in ['intro_seen', 'user_party.name.first', 'other_party.name.first', 'children.gathered', 'review_complete']:
+    <li><strong>${ var }:</strong> ${ 'Yes' if defined(var) else 'No' }</li>
+    % endfor
+  </ul>
+buttons:
+  - "Continue": continue
+  - "Show Errors": show_form_errors
+  - "Restart": restart
+---
+review:
+  - note: |
+      % if len(validation_errors) > 0:
+      <div class="alert alert-warning">
+        There are ${ len(validation_errors) } validation errors. Please review and correct them.
+      </div>
+      % endif
+  - Edit: user_party.name.first
+    button: |
+      **Your Name:** ${ safe_get_field(user_party, 'name', 'Not provided') }
+  - Edit: other_party.name.first
+    button: |
+      **Other Party:** ${ safe_get_field(other_party, 'name', 'Not provided') }
+  - note: |
+      % if debug_mode:
+      <hr>
+      <button type="button" class="btn btn-sm btn-secondary" onclick="window.location.href='${ url_action('show_debug_info') }'">
+        Show Debug Info
+      </button>
+      % endif
+---
+  debug: True
+  question help button: True
+  question back button: True
+  progress bar: True
+  progress bar method: percentage
+  progress bar multiplier: 1.5
+---
+objects:
+  - error_log: DAList.using(object_type=DAObject, there_are_any=False)
+  - debug_info: DAObject
+---
+code: |
+  if not defined('debug_mode'):
+    debug_mode = get_config('debug', False)
+---
+code: |
+  def capture_form_error(context="", field_name=""):
+    '''Capture and log form validation errors'''
+    error_info = DebugHelper.capture_error()
+    if error_info:
+      error_entry = DAObject()
+      error_entry.timestamp = current_datetime()
+      error_entry.context = context
+      error_entry.field = field_name
+      error_entry.error = error_info
+      error_log.append(error_entry)
+      if debug_mode:
+        log(f"Form error in {context}: {error_info['message']}", 'error')
+    return error_info
+---
+code: |
+  def safe_get_field(obj, field_name, default=""):
+    '''Safely access object fields with error handling'''
+    try:
+      if hasattr(obj, field_name):
+        value = getattr(obj, field_name)
+        return value if value is not None else default
+      return default
+    except Exception as e:
+      capture_form_error(f"safe_get_field({field_name})", field_name)
+      return default
+---
+code: |
+  def handle_validation_error(field_name, value, validation_type=""):
+    '''Handle field validation errors with user-friendly messages'''
+    error_messages = {
+      'required': f"The field '{field_name}' is required.",
+      'date': f"Please enter a valid date for '{field_name}'.",
+      'email': f"Please enter a valid email address for '{field_name}'.",
+      'phone': f"Please enter a valid phone number for '{field_name}'.",
+      'currency': f"Please enter a valid dollar amount for '{field_name}'.",
+      'number': f"Please enter a valid number for '{field_name}'.",
+      'percentage': f"Please enter a valid percentage for '{field_name}'.",
+      'postal_code': f"Please enter a valid postal code for '{field_name}'."
+    }
+    message = error_messages.get(validation_type, f"Invalid value for '{field_name}': {value}")
+    if debug_mode:
+      log(f"Validation error: {message}", 'error')
+    validation_errors.append({
+      'field': field_name,
+      'value': value,
+      'type': validation_type,
+      'message': message
+    })
+    return message
+---
+code: |
+  if not defined('validation_errors'):
+    validation_errors = []
+---
+code: |
+  def validate_field(field_name, value, validation_rules):
+    '''Validate a field against multiple rules'''
+    errors = []
+    # Required field check
+    if 'required' in validation_rules and validation_rules['required']:
+      if not value or (isinstance(value, str) and not value.strip()):
+        errors.append(handle_validation_error(field_name, value, 'required'))
+    # Type-specific validation
+    if value and 'type' in validation_rules:
+      field_type = validation_rules['type']
+      if field_type == 'date':
+        try:
+          # Validate date format
+          if isinstance(value, str):
+            from datetime import datetime
+            datetime.strptime(value, '%Y-%m-%d')
+        except:
+          errors.append(handle_validation_error(field_name, value, 'date'))
+      elif field_type == 'email':
+        import re
+        if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', str(value)):
+          errors.append(handle_validation_error(field_name, value, 'email'))
+      elif field_type == 'phone':
+        import re
+        phone_str = re.sub(r'[^0-9]', '', str(value))
+        if len(phone_str) not in [10, 11]:
+          errors.append(handle_validation_error(field_name, value, 'phone'))
+      elif field_type == 'currency' or field_type == 'number':
+        try:
+          float(str(value).replace('$', '').replace(',', ''))
+        except:
+          errors.append(handle_validation_error(field_name, value, field_type))
+    return errors
+---
+event: show_form_errors
+question: |
+  Form Validation Errors
+subquestion: |
+  % if len(validation_errors) > 0:
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Please correct the following errors:</h4>
+    <ul>
+    % for error in validation_errors:
+      <li><strong>${ error['field'] }:</strong> ${ error['message'] }</li>
+    % endfor
+    </ul>
+  </div>
+  % endif
+  % if debug_mode and len(error_log) > 0:
+  <details>
+    <summary>Debug Information (${len(error_log)} errors logged)</summary>
+    % for entry in error_log:
+    <div class="card mb-2">
+      <div class="card-body">
+        <h6 class="card-title">Error at ${ entry.timestamp }</h6>
+        <p class="card-text">
+          <strong>Context:</strong> ${ entry.context }<br>
+          <strong>Field:</strong> ${ entry.field }<br>
+          <strong>Type:</strong> ${ entry.error['type'] }<br>
+          <strong>Message:</strong> ${ entry.error['message'] }
+        </p>
+        % if debug_mode:
+        <details>
+          <summary>Stack Trace</summary>
+          <pre>${ entry.error.get('formatted_exception', 'N/A') }</pre>
+        </details>
+        % endif
+      </div>
+    </div>
+    % endfor
+  </details>
+  % endif
+buttons:
+  - "Go Back": restart
+  - "Exit": exit
+---
+event: show_debug_info
+question: |
+  Debug Information
+subquestion: |
+  <div class="alert alert-info">
+    <h4>Session Information</h4>
+    <ul>
+      <li><strong>Interview:</strong> ${ user_info().filename }</li>
+      <li><strong>Session ID:</strong> ${ user_info().session }</li>
+      <li><strong>Debug Mode:</strong> ${ debug_mode }</li>
+      <li><strong>Errors Logged:</strong> ${ len(error_log) }</li>
+      <li><strong>Validation Errors:</strong> ${ len(validation_errors) }</li>
+    </ul>
+  </div>
+  % if defined('user_party'):
+  <h4>User Information</h4>
+  <ul>
+    <li><strong>Name:</strong> ${ safe_get_field(user_party, 'name', 'Not provided') }</li>
+    % if hasattr(user_party, 'email'):
+    <li><strong>Email:</strong> ${ safe_get_field(user_party, 'email', 'Not provided') }</li>
+    % endif
+  </ul>
+  % endif
+  <h4>Form Progress</h4>
+  <ul>
+    % for var in ['intro_seen', 'user_party.name.first', 'other_party.name.first', 'children.gathered', 'review_complete']:
+    <li><strong>${ var }:</strong> ${ 'Yes' if defined(var) else 'No' }</li>
+    % endfor
+  </ul>
+buttons:
+  - "Continue": continue
+  - "Show Errors": show_form_errors
+  - "Restart": restart
+---
+review:
+  - note: |
+      % if len(validation_errors) > 0:
+      <div class="alert alert-warning">
+        There are ${ len(validation_errors) } validation errors. Please review and correct them.
+      </div>
+      % endif
+  - Edit: user_party.name.first
+    button: |
+      **Your Name:** ${ safe_get_field(user_party, 'name', 'Not provided') }
+  - Edit: other_party.name.first
+    button: |
+      **Other Party:** ${ safe_get_field(other_party, 'name', 'Not provided') }
+  - note: |
+      % if debug_mode:
+      <hr>
+      <button type="button" class="btn btn-sm btn-secondary" onclick="window.location.href='${ url_action('show_debug_info') }'">
+        Show Debug Info
+      </button>
+      % endif
+---
+  debug: True
+  question help button: True
+  question back button: True
+  progress bar: True
+  progress bar method: percentage
+  progress bar multiplier: 1.5
+---
+objects:
+  - error_log: DAList.using(object_type=DAObject, there_are_any=False)
+  - debug_info: DAObject
+---
+code: |
+  if not defined('debug_mode'):
+    debug_mode = get_config('debug', False)
+---
+code: |
+  def capture_form_error(context="", field_name=""):
+    '''Capture and log form validation errors'''
+    error_info = DebugHelper.capture_error()
+    if error_info:
+      error_entry = DAObject()
+      error_entry.timestamp = current_datetime()
+      error_entry.context = context
+      error_entry.field = field_name
+      error_entry.error = error_info
+      error_log.append(error_entry)
+      if debug_mode:
+        log(f"Form error in {context}: {error_info['message']}", 'error')
+    return error_info
+---
+code: |
+  def safe_get_field(obj, field_name, default=""):
+    '''Safely access object fields with error handling'''
+    try:
+      if hasattr(obj, field_name):
+        value = getattr(obj, field_name)
+        return value if value is not None else default
+      return default
+    except Exception as e:
+      capture_form_error(f"safe_get_field({field_name})", field_name)
+      return default
+---
+code: |
+  def handle_validation_error(field_name, value, validation_type=""):
+    '''Handle field validation errors with user-friendly messages'''
+    error_messages = {
+      'required': f"The field '{field_name}' is required.",
+      'date': f"Please enter a valid date for '{field_name}'.",
+      'email': f"Please enter a valid email address for '{field_name}'.",
+      'phone': f"Please enter a valid phone number for '{field_name}'.",
+      'currency': f"Please enter a valid dollar amount for '{field_name}'.",
+      'number': f"Please enter a valid number for '{field_name}'.",
+      'percentage': f"Please enter a valid percentage for '{field_name}'.",
+      'postal_code': f"Please enter a valid postal code for '{field_name}'."
+    }
+    message = error_messages.get(validation_type, f"Invalid value for '{field_name}': {value}")
+    if debug_mode:
+      log(f"Validation error: {message}", 'error')
+    validation_errors.append({
+      'field': field_name,
+      'value': value,
+      'type': validation_type,
+      'message': message
+    })
+    return message
+---
+code: |
+  if not defined('validation_errors'):
+    validation_errors = []
+---
+code: |
+  def validate_field(field_name, value, validation_rules):
+    '''Validate a field against multiple rules'''
+    errors = []
+    # Required field check
+    if 'required' in validation_rules and validation_rules['required']:
+      if not value or (isinstance(value, str) and not value.strip()):
+        errors.append(handle_validation_error(field_name, value, 'required'))
+    # Type-specific validation
+    if value and 'type' in validation_rules:
+      field_type = validation_rules['type']
+      if field_type == 'date':
+        try:
+          # Validate date format
+          if isinstance(value, str):
+            from datetime import datetime
+            datetime.strptime(value, '%Y-%m-%d')
+        except:
+          errors.append(handle_validation_error(field_name, value, 'date'))
+      elif field_type == 'email':
+        import re
+        if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', str(value)):
+          errors.append(handle_validation_error(field_name, value, 'email'))
+      elif field_type == 'phone':
+        import re
+        phone_str = re.sub(r'[^0-9]', '', str(value))
+        if len(phone_str) not in [10, 11]:
+          errors.append(handle_validation_error(field_name, value, 'phone'))
+      elif field_type == 'currency' or field_type == 'number':
+        try:
+          float(str(value).replace('$', '').replace(',', ''))
+        except:
+          errors.append(handle_validation_error(field_name, value, field_type))
+    return errors
+---
+event: show_form_errors
+question: |
+  Form Validation Errors
+subquestion: |
+  % if len(validation_errors) > 0:
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Please correct the following errors:</h4>
+    <ul>
+    % for error in validation_errors:
+      <li><strong>${ error['field'] }:</strong> ${ error['message'] }</li>
+    % endfor
+    </ul>
+  </div>
+  % endif
+  % if debug_mode and len(error_log) > 0:
+  <details>
+    <summary>Debug Information (${len(error_log)} errors logged)</summary>
+    % for entry in error_log:
+    <div class="card mb-2">
+      <div class="card-body">
+        <h6 class="card-title">Error at ${ entry.timestamp }</h6>
+        <p class="card-text">
+          <strong>Context:</strong> ${ entry.context }<br>
+          <strong>Field:</strong> ${ entry.field }<br>
+          <strong>Type:</strong> ${ entry.error['type'] }<br>
+          <strong>Message:</strong> ${ entry.error['message'] }
+        </p>
+        % if debug_mode:
+        <details>
+          <summary>Stack Trace</summary>
+          <pre>${ entry.error.get('formatted_exception', 'N/A') }</pre>
+        </details>
+        % endif
+      </div>
+    </div>
+    % endfor
+  </details>
+  % endif
+buttons:
+  - "Go Back": restart
+  - "Exit": exit
+---
+event: show_debug_info
+question: |
+  Debug Information
+subquestion: |
+  <div class="alert alert-info">
+    <h4>Session Information</h4>
+    <ul>
+      <li><strong>Interview:</strong> ${ user_info().filename }</li>
+      <li><strong>Session ID:</strong> ${ user_info().session }</li>
+      <li><strong>Debug Mode:</strong> ${ debug_mode }</li>
+      <li><strong>Errors Logged:</strong> ${ len(error_log) }</li>
+      <li><strong>Validation Errors:</strong> ${ len(validation_errors) }</li>
+    </ul>
+  </div>
+  % if defined('user_party'):
+  <h4>User Information</h4>
+  <ul>
+    <li><strong>Name:</strong> ${ safe_get_field(user_party, 'name', 'Not provided') }</li>
+    % if hasattr(user_party, 'email'):
+    <li><strong>Email:</strong> ${ safe_get_field(user_party, 'email', 'Not provided') }</li>
+    % endif
+  </ul>
+  % endif
+  <h4>Form Progress</h4>
+  <ul>
+    % for var in ['intro_seen', 'user_party.name.first', 'other_party.name.first', 'children.gathered', 'review_complete']:
+    <li><strong>${ var }:</strong> ${ 'Yes' if defined(var) else 'No' }</li>
+    % endfor
+  </ul>
+buttons:
+  - "Continue": continue
+  - "Show Errors": show_form_errors
+  - "Restart": restart
+---
+review:
+  - note: |
+      % if len(validation_errors) > 0:
+      <div class="alert alert-warning">
+        There are ${ len(validation_errors) } validation errors. Please review and correct them.
+      </div>
+      % endif
+  - Edit: user_party.name.first
+    button: |
+      **Your Name:** ${ safe_get_field(user_party, 'name', 'Not provided') }
+  - Edit: other_party.name.first
+    button: |
+      **Other Party:** ${ safe_get_field(other_party, 'name', 'Not provided') }
+  - note: |
+      % if debug_mode:
+      <hr>
+      <button type="button" class="btn btn-sm btn-secondary" onclick="window.location.href='${ url_action('show_debug_info') }'">
+        Show Debug Info
+      </button>
+      % endif
+---
+objects:
+  - user: Individual
+  - income_items: DAList.using(object_type=IncomeItem)
+  - expense_items: DAList.using(object_type=ExpenseItem)
+  - assets: DAList.using(object_type=Asset)
+  - debts: DAList.using(object_type=Debt)
+  - tax_documents: DADict
+  - bank_statements: DADict
+  - support_documents: DADict
+---
+question: Tax Returns and Notices of Assessment
+subquestion: |
+  Please upload your tax documents for the last 3 years.
+  
+  **Required Documents:**
+  - T1 General Tax Return (complete with all schedules)
+  - Notice of Assessment from CRA
+  - All tax slips (T4, T5, etc.)
+fields:
+  - "Tax Year ${i}": tax_documents[i].year
+    datatype: integer
+    min: 2021
+    max: 2024
+  - "T1 Return for ${tax_documents[i].year}": tax_documents[i].t1_return
+    datatype: file
+    accept:
+      - "application/pdf"
+  - "Notice of Assessment for ${tax_documents[i].year}": tax_documents[i].noa
+    datatype: file
+    accept:
+      - "application/pdf"
+  - "Do you have more tax years to add?": tax_documents.there_is_another
+    datatype: yesnoradio
+---
+question: Real Estate - Details and Documentation
+subquestion: |
+  For each real estate, provide:
+  - Current market value
+  - Supporting statements for the last annual period(s)
+  
+fields:
+  - Description: assets[i].description
+  - Current Value: assets[i].current_value
+    datatype: currency
+  - "Upload statements": assets[i].statements
+    datatype: file
+    accept:
+      - "application/pdf"
+      - "image/*"
+    help: |
+      % if "asset_real_estate" == "asset_bank_accounts":
+      Upload the last 12 monthly statements for this account
+      % elif "asset_real_estate" == "asset_investments":
+      Upload quarterly statements for the last year
+      % else:
+      Upload the most recent statement or valuation
+      % endif
+---
+question: Vehicles - Details and Documentation
+subquestion: |
+  For each vehicles, provide:
+  - Current market value
+  - Supporting statements for the last annual period(s)
+  
+fields:
+  - Description: assets[i].description
+  - Current Value: assets[i].current_value
+    datatype: currency
+  - "Upload statements": assets[i].statements
+    datatype: file
+    accept:
+      - "application/pdf"
+      - "image/*"
+    help: |
+      % if "asset_vehicles" == "asset_bank_accounts":
+      Upload the last 12 monthly statements for this account
+      % elif "asset_vehicles" == "asset_investments":
+      Upload quarterly statements for the last year
+      % else:
+      Upload the most recent statement or valuation
+      % endif
+---
+question: Bank Accounts - Details and Documentation
+subquestion: |
+  For each bank accounts, provide:
+  - Current market value
+  - Supporting statements for the last monthly period(s)
+  
+fields:
+  - Description: assets[i].description
+  - Current Value: assets[i].current_value
+    datatype: currency
+  - "Upload statements": assets[i].statements
+    datatype: file
+    accept:
+      - "application/pdf"
+      - "image/*"
+    help: |
+      % if "asset_bank_accounts" == "asset_bank_accounts":
+      Upload the last 12 monthly statements for this account
+      % elif "asset_bank_accounts" == "asset_investments":
+      Upload quarterly statements for the last year
+      % else:
+      Upload the most recent statement or valuation
+      % endif
+---
+question: Investments - Details and Documentation
+subquestion: |
+  For each investments, provide:
+  - Current market value
+  - Supporting statements for the last quarterly period(s)
+  
+fields:
+  - Description: assets[i].description
+  - Current Value: assets[i].current_value
+    datatype: currency
+  - "Upload statements": assets[i].statements
+    datatype: file
+    accept:
+      - "application/pdf"
+      - "image/*"
+    help: |
+      % if "asset_investments" == "asset_bank_accounts":
+      Upload the last 12 monthly statements for this account
+      % elif "asset_investments" == "asset_investments":
+      Upload quarterly statements for the last year
+      % else:
+      Upload the most recent statement or valuation
+      % endif
+---
+question: Pensions - Details and Documentation
+subquestion: |
+  For each pensions, provide:
+  - Current market value
+  - Supporting statements for the last annual period(s)
+  
+fields:
+  - Description: assets[i].description
+  - Current Value: assets[i].current_value
+    datatype: currency
+  - "Upload statements": assets[i].statements
+    datatype: file
+    accept:
+      - "application/pdf"
+      - "image/*"
+    help: |
+      % if "asset_pensions" == "asset_bank_accounts":
+      Upload the last 12 monthly statements for this account
+      % elif "asset_pensions" == "asset_investments":
+      Upload quarterly statements for the last year
+      % else:
+      Upload the most recent statement or valuation
+      % endif
+---
+question: Business Interests - Details and Documentation
+subquestion: |
+  For each business interests, provide:
+  - Current market value
+  - Supporting statements for the last annual period(s)
+  
+fields:
+  - Description: assets[i].description
+  - Current Value: assets[i].current_value
+    datatype: currency
+  - "Upload statements": assets[i].statements
+    datatype: file
+    accept:
+      - "application/pdf"
+      - "image/*"
+    help: |
+      % if "asset_business_interests" == "asset_bank_accounts":
+      Upload the last 12 monthly statements for this account
+      % elif "asset_business_interests" == "asset_investments":
+      Upload quarterly statements for the last year
+      % else:
+      Upload the most recent statement or valuation
+      % endif
+---
+code: |
+  documents_complete = True
+  
+  # Check tax documents (3 years required)
+  if len(tax_documents) < 3:
+    documents_complete = False
+    validation_errors.append("Please upload tax documents for 3 years")
+  
+  # Check bank statements (12 months required for each account)
+  for account in assets:
+    if account.type == "bank_account":
+      if not hasattr(account, 'statements') or len(account.statements) < 12:
+        documents_complete = False
+        validation_errors.append(f"Please upload 12 monthly statements for {account.description}")
+---
+review:
+  - Document Checklist:
+    button: |
+      **Tax Documents:**
+      % for year in tax_documents:
+      - ${year}: T1 ✓ NOA ✓
+      % endfor
+      
+      **Bank Statements:**
+      % for account in assets:
+      % if account.type == "bank_account":
+      - ${account.description}: ${len(account.statements)} statements uploaded
+      % endif
+      % endfor
+      
+      **Other Supporting Documents:**
+      - Pay stubs: ${len(pay_stubs)} uploaded
+      - Investment statements: ${len(investment_statements)} uploaded
+---

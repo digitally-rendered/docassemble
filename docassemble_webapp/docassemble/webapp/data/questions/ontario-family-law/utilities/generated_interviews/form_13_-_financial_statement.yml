@@ -1,0 +1,946 @@
+metadata:
+authors:
+- name: Auto-generated
+  organization: Ontario Family Law System
+revision_date: '2024-01-01'
+short_title: Form 13 - Financial Statement
+tags:
+- family law
+- ontario
+- auto-generated
+title: Form 13 - Financial Statement
+
+---
+modules:
+  - .debug_helpers
+  - docassemble.base.util
+---
+features:
+  debug: True
+  question help button: True
+  question back button: True
+  progress bar: True
+  progress bar method: percentage
+  progress bar multiplier: 1.5
+---
+objects:
+  - error_log: DAList.using(object_type=DAObject, there_are_any=False)
+  - debug_info: DAObject
+---
+code: |
+  if not defined('debug_mode'):
+    debug_mode = get_config('debug', False)
+---
+code: |
+  def capture_form_error(context="", field_name=""):
+    '''Capture and log form validation errors'''
+    from .debug_helpers import DebugHelper
+    error_info = DebugHelper.capture_error()
+    if error_info:
+      error_entry = DAObject()
+      error_entry.timestamp = current_datetime()
+      error_entry.context = context
+      error_entry.field = field_name
+      error_entry.error = error_info
+      error_log.append(error_entry)
+      if debug_mode:
+        log(f"Form error in {context}: {error_info['message']}", 'error')
+    return error_info
+---
+code: |
+  def safe_get_field(obj, field_name, default=""):
+    '''Safely access object fields with error handling'''
+    try:
+      if hasattr(obj, field_name):
+        value = getattr(obj, field_name)
+        return value if value is not None else default
+      return default
+    except Exception as e:
+      capture_form_error(f"safe_get_field({field_name})", field_name)
+      return default
+---
+code: |
+  def handle_validation_error(field_name, value, validation_type=""):
+    '''Handle field validation errors with user-friendly messages'''
+    error_messages = {
+      'required': f"The field '{field_name}' is required.",
+      'date': f"Please enter a valid date for '{field_name}'.",
+      'email': f"Please enter a valid email address for '{field_name}'.",
+      'phone': f"Please enter a valid phone number for '{field_name}'.",
+      'currency': f"Please enter a valid dollar amount for '{field_name}'.",
+      'number': f"Please enter a valid number for '{field_name}'.",
+      'percentage': f"Please enter a valid percentage for '{field_name}'.",
+      'postal_code': f"Please enter a valid postal code for '{field_name}'."
+    }
+    message = error_messages.get(validation_type, f"Invalid value for '{field_name}': {value}")
+    if debug_mode:
+      log(f"Validation error: {message}", 'error')
+    validation_errors.append({
+      'field': field_name,
+      'value': value,
+      'type': validation_type,
+      'message': message
+    })
+    return message
+---
+code: |
+  if not defined('validation_errors'):
+    validation_errors = []
+---
+code: |
+  def validate_field(field_name, value, validation_rules):
+    '''Validate a field against multiple rules'''
+    errors = []
+    # Required field check
+    if 'required' in validation_rules and validation_rules['required']:
+      if not value or (isinstance(value, str) and not value.strip()):
+        errors.append(handle_validation_error(field_name, value, 'required'))
+    # Type-specific validation
+    if value and 'type' in validation_rules:
+      field_type = validation_rules['type']
+      if field_type == 'date':
+        try:
+          # Validate date format
+          if isinstance(value, str):
+            from datetime import datetime
+            datetime.strptime(value, '%Y-%m-%d')
+        except:
+          errors.append(handle_validation_error(field_name, value, 'date'))
+      elif field_type == 'email':
+        import re
+        if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', str(value)):
+          errors.append(handle_validation_error(field_name, value, 'email'))
+      elif field_type == 'phone':
+        import re
+        phone_str = re.sub(r'[^0-9]', '', str(value))
+        if len(phone_str) not in [10, 11]:
+          errors.append(handle_validation_error(field_name, value, 'phone'))
+      elif field_type == 'currency' or field_type == 'number':
+        try:
+          float(str(value).replace('$', '').replace(',', ''))
+        except:
+          errors.append(handle_validation_error(field_name, value, field_type))
+    return errors
+---
+event: show_form_errors
+question: |
+  Form Validation Errors
+subquestion: |
+  % if len(validation_errors) > 0:
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Please correct the following errors:</h4>
+    <ul>
+    % for error in validation_errors:
+      <li><strong>${ error['field'] }:</strong> ${ error['message'] }</li>
+    % endfor
+    </ul>
+  </div>
+  % endif
+  % if debug_mode and len(error_log) > 0:
+  <details>
+    <summary>Debug Information (${len(error_log)} errors logged)</summary>
+    % for entry in error_log:
+    <div class="card mb-2">
+      <div class="card-body">
+        <h6 class="card-title">Error at ${ entry.timestamp }</h6>
+        <p class="card-text">
+          <strong>Context:</strong> ${ entry.context }<br>
+          <strong>Field:</strong> ${ entry.field }<br>
+          <strong>Type:</strong> ${ entry.error['type'] }<br>
+          <strong>Message:</strong> ${ entry.error['message'] }
+        </p>
+        % if debug_mode:
+        <details>
+          <summary>Stack Trace</summary>
+          <pre>${ entry.error.get('formatted_exception', 'N/A') }</pre>
+        </details>
+        % endif
+      </div>
+    </div>
+    % endfor
+  </details>
+  % endif
+buttons:
+  - "Go Back": restart
+  - "Exit": exit
+---
+event: show_debug_info
+question: |
+  Debug Information
+subquestion: |
+  <div class="alert alert-info">
+    <h4>Session Information</h4>
+    <ul>
+      <li><strong>Interview:</strong> ${ user_info().filename }</li>
+      <li><strong>Session ID:</strong> ${ user_info().session }</li>
+      <li><strong>Debug Mode:</strong> ${ debug_mode }</li>
+      <li><strong>Errors Logged:</strong> ${ len(error_log) }</li>
+      <li><strong>Validation Errors:</strong> ${ len(validation_errors) }</li>
+    </ul>
+  </div>
+  % if defined('user_party'):
+  <h4>User Information</h4>
+  <ul>
+    <li><strong>Name:</strong> ${ safe_get_field(user_party, 'name', 'Not provided') }</li>
+    % if hasattr(user_party, 'email'):
+    <li><strong>Email:</strong> ${ safe_get_field(user_party, 'email', 'Not provided') }</li>
+    % endif
+  </ul>
+  % endif
+  <h4>Form Progress</h4>
+  <ul>
+    % for var in ['intro_seen', 'user_party.name.first', 'other_party.name.first', 'children.gathered', 'review_complete']:
+    <li><strong>${ var }:</strong> ${ 'Yes' if defined(var) else 'No' }</li>
+    % endfor
+  </ul>
+buttons:
+  - "Continue": continue
+  - "Show Errors": show_form_errors
+  - "Restart": restart
+---
+review:
+  - note: |
+      % if len(validation_errors) > 0:
+      <div class="alert alert-warning">
+        There are ${ len(validation_errors) } validation errors. Please review and correct them.
+      </div>
+      % endif
+  - Edit: user_party.name.first
+    button: |
+      **Your Name:** ${ safe_get_field(user_party, 'name', 'Not provided') }
+  - Edit: other_party.name.first
+    button: |
+      **Other Party:** ${ safe_get_field(other_party, 'name', 'Not provided') }
+  - note: |
+      % if debug_mode:
+      <hr>
+      <button type="button" class="btn btn-sm btn-secondary" onclick="window.location.href='${ url_action('show_debug_info') }'">
+        Show Debug Info
+      </button>
+      % endif
+---
+  debug: True
+  question help button: True
+  question back button: True
+  progress bar: True
+  progress bar method: percentage
+  progress bar multiplier: 1.5
+---
+objects:
+  - error_log: DAList.using(object_type=DAObject, there_are_any=False)
+  - debug_info: DAObject
+---
+code: |
+  if not defined('debug_mode'):
+    debug_mode = get_config('debug', False)
+---
+code: |
+  def capture_form_error(context="", field_name=""):
+    '''Capture and log form validation errors'''
+    error_info = DebugHelper.capture_error()
+    if error_info:
+      error_entry = DAObject()
+      error_entry.timestamp = current_datetime()
+      error_entry.context = context
+      error_entry.field = field_name
+      error_entry.error = error_info
+      error_log.append(error_entry)
+      if debug_mode:
+        log(f"Form error in {context}: {error_info['message']}", 'error')
+    return error_info
+---
+code: |
+  def safe_get_field(obj, field_name, default=""):
+    '''Safely access object fields with error handling'''
+    try:
+      if hasattr(obj, field_name):
+        value = getattr(obj, field_name)
+        return value if value is not None else default
+      return default
+    except Exception as e:
+      capture_form_error(f"safe_get_field({field_name})", field_name)
+      return default
+---
+code: |
+  def handle_validation_error(field_name, value, validation_type=""):
+    '''Handle field validation errors with user-friendly messages'''
+    error_messages = {
+      'required': f"The field '{field_name}' is required.",
+      'date': f"Please enter a valid date for '{field_name}'.",
+      'email': f"Please enter a valid email address for '{field_name}'.",
+      'phone': f"Please enter a valid phone number for '{field_name}'.",
+      'currency': f"Please enter a valid dollar amount for '{field_name}'.",
+      'number': f"Please enter a valid number for '{field_name}'.",
+      'percentage': f"Please enter a valid percentage for '{field_name}'.",
+      'postal_code': f"Please enter a valid postal code for '{field_name}'."
+    }
+    message = error_messages.get(validation_type, f"Invalid value for '{field_name}': {value}")
+    if debug_mode:
+      log(f"Validation error: {message}", 'error')
+    validation_errors.append({
+      'field': field_name,
+      'value': value,
+      'type': validation_type,
+      'message': message
+    })
+    return message
+---
+code: |
+  if not defined('validation_errors'):
+    validation_errors = []
+---
+code: |
+  def validate_field(field_name, value, validation_rules):
+    '''Validate a field against multiple rules'''
+    errors = []
+    # Required field check
+    if 'required' in validation_rules and validation_rules['required']:
+      if not value or (isinstance(value, str) and not value.strip()):
+        errors.append(handle_validation_error(field_name, value, 'required'))
+    # Type-specific validation
+    if value and 'type' in validation_rules:
+      field_type = validation_rules['type']
+      if field_type == 'date':
+        try:
+          # Validate date format
+          if isinstance(value, str):
+            from datetime import datetime
+            datetime.strptime(value, '%Y-%m-%d')
+        except:
+          errors.append(handle_validation_error(field_name, value, 'date'))
+      elif field_type == 'email':
+        import re
+        if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', str(value)):
+          errors.append(handle_validation_error(field_name, value, 'email'))
+      elif field_type == 'phone':
+        import re
+        phone_str = re.sub(r'[^0-9]', '', str(value))
+        if len(phone_str) not in [10, 11]:
+          errors.append(handle_validation_error(field_name, value, 'phone'))
+      elif field_type == 'currency' or field_type == 'number':
+        try:
+          float(str(value).replace('$', '').replace(',', ''))
+        except:
+          errors.append(handle_validation_error(field_name, value, field_type))
+    return errors
+---
+event: show_form_errors
+question: |
+  Form Validation Errors
+subquestion: |
+  % if len(validation_errors) > 0:
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Please correct the following errors:</h4>
+    <ul>
+    % for error in validation_errors:
+      <li><strong>${ error['field'] }:</strong> ${ error['message'] }</li>
+    % endfor
+    </ul>
+  </div>
+  % endif
+  % if debug_mode and len(error_log) > 0:
+  <details>
+    <summary>Debug Information (${len(error_log)} errors logged)</summary>
+    % for entry in error_log:
+    <div class="card mb-2">
+      <div class="card-body">
+        <h6 class="card-title">Error at ${ entry.timestamp }</h6>
+        <p class="card-text">
+          <strong>Context:</strong> ${ entry.context }<br>
+          <strong>Field:</strong> ${ entry.field }<br>
+          <strong>Type:</strong> ${ entry.error['type'] }<br>
+          <strong>Message:</strong> ${ entry.error['message'] }
+        </p>
+        % if debug_mode:
+        <details>
+          <summary>Stack Trace</summary>
+          <pre>${ entry.error.get('formatted_exception', 'N/A') }</pre>
+        </details>
+        % endif
+      </div>
+    </div>
+    % endfor
+  </details>
+  % endif
+buttons:
+  - "Go Back": restart
+  - "Exit": exit
+---
+event: show_debug_info
+question: |
+  Debug Information
+subquestion: |
+  <div class="alert alert-info">
+    <h4>Session Information</h4>
+    <ul>
+      <li><strong>Interview:</strong> ${ user_info().filename }</li>
+      <li><strong>Session ID:</strong> ${ user_info().session }</li>
+      <li><strong>Debug Mode:</strong> ${ debug_mode }</li>
+      <li><strong>Errors Logged:</strong> ${ len(error_log) }</li>
+      <li><strong>Validation Errors:</strong> ${ len(validation_errors) }</li>
+    </ul>
+  </div>
+  % if defined('user_party'):
+  <h4>User Information</h4>
+  <ul>
+    <li><strong>Name:</strong> ${ safe_get_field(user_party, 'name', 'Not provided') }</li>
+    % if hasattr(user_party, 'email'):
+    <li><strong>Email:</strong> ${ safe_get_field(user_party, 'email', 'Not provided') }</li>
+    % endif
+  </ul>
+  % endif
+  <h4>Form Progress</h4>
+  <ul>
+    % for var in ['intro_seen', 'user_party.name.first', 'other_party.name.first', 'children.gathered', 'review_complete']:
+    <li><strong>${ var }:</strong> ${ 'Yes' if defined(var) else 'No' }</li>
+    % endfor
+  </ul>
+buttons:
+  - "Continue": continue
+  - "Show Errors": show_form_errors
+  - "Restart": restart
+---
+review:
+  - note: |
+      % if len(validation_errors) > 0:
+      <div class="alert alert-warning">
+        There are ${ len(validation_errors) } validation errors. Please review and correct them.
+      </div>
+      % endif
+  - Edit: user_party.name.first
+    button: |
+      **Your Name:** ${ safe_get_field(user_party, 'name', 'Not provided') }
+  - Edit: other_party.name.first
+    button: |
+      **Other Party:** ${ safe_get_field(other_party, 'name', 'Not provided') }
+  - note: |
+      % if debug_mode:
+      <hr>
+      <button type="button" class="btn btn-sm btn-secondary" onclick="window.location.href='${ url_action('show_debug_info') }'">
+        Show Debug Info
+      </button>
+      % endif
+---
+  debug: True
+  question help button: True
+  question back button: True
+  progress bar: True
+  progress bar method: percentage
+  progress bar multiplier: 1.5
+---
+objects:
+  - error_log: DAList.using(object_type=DAObject, there_are_any=False)
+  - debug_info: DAObject
+---
+code: |
+  if not defined('debug_mode'):
+    debug_mode = get_config('debug', False)
+---
+code: |
+  def capture_form_error(context="", field_name=""):
+    '''Capture and log form validation errors'''
+    error_info = DebugHelper.capture_error()
+    if error_info:
+      error_entry = DAObject()
+      error_entry.timestamp = current_datetime()
+      error_entry.context = context
+      error_entry.field = field_name
+      error_entry.error = error_info
+      error_log.append(error_entry)
+      if debug_mode:
+        log(f"Form error in {context}: {error_info['message']}", 'error')
+    return error_info
+---
+code: |
+  def safe_get_field(obj, field_name, default=""):
+    '''Safely access object fields with error handling'''
+    try:
+      if hasattr(obj, field_name):
+        value = getattr(obj, field_name)
+        return value if value is not None else default
+      return default
+    except Exception as e:
+      capture_form_error(f"safe_get_field({field_name})", field_name)
+      return default
+---
+code: |
+  def handle_validation_error(field_name, value, validation_type=""):
+    '''Handle field validation errors with user-friendly messages'''
+    error_messages = {
+      'required': f"The field '{field_name}' is required.",
+      'date': f"Please enter a valid date for '{field_name}'.",
+      'email': f"Please enter a valid email address for '{field_name}'.",
+      'phone': f"Please enter a valid phone number for '{field_name}'.",
+      'currency': f"Please enter a valid dollar amount for '{field_name}'.",
+      'number': f"Please enter a valid number for '{field_name}'.",
+      'percentage': f"Please enter a valid percentage for '{field_name}'.",
+      'postal_code': f"Please enter a valid postal code for '{field_name}'."
+    }
+    message = error_messages.get(validation_type, f"Invalid value for '{field_name}': {value}")
+    if debug_mode:
+      log(f"Validation error: {message}", 'error')
+    validation_errors.append({
+      'field': field_name,
+      'value': value,
+      'type': validation_type,
+      'message': message
+    })
+    return message
+---
+code: |
+  if not defined('validation_errors'):
+    validation_errors = []
+---
+code: |
+  def validate_field(field_name, value, validation_rules):
+    '''Validate a field against multiple rules'''
+    errors = []
+    # Required field check
+    if 'required' in validation_rules and validation_rules['required']:
+      if not value or (isinstance(value, str) and not value.strip()):
+        errors.append(handle_validation_error(field_name, value, 'required'))
+    # Type-specific validation
+    if value and 'type' in validation_rules:
+      field_type = validation_rules['type']
+      if field_type == 'date':
+        try:
+          # Validate date format
+          if isinstance(value, str):
+            from datetime import datetime
+            datetime.strptime(value, '%Y-%m-%d')
+        except:
+          errors.append(handle_validation_error(field_name, value, 'date'))
+      elif field_type == 'email':
+        import re
+        if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', str(value)):
+          errors.append(handle_validation_error(field_name, value, 'email'))
+      elif field_type == 'phone':
+        import re
+        phone_str = re.sub(r'[^0-9]', '', str(value))
+        if len(phone_str) not in [10, 11]:
+          errors.append(handle_validation_error(field_name, value, 'phone'))
+      elif field_type == 'currency' or field_type == 'number':
+        try:
+          float(str(value).replace('$', '').replace(',', ''))
+        except:
+          errors.append(handle_validation_error(field_name, value, field_type))
+    return errors
+---
+event: show_form_errors
+question: |
+  Form Validation Errors
+subquestion: |
+  % if len(validation_errors) > 0:
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Please correct the following errors:</h4>
+    <ul>
+    % for error in validation_errors:
+      <li><strong>${ error['field'] }:</strong> ${ error['message'] }</li>
+    % endfor
+    </ul>
+  </div>
+  % endif
+  % if debug_mode and len(error_log) > 0:
+  <details>
+    <summary>Debug Information (${len(error_log)} errors logged)</summary>
+    % for entry in error_log:
+    <div class="card mb-2">
+      <div class="card-body">
+        <h6 class="card-title">Error at ${ entry.timestamp }</h6>
+        <p class="card-text">
+          <strong>Context:</strong> ${ entry.context }<br>
+          <strong>Field:</strong> ${ entry.field }<br>
+          <strong>Type:</strong> ${ entry.error['type'] }<br>
+          <strong>Message:</strong> ${ entry.error['message'] }
+        </p>
+        % if debug_mode:
+        <details>
+          <summary>Stack Trace</summary>
+          <pre>${ entry.error.get('formatted_exception', 'N/A') }</pre>
+        </details>
+        % endif
+      </div>
+    </div>
+    % endfor
+  </details>
+  % endif
+buttons:
+  - "Go Back": restart
+  - "Exit": exit
+---
+event: show_debug_info
+question: |
+  Debug Information
+subquestion: |
+  <div class="alert alert-info">
+    <h4>Session Information</h4>
+    <ul>
+      <li><strong>Interview:</strong> ${ user_info().filename }</li>
+      <li><strong>Session ID:</strong> ${ user_info().session }</li>
+      <li><strong>Debug Mode:</strong> ${ debug_mode }</li>
+      <li><strong>Errors Logged:</strong> ${ len(error_log) }</li>
+      <li><strong>Validation Errors:</strong> ${ len(validation_errors) }</li>
+    </ul>
+  </div>
+  % if defined('user_party'):
+  <h4>User Information</h4>
+  <ul>
+    <li><strong>Name:</strong> ${ safe_get_field(user_party, 'name', 'Not provided') }</li>
+    % if hasattr(user_party, 'email'):
+    <li><strong>Email:</strong> ${ safe_get_field(user_party, 'email', 'Not provided') }</li>
+    % endif
+  </ul>
+  % endif
+  <h4>Form Progress</h4>
+  <ul>
+    % for var in ['intro_seen', 'user_party.name.first', 'other_party.name.first', 'children.gathered', 'review_complete']:
+    <li><strong>${ var }:</strong> ${ 'Yes' if defined(var) else 'No' }</li>
+    % endfor
+  </ul>
+buttons:
+  - "Continue": continue
+  - "Show Errors": show_form_errors
+  - "Restart": restart
+---
+review:
+  - note: |
+      % if len(validation_errors) > 0:
+      <div class="alert alert-warning">
+        There are ${ len(validation_errors) } validation errors. Please review and correct them.
+      </div>
+      % endif
+  - Edit: user_party.name.first
+    button: |
+      **Your Name:** ${ safe_get_field(user_party, 'name', 'Not provided') }
+  - Edit: other_party.name.first
+    button: |
+      **Other Party:** ${ safe_get_field(other_party, 'name', 'Not provided') }
+  - note: |
+      % if debug_mode:
+      <hr>
+      <button type="button" class="btn btn-sm btn-secondary" onclick="window.location.href='${ url_action('show_debug_info') }'">
+        Show Debug Info
+      </button>
+      % endif
+---
+objects:
+  - users: DAList.using(object_type=Individual)
+  - court: DAObject
+  - income_sources: DAList.using(object_type=IncomeItem)
+  - income_list: DAList.using(object_type=DAObject)
+---
+mandatory: True
+code: |
+  identification_1_complete
+  contact_1_complete
+  legal_1_complete
+  children_1_complete
+  financial_1_complete
+  support_1_complete
+  other_1_complete
+  other_2_complete
+  other_3_complete
+  other_4_complete
+  other_5_complete
+  other_6_complete
+  table_table_numbered_items_complete
+  table_implicit_table_income_complete
+  review_complete
+  signature_complete
+  final_screen
+---
+question: Personal Information
+subquestion: Please provide your personal details
+fields:
+  - Full legal name:: users[i].name.text
+  - (Name of Court): fields[i]
+  - Housing Housing Housing Housing Housing  SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $      : amounts[i]
+    datatype: currency
+  - Interest in Business (*attach separate year-end statement for each business) Interest in Business (*: amounts[i]
+    datatype: currency
+continue button field: identification_1_complete
+---
+question: Contact Information
+subquestion: How can we reach you?
+fields:
+  - Court office address: users[i].address
+  - Email:: users[i].email
+    datatype: email
+  - Phone & fax:: users[i].phone_number
+    datatype: phone
+  - Telephone Telephone Telephone Telephone $              Education (specify)       Education (specify): users[i].phone_number
+    datatype: currency
+continue button field: contact_1_complete
+---
+question: Legal Information
+subquestion: Court and legal representation information
+fields:
+  - NOTE: This financial statement must be updated before any court event if it is:: dates[i]
+    datatype: date
+continue button field: legal_1_complete
+---
+question: Children Information
+subquestion: Information about children involved
+fields:
+  - 10. 10. Child Tax Benefits or Tax Rebates (e.g. GST) Child Tax Benefits or Tax Rebates (e.g. GST) Ch: children[i]
+    datatype: currency
+continue button field: children_1_complete
+---
+question: Financial Information
+subquestion: Your income, expenses, assets, and debts
+fields:
+  - My spouse/partner or other adult residing in the home contributes about $: users[i].income
+    datatype: currency
+  - Other Assets Other Assets 1                                                 $      : assets[i]
+    datatype: currency
+  - I earn $: users[i].expense
+    datatype: currency
+  - I attach proof of my year-to-date income from all sources, including my most recent (attach all that: users[i].income
+    datatype: date
+  - Other Debts Other Debts Other Debts Other Debts Other Debts                                     $ $ : debts[i]
+    datatype: currency
+continue button field: financial_1_complete
+---
+question: Support Information
+subquestion: Support payment information
+fields:
+  - SUBTOTAL SUBTOTAL SUBTOTAL $        Car Loan or Lease Payments Car Loan or Lease Payments Car Loan o: amounts[i]
+    datatype: currency
+  - 9. 9. Spousal support received from a former spouse/partner Spousal support received from a former s: amounts[i]
+    datatype: currency
+  - Repairs and maintenance Repairs and maintenance Repairs and maintenance $        Eye care Eye care E: amounts[i]
+    datatype: currency
+  - Unpaid Support Amounts  Unpaid Support Amounts  Unpaid Support Amounts  Unpaid Support Amounts  Unpa: amounts[i]
+    datatype: currency
+continue button field: support_1_complete
+---
+question: Additional Information
+subquestion: Any additional required information
+fields:
+  - 1.                                                 $                   $      : amounts[i]
+    datatype: currency
+  - Real Estate Real Estate 1                                                       $                  : amounts[i]
+    datatype: currency
+  - Cars, Boats, Vehicles Cars, Boats, Vehicles 1                                                       : amounts[i]
+    datatype: currency
+  - Bank Accounts Bank Accounts 1                                                 $      : amounts[i]
+    datatype: currency
+  - Life Insurance Life Insurance 1                                                 $      : amounts[i]
+    datatype: currency
+  - ContentTypeId: fields[i]
+  - MSIP_Label_034a106e-6316-442c-ad35-738afd673d2b_Enabled: fields[i]
+continue button field: other_1_complete
+---
+question: Additional Information (Continued)
+subquestion: Any additional required information
+fields:
+  -         Total Net Monthly Amount Total Net Monthly Amount Total Net Monthly Amount $                : amounts[i]
+    datatype: currency
+  - []: fields[i]
+  - 2. 2. Commissions, tips and bonuses Commissions, tips and bonuses Commissions, tips and bonuses Comm: amounts[i]
+    datatype: currency
+  - 4. 4. Employment Insurance benefits Employment Insurance benefits Employment Insurance benefits Empl: amounts[i]
+    datatype: currency
+  - 5. 5. Workers' compensation benefits Workers' compensation benefits Workers' compensation benefits W: amounts[i]
+    datatype: currency
+  - CPP contributions CPP contributions CPP contributions $        Public transit, taxis Public transit,: amounts[i]
+    datatype: currency
+  - EI premiums EI premiums EI premiums $        Gas and oil Gas and oil Gas and oil Gas and oil Gas and: amounts[i]
+    datatype: currency
+continue button field: other_2_complete
+---
+question: Additional Information (Continued)
+subquestion: Any additional required information
+fields:
+  - Employee pension contributions Employee pension contributions Employee pension contributions $      : amounts[i]
+    datatype: currency
+  - Union dues Union dues Union dues $        Parking Parking Parking Parking Parking $      : amounts[i]
+    datatype: currency
+  - Rent or mortgage Rent or mortgage Rent or mortgage $        Health Health Health Health Health Healt: amounts[i]
+    datatype: currency
+  - Property taxes Property taxes Property taxes $        Health insurance premiums Health insurance pre: amounts[i]
+    datatype: currency
+  - Condominium fees Condominium fees Condominium fees $        Medicine and drugs Medicine and drugs Me: amounts[i]
+    datatype: currency
+  - Water Water Water $        Clothing Clothing Clothing Clothing Clothing $      : amounts[i]
+    datatype: currency
+  - Heat Heat Heat $        Hair care and beauty Hair care and beauty Hair care and beauty Hair care and: amounts[i]
+    datatype: currency
+continue button field: other_3_complete
+---
+question: Additional Information (Continued)
+subquestion: Any additional required information
+fields:
+  - Electricity Electricity Electricity $        Alcohol and tobacco Alcohol and tobacco Alcohol and tob: users[i].address.city
+    datatype: currency
+  - Cable Cable Cable Cable $              Gifts Gifts Gifts Gifts Gifts Gifts $      : amounts[i]
+    datatype: currency
+  - Internet Internet Internet Internet $              SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBT: amounts[i]
+    datatype: currency
+  - Groceries Groceries Groceries Groceries $              RRSP/RESP withdrawals RRSP/RESP withdrawals R: amounts[i]
+    datatype: currency
+  - Household supplies Household supplies Household supplies Household supplies $              Vacations: amounts[i]
+    datatype: currency
+  - Meals outside the home Meals outside the home Meals outside the home Meals outside the home $       : amounts[i]
+    datatype: currency
+  - Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning : amounts[i]
+    datatype: currency
+continue button field: other_4_complete
+---
+question: Additional Information (Continued)
+subquestion: Any additional required information
+fields:
+  - Other Possessions of Value (e.g. computers, jewellery, collections) Other Possessions of Value (e.g.: amounts[i]
+    datatype: currency
+  - Investments (e.g. bonds, shares, term deposits and mutual funds) Investments (e.g. bonds, shares, te: amounts[i]
+    datatype: currency
+  - Savings Plans R.R.S.P.s 
+Pension Plans R.E.S.P.s Savings Plans R.R.S.P.s 
+Pension Plans R.E.S.P.s 1 : amounts[i]
+    datatype: currency
+  -       Total Value of All Property Total Value of All Property Total Value of All Property Total Valu: amounts[i]
+    datatype: currency
+  - Mortgages, Lines of Credits or other Loans from a Bank, Trust or Finance Company Mortgages, Lines of: amounts[i]
+    datatype: currency
+  - Outstanding Credit Card Balances Outstanding Credit Card Balances Outstanding Credit Card Balances O: amounts[i]
+    datatype: currency
+  -       Net Worth Net Worth Net Worth Net Worth Net Worth Net Worth Net Worth $ $                     : amounts[i]
+    datatype: currency
+continue button field: other_5_complete
+---
+question: Additional Information (Continued)
+subquestion: Any additional required information
+fields:
+  - 3. 3. Total amount of dividends received from taxable Canadian corporations Total amount of dividend: amounts[i]
+    datatype: currency
+  - 4. 4. Total capital gains ($      ) less capital losses ($      ) Total capital gains ($      ) less: amounts[i]
+    datatype: currency
+  - 5. 5. Registered retirement savings plan withdrawals Registered retirement savings plan withdrawals : amounts[i]
+    datatype: currency
+  - 6. My spouse/partner My spouse/partner My spouse/partner  earns (give amount) $ earns (give amount) : amounts[i]
+    datatype: currency
+  - 7.   My spouse/partner or other adult residing in the home contributes about $ My spouse/partner or : amounts[i]
+    datatype: currency
+continue button field: other_6_complete
+---
+question: Sources of Income
+subquestion: Please provide information for each income
+fields:
+  - no label: income_sources.table
+    table:
+      - Column: |
+          Column 1
+      - rows: income_sources
+        edit:
+          - row.column_1
+        delete buttons: True
+        add another label: Add another row
+continue button field: table_table_numbered_items_complete
+---
+question: Income Table
+subquestion: Please provide information for each income
+fields:
+  - no label: income_list.table
+    table:
+      - Column: |
+          Item
+          Amount
+      - rows: income_list
+        edit:
+          - row.item
+          - row.amount
+        delete buttons: True
+        add another label: Add another row
+continue button field: table_implicit_table_income_complete
+---
+review:
+  - Edit your answers:
+    review:
+      - Financial Information:
+          edit: financial_1_complete
+      - Contact Information:
+          edit: contact_1_complete
+      - Additional Information:
+          edit: other_1_complete
+      - Additional Information (Continued):
+          edit: other_2_complete
+      - Additional Information (Continued):
+          edit: other_3_complete
+      - Additional Information (Continued):
+          edit: other_4_complete
+      - Additional Information (Continued):
+          edit: other_5_complete
+      - Additional Information (Continued):
+          edit: other_6_complete
+      - Support Information:
+          edit: support_1_complete
+      - Personal Information:
+          edit: identification_1_complete
+      - Legal Information:
+          edit: legal_1_complete
+      - Children Information:
+          edit: children_1_complete
+      - Sources of Income:
+          edit: table_table_numbered_items_complete
+      - Income Table:
+          edit: table_implicit_table_income_complete
+continue button field: review_complete
+---
+question: Sign and Submit
+subquestion: By signing below, you certify that the information provided is true and complete
+signature: users[0].signature
+under: |
+  **Signature of ${users[0].name.full()}**
+  
+  Date: ${signature_date}
+continue button field: signature_complete
+---
+code: |
+  income_sources.gathered = True
+---
+code: |
+  income_list.gathered = True
+  if not income_list.there_are_any:
+    income_list.appendObject()
+    income_list[-1].item = "$                   $      "
+    income_list.appendObject()
+    income_list[-1].item = "2. Commissions, tips and bonuses Commissions, tips and bonuses Commissions, tips and bonuses Comm"
+    income_list.appendObject()
+    income_list[-1].item = "4. Employment Insurance benefits Employment Insurance benefits Employment Insurance benefits Empl"
+---
+code: |
+  def validate_income_table():
+    # Ensure at least one income source
+    if len(income_sources) == 0:
+      validation_error("Please add at least one income source")
+    return True
+  
+  def validate_expense_table():
+    # Ensure expenses are reasonable
+    total = sum(float(e.amount) for e in monthly_expenses if hasattr(e, 'amount'))
+    if total < 0:
+      validation_error("Total expenses cannot be negative")
+    return True
+---
+attachment:
+  name: Form 13 - Financial Statement
+  filename: form_13_-_financial_statement
+  variable name: form_attachment
+  content: |
+    # Form 13 - Financial Statement
+    
+    % for user in users:
+    ## ${user.name.full()}
+    
+    **Contact Information:**
+    - Address: ${user.address}
+    - Phone: ${user.phone_number}
+    - Email: ${user.email}
+    % endfor
+    
+    % if defined('income_sources'):
+    ## Income Sources
+    % for income in income_sources:
+    - ${income.description}: $${income.amount}
+    % endfor
+    % endif

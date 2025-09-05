@@ -1,0 +1,671 @@
+---
+metadata:
+  title: Ontario Family Law Form 8B
+  short_title: Form 8B
+  description: Structured interview with 115 fields and 0 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - 8B
+  form_number: 8B
+  form_category: application
+  generated: '2025-08-26 22:15:24'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: stepped
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+objects:
+- court_info: DAObject
+mandatory: true
+code: 'intro_seen
+
+  review_complete
+
+  form_complete'
+question: Form 8B Interview
+subquestion: 'This structured interview will help you complete Form 8B.
+
+
+  You will be asked about:
+
+  - Form information
+
+
+  Total sections: 1
+
+  Fields to complete: 115'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Additional Information
+fields:
+- label: ''
+  field: field
+  required: false
+  choices:
+  - '          '
+  - Superior Court of Justice
+  - Superior Court of Justice, Family Court
+  - Ontario Court of Justice
+  help_text: ''
+- label: Court File Number
+  field: courtfileno
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_10
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_11
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 75
+  field: check75
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_13
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_14
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_15
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_16
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_17
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_18
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_19
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_20
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_21
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_22
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_23
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_24
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_25
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_26
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_27
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_28
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_29
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_30
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_31
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_32
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_33
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_34
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_35
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_36
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_37
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_38
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_39
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_40
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_41
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_42
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_43
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_44
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_45
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 77
+  field: check77
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 78
+  field: check78
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 79
+  field: check79
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 77
+  field: check77_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 78
+  field: check78_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76_5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76_6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76_7
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76_8
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76_9
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76_10
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76_11
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76_12
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 79
+  field: check79_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 79
+  field: check79_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 79
+  field: check79_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 79
+  field: check79_5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_46
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 77
+  field: check77_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_47
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_48
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_49
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 77
+  field: check77_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_50
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_51
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 77
+  field: check77_5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_52
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_53
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_54
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_55
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_56
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 77
+  field: check77_6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_57
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 77
+  field: check77_7
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_58
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 77
+  field: check77_8
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_59
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_60
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 77
+  field: check77_9
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_61
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 77
+  field: check77_10
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 77
+  field: check77_11
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_62
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_63
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_64
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_65
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_66
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_67
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_68
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_69
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 79
+  field: check79_6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76_13
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_70
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76_14
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76_15
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_71
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76_16
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 76
+  field: check76_17
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_72
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_73
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_74
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_75
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_76
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_77
+  datatype: text
+  required: false
+  help_text: ''
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: ''
+  field: field
+  edit: true
+- label: Court File Number
+  field: courtfileno
+  edit: true
+- label: ''
+  field: field_2
+  edit: true
+- label: ''
+  field: field_3
+  edit: true
+- label: ''
+  field: field_4
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 8B Complete
+subquestion: 'Your Form 8B has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart

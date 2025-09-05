@@ -1,0 +1,124 @@
+---
+metadata:
+  title: Form 13 - Stage 6 - Field Validation
+  short title: Stage 6
+  stage: 6
+  description: Adding field validation
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  progress bar: True
+  question back button: True
+  debug: True
+---
+objects:
+  - user: Individual
+  - income: DAObject
+  - expenses: DAObject
+  - validation_errors: DAList
+---
+initial: True
+code: |
+  validation_errors = DAList()
+---
+mandatory: True
+code: |
+  intro_screen
+  user.name.first
+  income_validated
+  expenses_validated
+  show_summary
+---
+question: |
+  Form 13 Financial Statement
+subquestion: |
+  Stage 6: With field validation.
+  
+  This adds:
+  - Field validation rules
+  - Validation messages
+  - Custom validation code
+continue button field: intro_screen
+---
+question: |
+  Your Information
+fields:
+  - First Name: user.name.first
+    required: True
+    validation messages:
+      required: |
+        First name is required
+  - Last Name: user.name.last
+    required: True
+    validation messages:
+      required: |
+        Last name is required
+  - Email: user.email
+    datatype: email
+    required: False
+    validation messages:
+      datatype: |
+        Please enter a valid email address
+validation code: |
+  if len(user.name.first) < 2:
+    validation_error("First name must be at least 2 characters")
+---
+question: |
+  Income Information
+fields:
+  - Employment Income: income.employment
+    datatype: currency
+    min: 0
+    required: True
+    validation messages:
+      required: |
+        Employment income is required
+      min: |
+        Income cannot be negative
+validation code: |
+  if income.employment > 1000000:
+    validation_error("Please verify income amount - seems unusually high", field="income.employment")
+  income.total = income.employment
+continue button field: income_validated
+---
+question: |
+  Monthly Expenses  
+fields:
+  - Housing: expenses.housing
+    datatype: currency
+    min: 0
+    required: True
+validation code: |
+  if expenses.housing > income.total:
+    note("Warning: Housing expenses exceed total income")
+  expenses.total = expenses.housing
+continue button field: expenses_validated
+---
+code: |
+  net_income = income.total - expenses.total
+---
+event: show_summary
+question: |
+  Stage 6 Complete - With Validation
+subquestion: |
+  **Person:** ${ user.name.full() }
+  % if defined('user.email'):
+  - Email: ${ user.email }
+  % endif
+  
+  **Financial Summary:**
+  - Income: ${ currency(income.total) }
+  - Expenses: ${ currency(expenses.total) }
+  - Net: ${ currency(net_income) }
+  
+  **Validation Status:**
+  % if len(validation_errors) == 0:
+  ✓ All fields validated successfully
+  % else:
+  ⚠ ${ len(validation_errors) } validation warnings
+  % endif
+buttons:
+  - Exit: exit
+  - Restart: restart

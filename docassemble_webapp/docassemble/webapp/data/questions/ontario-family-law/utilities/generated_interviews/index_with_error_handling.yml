@@ -1,0 +1,102 @@
+---
+metadata:
+  title: Ontario Family Law Forms with Error Handling
+  short title: Forms Index
+  description: Enhanced interviews with comprehensive error handling and debugging
+---
+modules:
+  - .debug_helpers
+---
+features:
+  debug: True
+  question help button: True
+---
+objects:
+  - error_log: DAList.using(object_type=DAObject, there_are_any=False)
+---
+mandatory: True
+code: |
+  intro_seen
+  form_selection
+  if form_selection == 'show_error_help':
+    show_error_help
+  else:
+    selected_form
+---
+question: |
+  Ontario Family Law Forms - Enhanced with Error Handling
+subquestion: |
+  This system provides comprehensive error handling and debugging features for all forms.
+  
+  ## Available Features:
+  
+  **Error Handling:**
+  - Automatic error capture and logging
+  - User-friendly validation messages
+  - Debug mode for development
+  - Session information tracking
+  
+  **Forms Available:**
+  
+  ### Financial Forms
+  - [Form 13: Financial Statement (Support)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_13_interview.yml)
+  - [Form 13.1: Financial Statement (Property)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_13.1_interview.yml)
+  
+  ### Application Forms
+  - [Form 8: Application (General)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_8_interview.yml)
+  - [Form 10: Answer](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_10_interview.yml)
+  
+  ### Debug Tools
+  % if get_config('debug'):
+  <div class="alert alert-info">
+    <strong>Debug Mode Active</strong><br>
+    Session: ${ user_info().session }<br>
+    Errors Logged: ${ len(error_log) }
+  </div>
+  % endif
+field: intro_seen
+---
+question: |
+  Select an Action
+fields:
+  - "What would you like to do?": form_selection
+    choices:
+      - "Browse Forms": browse
+      - "View Error Help": show_error_help
+      - "Check System Status": status
+---
+event: show_error_help
+question: |
+  Error Handling Guide
+subquestion: |
+  ## How Error Handling Works
+  
+  All interviews in this system include:
+  
+  1. **Automatic Error Capture**: Any errors are automatically logged
+  2. **Validation Messages**: Clear messages for invalid input
+  3. **Debug Information**: Detailed error info when debug mode is enabled
+  4. **Recovery Options**: Ability to go back and correct errors
+  
+  ## Common Error Types
+  
+  - **Required Fields**: Fields that must be filled
+  - **Date Validation**: Proper date format required
+  - **Number Validation**: Numeric values only
+  - **Email Validation**: Valid email format
+  
+  ## Debug Mode
+  
+  To enable debug mode, add `?debug=1` to the interview URL.
+buttons:
+  - "Back to Index": restart
+---
+event: selected_form
+question: |
+  Form Selected
+subquestion: |
+  Redirecting to your selected form...
+  
+  All forms include comprehensive error handling.
+buttons:
+  - "Continue": continue

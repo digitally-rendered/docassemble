@@ -1,0 +1,140 @@
+---
+metadata:
+  title: Form 13 - Stage 5 - Error Handling
+  short title: Stage 5
+  stage: 5
+  description: Adding error handling infrastructure
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  progress bar: True
+  question back button: True
+  debug: True
+---
+objects:
+  - user: Individual
+  - income: DAObject
+  - expenses: DAObject
+  - error_log: DAList
+---
+# Initialize error handling
+initial: True
+code: |
+  error_log = DAList()
+  error_count = 0
+---
+# Error handling function
+code: |
+  def log_error(context, message):
+    error_entry = {
+      'time': current_datetime(),
+      'context': context,
+      'message': message
+    }
+    error_log.append(error_entry)
+    error_count = len(error_log)
+    return True
+---
+# Safe getter function
+code: |
+  def safe_value(obj, attr, default=0):
+    try:
+      if hasattr(obj, attr):
+        val = getattr(obj, attr)
+        return val if val is not None else default
+      return default
+    except Exception as e:
+      log_error(f"safe_value({attr})", str(e))
+      return default
+---
+mandatory: True
+code: |
+  try:
+    intro_screen
+    user.name.first
+    income.employment
+    expenses.housing
+    show_summary
+  except Exception as e:
+    log_error("main_flow", str(e))
+    show_error_screen
+---
+question: |
+  Form 13 Financial Statement
+subquestion: |
+  Stage 5: With error handling infrastructure.
+  
+  This adds:
+  - Error logging
+  - Safe value getters
+  - Try/catch blocks
+  - Error recovery
+continue button field: intro_screen
+---
+question: |
+  Your Information
+fields:
+  - First Name: user.name.first
+    required: True
+  - Last Name: user.name.last
+    required: True
+---
+question: |
+  Income Information
+fields:
+  - Employment Income: income.employment
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  Monthly Expenses
+fields:
+  - Housing: expenses.housing
+    datatype: currency
+    min: 0
+    required: True
+---
+code: |
+  income.total = safe_value(income, 'employment', 0)
+  expenses.total = safe_value(expenses, 'housing', 0)
+  net_income = income.total - expenses.total
+---
+event: show_summary
+question: |
+  Stage 5 Complete - With Error Handling
+subquestion: |
+  **Person:** ${ user.name.full() }
+  
+  **Financial Summary:**
+  - Income: ${ currency(income.total) }
+  - Expenses: ${ currency(expenses.total) }
+  - Net: ${ currency(net_income) }
+  
+  **Error Status:**
+  - Errors logged: ${ len(error_log) }
+  
+  % if len(error_log) > 0:
+  **Errors:**
+  % for error in error_log:
+  - ${ error['context'] }: ${ error['message'] }
+  % endfor
+  % endif
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
+event: show_error_screen
+question: |
+  Error Occurred
+subquestion: |
+  An error occurred during the interview.
+  
+  % if len(error_log) > 0:
+  Last error: ${ error_log[-1]['message'] }
+  % endif
+buttons:
+  - Restart: restart
+  - Exit: exit

@@ -1,0 +1,5 @@
+confidence,context,coordinates,extraction_method,field_label,field_name,field_type,page_number,required,table_info,validation_rules,value
+0.7,"Table 2, Row 26",,docx_table, (a) (a) The income of the party paying child support is $ The income of the party paying child supp,a_a_the_income_of_the_party_paying_child_support_i,currency,0,False,"{'table_index': 1, 'row_index': 25}",,
+0.7,"Table 2, Row 29",,docx_table,   $                               per month. per month. per month. per month. per month. per month.,per_month_per_month_per_month_per_month_per_month_,currency,0,False,"{'table_index': 1, 'row_index': 28}",,
+0.7,"Table 2, Row 30",,docx_table, (d) (d) The amount of child support actually being paid is $ The amount of child support actually b,d_d_the_amount_of_child_support_actually_being_pai,currency,0,False,"{'table_index': 1, 'row_index': 29}",,
+0.7,"Table 3, Row 15",,docx_table,b) The child support clauses of this order or agreement require payment of $ The child support claus,b_the_child_support_clauses_of_this_order_or_agree,currency,0,False,"{'table_index': 2, 'row_index': 14}",,

@@ -1,0 +1,62 @@
+---
+metadata:
+  title: Auto-Generated Forms Index
+---
+mandatory: True
+question: |
+  Auto-Generated Ontario Family Law Forms
+subquestion: |
+  ## Successfully Generated Forms
+  
+  - [Form 29A](/interview?i=docassemble.webapp:ontario-family-law/form_29A_automated.yml)
+  - [Form 8D](/interview?i=docassemble.webapp:ontario-family-law/form_8D_automated.yml)
+  - [Form 43](/interview?i=docassemble.webapp:ontario-family-law/form_43_automated.yml)
+  - [Form 26](/interview?i=docassemble.webapp:ontario-family-law/form_26_automated.yml)
+  - [Form 15B](/interview?i=docassemble.webapp:ontario-family-law/form_15B_automated.yml)
+  - [Form 37B](/interview?i=docassemble.webapp:ontario-family-law/form_37B_automated.yml)
+  - [Form 14B](/interview?i=docassemble.webapp:ontario-family-law/form_14B_automated.yml)
+  - [Form 13B](/interview?i=docassemble.webapp:ontario-family-law/form_13B_automated.yml)
+  - [Form 34I](/interview?i=docassemble.webapp:ontario-family-law/form_34I_automated.yml)
+  - [Form 8A](/interview?i=docassemble.webapp:ontario-family-law/form_8A_automated.yml)
+  - [Form 36](/interview?i=docassemble.webapp:ontario-family-law/form_36_automated.yml)
+  - [Form 17C](/interview?i=docassemble.webapp:ontario-family-law/form_17C_automated.yml)
+  - [Form 8B](/interview?i=docassemble.webapp:ontario-family-law/form_8B_automated.yml)
+  - [Form 13A](/interview?i=docassemble.webapp:ontario-family-law/form_13A_automated.yml)
+  - [Form 6C](/interview?i=docassemble.webapp:ontario-family-law/form_6C_automated.yml)
+  - [Form 29](/interview?i=docassemble.webapp:ontario-family-law/form_29_automated.yml)
+  - [Form 25A](/interview?i=docassemble.webapp:ontario-family-law/form_25A_automated.yml)
+  - [Form 37A](/interview?i=docassemble.webapp:ontario-family-law/form_37A_automated.yml)
+  - [Form 34F](/interview?i=docassemble.webapp:ontario-family-law/form_34F_automated.yml)
+  - [Form 33F](/interview?i=docassemble.webapp:ontario-family-law/form_33F_automated.yml)
+  - [Form 25D](/interview?i=docassemble.webapp:ontario-family-law/form_25D_automated.yml)
+  - [Form 25](/interview?i=docassemble.webapp:ontario-family-law/form_25_automated.yml)
+  - [Form 36A](/interview?i=docassemble.webapp:ontario-family-law/form_36A_automated.yml)
+  - [Form 17F](/interview?i=docassemble.webapp:ontario-family-law/form_17F_automated.yml)
+  - [Form 30](/interview?i=docassemble.webapp:ontario-family-law/form_30_automated.yml)
+  - [Form 29B](/interview?i=docassemble.webapp:ontario-family-law/form_29B_automated.yml)
+  - [Form 37](/interview?i=docassemble.webapp:ontario-family-law/form_37_automated.yml)
+  - [Form 17A](/interview?i=docassemble.webapp:ontario-family-law/form_17A_automated.yml)
+  - [Form 10A](/interview?i=docassemble.webapp:ontario-family-law/form_10A_automated.yml)
+  - [Form 4](/interview?i=docassemble.webapp:ontario-family-law/form_4_automated.yml)
+  - [Form 13C](/interview?i=docassemble.webapp:ontario-family-law/form_13C_automated.yml)
+  - [Form 14C](/interview?i=docassemble.webapp:ontario-family-law/form_14C_automated.yml)
+  - [Form 10](/interview?i=docassemble.webapp:ontario-family-law/form_10_automated.yml)
+  - [Form 34A](/interview?i=docassemble.webapp:ontario-family-law/form_34A_automated.yml)
+  - [Form 25C](/interview?i=docassemble.webapp:ontario-family-law/form_25C_automated.yml)
+  - [Form 25F](/interview?i=docassemble.webapp:ontario-family-law/form_25F_automated.yml)
+  - [Form 15](/interview?i=docassemble.webapp:ontario-family-law/form_15_automated.yml)
+  - [Form 15C](/interview?i=docassemble.webapp:ontario-family-law/form_15C_automated.yml)
+  - [Form 8](/interview?i=docassemble.webapp:ontario-family-law/form_8_automated.yml)
+  - [Form 43A](/interview?i=docassemble.webapp:ontario-family-law/form_43A_automated.yml)
+  - [Form 27](/interview?i=docassemble.webapp:ontario-family-law/form_27_automated.yml)
+  - [Form 43B](/interview?i=docassemble.webapp:ontario-family-law/form_43B_automated.yml)
+  - [Form 13.1](/interview?i=docassemble.webapp:ontario-family-law/form_13.1_automated.yml)
+  - [Form 34G](/interview?i=docassemble.webapp:ontario-family-law/form_34G_automated.yml)
+  - [Form 13](/interview?i=docassemble.webapp:ontario-family-law/form_13_automated.yml)
+  - [Form 28](/interview?i=docassemble.webapp:ontario-family-law/form_28_automated.yml)
+  - [Form 6B](/interview?i=docassemble.webapp:ontario-family-law/form_6B_automated.yml)
+  - [Form 34](/interview?i=docassemble.webapp:ontario-family-law/form_34_automated.yml)
+
+  
+buttons:
+  - Exit: exit

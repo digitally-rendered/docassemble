@@ -1,0 +1,6 @@
+confidence,context,coordinates,extraction_method,field_label,field_name,field_type,page_number,required,table_info,validation_rules,value
+0.7,"Table 1, Row 12",,docx_table,"Birthdate: Birthdate: Birthdate: Birthdate: Birthdate: Birthdate: Birthdate:  
+      
+      
+      
+",birthdate_birthdate_birthdate_birthdate_birthdate_,date,0,False,"{'table_index': 0, 'row_index': 11}",,

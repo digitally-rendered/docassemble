@@ -1,0 +1,235 @@
+---
+metadata:
+  title: Test All Field Types
+  short title: Field Type Test
+  description: Tests every field type that generators should support
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - person: Individual
+  - people: DAList.using(object_type=Individual)
+  - financial: DAObject
+---
+mandatory: True
+code: |
+  # Test flow for all field types
+  intro_seen
+  
+  # Test text fields
+  text_field_test
+  
+  # Test Individual object
+  person.name.first
+  
+  # Test date field
+  test_date
+  
+  # Test yes/no field
+  test_yesno
+  
+  # Test number fields
+  test_integer
+  test_currency
+  
+  # Test selection fields
+  test_radio
+  test_dropdown
+  
+  # Test checkbox
+  test_checkboxes
+  
+  # Test text area
+  test_textarea
+  
+  # Test email
+  test_email
+  
+  # Test phone
+  test_phone
+  
+  # Test DAList collection
+  if test_multiple:
+    people.gather()
+  
+  # Show results
+  show_results
+---
+question: |
+  Field Type Testing
+subquestion: |
+  This interview tests all field types that should be supported by the generator.
+field: intro_seen
+---
+question: |
+  Text Field Test
+fields:
+  - Simple Text: text_field_test
+    required: True
+  - Optional Text: optional_text
+    required: False
+---
+question: |
+  Person Information (Individual Object)
+fields:
+  - First Name: person.name.first
+    required: True
+  - Last Name: person.name.last
+    required: True
+  - Middle Name: person.name.middle
+    required: False
+---
+question: |
+  Date Field Test
+fields:
+  - Date of Birth: test_date
+    datatype: date
+    required: True
+  - Optional Date: optional_date
+    datatype: date
+    required: False
+---
+question: |
+  Yes/No Field Test
+fields:
+  - Are you married?: test_yesno
+    datatype: yesno
+  - Do you have children?: test_yesnoradio
+    datatype: yesnoradio
+  - Maybe question?: test_yesnomaybe
+    datatype: yesnomaybe
+---
+question: |
+  Number Field Tests
+fields:
+  - Integer Number: test_integer
+    datatype: integer
+    min: 0
+    max: 100
+  - Currency Amount: test_currency
+    datatype: currency
+    min: 0
+    required: True
+  - Decimal Number: test_number
+    datatype: number
+    required: False
+---
+question: |
+  Selection Field Tests
+fields:
+  - Radio Choice: test_radio
+    datatype: radio
+    choices:
+      - Option 1
+      - Option 2
+      - Option 3
+  - Dropdown Selection: test_dropdown
+    datatype: dropdown
+    choices:
+      - Choice A: value_a
+      - Choice B: value_b
+      - Choice C: value_c
+---
+question: |
+  Checkbox Test
+fields:
+  - Select all that apply: test_checkboxes
+    datatype: checkboxes
+    choices:
+      - Option One: opt1
+      - Option Two: opt2
+      - Option Three: opt3
+    none of the above: False
+---
+question: |
+  Text Area Test
+fields:
+  - Long Description: test_textarea
+    datatype: area
+    rows: 4
+    required: False
+---
+question: |
+  Contact Information Tests
+fields:
+  - Email Address: test_email
+    datatype: email
+    required: True
+  - Phone Number: test_phone
+    datatype: phone
+    required: False
+---
+question: |
+  Test Multiple Items?
+yesno: test_multiple
+---
+question: |
+  Person ${i + 1} Information
+fields:
+  - First Name: people[i].name.first
+    required: True
+  - Last Name: people[i].name.last
+    required: True
+---
+question: |
+  Add another person?
+yesno: people.there_is_another
+---
+event: show_results
+question: |
+  Test Results
+subquestion: |
+  ## Values Collected:
+  
+  **Text Fields:**
+  - Simple Text: ${ text_field_test }
+  - Optional: ${ optional_text if defined('optional_text') else 'Not provided' }
+  
+  **Individual Object:**
+  - Name: ${ person.name.full() }
+  
+  **Dates:**
+  - Birth Date: ${ test_date }
+  - Optional Date: ${ optional_date if defined('optional_date') else 'Not provided' }
+  
+  **Yes/No Fields:**
+  - Married: ${ test_yesno }
+  - Children: ${ test_yesnoradio }
+  - Maybe: ${ test_yesnomaybe }
+  
+  **Numbers:**
+  - Integer: ${ test_integer }
+  - Currency: ${ currency(test_currency) }
+  - Decimal: ${ test_number if defined('test_number') else 'Not provided' }
+  
+  **Selections:**
+  - Radio: ${ test_radio }
+  - Dropdown: ${ test_dropdown }
+  
+  **Checkboxes:**
+  % if test_checkboxes:
+  - Selected: ${ ", ".join(test_checkboxes.true_values()) }
+  % else:
+  - None selected
+  % endif
+  
+  **Text Area:**
+  - Description: ${ test_textarea if defined('test_textarea') else 'Not provided' }
+  
+  **Contact:**
+  - Email: ${ test_email }
+  - Phone: ${ test_phone if defined('test_phone') else 'Not provided' }
+  
+  **List Collection:**
+  % if test_multiple:
+  % for p in people:
+  - Person: ${ p.name.full() }
+  % endfor
+  % else:
+  - No people added
+  % endif
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

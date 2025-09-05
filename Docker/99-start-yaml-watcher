@@ -1,0 +1,9 @@
+#!/bin/bash
+# This file should be placed in /etc/my_init.d/ or called from initialize.sh
+# It starts the YAML watcher after system initialization
+
+# Add to the end of initialize.sh or run as a separate init script
+if [ -f /usr/share/docassemble/scripts/start-yaml-watcher.sh ]; then
+    echo "Starting YAML watcher via init script..."
+    nohup /usr/share/docassemble/scripts/start-yaml-watcher.sh > /usr/share/docassemble/log/start-yaml-watcher.log 2>&1 &
+fi

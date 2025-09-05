@@ -44,10 +44,7 @@ class OntarioFormsDownloader:
         try:
             print(f"Downloading {form_name}...")
             
-            # Create category subdirectory
-            category_dir = self.download_dir / category
-            category_dir.mkdir(exist_ok=True)
-            
+            # Save all files to the main download directory (no subdirectories)
             response = self.session.get(url, timeout=30)
             response.raise_for_status()
             
@@ -56,7 +53,7 @@ class OntarioFormsDownloader:
             clean_form_name = form_name.replace('/', '_').replace(' ', '_').lower()
             filename = f"{clean_form_name}_{filename}"
             
-            file_path = category_dir / filename
+            file_path = self.download_dir / filename
             
             with open(file_path, 'wb') as f:
                 f.write(response.content)
@@ -207,6 +204,41 @@ class OntarioFormsDownloader:
             f.write("For docassemble integration and family law automation\n")
         
         print(f"📋 Created index file: {index_path}")
+
+def download_all_ontario_forms(output_dir=None):
+    """Download all Ontario family law forms to specified directory
+    
+    This is a wrapper function for integration with other scripts.
+    
+    Args:
+        output_dir: Directory to save forms to (optional)
+        
+    Returns:
+        dict: Results of the download operation
+    """
+    if output_dir is None:
+        output_dir = "./ontario_family_law_forms"
+    
+    output_path = Path(output_dir)
+    
+    try:
+        downloader = OntarioFormsDownloader(output_path)
+        downloaded, failed = downloader.download_all_forms()
+        
+        return {
+            "total_forms": downloaded + failed,
+            "successful": downloaded,
+            "failed": failed,
+            "output_dir": str(output_path)
+        }
+    except Exception as e:
+        return {
+            "total_forms": 0,
+            "successful": 0,
+            "failed": 0,
+            "error": str(e),
+            "output_dir": str(output_path)
+        }
 
 def main():
     """Main function with command line support"""

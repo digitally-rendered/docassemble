@@ -1,0 +1,21 @@
+{
+  "parser_name": "unified",
+  "form_path": "workflow_output/ontario_forms/child_protection_adoption/form_34a_-_affidavit_parentage_form-34a-en-dec20.docx",
+  "form_hash": "1136113c3d21e4e975207d6d2d2d2104d49810565dc299bbf2c19218f5ac037a",
+  "timestamp": "2025-08-18T21:40:25.449704",
+  "fields": [],
+  "metadata": {
+    "gcp_used": false,
+    "validation_report": {
+      "total_fields": 0,
+      "high_confidence": 0,
+      "medium_confidence": 0,
+      "low_confidence": 0,
+      "single_method": 0,
+      "multi_method": 0,
+      "method_agreement": {},
+      "field_types": {},
+      "warnings": []
+    }
+  }
+}

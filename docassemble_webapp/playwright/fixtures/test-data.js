@@ -255,7 +255,7 @@ const testScenarios = {
     // Common-law -> Child custody only
     custodyOnly: {
       emergency_situation: false,
-      mip_status: 'completed',
+      mip_status: 'unsure',
       relationship_status: 'common_law',
       orders: {
         divorce: false,

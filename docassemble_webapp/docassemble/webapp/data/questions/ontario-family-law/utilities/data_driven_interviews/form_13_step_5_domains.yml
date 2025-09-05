@@ -1,0 +1,45 @@
+---
+metadata:
+  title: Form 13 - Full Data-Driven with Domains
+  short title: Form 13 Complete
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - person: Individual
+  - investments: DAList.using(object_type=DAObject)
+  - properties: DAList.using(object_type=DAObject)
+  - real_estates: DAList.using(object_type=DAObject)
+  - vehicles: DAList.using(object_type=DAObject)
+  - banks: DAList.using(object_type=DAObject)
+  - assets: DAList.using(object_type=DAObject)
+  - income_information: DAObject
+  - support_information: DAObject
+  - expense_information: DAObject
+  - debt_information: DAObject
+  - amount_information: DAObject
+  - table_1_item_7: DAObject
+  - table_1_item_8: DAObject
+  - table_1_item_12: DAObject
+  - table_1_item_13: DAObject
+---
+mandatory: True
+code: |
+  intro_seen
+  final_screen
+---
+question: |
+  Form 13 Financial Statement
+subquestion: |
+  Complete with domain mapping.
+continue button field: intro_seen
+---
+event: final_screen
+question: |
+  Complete
+subquestion: |
+  Interview generated from parsed data and domain mappings.
+buttons:
+  - Exit: exit
+---

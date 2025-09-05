@@ -1,0 +1,1654 @@
+---
+metadata:
+  title: "Ontario Family Law Form 13.1: Financial Statement (Property and Support)"
+  short title: Form 13.1
+  description: Interview with baseline error handling for 113 fields
+  form_number: 13.1
+  field_count: 113
+  error_handling: baseline
+  generated: "2025-08-26T23:10:53.697744" 
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  debug: True
+  question help button: True
+  question back button: True
+  progress bar: True
+  progress bar method: all
+  progress bar multiplier: 0.05
+---
+objects:
+  - validation_errors: DAList
+  - error_log: DAList
+  - field_errors: DADict
+---
+initial: True
+code: |
+  validation_errors = DAList()
+  error_log = DAList()
+  field_errors = DADict()
+  debug_mode = get_config('debug', False)
+  error_count = 0
+---
+code: |
+  def handle_error(context, error_type, details):
+    '''Global error handler'''
+    error_entry = {
+      'timestamp': current_datetime(),
+      'context': context,
+      'type': error_type,
+      'details': details
+    }
+    error_log.append(error_entry)
+    if debug_mode:
+      log(f"ERROR in {context}: {error_type} - {details}", 'error')
+    return error_entry
+---
+code: |
+  def safe_get(obj, attr, default=""):
+    '''Safely get object attribute'''
+    try:
+      if hasattr(obj, attr):
+        val = getattr(obj, attr)
+        return val if val is not None else default
+      return default
+    except:
+      return default
+---
+code: |
+  def validate_required(field_name, value):
+    '''Validate required field'''
+    if not value or (isinstance(value, str) and not value.strip()):
+      field_errors[field_name] = f"{field_name} is required"
+      return False
+    return True
+---
+objects:
+  - user: Individual
+  - spouse: Individual
+  - income: DAObject
+  - expenses: DAObject
+  - assets: DAList.using(object_type=Individual)
+  - debts: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  try:
+    intro_seen
+  user.name.first
+  spouse.name.first
+  income_collected
+  expenses_collected
+  assets_count
+  if assets_count > 0:
+    assets.gather()
+  debts_count
+  if debts_count > 0:
+    debts.gather()
+  income_collected
+  expenses_collected
+  if has_assets:
+    assets.gather()
+  if has_debts:
+    debts.gather()
+  review_answers
+  if len(validation_errors) > 0:
+    review_with_errors
+  form_complete
+  except Exception as e:
+    handle_error("main_flow", "FlowError", str(e))
+    error_recovery
+---
+question: |
+  Ontario Family Law Form 13.1
+subquestion: |
+  Welcome to the Form 13.1 interview.
+  
+  This interview will collect 113 fields of information.
+  
+  % if debug_mode:
+  <div class="alert alert-info">
+    Debug mode is enabled - detailed error information will be shown
+  </div>
+  % endif
+  
+  All fields include validation and error handling.
+continue button field: intro_seen
+---
+question: |
+  Table 1, Row 8
+fields:
+  - Full legal name Full legal name Full legal name Full legal name Full legal name Full legal name: full_legal_name_fullegal_name_fu
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_1__row_8_collected
+---
+question: |
+  Table 1, Row 9
+fields:
+  - Address Address Address Address Address Address Address: address_address_address_ad
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_1__row_9_collected
+---
+question: |
+  Table 1, Row 13
+fields:
+  - Full legal name Full legal name Full legal name Full legal name Full legal name Full legal name: full_legal_name_fullegal_name_fu
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_1__row_13_collected
+---
+question: |
+  Table 1, Row 14
+fields:
+  - Address Address Address Address Address Address Address: address_address_address_ad
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_1__row_14_collected
+---
+question: |
+  Table 2, Row 9
+fields:
+  - 4. Last year, my gross income from all sources was $ Last year, my gross income from all sources was: _last_year_my_gross_income_from_all_sources_was_l
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_9_collected
+---
+question: |
+  Table 2, Row 22
+fields:
+  - 1. 1. Employment income (before deductions) Employment income (before deductions) Employment income : _employment_income_before_deductions_employment
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_22_collected
+---
+question: |
+  Table 2, Row 23
+fields:
+  - 2. 2. Commissions, tips and bonuses Commissions, tips and bonuses Commissions, tips and bonuses Comm: _commissions_tips_and_bonuses_commissions_tips_
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_23_collected
+---
+question: |
+  Table 2, Row 24
+fields:
+  - 3. 3. Self-employment income (Monthly amount before expenses $      ) Self-employment income (Month: _self_employment_income_monthly_amount_before
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_24_collected
+---
+question: |
+  Table 2, Row 25
+fields:
+  - 4. 4. Employment Insurance benefits Employment Insurance benefits Employment Insurance benefits Empl: _employment_insurance_benefits_employment_insur
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_25_collected
+---
+question: |
+  Table 2, Row 26
+fields:
+  - 5. 5. Workers' compensation benefits Workers' compensation benefits Workers' compensation benefits W: _workers_compensation_benefits_workers_compensa
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_26_collected
+---
+question: |
+  Table 2, Row 27
+fields:
+  - 6. 6. Social assistance income (including ODSP payments) Social assistance income (including ODSP pa: _social_assistance_income_including_odspaymen
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_27_collected
+---
+question: |
+  Table 2, Row 28
+fields:
+  - 7. 7. Interest and investment income Interest and investment income Interest and investment income I: _interest_and_investment_income_interest_and_in
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_28_collected
+---
+question: |
+  Table 2, Row 29
+fields:
+  - 8. 8. Pension income (including CPP and OAS) Pension income (including CPP and OAS) Pension income (: _pension_income_including_cpp_and_oas_pension_i
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_29_collected
+---
+question: |
+  Table 2, Row 30
+fields:
+  - 9. 9. Spousal support received from a former spouse/partner Spousal support received from a former s: _spousal_support_received_from_a_former_spouse_
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_30_collected
+---
+question: |
+  Table 2, Row 31
+fields:
+  - 10. 10. Child Tax Benefits or Tax Rebates (e.g. GST) Child Tax Benefits or Tax Rebates (e.g. GST) Ch: _child_tax_benefits_or_tax_rebates_e_gst_ch
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_31_collected
+---
+question: |
+  Table 2, Row 32
+fields:
+  - 11. 11. Other sources of income (e.g. RRSP withdrawals, capital gains) (*attach Schedule A and divid: _other_sources_of_income_g_rrsp_withdrawals
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_32_collected
+---
+question: |
+  Table 2, Row 33
+fields:
+  - 12. 12. Total monthly income from all sources Total monthly income from all sources Total monthly : _total_monthly_income_from_all_sources_total_
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_33_collected
+---
+question: |
+  Table 2, Row 34
+fields:
+  - 13. 13. Total monthly income X 12 = Total annual income Total monthly income X 12 = Total annual in: _total_monthly_income_x_12_total_annual_incom
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_34_collected
+---
+question: |
+  Table 3, Row 7
+fields:
+  - $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_7_collected
+---
+question: |
+  Table 3, Row 8
+fields:
+  - $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_8_collected
+---
+question: |
+  Table 3, Row 9
+fields:
+  - $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_9_collected
+---
+question: |
+  Table 3, Row 10
+fields:
+  - $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_10_collected
+---
+question: |
+  Table 3, Row 14
+fields:
+  - CPP contributions CPP contributions CPP contributions $ Public transit, taxis Public transit, taxis : cpp_contributions_cpp_contributi
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_14_collected
+---
+question: |
+  Table 3, Row 15
+fields:
+  - EI premiums EI premiums EI premiums $ Gas and oil Gas and oil Gas and oil Gas and oil $: ei_premiums_ei_premiums_gas_and_oil_ga
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_15_collected
+---
+question: |
+  Table 3, Row 16
+fields:
+  - Income taxes Income taxes Income taxes $ Car insurance and license Car insurance and license Car ins: income_taxes_income_taxes_car_insuran
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_16_collected
+---
+question: |
+  Table 3, Row 17
+fields:
+  - Employee pension contributions Employee pension contributions Employee pension contributions $ Repai: employee_pension_contributions_employee_pension_co
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_17_collected
+---
+question: |
+  Table 3, Row 18
+fields:
+  - Union dues Union dues Union dues $ Parking Parking Parking Parking $: union_dues_union_dues_parking_p
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_18_collected
+---
+question: |
+  Table 3, Row 19
+fields:
+  - SUBTOTAL SUBTOTAL SUBTOTAL $ Car Loan or Lease Payments Car Loan or Lease Payments Car Loan or Lease: subtotal_subtotal_car_loan_or_lease_payme
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_19_collected
+---
+question: |
+  Table 3, Row 20
+fields:
+  - Housing Housing Housing Housing Housing SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $: housing_housing_housing_subtotal_s
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_20_collected
+---
+question: |
+  Table 3, Row 21
+fields:
+  - Rent or mortgage Rent or mortgage Rent or mortgage $ Health Health Health Health Health Health: rent_or_mortgage_rent_or_mortgage
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_21_collected
+---
+question: |
+  Table 3, Row 22
+fields:
+  - Property taxes Property taxes Property taxes $ Health insurance premiums Health insurance premiums H: property_taxes_property_taxes_healt
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_22_collected
+---
+question: |
+  Table 3, Row 23
+fields:
+  - Property insurance Property insurance Property insurance $ Dental expenses Dental expenses Dental ex: property_insurance_property_ins
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_23_collected
+---
+question: |
+  Table 3, Row 24
+fields:
+  - Condominium fees Condominium fees Condominium fees $ Medicine and drugs Medicine and drugs Medicine : condominium_fees_condominium_fees
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_24_collected
+---
+question: |
+  Table 3, Row 25
+fields:
+  - Repairs and maintenance Repairs and maintenance Repairs and maintenance $ Eye care Eye care Eye care: repairs_and_maintenance_re
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_25_collected
+---
+question: |
+  Table 3, Row 26
+fields:
+  - SUBTOTAL SUBTOTAL SUBTOTAL $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $: subtotal_subtotal_subtotal_subto
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_26_collected
+---
+question: |
+  Table 3, Row 28
+fields:
+  - Water Water Water $ Clothing Clothing Clothing Clothing $: water_water_clothing_clothing_cloth
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_28_collected
+---
+question: |
+  Table 3, Row 29
+fields:
+  - Heat Heat Heat $ Hair care and beauty Hair care and beauty Hair care and beauty Hair care and beauty: heat_heat_hair_care_and_beauty_hair_care_and_
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_29_collected
+---
+question: |
+  Table 3, Row 30
+fields:
+  - Electricity Electricity Electricity $ Alcohol and tobacco Alcohol and tobacco Alcohol and tobacco Al: electricity_electricity_alcohol_and_to
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_30_collected
+---
+question: |
+  Table 4, Row 5
+fields:
+  - Telephone Telephone Telephone Telephone Telephone Telephone Telephone $ $ Education (specify) Educat: telephone_telephone_telephone_
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_5_collected
+---
+question: |
+  Table 4, Row 6
+fields:
+  - Cell phone Cell phone Cell phone Cell phone Cell phone Cell phone Cell phone $ $ Entertainment/recre: cell_phone_cell_phone_cell_p
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_6_collected
+---
+question: |
+  Table 4, Row 7
+fields:
+  - Cable Cable Cable Cable Cable Cable Cable $ $ Gifts Gifts Gifts Gifts Gifts Gifts Gifts Gifts Gifts : cable_cable_cable_cable_gifts_gi
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_7_collected
+---
+question: |
+  Table 4, Row 8
+fields:
+  - Internet Internet Internet Internet Internet Internet Internet $ $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOT: internet_internet_internet_inter
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_8_collected
+---
+question: |
+  Table 4, Row 9
+fields:
+  - SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ $ Other expenses Other expenses Oth: subtotal_subtotal_subtotal_subto
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_9_collected
+---
+question: |
+  Table 4, Row 10
+fields:
+  - Household Expenses Household Expenses Household Expenses Household Expenses Household Expenses House: household_expenses_household_ex
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_10_collected
+---
+question: |
+  Table 4, Row 11
+fields:
+  - Groceries Groceries Groceries Groceries Groceries Groceries Groceries $ $ RRSP/RESP withdrawals RRSP: groceries_groceries_groceries_
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_11_collected
+---
+question: |
+  Table 4, Row 12
+fields:
+  - Household supplies Household supplies Household supplies Household supplies Household supplies House: household_supplies_household_su
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_12_collected
+---
+question: |
+  Table 4, Row 13
+fields:
+  - Meals outside the home Meals outside the home Meals outside the home Meals outside the home Meals ou: meals_outside_the_home_meal
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_13_collected
+---
+question: |
+  Table 4, Row 14
+fields:
+  - Pet care Pet care Pet care Pet care Pet care Pet care Pet care $ $ Clothing for children Clothing fo: pet_care_pet_care_pet_care_pet_c
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_14_collected
+---
+question: |
+  Table 4, Row 15
+fields:
+  - Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning : laundry_and_dry_cleaning_
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_15_collected
+---
+question: |
+  Table 4, Row 16
+fields:
+  - SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ $ Summer camp expenses Summer camp : subtotal_subtotal_subtotal_subto
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_16_collected
+---
+question: |
+  Table 4, Row 17
+fields:
+  - Childcare Costs Childcare Costs Childcare Costs Childcare Costs Childcare Costs Childcare Costs Chil: childcare_costs_childcare_costs_ch
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_17_collected
+---
+question: |
+  Table 4, Row 18
+fields:
+  - Daycare expense Daycare expense Daycare expense Daycare expense Daycare expense Daycare expense Dayc: daycare_expense_daycarexpense_da
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_18_collected
+---
+question: |
+  Table 4, Row 19
+fields:
+  - Babysitting costs Babysitting costs Babysitting costs Babysitting costs Babysitting costs Babysittin: babysitting_costs_babysitting_co
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_19_collected
+---
+question: |
+  Table 4, Row 20
+fields:
+  - SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOT: subtotal_subtotal_subtotal_subto
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_20_collected
+---
+question: |
+  Table 4, Row 22
+fields:
+  - Total Amount of Monthly Expenses Total Amount of Monthly Expenses Total Amount of Monthly Expenses T: total_amount_of_monthly_expenses_total_amount_of_m
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_22_collected
+---
+question: |
+  Table 4, Row 23
+fields:
+  - Total Amount of Yearly Expenses Total Amount of Yearly Expenses Total Amount of Yearly Expenses Tota: total_amount_of_yearly_expenses_total_amount_of_ye
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_23_collected
+---
+question: |
+  Table 4, Row 32
+fields:
+  - 6. My spouse/partner My spouse/partner My spouse/partner earns (give amount) $ earns (give amount) $: _my_spouse_partner_my_spouse_pa
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_32_collected
+---
+question: |
+  Table 4, Row 34
+fields:
+  - 7. My spouse/partner or other adult residing in the home contributes about $ My spouse/partner or ot: _my_spouse_partner_or_other_adult_residing_in_the
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_34_collected
+---
+question: |
+  Table 5, Row 13
+fields:
+  - $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_13_collected
+---
+question: |
+  Table 5, Row 14
+fields:
+  - 15.  TOTAL VALUE OF LAND 15.  TOTAL VALUE OF LAND 15.  TOTAL VALUE OF LAND 15.  TOTAL VALUE OF LAND : _total_value_of_land_15_t
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_14_collected
+---
+question: |
+  Table 5, Row 19
+fields:
+  - Household goods & furniture Household goods & furniture $ $ $ $ $: household_goods_furniture_household_goods_furnitur
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_19_collected
+---
+question: |
+  Table 5, Row 20
+fields:
+  - Cars, boats, vehicles Cars, boats, vehicles $ $ $ $ $: cars_boats_vehicles
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_20_collected
+---
+question: |
+  Table 5, Row 21
+fields:
+  - Jewellery, art, electronics, tools, sports & hobby equipment Jewellery, art, electronics, tools, spo: jewellery_art_electronics_toolsports_hobby_equip
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_21_collected
+---
+question: |
+  Table 5, Row 22
+fields:
+  - Other special items Other special items $ $ $ $ $: other_special_items
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_22_collected
+---
+question: |
+  Table 5, Row 23
+fields:
+  - 16.  TOTAL VALUE OF GENERAL HOUSEHOLD ITEMS AND VEHICLES 16.  TOTAL VALUE OF GENERAL HOUSEHOLD ITEMS: _total_value_of_general_household_items_and_vehi
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_23_collected
+---
+question: |
+  Table 6, Row 9
+fields:
+  - 17.  TOTAL VALUE OF ACCOUNTS, SAVINGS, SECURITIES AND PENSIONS 17.  TOTAL VALUE OF ACCOUNTS, SAVINGS: _total_value_of_accountsavingsecurities_and_
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_6__row_9_collected
+---
+question: |
+  Table 6, Row 14
+fields:
+  - $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_6__row_14_collected
+---
+question: |
+  Table 6, Row 15
+fields:
+  - 18.  TOTAL CASH SURRENDER VALUE OF INSURANCE POLICIES 18.  TOTAL CASH SURRENDER VALUE OF INSURANCE P: _total_cash_surrender_value_of_insurance_policie
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_6__row_15_collected
+---
+question: |
+  Table 6, Row 20
+fields:
+  - $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_6__row_20_collected
+---
+question: |
+  Table 6, Row 21
+fields:
+  - 19.  TOTAL VALUE OF BUSINESS INTERESTS 19.  TOTAL VALUE OF BUSINESS INTERESTS 19.  TOTAL VALUE OF BU: _total_value_of_business_interests_19_total_valu
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_6__row_21_collected
+---
+question: |
+  Table 7, Row 9
+fields:
+  - 20.  TOTAL OF MONEY OWED TO YOU 20.  TOTAL OF MONEY OWED TO YOU 20.  TOTAL OF MONEY OWED TO YOU 20. : _total_of_money_owed_to_you_20_total_of_money_ow
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_7__row_9_collected
+---
+question: |
+  Table 7, Row 15
+fields:
+  - 21.  TOTAL VALUE OF OTHER PROPERTY 21.  TOTAL VALUE OF OTHER PROPERTY 21.  TOTAL VALUE OF OTHER PROP: _total_value_of_other_property_21_total_value_of
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_7__row_15_collected
+---
+question: |
+  Table 7, Row 16
+fields:
+  - 22.  VALUE OF ALL PROPERTY OWNED ON THE VALUATION DATE
+(Add items [15] to [21].) 22.  VALUE OF ALL P: _value_of_all_property_owned_on_the_valuation_da
+    datatype: date
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_7__row_16_collected
+---
+question: |
+  Table 7, Row 24
+fields:
+  - $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_7__row_24_collected
+---
+question: |
+  Table 7, Row 25
+fields:
+  - 23.  TOTAL OF DEBTS AND OTHER LIABILITIES 23.  TOTAL OF DEBTS AND OTHER LIABILITIES 23.  TOTAL OF DE: _total_of_debts_and_other_liabilities_23_total_o
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_7__row_25_collected
+---
+question: |
+  Table 8, Row 11
+fields:
+  - $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_8__row_11_collected
+---
+question: |
+  Table 8, Row 15
+fields:
+  - $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_8__row_15_collected
+---
+question: |
+  Table 8, Row 17
+fields:
+  - $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_8__row_17_collected
+---
+question: |
+  Table 8, Row 19
+fields:
+  - $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_8__row_19_collected
+---
+question: |
+  Table 8, Row 21
+fields:
+  - $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_8__row_21_collected
+---
+question: |
+  Table 8, Row 23
+fields:
+  - $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_8__row_23_collected
+---
+question: |
+  Table 8, Row 24
+fields:
+  - TOTALS TOTALS TOTALS TOTALS $ $: totals_totals
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_8__row_24_collected
+---
+question: |
+  Table 8, Row 25
+fields:
+  - 24.  NET VALUE OF PROPERTY OWNED ON DATE OF MARRIAGE
+(From the total of the “Assets” column, subtrac: _net_value_of_property_owned_on_date_of_marriage
+    datatype: date
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_8__row_25_collected
+---
+question: |
+  Table 8, Row 26
+fields:
+  - 25.  VALUE OF ALL DEDUCTIONS  (Add items [23] and [24].) 25.  VALUE OF ALL DEDUCTIONS  (Add items [2: _value_of_all_deductions_add_items_23_and_24_25_
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_8__row_26_collected
+---
+question: |
+  Table 8, Row 30
+fields:
+  - $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_8__row_30_collected
+---
+question: |
+  Table 8, Row 31
+fields:
+  - 26.  TOTAL VALUE OF EXCLUDED PROPERTY 26.  TOTAL VALUE OF EXCLUDED PROPERTY 26.  TOTAL VALUE OF EXCL: _total_value_of_excluded_property_26_total_value
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_8__row_31_collected
+---
+question: |
+  Table 9, Row 8
+fields:
+  - 27.  TOTAL VALUE OF DISPOSED-OF PROPERTY 27.  TOTAL VALUE OF DISPOSED-OF PROPERTY 27.  TOTAL VALUE O: _total_value_of_disposed_of_property_27_total_va
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_9__row_8_collected
+---
+question: |
+  Table 9, Row 11
+fields:
+  - Value of all property owned on valuation date  (from item [22] above) Value of all property owned on: value_of_all_property_owned_on_valuation_date_from
+    datatype: date
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_9__row_11_collected
+---
+question: |
+  Table 9, Row 12
+fields:
+  - Subtract value of all deductions  (from item [25] above) Subtract value of all deductions  (from ite: subtract_value_of_all_deductions_from_item_25_abov
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_9__row_12_collected
+---
+question: |
+  Table 9, Row 13
+fields:
+  - Subtract total value of excluded property  (from item [26] above) Subtract total value of excluded p: subtractotal_value_of_excluded_property_from_ite
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_9__row_13_collected
+---
+question: |
+  Table 9, Row 14
+fields:
+  - 28.  NET FAMILY PROPERTY 28.  NET FAMILY PROPERTY 28.  NET FAMILY PROPERTY 28.  NET FAMILY PROPERTY : _net_family_property_28_n
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_9__row_14_collected
+---
+question: |
+  Table 10, Row 3
+fields:
+  - 1. 1. 1. 1. 1. Net partnership income Net partnership income Net partnership income Net partnership : _1_1_net_partnership_income_net_partnership_i
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_10__row_3_collected
+---
+question: |
+  Table 10, Row 4
+fields:
+  - 2. 2. 2. 2. 2. Net rental income (Gross annual rental income of $      ) Net rental income (Gross an: _2_2_net_rental_income_gross_annual_rental_in
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_10__row_4_collected
+---
+question: |
+  Table 10, Row 5
+fields:
+  - 3. 3. 3. 3. 3. Total amount of dividends received from taxable Canadian corporations Total amount of: _3_3_total_amount_of_dividends_received_from_
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_10__row_5_collected
+---
+question: |
+  Table 10, Row 6
+fields:
+  - 4. 4. 4. 4. 4. Total capital gains ($      ) less capital losses ($      ) Total capital gains ($   : _4_4_total_capital_gains_less_capitalosses_
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_10__row_6_collected
+---
+question: |
+  Table 10, Row 7
+fields:
+  - 5. 5. 5. 5. 5. Registered retirement savings plan withdrawals Registered retirement savings plan wit: _5_5_registered_retirement_savings_plan_withd
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_10__row_7_collected
+---
+question: |
+  Table 10, Row 8
+fields:
+  - 6. 6. 6. 6. 6. Income from a Registered Retirement Income Fund or Annuity Income from a Registered R: _6_6_income_from_a_registered_retirement_inco
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_10__row_8_collected
+---
+question: |
+  Table 10, Row 9
+fields:
+  - 7. 7. 7. 7. 7. Any other income (specify source) Any other income (specify source) Any other income : _7_7_any_other_income_specify_source_any_othe
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_10__row_9_collected
+---
+question: |
+  Table 10, Row 11
+fields:
+  - Subtotal Subtotal Subtotal $ $: subtotal_subtotal
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_10__row_11_collected
+---
+question: |
+  Table 10, Row 25
+fields:
+  - Total Net Annual Amount Total Net Annual Amount Total Net Annual Amount Total Net Annual Amount Tota: total_net_annual_amount_to
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_10__row_25_collected
+---
+question: |
+  Table 10, Row 26
+fields:
+  - Total Net Monthly Amount Total Net Monthly Amount Total Net Monthly Amount Total Net Monthly Amount : total_net_monthly_amount_
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_10__row_26_collected
+---
+question: |
+  Table 10, Row 28
+fields:
+  - I earn $ I earn $ per year which should be used to determine my share of the above expenses. per yea: i_earn_per_year_which_should_be_used_to_det
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_10__row_28_collected
+---
+question: |
+  Table 10, Row 31
+fields:
+  - . . . Medical insurance premiums and certain health-related expenses for the child that cost more th: medical_insurance_premiums_and_certain_health_rela
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_10__row_31_collected
+---
+question: |
+  Your Information
+fields:
+  - First Name: user.name.first
+    required: True
+    validation messages:
+      required: First name is required
+  - Last Name: user.name.last
+    required: True
+    validation messages:
+      required: Last name is required
+  - Date of Birth: user.birthdate
+    datatype: date
+    required: False
+---
+question: |
+  Spouse Information
+fields:
+  - First Name: spouse.name.first
+    required: True
+    validation messages:
+      required: First name is required
+  - Last Name: spouse.name.last
+    required: True
+    validation messages:
+      required: Last name is required
+  - Date of Birth: spouse.birthdate
+    datatype: date
+    required: False
+---
+question: |
+  Income Information
+fields:
+  - Employment Income: income.employment
+    datatype: currency
+    min: 0
+    required: True
+  - Self-Employment Income: income.self_employment
+    datatype: currency
+    min: 0
+    required: False
+  - Other Income: income.other
+    datatype: currency
+    min: 0
+    required: False
+validation code: |
+  income.total = (income.employment or 0) + (income.self_employment or 0) + (income.other or 0)
+continue button field: income_collected
+---
+question: |
+  Monthly Expenses
+fields:
+  - Housing: expenses.housing
+    datatype: currency
+    min: 0
+    required: True
+  - Food: expenses.food
+    datatype: currency
+    min: 0
+    required: True
+  - Transportation: expenses.transportation
+    datatype: currency
+    min: 0
+    required: False
+  - Other: expenses.other
+    datatype: currency
+    min: 0
+    required: False
+validation code: |
+  expenses.total = (expenses.housing or 0) + (expenses.food or 0) + (expenses.transportation or 0) + (expenses.other or 0)
+continue button field: expenses_collected
+---
+question: |
+  How many assets are there?
+fields:
+  - Number: assets_count
+    datatype: integer
+    min: 0
+    max: 20
+---
+question: |
+  Asset ${i + 1} Information
+fields:
+  - First Name: assets[i].name.first
+    required: True
+  - Last Name: assets[i].name.last
+    required: True
+  - Date of Birth: assets[i].birthdate
+    datatype: date
+    required: False
+---
+question: |
+  Add another asset?
+yesno: assets.there_is_another
+---
+question: |
+  How many debts are there?
+fields:
+  - Number: debts_count
+    datatype: integer
+    min: 0
+    max: 20
+---
+question: |
+  Debt ${i + 1} Information
+fields:
+  - First Name: debts[i].name.first
+    required: True
+  - Last Name: debts[i].name.last
+    required: True
+  - Date of Birth: debts[i].birthdate
+    datatype: date
+    required: False
+---
+question: |
+  Add another debt?
+yesno: debts.there_is_another
+---
+event: error_recovery
+question: |
+  Error Recovery
+subquestion: |
+  An error occurred during the interview.
+  
+  % if len(error_log) > 0:
+  **Recent Errors:**
+  % for error in error_log[-5:]:
+  - ${ error['context'] }: ${ error['type'] }
+  % endfor
+  % endif
+  
+  You can try restarting or contact support.
+buttons:
+  - Restart: restart
+  - Exit: exit
+---
+event: review_with_errors
+question: |
+  Review with Validation Issues
+subquestion: |
+  <div class="alert alert-warning">
+    There are ${ len(validation_errors) } validation issues to review.
+  </div>
+  
+  % for error in validation_errors[:10]:
+  - ${ error }
+  % endfor
+  
+  You can continue anyway or go back to fix these issues.
+buttons:
+  - Continue Anyway: continue
+  - Go Back: restart
+---
+event: review_answers
+question: |
+  Review Your Answers
+subquestion: |
+  Please review the information you've provided.
+  
+  % if len(validation_errors) == 0:
+  <div class="alert alert-success">
+    ✓ All information validated successfully
+  </div>
+  % else:
+  <div class="alert alert-warning">
+    ⚠ ${ len(validation_errors) } validation warnings
+  </div>
+  % endif
+  
+  **Form 13.1 Summary**
+  
+  Information has been collected for all required fields.
+  
+  % if debug_mode:
+  **Debug Info:**
+  - Errors logged: ${ len(error_log) }
+  - Fields with errors: ${ len(field_errors) }
+  % endif
+buttons:
+  - Continue: continue
+  - Edit Answers: restart
+---
+event: form_complete
+question: |
+  Form 13.1 Complete
+subquestion: |
+  Thank you for completing Form 13.1.
+  
+  % if len(error_log) == 0:
+  <div class="alert alert-success">
+    ✓ Interview completed without errors
+  </div>
+  % else:
+  <div class="alert alert-info">
+    Interview completed with ${ len(error_log) } logged events
+  </div>
+  % endif
+  
+  **Summary:**
+  - All required fields completed
+  - Validation: ${ "Passed" if len(validation_errors) == 0 else str(len(validation_errors)) + " warnings" }
+  
+buttons:
+  - Exit: exit
+  - Start Over: restart

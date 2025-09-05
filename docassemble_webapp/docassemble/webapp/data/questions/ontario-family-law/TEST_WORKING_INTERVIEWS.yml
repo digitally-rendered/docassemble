@@ -1,0 +1,41 @@
+---
+metadata:
+  title: Test Working Interviews
+  short title: Test Interviews
+---
+mandatory: True
+question: |
+  Test Working Interviews
+subquestion: |
+  ## Newly Generated Test Interviews
+  
+  These are minimal working interviews to test the generation system:
+  
+  ### Form 13 Test Interviews
+  
+  1. **[Minimal Working Interview](/interview?i=docassemble.webapp:ontario-family-law/utilities/test_working_interviews/form_13_minimal_working.yml)**
+     - Basic structure with Individual objects
+     - Simple flow with person and financial questions
+     - Tests proper Docassemble object usage
+  
+  2. **[Generated from Domain Mappings](/interview?i=docassemble.webapp:ontario-family-law/utilities/test_working_interviews/form_13_from_mappings.yml)**
+     - Uses actual domain mappings
+     - Creates objects from entity definitions
+     - Tests entity-to-object mapping
+  
+  ## Testing Checklist
+  
+  When testing these interviews:
+  1. ✅ Check if interview loads without errors
+  2. ✅ Verify Individual objects work (name.first, name.last)
+  3. ✅ Test address objects (address.city, address.state)
+  4. ✅ Confirm DAList objects work for collections
+  5. ✅ Check calculations work
+  6. ✅ Verify review screen displays data correctly
+  
+  ## Debug Mode
+  
+  Add `?debug=1` to the URL to enable debug mode and see detailed error information.
+  
+buttons:
+  - Exit: exit

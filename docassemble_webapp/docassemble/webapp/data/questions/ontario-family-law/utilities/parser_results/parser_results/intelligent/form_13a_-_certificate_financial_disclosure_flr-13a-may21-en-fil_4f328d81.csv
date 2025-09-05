@@ -1,0 +1,4 @@
+confidence,context,coordinates,extraction_method,field_label,field_name,field_type,page_number,required,table_info,validation_rules,value
+0.7,"Table 1, Row 8",,docx_table,Full legal name: Full legal name: Full legal name: Full legal name: Full legal name:                ,full_legal_name_full_legal_name_full_legal_name_fu,text,0,False,"{'table_index': 0, 'row_index': 7}",,
+0.7,"Table 1, Row 9",,docx_table,Address: Address: Address: Address: Address:                    Address:                  ,address_address_address_address_address_address,text,0,False,"{'table_index': 0, 'row_index': 8}",,
+0.7,"Table 1, Row 11",,docx_table,Email: Email: Email: Email: Email:                    Email:                  ,email_email_email_email_email_email,email,0,False,"{'table_index': 0, 'row_index': 10}",,

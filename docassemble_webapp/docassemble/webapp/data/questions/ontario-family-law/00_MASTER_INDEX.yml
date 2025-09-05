@@ -1,0 +1,127 @@
+---
+metadata:
+  title: Ontario Family Law - MASTER INDEX
+  short title: Master Index
+  description: Complete directory of all Ontario Family Law interviews and tools
+---
+mandatory: True
+question: |
+  🏛️ Ontario Family Law Forms System - Master Index
+subquestion: |
+  Welcome to the complete Ontario Family Law Forms system. All interviews now include comprehensive error handling and debugging features.
+  
+  ## 🚀 Quick Start - Most Common Forms
+  
+  ### Financial Disclosure
+  - **[Form 13: Financial Statement (Support)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_13_interview.yml)** - With error handling
+  - **[Form 13.1: Financial Statement (Property)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_13.1_interview.yml)** - With error handling
+  
+  ### Applications
+  - **[Form 8: Application (General)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_8_interview.yml)** - With error handling
+  - **[Form 10: Answer](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_10_interview.yml)** - With error handling
+  
+  ## 📚 Complete Interview Collections
+  
+  ### Structured Interviews (Domain-Mapped with Error Handling)
+  These use domain object mapping for better organization and include comprehensive error handling:
+  - **[View All 48 Structured Interviews](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/00_structured_index.yml)**
+  
+  ### YAML-Based Interviews
+  Traditional YAML structure:
+  - **[View YAML Interviews](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/00_ontario_forms_index.yml)**
+  
+  ## 🧪 Test & Development Tools
+  
+  ### Wizard Interfaces
+  - **[Ontario Family Law Wizard](/interview?i=docassemble.webapp:ontario-family-law/ontario-family-law-wizard.yml)**
+  - **[Wizard Clean Version](/interview?i=docassemble.webapp:ontario-family-law/ontario-family-law-wizard-clean.yml)**
+  - **[Wizard No Validation](/interview?i=docassemble.webapp:ontario-family-law/ontario-family-law-wizard-no-validation.yml)**
+  - **[Wizard Progressive Test](/interview?i=docassemble.webapp:ontario-family-law/wizard-test-progressive.yml)**
+  
+  ### Test Interviews
+  - **[Test Wizard Complete](/interview?i=docassemble.webapp:ontario-family-law/test-wizard-complete.yml)**
+  - **[Test Wizard Debug](/interview?i=docassemble.webapp:ontario-family-law/test-wizard-debug.yml)**
+  - **[Test Wizard Minimal](/interview?i=docassemble.webapp:ontario-family-law/test-wizard-minimal.yml)**
+  - **[Test Wizard Validation](/interview?i=docassemble.webapp:ontario-family-law/test-wizard-validation.yml)**
+  
+  ## 📊 Forms by Category
+  
+  ### Financial Disclosure (Form 13 Series)
+  - Form 13: Financial Statement (Support Claims)
+  - Form 13.1: Financial Statement (Property and Support)
+  - Form 13A: Certificate of Financial Disclosure
+  - Form 13B: Net Family Property Statement
+  - Form 13C: Comparison of Net Family Properties
+  
+  ### Applications & Responses
+  - Form 8: Application (General)
+  - Form 8A: Application (Divorce)
+  - Form 10: Answer
+  - Form 10A: Reply
+  
+  ### Motions
+  - Form 14B: Motion Form
+  - Form 15: Motion to Change
+  - Form 15B: Response to Motion to Change
+  - Form 15C: Consent Motion to Change
+  
+  ### Court Orders
+  - Form 25: Order (General)
+  - Form 25A: Divorce Order
+  - Form 25C: Final Order
+  - Form 25D: Order on Motion Without Notice
+  
+  ### Affidavits & Divorce
+  - Form 36: Affidavit for Divorce
+  - Form 36A: Certificate of Divorce
+  
+  ## ⚙️ System Features
+  
+  ### Error Handling (NEW)
+  All interviews now include:
+  - ✅ Automatic error capture and logging
+  - ✅ User-friendly validation messages
+  - ✅ Debug mode (`?debug=1` in URL)
+  - ✅ Session information tracking
+  - ✅ Recovery options
+  
+  ### Interview Features
+  - Progressive disclosure questions
+  - Smart field validation
+  - Automatic calculations
+  - Review screens
+  - Document generation
+  
+  ## 🔧 Debug Mode
+  
+  To enable debug mode on any interview:
+  1. Add `?debug=1` to the end of the URL
+  2. You'll see detailed error information
+  3. Session details will be displayed
+  4. All validation errors will be logged
+  
+  ## 📖 Documentation
+  
+  ### Other Index Files
+  - [Simple Working Index](/interview?i=docassemble.webapp:ontario-family-law/00_simple_working_index.yml)
+  - [Master Index with Error Handling](/interview?i=docassemble.webapp:ontario-family-law/00_master_index_with_error_handling.yml)
+  - [Generated Interviews Index](/interview?i=docassemble.webapp:ontario-family-law/utilities/generated_interviews/index_with_error_handling.yml)
+  
+  ## 🆘 Troubleshooting
+  
+  If an interview doesn't load:
+  1. Check the URL path is correct
+  2. Try the structured version (most reliable)
+  3. Enable debug mode with `?debug=1`
+  4. Check browser console for errors
+  
+  ## 📝 Notes
+  
+  - **Structured Interviews**: Best for complex forms with relationships, includes error handling
+  - **YAML Interviews**: Traditional Docassemble format
+  - All structured interviews now include comprehensive error handling
+  - Debug mode available with `?debug=1`
+  
+buttons:
+  - "Exit": exit
+  - "Refresh": refresh

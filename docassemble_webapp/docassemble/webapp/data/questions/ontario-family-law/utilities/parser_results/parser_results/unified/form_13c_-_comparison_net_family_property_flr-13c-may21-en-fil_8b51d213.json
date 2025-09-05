@@ -1,0 +1,21 @@
+{
+  "parser_name": "unified",
+  "form_path": "workflow_output/ontario_forms/financial_statements/form_13c_-_comparison_net_family_property_flr-13c-may21-en-fil.docx",
+  "form_hash": "8b51d213fe484f5cf1a672a915dc882aa3aca44c0c6449b0b5e06dffe70e6552",
+  "timestamp": "2025-08-18T21:40:26.243364",
+  "fields": [],
+  "metadata": {
+    "gcp_used": false,
+    "validation_report": {
+      "total_fields": 0,
+      "high_confidence": 0,
+      "medium_confidence": 0,
+      "low_confidence": 0,
+      "single_method": 0,
+      "multi_method": 0,
+      "method_agreement": {},
+      "field_types": {},
+      "warnings": []
+    }
+  }
+}

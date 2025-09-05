@@ -1,0 +1,234 @@
+2025-08-18 22:24:49,986 - __main__ - INFO - ============================================================
+2025-08-18 22:24:49,987 - __main__ - INFO - Starting Ontario Family Law Forms Processing v2.0.0
+2025-08-18 22:24:49,987 - __main__ - INFO - ============================================================
+2025-08-18 22:24:49,987 - __main__ - INFO - 
+========================================
+2025-08-18 22:24:49,987 - __main__ - INFO - Step: DOWNLOAD
+2025-08-18 22:24:49,987 - __main__ - INFO - ========================================
+2025-08-18 22:24:49,987 - __main__ - INFO - Downloading Ontario family law forms...
+2025-08-18 22:25:17,450 - __main__ - INFO - ✓ download completed successfully
+2025-08-18 22:25:17,451 - __main__ - INFO - 
+========================================
+2025-08-18 22:25:17,451 - __main__ - INFO - Step: PARSE
+2025-08-18 22:25:17,451 - __main__ - INFO - ========================================
+2025-08-18 22:25:17,451 - __main__ - INFO - Parsing forms to extract fields...
+2025-08-18 22:25:17,458 - automated_form_processor - INFO - Starting automated form processing at 2025-08-18 22:25:17.458848
+2025-08-18 22:25:17,458 - automated_form_processor - INFO - Processing Form 4: Notice of Change in Representation
+2025-08-18 22:25:17,459 - automated_form_processor - INFO - Downloading form from https://ontariocourtforms.on.ca/en/family-law-rules-forms/
+2025-08-18 22:25:17,459 - automated_form_processor - INFO - Extracting fields from /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_4_notice_change_representation.pdf
+2025-08-18 22:25:17,766 - automated_form_processor - ERROR - ✗ Failed to process Form 4: [Errno 2] No such file or directory: '/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_4_notice_change_representation.pdf'
+2025-08-18 22:25:17,767 - automated_form_processor - INFO - Processing Form 6B: Affidavit of Service
+2025-08-18 22:25:17,767 - automated_form_processor - INFO - Downloading form from https://ontariocourtforms.on.ca/en/family-law-rules-forms/
+2025-08-18 22:25:17,767 - automated_form_processor - INFO - Extracting fields from /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_6b_affidavit_service.pdf
+2025-08-18 22:25:17,767 - automated_form_processor - ERROR - ✗ Failed to process Form 6B: [Errno 2] No such file or directory: '/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_6b_affidavit_service.pdf'
+2025-08-18 22:25:17,767 - automated_form_processor - INFO - Processing Form 8: Application (General)
+2025-08-18 22:25:17,767 - automated_form_processor - INFO - Downloading form from https://ontariocourtforms.on.ca/en/family-law-rules-forms/
+2025-08-18 22:25:17,767 - automated_form_processor - INFO - Extracting fields from /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_8_application_general.pdf
+2025-08-18 22:25:17,767 - automated_form_processor - ERROR - ✗ Failed to process Form 8: [Errno 2] No such file or directory: '/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_8_application_general.pdf'
+2025-08-18 22:25:17,767 - automated_form_processor - INFO - Processing Form 8A: Application (Divorce)
+2025-08-18 22:25:17,767 - automated_form_processor - INFO - Downloading form from https://ontariocourtforms.on.ca/en/family-law-rules-forms/
+2025-08-18 22:25:17,767 - automated_form_processor - INFO - Extracting fields from /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_8a_application_divorce.pdf
+2025-08-18 22:25:17,767 - automated_form_processor - ERROR - ✗ Failed to process Form 8A: [Errno 2] No such file or directory: '/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_8a_application_divorce.pdf'
+2025-08-18 22:25:17,767 - automated_form_processor - INFO - Processing Form 10: Answer
+2025-08-18 22:25:17,767 - automated_form_processor - INFO - Downloading form from https://ontariocourtforms.on.ca/en/family-law-rules-forms/
+2025-08-18 22:25:17,767 - automated_form_processor - INFO - Extracting fields from /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_10_answer.pdf
+2025-08-18 22:25:17,767 - automated_form_processor - ERROR - ✗ Failed to process Form 10: [Errno 2] No such file or directory: '/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_10_answer.pdf'
+2025-08-18 22:25:17,768 - automated_form_processor - INFO - Processing Form 13: Financial Statement (Support Claims)
+2025-08-18 22:25:17,768 - automated_form_processor - INFO - Downloading form from https://ontariocourtforms.on.ca/en/family-law-rules-forms/
+2025-08-18 22:25:17,768 - automated_form_processor - INFO - Extracting fields from /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_13_financial_statement_support.pdf
+2025-08-18 22:25:17,768 - automated_form_processor - ERROR - ✗ Failed to process Form 13: [Errno 2] No such file or directory: '/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_13_financial_statement_support.pdf'
+2025-08-18 22:25:17,768 - automated_form_processor - INFO - Processing Form 13.1: Financial Statement (Property and Support Claims)
+2025-08-18 22:25:17,768 - automated_form_processor - INFO - Downloading form from https://ontariocourtforms.on.ca/en/family-law-rules-forms/
+2025-08-18 22:25:17,768 - automated_form_processor - INFO - Extracting fields from /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_13_1_financial_statement_property.pdf
+2025-08-18 22:25:17,768 - automated_form_processor - ERROR - ✗ Failed to process Form 13.1: [Errno 2] No such file or directory: '/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_13_1_financial_statement_property.pdf'
+2025-08-18 22:25:17,768 - automated_form_processor - INFO - Processing Form 14B: Motion Form
+2025-08-18 22:25:17,768 - automated_form_processor - INFO - Downloading form from https://ontariocourtforms.on.ca/en/family-law-rules-forms/
+2025-08-18 22:25:17,768 - automated_form_processor - INFO - Extracting fields from /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_14b_motion_form.pdf
+2025-08-18 22:25:17,768 - automated_form_processor - ERROR - ✗ Failed to process Form 14B: [Errno 2] No such file or directory: '/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_14b_motion_form.pdf'
+2025-08-18 22:25:17,769 - automated_form_processor - INFO - Processing Form 15: Motion to Change
+2025-08-18 22:25:17,769 - automated_form_processor - INFO - Downloading form from https://ontariocourtforms.on.ca/en/family-law-rules-forms/
+2025-08-18 22:25:17,769 - automated_form_processor - INFO - Extracting fields from /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_15_motion_to_change.pdf
+2025-08-18 22:25:17,769 - automated_form_processor - ERROR - ✗ Failed to process Form 15: [Errno 2] No such file or directory: '/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_15_motion_to_change.pdf'
+2025-08-18 22:25:17,769 - automated_form_processor - INFO - Processing Form 17A: Case Conference Brief
+2025-08-18 22:25:17,769 - automated_form_processor - INFO - Downloading form from https://ontariocourtforms.on.ca/en/family-law-rules-forms/
+2025-08-18 22:25:17,769 - automated_form_processor - INFO - Extracting fields from /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_17a_case_conference_brief.pdf
+2025-08-18 22:25:17,769 - automated_form_processor - ERROR - ✗ Failed to process Form 17A: [Errno 2] No such file or directory: '/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_17a_case_conference_brief.pdf'
+2025-08-18 22:25:17,769 - automated_form_processor - INFO - Processing Form 25: Order (General)
+2025-08-18 22:25:17,769 - automated_form_processor - INFO - Downloading form from https://ontariocourtforms.on.ca/en/family-law-rules-forms/
+2025-08-18 22:25:17,769 - automated_form_processor - INFO - Extracting fields from /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_25_order_general.pdf
+2025-08-18 22:25:17,769 - automated_form_processor - ERROR - ✗ Failed to process Form 25: [Errno 2] No such file or directory: '/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_25_order_general.pdf'
+2025-08-18 22:25:17,769 - automated_form_processor - INFO - Processing Form 25A: Divorce Order
+2025-08-18 22:25:17,769 - automated_form_processor - INFO - Downloading form from https://ontariocourtforms.on.ca/en/family-law-rules-forms/
+2025-08-18 22:25:17,769 - automated_form_processor - INFO - Extracting fields from /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_25a_divorce_order.pdf
+2025-08-18 22:25:17,769 - automated_form_processor - ERROR - ✗ Failed to process Form 25A: [Errno 2] No such file or directory: '/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_25a_divorce_order.pdf'
+2025-08-18 22:25:17,769 - automated_form_processor - INFO - Processing Form 36: Affidavit for Divorce
+2025-08-18 22:25:17,769 - automated_form_processor - INFO - Downloading form from https://ontariocourtforms.on.ca/en/family-law-rules-forms/
+2025-08-18 22:25:17,770 - automated_form_processor - INFO - Extracting fields from /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_36_affidavit_divorce.pdf
+2025-08-18 22:25:17,770 - automated_form_processor - ERROR - ✗ Failed to process Form 36: [Errno 2] No such file or directory: '/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/downloads/form_36_affidavit_divorce.pdf'
+2025-08-18 22:25:17,770 - automated_form_processor - INFO - Reports generated: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/processing_report.json and /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/parsed_data/processing_report.txt
+2025-08-18 22:25:17,770 - automated_form_processor - INFO - Processing complete: 0 successful, 13 failed out of 13 total
+2025-08-18 22:25:17,770 - __main__ - INFO - ✓ parse completed successfully
+2025-08-18 22:25:17,770 - __main__ - INFO - 
+========================================
+2025-08-18 22:25:17,770 - __main__ - INFO - Step: MAP_OBJECTS
+2025-08-18 22:25:17,770 - __main__ - INFO - ========================================
+2025-08-18 22:25:17,770 - __main__ - INFO - Mapping fields to docassemble objects...
+2025-08-18 22:25:17,772 - __main__ - INFO - ✓ map_objects completed successfully
+2025-08-18 22:25:17,772 - __main__ - INFO - 
+========================================
+2025-08-18 22:25:17,772 - __main__ - INFO - Step: GENERATE_YAML
+2025-08-18 22:25:17,772 - __main__ - INFO - ========================================
+2025-08-18 22:25:17,772 - __main__ - INFO - Generating YAML interview files...
+2025-08-18 22:25:17,772 - __main__ - INFO - ✓ generate_yaml completed successfully
+2025-08-18 22:25:17,772 - __main__ - INFO - 
+========================================
+2025-08-18 22:25:17,772 - __main__ - INFO - Step: VALIDATE
+2025-08-18 22:25:17,772 - __main__ - INFO - ========================================
+2025-08-18 22:25:17,772 - __main__ - INFO - Validating generated interviews...
+2025-08-18 22:25:17,800 - __main__ - INFO - ✓ validate completed successfully
+2025-08-18 22:25:17,800 - __main__ - INFO - 
+Generating final report...
+2025-08-18 22:25:17,801 - __main__ - INFO - Reports saved to /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/reports/workflow_report_20250818_222517.json and /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/reports/workflow_report_20250818_222517.txt
+Starting download of 48 Ontario Family Law forms...
+Download directory: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms
+============================================================
+
+📁 Category: Core Applications
+----------------------------------------
+Downloading Form 8 - Application General...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/core_applications/form_8_-_application_general_flr-8-jun25-en.docx
+Downloading Form 8A - Application Divorce...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/core_applications/form_8a_-_application_divorce_flr-8a-apr24-en-fil.docx
+Downloading Form 8B - Application Child Protection...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/core_applications/form_8b_-_application_child_protection_form-8b-feb_1_2022-en.docx
+Downloading Form 8D - Application Adoption...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/core_applications/form_8d_-_application_adoption_flr-8d-may25-en-fil.docx
+Downloading Form 10 - Answer...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/core_applications/form_10_-_answer_flr-10-jun25-en-fil.docx
+Downloading Form 10A - Reply...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/core_applications/form_10a_-_reply_flr-10a-e.pdf
+
+📁 Category: Financial Statements
+----------------------------------------
+Downloading Form 13 - Financial Statement Support...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/financial_statements/form_13_-_financial_statement_support_flr-13-may21-en-fil.docx
+Downloading Form 13.1 - Financial Statement Property...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/financial_statements/form_13.1_-_financial_statement_property_flr-13-1-may21-en-fil.docx
+Downloading Form 13A - Certificate Financial Disclosure...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/financial_statements/form_13a_-_certificate_financial_disclosure_flr-13a-may21-en-fil.docx
+Downloading Form 13B - Net Family Property Statement...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/financial_statements/form_13b_-_net_family_property_statement_flr-13b-may09-en-fil-tables.docx
+Downloading Form 13C - Comparison Net Family Property...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/financial_statements/form_13c_-_comparison_net_family_property_flr-13c-may21-en-fil.docx
+
+📁 Category: Motions Conferences
+----------------------------------------
+Downloading Form 14B - Motion Form...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/motions_conferences/form_14b_-_motion_form_flr-14b-0921-en.docx
+Downloading Form 14C - Confirmation Motion...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/motions_conferences/form_14c_-_confirmation_motion_flr-14c-sep24-en-fil.docx
+Downloading Form 15 - Motion to Change...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/motions_conferences/form_15_-_motion_to_change_flr-15-0921-en.docx
+Downloading Form 15B - Response Motion to Change...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/motions_conferences/form_15b_-_response_motion_to_change_form-15b-en-dec20.docx
+Downloading Form 15C - Consent Motion to Change...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/motions_conferences/form_15c_-_consent_motion_to_change_form-15c-en-dec20.docx
+Downloading Form 17A - Case Conference Brief...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/motions_conferences/form_17a_-_case_conference_brief_flr-17a-sep23-en.docx
+Downloading Form 17C - Settlement Conference Brief...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/motions_conferences/form_17c_-_settlement_conference_brief_flr-17c-sep23-en.docx
+Downloading Form 17F - Confirmation Conference...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/motions_conferences/form_17f_-_confirmation_conference_flr-17f-sep24-en-fil.docx
+
+📁 Category: Service Process
+----------------------------------------
+Downloading Form 4 - Notice Change Representation...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/service_process/form_4_-_notice_change_representation_flr-04-jun25-en-fil.docx
+Downloading Form 6B - Affidavit Service...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/service_process/form_6b_-_affidavit_service_flr-06b-apr16-en-fil.docx
+Downloading Form 6C - Certificate Service...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/service_process/form_6c_-_certificate_service_flr-6c-apr23-en-fil.docx
+
+📁 Category: Orders
+----------------------------------------
+Downloading Form 25 - Order General...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/orders/form_25_-_order_general_form-25-en-dec20.docx
+Downloading Form 25A - Divorce Order...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/orders/form_25a_-_divorce_order_flr-25a-e.pdf
+Downloading Form 25C - Adoption Order...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/orders/form_25c_-_adoption_order_flr-25c-may25-en-fil.docx
+Downloading Form 25D - Order Uncontested Trial...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/orders/form_25d_-_order_uncontested_trial_form-25d-en-dec20.docx
+Downloading Form 25F - Restraining Order...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/orders/form_25f_-_restraining_order_flr-25f-sep09-en-fil.docx
+
+📁 Category: Enforcement
+----------------------------------------
+Downloading Form 26 - Statement Money Owed...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/enforcement/form_26_-_statement_money_owed_flr-26-apr16-en-fil.docx
+Downloading Form 27 - Request Financial Statement...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/enforcement/form_27_-_request_financial_statement_flr-27-apr16-en-fil.docx
+Downloading Form 28 - Writ Seizure Sale...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/enforcement/form_28_-_writ_seizure_sale_flr-28-apr16-en-fil.docx
+Downloading Form 29 - Request Garnishment...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/enforcement/form_29_-_request_garnishment_flr-29-apr16-en-fil.docx
+Downloading Form 29A - Notice Garnishment Lump Sum...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/enforcement/form_29a_-_notice_garnishment_lump_sum_flr-29a-apr16-en-fil.docx
+Downloading Form 29B - Notice Garnishment Periodic...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/enforcement/form_29b_-_notice_garnishment_periodic_flr-29b-apr16-en-fil.docx
+Downloading Form 30 - Notice Default Hearing...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/enforcement/form_30_-_notice_default_hearing_flr-30-apr16-en-fil.docx
+
+📁 Category: Divorce Specific
+----------------------------------------
+Downloading Form 36 - Affidavit for Divorce...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/divorce_specific/form_36_-_affidavit_for_divorce_flr-36-apr24-en-fil.docx
+Downloading Form 36A - Certificate Divorce...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/divorce_specific/form_36a_-_certificate_divorce_flr-36a-dec20-en-fil.docx
+
+📁 Category: Child Protection Adoption
+----------------------------------------
+Downloading Form 33F - Access Application...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/child_protection_adoption/form_33f_-_access_application_flr-33f-may21-en-fil.docx
+Downloading Form 34 - Child Consent Adoption...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/child_protection_adoption/form_34_-_child_consent_adoption_flr-34-nov18-en-fil.docx
+Downloading Form 34A - Affidavit Parentage...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/child_protection_adoption/form_34a_-_affidavit_parentage_form-34a-en-dec20.docx
+Downloading Form 34F - Consents Adoption...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/child_protection_adoption/form_34f_-_consents_adoption_form-34f-en-dec20.docx
+Downloading Form 34G - Affidavit Adopting Parent...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/child_protection_adoption/form_34g_-_affidavit_adopting_parent_form-34g-en-dec20.docx
+Downloading Form 34I - Affidavit Adopting Relative...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/child_protection_adoption/form_34i_-_affidavit_adopting_relative_form-34i-en-dec20.docx
+
+📁 Category: Interjurisdictional
+----------------------------------------
+Downloading Form 37 - Interjurisdictional Support Order...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/interjurisdictional/form_37_-_interjurisdictional_support_order_flr-37-apr24-en-fil.docx
+Downloading Form 37A - Affidavit Interjurisdictional Support...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/interjurisdictional/form_37a_-_affidavit_interjurisdictional_support_flr-37a-apr24-en-fil.docx
+Downloading Form 37B - Evidence Information...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/interjurisdictional/form_37b_-_evidence_information_flr-37b-apr24-en-fil.docx
+
+📁 Category: Alternative Dispute
+----------------------------------------
+Downloading Form 43 - BJDR Hearing Request...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/alternative_dispute/form_43_-_bjdr_hearing_request_flr-43-sep24-en-fil.docx
+Downloading Form 43A - BJDR Request OCL...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/alternative_dispute/form_43a_-_bjdr_request_ocl_flr-43a-sep24-en-fil.docx
+Downloading Form 43B - Affidavit BJDR Hearing...
+✓ Downloaded: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/alternative_dispute/form_43b_-_affidavit_bjdr_hearing_flr-43b-sep24-en-fil.docx
+
+============================================================
+Download Summary:
+✓ Successfully downloaded: 48
+✗ Failed downloads: 0
+📁 Forms organized in: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms
+📋 Created index file: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/ontario_forms/INDEX.md
+Warning: pytesseract not available. OCR functionality will be disabled.
+
+============================================================
+Workflow Complete!
+============================================================
+Output directory: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output
+Check /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/workflow_output/reports for detailed reports

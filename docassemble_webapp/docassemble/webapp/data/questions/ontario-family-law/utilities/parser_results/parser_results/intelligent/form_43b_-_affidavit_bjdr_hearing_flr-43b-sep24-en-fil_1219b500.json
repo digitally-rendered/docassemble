@@ -1,0 +1,96 @@
+{
+  "parser_name": "intelligent",
+  "form_path": "workflow_output/ontario_forms/alternative_dispute/form_43b_-_affidavit_bjdr_hearing_flr-43b-sep24-en-fil.docx",
+  "form_hash": "1219b5003486c85037a174e5ce1e67eaccef5aa384740c273d7f8762baef818a",
+  "timestamp": "2025-08-18T21:40:25.966632",
+  "fields": [
+    {
+      "field_name": "13_if_child_and_or_spousal_support_is_an_issue_my_",
+      "field_type": "currency",
+      "field_label": "13.  If child and/or spousal support is an issue, my current annual gross incomes is $",
+      "value": null,
+      "required": false,
+      "confidence": 0.6,
+      "extraction_method": "docx_paragraph",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Paragraph 62",
+      "table_info": null,
+      "validation_rules": null
+    },
+    {
+      "field_name": "15_i_believe_that_the_other_party_s_current_annual",
+      "field_type": "currency",
+      "field_label": "15. I believe that the other party\u2019s current annual income from all income sources is $ \u2002\u2002\u2002\u2002\u2002 for th",
+      "value": null,
+      "required": false,
+      "confidence": 0.6,
+      "extraction_method": "docx_paragraph",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Paragraph 70",
+      "table_info": null,
+      "validation_rules": null
+    },
+    {
+      "field_name": "17_there_is_unpaid_child_support_owing_to_me_in_th",
+      "field_type": "date",
+      "field_label": "17.  There is unpaid child support owing to me in the amount of $ \u2002\u2002\u2002\u2002\u2002, as of (date) \u2002\u2002\u2002\u2002\u2002, which i",
+      "value": null,
+      "required": false,
+      "confidence": 0.6,
+      "extraction_method": "docx_paragraph",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Paragraph 78",
+      "table_info": null,
+      "validation_rules": null
+    },
+    {
+      "field_name": "18_i_am_claiming_support_in_the_amount_of_per_mont",
+      "field_type": "date",
+      "field_label": "18.  I am claiming support in the amount of $ \u2002\u2002\u2002\u2002\u2002 per month for (number) \u2002\u2002\u2002\u2002\u2002 child(ren) starting",
+      "value": null,
+      "required": false,
+      "confidence": 0.6,
+      "extraction_method": "docx_paragraph",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Paragraph 81",
+      "table_info": null,
+      "validation_rules": null
+    },
+    {
+      "field_name": "23_there_is_unpaid_spousal_support_in_the_amount_o",
+      "field_type": "date",
+      "field_label": "23.  There is unpaid spousal support in the amount of $ \u2002\u2002\u2002\u2002\u2002, as of (date) \u2002\u2002\u2002\u2002\u2002, which is",
+      "value": null,
+      "required": false,
+      "confidence": 0.6,
+      "extraction_method": "docx_paragraph",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Paragraph 101",
+      "table_info": null,
+      "validation_rules": null
+    },
+    {
+      "field_name": "24_i_am_requesting_an_order_that_spousal_support_p",
+      "field_type": "date",
+      "field_label": "24.  I am requesting an order that spousal support payments be set at $ \u2002\u2002\u2002\u2002\u2002 per month, beginning o",
+      "value": null,
+      "required": false,
+      "confidence": 0.6,
+      "extraction_method": "docx_paragraph",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Paragraph 104",
+      "table_info": null,
+      "validation_rules": null
+    }
+  ],
+  "metadata": {
+    "ocr_used": true,
+    "ai_used": false
+  }
+}

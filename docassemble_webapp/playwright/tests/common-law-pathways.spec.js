@@ -29,51 +29,18 @@ test.describe('Common-Law Pathways', () => {
         await runCompleteScenario(wizardPage, scenario, 'common_law_custody_only');
       });
 
-      await test.step('Verify appropriate forms for custody only', async () => {
-        // Try to get recommended forms if they're displayed
-        const recommendedForms = await wizardPage.getRecommendedForms();
+      await test.step('Verify wizard completion', async () => {
+        // The simplified wizard just shows a summary without form links
+        // Verify we reached the completion screen
+        const pageContent = await wizardPage.page.textContent('body');
+        expect(pageContent).toContain('Information Collection Complete');
+        expect(pageContent).toContain('Summary of Your Situation');
         
-        if (recommendedForms.length > 0) {
-          // Should use Form 8 (General), not Form 8A (Divorce)
-          expect(recommendedForms.some(form => form.includes('Form 8') && !form.includes('8A'))).toBe(true);
-          expect(recommendedForms.some(form => form.includes('Form 8A'))).toBe(false);
-          
-          // Should include custody forms
-          validateCustodyFormsPresence(recommendedForms, true);
-          
-          // Should not include financial forms for custody only
-          validateFinancialFormsPresence(recommendedForms, false);
-          
-          // Should not include divorce forms
-          validateDivorceFormsPresence(recommendedForms, false);
-        } else {
-          // If no forms are displayed, just verify we completed the wizard successfully
-          console.log('Wizard completed successfully but no forms were displayed');
-        }
-      });
-
-      await test.step('Verify correct court for custody only', async () => {
-        try {
-          const court = await wizardPage.getCourt();
-          if (court) {
-            expect(court).toContain('Ontario Court of Justice');
-          }
-        } catch (error) {
-          // Court info might not be displayed in this version of the wizard
-          console.log('Court information not displayed in wizard summary');
-        }
-      });
-
-      await test.step('Verify standard timeline', async () => {
-        try {
-          const timeline = await wizardPage.getTimeline();
-          if (timeline) {
-            expect(timeline).toContain('12-18 months');
-          }
-        } catch (error) {
-          // Timeline info might not be displayed in this version of the wizard
-          console.log('Timeline information not displayed in wizard summary');
-        }
+        // Verify the summary shows correct selections
+        expect(pageContent).toContain('Common-law');
+        expect(pageContent).toContain('Child custody');
+        
+        console.log('✓ Wizard completed successfully with correct summary');
       });
     });
   });

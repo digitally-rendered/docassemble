@@ -1,0 +1,321 @@
+---
+metadata:
+  title: Ontario Family Law Form 34G
+  short_title: Form 34G
+  description: Structured interview with 45 fields and 0 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - 34G
+  form_number: 34G
+  form_category: general
+  generated: '2025-08-26 22:15:24'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: stepped
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+objects:
+- court_info: DAObject
+mandatory: true
+code: 'intro_seen
+
+  review_complete
+
+  form_complete'
+question: Form 34G Interview
+subquestion: 'This structured interview will help you complete Form 34G.
+
+
+  You will be asked about:
+
+  - Form information
+
+
+  Total sections: 1
+
+  Fields to complete: 45'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Additional Information
+fields:
+- label: ''
+  field: field
+  required: false
+  choices:
+  - '          '
+  - Ontario Court of Justice
+  - Superior Court of Justice
+  - Superior Court of Justice, Family Court
+  help_text: ''
+- label: Court File Number
+  field: courtfileno
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_13
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_14
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_7
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 4
+  field: text4
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_8
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_9
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 4
+  field: text4_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_10
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_11
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 4
+  field: text4_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_12
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_13
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_14
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_15
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_16
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_15
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_17
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_16
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_17
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_18
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_19
+  datatype: text
+  required: false
+  help_text: ''
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: ''
+  field: field
+  edit: true
+- label: Court File Number
+  field: courtfileno
+  edit: true
+- label: ''
+  field: field_2
+  edit: true
+- label: Text Field 1
+  field: text1
+  edit: true
+- label: Text Field 1
+  field: text1_2
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 34G Complete
+subquestion: 'Your Form 34G has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart

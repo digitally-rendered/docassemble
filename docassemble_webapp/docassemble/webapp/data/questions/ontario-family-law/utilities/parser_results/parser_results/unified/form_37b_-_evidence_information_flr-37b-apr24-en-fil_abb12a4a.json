@@ -1,0 +1,21 @@
+{
+  "parser_name": "unified",
+  "form_path": "workflow_output/ontario_forms/interjurisdictional/form_37b_-_evidence_information_flr-37b-apr24-en-fil.docx",
+  "form_hash": "abb12a4ad82b20f5148cfc0f37598e8f65e8838593493150bb274d79d7cd83b2",
+  "timestamp": "2025-08-18T21:40:28.917697",
+  "fields": [],
+  "metadata": {
+    "gcp_used": false,
+    "validation_report": {
+      "total_fields": 0,
+      "high_confidence": 0,
+      "medium_confidence": 0,
+      "low_confidence": 0,
+      "single_method": 0,
+      "multi_method": 0,
+      "method_agreement": {},
+      "field_types": {},
+      "warnings": []
+    }
+  }
+}

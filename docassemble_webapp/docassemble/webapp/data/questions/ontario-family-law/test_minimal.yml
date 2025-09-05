@@ -1,0 +1,11 @@
+---
+metadata:
+  title: Test Minimal Interview
+---
+mandatory: True
+question: |
+  Test Interview
+subquestion: |
+  This is a minimal test interview to verify Docassemble is working.
+buttons:
+  - Exit: exit

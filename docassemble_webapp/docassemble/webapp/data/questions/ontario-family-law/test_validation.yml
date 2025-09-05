@@ -1,0 +1,25 @@
+---
+metadata:
+  title: Test Validation
+---
+objects:
+  - user: Individual
+---
+mandatory: True
+question: Test Form
+fields:
+  - Postal Code: user.postal_code
+    required: True
+validation code: |
+  import re
+  postal_code = user.postal_code
+  if not postal_code:
+    validation_error("Postal code is required", field="user.postal_code")
+  
+  cleaned = postal_code.upper().replace(" ", "").strip()
+  pattern = r'^[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ]\d[ABCEGHJKLMNPRSTVWXYZ]\d$'
+  
+  if re.match(pattern, cleaned):
+    user.postal_code = cleaned[:3] + ' ' + cleaned[3:]
+  else:
+    validation_error("Please enter a valid Canadian postal code", field="user.postal_code")

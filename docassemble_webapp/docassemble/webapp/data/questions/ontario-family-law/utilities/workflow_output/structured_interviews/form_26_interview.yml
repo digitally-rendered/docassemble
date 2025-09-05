@@ -1,0 +1,1789 @@
+---
+metadata:
+  title: Ontario Family Law Form 26
+  short_title: Form 26
+  description: Structured interview with 272 fields and 37 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - '26'
+  form_number: '26'
+  form_category: financial
+  generated: '2025-08-26 22:36:36'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+- docassemble.base:data/questions/financial.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: percentage
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+  table_css_class: table table-striped
+objects:
+- court_info: DAObject
+- payment_information: DAObject
+- amount_information: DAObject
+- table_5_item_4: DAObject
+- table_5_item_5: DAObject
+- table_5_item_6: DAObject
+- table_5_item_7: DAObject
+- table_5_item_8: DAObject
+- table_5_item_9: DAObject
+- table_5_item_10: DAObject
+- table_5_item_11: DAObject
+- table_5_item_12: DAObject
+- table_5_item_13: DAObject
+- table_5_item_14: DAObject
+- table_5_item_15: DAObject
+- table_5_item_16: DAObject
+- table_5_item_17: DAObject
+- table_5_item_18: DAObject
+- table_5_item_19: DAObject
+- table_5_item_20: DAObject
+- table_5_item_21: DAObject
+- table_5_item_22: DAObject
+- table_5_item_23: DAObject
+- table_5_item_24: DAObject
+- table_5_item_25: DAObject
+- table_5_item_26: DAObject
+- table_5_item_27: DAObject
+- table_5_item_28: DAObject
+- table_5_item_29: DAObject
+- table_5_item_30: DAObject
+- table_5_item_31: DAObject
+- table_5_item_32: DAObject
+- table_5_item_33: DAObject
+- table_5_item_34: DAObject
+- table_5_item_35: DAObject
+- table_5_item_36: DAObject
+- table_5_item_37: DAObject
+- table_5_item_38: DAObject
+- income_sources: DAList.using(object_type=Income)
+- expenses: DAList.using(object_type=Expense)
+- assets: DAList.using(object_type=Asset)
+- debts: DAList.using(object_type=Liability)
+- error_log: DAList.using(object_type=DAObject, there_are_any=False)
+- debug_info: DAObject
+code: "if not defined('debug_mode'):\n    debug_mode = get_config('debug', False)"
+code: "def capture_form_error(context=\"\", field_name=\"\"):\n    '''Capture and log form validation errors'''\n    from .debug_helpers import DebugHelper\n    error_info = DebugHelper.capture_error()\n    if error_info:\n      error_entry = DAObject()\n      error_entry.timestamp = current_datetime()\n      error_entry.context = context\n      error_entry.field = field_name\n      error_entry.error = error_info\n      error_log.append(error_entry)\n      if debug_mode:\n        log(f\"Form error in {context}: {error_info['message']}\", 'error')\n    return error_info"
+code: "def safe_get_field(obj, field_name, default=\"\"):\n    '''Safely access object fields with error handling'''\n    try:\n      if hasattr(obj, field_name):\n        value = getattr(obj, field_name)\n        return value if value is not None else default\n      return default\n    except Exception as e:\n      capture_form_error(f\"safe_get_field({field_name})\", field_name)\n      return default"
+code: "def handle_validation_error(field_name, value, validation_type=\"\"):\n    '''Handle field validation errors with user-friendly messages'''\n    error_messages = {\n      'required': f\"The field '{field_name}' is required.\",\n      'date': f\"Please enter a valid date for '{field_name}'.\",\n      'email': f\"Please enter a valid email address for '{field_name}'.\",\n      'phone': f\"Please enter a valid phone number for '{field_name}'.\",\n      'currency': f\"Please enter a valid dollar amount for '{field_name}'.\",\n      'number': f\"Please enter a valid number for '{field_name}'.\",\n      'percentage': f\"Please enter a valid percentage for '{field_name}'.\",\n      'postal_code': f\"Please enter a valid postal code for '{field_name}'.\"\n    }\n    \n    message = error_messages.get(validation_type, f\"Invalid value for '{field_name}': {value}\")\n    \n    if debug_mode:\n      log(f\"Validation error: {message}\", 'error')\n      \n    validation_errors.append({\n    \
+  \  'field': field_name,\n      'value': value,\n      'type': validation_type,\n      'message': message\n    })\n    \n    return message"
+code: "if not defined('validation_errors'):\n    validation_errors = []"
+code: "def validate_field(field_name, value, validation_rules):\n    '''Validate a field against multiple rules'''\n    errors = []\n    \n    # Required field check\n    if 'required' in validation_rules and validation_rules['required']:\n      if not value or (isinstance(value, str) and not value.strip()):\n        errors.append(handle_validation_error(field_name, value, 'required'))\n    \n    # Type-specific validation\n    if value and 'type' in validation_rules:\n      field_type = validation_rules['type']\n      \n      if field_type == 'date':\n        try:\n          # Validate date format\n          if isinstance(value, str):\n            from datetime import datetime\n            datetime.strptime(value, '%Y-%m-%d')\n        except:\n          errors.append(handle_validation_error(field_name, value, 'date'))\n      \n      elif field_type == 'email':\n        import re\n        if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$', str(value)):\n          errors.append(handle_validation_error(field_name,\
+  \ value, 'email'))\n      \n      elif field_type == 'phone':\n        import re\n        phone_str = re.sub(r'[^0-9]', '', str(value))\n        if len(phone_str) not in [10, 11]:\n          errors.append(handle_validation_error(field_name, value, 'phone'))\n      \n      elif field_type == 'currency' or field_type == 'number':\n        try:\n          float(str(value).replace('$', '').replace(',', ''))\n        except:\n          errors.append(handle_validation_error(field_name, value, field_type))\n    \n    return errors"
+code: "# Calculation functions\n\ndef calculate_net_worth():\n    '''Calculate net worth (assets - liabilities)'''\n    total_assets = calculate_total(assets, 'value') if defined('assets') else 0\n    total_debts = calculate_total(debts, 'amount') if defined('debts') else 0\n    return total_assets - total_debts\n\ndef calculate_monthly_surplus():\n    '''Calculate monthly surplus (income - expenses)'''\n    total_income = calculate_total(income_sources, 'monthly_amount') if defined('income_sources') else 0\n    total_expenses = calculate_total(expenses, 'monthly_amount') if defined('expenses') else 0\n    return total_income - total_expenses\n"
+mandatory: true
+code: 'intro_seen
+
+  payment_information_complete
+
+  amount_information_complete
+
+  table_5_item_4_complete
+
+  table_5_item_5_complete
+
+  table_5_item_6_complete
+
+  table_5_item_7_complete
+
+  table_5_item_8_complete
+
+  table_5_item_9_complete
+
+  table_5_item_10_complete
+
+  table_5_item_11_complete
+
+  table_5_item_12_complete
+
+  table_5_item_13_complete
+
+  table_5_item_14_complete
+
+  table_5_item_15_complete
+
+  table_5_item_16_complete
+
+  table_5_item_17_complete
+
+  table_5_item_18_complete
+
+  table_5_item_19_complete
+
+  table_5_item_20_complete
+
+  table_5_item_21_complete
+
+  table_5_item_22_complete
+
+  table_5_item_23_complete
+
+  table_5_item_24_complete
+
+  table_5_item_25_complete
+
+  table_5_item_26_complete
+
+  table_5_item_27_complete
+
+  table_5_item_28_complete
+
+  table_5_item_29_complete
+
+  table_5_item_30_complete
+
+  table_5_item_31_complete
+
+  table_5_item_32_complete
+
+  table_5_item_33_complete
+
+  table_5_item_34_complete
+
+  table_5_item_35_complete
+
+  table_5_item_36_complete
+
+  table_5_item_37_complete
+
+  table_5_item_38_complete
+
+  review_complete
+
+  form_complete'
+question: Form 26 Interview
+subquestion: 'This structured interview will help you complete Form 26.
+
+
+  You will be asked about:
+
+  - Financial information and calculations
+
+
+  Total sections: 38
+
+  Fields to complete: 272'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Payment Information
+fields:
+- label: 3. 3. The total of the periodic payments that remain unpaid today is $ The total of the periodic pay
+  field: payment_information.field_3_3_the_total_of_the_periodic_payments_that_remain
+  datatype: currency
+  required: false
+  min: 0
+- label: "(b) (b) if your order or domestic contract does not require the payor to make periodic payments. \n\nI"
+  field: payment_information.b_b_if_your_order_or_domestic_contract_does_not_re
+  datatype: currency
+  required: false
+  min: 0
+- label: "if your order or domestic contract does not require the payor to make periodic payments. \n\nIf you ar"
+  field: payment_information.if_your_order_or_domestic_contract_does_not_requir
+  datatype: currency
+  required: false
+  min: 0
+- label: "if your order or domestic contract does not require the payor to make periodic payments. \n\nIf you ar"
+  field: payment_information.if_your_order_or_domestic_contract_does_not_requir
+  datatype: currency
+  required: false
+  min: 0
+- label: "if your order or domestic contract does not require the payor to make periodic payments. \n\nIf you ar"
+  field: payment_information.if_your_order_or_domestic_contract_does_not_requir
+  datatype: currency
+  required: false
+  min: 0
+- label: "if your order or domestic contract does not require the payor to make periodic payments. \n\nIf you ar"
+  field: payment_information.if_your_order_or_domestic_contract_does_not_requir
+  datatype: currency
+  required: false
+  min: 0
+- label: "if your order or domestic contract does not require the payor to make periodic payments. \n\nIf you ar"
+  field: payment_information.if_your_order_or_domestic_contract_does_not_requir
+  datatype: currency
+  required: false
+  min: 0
+- label: "if your order or domestic contract does not require the payor to make periodic payments. \n\nIf you ar"
+  field: payment_information.if_your_order_or_domestic_contract_does_not_requir
+  datatype: currency
+  required: false
+  min: 0
+- label: "if your order or domestic contract does not require the payor to make periodic payments. \n\nIf you ar"
+  field: payment_information.if_your_order_or_domestic_contract_does_not_requir
+  datatype: currency
+  required: false
+  min: 0
+- label: "if your order or domestic contract does not require the payor to make periodic payments. \n\nIf you ar"
+  field: payment_information.if_your_order_or_domestic_contract_does_not_requir
+  datatype: currency
+  required: false
+  min: 0
+- label: 'If there have been partial payments on the lump sum, you MUST attach one or more separate sheets as '
+  field: payment_information.if_there_have_been_partial_payments_on_the_lump_su
+  datatype: currency
+  required: false
+  min: 0
+- label: 'If there have been partial payments on the lump sum, you MUST attach one or more separate sheets as '
+  field: payment_information.if_there_have_been_partial_payments_on_the_lump_su
+  datatype: currency
+  required: false
+  min: 0
+- label: 'If there have been partial payments on the lump sum, you MUST attach one or more separate sheets as '
+  field: payment_information.if_there_have_been_partial_payments_on_the_lump_su
+  datatype: currency
+  required: false
+  min: 0
+- label: 'If there have been partial payments on the lump sum, you MUST attach one or more separate sheets as '
+  field: payment_information.if_there_have_been_partial_payments_on_the_lump_su
+  datatype: currency
+  required: false
+  min: 0
+- label: (a) unpaid amounts of periodic payments (paragraph 3) unpaid amounts of periodic payments (paragraph
+  field: payment_information.a_unpaid_amounts_of_periodic_payments_paragraph_3
+  datatype: currency
+  required: false
+  min: 0
+- label: (b) interest on unpaid amounts of periodic payments (paragraph 4) interest on unpaid amounts of peri
+  field: payment_information.b_interest_on_unpaid_amounts_of_periodic_payments
+  datatype: currency
+  required: false
+  min: 0
+question: Amount Information
+fields:
+- label: 6. 6. 6. The total amount of unpaid interest on the lump sum up to today is $ The total amount of un
+  field: amount_information.field_6_6_6_the_total_amount_of_unpaid_interest_on_the_l
+  datatype: currency
+  required: false
+  min: 0
+- label: 7. 7. 7. The amount of court costs remaining unpaid today is $ The amount of court costs remaining u
+  field: amount_information.field_7_7_7_the_amount_of_court_costs_remaining_unpaid_t
+  datatype: currency
+  required: false
+  min: 0
+- label: 8. 8. 8. The amount of unpaid interest on court costs up to today is $ The amount of unpaid interest
+  field: amount_information.field_8_8_8_the_amount_of_unpaid_interest_on_court_costs
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 4
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_4.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 5
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_5.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 6
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_6.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 7
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_7.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 8
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_8.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 9
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_9.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 10
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_10.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 11
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_11.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 12
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_12.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 13
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_13.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 14
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_14.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 15
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_15.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 16
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_16.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 17
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_17.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 18
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_18.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 19
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_19.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 20
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_20.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 21
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_21.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 22
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_22.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 23
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_23.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 24
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_24.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 25
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_25.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 26
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_26.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 27
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_27.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 28
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_28.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 29
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_29.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 30
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_30.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 31
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_31.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 32
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_32.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 33
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_33.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 34
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_34.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 35
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_35.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 36
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_36.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 37
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_37.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 38
+fields:
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_38.field
+  datatype: currency
+  required: false
+  min: 0
+question: Additional Information
+fields:
+- label: Dropdown 1
+  field: dropdown1
+  required: false
+  choices:
+  - '          '
+  - Ontario Court of Justice
+  - Superior Court of Justice
+  - Superior Court of Justice Family Court Branch
+  help_text: ''
+- label: Court File Number
+  field: courtfileno
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1
+  datatype: text
+  required: false
+  help_text: ''
+- label: Dated
+  field: dated
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 11
+  field: text11
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 11
+  field: text11_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 11
+  field: text11_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 11
+  field: text11_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 10
+  field: text10
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 11
+  field: text11_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field
+  required: false
+  choices:
+  - swear/affirm
+  - swear
+  - affirm
+  help_text: ''
+- label: Checkbox 1
+  field: check1
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 12
+  field: text12
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_7
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_8
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 13
+  field: text13
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 95
+  field: text95
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 2
+  field: check2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 3
+  field: check3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 4
+  field: check4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 5
+  field: check5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 16
+  field: text16
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 32
+  field: text32
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 33
+  field: text33
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 34
+  field: text34
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_13
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 35
+  field: text35
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_14
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 36
+  field: text36
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_15
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 37
+  field: text37
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_16
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 38
+  field: text38
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_17
+  datatype: text
+  required: false
+  help_text: ''
+- label: Dropdown 16
+  field: dropdown16
+  required: false
+  choices:
+  - Sworn/Affirmed
+  - Sworn
+  - Affirmed
+  help_text: ''
+- label: Text Field 39
+  field: text39
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 40
+  field: text40
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 86
+  field: text86
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 87
+  field: text87
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_18
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_19
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_20
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_21
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_22
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_23
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_24
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_25
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_26
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_27
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_28
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_29
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_30
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_31
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_32
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_33
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_34
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_35
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_36
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_37
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_38
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_39
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_40
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_41
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_42
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_43
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_44
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_45
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_46
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_47
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_48
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_49
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_50
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_13
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_51
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_52
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_53
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_14
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_54
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_55
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_56
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_15
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_57
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_58
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_59
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_16
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_60
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_61
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_62
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_17
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_63
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_64
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_65
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_18
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_66
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_67
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_68
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_19
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_69
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_70
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_71
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_20
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_72
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_73
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_74
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_21
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_75
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_76
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_77
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_22
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_78
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_79
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_80
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_23
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_81
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_82
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_83
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_24
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_84
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_85
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_86
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_25
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_87
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_88
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_89
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_26
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_90
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_91
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_92
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_27
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_93
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_94
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_95
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_28
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_96
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_97
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_98
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_29
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_99
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_100
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_101
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_30
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_102
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_103
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_104
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_31
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_105
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_106
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_107
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_32
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_108
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_109
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_110
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_33
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_111
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_112
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_113
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_34
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_114
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_115
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_116
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_35
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_117
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_118
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_119
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5_36
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_120
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_121
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_122
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 88
+  field: text88
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 89
+  field: text89
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 90
+  field: text90
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 10
+  field: check10
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 12
+  field: check12
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 91
+  field: text91
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 11
+  field: check11
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 91
+  field: text91_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 92
+  field: text92
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 93
+  field: text93
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 94
+  field: text94
+  datatype: text
+  required: false
+  help_text: ''
+- label: 'is $ .  The detailed interest calculations are attached to this statement. .  The detailed interest '
+  field: is_the_detailed_interest_calculations_are_attached
+  datatype: currency
+  required: false
+  min: 0
+- label: that remains unpaid today is $ that remains unpaid today is $ that remains unpaid today is $ that re
+  field: that_remains_unpaid_today_is_that_remains_unpaid_t
+  datatype: currency
+  required: false
+  min: 0
+- label: 9. 9. 9. Of the money in paragraphs 5 and 6, I attribute $ Of the money in paragraphs 5 and 6, I att
+  field: field_9_9_9_of_the_money_in_paragraphs_5_and_6_i_attribu
+  datatype: currency
+  required: false
+  min: 0
+- label: '10. 10. 10. Of the money in paragraphs 3 and 4, I attribute $ Of the money in paragraphs 3 and 4, I '
+  field: field_10_10_10_of_the_money_in_paragraphs_3_and_4_i_attr
+  datatype: currency
+  required: false
+  min: 0
+- label: '11. 11. 11. The total of the sums in paragraphs 9 and 10 is $ The total of the sums in paragraphs 9 '
+  field: field_11_11_11_the_total_of_the_sums_in_paragraphs_9_and
+  datatype: currency
+  required: false
+  min: 0
+- label: (c) unpaid lump-sum debt (paragraph 5) unpaid lump-sum debt (paragraph 5) unpaid lump-sum debt (para
+  field: c_unpaid_lump_sum_debt_paragraph_5_unpaid_lump_sum
+  datatype: currency
+  required: false
+  min: 0
+- label: (d) interest on unpaid lump-sum debt (paragraph 6) interest on unpaid lump-sum debt (paragraph 6) in
+  field: d_interest_on_unpaid_lump_sum_debt_paragraph_6_int
+  datatype: currency
+  required: false
+  min: 0
+- label: '(e) unpaid court costs (paragraph 7) unpaid court costs (paragraph 7) unpaid court costs (paragraph '
+  field: e_unpaid_court_costs_paragraph_7_unpaid_court_cost
+  datatype: currency
+  required: false
+  min: 0
+- label: (f) interest on unpaid court costs (paragraph 8) interest on unpaid court costs (paragraph 8) intere
+  field: f_interest_on_unpaid_court_costs_paragraph_8_inter
+  datatype: currency
+  required: false
+  min: 0
+- label: TOTAL TOTAL TOTAL TOTAL TOTAL TOTAL TOTAL TOTAL TOTAL $
+  field: total_total_total_total_total_total_total_total_to
+  datatype: currency
+  required: false
+  min: 0
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: 3. 3. The total of the periodic payments that remain unpaid today is $ The total of the periodic pay
+  field: payment_information.field_3_3_the_total_of_the_periodic_payments_that_remain
+  edit: true
+- label: "(b) (b) if your order or domestic contract does not require the payor to make periodic payments. \n\nI"
+  field: payment_information.b_b_if_your_order_or_domestic_contract_does_not_re
+  edit: true
+- label: "if your order or domestic contract does not require the payor to make periodic payments. \n\nIf you ar"
+  field: payment_information.if_your_order_or_domestic_contract_does_not_requir
+  edit: true
+- label: 6. 6. 6. The total amount of unpaid interest on the lump sum up to today is $ The total amount of un
+  field: amount_information.field_6_6_6_the_total_amount_of_unpaid_interest_on_the_l
+  edit: true
+- label: 7. 7. 7. The amount of court costs remaining unpaid today is $ The amount of court costs remaining u
+  field: amount_information.field_7_7_7_the_amount_of_court_costs_remaining_unpaid_t
+  edit: true
+- label: 8. 8. 8. The amount of unpaid interest on court costs up to today is $ The amount of unpaid interest
+  field: amount_information.field_8_8_8_the_amount_of_unpaid_interest_on_court_costs
+  edit: true
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_4.field
+  edit: true
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_5.field
+  edit: true
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_6.field
+  edit: true
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_7.field
+  edit: true
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_8.field
+  edit: true
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_9.field
+  edit: true
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_10.field
+  edit: true
+- label: $ $ $ $ $ $ $ $
+  field: table_5_item_11.field
+  edit: true
+- label: Dropdown 1
+  field: dropdown1
+  edit: true
+- label: Court File Number
+  field: courtfileno
+  edit: true
+- label: Text Field 1
+  field: text1
+  edit: true
+- label: Dated
+  field: dated
+  edit: true
+- label: Text Field 11
+  field: text11
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 26 Complete
+subquestion: 'Your Form 26 has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart
+
+
+---
+# Error display screen
+event: show_form_errors
+question: |
+  Form Validation Errors
+subquestion: |
+  % if len(validation_errors) > 0:
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Please correct the following errors:</h4>
+    <ul>
+    % for error in validation_errors:
+      <li><strong>${ error['field'] }:</strong> ${ error['message'] }</li>
+    % endfor
+    </ul>
+  </div>
+  % endif
+  
+  % if debug_mode and len(error_log) > 0:
+  <details>
+    <summary>Debug Information (${len(error_log)} errors logged)</summary>
+    % for entry in error_log:
+    <div class="card mb-2">
+      <div class="card-body">
+        <h6 class="card-title">Error at ${ entry.timestamp }</h6>
+        <p class="card-text">
+          <strong>Context:</strong> ${ entry.context }<br>
+          <strong>Field:</strong> ${ entry.field }<br>
+          <strong>Type:</strong> ${ entry.error['type'] }<br>
+          <strong>Message:</strong> ${ entry.error['message'] }
+        </p>
+        % if debug_mode:
+        <details>
+          <summary>Stack Trace</summary>
+          <pre>${ entry.error.get('formatted_exception', 'N/A') }</pre>
+        </details>
+        % endif
+      </div>
+    </div>
+    % endfor
+  </details>
+  % endif
+buttons:
+  - "Go Back": restart
+  - "Exit": exit
+---
+# Debug information screen
+event: show_debug_info
+question: |
+  Debug Information
+subquestion: |
+  <div class="alert alert-info">
+    <h4>Session Information</h4>
+    <ul>
+      <li><strong>Interview:</strong> ${ user_info().filename }</li>
+      <li><strong>Session ID:</strong> ${ user_info().session }</li>
+      <li><strong>Debug Mode:</strong> ${ debug_mode }</li>
+      <li><strong>Errors Logged:</strong> ${ len(error_log) }</li>
+      <li><strong>Validation Errors:</strong> ${ len(validation_errors) }</li>
+    </ul>
+  </div>
+  
+  % if defined('user_party'):
+  <h4>User Information</h4>
+  <ul>
+    <li><strong>Name:</strong> ${ safe_get_field(user_party, 'name', 'Not provided') }</li>
+    % if hasattr(user_party, 'email'):
+    <li><strong>Email:</strong> ${ safe_get_field(user_party, 'email', 'Not provided') }</li>
+    % endif
+  </ul>
+  % endif
+  
+  <h4>Form Progress</h4>
+  <ul>
+    % for var in ['intro_seen', 'user_party.name.first', 'other_party.name.first', 'children.gathered', 'review_complete']:
+    <li><strong>${ var }:</strong> ${ 'Yes' if defined(var) else 'No' }</li>
+    % endfor
+  </ul>
+buttons:
+  - "Continue": continue
+  - "Show Errors": show_form_errors
+  - "Restart": restart

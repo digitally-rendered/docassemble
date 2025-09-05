@@ -1,0 +1,532 @@
+---
+metadata:
+  title: 'Form 10: Answer'
+  short_title: Form 10
+  description: Structured interview with 83 fields and 5 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - '10'
+  form_number: '10'
+  form_category: application
+  generated: '2025-08-26 22:15:24'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: stepped
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+  table_css_class: table table-striped
+objects:
+- court_info: DAObject
+- person: Individual
+- table_1_item_6: DAObject
+- table_1_item_7: DAObject
+- table_1_item_12: DAObject
+- table_1_item_13: DAObject
+mandatory: true
+code: 'intro_seen
+
+  table_1_item_6_complete
+
+  table_1_item_7_complete
+
+  table_1_item_12_complete
+
+  table_1_item_13_complete
+
+  review_complete
+
+  form_complete'
+question: Form 10 Interview
+subquestion: 'This structured interview will help you complete Form 10.
+
+
+  You will be asked about:
+
+  - Personal information for parties involved
+
+
+  Total sections: 6
+
+  Fields to complete: 83'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Person Information
+fields:
+- label: 'Full legal name: Full legal name: Full legal name: Full legal name: Name:'
+  field: person.full_legal_name_full_legal_name_full_legal_name_fu
+  datatype: text
+  required: false
+- label: 'Address: Address: Address: Address: Address:'
+  field: person.address_address_address_address_address
+  datatype: text
+  required: false
+- label: 'Full legal name: Full legal name: Full legal name: Full legal name: Name:'
+  field: person.full_legal_name_full_legal_name_full_legal_name_fu
+  datatype: text
+  required: false
+- label: 'Address: Address: Address: Address: Address:'
+  field: person.address_address_address_address_address
+  datatype: text
+  required: false
+question: Additional Information
+fields:
+- label: ''
+  field: field
+  required: false
+  choices:
+  - '          '
+  - Ontario Court of Justice
+  - Superior Court of Justice
+  - Superior Court of Justice, Family Court
+  help_text: ''
+- label: Court File Number
+  field: courtfileno
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 6
+  field: text6
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_13
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_14
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_15
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_16
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_17
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 6
+  field: text6_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 6
+  field: text6_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 6
+  field: text6_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 6
+  field: text6_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 6
+  field: text6_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 6
+  field: text6_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 3
+  field: check3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 4
+  field: check4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 5
+  field: check5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 9
+  field: check9
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 6
+  field: text6_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_18
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_19
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_20
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 7
+  field: check7
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 6
+  field: text6_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 10
+  field: check10
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 11
+  field: check11
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 13
+  field: check13
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8_5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 12
+  field: check12
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 14
+  field: check14
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 16
+  field: check16
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 15
+  field: check15
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 6
+  field: text6_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 21
+  field: check21
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 18
+  field: check18
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 19
+  field: check19
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 6
+  field: text6_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 22
+  field: check22
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 20
+  field: check20
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 18
+  field: check18_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 22
+  field: check22_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 6
+  field: text6_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8_6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8_7
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8_8
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 6
+  field: text6_13
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 23
+  field: check23
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 24
+  field: check24
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8_9
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8_10
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8_11
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 25
+  field: check25
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8_12
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8_13
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8_14
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8_15
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 26
+  field: check26
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 22
+  field: check22_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 60
+  field: check60
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 60
+  field: check60_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 18
+  field: text18
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 19
+  field: text19
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 22
+  field: text22
+  datatype: text
+  required: false
+  help_text: ''
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: 'Full legal name: Full legal name: Full legal name: Full legal name: Name:'
+  field: person.full_legal_name_full_legal_name_full_legal_name_fu
+  edit: true
+- label: 'Address: Address: Address: Address: Address:'
+  field: person.address_address_address_address_address
+  edit: true
+- label: 'Full legal name: Full legal name: Full legal name: Full legal name: Name:'
+  field: person.full_legal_name_full_legal_name_full_legal_name_fu
+  edit: true
+- label: ''
+  field: field
+  edit: true
+- label: Court File Number
+  field: courtfileno
+  edit: true
+- label: Text Field 6
+  field: text6
+  edit: true
+- label: ''
+  field: field_2
+  edit: true
+- label: ''
+  field: field_3
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 10 Complete
+subquestion: 'Your Form 10 has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart

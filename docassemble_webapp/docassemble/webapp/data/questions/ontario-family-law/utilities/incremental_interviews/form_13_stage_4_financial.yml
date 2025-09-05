@@ -1,0 +1,101 @@
+---
+metadata:
+  title: Form 13 - Stage 4 - Financial Fields
+  short title: Stage 4
+  stage: 4
+  description: Adding financial income and expense fields
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  progress bar: True
+  question back button: True
+---
+objects:
+  - user: Individual
+  - income: DAObject
+  - expenses: DAObject
+---
+mandatory: True
+code: |
+  intro_screen
+  user.name.first
+  income.employment
+  expenses.housing
+  show_summary
+---
+question: |
+  Form 13 Financial Statement
+subquestion: |
+  Stage 4: Adding financial fields with DAObject.
+  
+  This adds:
+  - Income object
+  - Expenses object
+  - Currency fields
+  - Calculations
+continue button field: intro_screen
+---
+question: |
+  Your Information
+fields:
+  - First Name: user.name.first
+    required: True
+  - Last Name: user.name.last
+    required: True
+---
+question: |
+  Income Information
+fields:
+  - Employment Income (Monthly): income.employment
+    datatype: currency
+    min: 0
+    required: True
+  - Other Income: income.other
+    datatype: currency
+    min: 0
+    default: 0
+---
+question: |
+  Monthly Expenses
+fields:
+  - Housing (Rent/Mortgage): expenses.housing
+    datatype: currency
+    min: 0
+    required: True
+  - Food: expenses.food
+    datatype: currency
+    min: 0
+    default: 0
+  - Transportation: expenses.transport
+    datatype: currency
+    min: 0
+    default: 0
+---
+code: |
+  income.total = income.employment + income.other
+  expenses.total = expenses.housing + expenses.food + expenses.transport
+  net_income = income.total - expenses.total
+---
+event: show_summary
+question: |
+  Stage 4 Complete - Financial Summary
+subquestion: |
+  **Person:** ${ user.name.full() }
+  
+  **Monthly Income:**
+  - Employment: ${ currency(income.employment) }
+  - Other: ${ currency(income.other) }
+  - Total: ${ currency(income.total) }
+  
+  **Monthly Expenses:**
+  - Housing: ${ currency(expenses.housing) }
+  - Food: ${ currency(expenses.food) }
+  - Transportation: ${ currency(expenses.transport) }
+  - Total: ${ currency(expenses.total) }
+  
+  **Net Income:** ${ currency(net_income) }
+buttons:
+  - Exit: exit
+  - Restart: restart

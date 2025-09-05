@@ -1,0 +1,71 @@
+---
+metadata:
+  title: Ontario Family Law Forms - Generated Collection
+  short title: ON Forms Menu
+  description: Access all auto-generated Ontario family law form interviews
+  generated: 2025-08-26
+---
+mandatory: True
+question: |
+  # Ontario Family Law Forms System
+subquestion: |
+  Welcome to the Ontario Family Law Forms system. Select the form you need to complete from the list below.
+  
+  All forms have been automatically generated and processed from official Ontario court forms.
+  
+  ## 📋 Core Application Forms
+  * **[Form 8 - Application General](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_8_interview.yml)**
+  * **[Form 8A - Application for Divorce](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_8A_interview.yml)**
+  * **[Form 10 - Answer](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_10_interview.yml)**
+  * **[Form 10A - Reply](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_10A_interview.yml)**
+  
+  ## 💰 Financial Disclosure Forms
+  * **[Form 13 - Financial Statement (Support Claims)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_13_interview.yml)**
+  * **[Form 13.1 - Financial Statement (Property & Support)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_13.1_interview.yml)**
+  * **[Form 13A - Certificate of Financial Disclosure](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_13A_interview.yml)**
+  * **[Form 13B - Net Family Property Statement](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_13B_interview.yml)**
+  * **[Form 13C - Comparison of Net Family Property](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_13C_interview.yml)**
+  
+  ## 📝 Motions and Changes
+  * **[Form 15 - Motion to Change](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_15_interview.yml)**
+  * **[Form 15B - Response to Motion to Change](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_15B_interview.yml)**
+  * **[Form 15C - Consent Motion to Change](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_15C_interview.yml)**
+  
+  ## 🏛️ Conference Briefs
+  * **[Form 17A - Case Conference Brief](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_17A_interview.yml)**
+  * **[Form 17C - Settlement Conference Brief](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_17C_interview.yml)**
+  
+  ## ⚖️ Orders
+  * **[Form 25A - Divorce Order](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_25A_interview.yml)**
+  * **[Form 25D - Order on Uncontested Trial](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_25D_interview.yml)**
+  
+  ## 🔨 Enforcement Forms
+  * **[Form 26 - Statement of Money Owed](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_26_interview.yml)**
+  * **[Form 28 - Writ of Seizure and Sale](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_28_interview.yml)**
+  * **[Form 29 - Request for Garnishment](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_29_interview.yml)**
+  * **[Form 29A - Notice of Garnishment (Lump Sum)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_29A_interview.yml)**
+  * **[Form 29B - Notice of Garnishment (Periodic)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_29B_interview.yml)**
+  
+  ## 📄 Service Documents
+  * **[Form 6B - Affidavit of Service](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_6B_interview.yml)**
+  * **[Form 6C - Certificate of Service](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_6C_interview.yml)**
+  
+  ## 🏡 Family & Divorce
+  * **[Form 33F - Access Application](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_33F_interview.yml)**
+  * **[Form 36 - Affidavit for Divorce](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_36_interview.yml)**
+  * **[Form 36A - Certificate of Divorce](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/form_36A_interview.yml)**
+  
+  ---
+  
+  ## ℹ️ Information
+  
+  These forms were automatically generated from official Ontario family law court forms. Each interview:
+  - Guides you through all required fields
+  - Validates Ontario-specific requirements
+  - Groups related questions for easier completion
+  - Provides a review screen before completion
+  
+  For assistance, please consult with a family law professional.
+buttons:
+  - Exit: exit
+---

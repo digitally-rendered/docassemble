@@ -1,0 +1,38 @@
+[
+  {
+    "op": "add",
+    "path": "/spec/template/spec/initContainers",
+    "value": [
+      {
+        "name": "fix-startup",
+        "image": "docassemble:latest",
+        "command": ["/bin/bash", "/scripts/fix-startup.sh"],
+        "volumeMounts": [
+          {
+            "name": "startup-fix",
+            "mountPath": "/scripts"
+          },
+          {
+            "name": "docassemble-data",
+            "mountPath": "/usr/share/docassemble"
+          },
+          {
+            "name": "interview-questions",
+            "mountPath": "/usr/share/docassemble/webapp/data/questions"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "op": "add",
+    "path": "/spec/template/spec/volumes/-",
+    "value": {
+      "name": "startup-fix",
+      "configMap": {
+        "name": "docassemble-startup-fix",
+        "defaultMode": 493
+      }
+    }
+  }
+]

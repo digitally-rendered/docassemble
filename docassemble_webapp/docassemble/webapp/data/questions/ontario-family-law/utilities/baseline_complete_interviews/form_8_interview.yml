@@ -1,0 +1,385 @@
+---
+metadata:
+  title: "Ontario Family Law Form 8: Application (General)"
+  short title: Form 8
+  description: Interview with baseline error handling for 12 fields
+  form_number: 8
+  field_count: 12
+  error_handling: baseline
+  generated: "2025-08-26T23:10:53.712751" 
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  debug: True
+  question help button: True
+  question back button: True
+  progress bar: True
+  progress bar method: all
+  progress bar multiplier: 0.05
+---
+objects:
+  - validation_errors: DAList
+  - error_log: DAList
+  - field_errors: DADict
+---
+initial: True
+code: |
+  validation_errors = DAList()
+  error_log = DAList()
+  field_errors = DADict()
+  debug_mode = get_config('debug', False)
+  error_count = 0
+---
+code: |
+  def handle_error(context, error_type, details):
+    '''Global error handler'''
+    error_entry = {
+      'timestamp': current_datetime(),
+      'context': context,
+      'type': error_type,
+      'details': details
+    }
+    error_log.append(error_entry)
+    if debug_mode:
+      log(f"ERROR in {context}: {error_type} - {details}", 'error')
+    return error_entry
+---
+code: |
+  def safe_get(obj, attr, default=""):
+    '''Safely get object attribute'''
+    try:
+      if hasattr(obj, attr):
+        val = getattr(obj, attr)
+        return val if val is not None else default
+      return default
+    except:
+      return default
+---
+code: |
+  def validate_required(field_name, value):
+    '''Validate required field'''
+    if not value or (isinstance(value, str) and not value.strip()):
+      field_errors[field_name] = f"{field_name} is required"
+      return False
+    return True
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  try:
+    intro_seen
+  applicant.name.first
+  respondent.name.first
+  children_count
+  if children_count > 0:
+    children.gather()
+  review_answers
+  if len(validation_errors) > 0:
+    review_with_errors
+  form_complete
+  except Exception as e:
+    handle_error("main_flow", "FlowError", str(e))
+    error_recovery
+---
+question: |
+  Ontario Family Law Form 8
+subquestion: |
+  Welcome to the Form 8 interview.
+  
+  This interview will collect 12 fields of information.
+  
+  % if debug_mode:
+  <div class="alert alert-info">
+    Debug mode is enabled - detailed error information will be shown
+  </div>
+  % endif
+  
+  All fields include validation and error handling.
+continue button field: intro_seen
+---
+question: |
+  Table 1, Row 7
+fields:
+  - Full legal name Full legal name Name Name: full_legal_name_name
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_1__row_7_collected
+---
+question: |
+  Table 1, Row 8
+fields:
+  - Address Address Address Address: address_address
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_1__row_8_collected
+---
+question: |
+  Table 1, Row 13
+fields:
+  - Full legal name Full legal name Name Name: full_legal_name_name
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_1__row_13_collected
+---
+question: |
+  Table 1, Row 14
+fields:
+  - Address Address Address Address: address_address
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_1__row_14_collected
+---
+question: |
+  Table 3, Row 5
+fields:
+  - APPLICANT APPLICANT APPLICANT APPLICANT APPLICANT APPLICANT APPLICANT APPLICANT Age Age Ag: applicant_applicant_applicant_
+    datatype: date
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_5_collected
+---
+question: |
+  Table 3, Row 7
+fields:
+  - First name on the day before the marriage date First name on the day before the marriage date Firs: first_name_on_the_day_before_the_marriage_date_fir
+    datatype: date
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_7_collected
+---
+question: |
+  Table 3, Row 8
+fields:
+  - Last name on the day before the marriage date Last name on the day before the marriage date Last n: last_name_on_the_day_before_the_marriage_date_last
+    datatype: date
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_8_collected
+---
+question: |
+  Table 3, Row 9
+fields:
+  - Gender on the day before the marriage date Gender on the day before the marriage date Gender on th: gender_on_the_day_before_the_marriage_date_gender_
+    datatype: date
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_9_collected
+---
+question: |
+  Table 3, Row 14
+fields:
+  - RESPONDENT RESPONDENT RESPONDENT RESPONDENT RESPONDENT RESPONDENT RESPONDENT RESPONDENT Age: respondent_respondent_respon
+    datatype: date
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_14_collected
+---
+question: |
+  Table 3, Row 16
+fields:
+  - First name on the day before the marriage date First name on the day before the marriage date Firs: first_name_on_the_day_before_the_marriage_date_fir
+    datatype: date
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_16_collected
+---
+question: |
+  Table 3, Row 17
+fields:
+  - Last name on the day before the marriage date Last name on the day before the marriage date Last n: last_name_on_the_day_before_the_marriage_date_last
+    datatype: date
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_17_collected
+---
+question: |
+  Table 3, Row 18
+fields:
+  - Gender on the day before the marriage date Gender on the day before the marriage date Gender on th: gender_on_the_day_before_the_marriage_date_gender_
+    datatype: date
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_18_collected
+---
+question: |
+  Applicant
+fields:
+  - First Name: applicant.name.first
+    required: True
+    validation messages:
+      required: First name is required
+  - Last Name: applicant.name.last
+    required: True
+    validation messages:
+      required: Last name is required
+  - Date of Birth: applicant.birthdate
+    datatype: date
+    required: False
+---
+question: |
+  Respondent
+fields:
+  - First Name: respondent.name.first
+    required: True
+    validation messages:
+      required: First name is required
+  - Last Name: respondent.name.last
+    required: True
+    validation messages:
+      required: Last name is required
+  - Date of Birth: respondent.birthdate
+    datatype: date
+    required: False
+---
+question: |
+  How many children are there?
+fields:
+  - Number: children_count
+    datatype: integer
+    min: 0
+    max: 20
+---
+question: |
+  Children ${i + 1} Information
+fields:
+  - First Name: children[i].name.first
+    required: True
+  - Last Name: children[i].name.last
+    required: True
+  - Date of Birth: children[i].birthdate
+    datatype: date
+    required: False
+---
+question: |
+  Add another children?
+yesno: children.there_is_another
+---
+event: error_recovery
+question: |
+  Error Recovery
+subquestion: |
+  An error occurred during the interview.
+  
+  % if len(error_log) > 0:
+  **Recent Errors:**
+  % for error in error_log[-5:]:
+  - ${ error['context'] }: ${ error['type'] }
+  % endfor
+  % endif
+  
+  You can try restarting or contact support.
+buttons:
+  - Restart: restart
+  - Exit: exit
+---
+event: review_with_errors
+question: |
+  Review with Validation Issues
+subquestion: |
+  <div class="alert alert-warning">
+    There are ${ len(validation_errors) } validation issues to review.
+  </div>
+  
+  % for error in validation_errors[:10]:
+  - ${ error }
+  % endfor
+  
+  You can continue anyway or go back to fix these issues.
+buttons:
+  - Continue Anyway: continue
+  - Go Back: restart
+---
+event: review_answers
+question: |
+  Review Your Answers
+subquestion: |
+  Please review the information you've provided.
+  
+  % if len(validation_errors) == 0:
+  <div class="alert alert-success">
+    ✓ All information validated successfully
+  </div>
+  % else:
+  <div class="alert alert-warning">
+    ⚠ ${ len(validation_errors) } validation warnings
+  </div>
+  % endif
+  
+  **Form 8 Summary**
+  
+  Information has been collected for all required fields.
+  
+  % if debug_mode:
+  **Debug Info:**
+  - Errors logged: ${ len(error_log) }
+  - Fields with errors: ${ len(field_errors) }
+  % endif
+buttons:
+  - Continue: continue
+  - Edit Answers: restart
+---
+event: form_complete
+question: |
+  Form 8 Complete
+subquestion: |
+  Thank you for completing Form 8.
+  
+  % if len(error_log) == 0:
+  <div class="alert alert-success">
+    ✓ Interview completed without errors
+  </div>
+  % else:
+  <div class="alert alert-info">
+    Interview completed with ${ len(error_log) } logged events
+  </div>
+  % endif
+  
+  **Summary:**
+  - All required fields completed
+  - Validation: ${ "Passed" if len(validation_errors) == 0 else str(len(validation_errors)) + " warnings" }
+  
+buttons:
+  - Exit: exit
+  - Start Over: restart

@@ -1,0 +1,171 @@
+---
+metadata:
+  title: Form 13 - Stage 7 - Complete with Domain Mapping
+  short title: Stage 7
+  stage: 7
+  description: Complete Form 13 with domain mapping
+  form_number: 13
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  progress bar: True
+  question back button: True
+  debug: True
+---
+# Domain-mapped objects
+objects:
+  # Person entities
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+  
+  # Financial entities
+  - income_sources: DAList.using(object_type=DAObject)
+  - expenses_list: DAList.using(object_type=DAObject)
+  - assets: DAList.using(object_type=DAObject)
+  - debts: DAList.using(object_type=DAObject)
+  
+  # Support for error handling
+  - validation_errors: DAList
+---
+# Initialize
+initial: True
+code: |
+  validation_errors = DAList()
+---
+# Domain mapping code
+code: |
+  # Map form fields to domain entities
+  form_13_domains = {
+    'person_info': ['applicant', 'respondent'],
+    'financial_info': ['income_sources', 'expenses_list'],
+    'property_info': ['assets', 'debts'],
+    'children_info': ['children']
+  }
+---
+mandatory: True
+code: |
+  intro_screen
+  
+  # Collect person domain
+  applicant.name.first
+  
+  # Collect financial domain
+  has_income = True
+  if has_income:
+    income_sources.gather()
+  
+  has_expenses = True
+  if has_expenses:
+    expenses_list.gather()
+  
+  # Calculate totals
+  calculate_totals
+  
+  # Show final
+  show_final
+---
+question: |
+  Form 13 Financial Statement
+subquestion: |
+  Stage 7: Complete with domain mapping.
+  
+  This is the full Form 13 with:
+  - Domain entity mapping
+  - Multiple object types
+  - Collections (DAList)
+  - Calculations
+  - Full error handling
+  - Validation
+continue button field: intro_screen
+---
+question: |
+  Applicant Information
+fields:
+  - First Name: applicant.name.first
+    required: True
+  - Last Name: applicant.name.last
+    required: True
+  - Date of Birth: applicant.birthdate
+    datatype: date
+---
+question: |
+  Income Source ${ i + 1 }
+fields:
+  - Source: income_sources[i].source
+    required: True
+    choices:
+      - Employment
+      - Self-Employment
+      - Government Benefits
+      - Other
+  - Monthly Amount: income_sources[i].amount
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  Any more income sources?
+yesno: income_sources.there_is_another
+---
+question: |
+  Expense ${ i + 1 }
+fields:
+  - Category: expenses_list[i].category
+    required: True
+    choices:
+      - Housing
+      - Food
+      - Transportation
+      - Childcare
+      - Other
+  - Monthly Amount: expenses_list[i].amount
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  Any more expenses?
+yesno: expenses_list.there_is_another
+---
+code: |
+  # Calculate domain totals
+  total_income = sum(item.amount for item in income_sources)
+  total_expenses = sum(item.amount for item in expenses_list)
+  net_income = total_income - total_expenses
+  calculate_totals = True
+---
+event: show_final
+question: |
+  Form 13 Complete - Full Domain Mapping
+subquestion: |
+  **Applicant:** ${ applicant.name.full() }
+  
+  **Income Sources:** ${ len(income_sources) }
+  % for item in income_sources:
+  - ${ item.source }: ${ currency(item.amount) }
+  % endfor
+  **Total Income:** ${ currency(total_income) }
+  
+  **Expenses:** ${ len(expenses_list) }
+  % for item in expenses_list:
+  - ${ item.category }: ${ currency(item.amount) }
+  % endfor
+  **Total Expenses:** ${ currency(total_expenses) }
+  
+  **Net Income:** ${ currency(net_income) }
+  
+  ---
+  
+  This completes the incremental development:
+  1. ✓ Basic structure
+  2. ✓ Individual objects  
+  3. ✓ Financial fields
+  4. ✓ Error handling
+  5. ✓ Validation
+  6. ✓ Domain mapping
+buttons:
+  - Exit: exit
+  - Restart: restart

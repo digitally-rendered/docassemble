@@ -1,0 +1,145 @@
+---
+metadata:
+  title: Ontario Family Law Forms - Master Index
+  short title: Forms Index  
+  description: Complete index of all Ontario Family Law forms with comprehensive error handling
+---
+modules:
+  - .debug_helpers
+---
+features:
+  debug: True
+  question help button: True
+  progress bar: False
+---
+objects:
+  - error_log: DAList.using(object_type=DAObject, there_are_any=False)
+---
+mandatory: True
+code: |
+  show_index
+---
+event: show_index
+question: |
+  Ontario Family Law Forms Portal
+subquestion: |
+  Welcome to the Ontario Family Law Forms system with comprehensive error handling and debugging features.
+  
+  % if get_config('debug'):
+  <div class="alert alert-info">
+    <strong>Debug Mode Active</strong><br>
+    Session: ${ user_info().session if defined('user_info') else 'N/A' }<br>
+    All forms include error tracking and validation.
+  </div>
+  % endif
+  
+  ## Available Forms
+  
+  ### Financial Forms
+  - **[Form 13: Financial Statement (Support Claims)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_13_interview.yml)**  
+    Comprehensive financial disclosure for support claims with automatic calculations
+    
+  - **[Form 13.1: Financial Statement (Property and Support)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_13.1_interview.yml)**  
+    Financial disclosure for property division and support with NFP calculations
+    
+  - **[Form 13A: Certificate of Financial Disclosure](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_13A_interview.yml)**  
+    Certificate confirming financial disclosure requirements
+    
+  - **[Form 13B: Net Family Property Statement](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_13B_interview.yml)**  
+    Detailed NFP calculations and property valuation
+    
+  - **[Form 13C: Comparison of Net Family Properties](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_13C_interview.yml)**  
+    Comparison of both parties' NFP for equalization
+    
+  - **[Form 26: Statement of Income and Expenses](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_26_interview.yml)**  
+    Simplified income and expense statement
+  
+  ### Application Forms
+  - **[Form 8: Application (General)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_8_interview.yml)**  
+    General application for family law matters
+    
+  - **[Form 8A: Application (Divorce)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_8A_interview.yml)**  
+    Application specifically for divorce proceedings
+    
+  - **[Form 10: Answer](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_10_interview.yml)**  
+    Response to an application
+    
+  - **[Form 10A: Reply](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_10A_interview.yml)**  
+    Reply to an answer
+  
+  ### Motion Forms
+  - **[Form 14B: Motion Form](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_14B_interview.yml)**  
+    General motion form
+    
+  - **[Form 15: Motion to Change](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_15_interview.yml)**  
+    Motion to change an existing order
+    
+  - **[Form 15B: Response to Motion to Change](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_15B_interview.yml)**  
+    Response to a motion to change
+    
+  - **[Form 15C: Consent Motion to Change](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_15C_interview.yml)**  
+    Consent motion when parties agree
+  
+  ### Order Forms
+  - **[Form 25: Order (General)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_25_interview.yml)**  
+    General court order
+    
+  - **[Form 25A: Divorce Order](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_25A_interview.yml)**  
+    Order for divorce
+    
+  - **[Form 25C: Final Order](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_25C_interview.yml)**  
+    Final order in family proceedings
+    
+  - **[Form 25D: Order on Motion Without Notice](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_25D_interview.yml)**  
+    Ex parte order
+  
+  ### Affidavit Forms
+  - **[Form 36: Affidavit for Divorce](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_36_interview.yml)**  
+    Supporting affidavit for divorce application
+    
+  - **[Form 36A: Certificate of Divorce](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_36A_interview.yml)**  
+    Certificate confirming divorce
+  
+  ### Other Forms
+  - **[Form 4: Notice of Change](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_4_interview.yml)**  
+    Notice of change in representation
+    
+  - **[Form 6B: Affidavit of Service](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_6B_interview.yml)**  
+    Proof of service
+    
+  - **[Form 6C: Affidavit of Service by Email](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_6C_interview.yml)**  
+    Proof of service by electronic means
+  
+  ## System Features
+  
+  All forms include:
+  - ✅ **Error Handling**: Automatic error capture and user-friendly messages
+  - ✅ **Validation**: Field validation with clear feedback
+  - ✅ **Debug Mode**: Detailed debugging information when enabled
+  - ✅ **Progress Tracking**: Visual progress indicators
+  - ✅ **Review Screens**: Comprehensive review before submission
+  - ✅ **Help System**: Context-sensitive help throughout
+  
+  ## Quick Access
+  
+  ### Alternative Indexes
+  - [Structured Interviews Index](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/00_structured_index.yml)
+  - [Generated Interviews Index](/interview?i=docassemble.webapp:ontario-family-law/utilities/generated_interviews/index_with_error_handling.yml)
+  
+  ### Debug Tools
+  % if get_config('debug'):
+  - [View Error Log](#) - ${ len(error_log) } errors logged this session
+  - [System Status](#) - Check system health
+  % endif
+  
+  ## Getting Help
+  
+  If you encounter any errors:
+  1. Enable debug mode by adding `?debug=1` to the URL
+  2. Check the error messages displayed
+  3. Use the back button to correct any issues
+  4. Contact support if problems persist
+  
+buttons:
+  - "Exit": exit
+  - "Refresh": refresh

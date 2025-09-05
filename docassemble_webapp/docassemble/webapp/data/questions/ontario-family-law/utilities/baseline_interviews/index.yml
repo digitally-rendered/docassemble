@@ -1,0 +1,27 @@
+---
+metadata:
+  title: Baseline Error Handling Interviews
+  short title: Baseline Tests
+---
+mandatory: True
+question: |
+  Baseline Error Handling Interviews
+subquestion: |
+  ## Interviews with Error Handling as Foundation
+  
+  ### Form 13 with Baseline Error Handling
+  **[Form 13 Baseline](/interview?i=docassemble.webapp:ontario-family-law/utilities/baseline_interviews/form_13_baseline.yml)**
+  
+  This interview includes:
+  - ✅ Error handling infrastructure
+  - ✅ Field validation with messages
+  - ✅ Error recovery screens
+  - ✅ Safe value access
+  - ✅ Debug mode support
+  - ✅ Error logging and tracking
+  - ✅ Validation warnings
+  - ✅ Error summary in completion
+  
+  Test with `?debug=1` to see debug information.
+buttons:
+  - Exit: exit

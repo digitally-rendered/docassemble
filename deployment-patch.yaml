@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docassemble  # Change to your deployment name
+  namespace: default  # Change to your namespace
+spec:
+  template:
+    spec:
+      volumes:
+      - name: startup-fix
+        configMap:
+          name: docassemble-startup-fix
+          defaultMode: 0755
+      containers:
+      - name: docassemble  # Change to your container name
+        command:
+        - /bin/bash
+        - -c
+        - |
+          # Copy and run the startup fix script
+          cp /tmp/startup-fix/fix-startup.sh /usr/share/docassemble/webapp/fix-startup.sh
+          chmod +x /usr/share/docassemble/webapp/fix-startup.sh
+          /usr/share/docassemble/webapp/fix-startup.sh
+        volumeMounts:
+        - name: startup-fix
+          mountPath: /tmp/startup-fix

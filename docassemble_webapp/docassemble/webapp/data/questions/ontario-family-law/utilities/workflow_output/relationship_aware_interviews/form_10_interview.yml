@@ -1,0 +1,57 @@
+---
+metadata:
+  title: Ontario Family Law Form 10
+  short title: Form 10
+  description: 'jun25-en-fil
+
+
+    This interview uses structured entities and relationships for better data management.
+
+
+    Generated: 2025-08-26 21:30:04'
+  authors:
+  - name: Ontario Family Law Forms System
+    organization: Relationship-Aware Processing
+  form_number: '10'
+  form_category: answers
+  uses_entities: true
+  uses_tables: true
+include:
+- docassemble.base:data/questions/basic-questions.yml
+features:
+  navigation: true
+  progress bar: true
+  progress bar method: stepped
+  show progress bar percentage: true
+  navigation back button: true
+  question back button: true
+  review button: true
+  hide navbar: false
+  hide standard menu: false
+  table css class: table table-striped
+objects:
+- court_info: DAObject
+- table_items: DAList.using(object_type=DAObject)
+code: "# Table data initialization and calculations\n\ndef init_Table 1_data():\n    '''Initialize Table 1 data'''\n    if not hasattr(table_items, 'gathered'):\n        table_items.clear()\n        table_items.gathered = True\n    return table_items\n"
+mandatory: true
+code: 'form_intro_seen
+
+  review_answers
+
+  form_complete'
+question: Form 10 - jun25-en-fil
+subquestion: "This interview will help you complete the official Ontario family law form.\n            \nBased on the form structure, you will be asked about:\n- Personal information for parties involved\n- Court case details\n- Financial information (if applicable)\n- Supporting documentation\n\nThe interview is organized by topic to make it easier to complete."
+continue button field: form_intro_seen
+continue button label: Start Interview
+review:
+- note: '### Review Your Information'
+question: Review Your Answers
+subquestion: Please review your information. Click any item to edit.
+continue button field: review_answers
+event: form_complete
+question: Form 10 Complete
+subquestion: "Your form is ready.\n\n**Next Steps:**\n1. Download your completed form\n2. Review all information carefully  \n3. Print and sign where required\n4. File with the appropriate court"
+buttons:
+- Exit: exit
+- Start Over: restart
+code: "# Validation functions\ndef validate_sin(sin):\n    \"\"\"Validate Canadian SIN\"\"\"\n    import re\n    if not sin:\n        return True\n    sin = re.sub(r'[^0-9]', '', sin)\n    return len(sin) == 9\n\ndef validate_ontario_postal_code(postal_code):\n    \"\"\"Validate Ontario postal code\"\"\"\n    import re\n    if not postal_code:\n        return True\n    pattern = r'^[KLMNP]\\d[A-Z]\\s?\\d[A-Z]\\d$'\n    return bool(re.match(pattern, postal_code.upper()))\n\ndef format_currency(amount):\n    \"\"\"Format currency values\"\"\"\n    try:\n        return f\"${float(amount):,.2f}\"\n    except:\n        return \"$0.00\"\n\ndef calculate_total(items, field_name='amount'):\n    \"\"\"Calculate total from list of items\"\"\"\n    total = 0\n    for item in items:\n        if hasattr(item, field_name):\n            total += float(getattr(item, field_name) or 0)\n    return total\n"

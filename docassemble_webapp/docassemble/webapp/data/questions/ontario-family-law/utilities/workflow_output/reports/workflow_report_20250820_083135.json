@@ -1,0 +1,46 @@
+{
+  "started_at": "2025-08-20T08:31:04.408571",
+  "steps": {
+    "download": {
+      "status": "success",
+      "downloaded": 48,
+      "failed": 0,
+      "output_dir": "workflow_output/ontario_forms"
+    },
+    "forms_list": {
+      "status": "success",
+      "total_forms": 48,
+      "pdf_count": 2,
+      "docx_count": 46,
+      "json_file": "workflow_output/forms_list.json",
+      "csv_file": "workflow_output/forms_list.csv"
+    },
+    "parse": {
+      "status": "success",
+      "successful": 26,
+      "no_fields": 22,
+      "errors": 0,
+      "output_dir": "workflow_output/parsed_forms"
+    },
+    "map_objects": {
+      "status": "success",
+      "fields_mapped": 582,
+      "objects_identified": 0,
+      "mappings_file": "workflow_output/field_mappings.json"
+    },
+    "generate_yaml": {
+      "status": "success",
+      "files_generated": 26,
+      "output_dir": "workflow_output/yaml_interviews"
+    },
+    "validate": {
+      "status": "success",
+      "total_files": 26,
+      "valid": 0,
+      "invalid": 26,
+      "report_file": "workflow_output/reports/yaml_validation_report.json"
+    }
+  },
+  "status": "success",
+  "completed_at": "2025-08-20T08:31:35.878046"
+}

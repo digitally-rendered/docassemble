@@ -1,0 +1,120 @@
+name: Common Intake Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/**'
+      - '.github/workflows/test.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/**'
+  schedule:
+    # Run tests daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        browser: [chromium, firefox, webkit]
+        
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/package-lock.json
+        
+    - name: Install dependencies
+      working-directory: docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests
+      run: |
+        npm ci
+        npx playwright install --with-deps ${{ matrix.browser }}
+        
+    - name: Run Playwright tests
+      working-directory: docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests
+      env:
+        DOCASSEMBLE_URL: ${{ secrets.DOCASSEMBLE_URL || 'http://localhost' }}
+        CI: true
+      run: npx playwright test --project=${{ matrix.browser }}
+      
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: playwright-results-${{ matrix.browser }}
+        path: |
+          docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/
+          docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/screenshots/
+        retention-days: 30
+        
+    - name: Upload test report
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: playwright-report-${{ matrix.browser }}
+        path: docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/html/
+        retention-days: 30
+
+  report:
+    needs: test
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Download all artifacts
+      uses: actions/download-artifact@v3
+      
+    - name: Merge test results
+      run: |
+        mkdir -p merged-results
+        cp -r playwright-results-*/* merged-results/ || true
+        
+    - name: Generate combined report
+      run: |
+        echo "# Test Results Summary" > test-summary.md
+        echo "" >> test-summary.md
+        echo "## Test Execution: $(date)" >> test-summary.md
+        echo "" >> test-summary.md
+        
+        for browser in chromium firefox webkit; do
+          echo "### $browser" >> test-summary.md
+          if [ -f "playwright-results-$browser/results.json" ]; then
+            echo "✅ Tests completed" >> test-summary.md
+          else
+            echo "❌ Tests failed or incomplete" >> test-summary.md
+          fi
+          echo "" >> test-summary.md
+        done
+        
+    - name: Comment on PR
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          const summary = fs.readFileSync('test-summary.md', 'utf8');
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: summary
+          });
+          
+    - name: Deploy test report to GitHub Pages
+      if: github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./merged-results/html
+        destination_dir: test-reports/common-intake

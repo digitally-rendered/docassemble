@@ -1,0 +1,1729 @@
+{
+  "parser_name": "intelligent",
+  "form_path": "workflow_output/ontario_forms/financial_statements/form_13.1_-_financial_statement_property_flr-13-1-may21-en-fil.docx",
+  "form_hash": "a1e53dc4501ede7f92b201de769d40af9a4e9bf48df36931db62cc751f7a1691",
+  "timestamp": "2025-08-18T21:40:26.905234",
+  "fields": [
+    {
+      "field_name": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "field_type": "text",
+      "field_label": "Full legal name: Full legal name: Full legal name: Full legal name: Full legal name: Full legal name",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 1, Row 8",
+      "table_info": {
+        "table_index": 0,
+        "row_index": 7
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "address_address_address_address_address_address_ad",
+      "field_type": "text",
+      "field_label": "Address: Address: Address: Address: Address: Address: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Address: \u2002\u2002\u2002\u2002\u2002 ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 1, Row 9",
+      "table_info": {
+        "table_index": 0,
+        "row_index": 8
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "email_email_email_email_email_email_email",
+      "field_type": "email",
+      "field_label": "Email: Email: Email: Email: Email: Email: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Email: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 1, Row 11",
+      "table_info": {
+        "table_index": 0,
+        "row_index": 10
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "4_last_year_my_gross_income_from_all_sources_was_l",
+      "field_type": "currency",
+      "field_label": "4. Last year, my gross income from all sources was $ Last year, my gross income from all sources was",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 9",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 8
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "1_1_employment_income_before_deductions_employment",
+      "field_type": "currency",
+      "field_label": "1. 1. Employment income (before deductions) Employment income (before deductions) Employment income ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 22",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 21
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "2_2_commissions_tips_and_bonuses_commissions_tips_",
+      "field_type": "currency",
+      "field_label": "2. 2. Commissions, tips and bonuses Commissions, tips and bonuses Commissions, tips and bonuses Comm",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 23",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 22
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "3_3_self_employment_income_monthly_amount_before_e",
+      "field_type": "currency",
+      "field_label": "3. 3. Self-employment income (Monthly amount before expenses: $ \u2002\u2002\u2002\u2002\u2002) Self-employment income (Month",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 24",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 23
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "4_4_employment_insurance_benefits_employment_insur",
+      "field_type": "currency",
+      "field_label": "4. 4. Employment Insurance benefits Employment Insurance benefits Employment Insurance benefits Empl",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 25",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 24
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "5_5_workers_compensation_benefits_workers_compensa",
+      "field_type": "currency",
+      "field_label": "5. 5. Workers' compensation benefits Workers' compensation benefits Workers' compensation benefits W",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 26",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 25
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "6_6_social_assistance_income_including_odsp_paymen",
+      "field_type": "currency",
+      "field_label": "6. 6. Social assistance income (including ODSP payments) Social assistance income (including ODSP pa",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 27",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 26
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "7_7_interest_and_investment_income_interest_and_in",
+      "field_type": "currency",
+      "field_label": "7. 7. Interest and investment income Interest and investment income Interest and investment income I",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 28",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 27
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "8_8_pension_income_including_cpp_and_oas_pension_i",
+      "field_type": "currency",
+      "field_label": "8. 8. Pension income (including CPP and OAS) Pension income (including CPP and OAS) Pension income (",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 29",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 28
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "9_9_spousal_support_received_from_a_former_spouse_",
+      "field_type": "currency",
+      "field_label": "9. 9. Spousal support received from a former spouse/partner Spousal support received from a former s",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 30",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 29
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "10_10_child_tax_benefits_or_tax_rebates_e_g_gst_ch",
+      "field_type": "currency",
+      "field_label": "10. 10. Child Tax Benefits or Tax Rebates (e.g. GST) Child Tax Benefits or Tax Rebates (e.g. GST) Ch",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 31",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 30
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "11_11_other_sources_of_income_e_g_rrsp_withdrawals",
+      "field_type": "currency",
+      "field_label": "11. 11. Other sources of income (e.g. RRSP withdrawals, capital gains) (*attach Schedule A and divid",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 32",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 31
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "12_12_total_monthly_income_from_all_sources_total_",
+      "field_type": "currency",
+      "field_label": "12. 12. Total monthly income from all sources: Total monthly income from all sources: Total monthly ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 33",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 32
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "13_13_total_monthly_income_x_12_total_annual_incom",
+      "field_type": "currency",
+      "field_label": "13. 13. Total monthly income X 12 = Total annual income: Total monthly income X 12 = Total annual in",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 34",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 33
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 7",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 6
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "cpp_contributions_cpp_contributions_cpp_contributi",
+      "field_type": "currency",
+      "field_label": "CPP contributions CPP contributions CPP contributions $ \u2002\u2002\u2002\u2002\u2002   Public transit, taxis Public transit",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 14",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 13
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "ei_premiums_ei_premiums_ei_premiums_gas_and_oil_ga",
+      "field_type": "currency",
+      "field_label": "EI premiums EI premiums EI premiums $ \u2002\u2002\u2002\u2002\u2002   Gas and oil Gas and oil Gas and oil Gas and oil $ \u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 15",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 14
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "income_taxes_income_taxes_income_taxes_car_insuran",
+      "field_type": "currency",
+      "field_label": "Income taxes Income taxes Income taxes $ \u2002\u2002\u2002\u2002\u2002   Car insurance and license Car insurance and license",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 16",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 15
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "employee_pension_contributions_employee_pension_co",
+      "field_type": "currency",
+      "field_label": "Employee pension contributions Employee pension contributions Employee pension contributions $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 17",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 16
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "union_dues_union_dues_union_dues_parking_parking_p",
+      "field_type": "currency",
+      "field_label": "Union dues Union dues Union dues $ \u2002\u2002\u2002\u2002\u2002   Parking Parking Parking Parking $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 18",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 17
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "subtotal_subtotal_subtotal_car_loan_or_lease_payme",
+      "field_type": "currency",
+      "field_label": "SUBTOTAL SUBTOTAL SUBTOTAL $ \u2002\u2002\u2002\u2002\u2002   Car Loan or Lease Payments Car Loan or Lease Payments Car Loan ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 19",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 18
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "housing_housing_housing_housing_housing_subtotal_s",
+      "field_type": "currency",
+      "field_label": "Housing Housing Housing Housing Housing   SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 20",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 19
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "rent_or_mortgage_rent_or_mortgage_rent_or_mortgage",
+      "field_type": "currency",
+      "field_label": "Rent or mortgage Rent or mortgage Rent or mortgage $ \u2002\u2002\u2002\u2002\u2002   Health Health Health Health Health Heal",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 21",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 20
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "property_taxes_property_taxes_property_taxes_healt",
+      "field_type": "currency",
+      "field_label": "Property taxes Property taxes Property taxes $ \u2002\u2002\u2002\u2002\u2002   Health insurance premiums Health insurance pr",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 22",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 21
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "property_insurance_property_insurance_property_ins",
+      "field_type": "currency",
+      "field_label": "Property insurance Property insurance Property insurance $ \u2002\u2002\u2002\u2002\u2002   Dental expenses Dental expenses D",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 23",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 22
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "condominium_fees_condominium_fees_condominium_fees",
+      "field_type": "currency",
+      "field_label": "Condominium fees Condominium fees Condominium fees $ \u2002\u2002\u2002\u2002\u2002   Medicine and drugs Medicine and drugs M",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 24",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 23
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "repairs_and_maintenance_repairs_and_maintenance_re",
+      "field_type": "currency",
+      "field_label": "Repairs and maintenance Repairs and maintenance Repairs and maintenance $ \u2002\u2002\u2002\u2002\u2002   Eye care Eye care ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 25",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 24
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+      "field_type": "currency",
+      "field_label": "SUBTOTAL SUBTOTAL SUBTOTAL $ \u2002\u2002\u2002\u2002\u2002   SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 26",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 25
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "water_water_water_clothing_clothing_clothing_cloth",
+      "field_type": "currency",
+      "field_label": "Water Water Water $ \u2002\u2002\u2002\u2002\u2002   Clothing Clothing Clothing Clothing $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 28",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 27
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "heat_heat_heat_hair_care_and_beauty_hair_care_and_",
+      "field_type": "currency",
+      "field_label": "Heat Heat Heat $ \u2002\u2002\u2002\u2002\u2002   Hair care and beauty Hair care and beauty Hair care and beauty Hair care an",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 29",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 28
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "electricity_electricity_electricity_alcohol_and_to",
+      "field_type": "currency",
+      "field_label": "Electricity Electricity Electricity $ \u2002\u2002\u2002\u2002\u2002   Alcohol and tobacco Alcohol and tobacco Alcohol and to",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 30",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 29
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "telephone_telephone_telephone_telephone_telephone_",
+      "field_type": "currency",
+      "field_label": "Telephone Telephone Telephone Telephone Telephone Telephone Telephone $ $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002   ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 5",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 4
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "cell_phone_cell_phone_cell_phone_cell_phone_cell_p",
+      "field_type": "currency",
+      "field_label": "Cell phone Cell phone Cell phone Cell phone Cell phone Cell phone Cell phone $ $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 6",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 5
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "cable_cable_cable_cable_cable_cable_cable_gifts_gi",
+      "field_type": "currency",
+      "field_label": "Cable Cable Cable Cable Cable Cable Cable $ $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002   Gifts Gifts Gifts Gifts Gift",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 7",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 6
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "internet_internet_internet_internet_internet_inter",
+      "field_type": "currency",
+      "field_label": "Internet Internet Internet Internet Internet Internet Internet $ $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002   SUBTOTA",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 8",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 7
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+      "field_type": "currency",
+      "field_label": "SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002   Other e",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 9",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 8
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "household_expenses_household_expenses_household_ex",
+      "field_type": "currency",
+      "field_label": "Household Expenses Household Expenses Household Expenses Household Expenses Household Expenses House",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 10",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 9
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "groceries_groceries_groceries_groceries_groceries_",
+      "field_type": "currency",
+      "field_label": "Groceries Groceries Groceries Groceries Groceries Groceries Groceries $ $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002   ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 11",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 10
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "household_supplies_household_supplies_household_su",
+      "field_type": "currency",
+      "field_label": "Household supplies Household supplies Household supplies Household supplies Household supplies House",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 12",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 11
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "meals_outside_the_home_meals_outside_the_home_meal",
+      "field_type": "currency",
+      "field_label": "Meals outside the home Meals outside the home Meals outside the home Meals outside the home Meals ou",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 13",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 12
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "pet_care_pet_care_pet_care_pet_care_pet_care_pet_c",
+      "field_type": "currency",
+      "field_label": "Pet care Pet care Pet care Pet care Pet care Pet care Pet care $ $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002   Clothin",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 14",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 13
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "laundry_and_dry_cleaning_laundry_and_dry_cleaning_",
+      "field_type": "currency",
+      "field_label": "Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 15",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 14
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "childcare_costs_childcare_costs_childcare_costs_ch",
+      "field_type": "currency",
+      "field_label": "Childcare Costs Childcare Costs Childcare Costs Childcare Costs Childcare Costs Childcare Costs Chil",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 17",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 16
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "daycare_expense_daycare_expense_daycare_expense_da",
+      "field_type": "currency",
+      "field_label": "Daycare expense Daycare expense Daycare expense Daycare expense Daycare expense Daycare expense Dayc",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 18",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 17
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "babysitting_costs_babysitting_costs_babysitting_co",
+      "field_type": "currency",
+      "field_label": "Babysitting costs Babysitting costs Babysitting costs Babysitting costs Babysitting costs Babysittin",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 19",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 18
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "total_amount_of_monthly_expenses_total_amount_of_m",
+      "field_type": "currency",
+      "field_label": "            Total Amount of Monthly Expenses Total Amount of Monthly Expenses Total Amount of Monthl",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 22",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 21
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "total_amount_of_yearly_expenses_total_amount_of_ye",
+      "field_type": "currency",
+      "field_label": "            Total Amount of Yearly Expenses Total Amount of Yearly Expenses Total Amount of Yearly E",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 23",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 22
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "6_my_spouse_partner_my_spouse_partner_my_spouse_pa",
+      "field_type": "currency",
+      "field_label": "6. My spouse/partner My spouse/partner My spouse/partner  earns (give amount) $ earns (give amount) ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 32",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 31
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "7_my_spouse_partner_or_other_adult_residing_in_the",
+      "field_type": "currency",
+      "field_label": "7. My spouse/partner or other adult residing in the home contributes about $ My spouse/partner or ot",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 34",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 33
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ $ \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 13",
+      "table_info": {
+        "table_index": 4,
+        "row_index": 12
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "15_total_value_of_land_15_total_value_of_land_15_t",
+      "field_type": "currency",
+      "field_label": "15.  TOTAL VALUE OF LAND 15.  TOTAL VALUE OF LAND 15.  TOTAL VALUE OF LAND 15.  TOTAL VALUE OF LAND ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 14",
+      "table_info": {
+        "table_index": 4,
+        "row_index": 13
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "household_goods_furniture_household_goods_furnitur",
+      "field_type": "currency",
+      "field_label": "Household goods & furniture Household goods & furniture \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 19",
+      "table_info": {
+        "table_index": 4,
+        "row_index": 18
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "cars_boats_vehicles_cars_boats_vehicles",
+      "field_type": "currency",
+      "field_label": "Cars, boats, vehicles Cars, boats, vehicles \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ $ \u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 20",
+      "table_info": {
+        "table_index": 4,
+        "row_index": 19
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "jewellery_art_electronics_tools_sports_hobby_equip",
+      "field_type": "currency",
+      "field_label": "Jewellery, art, electronics, tools, sports & hobby equipment Jewellery, art, electronics, tools, spo",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 21",
+      "table_info": {
+        "table_index": 4,
+        "row_index": 20
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "other_special_items_other_special_items",
+      "field_type": "currency",
+      "field_label": "Other special items Other special items \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ $ \u2002\u2002\u2002\u2002\u2002 ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 22",
+      "table_info": {
+        "table_index": 4,
+        "row_index": 21
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "16_total_value_of_general_household_items_and_vehi",
+      "field_type": "currency",
+      "field_label": "16.  TOTAL VALUE OF GENERAL HOUSEHOLD ITEMS AND VEHICLES 16.  TOTAL VALUE OF GENERAL HOUSEHOLD ITEMS",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 23",
+      "table_info": {
+        "table_index": 4,
+        "row_index": 22
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 $ $ \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 6, Row 8",
+      "table_info": {
+        "table_index": 5,
+        "row_index": 7
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "17_total_value_of_accounts_savings_securities_and_",
+      "field_type": "currency",
+      "field_label": "17.  TOTAL VALUE OF ACCOUNTS, SAVINGS, SECURITIES AND PENSIONS 17.  TOTAL VALUE OF ACCOUNTS, SAVINGS",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 6, Row 9",
+      "table_info": {
+        "table_index": 5,
+        "row_index": 8
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "18_total_cash_surrender_value_of_insurance_policie",
+      "field_type": "currency",
+      "field_label": "18.  TOTAL CASH SURRENDER VALUE OF INSURANCE POLICIES 18.  TOTAL CASH SURRENDER VALUE OF INSURANCE P",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 6, Row 15",
+      "table_info": {
+        "table_index": 5,
+        "row_index": 14
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "19_total_value_of_business_interests_19_total_valu",
+      "field_type": "currency",
+      "field_label": "19.  TOTAL VALUE OF BUSINESS INTERESTS 19.  TOTAL VALUE OF BUSINESS INTERESTS 19.  TOTAL VALUE OF BU",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 6, Row 21",
+      "table_info": {
+        "table_index": 5,
+        "row_index": 20
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 $ $ \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 8",
+      "table_info": {
+        "table_index": 6,
+        "row_index": 7
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "20_total_of_money_owed_to_you_20_total_of_money_ow",
+      "field_type": "currency",
+      "field_label": "20.  TOTAL OF MONEY OWED TO YOU 20.  TOTAL OF MONEY OWED TO YOU 20.  TOTAL OF MONEY OWED TO YOU 20. ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 9",
+      "table_info": {
+        "table_index": 6,
+        "row_index": 8
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "21_total_value_of_other_property_21_total_value_of",
+      "field_type": "currency",
+      "field_label": "21.  TOTAL VALUE OF OTHER PROPERTY 21.  TOTAL VALUE OF OTHER PROPERTY 21.  TOTAL VALUE OF OTHER PROP",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 15",
+      "table_info": {
+        "table_index": 6,
+        "row_index": 14
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "22_value_of_all_property_owned_on_the_valuation_da",
+      "field_type": "date",
+      "field_label": "22.  VALUE OF ALL PROPERTY OWNED ON THE VALUATION DATE\n(Add items [15] to [21].) 22.  VALUE OF ALL P",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 16",
+      "table_info": {
+        "table_index": 6,
+        "row_index": 15
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "23_total_of_debts_and_other_liabilities_23_total_o",
+      "field_type": "currency",
+      "field_label": "23.  TOTAL OF DEBTS AND OTHER LIABILITIES 23.  TOTAL OF DEBTS AND OTHER LIABILITIES 23.  TOTAL OF DE",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 25",
+      "table_info": {
+        "table_index": 6,
+        "row_index": 24
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 9",
+      "table_info": {
+        "table_index": 7,
+        "row_index": 8
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "totals_totals_totals_totals",
+      "field_type": "currency",
+      "field_label": "TOTALS TOTALS TOTALS TOTALS $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 24",
+      "table_info": {
+        "table_index": 7,
+        "row_index": 23
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "24_net_value_of_property_owned_on_date_of_marriage",
+      "field_type": "date",
+      "field_label": "24.  NET VALUE OF PROPERTY OWNED ON DATE OF MARRIAGE\n(From the total of the \u201cAssets\u201d column, subtrac",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 25",
+      "table_info": {
+        "table_index": 7,
+        "row_index": 24
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "25_value_of_all_deductions_add_items_23_and_24_25_",
+      "field_type": "currency",
+      "field_label": "25.  VALUE OF ALL DEDUCTIONS  (Add items [23] and [24].) 25.  VALUE OF ALL DEDUCTIONS  (Add items [2",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 26",
+      "table_info": {
+        "table_index": 7,
+        "row_index": 25
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "26_total_value_of_excluded_property_26_total_value",
+      "field_type": "currency",
+      "field_label": "26.  TOTAL VALUE OF EXCLUDED PROPERTY 26.  TOTAL VALUE OF EXCLUDED PROPERTY 26.  TOTAL VALUE OF EXCL",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 31",
+      "table_info": {
+        "table_index": 7,
+        "row_index": 30
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ $ ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 9, Row 7",
+      "table_info": {
+        "table_index": 8,
+        "row_index": 6
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "27_total_value_of_disposed_of_property_27_total_va",
+      "field_type": "currency",
+      "field_label": "27.  TOTAL VALUE OF DISPOSED-OF PROPERTY 27.  TOTAL VALUE OF DISPOSED-OF PROPERTY 27.  TOTAL VALUE O",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 9, Row 8",
+      "table_info": {
+        "table_index": 8,
+        "row_index": 7
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "value_of_all_property_owned_on_valuation_date_from",
+      "field_type": "date",
+      "field_label": "Value of all property owned on valuation date  (from item [22] above) Value of all property owned on",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 9, Row 11",
+      "table_info": {
+        "table_index": 8,
+        "row_index": 10
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "subtract_value_of_all_deductions_from_item_25_abov",
+      "field_type": "currency",
+      "field_label": "Subtract value of all deductions  (from item [25] above) Subtract value of all deductions  (from ite",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 9, Row 12",
+      "table_info": {
+        "table_index": 8,
+        "row_index": 11
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "subtract_total_value_of_excluded_property_from_ite",
+      "field_type": "currency",
+      "field_label": "Subtract total value of excluded property  (from item [26] above) Subtract total value of excluded p",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 9, Row 13",
+      "table_info": {
+        "table_index": 8,
+        "row_index": 12
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "28_net_family_property_28_net_family_property_28_n",
+      "field_type": "currency",
+      "field_label": "28.  NET FAMILY PROPERTY 28.  NET FAMILY PROPERTY 28.  NET FAMILY PROPERTY 28.  NET FAMILY PROPERTY ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 9, Row 14",
+      "table_info": {
+        "table_index": 8,
+        "row_index": 13
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "1_1_1_1_1_net_partnership_income_net_partnership_i",
+      "field_type": "currency",
+      "field_label": "1. 1. 1. 1. 1. Net partnership income Net partnership income Net partnership income Net partnership ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 3",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 2
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "2_2_2_2_2_net_rental_income_gross_annual_rental_in",
+      "field_type": "currency",
+      "field_label": "2. 2. 2. 2. 2. Net rental income (Gross annual rental income of $ \u2002\u2002\u2002\u2002\u2002) Net rental income (Gross an",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 4",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 3
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "3_3_3_3_3_total_amount_of_dividends_received_from_",
+      "field_type": "currency",
+      "field_label": "3. 3. 3. 3. 3. Total amount of dividends received from taxable Canadian corporations Total amount of",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 5",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 4
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "4_4_4_4_4_total_capital_gains_less_capital_losses_",
+      "field_type": "currency",
+      "field_label": "4. 4. 4. 4. 4. Total capital gains ($ \u2002\u2002\u2002\u2002\u2002) less capital losses ($ \u2002\u2002\u2002\u2002\u2002) Total capital gains ($ \u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 6",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 5
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "5_5_5_5_5_registered_retirement_savings_plan_withd",
+      "field_type": "currency",
+      "field_label": "5. 5. 5. 5. 5. Registered retirement savings plan withdrawals Registered retirement savings plan wit",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 7",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 6
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "6_6_6_6_6_income_from_a_registered_retirement_inco",
+      "field_type": "currency",
+      "field_label": "6. 6. 6. 6. 6. Income from a Registered Retirement Income Fund or Annuity Income from a Registered R",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 8",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 7
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "7_7_7_7_7_any_other_income_specify_source_any_othe",
+      "field_type": "currency",
+      "field_label": "7. 7. 7. 7. 7. Any other income (specify source) \u2002\u2002\u2002\u2002\u2002 Any other income (specify source) \u2002\u2002\u2002\u2002\u2002 Any o",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 9",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 8
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "subtotal_subtotal_subtotal",
+      "field_type": "currency",
+      "field_label": "          Subtotal: Subtotal: Subtotal: $ $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 11",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 10
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "1",
+      "field_type": "currency",
+      "field_label": "1. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 14",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 13
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "2",
+      "field_type": "currency",
+      "field_label": "2. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 15",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 14
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "3",
+      "field_type": "currency",
+      "field_label": "3. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 16",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 15
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "4",
+      "field_type": "currency",
+      "field_label": "4. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 17",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 16
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "5",
+      "field_type": "currency",
+      "field_label": "5. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 18",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 17
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "6",
+      "field_type": "currency",
+      "field_label": "6. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 19",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 18
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "7",
+      "field_type": "currency",
+      "field_label": "7. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 20",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 19
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "8",
+      "field_type": "currency",
+      "field_label": "8. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 21",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 20
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "9",
+      "field_type": "currency",
+      "field_label": "9. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 22",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 21
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "10_10",
+      "field_type": "currency",
+      "field_label": "10. 10. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 23",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 22
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "total_net_annual_amount_total_net_annual_amount_to",
+      "field_type": "currency",
+      "field_label": "         Total Net Annual Amount Total Net Annual Amount Total Net Annual Amount Total Net Annual Am",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 25",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 24
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "total_net_monthly_amount_total_net_monthly_amount_",
+      "field_type": "currency",
+      "field_label": "         Total Net Monthly Amount Total Net Monthly Amount Total Net Monthly Amount Total Net Monthl",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 26",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 25
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "i_earn_i_earn_per_year_which_should_be_used_to_det",
+      "field_type": "currency",
+      "field_label": "    I earn $ I earn $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 per year which should be used to determine my share of the above e",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 28",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 27
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "medical_insurance_premiums_and_certain_health_rela",
+      "field_type": "currency",
+      "field_label": ". . . Medical insurance premiums and certain health-related expenses for the child that cost more th",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 31",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 30
+      },
+      "validation_rules": null
+    }
+  ],
+  "metadata": {
+    "ocr_used": true,
+    "ai_used": false
+  }
+}

@@ -1,0 +1,171 @@
+---
+metadata:
+  title: Form 13 - Financial Statement (Working)
+  short title: Form 13 Working
+  description: Simplified working version with real field structure
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  progress bar: True
+  question back button: True
+---
+objects:
+  - applicant: Individual
+  - income_data: DAObject
+---
+mandatory: True
+code: |
+  intro_screen
+  applicant.name.first
+  income_screen
+  calculate_income
+  show_summary
+---
+question: |
+  Form 13 - Financial Statement
+subquestion: |
+  This form collects financial information for support claims.
+continue button field: intro_screen
+---
+question: |
+  Your Information
+fields:
+  - First Name: applicant.name.first
+    required: True
+  - Last Name: applicant.name.last
+    required: True
+---
+question: |
+  Monthly Income
+subquestion: |
+  Enter your monthly income from each source. Leave blank if not applicable.
+fields:
+  - "Employment Income (before deductions)": income_data.employment
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Commissions, tips and bonuses": income_data.commissions
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Self-Employment Income": income_data.self_employment
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Employment Insurance Benefits": income_data.ei_benefits
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Workers Compensation": income_data.workers_comp
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Social Assistance (including ODSP)": income_data.social_assistance
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Investment Income": income_data.investments
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Pension Income (including CPP/OAS)": income_data.pension
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Spousal Support Received": income_data.spousal_support
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Child Tax Benefits": income_data.child_benefits
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Other Income": income_data.other
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+continue button field: income_screen
+---
+code: |
+  # Calculate total income
+  income_data.total = (
+    income_data.employment +
+    income_data.commissions +
+    income_data.self_employment +
+    income_data.ei_benefits +
+    income_data.workers_comp +
+    income_data.social_assistance +
+    income_data.investments +
+    income_data.pension +
+    income_data.spousal_support +
+    income_data.child_benefits +
+    income_data.other
+  )
+  
+  income_data.annual_total = income_data.total * 12
+  
+  calculate_income = True
+---
+event: show_summary
+question: |
+  Financial Statement Summary
+subquestion: |
+  **Your Information:**
+  - Name: ${ applicant.name.full() }
+  
+  **Monthly Income Breakdown:**
+  
+  | Source | Amount |
+  |--------|--------|
+  % if income_data.employment > 0:
+  | Employment Income | ${ currency(income_data.employment) } |
+  % endif
+  % if income_data.commissions > 0:
+  | Commissions/Tips | ${ currency(income_data.commissions) } |
+  % endif
+  % if income_data.self_employment > 0:
+  | Self-Employment | ${ currency(income_data.self_employment) } |
+  % endif
+  % if income_data.ei_benefits > 0:
+  | EI Benefits | ${ currency(income_data.ei_benefits) } |
+  % endif
+  % if income_data.workers_comp > 0:
+  | Workers Compensation | ${ currency(income_data.workers_comp) } |
+  % endif
+  % if income_data.social_assistance > 0:
+  | Social Assistance | ${ currency(income_data.social_assistance) } |
+  % endif
+  % if income_data.investments > 0:
+  | Investment Income | ${ currency(income_data.investments) } |
+  % endif
+  % if income_data.pension > 0:
+  | Pension Income | ${ currency(income_data.pension) } |
+  % endif
+  % if income_data.spousal_support > 0:
+  | Spousal Support | ${ currency(income_data.spousal_support) } |
+  % endif
+  % if income_data.child_benefits > 0:
+  | Child Benefits | ${ currency(income_data.child_benefits) } |
+  % endif
+  % if income_data.other > 0:
+  | Other Income | ${ currency(income_data.other) } |
+  % endif
+  | **TOTAL MONTHLY** | **${ currency(income_data.total) }** |
+  | **TOTAL ANNUAL** | **${ currency(income_data.annual_total) }** |
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

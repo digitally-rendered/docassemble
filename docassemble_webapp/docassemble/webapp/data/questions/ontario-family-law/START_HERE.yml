@@ -1,0 +1,62 @@
+---
+metadata:
+  title: START HERE - Ontario Family Law Forms
+  short title: Start Here
+---
+mandatory: True
+question: |
+  Ontario Family Law Forms - Start Here
+subquestion: |
+  ## ✅ COMPLETE COLLECTION - All 26 Forms Generated
+  
+  ### 🎯 Main Access Point:
+  **[ALL 26 FORMS - Complete Collection](/interview?i=docassemble.webapp:ontario-family-law/utilities/baseline_complete_interviews/00_INDEX.yml)**
+  
+  Successfully generated interviews for:
+  - Financial Forms (13, 13.1, 13A, 13B, 13C, 26)
+  - Applications (8, 8A, 10, 10A)
+  - Motions (15, 15B, 15C, 17A, 17C)
+  - Orders (25A, 25D)
+  - Affidavits (36, 36A, 29, 29A, 29B, 33F)
+  - Service Forms (6B, 6C)
+  - Other Forms (28)
+  
+  Every interview includes:
+  - ✅ Baseline error handling infrastructure
+  - ✅ Field validation with messages
+  - ✅ Error recovery screens
+  - ✅ Debug mode support (`?debug=1`)
+  - ✅ Safe value access
+  - ✅ Progress tracking
+  
+  ## Test Interviews
+  
+  **[All Test Interviews](/interview?i=docassemble.webapp:ontario-family-law/TEST_INTERVIEWS.yml)** - Progressive testing order
+  
+  ### Working Test Interviews
+  - **[Form 13 Fixed](/interview?i=docassemble.webapp:ontario-family-law/utilities/test_working_interviews/form_13_fixed.yml)** - Simplified working version
+  - **[Test All Field Types](/interview?i=docassemble.webapp:ontario-family-law/utilities/test_working_interviews/test_all_field_types.yml)** - Tests every field type
+  
+  ## Other Interviews with Error Handling
+  
+  ### Form 13 Series (Financial)
+  - **[Form 13 - Financial Statement (Structured)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_13_interview.yml)**
+  - **[Form 13 - Financial Statement (Generated)](/interview?i=docassemble.webapp:ontario-family-law/utilities/generated_interviews/form_13_-_financial_statement.yml)**
+  - **[Form 13 - Comprehensive Version](/interview?i=docassemble.webapp:ontario-family-law/utilities/generated_interviews/form_13_comprehensive.yml)**
+  
+  ### Browse All Forms
+  - **[All 48 Structured Interviews](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/00_structured_index.yml)** - Domain-mapped with error handling
+  
+  ### Other Indexes
+  - **[Master Index](/interview?i=docassemble.webapp:ontario-family-law/00_MASTER_INDEX.yml)** - Complete directory
+  - **[Simple Working Index](/interview?i=docassemble.webapp:ontario-family-law/00_simple_working_index.yml)** - Basic links
+  
+  ## Features
+  - ✅ Error handling and recovery
+  - ✅ Debug mode (add ?debug=1 to URL)
+  - ✅ Field validation
+  - ✅ Progress tracking
+  - ✅ Review screens
+  
+buttons:
+  - "Exit": exit

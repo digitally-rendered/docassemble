@@ -1,0 +1,29 @@
+{
+  "parser_name": "intelligent",
+  "form_path": "workflow_output/ontario_forms/divorce_specific/form_36a_-_certificate_divorce_flr-36a-dec20-en-fil.docx",
+  "form_hash": "de150d543061f158ebe50625c2c1ce3a44e6424607c8c1625064a538084514b0",
+  "timestamp": "2025-08-18T21:40:24.188170",
+  "fields": [
+    {
+      "field_name": "recipient_s_income_required_for_special_expenses_a",
+      "field_type": "currency",
+      "field_label": "      recipient\u2019s income [REQUIRED for special expenses (add-ons), split and shared parenting time, ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 24",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 23
+      },
+      "validation_rules": null
+    }
+  ],
+  "metadata": {
+    "ocr_used": true,
+    "ai_used": false
+  }
+}

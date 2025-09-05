@@ -1,0 +1,62 @@
+[
+  {
+    "field_id": "table_2_row_16",
+    "field_name": "including_travel_including_travel_including_travel",
+    "field_type": "currency",
+    "field_label": "$ including travel. including travel. including travel. including travel. including travel. includin",
+    "required": false,
+    "validation_rules": "",
+    "max_length": null,
+    "options": null,
+    "table_name": "Table 3",
+    "table_row": 16,
+    "field_context": "Table 3, Row 17",
+    "page_number": 0,
+    "coordinates": null
+  },
+  {
+    "field_id": "table_2_row_20",
+    "field_name": "lawyer_paralegal_s_name_lawyer_paralegal_s_name_la",
+    "field_type": "text",
+    "field_label": "Lawyer/paralegal\u2019s name: Lawyer/paralegal\u2019s name: Lawyer/paralegal\u2019s name: Lawyer/paralegal\u2019s name: ",
+    "required": false,
+    "validation_rules": "",
+    "max_length": null,
+    "options": null,
+    "table_name": "Table 3",
+    "table_row": 20,
+    "field_context": "Table 3, Row 21",
+    "page_number": 0,
+    "coordinates": null
+  },
+  {
+    "field_id": "table_2_row_25",
+    "field_name": "street_address_street_address_street_address_stree",
+    "field_type": "text",
+    "field_label": "Street address: Street address: Street address: Street address: Street address: Street address: Stre",
+    "required": false,
+    "validation_rules": "",
+    "max_length": null,
+    "options": null,
+    "table_name": "Table 3",
+    "table_row": 25,
+    "field_context": "Table 3, Row 26",
+    "page_number": 0,
+    "coordinates": null
+  },
+  {
+    "field_id": "table_2_row_30",
+    "field_name": "email_address_email_address_email_address_email_ad",
+    "field_type": "email",
+    "field_label": "Email address: Email address: Email address: Email address: Email address: Email address: Email addr",
+    "required": false,
+    "validation_rules": "",
+    "max_length": null,
+    "options": null,
+    "table_name": "Table 3",
+    "table_row": 30,
+    "field_context": "Table 3, Row 31",
+    "page_number": 0,
+    "coordinates": null
+  }
+]

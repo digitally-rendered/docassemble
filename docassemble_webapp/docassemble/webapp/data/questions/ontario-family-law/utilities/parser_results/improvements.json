@@ -1,0 +1,2752 @@
+{
+  "form_36a_-_certificate_divorce_flr-36a-dec20-en-fil": [
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [],
+      "context": "Table 2, Row 24",
+      "confidence_boost": 0.1
+    }
+  ],
+  "form_36_-_affidavit_for_divorce_flr-36-apr24-en-fil": [
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 2, Row 29",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [
+        "currency"
+      ],
+      "context": "Table 2, Row 26",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount"
+      ],
+      "indicators": [
+        "currency"
+      ],
+      "context": "Table 2, Row 30",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency"
+      ],
+      "context": "Table 3, Row 15",
+      "confidence_boost": 0.1
+    }
+  ],
+  "form_33f_-_access_application_flr-33f-may21-en-fil": [
+    {
+      "field_type": "date",
+      "keywords": [
+        "date",
+        "birth"
+      ],
+      "indicators": [
+        "colon",
+        "unicode_space"
+      ],
+      "context": "Table 1, Row 12",
+      "confidence_boost": 0.1
+    }
+  ],
+  "form_43b_-_affidavit_bjdr_hearing_flr-43b-sep24-en-fil": [
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Paragraph 70",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "date",
+      "keywords": [
+        "number",
+        "amount"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Paragraph 81",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "date",
+      "keywords": [
+        "date",
+        "amount"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Paragraph 101",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "date",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Paragraph 104",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "date",
+      "keywords": [
+        "date",
+        "amount"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Paragraph 78",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [
+        "currency"
+      ],
+      "context": "Paragraph 62",
+      "confidence_boost": 0.1
+    }
+  ],
+  "form_13c_-_comparison_net_family_property_flr-13c-may21-en-fil": [
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 2, Row 9",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "email",
+      "keywords": [
+        "email"
+      ],
+      "indicators": [
+        "colon",
+        "unicode_space"
+      ],
+      "context": "Table 1, Row 13",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 11, Row 10",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "colon",
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 7, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "colon",
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 13, Row 4",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "colon",
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 14, Row 3",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "date",
+      "keywords": [
+        "date",
+        "value"
+      ],
+      "indicators": [
+        "colon",
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 14, Row 1",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [
+        "colon"
+      ],
+      "context": "Table 4, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [
+        "colon"
+      ],
+      "context": "Table 3, Row 11",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "date",
+      "keywords": [
+        "date",
+        "value",
+        "age"
+      ],
+      "indicators": [],
+      "context": "Table 11, Row 13",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "text",
+      "keywords": [
+        "address"
+      ],
+      "indicators": [
+        "colon",
+        "unicode_space"
+      ],
+      "context": "Table 1, Row 11",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 5",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "date",
+      "keywords": [
+        "date",
+        "value",
+        "age"
+      ],
+      "indicators": [
+        "colon",
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 13, Row 2",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [
+        "colon",
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 13, Row 3",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "date",
+      "keywords": [
+        "date"
+      ],
+      "indicators": [
+        "colon",
+        "unicode_space"
+      ],
+      "context": "Table 2, Row 1",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [
+        "colon"
+      ],
+      "context": "Table 12, Row 12",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 6",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 2, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "text",
+      "keywords": [
+        "name"
+      ],
+      "indicators": [
+        "colon",
+        "unicode_space"
+      ],
+      "context": "Table 1, Row 10",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 7",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 11, Row 6",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [
+        "colon"
+      ],
+      "context": "Table 10, Row 9",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [
+        "colon"
+      ],
+      "context": "Table 8, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 11, Row 12",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 9",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "colon",
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 14, Row 2",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "date",
+      "keywords": [
+        "date",
+        "value"
+      ],
+      "indicators": [
+        "colon",
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 9, Row 1",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [
+        "colon"
+      ],
+      "context": "Table 6, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [
+        "colon"
+      ],
+      "context": "Table 5, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "colon",
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 13, Row 1",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [
+        "colon"
+      ],
+      "context": "Table 2, Row 11",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "number",
+        "amount",
+        "applicant"
+      ],
+      "indicators": [
+        "currency"
+      ],
+      "context": "Table 5, Row 2",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 11, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 8",
+      "confidence_boost": 0.1
+    }
+  ],
+  "form_13.1_-_financial_statement_property_flr-13-1-may21-en-fil": [
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 16",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 10, Row 16",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 8, Row 24",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [],
+      "context": "Table 10, Row 3",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 17",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 7",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount",
+        "income"
+      ],
+      "indicators": [
+        "colon",
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 2, Row 24",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 15",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 26",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [],
+      "context": "Table 2, Row 32",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 2, Row 25",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 2, Row 23",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [],
+      "context": "Table 6, Row 15",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "colon",
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 10, Row 11",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 4, Row 18",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [],
+      "context": "Table 7, Row 15",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "age"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 21",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 22",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [
+        "unicode_space"
+      ],
+      "context": "Table 10, Row 9",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 10, Row 15",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 10, Row 14",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 10, Row 22",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [],
+      "context": "Table 9, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 9, Row 7",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount"
+      ],
+      "indicators": [],
+      "context": "Table 10, Row 26",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "phone"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 6",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "text",
+      "keywords": [
+        "address"
+      ],
+      "indicators": [
+        "colon",
+        "unicode_space"
+      ],
+      "context": "Table 1, Row 9",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 4, Row 17",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 4, Row 13",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 29",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "email",
+      "keywords": [
+        "email"
+      ],
+      "indicators": [
+        "colon",
+        "unicode_space"
+      ],
+      "context": "Table 1, Row 11",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 10, Row 17",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "text",
+      "keywords": [
+        "name"
+      ],
+      "indicators": [
+        "colon"
+      ],
+      "context": "Table 1, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 2, Row 26",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 30",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "date",
+      "keywords": [
+        "date",
+        "value"
+      ],
+      "indicators": [],
+      "context": "Table 7, Row 16",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 9",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount"
+      ],
+      "indicators": [],
+      "context": "Table 4, Row 23",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [],
+      "context": "Table 2, Row 29",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [],
+      "context": "Table 10, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "date",
+      "keywords": [
+        "date",
+        "value"
+      ],
+      "indicators": [],
+      "context": "Table 9, Row 11",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 10, Row 31",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [
+        "colon"
+      ],
+      "context": "Table 2, Row 33",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 10, Row 6",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 5, Row 13",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 14",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [],
+      "context": "Table 5, Row 14",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 4, Row 15",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 7, Row 25",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 24",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 4, Row 12",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 4, Row 10",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 5, Row 19",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [],
+      "context": "Table 8, Row 31",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [],
+      "context": "Table 6, Row 9",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 20",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [],
+      "context": "Table 2, Row 22",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "phone"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 5",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [],
+      "context": "Table 2, Row 27",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 4, Row 19",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 5, Row 22",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 28",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency"
+      ],
+      "context": "Table 4, Row 34",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 10, Row 23",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 14",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 5, Row 20",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 10, Row 21",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 11",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 10, Row 19",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 10, Row 28",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [],
+      "context": "Table 9, Row 13",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 10, Row 4",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [],
+      "context": "Table 5, Row 23",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 10, Row 7",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount"
+      ],
+      "indicators": [
+        "currency"
+      ],
+      "context": "Table 4, Row 32",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [],
+      "context": "Table 6, Row 21",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 5, Row 21",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 9, Row 14",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount"
+      ],
+      "indicators": [],
+      "context": "Table 10, Row 5",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 2, Row 31",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 19",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 25",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 7",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [],
+      "context": "Table 8, Row 26",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 7, Row 9",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [
+        "currency"
+      ],
+      "context": "Table 2, Row 9",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount"
+      ],
+      "indicators": [],
+      "context": "Table 10, Row 25",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 18",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount"
+      ],
+      "indicators": [],
+      "context": "Table 4, Row 22",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "date",
+      "keywords": [
+        "date",
+        "value",
+        "age"
+      ],
+      "indicators": [],
+      "context": "Table 8, Row 25",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 10, Row 20",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [],
+      "context": "Table 2, Row 28",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [],
+      "context": "Table 9, Row 12",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 23",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 10, Row 18",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [
+        "colon"
+      ],
+      "context": "Table 2, Row 34",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 2, Row 30",
+      "confidence_boost": 0.1
+    }
+  ],
+  "form_13b_-_net_family_property_statement_flr-13b-may09-en-fil-tables": [
+    {
+      "field_type": "currency",
+      "keywords": [
+        "age"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 6, Row 19",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "age"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 6, Row 24",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "colon",
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 6, Row 26",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 6, Row 5",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 2, Row 17",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 35",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 4",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 6, Row 17",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 5",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 2, Row 4",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 2, Row 5",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 6, Row 22",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "age"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 6, Row 20",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 17",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 36",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 27",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "age"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 6, Row 21",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 6, Row 25",
+      "confidence_boost": 0.1
+    }
+  ],
+  "form_13a_-_certificate_financial_disclosure_flr-13a-may21-en-fil": [
+    {
+      "field_type": "email",
+      "keywords": [
+        "email"
+      ],
+      "indicators": [
+        "colon",
+        "unicode_space"
+      ],
+      "context": "Table 1, Row 11",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "text",
+      "keywords": [
+        "name"
+      ],
+      "indicators": [
+        "colon",
+        "unicode_space"
+      ],
+      "context": "Table 1, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "text",
+      "keywords": [
+        "address"
+      ],
+      "indicators": [
+        "colon",
+        "unicode_space"
+      ],
+      "context": "Table 1, Row 9",
+      "confidence_boost": 0.1
+    }
+  ],
+  "form_13_-_financial_statement_support_flr-13-may21-en-fil": [
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 10",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 2, Row 23",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 5, Row 36",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 12",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 8, Row 11",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [
+        "currency"
+      ],
+      "context": "Table 2, Row 9",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 5, Row 16",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 27",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [],
+      "context": "Table 7, Row 3",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 8, Row 21",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 4, Row 11",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency"
+      ],
+      "context": "Table 6, Row 22",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 5, Row 15",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 7, Row 6",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 6, Row 16",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [],
+      "context": "Table 2, Row 27",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "phone"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 6",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 26",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [
+        "colon"
+      ],
+      "context": "Table 2, Row 34",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 7, Row 7",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 2, Row 31",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "phone"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 7",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 8, Row 5",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "text",
+      "keywords": [
+        "address"
+      ],
+      "indicators": [
+        "colon",
+        "unicode_space"
+      ],
+      "context": "Table 1, Row 9",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 8, Row 17",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount"
+      ],
+      "indicators": [],
+      "context": "Table 4, Row 23",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 7, Row 4",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 15",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency"
+      ],
+      "context": "Table 7, Row 24",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 15",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 20",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 8, Row 3",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 24",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 21",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 30",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 13",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 8, Row 15",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "colon",
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 7, Row 11",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 25",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 19",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 5, Row 35",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount"
+      ],
+      "indicators": [],
+      "context": "Table 6, Row 13",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 16",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 8, Row 14",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [],
+      "context": "Table 7, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 8, Row 4",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [
+        "unicode_space"
+      ],
+      "context": "Table 7, Row 9",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 6, Row 10",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 32",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 2, Row 30",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 8, Row 7",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [],
+      "context": "Table 5, Row 38",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 23",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 8, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 5, Row 34",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 5, Row 14",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "text",
+      "keywords": [
+        "name"
+      ],
+      "indicators": [
+        "colon"
+      ],
+      "context": "Table 1, Row 8",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 18",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 9",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 5, Row 10",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "age"
+      ],
+      "indicators": [],
+      "context": "Table 6, Row 7",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount"
+      ],
+      "indicators": [],
+      "context": "Table 7, Row 5",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 4, Row 16",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 6, Row 23",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount"
+      ],
+      "indicators": [
+        "currency"
+      ],
+      "context": "Table 7, Row 22",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount",
+        "income"
+      ],
+      "indicators": [
+        "colon",
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 2, Row 24",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [],
+      "context": "Table 2, Row 28",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 31",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 8, Row 10",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 20",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [],
+      "context": "Table 2, Row 22",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [
+        "colon"
+      ],
+      "context": "Table 2, Row 33",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 5, Row 26",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [],
+      "context": "Table 2, Row 32",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [],
+      "context": "Table 2, Row 29",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 2, Row 25",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 30",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 8, Row 9",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 4, Row 18",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 17",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 8, Row 6",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 29",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount"
+      ],
+      "indicators": [],
+      "context": "Table 6, Row 20",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "age"
+      ],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 22",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "value"
+      ],
+      "indicators": [],
+      "context": "Table 5, Row 6",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "email",
+      "keywords": [
+        "email"
+      ],
+      "indicators": [
+        "colon",
+        "unicode_space"
+      ],
+      "context": "Table 1, Row 11",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 14",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount"
+      ],
+      "indicators": [],
+      "context": "Table 4, Row 24",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 8, Row 12",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 28",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 6, Row 24",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "income",
+        "court"
+      ],
+      "indicators": [],
+      "context": "Table 5, Row 30",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 5, Row 18",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 19",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 29",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [],
+      "context": "Table 2, Row 26",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 5, Row 22",
+      "confidence_boost": 0.1
+    }
+  ],
+  "form_25d_-_order_uncontested_trial_form-25d-en-dec20": [
+    {
+      "field_type": "date",
+      "keywords": [
+        "amount",
+        "court"
+      ],
+      "indicators": [
+        "currency"
+      ],
+      "context": "Table 3, Row 23",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "date",
+      "keywords": [
+        "date",
+        "court",
+        "file"
+      ],
+      "indicators": [
+        "colon"
+      ],
+      "context": "Table 4, Row 6",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 12",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "amount"
+      ],
+      "indicators": [
+        "currency"
+      ],
+      "context": "Table 3, Row 19",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 3, Row 7",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "name",
+        "court"
+      ],
+      "indicators": [],
+      "context": "Table 3, Row 5",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "date",
+      "keywords": [],
+      "indicators": [
+        "currency"
+      ],
+      "context": "Table 3, Row 26",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "name"
+      ],
+      "indicators": [
+        "unicode_space"
+      ],
+      "context": "Table 4, Row 15",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [
+        "name",
+        "court"
+      ],
+      "indicators": [],
+      "context": "Table 2, Row 36",
+      "confidence_boost": 0.1
+    },
+    {
+      "field_type": "currency",
+      "keywords": [],
+      "indicators": [
+        "currency",
+        "unicode_space"
+      ],
+      "context": "Table 2, Row 38",
+      "confidence_boost": 0.1
+    }
+  ]
+}

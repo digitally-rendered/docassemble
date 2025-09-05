@@ -1,0 +1,533 @@
+---
+metadata:
+  title: Ontario Family Law Form 6C
+  short_title: Form 6C
+  description: Structured interview with 84 fields and 1 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - 6C
+  form_number: 6C
+  form_category: general
+  generated: '2025-08-26 22:15:24'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+- docassemble.base:data/questions/financial.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: stepped
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+  table_css_class: table table-striped
+objects:
+- court_info: DAObject
+- person: Individual
+code: "# Validation functions\ndef validate_sin(sin):\n    \"\"\"Validate Canadian SIN\"\"\"\n    import re\n    if not sin:\n        return True\n    sin = re.sub(r'[^0-9]', '', sin)\n    return len(sin) == 9\n\ndef validate_ontario_postal_code(postal_code):\n    \"\"\"Validate Ontario postal code\"\"\"\n    import re\n    if not postal_code:\n        return True\n    pattern = r'^[KLMNP]\\d[A-Z]\\s?\\d[A-Z]\\d$'\n    return bool(re.match(pattern, postal_code.upper()))\n\ndef validate_phone(phone):\n    \"\"\"Validate phone number\"\"\"\n    import re\n    if not phone:\n        return True\n    phone_digits = re.sub(r'[^0-9]', '', phone)\n    return len(phone_digits) == 10\n\ndef format_currency(amount):\n    \"\"\"Format currency values\"\"\"\n    try:\n        return f\"${float(amount):,.2f}\"\n    except:\n        return \"$0.00\"\n\ndef calculate_total(items, field_name='amount'):\n    \"\"\"Calculate total from list of items\"\"\"\n    total = 0\n    for item in items:\n        if\
+  \ hasattr(item, field_name):\n            total += float(getattr(item, field_name) or 0)\n    return total\n"
+mandatory: true
+code: 'intro_seen
+
+  review_complete
+
+  form_complete'
+question: Form 6C Interview
+subquestion: 'This structured interview will help you complete Form 6C.
+
+
+  You will be asked about:
+
+  - Personal information for parties involved
+
+
+  Total sections: 2
+
+  Fields to complete: 84'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Person Information
+fields:
+- label: 'Lawyer/paralegal’s name: Lawyer/paralegal’s name: Lawyer/paralegal’s name: Lawyer/paralegal’s name: '
+  field: person.lawyer_paralegal_s_name_lawyer_paralegal_s_name_la
+  datatype: text
+  required: false
+- label: 'Street address: Street address: Street address: Street address: Street address: Street address: Stre'
+  field: person.street_address_street_address_street_address_stree
+  datatype: text
+  required: false
+- label: 'Email address: Email address: Email address: Email address: Email address: Email address: Email addr'
+  field: person.email_address_email_address_email_address_email_ad
+  datatype: text
+  required: false
+  validate: validate_email
+question: Additional Information
+fields:
+- label: ''
+  field: field
+  required: false
+  choices:
+  - '          '
+  - Ontario Court of Justice
+  - Superior Court of Justice
+  - Superior Court of Justice, Family Court
+  help_text: ''
+- label: Court File Number
+  field: courtfileno
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_13
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_14
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_15
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_16
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_7
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_8
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_9
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_10
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_11
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_17
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 2
+  field: check2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 3
+  field: check3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_18
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 9
+  field: check9
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 10
+  field: check10
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 11
+  field: check11
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_19
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_12
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_13
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_20
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_14
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_21
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_22
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 4
+  field: check4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 5
+  field: check5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 7
+  field: check7
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 12
+  field: check12
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_23
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_24
+  datatype: text
+  required: false
+  help_text: ''
+- label: Dropdown 1
+  field: dropdown1
+  required: false
+  choices:
+  - a.m./p.m.
+  - a.m.
+  - p.m.
+  help_text: ''
+- label: ''
+  field: field_25
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_26
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_27
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 4
+  field: check4_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 5
+  field: check5_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 7
+  field: check7_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 12
+  field: check12_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_28
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_29
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_15
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 13
+  field: check13
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_30
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_31
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_32
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_33
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_34
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_35
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_36
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_37
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_38
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_39
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_40
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_41
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_42
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_43
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_44
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_45
+  datatype: text
+  required: false
+  help_text: ''
+- label: $ including travel. including travel. including travel. including travel. including travel. includin
+  field: including_travel_including_travel_including_travel
+  datatype: currency
+  required: false
+  min: 0
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: 'Lawyer/paralegal’s name: Lawyer/paralegal’s name: Lawyer/paralegal’s name: Lawyer/paralegal’s name: '
+  field: person.lawyer_paralegal_s_name_lawyer_paralegal_s_name_la
+  edit: true
+- label: 'Street address: Street address: Street address: Street address: Street address: Street address: Stre'
+  field: person.street_address_street_address_street_address_stree
+  edit: true
+- label: 'Email address: Email address: Email address: Email address: Email address: Email address: Email addr'
+  field: person.email_address_email_address_email_address_email_ad
+  edit: true
+- label: ''
+  field: field
+  edit: true
+- label: Court File Number
+  field: courtfileno
+  edit: true
+- label: ''
+  field: field_2
+  edit: true
+- label: ''
+  field: field_3
+  edit: true
+- label: ''
+  field: field_4
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 6C Complete
+subquestion: 'Your Form 6C has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart

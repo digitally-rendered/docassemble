@@ -1,0 +1,59 @@
+---
+metadata:
+  title: Form 13 - Incremental Development Stages
+  short title: Stage Index
+---
+mandatory: True
+question: |
+  Form 13 - Incremental Development
+subquestion: |
+  ## Test Each Stage in Order
+  
+  Each stage builds on the previous one. Test them in sequence to see how the interview develops:
+  
+  ### Stage 1: Minimal
+  [Test Stage 1](/interview?i=docassemble.webapp:ontario-family-law/utilities/incremental_interviews/form_13_stage_1_minimal.yml)
+  - Absolute minimum working interview
+  - Just intro and complete screens
+  
+  ### Stage 2: Basic Structure
+  [Test Stage 2](/interview?i=docassemble.webapp:ontario-family-law/utilities/incremental_interviews/form_13_stage_2_structure.yml)
+  - Adds includes and features
+  - Simple field collection
+  
+  ### Stage 3: Individual Object
+  [Test Stage 3](/interview?i=docassemble.webapp:ontario-family-law/utilities/incremental_interviews/form_13_stage_3_person.yml)
+  - Uses Individual object for person
+  - Proper name fields
+  
+  ### Stage 4: Financial Fields
+  [Test Stage 4](/interview?i=docassemble.webapp:ontario-family-law/utilities/incremental_interviews/form_13_stage_4_financial.yml)
+  - Adds income and expense objects
+  - Currency fields and calculations
+  
+  ### Stage 5: Error Handling
+  [Test Stage 5](/interview?i=docassemble.webapp:ontario-family-law/utilities/incremental_interviews/form_13_stage_5_errors.yml)
+  - Error logging
+  - Safe value getters
+  - Error recovery
+  
+  ### Stage 6: Validation
+  [Test Stage 6](/interview?i=docassemble.webapp:ontario-family-law/utilities/incremental_interviews/form_13_stage_6_validation.yml)
+  - Field validation rules
+  - Custom validation messages
+  
+  ### Stage 7: Complete with Domain Mapping
+  [Test Stage 7](/interview?i=docassemble.webapp:ontario-family-law/utilities/incremental_interviews/form_13_stage_7_complete.yml)
+  - Full domain entity mapping
+  - Collections (DAList)
+  - Complete Form 13
+  
+  ## Testing Instructions
+  
+  1. Start with Stage 1 - verify it loads
+  2. Test each stage in order
+  3. Note where errors occur
+  4. Each stage should work independently
+  
+buttons:
+  - Exit: exit

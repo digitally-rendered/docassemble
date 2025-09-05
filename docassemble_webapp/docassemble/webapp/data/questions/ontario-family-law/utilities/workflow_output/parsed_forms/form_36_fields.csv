@@ -1,0 +1,5 @@
+field_id,field_name,field_type,field_label,required,field_context,page_number,table_name
+table_1_row_25,a_a_the_income_of_the_party_paying_child_support_i,currency,(a) (a) The income of the party paying child support is $ The income of the party paying child suppo,False,"Table 2, Row 26",0,Table 2
+table_1_row_28,per_month_per_month_per_month_per_month_per_month_,currency,$ per month. per month. per month. per month. per month. per month. per month. per month. per month.,False,"Table 2, Row 29",0,Table 2
+table_1_row_29,d_d_the_amount_of_child_support_actually_being_pai,currency,(d) (d) The amount of child support actually being paid is $ The amount of child support actually be,False,"Table 2, Row 30",0,Table 2
+table_2_row_14,b_the_child_support_clauses_of_this_order_or_agree,currency,b) The child support clauses of this order or agreement require payment of $ The child support claus,False,"Table 3, Row 15",0,Table 3

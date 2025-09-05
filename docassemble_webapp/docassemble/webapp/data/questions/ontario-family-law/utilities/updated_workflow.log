@@ -1,0 +1,1021 @@
+2025-08-18 21:27:03,694 - __main__ - INFO - Skipping download step as requested
+2025-08-18 21:27:03,694 - __main__ - INFO - ============================================================
+2025-08-18 21:27:03,694 - __main__ - INFO - Starting Updated Ontario Family Law Forms Workflow
+2025-08-18 21:27:03,694 - __main__ - INFO - ============================================================
+2025-08-18 21:27:03,694 - __main__ - INFO - 
+Step 1: Downloading forms...
+2025-08-18 21:27:30,963 - __main__ - INFO - Downloaded 48 forms successfully
+2025-08-18 21:27:30,963 - __main__ - INFO - 
+Step 2: Creating forms list...
+2025-08-18 21:27:30,971 - __main__ - INFO - Created list of 48 forms
+2025-08-18 21:27:30,971 - __main__ - INFO - 
+Step 3: Parsing forms...
+2025-08-18 21:27:31,191 - parse_forms_from_list - INFO - Parsing Form 10: form_10_-_answer_flr-10-jun25-en-fil.docx
+2025-08-18 21:27:31,298 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-18 21:27:31,298 - parse_forms_from_list - INFO - Parsing Form 10A: form_10a_-_reply_flr-10a-e.pdf
+2025-08-18 21:27:31,432 - parse_forms_from_list - INFO -   ✓ Extracted 24 fields
+2025-08-18 21:27:31,433 - parse_forms_from_list - INFO - Parsing Form 13: form_13_-_financial_statement_support_flr-13-may21-en-fil.docx
+2025-08-18 21:27:31,696 - parse_forms_from_list - INFO -   ✓ Extracted 127 fields
+2025-08-18 21:27:31,696 - parse_forms_from_list - INFO - Parsing Form 13.1: form_13.1_-_financial_statement_property_flr-13-1-may21-en-fil.docx
+2025-08-18 21:27:31,967 - parse_forms_from_list - INFO -   ✓ Extracted 113 fields
+2025-08-18 21:27:31,967 - parse_forms_from_list - INFO - Parsing Form 13A: form_13a_-_certificate_financial_disclosure_flr-13a-may21-en-fil.docx
+2025-08-18 21:27:32,146 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-18 21:27:32,146 - parse_forms_from_list - INFO - Parsing Form 13B: form_13b_-_net_family_property_statement_flr-13b-may09-en-fil-tables.docx
+2025-08-18 21:27:32,203 - parse_forms_from_list - INFO -   ✓ Extracted 39 fields
+2025-08-18 21:27:32,203 - parse_forms_from_list - INFO - Parsing Form 13C: form_13c_-_comparison_net_family_property_flr-13c-may21-en-fil.docx
+2025-08-18 21:27:32,308 - parse_forms_from_list - INFO -   ✓ Extracted 42 fields
+2025-08-18 21:27:32,308 - parse_forms_from_list - INFO - Parsing Form 14B: form_14b_-_motion_form_flr-14b-0921-en.docx
+2025-08-18 21:27:32,347 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:32,347 - parse_forms_from_list - INFO - Parsing Form 14C: form_14c_-_confirmation_motion_flr-14c-sep24-en-fil.docx
+2025-08-18 21:27:32,432 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:32,433 - parse_forms_from_list - INFO - Parsing Form 15: form_15_-_motion_to_change_flr-15-0921-en.docx
+2025-08-18 21:27:32,615 - parse_forms_from_list - INFO -   ✓ Extracted 13 fields
+2025-08-18 21:27:32,615 - parse_forms_from_list - INFO - Parsing Form 15B: form_15b_-_response_motion_to_change_form-15b-en-dec20.docx
+2025-08-18 21:27:32,791 - parse_forms_from_list - INFO -   ✓ Extracted 11 fields
+2025-08-18 21:27:32,791 - parse_forms_from_list - INFO - Parsing Form 15C: form_15c_-_consent_motion_to_change_form-15c-en-dec20.docx
+2025-08-18 21:27:33,112 - parse_forms_from_list - INFO -   ✓ Extracted 24 fields
+2025-08-18 21:27:33,112 - parse_forms_from_list - INFO - Parsing Form 17A: form_17a_-_case_conference_brief_flr-17a-sep23-en.docx
+2025-08-18 21:27:33,239 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-18 21:27:33,240 - parse_forms_from_list - INFO - Parsing Form 17C: form_17c_-_settlement_conference_brief_flr-17c-sep23-en.docx
+2025-08-18 21:27:33,361 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-18 21:27:33,361 - parse_forms_from_list - INFO - Parsing Form 17F: form_17f_-_confirmation_conference_flr-17f-sep24-en-fil.docx
+2025-08-18 21:27:33,458 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:33,458 - parse_forms_from_list - INFO - Parsing Form 25: form_25_-_order_general_form-25-en-dec20.docx
+2025-08-18 21:27:33,487 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:33,487 - parse_forms_from_list - INFO - Parsing Form 25A: form_25a_-_divorce_order_flr-25a-e.pdf
+2025-08-18 21:27:33,576 - parse_forms_from_list - INFO -   ✓ Extracted 28 fields
+2025-08-18 21:27:33,576 - parse_forms_from_list - INFO - Parsing Form 25C: form_25c_-_adoption_order_flr-25c-may25-en-fil.docx
+2025-08-18 21:27:33,645 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:33,645 - parse_forms_from_list - INFO - Parsing Form 25D: form_25d_-_order_uncontested_trial_form-25d-en-dec20.docx
+2025-08-18 21:27:33,906 - parse_forms_from_list - INFO -   ✓ Extracted 13 fields
+2025-08-18 21:27:33,906 - parse_forms_from_list - INFO - Parsing Form 25F: form_25f_-_restraining_order_flr-25f-sep09-en-fil.docx
+2025-08-18 21:27:33,947 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:33,948 - parse_forms_from_list - INFO - Parsing Form 26: form_26_-_statement_money_owed_flr-26-apr16-en-fil.docx
+2025-08-18 21:27:34,183 - parse_forms_from_list - INFO -   ✓ Extracted 64 fields
+2025-08-18 21:27:34,183 - parse_forms_from_list - INFO - Parsing Form 27: form_27_-_request_financial_statement_flr-27-apr16-en-fil.docx
+2025-08-18 21:27:34,200 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:34,200 - parse_forms_from_list - INFO - Parsing Form 28: form_28_-_writ_seizure_sale_flr-28-apr16-en-fil.docx
+2025-08-18 21:27:34,282 - parse_forms_from_list - INFO -   ✓ Extracted 18 fields
+2025-08-18 21:27:34,282 - parse_forms_from_list - INFO - Parsing Form 29: form_29_-_request_garnishment_flr-29-apr16-en-fil.docx
+2025-08-18 21:27:34,358 - parse_forms_from_list - INFO -   ✓ Extracted 11 fields
+2025-08-18 21:27:34,358 - parse_forms_from_list - INFO - Parsing Form 29A: form_29a_-_notice_garnishment_lump_sum_flr-29a-apr16-en-fil.docx
+2025-08-18 21:27:34,397 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-18 21:27:34,397 - parse_forms_from_list - INFO - Parsing Form 29B: form_29b_-_notice_garnishment_periodic_flr-29b-apr16-en-fil.docx
+2025-08-18 21:27:34,521 - parse_forms_from_list - INFO -   ✓ Extracted 3 fields
+2025-08-18 21:27:34,521 - parse_forms_from_list - INFO - Parsing Form 30: form_30_-_notice_default_hearing_flr-30-apr16-en-fil.docx
+2025-08-18 21:27:34,545 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:34,545 - parse_forms_from_list - INFO - Parsing Form 33F: form_33f_-_access_application_flr-33f-may21-en-fil.docx
+2025-08-18 21:27:34,573 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-18 21:27:34,573 - parse_forms_from_list - INFO - Parsing Form 34: form_34_-_child_consent_adoption_flr-34-nov18-en-fil.docx
+2025-08-18 21:27:34,625 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:34,625 - parse_forms_from_list - INFO - Parsing Form 34A: form_34a_-_affidavit_parentage_form-34a-en-dec20.docx
+2025-08-18 21:27:34,821 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:34,821 - parse_forms_from_list - INFO - Parsing Form 34F: form_34f_-_consents_adoption_form-34f-en-dec20.docx
+2025-08-18 21:27:34,899 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:34,899 - parse_forms_from_list - INFO - Parsing Form 34G: form_34g_-_affidavit_adopting_parent_form-34g-en-dec20.docx
+2025-08-18 21:27:34,962 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:34,962 - parse_forms_from_list - INFO - Parsing Form 34I: form_34i_-_affidavit_adopting_relative_form-34i-en-dec20.docx
+2025-08-18 21:27:35,042 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:35,042 - parse_forms_from_list - INFO - Parsing Form 36: form_36_-_affidavit_for_divorce_flr-36-apr24-en-fil.docx
+2025-08-18 21:27:35,159 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-18 21:27:35,159 - parse_forms_from_list - INFO - Parsing Form 36A: form_36a_-_certificate_divorce_flr-36a-dec20-en-fil.docx
+2025-08-18 21:27:35,297 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-18 21:27:35,297 - parse_forms_from_list - INFO - Parsing Form 37: form_37_-_interjurisdictional_support_order_flr-37-apr24-en-fil.docx
+2025-08-18 21:27:35,329 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:35,329 - parse_forms_from_list - INFO - Parsing Form 37A: form_37a_-_affidavit_interjurisdictional_support_flr-37a-apr24-en-fil.docx
+2025-08-18 21:27:35,344 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:35,345 - parse_forms_from_list - INFO - Parsing Form 37B: form_37b_-_evidence_information_flr-37b-apr24-en-fil.docx
+2025-08-18 21:27:35,367 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:35,367 - parse_forms_from_list - INFO - Parsing Form 4: form_4_-_notice_change_representation_flr-04-jun25-en-fil.docx
+2025-08-18 21:27:35,390 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:35,391 - parse_forms_from_list - INFO - Parsing Form 43: form_43_-_bjdr_hearing_request_flr-43-sep24-en-fil.docx
+2025-08-18 21:27:35,453 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:35,453 - parse_forms_from_list - INFO - Parsing Form 43A: form_43a_-_bjdr_request_ocl_flr-43a-sep24-en-fil.docx
+2025-08-18 21:27:35,496 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:35,496 - parse_forms_from_list - INFO - Parsing Form 43B: form_43b_-_affidavit_bjdr_hearing_flr-43b-sep24-en-fil.docx
+2025-08-18 21:27:35,563 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:35,563 - parse_forms_from_list - INFO - Parsing Form 6B: form_6b_-_affidavit_service_flr-06b-apr16-en-fil.docx
+2025-08-18 21:27:35,668 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-18 21:27:35,668 - parse_forms_from_list - INFO - Parsing Form 6C: form_6c_-_certificate_service_flr-6c-apr23-en-fil.docx
+2025-08-18 21:27:35,794 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-18 21:27:35,794 - parse_forms_from_list - INFO - Parsing Form 8: form_8_-_application_general_flr-8-jun25-en.docx
+2025-08-18 21:27:35,990 - parse_forms_from_list - INFO -   ✓ Extracted 12 fields
+2025-08-18 21:27:35,990 - parse_forms_from_list - INFO - Parsing Form 8A: form_8a_-_application_divorce_flr-8a-apr24-en-fil.docx
+2025-08-18 21:27:36,202 - parse_forms_from_list - INFO -   ✓ Extracted 12 fields
+2025-08-18 21:27:36,202 - parse_forms_from_list - INFO - Parsing Form 8B: form_8b_-_application_child_protection_form-8b-feb_1_2022-en.docx
+2025-08-18 21:27:36,324 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:36,324 - parse_forms_from_list - INFO - Parsing Form 8D: form_8d_-_application_adoption_flr-8d-may25-en-fil.docx
+2025-08-18 21:27:36,380 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-18 21:27:36,380 - parse_forms_from_list - INFO - 
+Parsing complete. Summary saved to workflow_output/parsed_forms/parsing_summary.json
+2025-08-18 21:27:36,380 - __main__ - INFO - Parsed 26 forms successfully
+2025-08-18 21:27:36,380 - __main__ - WARNING - 22 forms had no extractable fields
+2025-08-18 21:27:36,380 - __main__ - INFO - 
+Step 4: Mapping to docassemble objects...
+2025-08-18 21:27:36,393 - __main__ - INFO - Mapped 582 fields to docassemble objects
+2025-08-18 21:27:36,393 - __main__ - INFO - 
+Step 5: Generating YAML interviews...
+2025-08-18 21:27:36,395 - __main__ - INFO - Generated YAML for Form 15
+2025-08-18 21:27:36,396 - __main__ - INFO - Generated YAML for Form 10
+2025-08-18 21:27:36,396 - __main__ - INFO - Generated YAML for Form 15C
+2025-08-18 21:27:36,397 - __main__ - INFO - Generated YAML for Form 13A
+2025-08-18 21:27:36,397 - __main__ - INFO - Generated YAML for Form 36
+2025-08-18 21:27:36,398 - __main__ - INFO - Generated YAML for Form 10A
+2025-08-18 21:27:36,398 - __main__ - INFO - Generated YAML for Form 29B
+2025-08-18 21:27:36,399 - __main__ - INFO - Generated YAML for Form 6B
+2025-08-18 21:27:36,399 - __main__ - INFO - Generated YAML for Form 13C
+2025-08-18 21:27:36,400 - __main__ - INFO - Generated YAML for Form 8A
+2025-08-18 21:27:36,400 - __main__ - INFO - Generated YAML for Form 28
+2025-08-18 21:27:36,401 - __main__ - INFO - Generated YAML for Form 26
+2025-08-18 21:27:36,401 - __main__ - INFO - Generated YAML for Form 15B
+2025-08-18 21:27:36,402 - __main__ - INFO - Generated YAML for Form 29A
+2025-08-18 21:27:36,402 - __main__ - INFO - Generated YAML for Form 25D
+2025-08-18 21:27:36,403 - __main__ - INFO - Generated YAML for Form 17A
+2025-08-18 21:27:36,403 - __main__ - INFO - Generated YAML for Form 25A
+2025-08-18 21:27:36,404 - __main__ - INFO - Generated YAML for Form 33F
+2025-08-18 21:27:36,405 - __main__ - INFO - Generated YAML for Form 13B
+2025-08-18 21:27:36,405 - __main__ - INFO - Generated YAML for Form 6C
+2025-08-18 21:27:36,407 - __main__ - INFO - Generated YAML for Form 13
+2025-08-18 21:27:36,408 - __main__ - INFO - Generated YAML for Form 8
+2025-08-18 21:27:36,409 - __main__ - INFO - Generated YAML for Form 13.1
+2025-08-18 21:27:36,410 - __main__ - INFO - Generated YAML for Form 29
+2025-08-18 21:27:36,410 - __main__ - INFO - Generated YAML for Form 17C
+2025-08-18 21:27:36,411 - __main__ - INFO - Generated YAML for Form 36A
+2025-08-18 21:27:36,411 - __main__ - INFO - Generated 26 YAML interview files
+2025-08-18 21:27:36,411 - __main__ - INFO - 
+Step 6: Validating YAML files...
+2025-08-18 21:27:36,438 - __main__ - INFO - Validated 26 YAML files
+2025-08-18 21:27:36,438 - __main__ - INFO - Valid: 0, Invalid: 26
+2025-08-18 21:27:36,438 - __main__ - INFO - 
+Workflow complete. Report saved to workflow_output/reports/workflow_report_20250818_212736.json
+2025-08-19 22:56:56,579 - __main__ - INFO - ============================================================
+2025-08-19 22:56:56,579 - __main__ - INFO - Starting Updated Ontario Family Law Forms Workflow
+2025-08-19 22:56:56,579 - __main__ - INFO - ============================================================
+2025-08-19 22:56:56,579 - __main__ - INFO - 
+Step 1: Downloading forms...
+2025-08-19 22:56:56,579 - __main__ - ERROR - Download failed: No module named 'requests'
+2025-08-19 22:56:56,579 - __main__ - INFO - 
+Step 2: Creating forms list...
+2025-08-19 22:56:56,584 - __main__ - INFO - Created list of 48 forms
+2025-08-19 22:56:56,584 - __main__ - INFO - 
+Step 3: Parsing forms...
+2025-08-19 22:56:56,825 - parse_forms_from_list - INFO - Parsing Form 10: form_10_-_answer_flr-10-jun25-en-fil.docx
+2025-08-19 22:56:56,923 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-19 22:56:56,923 - parse_forms_from_list - INFO - Parsing Form 10A: form_10a_-_reply_flr-10a-e.pdf
+2025-08-19 22:56:57,049 - parse_forms_from_list - INFO -   ✓ Extracted 24 fields
+2025-08-19 22:56:57,049 - parse_forms_from_list - INFO - Parsing Form 13: form_13_-_financial_statement_support_flr-13-may21-en-fil.docx
+2025-08-19 22:56:57,296 - parse_forms_from_list - INFO -   ✓ Extracted 127 fields
+2025-08-19 22:56:57,296 - parse_forms_from_list - INFO - Parsing Form 13.1: form_13.1_-_financial_statement_property_flr-13-1-may21-en-fil.docx
+2025-08-19 22:56:57,548 - parse_forms_from_list - INFO -   ✓ Extracted 113 fields
+2025-08-19 22:56:57,548 - parse_forms_from_list - INFO - Parsing Form 13A: form_13a_-_certificate_financial_disclosure_flr-13a-may21-en-fil.docx
+2025-08-19 22:56:57,708 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-19 22:56:57,708 - parse_forms_from_list - INFO - Parsing Form 13B: form_13b_-_net_family_property_statement_flr-13b-may09-en-fil-tables.docx
+2025-08-19 22:56:57,762 - parse_forms_from_list - INFO -   ✓ Extracted 39 fields
+2025-08-19 22:56:57,762 - parse_forms_from_list - INFO - Parsing Form 13C: form_13c_-_comparison_net_family_property_flr-13c-may21-en-fil.docx
+2025-08-19 22:56:57,863 - parse_forms_from_list - INFO -   ✓ Extracted 42 fields
+2025-08-19 22:56:57,863 - parse_forms_from_list - INFO - Parsing Form 14B: form_14b_-_motion_form_flr-14b-0921-en.docx
+2025-08-19 22:56:57,900 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:56:57,901 - parse_forms_from_list - INFO - Parsing Form 14C: form_14c_-_confirmation_motion_flr-14c-sep24-en-fil.docx
+2025-08-19 22:56:57,981 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:56:57,981 - parse_forms_from_list - INFO - Parsing Form 15: form_15_-_motion_to_change_flr-15-0921-en.docx
+2025-08-19 22:56:58,146 - parse_forms_from_list - INFO -   ✓ Extracted 13 fields
+2025-08-19 22:56:58,146 - parse_forms_from_list - INFO - Parsing Form 15B: form_15b_-_response_motion_to_change_form-15b-en-dec20.docx
+2025-08-19 22:56:58,309 - parse_forms_from_list - INFO -   ✓ Extracted 11 fields
+2025-08-19 22:56:58,309 - parse_forms_from_list - INFO - Parsing Form 15C: form_15c_-_consent_motion_to_change_form-15c-en-dec20.docx
+2025-08-19 22:56:58,612 - parse_forms_from_list - INFO -   ✓ Extracted 24 fields
+2025-08-19 22:56:58,613 - parse_forms_from_list - INFO - Parsing Form 17A: form_17a_-_case_conference_brief_flr-17a-sep23-en.docx
+2025-08-19 22:56:58,733 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-19 22:56:58,733 - parse_forms_from_list - INFO - Parsing Form 17C: form_17c_-_settlement_conference_brief_flr-17c-sep23-en.docx
+2025-08-19 22:56:58,847 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-19 22:56:58,847 - parse_forms_from_list - INFO - Parsing Form 17F: form_17f_-_confirmation_conference_flr-17f-sep24-en-fil.docx
+2025-08-19 22:56:58,941 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:56:58,941 - parse_forms_from_list - INFO - Parsing Form 25: form_25_-_order_general_form-25-en-dec20.docx
+2025-08-19 22:56:58,968 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:56:58,968 - parse_forms_from_list - INFO - Parsing Form 25A: form_25a_-_divorce_order_flr-25a-e.pdf
+2025-08-19 22:56:59,075 - parse_forms_from_list - INFO -   ✓ Extracted 28 fields
+2025-08-19 22:56:59,075 - parse_forms_from_list - INFO - Parsing Form 25C: form_25c_-_adoption_order_flr-25c-may25-en-fil.docx
+2025-08-19 22:56:59,141 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:56:59,141 - parse_forms_from_list - INFO - Parsing Form 25D: form_25d_-_order_uncontested_trial_form-25d-en-dec20.docx
+2025-08-19 22:56:59,351 - parse_forms_from_list - INFO -   ✓ Extracted 13 fields
+2025-08-19 22:56:59,351 - parse_forms_from_list - INFO - Parsing Form 25F: form_25f_-_restraining_order_flr-25f-sep09-en-fil.docx
+2025-08-19 22:56:59,391 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:56:59,391 - parse_forms_from_list - INFO - Parsing Form 26: form_26_-_statement_money_owed_flr-26-apr16-en-fil.docx
+2025-08-19 22:56:59,629 - parse_forms_from_list - INFO -   ✓ Extracted 64 fields
+2025-08-19 22:56:59,629 - parse_forms_from_list - INFO - Parsing Form 27: form_27_-_request_financial_statement_flr-27-apr16-en-fil.docx
+2025-08-19 22:56:59,642 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:56:59,643 - parse_forms_from_list - INFO - Parsing Form 28: form_28_-_writ_seizure_sale_flr-28-apr16-en-fil.docx
+2025-08-19 22:56:59,722 - parse_forms_from_list - INFO -   ✓ Extracted 18 fields
+2025-08-19 22:56:59,723 - parse_forms_from_list - INFO - Parsing Form 29: form_29_-_request_garnishment_flr-29-apr16-en-fil.docx
+2025-08-19 22:56:59,859 - parse_forms_from_list - INFO -   ✓ Extracted 11 fields
+2025-08-19 22:56:59,859 - parse_forms_from_list - INFO - Parsing Form 29A: form_29a_-_notice_garnishment_lump_sum_flr-29a-apr16-en-fil.docx
+2025-08-19 22:56:59,904 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-19 22:56:59,904 - parse_forms_from_list - INFO - Parsing Form 29B: form_29b_-_notice_garnishment_periodic_flr-29b-apr16-en-fil.docx
+2025-08-19 22:56:59,995 - parse_forms_from_list - INFO -   ✓ Extracted 3 fields
+2025-08-19 22:56:59,995 - parse_forms_from_list - INFO - Parsing Form 30: form_30_-_notice_default_hearing_flr-30-apr16-en-fil.docx
+2025-08-19 22:57:00,035 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:57:00,035 - parse_forms_from_list - INFO - Parsing Form 33F: form_33f_-_access_application_flr-33f-may21-en-fil.docx
+2025-08-19 22:57:00,083 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-19 22:57:00,083 - parse_forms_from_list - INFO - Parsing Form 34: form_34_-_child_consent_adoption_flr-34-nov18-en-fil.docx
+2025-08-19 22:57:00,136 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:57:00,136 - parse_forms_from_list - INFO - Parsing Form 34A: form_34a_-_affidavit_parentage_form-34a-en-dec20.docx
+2025-08-19 22:57:00,324 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:57:00,324 - parse_forms_from_list - INFO - Parsing Form 34F: form_34f_-_consents_adoption_form-34f-en-dec20.docx
+2025-08-19 22:57:00,399 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:57:00,399 - parse_forms_from_list - INFO - Parsing Form 34G: form_34g_-_affidavit_adopting_parent_form-34g-en-dec20.docx
+2025-08-19 22:57:00,458 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:57:00,458 - parse_forms_from_list - INFO - Parsing Form 34I: form_34i_-_affidavit_adopting_relative_form-34i-en-dec20.docx
+2025-08-19 22:57:00,533 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:57:00,533 - parse_forms_from_list - INFO - Parsing Form 36: form_36_-_affidavit_for_divorce_flr-36-apr24-en-fil.docx
+2025-08-19 22:57:00,642 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-19 22:57:00,642 - parse_forms_from_list - INFO - Parsing Form 36A: form_36a_-_certificate_divorce_flr-36a-dec20-en-fil.docx
+2025-08-19 22:57:00,780 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-19 22:57:00,780 - parse_forms_from_list - INFO - Parsing Form 37: form_37_-_interjurisdictional_support_order_flr-37-apr24-en-fil.docx
+2025-08-19 22:57:00,857 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:57:00,857 - parse_forms_from_list - INFO - Parsing Form 37A: form_37a_-_affidavit_interjurisdictional_support_flr-37a-apr24-en-fil.docx
+2025-08-19 22:57:00,870 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:57:00,871 - parse_forms_from_list - INFO - Parsing Form 37B: form_37b_-_evidence_information_flr-37b-apr24-en-fil.docx
+2025-08-19 22:57:00,894 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:57:00,894 - parse_forms_from_list - INFO - Parsing Form 4: form_4_-_notice_change_representation_flr-04-jun25-en-fil.docx
+2025-08-19 22:57:00,917 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:57:00,917 - parse_forms_from_list - INFO - Parsing Form 43: form_43_-_bjdr_hearing_request_flr-43-sep24-en-fil.docx
+2025-08-19 22:57:00,972 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:57:00,972 - parse_forms_from_list - INFO - Parsing Form 43A: form_43a_-_bjdr_request_ocl_flr-43a-sep24-en-fil.docx
+2025-08-19 22:57:01,009 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:57:01,009 - parse_forms_from_list - INFO - Parsing Form 43B: form_43b_-_affidavit_bjdr_hearing_flr-43b-sep24-en-fil.docx
+2025-08-19 22:57:01,068 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:57:01,068 - parse_forms_from_list - INFO - Parsing Form 6B: form_6b_-_affidavit_service_flr-06b-apr16-en-fil.docx
+2025-08-19 22:57:01,164 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-19 22:57:01,164 - parse_forms_from_list - INFO - Parsing Form 6C: form_6c_-_certificate_service_flr-6c-apr23-en-fil.docx
+2025-08-19 22:57:01,284 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-19 22:57:01,284 - parse_forms_from_list - INFO - Parsing Form 8: form_8_-_application_general_flr-8-jun25-en.docx
+2025-08-19 22:57:01,473 - parse_forms_from_list - INFO -   ✓ Extracted 12 fields
+2025-08-19 22:57:01,473 - parse_forms_from_list - INFO - Parsing Form 8A: form_8a_-_application_divorce_flr-8a-apr24-en-fil.docx
+2025-08-19 22:57:01,671 - parse_forms_from_list - INFO -   ✓ Extracted 12 fields
+2025-08-19 22:57:01,671 - parse_forms_from_list - INFO - Parsing Form 8B: form_8b_-_application_child_protection_form-8b-feb_1_2022-en.docx
+2025-08-19 22:57:01,788 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:57:01,788 - parse_forms_from_list - INFO - Parsing Form 8D: form_8d_-_application_adoption_flr-8d-may25-en-fil.docx
+2025-08-19 22:57:01,855 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-19 22:57:01,856 - parse_forms_from_list - INFO - 
+Parsing complete. Summary saved to workflow_output/parsed_forms/parsing_summary.json
+2025-08-19 22:57:01,856 - __main__ - INFO - Parsed 26 forms successfully
+2025-08-19 22:57:01,856 - __main__ - WARNING - 22 forms had no extractable fields
+2025-08-19 22:57:01,856 - __main__ - INFO - 
+Step 4: Mapping to docassemble objects...
+2025-08-19 22:57:01,871 - __main__ - INFO - Mapped 582 fields to docassemble objects
+2025-08-19 22:57:01,872 - __main__ - INFO - 
+Step 5: Generating YAML interviews...
+2025-08-19 22:57:01,879 - __main__ - INFO - Generated YAML for Form 15
+2025-08-19 22:57:01,879 - __main__ - INFO - Generated YAML for Form 10
+2025-08-19 22:57:01,880 - __main__ - INFO - Generated YAML for Form 15C
+2025-08-19 22:57:01,880 - __main__ - INFO - Generated YAML for Form 13A
+2025-08-19 22:57:01,881 - __main__ - INFO - Generated YAML for Form 36
+2025-08-19 22:57:01,881 - __main__ - INFO - Generated YAML for Form 10A
+2025-08-19 22:57:01,882 - __main__ - INFO - Generated YAML for Form 29B
+2025-08-19 22:57:01,883 - __main__ - INFO - Generated YAML for Form 6B
+2025-08-19 22:57:01,883 - __main__ - INFO - Generated YAML for Form 13C
+2025-08-19 22:57:01,884 - __main__ - INFO - Generated YAML for Form 8A
+2025-08-19 22:57:01,885 - __main__ - INFO - Generated YAML for Form 28
+2025-08-19 22:57:01,886 - __main__ - INFO - Generated YAML for Form 26
+2025-08-19 22:57:01,887 - __main__ - INFO - Generated YAML for Form 15B
+2025-08-19 22:57:01,887 - __main__ - INFO - Generated YAML for Form 29A
+2025-08-19 22:57:01,888 - __main__ - INFO - Generated YAML for Form 25D
+2025-08-19 22:57:01,888 - __main__ - INFO - Generated YAML for Form 17A
+2025-08-19 22:57:01,889 - __main__ - INFO - Generated YAML for Form 25A
+2025-08-19 22:57:01,889 - __main__ - INFO - Generated YAML for Form 33F
+2025-08-19 22:57:01,889 - __main__ - INFO - Generated YAML for Form 13B
+2025-08-19 22:57:01,890 - __main__ - INFO - Generated YAML for Form 6C
+2025-08-19 22:57:01,891 - __main__ - INFO - Generated YAML for Form 13
+2025-08-19 22:57:01,892 - __main__ - INFO - Generated YAML for Form 8
+2025-08-19 22:57:01,893 - __main__ - INFO - Generated YAML for Form 13.1
+2025-08-19 22:57:01,894 - __main__ - INFO - Generated YAML for Form 29
+2025-08-19 22:57:01,894 - __main__ - INFO - Generated YAML for Form 17C
+2025-08-19 22:57:01,895 - __main__ - INFO - Generated YAML for Form 36A
+2025-08-19 22:57:01,895 - __main__ - INFO - Generated 26 YAML interview files
+2025-08-19 22:57:01,895 - __main__ - INFO - 
+Step 6: Validating YAML files...
+2025-08-19 22:57:01,895 - __main__ - ERROR - Validation failed: No module named 'yaml'
+2025-08-19 22:57:01,895 - __main__ - INFO - 
+Workflow complete. Report saved to workflow_output/reports/workflow_report_20250819_225701.json
+2025-08-20 08:24:27,179 - __main__ - INFO - ============================================================
+2025-08-20 08:24:27,179 - __main__ - INFO - Starting Updated Ontario Family Law Forms Workflow
+2025-08-20 08:24:27,179 - __main__ - INFO - ============================================================
+2025-08-20 08:24:27,179 - __main__ - INFO - 
+Step 1: Downloading forms...
+2025-08-20 08:24:27,179 - __main__ - ERROR - Download failed: No module named 'requests'
+2025-08-20 08:24:27,179 - __main__ - INFO - 
+Step 2: Creating forms list...
+2025-08-20 08:24:27,181 - __main__ - INFO - 
+Step 3: Parsing forms...
+2025-08-20 08:24:27,313 - __main__ - INFO - 
+Step 4: Mapping to docassemble objects...
+2025-08-20 08:24:27,314 - __main__ - INFO - Mapped 0 fields to docassemble objects
+2025-08-20 08:24:27,314 - __main__ - INFO - 
+Step 5: Generating YAML interviews...
+2025-08-20 08:24:27,319 - __main__ - INFO - Generated 0 YAML interview files
+2025-08-20 08:24:27,319 - __main__ - INFO - 
+Step 6: Validating YAML files...
+2025-08-20 08:24:27,319 - __main__ - ERROR - Validation failed: No module named 'yaml'
+2025-08-20 08:24:27,319 - __main__ - INFO - 
+Workflow complete. Report saved to workflow_output/reports/workflow_report_20250820_082427.json
+2025-08-20 08:24:39,459 - __main__ - INFO - ============================================================
+2025-08-20 08:24:39,459 - __main__ - INFO - Starting Updated Ontario Family Law Forms Workflow
+2025-08-20 08:24:39,459 - __main__ - INFO - ============================================================
+2025-08-20 08:24:39,459 - __main__ - INFO - 
+Step 1: Downloading forms...
+2025-08-20 08:24:39,460 - __main__ - ERROR - Download failed: No module named 'requests'
+2025-08-20 08:24:39,460 - __main__ - INFO - 
+Step 2: Creating forms list...
+2025-08-20 08:24:39,462 - __main__ - INFO - 
+Step 3: Parsing forms...
+2025-08-20 08:24:39,619 - __main__ - INFO - 
+Step 4: Mapping to docassemble objects...
+2025-08-20 08:24:39,620 - __main__ - INFO - Mapped 0 fields to docassemble objects
+2025-08-20 08:24:39,620 - __main__ - INFO - 
+Step 5: Generating YAML interviews...
+2025-08-20 08:24:39,622 - __main__ - INFO - Generated 0 YAML interview files
+2025-08-20 08:24:39,622 - __main__ - INFO - 
+Step 6: Validating YAML files...
+2025-08-20 08:24:40,844 - __main__ - INFO - Validated 0 YAML files
+2025-08-20 08:24:40,844 - __main__ - INFO - Valid: 0, Invalid: 0
+2025-08-20 08:24:40,845 - __main__ - INFO - 
+Workflow complete. Report saved to workflow_output/reports/workflow_report_20250820_082440.json
+2025-08-20 08:25:16,054 - __main__ - INFO - ============================================================
+2025-08-20 08:25:16,054 - __main__ - INFO - Starting Updated Ontario Family Law Forms Workflow
+2025-08-20 08:25:16,055 - __main__ - INFO - ============================================================
+2025-08-20 08:25:16,055 - __main__ - INFO - 
+Step 1: Downloading forms...
+2025-08-20 08:25:16,055 - __main__ - ERROR - Download failed: No module named 'requests'
+2025-08-20 08:25:16,055 - __main__ - INFO - 
+Step 2: Creating forms list...
+2025-08-20 08:25:16,056 - __main__ - INFO - 
+Step 3: Parsing forms...
+2025-08-20 08:25:16,194 - __main__ - INFO - 
+Step 4: Mapping to docassemble objects...
+2025-08-20 08:25:16,195 - __main__ - INFO - Mapped 0 fields to docassemble objects
+2025-08-20 08:25:16,195 - __main__ - INFO - 
+Step 5: Generating YAML interviews...
+2025-08-20 08:25:16,197 - __main__ - INFO - Generated 0 YAML interview files
+2025-08-20 08:25:16,197 - __main__ - INFO - 
+Step 6: Validating YAML files...
+2025-08-20 08:25:16,206 - __main__ - INFO - Validated 0 YAML files
+2025-08-20 08:25:16,206 - __main__ - INFO - Valid: 0, Invalid: 0
+2025-08-20 08:25:16,206 - __main__ - INFO - 
+Workflow complete. Report saved to workflow_output/reports/workflow_report_20250820_082516.json
+2025-08-20 08:31:04,408 - __main__ - INFO - ============================================================
+2025-08-20 08:31:04,408 - __main__ - INFO - Starting Updated Ontario Family Law Forms Workflow
+2025-08-20 08:31:04,408 - __main__ - INFO - ============================================================
+2025-08-20 08:31:04,408 - __main__ - INFO - 
+Step 1: Downloading forms...
+2025-08-20 08:31:31,140 - __main__ - INFO - Downloaded 48 forms successfully
+2025-08-20 08:31:31,141 - __main__ - INFO - 
+Step 2: Creating forms list...
+2025-08-20 08:31:31,146 - __main__ - INFO - Created list of 48 forms
+2025-08-20 08:31:31,146 - __main__ - INFO - 
+Step 3: Parsing forms...
+2025-08-20 08:31:31,263 - parse_forms_from_list - INFO - Parsing Form 10: form_10_-_answer_flr-10-jun25-en-fil.docx
+2025-08-20 08:31:31,354 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-20 08:31:31,354 - parse_forms_from_list - INFO - Parsing Form 10A: form_10a_-_reply_flr-10a-e.pdf
+2025-08-20 08:31:31,471 - parse_forms_from_list - INFO -   ✓ Extracted 24 fields
+2025-08-20 08:31:31,471 - parse_forms_from_list - INFO - Parsing Form 13: form_13_-_financial_statement_support_flr-13-may21-en-fil.docx
+2025-08-20 08:31:31,704 - parse_forms_from_list - INFO -   ✓ Extracted 127 fields
+2025-08-20 08:31:31,704 - parse_forms_from_list - INFO - Parsing Form 13.1: form_13.1_-_financial_statement_property_flr-13-1-may21-en-fil.docx
+2025-08-20 08:31:31,949 - parse_forms_from_list - INFO -   ✓ Extracted 113 fields
+2025-08-20 08:31:31,949 - parse_forms_from_list - INFO - Parsing Form 13A: form_13a_-_certificate_financial_disclosure_flr-13a-may21-en-fil.docx
+2025-08-20 08:31:32,110 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-20 08:31:32,110 - parse_forms_from_list - INFO - Parsing Form 13B: form_13b_-_net_family_property_statement_flr-13b-may09-en-fil-tables.docx
+2025-08-20 08:31:32,160 - parse_forms_from_list - INFO -   ✓ Extracted 39 fields
+2025-08-20 08:31:32,161 - parse_forms_from_list - INFO - Parsing Form 13C: form_13c_-_comparison_net_family_property_flr-13c-may21-en-fil.docx
+2025-08-20 08:31:32,255 - parse_forms_from_list - INFO -   ✓ Extracted 42 fields
+2025-08-20 08:31:32,255 - parse_forms_from_list - INFO - Parsing Form 14B: form_14b_-_motion_form_flr-14b-0921-en.docx
+2025-08-20 08:31:32,290 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:32,290 - parse_forms_from_list - INFO - Parsing Form 14C: form_14c_-_confirmation_motion_flr-14c-sep24-en-fil.docx
+2025-08-20 08:31:32,367 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:32,367 - parse_forms_from_list - INFO - Parsing Form 15: form_15_-_motion_to_change_flr-15-0921-en.docx
+2025-08-20 08:31:32,525 - parse_forms_from_list - INFO -   ✓ Extracted 13 fields
+2025-08-20 08:31:32,526 - parse_forms_from_list - INFO - Parsing Form 15B: form_15b_-_response_motion_to_change_form-15b-en-dec20.docx
+2025-08-20 08:31:32,678 - parse_forms_from_list - INFO -   ✓ Extracted 11 fields
+2025-08-20 08:31:32,678 - parse_forms_from_list - INFO - Parsing Form 15C: form_15c_-_consent_motion_to_change_form-15c-en-dec20.docx
+2025-08-20 08:31:32,963 - parse_forms_from_list - INFO -   ✓ Extracted 24 fields
+2025-08-20 08:31:32,963 - parse_forms_from_list - INFO - Parsing Form 17A: form_17a_-_case_conference_brief_flr-17a-sep23-en.docx
+2025-08-20 08:31:33,076 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-20 08:31:33,076 - parse_forms_from_list - INFO - Parsing Form 17C: form_17c_-_settlement_conference_brief_flr-17c-sep23-en.docx
+2025-08-20 08:31:33,186 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-20 08:31:33,186 - parse_forms_from_list - INFO - Parsing Form 17F: form_17f_-_confirmation_conference_flr-17f-sep24-en-fil.docx
+2025-08-20 08:31:33,275 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:33,275 - parse_forms_from_list - INFO - Parsing Form 25: form_25_-_order_general_form-25-en-dec20.docx
+2025-08-20 08:31:33,301 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:33,301 - parse_forms_from_list - INFO - Parsing Form 25A: form_25a_-_divorce_order_flr-25a-e.pdf
+2025-08-20 08:31:33,387 - parse_forms_from_list - INFO -   ✓ Extracted 28 fields
+2025-08-20 08:31:33,387 - parse_forms_from_list - INFO - Parsing Form 25C: form_25c_-_adoption_order_flr-25c-may25-en-fil.docx
+2025-08-20 08:31:33,449 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:33,450 - parse_forms_from_list - INFO - Parsing Form 25D: form_25d_-_order_uncontested_trial_form-25d-en-dec20.docx
+2025-08-20 08:31:33,651 - parse_forms_from_list - INFO -   ✓ Extracted 13 fields
+2025-08-20 08:31:33,651 - parse_forms_from_list - INFO - Parsing Form 25F: form_25f_-_restraining_order_flr-25f-sep09-en-fil.docx
+2025-08-20 08:31:33,688 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:33,688 - parse_forms_from_list - INFO - Parsing Form 26: form_26_-_statement_money_owed_flr-26-apr16-en-fil.docx
+2025-08-20 08:31:33,903 - parse_forms_from_list - INFO -   ✓ Extracted 64 fields
+2025-08-20 08:31:33,903 - parse_forms_from_list - INFO - Parsing Form 27: form_27_-_request_financial_statement_flr-27-apr16-en-fil.docx
+2025-08-20 08:31:33,919 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:33,919 - parse_forms_from_list - INFO - Parsing Form 28: form_28_-_writ_seizure_sale_flr-28-apr16-en-fil.docx
+2025-08-20 08:31:33,995 - parse_forms_from_list - INFO -   ✓ Extracted 18 fields
+2025-08-20 08:31:33,995 - parse_forms_from_list - INFO - Parsing Form 29: form_29_-_request_garnishment_flr-29-apr16-en-fil.docx
+2025-08-20 08:31:34,065 - parse_forms_from_list - INFO -   ✓ Extracted 11 fields
+2025-08-20 08:31:34,065 - parse_forms_from_list - INFO - Parsing Form 29A: form_29a_-_notice_garnishment_lump_sum_flr-29a-apr16-en-fil.docx
+2025-08-20 08:31:34,101 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-20 08:31:34,101 - parse_forms_from_list - INFO - Parsing Form 29B: form_29b_-_notice_garnishment_periodic_flr-29b-apr16-en-fil.docx
+2025-08-20 08:31:34,185 - parse_forms_from_list - INFO -   ✓ Extracted 3 fields
+2025-08-20 08:31:34,185 - parse_forms_from_list - INFO - Parsing Form 30: form_30_-_notice_default_hearing_flr-30-apr16-en-fil.docx
+2025-08-20 08:31:34,207 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:34,207 - parse_forms_from_list - INFO - Parsing Form 33F: form_33f_-_access_application_flr-33f-may21-en-fil.docx
+2025-08-20 08:31:34,233 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-20 08:31:34,233 - parse_forms_from_list - INFO - Parsing Form 34: form_34_-_child_consent_adoption_flr-34-nov18-en-fil.docx
+2025-08-20 08:31:34,279 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:34,279 - parse_forms_from_list - INFO - Parsing Form 34A: form_34a_-_affidavit_parentage_form-34a-en-dec20.docx
+2025-08-20 08:31:34,453 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:34,453 - parse_forms_from_list - INFO - Parsing Form 34F: form_34f_-_consents_adoption_form-34f-en-dec20.docx
+2025-08-20 08:31:34,523 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:34,523 - parse_forms_from_list - INFO - Parsing Form 34G: form_34g_-_affidavit_adopting_parent_form-34g-en-dec20.docx
+2025-08-20 08:31:34,577 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:34,577 - parse_forms_from_list - INFO - Parsing Form 34I: form_34i_-_affidavit_adopting_relative_form-34i-en-dec20.docx
+2025-08-20 08:31:34,648 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:34,648 - parse_forms_from_list - INFO - Parsing Form 36: form_36_-_affidavit_for_divorce_flr-36-apr24-en-fil.docx
+2025-08-20 08:31:34,751 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-20 08:31:34,751 - parse_forms_from_list - INFO - Parsing Form 36A: form_36a_-_certificate_divorce_flr-36a-dec20-en-fil.docx
+2025-08-20 08:31:34,875 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-20 08:31:34,875 - parse_forms_from_list - INFO - Parsing Form 37: form_37_-_interjurisdictional_support_order_flr-37-apr24-en-fil.docx
+2025-08-20 08:31:34,903 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:34,903 - parse_forms_from_list - INFO - Parsing Form 37A: form_37a_-_affidavit_interjurisdictional_support_flr-37a-apr24-en-fil.docx
+2025-08-20 08:31:34,917 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:34,918 - parse_forms_from_list - INFO - Parsing Form 37B: form_37b_-_evidence_information_flr-37b-apr24-en-fil.docx
+2025-08-20 08:31:34,937 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:34,937 - parse_forms_from_list - INFO - Parsing Form 4: form_4_-_notice_change_representation_flr-04-jun25-en-fil.docx
+2025-08-20 08:31:34,958 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:34,958 - parse_forms_from_list - INFO - Parsing Form 43: form_43_-_bjdr_hearing_request_flr-43-sep24-en-fil.docx
+2025-08-20 08:31:35,008 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:35,008 - parse_forms_from_list - INFO - Parsing Form 43A: form_43a_-_bjdr_request_ocl_flr-43a-sep24-en-fil.docx
+2025-08-20 08:31:35,043 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:35,043 - parse_forms_from_list - INFO - Parsing Form 43B: form_43b_-_affidavit_bjdr_hearing_flr-43b-sep24-en-fil.docx
+2025-08-20 08:31:35,097 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:35,097 - parse_forms_from_list - INFO - Parsing Form 6B: form_6b_-_affidavit_service_flr-06b-apr16-en-fil.docx
+2025-08-20 08:31:35,192 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-20 08:31:35,192 - parse_forms_from_list - INFO - Parsing Form 6C: form_6c_-_certificate_service_flr-6c-apr23-en-fil.docx
+2025-08-20 08:31:35,305 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-20 08:31:35,305 - parse_forms_from_list - INFO - Parsing Form 8: form_8_-_application_general_flr-8-jun25-en.docx
+2025-08-20 08:31:35,477 - parse_forms_from_list - INFO -   ✓ Extracted 12 fields
+2025-08-20 08:31:35,477 - parse_forms_from_list - INFO - Parsing Form 8A: form_8a_-_application_divorce_flr-8a-apr24-en-fil.docx
+2025-08-20 08:31:35,666 - parse_forms_from_list - INFO -   ✓ Extracted 12 fields
+2025-08-20 08:31:35,666 - parse_forms_from_list - INFO - Parsing Form 8B: form_8b_-_application_child_protection_form-8b-feb_1_2022-en.docx
+2025-08-20 08:31:35,777 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:35,777 - parse_forms_from_list - INFO - Parsing Form 8D: form_8d_-_application_adoption_flr-8d-may25-en-fil.docx
+2025-08-20 08:31:35,827 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:31:35,828 - parse_forms_from_list - INFO - 
+Parsing complete. Summary saved to workflow_output/parsed_forms/parsing_summary.json
+2025-08-20 08:31:35,828 - __main__ - INFO - Parsed 26 forms successfully
+2025-08-20 08:31:35,828 - __main__ - WARNING - 22 forms had no extractable fields
+2025-08-20 08:31:35,828 - __main__ - INFO - 
+Step 4: Mapping to docassemble objects...
+2025-08-20 08:31:35,840 - __main__ - INFO - Mapped 582 fields to docassemble objects
+2025-08-20 08:31:35,840 - __main__ - INFO - 
+Step 5: Generating YAML interviews...
+2025-08-20 08:31:35,842 - __main__ - INFO - Generated YAML for Form 15
+2025-08-20 08:31:35,842 - __main__ - INFO - Generated YAML for Form 10
+2025-08-20 08:31:35,843 - __main__ - INFO - Generated YAML for Form 15C
+2025-08-20 08:31:35,843 - __main__ - INFO - Generated YAML for Form 13A
+2025-08-20 08:31:35,843 - __main__ - INFO - Generated YAML for Form 36
+2025-08-20 08:31:35,844 - __main__ - INFO - Generated YAML for Form 10A
+2025-08-20 08:31:35,844 - __main__ - INFO - Generated YAML for Form 29B
+2025-08-20 08:31:35,844 - __main__ - INFO - Generated YAML for Form 6B
+2025-08-20 08:31:35,845 - __main__ - INFO - Generated YAML for Form 13C
+2025-08-20 08:31:35,845 - __main__ - INFO - Generated YAML for Form 8A
+2025-08-20 08:31:35,846 - __main__ - INFO - Generated YAML for Form 28
+2025-08-20 08:31:35,847 - __main__ - INFO - Generated YAML for Form 26
+2025-08-20 08:31:35,847 - __main__ - INFO - Generated YAML for Form 15B
+2025-08-20 08:31:35,847 - __main__ - INFO - Generated YAML for Form 29A
+2025-08-20 08:31:35,848 - __main__ - INFO - Generated YAML for Form 25D
+2025-08-20 08:31:35,848 - __main__ - INFO - Generated YAML for Form 17A
+2025-08-20 08:31:35,849 - __main__ - INFO - Generated YAML for Form 25A
+2025-08-20 08:31:35,849 - __main__ - INFO - Generated YAML for Form 33F
+2025-08-20 08:31:35,849 - __main__ - INFO - Generated YAML for Form 13B
+2025-08-20 08:31:35,850 - __main__ - INFO - Generated YAML for Form 6C
+2025-08-20 08:31:35,852 - __main__ - INFO - Generated YAML for Form 13
+2025-08-20 08:31:35,852 - __main__ - INFO - Generated YAML for Form 8
+2025-08-20 08:31:35,853 - __main__ - INFO - Generated YAML for Form 13.1
+2025-08-20 08:31:35,854 - __main__ - INFO - Generated YAML for Form 29
+2025-08-20 08:31:35,854 - __main__ - INFO - Generated YAML for Form 17C
+2025-08-20 08:31:35,854 - __main__ - INFO - Generated YAML for Form 36A
+2025-08-20 08:31:35,854 - __main__ - INFO - Generated 26 YAML interview files
+2025-08-20 08:31:35,854 - __main__ - INFO - 
+Step 6: Validating YAML files...
+2025-08-20 08:31:35,877 - __main__ - INFO - Validated 26 YAML files
+2025-08-20 08:31:35,878 - __main__ - INFO - Valid: 0, Invalid: 26
+2025-08-20 08:31:35,878 - __main__ - INFO - 
+Workflow complete. Report saved to workflow_output/reports/workflow_report_20250820_083135.json
+2025-08-20 08:31:54,517 - __main__ - INFO - ============================================================
+2025-08-20 08:31:54,517 - __main__ - INFO - Starting Updated Ontario Family Law Forms Workflow
+2025-08-20 08:31:54,517 - __main__ - INFO - ============================================================
+2025-08-20 08:31:54,517 - __main__ - INFO - 
+Step 1: Downloading forms...
+2025-08-20 08:32:21,234 - __main__ - INFO - Downloaded 48 forms successfully
+2025-08-20 08:32:21,235 - __main__ - INFO - 
+Step 2: Creating forms list...
+2025-08-20 08:32:21,242 - __main__ - INFO - Created list of 48 forms
+2025-08-20 08:32:21,242 - __main__ - INFO - 
+Step 3: Parsing forms...
+2025-08-20 08:32:21,366 - parse_forms_from_list - INFO - Parsing Form 10: form_10_-_answer_flr-10-jun25-en-fil.docx
+2025-08-20 08:32:21,456 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-20 08:32:21,456 - parse_forms_from_list - INFO - Parsing Form 10A: form_10a_-_reply_flr-10a-e.pdf
+2025-08-20 08:32:21,570 - parse_forms_from_list - INFO -   ✓ Extracted 24 fields
+2025-08-20 08:32:21,570 - parse_forms_from_list - INFO - Parsing Form 13: form_13_-_financial_statement_support_flr-13-may21-en-fil.docx
+2025-08-20 08:32:21,803 - parse_forms_from_list - INFO -   ✓ Extracted 127 fields
+2025-08-20 08:32:21,803 - parse_forms_from_list - INFO - Parsing Form 13.1: form_13.1_-_financial_statement_property_flr-13-1-may21-en-fil.docx
+2025-08-20 08:32:22,044 - parse_forms_from_list - INFO -   ✓ Extracted 113 fields
+2025-08-20 08:32:22,044 - parse_forms_from_list - INFO - Parsing Form 13A: form_13a_-_certificate_financial_disclosure_flr-13a-may21-en-fil.docx
+2025-08-20 08:32:22,205 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-20 08:32:22,205 - parse_forms_from_list - INFO - Parsing Form 13B: form_13b_-_net_family_property_statement_flr-13b-may09-en-fil-tables.docx
+2025-08-20 08:32:22,254 - parse_forms_from_list - INFO -   ✓ Extracted 39 fields
+2025-08-20 08:32:22,254 - parse_forms_from_list - INFO - Parsing Form 13C: form_13c_-_comparison_net_family_property_flr-13c-may21-en-fil.docx
+2025-08-20 08:32:22,354 - parse_forms_from_list - INFO -   ✓ Extracted 42 fields
+2025-08-20 08:32:22,354 - parse_forms_from_list - INFO - Parsing Form 14B: form_14b_-_motion_form_flr-14b-0921-en.docx
+2025-08-20 08:32:22,390 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:22,390 - parse_forms_from_list - INFO - Parsing Form 14C: form_14c_-_confirmation_motion_flr-14c-sep24-en-fil.docx
+2025-08-20 08:32:22,467 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:22,467 - parse_forms_from_list - INFO - Parsing Form 15: form_15_-_motion_to_change_flr-15-0921-en.docx
+2025-08-20 08:32:22,626 - parse_forms_from_list - INFO -   ✓ Extracted 13 fields
+2025-08-20 08:32:22,626 - parse_forms_from_list - INFO - Parsing Form 15B: form_15b_-_response_motion_to_change_form-15b-en-dec20.docx
+2025-08-20 08:32:22,779 - parse_forms_from_list - INFO -   ✓ Extracted 11 fields
+2025-08-20 08:32:22,779 - parse_forms_from_list - INFO - Parsing Form 15C: form_15c_-_consent_motion_to_change_form-15c-en-dec20.docx
+2025-08-20 08:32:23,066 - parse_forms_from_list - INFO -   ✓ Extracted 24 fields
+2025-08-20 08:32:23,066 - parse_forms_from_list - INFO - Parsing Form 17A: form_17a_-_case_conference_brief_flr-17a-sep23-en.docx
+2025-08-20 08:32:23,180 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-20 08:32:23,180 - parse_forms_from_list - INFO - Parsing Form 17C: form_17c_-_settlement_conference_brief_flr-17c-sep23-en.docx
+2025-08-20 08:32:23,290 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-20 08:32:23,290 - parse_forms_from_list - INFO - Parsing Form 17F: form_17f_-_confirmation_conference_flr-17f-sep24-en-fil.docx
+2025-08-20 08:32:23,377 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:23,377 - parse_forms_from_list - INFO - Parsing Form 25: form_25_-_order_general_form-25-en-dec20.docx
+2025-08-20 08:32:23,402 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:23,402 - parse_forms_from_list - INFO - Parsing Form 25A: form_25a_-_divorce_order_flr-25a-e.pdf
+2025-08-20 08:32:23,487 - parse_forms_from_list - INFO -   ✓ Extracted 28 fields
+2025-08-20 08:32:23,487 - parse_forms_from_list - INFO - Parsing Form 25C: form_25c_-_adoption_order_flr-25c-may25-en-fil.docx
+2025-08-20 08:32:23,549 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:23,549 - parse_forms_from_list - INFO - Parsing Form 25D: form_25d_-_order_uncontested_trial_form-25d-en-dec20.docx
+2025-08-20 08:32:23,748 - parse_forms_from_list - INFO -   ✓ Extracted 13 fields
+2025-08-20 08:32:23,748 - parse_forms_from_list - INFO - Parsing Form 25F: form_25f_-_restraining_order_flr-25f-sep09-en-fil.docx
+2025-08-20 08:32:23,786 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:23,786 - parse_forms_from_list - INFO - Parsing Form 26: form_26_-_statement_money_owed_flr-26-apr16-en-fil.docx
+2025-08-20 08:32:24,002 - parse_forms_from_list - INFO -   ✓ Extracted 64 fields
+2025-08-20 08:32:24,002 - parse_forms_from_list - INFO - Parsing Form 27: form_27_-_request_financial_statement_flr-27-apr16-en-fil.docx
+2025-08-20 08:32:24,017 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:24,017 - parse_forms_from_list - INFO - Parsing Form 28: form_28_-_writ_seizure_sale_flr-28-apr16-en-fil.docx
+2025-08-20 08:32:24,092 - parse_forms_from_list - INFO -   ✓ Extracted 18 fields
+2025-08-20 08:32:24,092 - parse_forms_from_list - INFO - Parsing Form 29: form_29_-_request_garnishment_flr-29-apr16-en-fil.docx
+2025-08-20 08:32:24,162 - parse_forms_from_list - INFO -   ✓ Extracted 11 fields
+2025-08-20 08:32:24,162 - parse_forms_from_list - INFO - Parsing Form 29A: form_29a_-_notice_garnishment_lump_sum_flr-29a-apr16-en-fil.docx
+2025-08-20 08:32:24,198 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-20 08:32:24,198 - parse_forms_from_list - INFO - Parsing Form 29B: form_29b_-_notice_garnishment_periodic_flr-29b-apr16-en-fil.docx
+2025-08-20 08:32:24,281 - parse_forms_from_list - INFO -   ✓ Extracted 3 fields
+2025-08-20 08:32:24,281 - parse_forms_from_list - INFO - Parsing Form 30: form_30_-_notice_default_hearing_flr-30-apr16-en-fil.docx
+2025-08-20 08:32:24,302 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:24,302 - parse_forms_from_list - INFO - Parsing Form 33F: form_33f_-_access_application_flr-33f-may21-en-fil.docx
+2025-08-20 08:32:24,327 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-20 08:32:24,327 - parse_forms_from_list - INFO - Parsing Form 34: form_34_-_child_consent_adoption_flr-34-nov18-en-fil.docx
+2025-08-20 08:32:24,373 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:24,373 - parse_forms_from_list - INFO - Parsing Form 34A: form_34a_-_affidavit_parentage_form-34a-en-dec20.docx
+2025-08-20 08:32:24,546 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:24,546 - parse_forms_from_list - INFO - Parsing Form 34F: form_34f_-_consents_adoption_form-34f-en-dec20.docx
+2025-08-20 08:32:24,615 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:24,615 - parse_forms_from_list - INFO - Parsing Form 34G: form_34g_-_affidavit_adopting_parent_form-34g-en-dec20.docx
+2025-08-20 08:32:24,669 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:24,669 - parse_forms_from_list - INFO - Parsing Form 34I: form_34i_-_affidavit_adopting_relative_form-34i-en-dec20.docx
+2025-08-20 08:32:24,741 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:24,741 - parse_forms_from_list - INFO - Parsing Form 36: form_36_-_affidavit_for_divorce_flr-36-apr24-en-fil.docx
+2025-08-20 08:32:24,845 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-20 08:32:24,845 - parse_forms_from_list - INFO - Parsing Form 36A: form_36a_-_certificate_divorce_flr-36a-dec20-en-fil.docx
+2025-08-20 08:32:24,968 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-20 08:32:24,968 - parse_forms_from_list - INFO - Parsing Form 37: form_37_-_interjurisdictional_support_order_flr-37-apr24-en-fil.docx
+2025-08-20 08:32:24,997 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:24,997 - parse_forms_from_list - INFO - Parsing Form 37A: form_37a_-_affidavit_interjurisdictional_support_flr-37a-apr24-en-fil.docx
+2025-08-20 08:32:25,011 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:25,012 - parse_forms_from_list - INFO - Parsing Form 37B: form_37b_-_evidence_information_flr-37b-apr24-en-fil.docx
+2025-08-20 08:32:25,032 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:25,032 - parse_forms_from_list - INFO - Parsing Form 4: form_4_-_notice_change_representation_flr-04-jun25-en-fil.docx
+2025-08-20 08:32:25,053 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:25,053 - parse_forms_from_list - INFO - Parsing Form 43: form_43_-_bjdr_hearing_request_flr-43-sep24-en-fil.docx
+2025-08-20 08:32:25,103 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:25,103 - parse_forms_from_list - INFO - Parsing Form 43A: form_43a_-_bjdr_request_ocl_flr-43a-sep24-en-fil.docx
+2025-08-20 08:32:25,138 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:25,138 - parse_forms_from_list - INFO - Parsing Form 43B: form_43b_-_affidavit_bjdr_hearing_flr-43b-sep24-en-fil.docx
+2025-08-20 08:32:25,193 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:25,193 - parse_forms_from_list - INFO - Parsing Form 6B: form_6b_-_affidavit_service_flr-06b-apr16-en-fil.docx
+2025-08-20 08:32:25,288 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-20 08:32:25,288 - parse_forms_from_list - INFO - Parsing Form 6C: form_6c_-_certificate_service_flr-6c-apr23-en-fil.docx
+2025-08-20 08:32:25,399 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-20 08:32:25,399 - parse_forms_from_list - INFO - Parsing Form 8: form_8_-_application_general_flr-8-jun25-en.docx
+2025-08-20 08:32:25,568 - parse_forms_from_list - INFO -   ✓ Extracted 12 fields
+2025-08-20 08:32:25,569 - parse_forms_from_list - INFO - Parsing Form 8A: form_8a_-_application_divorce_flr-8a-apr24-en-fil.docx
+2025-08-20 08:32:25,757 - parse_forms_from_list - INFO -   ✓ Extracted 12 fields
+2025-08-20 08:32:25,757 - parse_forms_from_list - INFO - Parsing Form 8B: form_8b_-_application_child_protection_form-8b-feb_1_2022-en.docx
+2025-08-20 08:32:25,868 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:25,868 - parse_forms_from_list - INFO - Parsing Form 8D: form_8d_-_application_adoption_flr-8d-may25-en-fil.docx
+2025-08-20 08:32:25,917 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-20 08:32:25,918 - parse_forms_from_list - INFO - 
+Parsing complete. Summary saved to workflow_output/parsed_forms/parsing_summary.json
+2025-08-20 08:32:25,918 - __main__ - INFO - Parsed 26 forms successfully
+2025-08-20 08:32:25,918 - __main__ - WARNING - 22 forms had no extractable fields
+2025-08-20 08:32:25,918 - __main__ - INFO - 
+Step 4: Mapping to docassemble objects...
+2025-08-20 08:32:25,929 - __main__ - INFO - Mapped 582 fields to docassemble objects
+2025-08-20 08:32:25,930 - __main__ - INFO - 
+Step 5: Generating YAML interviews...
+2025-08-20 08:32:25,932 - __main__ - INFO - Generated YAML for Form 15
+2025-08-20 08:32:25,932 - __main__ - INFO - Generated YAML for Form 10
+2025-08-20 08:32:25,932 - __main__ - INFO - Generated YAML for Form 15C
+2025-08-20 08:32:25,933 - __main__ - INFO - Generated YAML for Form 13A
+2025-08-20 08:32:25,933 - __main__ - INFO - Generated YAML for Form 36
+2025-08-20 08:32:25,933 - __main__ - INFO - Generated YAML for Form 10A
+2025-08-20 08:32:25,934 - __main__ - INFO - Generated YAML for Form 29B
+2025-08-20 08:32:25,934 - __main__ - INFO - Generated YAML for Form 6B
+2025-08-20 08:32:25,935 - __main__ - INFO - Generated YAML for Form 13C
+2025-08-20 08:32:25,935 - __main__ - INFO - Generated YAML for Form 8A
+2025-08-20 08:32:25,935 - __main__ - INFO - Generated YAML for Form 28
+2025-08-20 08:32:25,936 - __main__ - INFO - Generated YAML for Form 26
+2025-08-20 08:32:25,936 - __main__ - INFO - Generated YAML for Form 15B
+2025-08-20 08:32:25,937 - __main__ - INFO - Generated YAML for Form 29A
+2025-08-20 08:32:25,937 - __main__ - INFO - Generated YAML for Form 25D
+2025-08-20 08:32:25,937 - __main__ - INFO - Generated YAML for Form 17A
+2025-08-20 08:32:25,938 - __main__ - INFO - Generated YAML for Form 25A
+2025-08-20 08:32:25,938 - __main__ - INFO - Generated YAML for Form 33F
+2025-08-20 08:32:25,939 - __main__ - INFO - Generated YAML for Form 13B
+2025-08-20 08:32:25,939 - __main__ - INFO - Generated YAML for Form 6C
+2025-08-20 08:32:25,941 - __main__ - INFO - Generated YAML for Form 13
+2025-08-20 08:32:25,941 - __main__ - INFO - Generated YAML for Form 8
+2025-08-20 08:32:25,943 - __main__ - INFO - Generated YAML for Form 13.1
+2025-08-20 08:32:25,943 - __main__ - INFO - Generated YAML for Form 29
+2025-08-20 08:32:25,943 - __main__ - INFO - Generated YAML for Form 17C
+2025-08-20 08:32:25,943 - __main__ - INFO - Generated YAML for Form 36A
+2025-08-20 08:32:25,943 - __main__ - INFO - Generated 26 YAML interview files
+2025-08-20 08:32:25,944 - __main__ - INFO - 
+Step 6: Validating YAML files...
+2025-08-20 08:32:25,968 - __main__ - INFO - Validated 26 YAML files
+2025-08-20 08:32:25,968 - __main__ - INFO - Valid: 0, Invalid: 26
+2025-08-20 08:32:25,968 - __main__ - INFO - 
+Workflow complete. Report saved to workflow_output/reports/workflow_report_20250820_083225.json
+2025-08-26 20:50:12,187 - __main__ - INFO - ============================================================
+2025-08-26 20:50:12,187 - __main__ - INFO - Starting Updated Ontario Family Law Forms Workflow
+2025-08-26 20:50:12,187 - __main__ - INFO - ============================================================
+2025-08-26 20:50:12,187 - __main__ - INFO - 
+Step 1: Downloading forms...
+2025-08-26 20:50:38,508 - __main__ - INFO - Downloaded 48 forms successfully
+2025-08-26 20:50:38,509 - __main__ - INFO - 
+Step 2: Creating forms list...
+2025-08-26 20:50:38,522 - __main__ - INFO - Created list of 48 forms
+2025-08-26 20:50:38,522 - __main__ - INFO - 
+Step 3: Parsing forms...
+2025-08-26 20:50:38,802 - parse_forms_from_list - INFO - Parsing Form 10: form_10_-_answer_flr-10-jun25-en-fil.docx
+2025-08-26 20:50:38,911 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-26 20:50:38,911 - parse_forms_from_list - INFO - Parsing Form 10A: form_10a_-_reply_flr-10a-e.pdf
+2025-08-26 20:50:39,053 - parse_forms_from_list - INFO -   ✓ Extracted 24 fields
+2025-08-26 20:50:39,053 - parse_forms_from_list - INFO - Parsing Form 13: form_13_-_financial_statement_support_flr-13-may21-en-fil.docx
+2025-08-26 20:50:39,317 - parse_forms_from_list - INFO -   ✓ Extracted 127 fields
+2025-08-26 20:50:39,317 - parse_forms_from_list - INFO - Parsing Form 13.1: form_13.1_-_financial_statement_property_flr-13-1-may21-en-fil.docx
+2025-08-26 20:50:39,589 - parse_forms_from_list - INFO -   ✓ Extracted 113 fields
+2025-08-26 20:50:39,589 - parse_forms_from_list - INFO - Parsing Form 13A: form_13a_-_certificate_financial_disclosure_flr-13a-may21-en-fil.docx
+2025-08-26 20:50:39,773 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-26 20:50:39,773 - parse_forms_from_list - INFO - Parsing Form 13B: form_13b_-_net_family_property_statement_flr-13b-may09-en-fil-tables.docx
+2025-08-26 20:50:39,830 - parse_forms_from_list - INFO -   ✓ Extracted 39 fields
+2025-08-26 20:50:39,830 - parse_forms_from_list - INFO - Parsing Form 13C: form_13c_-_comparison_net_family_property_flr-13c-may21-en-fil.docx
+2025-08-26 20:50:39,940 - parse_forms_from_list - INFO -   ✓ Extracted 42 fields
+2025-08-26 20:50:39,940 - parse_forms_from_list - INFO - Parsing Form 14B: form_14b_-_motion_form_flr-14b-0921-en.docx
+2025-08-26 20:50:39,979 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:39,979 - parse_forms_from_list - INFO - Parsing Form 14C: form_14c_-_confirmation_motion_flr-14c-sep24-en-fil.docx
+2025-08-26 20:50:40,065 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:40,065 - parse_forms_from_list - INFO - Parsing Form 15: form_15_-_motion_to_change_flr-15-0921-en.docx
+2025-08-26 20:50:40,245 - parse_forms_from_list - INFO -   ✓ Extracted 13 fields
+2025-08-26 20:50:40,245 - parse_forms_from_list - INFO - Parsing Form 15B: form_15b_-_response_motion_to_change_form-15b-en-dec20.docx
+2025-08-26 20:50:40,420 - parse_forms_from_list - INFO -   ✓ Extracted 11 fields
+2025-08-26 20:50:40,420 - parse_forms_from_list - INFO - Parsing Form 15C: form_15c_-_consent_motion_to_change_form-15c-en-dec20.docx
+2025-08-26 20:50:40,747 - parse_forms_from_list - INFO -   ✓ Extracted 24 fields
+2025-08-26 20:50:40,747 - parse_forms_from_list - INFO - Parsing Form 17A: form_17a_-_case_conference_brief_flr-17a-sep23-en.docx
+2025-08-26 20:50:40,878 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-26 20:50:40,878 - parse_forms_from_list - INFO - Parsing Form 17C: form_17c_-_settlement_conference_brief_flr-17c-sep23-en.docx
+2025-08-26 20:50:41,002 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-26 20:50:41,002 - parse_forms_from_list - INFO - Parsing Form 17F: form_17f_-_confirmation_conference_flr-17f-sep24-en-fil.docx
+2025-08-26 20:50:41,104 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:41,104 - parse_forms_from_list - INFO - Parsing Form 25: form_25_-_order_general_form-25-en-dec20.docx
+2025-08-26 20:50:41,133 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:41,133 - parse_forms_from_list - INFO - Parsing Form 25A: form_25a_-_divorce_order_flr-25a-e.pdf
+2025-08-26 20:50:41,225 - parse_forms_from_list - INFO -   ✓ Extracted 28 fields
+2025-08-26 20:50:41,226 - parse_forms_from_list - INFO - Parsing Form 25C: form_25c_-_adoption_order_flr-25c-may25-en-fil.docx
+2025-08-26 20:50:41,296 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:41,296 - parse_forms_from_list - INFO - Parsing Form 25D: form_25d_-_order_uncontested_trial_form-25d-en-dec20.docx
+2025-08-26 20:50:41,526 - parse_forms_from_list - INFO -   ✓ Extracted 13 fields
+2025-08-26 20:50:41,526 - parse_forms_from_list - INFO - Parsing Form 25F: form_25f_-_restraining_order_flr-25f-sep09-en-fil.docx
+2025-08-26 20:50:41,568 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:41,568 - parse_forms_from_list - INFO - Parsing Form 26: form_26_-_statement_money_owed_flr-26-apr16-en-fil.docx
+2025-08-26 20:50:41,815 - parse_forms_from_list - INFO -   ✓ Extracted 64 fields
+2025-08-26 20:50:41,815 - parse_forms_from_list - INFO - Parsing Form 27: form_27_-_request_financial_statement_flr-27-apr16-en-fil.docx
+2025-08-26 20:50:41,833 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:41,833 - parse_forms_from_list - INFO - Parsing Form 28: form_28_-_writ_seizure_sale_flr-28-apr16-en-fil.docx
+2025-08-26 20:50:41,919 - parse_forms_from_list - INFO -   ✓ Extracted 18 fields
+2025-08-26 20:50:41,919 - parse_forms_from_list - INFO - Parsing Form 29: form_29_-_request_garnishment_flr-29-apr16-en-fil.docx
+2025-08-26 20:50:41,999 - parse_forms_from_list - INFO -   ✓ Extracted 11 fields
+2025-08-26 20:50:41,999 - parse_forms_from_list - INFO - Parsing Form 29A: form_29a_-_notice_garnishment_lump_sum_flr-29a-apr16-en-fil.docx
+2025-08-26 20:50:42,040 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-26 20:50:42,040 - parse_forms_from_list - INFO - Parsing Form 29B: form_29b_-_notice_garnishment_periodic_flr-29b-apr16-en-fil.docx
+2025-08-26 20:50:42,135 - parse_forms_from_list - INFO -   ✓ Extracted 3 fields
+2025-08-26 20:50:42,135 - parse_forms_from_list - INFO - Parsing Form 30: form_30_-_notice_default_hearing_flr-30-apr16-en-fil.docx
+2025-08-26 20:50:42,160 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:42,160 - parse_forms_from_list - INFO - Parsing Form 33F: form_33f_-_access_application_flr-33f-may21-en-fil.docx
+2025-08-26 20:50:42,189 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-26 20:50:42,189 - parse_forms_from_list - INFO - Parsing Form 34: form_34_-_child_consent_adoption_flr-34-nov18-en-fil.docx
+2025-08-26 20:50:42,242 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:42,243 - parse_forms_from_list - INFO - Parsing Form 34A: form_34a_-_affidavit_parentage_form-34a-en-dec20.docx
+2025-08-26 20:50:42,440 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:42,441 - parse_forms_from_list - INFO - Parsing Form 34F: form_34f_-_consents_adoption_form-34f-en-dec20.docx
+2025-08-26 20:50:42,519 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:42,519 - parse_forms_from_list - INFO - Parsing Form 34G: form_34g_-_affidavit_adopting_parent_form-34g-en-dec20.docx
+2025-08-26 20:50:42,581 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:42,581 - parse_forms_from_list - INFO - Parsing Form 34I: form_34i_-_affidavit_adopting_relative_form-34i-en-dec20.docx
+2025-08-26 20:50:42,661 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:42,661 - parse_forms_from_list - INFO - Parsing Form 36: form_36_-_affidavit_for_divorce_flr-36-apr24-en-fil.docx
+2025-08-26 20:50:42,778 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-26 20:50:42,778 - parse_forms_from_list - INFO - Parsing Form 36A: form_36a_-_certificate_divorce_flr-36a-dec20-en-fil.docx
+2025-08-26 20:50:42,915 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-26 20:50:42,916 - parse_forms_from_list - INFO - Parsing Form 37: form_37_-_interjurisdictional_support_order_flr-37-apr24-en-fil.docx
+2025-08-26 20:50:42,949 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:42,949 - parse_forms_from_list - INFO - Parsing Form 37A: form_37a_-_affidavit_interjurisdictional_support_flr-37a-apr24-en-fil.docx
+2025-08-26 20:50:42,965 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:42,965 - parse_forms_from_list - INFO - Parsing Form 37B: form_37b_-_evidence_information_flr-37b-apr24-en-fil.docx
+2025-08-26 20:50:42,988 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:42,988 - parse_forms_from_list - INFO - Parsing Form 4: form_4_-_notice_change_representation_flr-04-jun25-en-fil.docx
+2025-08-26 20:50:43,011 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:43,011 - parse_forms_from_list - INFO - Parsing Form 43: form_43_-_bjdr_hearing_request_flr-43-sep24-en-fil.docx
+2025-08-26 20:50:43,073 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:43,073 - parse_forms_from_list - INFO - Parsing Form 43A: form_43a_-_bjdr_request_ocl_flr-43a-sep24-en-fil.docx
+2025-08-26 20:50:43,115 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:43,115 - parse_forms_from_list - INFO - Parsing Form 43B: form_43b_-_affidavit_bjdr_hearing_flr-43b-sep24-en-fil.docx
+2025-08-26 20:50:43,180 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:43,180 - parse_forms_from_list - INFO - Parsing Form 6B: form_6b_-_affidavit_service_flr-06b-apr16-en-fil.docx
+2025-08-26 20:50:43,288 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-26 20:50:43,288 - parse_forms_from_list - INFO - Parsing Form 6C: form_6c_-_certificate_service_flr-6c-apr23-en-fil.docx
+2025-08-26 20:50:43,415 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-26 20:50:43,415 - parse_forms_from_list - INFO - Parsing Form 8: form_8_-_application_general_flr-8-jun25-en.docx
+2025-08-26 20:50:43,608 - parse_forms_from_list - INFO -   ✓ Extracted 12 fields
+2025-08-26 20:50:43,608 - parse_forms_from_list - INFO - Parsing Form 8A: form_8a_-_application_divorce_flr-8a-apr24-en-fil.docx
+2025-08-26 20:50:43,822 - parse_forms_from_list - INFO -   ✓ Extracted 12 fields
+2025-08-26 20:50:43,822 - parse_forms_from_list - INFO - Parsing Form 8B: form_8b_-_application_child_protection_form-8b-feb_1_2022-en.docx
+2025-08-26 20:50:43,947 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:43,947 - parse_forms_from_list - INFO - Parsing Form 8D: form_8d_-_application_adoption_flr-8d-may25-en-fil.docx
+2025-08-26 20:50:44,004 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 20:50:44,004 - parse_forms_from_list - INFO - 
+Parsing complete. Summary saved to workflow_output/parsed_forms/parsing_summary.json
+2025-08-26 20:50:44,005 - __main__ - INFO - Parsed 26 forms successfully
+2025-08-26 20:50:44,005 - __main__ - WARNING - 22 forms had no extractable fields
+2025-08-26 20:50:44,005 - __main__ - INFO - 
+Step 4: Mapping to docassemble objects...
+2025-08-26 20:50:44,018 - __main__ - INFO - Mapped 582 fields to docassemble objects
+2025-08-26 20:50:44,019 - __main__ - INFO - 
+Step 5: Generating YAML interviews...
+2025-08-26 20:50:44,022 - __main__ - INFO - Generated YAML for Form 15
+2025-08-26 20:50:44,023 - __main__ - INFO - Generated YAML for Form 10
+2025-08-26 20:50:44,023 - __main__ - INFO - Generated YAML for Form 15C
+2025-08-26 20:50:44,024 - __main__ - INFO - Generated YAML for Form 13A
+2025-08-26 20:50:44,024 - __main__ - INFO - Generated YAML for Form 36
+2025-08-26 20:50:44,025 - __main__ - INFO - Generated YAML for Form 10A
+2025-08-26 20:50:44,025 - __main__ - INFO - Generated YAML for Form 29B
+2025-08-26 20:50:44,026 - __main__ - INFO - Generated YAML for Form 6B
+2025-08-26 20:50:44,027 - __main__ - INFO - Generated YAML for Form 13C
+2025-08-26 20:50:44,027 - __main__ - INFO - Generated YAML for Form 8A
+2025-08-26 20:50:44,028 - __main__ - INFO - Generated YAML for Form 28
+2025-08-26 20:50:44,029 - __main__ - INFO - Generated YAML for Form 26
+2025-08-26 20:50:44,029 - __main__ - INFO - Generated YAML for Form 15B
+2025-08-26 20:50:44,030 - __main__ - INFO - Generated YAML for Form 29A
+2025-08-26 20:50:44,030 - __main__ - INFO - Generated YAML for Form 25D
+2025-08-26 20:50:44,030 - __main__ - INFO - Generated YAML for Form 17A
+2025-08-26 20:50:44,031 - __main__ - INFO - Generated YAML for Form 25A
+2025-08-26 20:50:44,031 - __main__ - INFO - Generated YAML for Form 33F
+2025-08-26 20:50:44,032 - __main__ - INFO - Generated YAML for Form 13B
+2025-08-26 20:50:44,032 - __main__ - INFO - Generated YAML for Form 6C
+2025-08-26 20:50:44,034 - __main__ - INFO - Generated YAML for Form 13
+2025-08-26 20:50:44,034 - __main__ - INFO - Generated YAML for Form 8
+2025-08-26 20:50:44,036 - __main__ - INFO - Generated YAML for Form 13.1
+2025-08-26 20:50:44,037 - __main__ - INFO - Generated YAML for Form 29
+2025-08-26 20:50:44,037 - __main__ - INFO - Generated YAML for Form 17C
+2025-08-26 20:50:44,037 - __main__ - INFO - Generated YAML for Form 36A
+2025-08-26 20:50:44,037 - __main__ - INFO - Generated 26 YAML interview files
+2025-08-26 20:50:44,037 - __main__ - INFO - 
+Step 6: Validating YAML files...
+2025-08-26 20:50:44,070 - __main__ - INFO - Validated 26 YAML files
+2025-08-26 20:50:44,070 - __main__ - INFO - Valid: 0, Invalid: 26
+2025-08-26 20:50:44,070 - __main__ - INFO - 
+Workflow complete. Report saved to workflow_output/reports/workflow_report_20250826_205044.json
+2025-08-26 21:01:27,967 - updated_master_workflow - INFO - Generated YAML for Form 15
+2025-08-26 21:01:27,970 - updated_master_workflow - INFO - Generated YAML for Form 10
+2025-08-26 21:01:27,977 - updated_master_workflow - INFO - Generated YAML for Form 15C
+2025-08-26 21:01:27,981 - updated_master_workflow - INFO - Generated YAML for Form 13A
+2025-08-26 21:01:27,984 - updated_master_workflow - INFO - Generated YAML for Form 36
+2025-08-26 21:01:27,992 - updated_master_workflow - INFO - Generated YAML for Form 10A
+2025-08-26 21:01:27,995 - updated_master_workflow - INFO - Generated YAML for Form 29B
+2025-08-26 21:01:27,998 - updated_master_workflow - INFO - Generated YAML for Form 6B
+2025-08-26 21:01:28,006 - updated_master_workflow - INFO - Generated YAML for Form 13C
+2025-08-26 21:01:28,011 - updated_master_workflow - INFO - Generated YAML for Form 8A
+2025-08-26 21:01:28,017 - updated_master_workflow - INFO - Generated YAML for Form 28
+2025-08-26 21:01:28,028 - updated_master_workflow - INFO - Generated YAML for Form 26
+2025-08-26 21:01:28,033 - updated_master_workflow - INFO - Generated YAML for Form 15B
+2025-08-26 21:01:28,035 - updated_master_workflow - INFO - Generated YAML for Form 29A
+2025-08-26 21:01:28,040 - updated_master_workflow - INFO - Generated YAML for Form 25D
+2025-08-26 21:01:28,044 - updated_master_workflow - INFO - Generated YAML for Form 17A
+2025-08-26 21:01:28,050 - updated_master_workflow - INFO - Generated YAML for Form 25A
+2025-08-26 21:01:28,053 - updated_master_workflow - INFO - Generated YAML for Form 33F
+2025-08-26 21:01:28,059 - updated_master_workflow - INFO - Generated YAML for Form 13B
+2025-08-26 21:01:28,062 - updated_master_workflow - INFO - Generated YAML for Form 6C
+2025-08-26 21:01:28,083 - updated_master_workflow - INFO - Generated YAML for Form 13
+2025-08-26 21:01:28,088 - updated_master_workflow - INFO - Generated YAML for Form 8
+2025-08-26 21:01:28,106 - updated_master_workflow - INFO - Generated YAML for Form 13.1
+2025-08-26 21:01:28,112 - updated_master_workflow - INFO - Generated YAML for Form 29
+2025-08-26 21:01:28,115 - updated_master_workflow - INFO - Generated YAML for Form 17C
+2025-08-26 21:01:28,118 - updated_master_workflow - INFO - Generated YAML for Form 36A
+2025-08-26 21:01:28,118 - updated_master_workflow - INFO - Generated 26 YAML interview files
+2025-08-26 21:01:28,134 - updated_master_workflow - INFO - Validated 26 YAML files
+2025-08-26 21:01:28,134 - updated_master_workflow - INFO - Valid: 0, Invalid: 26
+2025-08-26 21:09:45,220 - updated_master_workflow - INFO - Generated YAML for Form 15
+2025-08-26 21:09:45,223 - updated_master_workflow - INFO - Generated YAML for Form 10
+2025-08-26 21:09:45,230 - updated_master_workflow - INFO - Generated YAML for Form 15C
+2025-08-26 21:09:45,233 - updated_master_workflow - INFO - Generated YAML for Form 13A
+2025-08-26 21:09:45,237 - updated_master_workflow - INFO - Generated YAML for Form 36
+2025-08-26 21:09:45,244 - updated_master_workflow - INFO - Generated YAML for Form 10A
+2025-08-26 21:09:45,247 - updated_master_workflow - INFO - Generated YAML for Form 29B
+2025-08-26 21:09:45,250 - updated_master_workflow - INFO - Generated YAML for Form 6B
+2025-08-26 21:09:45,258 - updated_master_workflow - INFO - Generated YAML for Form 13C
+2025-08-26 21:09:45,263 - updated_master_workflow - INFO - Generated YAML for Form 8A
+2025-08-26 21:09:45,269 - updated_master_workflow - INFO - Generated YAML for Form 28
+2025-08-26 21:09:45,279 - updated_master_workflow - INFO - Generated YAML for Form 26
+2025-08-26 21:09:45,284 - updated_master_workflow - INFO - Generated YAML for Form 15B
+2025-08-26 21:09:45,287 - updated_master_workflow - INFO - Generated YAML for Form 29A
+2025-08-26 21:09:45,292 - updated_master_workflow - INFO - Generated YAML for Form 25D
+2025-08-26 21:09:45,296 - updated_master_workflow - INFO - Generated YAML for Form 17A
+2025-08-26 21:09:45,302 - updated_master_workflow - INFO - Generated YAML for Form 25A
+2025-08-26 21:09:45,304 - updated_master_workflow - INFO - Generated YAML for Form 33F
+2025-08-26 21:09:45,311 - updated_master_workflow - INFO - Generated YAML for Form 13B
+2025-08-26 21:09:45,314 - updated_master_workflow - INFO - Generated YAML for Form 6C
+2025-08-26 21:09:45,335 - updated_master_workflow - INFO - Generated YAML for Form 13
+2025-08-26 21:09:45,340 - updated_master_workflow - INFO - Generated YAML for Form 8
+2025-08-26 21:09:45,358 - updated_master_workflow - INFO - Generated YAML for Form 13.1
+2025-08-26 21:09:45,364 - updated_master_workflow - INFO - Generated YAML for Form 29
+2025-08-26 21:09:45,367 - updated_master_workflow - INFO - Generated YAML for Form 17C
+2025-08-26 21:09:45,370 - updated_master_workflow - INFO - Generated YAML for Form 36A
+2025-08-26 21:09:45,370 - updated_master_workflow - INFO - Generated index interview: workflow_output/yaml_interviews/00_ontario_forms_index.yml
+2025-08-26 21:09:45,370 - updated_master_workflow - INFO - Generated index interview with 26 forms
+2025-08-26 21:09:45,370 - updated_master_workflow - INFO - Generated 26 YAML interview files
+2025-08-26 21:11:15,951 - __main__ - INFO - Skipping download step as requested
+2025-08-26 21:11:15,951 - __main__ - INFO - ============================================================
+2025-08-26 21:11:15,951 - __main__ - INFO - Starting Updated Ontario Family Law Forms Workflow
+2025-08-26 21:11:15,951 - __main__ - INFO - ============================================================
+2025-08-26 21:11:15,951 - __main__ - INFO - 
+Step 1: Downloading forms...
+2025-08-26 21:11:43,815 - __main__ - INFO - Downloaded 48 forms successfully
+2025-08-26 21:11:43,815 - __main__ - INFO - 
+Step 2: Creating forms list...
+2025-08-26 21:11:43,819 - __main__ - INFO - Created list of 48 forms
+2025-08-26 21:11:43,819 - __main__ - INFO - 
+Step 3: Parsing forms...
+2025-08-26 21:11:43,949 - parse_forms_from_list - INFO - Parsing Form 10: form_10_-_answer_flr-10-jun25-en-fil.docx
+2025-08-26 21:11:44,053 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-26 21:11:44,053 - parse_forms_from_list - INFO - Parsing Form 10A: form_10a_-_reply_flr-10a-e.pdf
+2025-08-26 21:11:44,177 - parse_forms_from_list - INFO -   ✓ Extracted 24 fields
+2025-08-26 21:11:44,178 - parse_forms_from_list - INFO - Parsing Form 13: form_13_-_financial_statement_support_flr-13-may21-en-fil.docx
+2025-08-26 21:11:44,445 - parse_forms_from_list - INFO -   ✓ Extracted 127 fields
+2025-08-26 21:11:44,445 - parse_forms_from_list - INFO - Parsing Form 13.1: form_13.1_-_financial_statement_property_flr-13-1-may21-en-fil.docx
+2025-08-26 21:11:44,720 - parse_forms_from_list - INFO -   ✓ Extracted 113 fields
+2025-08-26 21:11:44,720 - parse_forms_from_list - INFO - Parsing Form 13A: form_13a_-_certificate_financial_disclosure_flr-13a-may21-en-fil.docx
+2025-08-26 21:11:44,907 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-26 21:11:44,907 - parse_forms_from_list - INFO - Parsing Form 13B: form_13b_-_net_family_property_statement_flr-13b-may09-en-fil-tables.docx
+2025-08-26 21:11:44,965 - parse_forms_from_list - INFO -   ✓ Extracted 39 fields
+2025-08-26 21:11:44,965 - parse_forms_from_list - INFO - Parsing Form 13C: form_13c_-_comparison_net_family_property_flr-13c-may21-en-fil.docx
+2025-08-26 21:11:45,074 - parse_forms_from_list - INFO -   ✓ Extracted 42 fields
+2025-08-26 21:11:45,074 - parse_forms_from_list - INFO - Parsing Form 14B: form_14b_-_motion_form_flr-14b-0921-en.docx
+2025-08-26 21:11:45,114 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:45,114 - parse_forms_from_list - INFO - Parsing Form 14C: form_14c_-_confirmation_motion_flr-14c-sep24-en-fil.docx
+2025-08-26 21:11:45,203 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:45,203 - parse_forms_from_list - INFO - Parsing Form 15: form_15_-_motion_to_change_flr-15-0921-en.docx
+2025-08-26 21:11:45,383 - parse_forms_from_list - INFO -   ✓ Extracted 13 fields
+2025-08-26 21:11:45,383 - parse_forms_from_list - INFO - Parsing Form 15B: form_15b_-_response_motion_to_change_form-15b-en-dec20.docx
+2025-08-26 21:11:45,560 - parse_forms_from_list - INFO -   ✓ Extracted 11 fields
+2025-08-26 21:11:45,560 - parse_forms_from_list - INFO - Parsing Form 15C: form_15c_-_consent_motion_to_change_form-15c-en-dec20.docx
+2025-08-26 21:11:45,889 - parse_forms_from_list - INFO -   ✓ Extracted 24 fields
+2025-08-26 21:11:45,889 - parse_forms_from_list - INFO - Parsing Form 17A: form_17a_-_case_conference_brief_flr-17a-sep23-en.docx
+2025-08-26 21:11:46,020 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-26 21:11:46,020 - parse_forms_from_list - INFO - Parsing Form 17C: form_17c_-_settlement_conference_brief_flr-17c-sep23-en.docx
+2025-08-26 21:11:46,146 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-26 21:11:46,146 - parse_forms_from_list - INFO - Parsing Form 17F: form_17f_-_confirmation_conference_flr-17f-sep24-en-fil.docx
+2025-08-26 21:11:46,248 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:46,248 - parse_forms_from_list - INFO - Parsing Form 25: form_25_-_order_general_form-25-en-dec20.docx
+2025-08-26 21:11:46,277 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:46,277 - parse_forms_from_list - INFO - Parsing Form 25A: form_25a_-_divorce_order_flr-25a-e.pdf
+2025-08-26 21:11:46,368 - parse_forms_from_list - INFO -   ✓ Extracted 28 fields
+2025-08-26 21:11:46,368 - parse_forms_from_list - INFO - Parsing Form 25C: form_25c_-_adoption_order_flr-25c-may25-en-fil.docx
+2025-08-26 21:11:46,439 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:46,439 - parse_forms_from_list - INFO - Parsing Form 25D: form_25d_-_order_uncontested_trial_form-25d-en-dec20.docx
+2025-08-26 21:11:46,670 - parse_forms_from_list - INFO -   ✓ Extracted 13 fields
+2025-08-26 21:11:46,670 - parse_forms_from_list - INFO - Parsing Form 25F: form_25f_-_restraining_order_flr-25f-sep09-en-fil.docx
+2025-08-26 21:11:46,713 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:46,714 - parse_forms_from_list - INFO - Parsing Form 26: form_26_-_statement_money_owed_flr-26-apr16-en-fil.docx
+2025-08-26 21:11:46,963 - parse_forms_from_list - INFO -   ✓ Extracted 64 fields
+2025-08-26 21:11:46,963 - parse_forms_from_list - INFO - Parsing Form 27: form_27_-_request_financial_statement_flr-27-apr16-en-fil.docx
+2025-08-26 21:11:46,980 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:46,980 - parse_forms_from_list - INFO - Parsing Form 28: form_28_-_writ_seizure_sale_flr-28-apr16-en-fil.docx
+2025-08-26 21:11:47,067 - parse_forms_from_list - INFO -   ✓ Extracted 18 fields
+2025-08-26 21:11:47,067 - parse_forms_from_list - INFO - Parsing Form 29: form_29_-_request_garnishment_flr-29-apr16-en-fil.docx
+2025-08-26 21:11:47,148 - parse_forms_from_list - INFO -   ✓ Extracted 11 fields
+2025-08-26 21:11:47,148 - parse_forms_from_list - INFO - Parsing Form 29A: form_29a_-_notice_garnishment_lump_sum_flr-29a-apr16-en-fil.docx
+2025-08-26 21:11:47,189 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-26 21:11:47,189 - parse_forms_from_list - INFO - Parsing Form 29B: form_29b_-_notice_garnishment_periodic_flr-29b-apr16-en-fil.docx
+2025-08-26 21:11:47,284 - parse_forms_from_list - INFO -   ✓ Extracted 3 fields
+2025-08-26 21:11:47,285 - parse_forms_from_list - INFO - Parsing Form 30: form_30_-_notice_default_hearing_flr-30-apr16-en-fil.docx
+2025-08-26 21:11:47,309 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:47,310 - parse_forms_from_list - INFO - Parsing Form 33F: form_33f_-_access_application_flr-33f-may21-en-fil.docx
+2025-08-26 21:11:47,338 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-26 21:11:47,339 - parse_forms_from_list - INFO - Parsing Form 34: form_34_-_child_consent_adoption_flr-34-nov18-en-fil.docx
+2025-08-26 21:11:47,391 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:47,391 - parse_forms_from_list - INFO - Parsing Form 34A: form_34a_-_affidavit_parentage_form-34a-en-dec20.docx
+2025-08-26 21:11:47,592 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:47,592 - parse_forms_from_list - INFO - Parsing Form 34F: form_34f_-_consents_adoption_form-34f-en-dec20.docx
+2025-08-26 21:11:47,672 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:47,672 - parse_forms_from_list - INFO - Parsing Form 34G: form_34g_-_affidavit_adopting_parent_form-34g-en-dec20.docx
+2025-08-26 21:11:47,735 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:47,736 - parse_forms_from_list - INFO - Parsing Form 34I: form_34i_-_affidavit_adopting_relative_form-34i-en-dec20.docx
+2025-08-26 21:11:47,817 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:47,817 - parse_forms_from_list - INFO - Parsing Form 36: form_36_-_affidavit_for_divorce_flr-36-apr24-en-fil.docx
+2025-08-26 21:11:47,935 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-26 21:11:47,935 - parse_forms_from_list - INFO - Parsing Form 36A: form_36a_-_certificate_divorce_flr-36a-dec20-en-fil.docx
+2025-08-26 21:11:48,075 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-26 21:11:48,075 - parse_forms_from_list - INFO - Parsing Form 37: form_37_-_interjurisdictional_support_order_flr-37-apr24-en-fil.docx
+2025-08-26 21:11:48,108 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:48,108 - parse_forms_from_list - INFO - Parsing Form 37A: form_37a_-_affidavit_interjurisdictional_support_flr-37a-apr24-en-fil.docx
+2025-08-26 21:11:48,124 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:48,124 - parse_forms_from_list - INFO - Parsing Form 37B: form_37b_-_evidence_information_flr-37b-apr24-en-fil.docx
+2025-08-26 21:11:48,147 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:48,147 - parse_forms_from_list - INFO - Parsing Form 4: form_4_-_notice_change_representation_flr-04-jun25-en-fil.docx
+2025-08-26 21:11:48,171 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:48,171 - parse_forms_from_list - INFO - Parsing Form 43: form_43_-_bjdr_hearing_request_flr-43-sep24-en-fil.docx
+2025-08-26 21:11:48,233 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:48,233 - parse_forms_from_list - INFO - Parsing Form 43A: form_43a_-_bjdr_request_ocl_flr-43a-sep24-en-fil.docx
+2025-08-26 21:11:48,276 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:48,276 - parse_forms_from_list - INFO - Parsing Form 43B: form_43b_-_affidavit_bjdr_hearing_flr-43b-sep24-en-fil.docx
+2025-08-26 21:11:48,343 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:48,343 - parse_forms_from_list - INFO - Parsing Form 6B: form_6b_-_affidavit_service_flr-06b-apr16-en-fil.docx
+2025-08-26 21:11:48,452 - parse_forms_from_list - INFO -   ✓ Extracted 1 fields
+2025-08-26 21:11:48,452 - parse_forms_from_list - INFO - Parsing Form 6C: form_6c_-_certificate_service_flr-6c-apr23-en-fil.docx
+2025-08-26 21:11:48,581 - parse_forms_from_list - INFO -   ✓ Extracted 4 fields
+2025-08-26 21:11:48,581 - parse_forms_from_list - INFO - Parsing Form 8: form_8_-_application_general_flr-8-jun25-en.docx
+2025-08-26 21:11:48,779 - parse_forms_from_list - INFO -   ✓ Extracted 12 fields
+2025-08-26 21:11:48,779 - parse_forms_from_list - INFO - Parsing Form 8A: form_8a_-_application_divorce_flr-8a-apr24-en-fil.docx
+2025-08-26 21:11:48,996 - parse_forms_from_list - INFO -   ✓ Extracted 12 fields
+2025-08-26 21:11:48,996 - parse_forms_from_list - INFO - Parsing Form 8B: form_8b_-_application_child_protection_form-8b-feb_1_2022-en.docx
+2025-08-26 21:11:49,124 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:49,124 - parse_forms_from_list - INFO - Parsing Form 8D: form_8d_-_application_adoption_flr-8d-may25-en-fil.docx
+2025-08-26 21:11:49,181 - parse_forms_from_list - WARNING -   ⚠ No fields extracted
+2025-08-26 21:11:49,182 - parse_forms_from_list - INFO - 
+Parsing complete. Summary saved to workflow_output/parsed_forms/parsing_summary.json
+2025-08-26 21:11:49,182 - __main__ - INFO - Parsed 26 forms successfully
+2025-08-26 21:11:49,182 - __main__ - WARNING - 22 forms had no extractable fields
+2025-08-26 21:11:49,182 - __main__ - INFO - 
+Step 4: Mapping to docassemble objects...
+2025-08-26 21:11:49,195 - __main__ - INFO - Mapped 582 fields to docassemble objects
+2025-08-26 21:11:49,195 - __main__ - INFO - 
+Step 5: Generating YAML interviews...
+2025-08-26 21:11:49,213 - __main__ - INFO - Generated YAML for Form 15
+2025-08-26 21:11:49,216 - __main__ - INFO - Generated YAML for Form 10
+2025-08-26 21:11:49,221 - __main__ - INFO - Generated YAML for Form 15C
+2025-08-26 21:11:49,224 - __main__ - INFO - Generated YAML for Form 13A
+2025-08-26 21:11:49,227 - __main__ - INFO - Generated YAML for Form 36
+2025-08-26 21:11:49,234 - __main__ - INFO - Generated YAML for Form 10A
+2025-08-26 21:11:49,237 - __main__ - INFO - Generated YAML for Form 29B
+2025-08-26 21:11:49,240 - __main__ - INFO - Generated YAML for Form 6B
+2025-08-26 21:11:49,247 - __main__ - INFO - Generated YAML for Form 13C
+2025-08-26 21:11:49,252 - __main__ - INFO - Generated YAML for Form 8A
+2025-08-26 21:11:49,257 - __main__ - INFO - Generated YAML for Form 28
+2025-08-26 21:11:49,267 - __main__ - INFO - Generated YAML for Form 26
+2025-08-26 21:11:49,271 - __main__ - INFO - Generated YAML for Form 15B
+2025-08-26 21:11:49,274 - __main__ - INFO - Generated YAML for Form 29A
+2025-08-26 21:11:49,279 - __main__ - INFO - Generated YAML for Form 25D
+2025-08-26 21:11:49,282 - __main__ - INFO - Generated YAML for Form 17A
+2025-08-26 21:11:49,288 - __main__ - INFO - Generated YAML for Form 25A
+2025-08-26 21:11:49,290 - __main__ - INFO - Generated YAML for Form 33F
+2025-08-26 21:11:49,296 - __main__ - INFO - Generated YAML for Form 13B
+2025-08-26 21:11:49,299 - __main__ - INFO - Generated YAML for Form 6C
+2025-08-26 21:11:49,319 - __main__ - INFO - Generated YAML for Form 13
+2025-08-26 21:11:49,324 - __main__ - INFO - Generated YAML for Form 8
+2025-08-26 21:11:49,342 - __main__ - INFO - Generated YAML for Form 13.1
+2025-08-26 21:11:49,347 - __main__ - INFO - Generated YAML for Form 29
+2025-08-26 21:11:49,350 - __main__ - INFO - Generated YAML for Form 17C
+2025-08-26 21:11:49,353 - __main__ - INFO - Generated YAML for Form 36A
+2025-08-26 21:11:49,353 - __main__ - INFO - Generated index interview: workflow_output/yaml_interviews/00_ontario_forms_index.yml
+2025-08-26 21:11:49,353 - __main__ - INFO - Generated index interview with 26 forms
+2025-08-26 21:11:49,353 - __main__ - INFO - Generated 26 YAML interview files
+2025-08-26 21:11:49,353 - __main__ - INFO - 
+Step 6: Validating YAML files...
+2025-08-26 21:11:49,531 - __main__ - INFO - Validated 28 YAML files
+2025-08-26 21:11:49,531 - __main__ - INFO - Valid: 26, Invalid: 2
+2025-08-26 21:11:49,531 - __main__ - INFO - 
+Workflow complete. Report saved to workflow_output/reports/workflow_report_20250826_211149.json
+2025-08-26 21:12:29,818 - updated_master_workflow - INFO - Generated index interview: workflow_output/yaml_interviews/00_ontario_forms_index.yml

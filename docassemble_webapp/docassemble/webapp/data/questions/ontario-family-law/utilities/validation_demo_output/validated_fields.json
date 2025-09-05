@@ -1,0 +1,744 @@
+[
+  {
+    "canonical_name": "income",
+    "field_type": "currency",
+    "field_label": "My spouse/partner or other adult residing in the home contributes about $",
+    "docassemble_object": "Value",
+    "docassemble_path": "users[i].income",
+    "consensus_score": 0.9650000000000001,
+    "parser_sources": [
+      "advanced_docx",
+      "advanced_docx",
+      "advanced_docx",
+      "advanced_docx",
+      "advanced_docx",
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "address",
+    "field_type": "text",
+    "field_label": "Court office address",
+    "docassemble_object": "Address",
+    "docassemble_path": "users[i].address",
+    "consensus_score": 0.92,
+    "parser_sources": [
+      "advanced_docx",
+      "advanced_docx"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "field",
+    "field_type": "currency",
+    "field_label": "1. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.9199999999999999,
+    "parser_sources": [
+      "intelligent",
+      "intelligent",
+      "intelligent",
+      "intelligent",
+      "intelligent",
+      "intelligent",
+      "intelligent",
+      "intelligent",
+      "intelligent",
+      "intelligent",
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+    "field_type": "currency",
+    "field_label": "SUBTOTAL SUBTOTAL SUBTOTAL $ \u2002\u2002\u2002\u2002\u2002  Car Loan or Lease Payments Car Loan or Lease Payments Car Loan o",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.9199999999999999,
+    "parser_sources": [
+      "intelligent",
+      "intelligent",
+      "intelligent",
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "full_legal_name",
+    "field_type": "text",
+    "field_label": "Full legal name:",
+    "docassemble_object": "Individual",
+    "docassemble_path": "users[i].name.text",
+    "consensus_score": 0.89,
+    "parser_sources": [
+      "advanced_docx",
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "email_address",
+    "field_type": "email",
+    "field_label": "Email:",
+    "docassemble_object": "Individual",
+    "docassemble_path": "users[i].email",
+    "consensus_score": 0.89,
+    "parser_sources": [
+      "advanced_docx",
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "name_of_court",
+    "field_type": "text",
+    "field_label": "(Name of Court)",
+    "docassemble_object": "DAObject",
+    "docassemble_path": "fields[i]",
+    "consensus_score": 0.8700000000000001,
+    "parser_sources": [
+      "advanced_docx"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "phone_number",
+    "field_type": "phone",
+    "field_label": "Phone & fax:",
+    "docassemble_object": "Individual",
+    "docassemble_path": "users[i].phone_number",
+    "consensus_score": 0.8700000000000001,
+    "parser_sources": [
+      "advanced_docx"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "docx2py_10_25_0_0",
+    "field_type": "date",
+    "field_label": "NOTE: This financial statement must be updated before any court event if it is:",
+    "docassemble_object": "DAObject",
+    "docassemble_path": "dates[i]",
+    "consensus_score": 0.87,
+    "parser_sources": [
+      "advanced_docx",
+      "advanced_docx"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "real_estate_real_estate_1",
+    "field_type": "currency",
+    "field_label": "Real Estate Real Estate 1 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.87,
+    "parser_sources": [
+      "intelligent",
+      "intelligent",
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "cars_boats_vehicles_cars_boats_vehicles_1",
+    "field_type": "currency",
+    "field_label": "Cars, Boats, Vehicles Cars, Boats, Vehicles 1 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 ",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.87,
+    "parser_sources": [
+      "intelligent",
+      "intelligent",
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "bank_accounts_bank_accounts_1",
+    "field_type": "currency",
+    "field_label": "Bank Accounts Bank Accounts 1 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.87,
+    "parser_sources": [
+      "intelligent",
+      "intelligent",
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "life_insurance_life_insurance_1",
+    "field_type": "currency",
+    "field_label": "Life Insurance Life Insurance 1 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.87,
+    "parser_sources": [
+      "intelligent",
+      "intelligent",
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "asset",
+    "field_type": "currency",
+    "field_label": "Other Assets Other Assets 1 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+    "docassemble_object": "Value",
+    "docassemble_path": "assets[i]",
+    "consensus_score": 0.87,
+    "parser_sources": [
+      "intelligent",
+      "intelligent",
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "expense",
+    "field_type": "currency",
+    "field_label": "I earn $",
+    "docassemble_object": "Value",
+    "docassemble_path": "users[i].expense",
+    "consensus_score": 0.865,
+    "parser_sources": [
+      "advanced_docx",
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "income",
+    "field_type": "date",
+    "field_label": "I attach proof of my year-to-date income from all sources, including my most recent (attach all that",
+    "docassemble_object": "Value",
+    "docassemble_path": "users[i].income",
+    "consensus_score": 0.8200000000000001,
+    "parser_sources": [
+      "advanced_docx"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "ContentTypeId",
+    "field_type": "text",
+    "field_label": "ContentTypeId",
+    "docassemble_object": "DAObject",
+    "docassemble_path": "fields[i]",
+    "consensus_score": 0.8200000000000001,
+    "parser_sources": [
+      "advanced_docx"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "MSIP_Label_034a106e-6316-442c-ad35-738afd673d2b_Enabled",
+    "field_type": "text",
+    "field_label": "MSIP_Label_034a106e-6316-442c-ad35-738afd673d2b_Enabled",
+    "docassemble_object": "DAObject",
+    "docassemble_path": "fields[i]",
+    "consensus_score": 0.8200000000000001,
+    "parser_sources": [
+      "advanced_docx"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "total_net_annual_amount_total_net_annual_amount_to",
+    "field_type": "currency",
+    "field_label": "        Total Net Monthly Amount Total Net Monthly Amount Total Net Monthly Amount $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.82,
+    "parser_sources": [
+      "intelligent",
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "brackets_223",
+    "field_type": "text",
+    "field_label": "[]",
+    "docassemble_object": "DAObject",
+    "docassemble_path": "fields[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "advanced_docx"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "2_2_commissions_tips_and_bonuses_commissions_tips_",
+    "field_type": "currency",
+    "field_label": "2. 2. Commissions, tips and bonuses Commissions, tips and bonuses Commissions, tips and bonuses Comm",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "4_4_employment_insurance_benefits_employment_insur",
+    "field_type": "currency",
+    "field_label": "4. 4. Employment Insurance benefits Employment Insurance benefits Employment Insurance benefits Empl",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "5_5_workers_compensation_benefits_workers_compensa",
+    "field_type": "currency",
+    "field_label": "5. 5. Workers' compensation benefits Workers' compensation benefits Workers' compensation benefits W",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "9_9_spousal_support_received_from_a_former_spouse_",
+    "field_type": "currency",
+    "field_label": "9. 9. Spousal support received from a former spouse/partner Spousal support received from a former s",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "child",
+    "field_type": "currency",
+    "field_label": "10. 10. Child Tax Benefits or Tax Rebates (e.g. GST) Child Tax Benefits or Tax Rebates (e.g. GST) Ch",
+    "docassemble_object": "Individual",
+    "docassemble_path": "children[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "cpp_contributions_cpp_contributions_cpp_contributi",
+    "field_type": "currency",
+    "field_label": "CPP contributions CPP contributions CPP contributions $ \u2002\u2002\u2002\u2002\u2002  Public transit, taxis Public transit,",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "ei_premiums_ei_premiums_ei_premiums_gas_and_oil_ga",
+    "field_type": "currency",
+    "field_label": "EI premiums EI premiums EI premiums $ \u2002\u2002\u2002\u2002\u2002  Gas and oil Gas and oil Gas and oil Gas and oil Gas and",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "employee_pension_contributions_employee_pension_co",
+    "field_type": "currency",
+    "field_label": "Employee pension contributions Employee pension contributions Employee pension contributions $ \u2002\u2002\u2002\u2002\u2002",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "union_dues_union_dues_union_dues_parking_parking_p",
+    "field_type": "currency",
+    "field_label": "Union dues Union dues Union dues $ \u2002\u2002\u2002\u2002\u2002  Parking Parking Parking Parking Parking $ \u2002\u2002\u2002\u2002\u2002",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "housing_housing_housing_housing_housing_subtotal_s",
+    "field_type": "currency",
+    "field_label": "Housing Housing Housing Housing Housing  SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ \u2002\u2002\u2002\u2002\u2002",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "rent_or_mortgage_rent_or_mortgage_rent_or_mortgage",
+    "field_type": "currency",
+    "field_label": "Rent or mortgage Rent or mortgage Rent or mortgage $ \u2002\u2002\u2002\u2002\u2002  Health Health Health Health Health Healt",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "property_taxes_property_taxes_property_taxes_healt",
+    "field_type": "currency",
+    "field_label": "Property taxes Property taxes Property taxes $ \u2002\u2002\u2002\u2002\u2002  Health insurance premiums Health insurance pre",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "condominium_fees_condominium_fees_condominium_fees",
+    "field_type": "currency",
+    "field_label": "Condominium fees Condominium fees Condominium fees $ \u2002\u2002\u2002\u2002\u2002  Medicine and drugs Medicine and drugs Me",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "repairs_and_maintenance_repairs_and_maintenance_re",
+    "field_type": "currency",
+    "field_label": "Repairs and maintenance Repairs and maintenance Repairs and maintenance $ \u2002\u2002\u2002\u2002\u2002  Eye care Eye care E",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "water_water_water_clothing_clothing_clothing_cloth",
+    "field_type": "currency",
+    "field_label": "Water Water Water $ \u2002\u2002\u2002\u2002\u2002  Clothing Clothing Clothing Clothing Clothing $ \u2002\u2002\u2002\u2002\u2002",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "heat_heat_heat_hair_care_and_beauty_hair_care_and_",
+    "field_type": "currency",
+    "field_label": "Heat Heat Heat $ \u2002\u2002\u2002\u2002\u2002  Hair care and beauty Hair care and beauty Hair care and beauty Hair care and",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "city",
+    "field_type": "currency",
+    "field_label": "Electricity Electricity Electricity $ \u2002\u2002\u2002\u2002\u2002  Alcohol and tobacco Alcohol and tobacco Alcohol and tob",
+    "docassemble_object": "Address",
+    "docassemble_path": "users[i].address.city",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "phone_number",
+    "field_type": "currency",
+    "field_label": "Telephone Telephone Telephone Telephone $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Education (specify) \u2002\u2002\u2002\u2002\u2002 Education (specify)",
+    "docassemble_object": "Individual",
+    "docassemble_path": "users[i].phone_number",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "cable_cable_cable_cable_gifts_gifts_gifts_gifts_gi",
+    "field_type": "currency",
+    "field_label": "Cable Cable Cable Cable $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Gifts Gifts Gifts Gifts Gifts Gifts $ \u2002\u2002\u2002\u2002\u2002",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "internet_internet_internet_internet_subtotal_subto",
+    "field_type": "currency",
+    "field_label": "Internet Internet Internet Internet $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBT",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "groceries_groceries_groceries_groceries_rrsp_resp_",
+    "field_type": "currency",
+    "field_label": "Groceries Groceries Groceries Groceries $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  RRSP/RESP withdrawals RRSP/RESP withdrawals R",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "household_supplies_household_supplies_household_su",
+    "field_type": "currency",
+    "field_label": "Household supplies Household supplies Household supplies Household supplies $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Vacations",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "meals_outside_the_home_meals_outside_the_home_meal",
+    "field_type": "currency",
+    "field_label": "Meals outside the home Meals outside the home Meals outside the home Meals outside the home $ \u2002\u2002\u2002\u2002\u2002 ",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "laundry_and_dry_cleaning_laundry_and_dry_cleaning_",
+    "field_type": "currency",
+    "field_label": "Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning ",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "other_possessions_of_value_e_g_computers_jewellery",
+    "field_type": "currency",
+    "field_label": "Other Possessions of Value (e.g. computers, jewellery, collections) Other Possessions of Value (e.g.",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "investments_e_g_bonds_shares_term_deposits_and_mut",
+    "field_type": "currency",
+    "field_label": "Investments (e.g. bonds, shares, term deposits and mutual funds) Investments (e.g. bonds, shares, te",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "savings_plans_r_r_s_p_s_pension_plans_r_e_s_p_s_sa",
+    "field_type": "currency",
+    "field_label": "Savings Plans R.R.S.P.s \nPension Plans R.E.S.P.s Savings Plans R.R.S.P.s \nPension Plans R.E.S.P.s 1 ",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "interest_in_business_attach_separate_year_end_stat",
+    "field_type": "currency",
+    "field_label": "Interest in Business (*attach separate year-end statement for each business) Interest in Business (*",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "total_value_of_all_property_total_value_of_all_pro",
+    "field_type": "currency",
+    "field_label": "      Total Value of All Property Total Value of All Property Total Value of All Property Total Valu",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "mortgages_lines_of_credits_or_other_loans_from_a_b",
+    "field_type": "currency",
+    "field_label": "Mortgages, Lines of Credits or other Loans from a Bank, Trust or Finance Company Mortgages, Lines of",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "outstanding_credit_card_balances_outstanding_credi",
+    "field_type": "currency",
+    "field_label": "Outstanding Credit Card Balances Outstanding Credit Card Balances Outstanding Credit Card Balances O",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "unpaid_support_amounts_unpaid_support_amounts_unpa",
+    "field_type": "currency",
+    "field_label": "Unpaid Support Amounts  Unpaid Support Amounts  Unpaid Support Amounts  Unpaid Support Amounts  Unpa",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "debt",
+    "field_type": "currency",
+    "field_label": "Other Debts Other Debts Other Debts Other Debts Other Debts \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ $ ",
+    "docassemble_object": "Value",
+    "docassemble_path": "debts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "net_worth_net_worth_net_worth_net_worth_net_worth_",
+    "field_type": "currency",
+    "field_label": "      Net Worth Net Worth Net Worth Net Worth Net Worth Net Worth Net Worth $ $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "3_3_total_amount_of_dividends_received_from_taxabl",
+    "field_type": "currency",
+    "field_label": "3. 3. Total amount of dividends received from taxable Canadian corporations Total amount of dividend",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "4_4_total_capital_gains_less_capital_losses_total_",
+    "field_type": "currency",
+    "field_label": "4. 4. Total capital gains ($ \u2002\u2002\u2002\u2002\u2002) less capital losses ($ \u2002\u2002\u2002\u2002\u2002) Total capital gains ($ \u2002\u2002\u2002\u2002\u2002) less",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "5_5_registered_retirement_savings_plan_withdrawals",
+    "field_type": "currency",
+    "field_label": "5. 5. Registered retirement savings plan withdrawals Registered retirement savings plan withdrawals ",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "6_my_spouse_partner_my_spouse_partner_my_spouse_pa",
+    "field_type": "currency",
+    "field_label": "6. My spouse/partner My spouse/partner My spouse/partner  earns (give amount) $ earns (give amount) ",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  },
+  {
+    "canonical_name": "7_my_spouse_partner_or_other_adult_residing_in_the",
+    "field_type": "currency",
+    "field_label": "7.   My spouse/partner or other adult residing in the home contributes about $ My spouse/partner or ",
+    "docassemble_object": "Value",
+    "docassemble_path": "amounts[i]",
+    "consensus_score": 0.77,
+    "parser_sources": [
+      "intelligent"
+    ],
+    "ontario_specific": false
+  }
+]

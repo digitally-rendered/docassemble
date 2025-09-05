@@ -1,0 +1,110 @@
+---
+objects:
+  - error_log: DAList
+  - debug_info: DAObject
+---
+initial: True
+code: |
+  # Initialize error handling
+  error_log = DAList()
+  debug_info = DAObject()
+  debug_info.enabled = get_config('debug', False)
+  debug_info.show_variables = False
+  debug_info.show_progress = True
+---
+# Error display template
+template: error_display
+subject: |
+  Error Information
+content: |
+  % if len(error_log) > 0:
+  <div class="alert alert-danger">
+    <h4>Errors Encountered:</h4>
+    <ul>
+    % for error in error_log:
+      <li>${ error }</li>
+    % endfor
+    </ul>
+  </div>
+  % endif
+---
+# Debug information template
+template: debug_display
+subject: |
+  Debug Information
+content: |
+  % if debug_info.enabled:
+  <div class="alert alert-info">
+    <h4>Debug Information:</h4>
+    % if debug_info.show_variables:
+    <details>
+      <summary>Variables</summary>
+      <pre>${ showifdef('user') }</pre>
+      <pre>${ showifdef('opposing_party') }</pre>
+      <pre>${ showifdef('court_info') }</pre>
+    </details>
+    % endif
+    % if debug_info.show_progress:
+    <p>Current step: ${ current_step if defined('current_step') else 'Unknown' }</p>
+    % endif
+  </div>
+  % endif
+---
+# Error handler code block
+code: |
+  def log_error(error_message, field_name=None):
+      """Log an error for display to user"""
+      error_entry = f"{error_message}"
+      if field_name:
+          error_entry += f" (Field: {field_name})"
+      error_log.append(error_entry)
+      error_log.gathered = True
+      return False
+  
+  def clear_errors():
+      """Clear all logged errors"""
+      error_log.clear()
+      error_log.gathered = True
+      return True
+  
+  def has_errors():
+      """Check if there are any errors"""
+      return len(error_log) > 0
+---
+# Validation helper functions
+code: |
+  def validate_required_field(value, field_name, display_name):
+      """Validate a required field has a value"""
+      if not value or (isinstance(value, str) and not value.strip()):
+          validation_error(f"{display_name} is required", field=field_name)
+          return False
+      return True
+  
+  def validate_email(email, field_name):
+      """Validate email format"""
+      import re
+      if email and not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', email):
+          validation_error("Please enter a valid email address", field=field_name)
+          return False
+      return True
+  
+  def validate_phone(phone, field_name):
+      """Validate phone number format"""
+      import re
+      if phone:
+          # Remove all non-digits
+          digits = re.sub(r'\D', '', phone)
+          if len(digits) not in [10, 11]:
+              validation_error("Please enter a valid 10 or 11 digit phone number", field=field_name)
+              return False
+      return True
+  
+  def validate_postal_code(postal_code, field_name):
+      """Validate Canadian postal code format"""
+      import re
+      if postal_code:
+          # Canadian postal code pattern
+          if not re.match(r'^[A-Z]\d[A-Z]\s?\d[A-Z]\d$', postal_code.upper()):
+              validation_error("Please enter a valid Canadian postal code (e.g., M5H 2N2)", field=field_name)
+              return False
+      return True

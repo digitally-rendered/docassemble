@@ -1,0 +1,60 @@
+---
+# Version 3: Add basic financial fields
+metadata:
+  title: Form 13 - Version 3 - With Financial Fields
+  short title: Form 13 v3
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - user: Individual
+---
+mandatory: True
+code: |
+  intro_seen
+  user.name.first
+  user_income
+  user_expenses
+  final_screen
+---
+question: |
+  Form 13 Financial Statement
+subquestion: |
+  This interview collects basic financial information.
+field: intro_seen
+---
+question: |
+  Your Name
+fields:
+  - First Name: user.name.first
+  - Last Name: user.name.last
+---
+question: |
+  Your Monthly Income
+fields:
+  - Employment Income: user_income
+    datatype: currency
+    min: 0
+---
+question: |
+  Your Monthly Expenses
+fields:
+  - Total Expenses: user_expenses
+    datatype: currency
+    min: 0
+---
+event: final_screen
+question: |
+  Summary
+subquestion: |
+  **Name:** ${ user.name.full() }
+  
+  **Monthly Income:** ${ currency(user_income) }
+  
+  **Monthly Expenses:** ${ currency(user_expenses) }
+  
+  **Net:** ${ currency(user_income - user_expenses) }
+buttons:
+  - Exit: exit
+  - Restart: restart

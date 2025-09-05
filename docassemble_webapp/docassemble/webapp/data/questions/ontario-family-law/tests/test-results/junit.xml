@@ -1,0 +1,806 @@
+<testsuites id="" name="" tests="50" failures="8" skipped="38" errors="0" time="60.37851">
+<testsuite name="test_common_intake_enhanced_all_flows.spec.ts" timestamp="2025-09-05T14:35:38.497Z" hostname="chromium" tests="10" failures="2" skipped="7" time="55.198" errors="0">
+<testcase name="Enhanced Common Intake - All Flows › emergency flow with restraining order and MIP defer" classname="test_common_intake_enhanced_all_flows.spec.ts" time="6.852">
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › common-law relationship with property division and support" classname="test_common_intake_enhanced_all_flows.spec.ts" time="25.602">
+<failure message="test_common_intake_enhanced_all_flows.spec.ts:530:7 common-law relationship with property division and support" type="FAILURE">
+<![CDATA[  [chromium] › test_common_intake_enhanced_all_flows.spec.ts:530:7 › Enhanced Common Intake - All Flows › common-law relationship with property division and support 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1#daMainQuestion')
+    Expected string: "Information for Child 1"
+    Received: <element(s) not found>
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('h1#daMainQuestion')
+        3 × locator resolved to <h1 class="h3" id="daMainQuestion">Children Information</h1>
+          - unexpected value "Children Information"
+
+
+      468 |       // Fill info for each child
+      469 |       for (let i = 0; i < numChildren; i++) {
+    > 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);
+          |                                                              ^
+      471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);
+      472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');
+      473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');
+        at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)
+        at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-chromium/error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1#daMainQuestion')
+    Expected string: "Information for Child 1"
+    Received: <element(s) not found>
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('h1#daMainQuestion')
+        2 × locator resolved to <h1 class="h3" id="daMainQuestion">Children Information</h1>
+          - unexpected value "Children Information"
+
+
+      468 |       // Fill info for each child
+      469 |       for (let i = 0; i < numChildren; i++) {
+    > 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);
+          |                                                              ^
+      471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);
+      472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');
+      473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');
+        at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)
+        at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-chromium-retry1/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-chromium/error-context.md]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-chromium-retry1/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-chromium-retry1/error-context.md]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-chromium-retry1/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › never together seeking paternity and child support" classname="test_common_intake_enhanced_all_flows.spec.ts" time="22.744">
+<failure message="test_common_intake_enhanced_all_flows.spec.ts:570:7 never together seeking paternity and child support" type="FAILURE">
+<![CDATA[  [chromium] › test_common_intake_enhanced_all_flows.spec.ts:570:7 › Enhanced Common Intake - All Flows › never together seeking paternity and child support 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1#daMainQuestion')
+    Expected string: "Information for Child 1"
+    Received: <element(s) not found>
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('h1#daMainQuestion')
+        2 × locator resolved to <h1 class="h3" id="daMainQuestion">Children Information</h1>
+          - unexpected value "Children Information"
+
+
+      468 |       // Fill info for each child
+      469 |       for (let i = 0; i < numChildren; i++) {
+    > 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);
+          |                                                              ^
+      471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);
+      472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');
+      473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');
+        at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)
+        at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:595:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-chromium/error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1#daMainQuestion')
+    Expected string: "Information for Child 1"
+    Received: <element(s) not found>
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('h1#daMainQuestion')
+        3 × locator resolved to <h1 class="h3" id="daMainQuestion">Children Information</h1>
+          - unexpected value "Children Information"
+
+
+      468 |       // Fill info for each child
+      469 |       for (let i = 0; i < numChildren; i++) {
+    > 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);
+          |                                                              ^
+      471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);
+      472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');
+      473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');
+        at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)
+        at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:595:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-chromium-retry1/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-chromium/error-context.md]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-chromium-retry1/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-chromium-retry1/error-context.md]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-chromium-retry1/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › divorced seeking variation of existing order" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › separated with both parties having lawyers" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › MIP unsure status flow" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › dating but not living together" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › seeking enforcement of existing order" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › postal code validation" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › lawyer LSO number validation" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="test_common_intake_enhanced_all_flows.spec.ts" timestamp="2025-09-05T14:35:38.497Z" hostname="firefox" tests="10" failures="2" skipped="7" time="53.792" errors="0">
+<testcase name="Enhanced Common Intake - All Flows › emergency flow with restraining order and MIP defer" classname="test_common_intake_enhanced_all_flows.spec.ts" time="7.13">
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › common-law relationship with property division and support" classname="test_common_intake_enhanced_all_flows.spec.ts" time="27.327">
+<failure message="test_common_intake_enhanced_all_flows.spec.ts:530:7 common-law relationship with property division and support" type="FAILURE">
+<![CDATA[  [firefox] › test_common_intake_enhanced_all_flows.spec.ts:530:7 › Enhanced Common Intake - All Flows › common-law relationship with property division and support 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1#daMainQuestion')
+    Expected string: "Information for Child 1"
+    Received: <element(s) not found>
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('h1#daMainQuestion')
+        2 × locator resolved to <h1 class="h3" id="daMainQuestion">Children Information</h1>
+          - unexpected value "Children Information"
+
+
+      468 |       // Fill info for each child
+      469 |       for (let i = 0; i < numChildren; i++) {
+    > 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);
+          |                                                              ^
+      471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);
+      472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');
+      473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');
+        at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)
+        at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-firefox/error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1#daMainQuestion')
+    Expected string: "Information for Child 1"
+    Received: <element(s) not found>
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('h1#daMainQuestion')
+        2 × locator resolved to <h1 class="h3" id="daMainQuestion">Children Information</h1>
+          - unexpected value "Children Information"
+
+
+      468 |       // Fill info for each child
+      469 |       for (let i = 0; i < numChildren; i++) {
+    > 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);
+          |                                                              ^
+      471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);
+      472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');
+      473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');
+        at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)
+        at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-firefox-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-firefox-retry1/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-firefox-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-firefox-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-firefox/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-firefox/error-context.md]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-firefox-retry1/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-firefox-retry1/error-context.md]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-firefox-retry1/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › never together seeking paternity and child support" classname="test_common_intake_enhanced_all_flows.spec.ts" time="19.335">
+<failure message="test_common_intake_enhanced_all_flows.spec.ts:570:7 never together seeking paternity and child support" type="FAILURE">
+<![CDATA[  [firefox] › test_common_intake_enhanced_all_flows.spec.ts:570:7 › Enhanced Common Intake - All Flows › never together seeking paternity and child support 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1#daMainQuestion')
+    Expected string: "Information for Child 1"
+    Received: <element(s) not found>
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('h1#daMainQuestion')
+        2 × locator resolved to <h1 class="h3" id="daMainQuestion">Children Information</h1>
+          - unexpected value "Children Information"
+
+
+      468 |       // Fill info for each child
+      469 |       for (let i = 0; i < numChildren; i++) {
+    > 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);
+          |                                                              ^
+      471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);
+      472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');
+      473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');
+        at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)
+        at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:595:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-firefox/error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Test was interrupted.
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-firefox-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-firefox-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-firefox-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-firefox/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-firefox/error-context.md]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-firefox-retry1/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-firefox-retry1/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › divorced seeking variation of existing order" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › separated with both parties having lawyers" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › MIP unsure status flow" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › dating but not living together" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › seeking enforcement of existing order" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › postal code validation" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › lawyer LSO number validation" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="test_common_intake_enhanced_all_flows.spec.ts" timestamp="2025-09-05T14:35:38.497Z" hostname="webkit" tests="10" failures="2" skipped="7" time="56.989" errors="0">
+<testcase name="Enhanced Common Intake - All Flows › emergency flow with restraining order and MIP defer" classname="test_common_intake_enhanced_all_flows.spec.ts" time="7.309">
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › common-law relationship with property division and support" classname="test_common_intake_enhanced_all_flows.spec.ts" time="28.871">
+<failure message="test_common_intake_enhanced_all_flows.spec.ts:530:7 common-law relationship with property division and support" type="FAILURE">
+<![CDATA[  [webkit] › test_common_intake_enhanced_all_flows.spec.ts:530:7 › Enhanced Common Intake - All Flows › common-law relationship with property division and support 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1#daMainQuestion')
+    Expected string: "Information for Child 1"
+    Received: <element(s) not found>
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('h1#daMainQuestion')
+        2 × locator resolved to <h1 class="h3" id="daMainQuestion">Children Information</h1>
+          - unexpected value "Children Information"
+
+
+      468 |       // Fill info for each child
+      469 |       for (let i = 0; i < numChildren; i++) {
+    > 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);
+          |                                                              ^
+      471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);
+      472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');
+      473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');
+        at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)
+        at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-webkit/error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1#daMainQuestion')
+    Expected string: "Information for Child 1"
+    Received: <element(s) not found>
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('h1#daMainQuestion')
+        2 × locator resolved to <h1 class="h3" id="daMainQuestion">Children Information</h1>
+          - unexpected value "Children Information"
+
+
+      468 |       // Fill info for each child
+      469 |       for (let i = 0; i < numChildren; i++) {
+    > 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);
+          |                                                              ^
+      471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);
+      472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');
+      473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');
+        at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)
+        at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-webkit-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-webkit-retry1/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-webkit-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-webkit-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-webkit/error-context.md]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-webkit-retry1/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-webkit-retry1/error-context.md]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-webkit-retry1/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › never together seeking paternity and child support" classname="test_common_intake_enhanced_all_flows.spec.ts" time="20.809">
+<failure message="test_common_intake_enhanced_all_flows.spec.ts:570:7 never together seeking paternity and child support" type="FAILURE">
+<![CDATA[  [webkit] › test_common_intake_enhanced_all_flows.spec.ts:570:7 › Enhanced Common Intake - All Flows › never together seeking paternity and child support 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1#daMainQuestion')
+    Expected string: "Information for Child 1"
+    Received: <element(s) not found>
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('h1#daMainQuestion')
+        3 × locator resolved to <h1 class="h3" id="daMainQuestion">Children Information</h1>
+          - unexpected value "Children Information"
+
+
+      468 |       // Fill info for each child
+      469 |       for (let i = 0; i < numChildren; i++) {
+    > 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);
+          |                                                              ^
+      471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);
+      472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');
+      473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');
+        at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)
+        at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:595:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-webkit/error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Test was interrupted.
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-webkit-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-webkit-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-webkit-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-webkit/error-context.md]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-webkit-retry1/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-webkit-retry1/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › divorced seeking variation of existing order" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › separated with both parties having lawyers" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › MIP unsure status flow" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › dating but not living together" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › seeking enforcement of existing order" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › postal code validation" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › lawyer LSO number validation" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="test_common_intake_enhanced_all_flows.spec.ts" timestamp="2025-09-05T14:35:38.497Z" hostname="mobile-chrome" tests="10" failures="2" skipped="7" time="55.807" errors="0">
+<testcase name="Enhanced Common Intake - All Flows › emergency flow with restraining order and MIP defer" classname="test_common_intake_enhanced_all_flows.spec.ts" time="10.422">
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › common-law relationship with property division and support" classname="test_common_intake_enhanced_all_flows.spec.ts" time="30.003">
+<failure message="test_common_intake_enhanced_all_flows.spec.ts:530:7 common-law relationship with property division and support" type="FAILURE">
+<![CDATA[  [mobile-chrome] › test_common_intake_enhanced_all_flows.spec.ts:530:7 › Enhanced Common Intake - All Flows › common-law relationship with property division and support 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1#daMainQuestion')
+    Expected string: "Information for Child 1"
+    Received: <element(s) not found>
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('h1#daMainQuestion')
+        2 × locator resolved to <h1 class="h3" id="daMainQuestion">Children Information</h1>
+          - unexpected value "Children Information"
+
+
+      468 |       // Fill info for each child
+      469 |       for (let i = 0; i < numChildren; i++) {
+    > 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);
+          |                                                              ^
+      471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);
+      472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');
+      473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');
+        at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)
+        at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-mobile-chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-mobile-chrome/error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1#daMainQuestion')
+    Expected string: "Information for Child 1"
+    Received: <element(s) not found>
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('h1#daMainQuestion')
+        2 × locator resolved to <h1 class="h3" id="daMainQuestion">Children Information</h1>
+          - unexpected value "Children Information"
+
+
+      468 |       // Fill info for each child
+      469 |       for (let i = 0; i < numChildren; i++) {
+    > 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);
+          |                                                              ^
+      471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);
+      472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');
+      473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');
+        at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)
+        at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-mobile-chrome-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-mobile-chrome-retry1/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-mobile-chrome-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-mobile-chrome-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-mobile-chrome/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-mobile-chrome/error-context.md]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-mobile-chrome-retry1/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-mobile-chrome-retry1/error-context.md]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-c314d-operty-division-and-support-mobile-chrome-retry1/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › never together seeking paternity and child support" classname="test_common_intake_enhanced_all_flows.spec.ts" time="15.382">
+<failure message="test_common_intake_enhanced_all_flows.spec.ts:570:7 never together seeking paternity and child support" type="FAILURE">
+<![CDATA[  [mobile-chrome] › test_common_intake_enhanced_all_flows.spec.ts:570:7 › Enhanced Common Intake - All Flows › never together seeking paternity and child support 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1#daMainQuestion')
+    Expected string: "Information for Child 1"
+    Received: <element(s) not found>
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('h1#daMainQuestion')
+        2 × locator resolved to <h1 class="h3" id="daMainQuestion">Children Information</h1>
+          - unexpected value "Children Information"
+
+
+      468 |       // Fill info for each child
+      469 |       for (let i = 0; i < numChildren; i++) {
+    > 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);
+          |                                                              ^
+      471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);
+      472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');
+      473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');
+        at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)
+        at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:595:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-mobile-chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-mobile-chrome/error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Test was interrupted.
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-mobile-chrome-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-mobile-chrome-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-mobile-chrome-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-mobile-chrome/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-mobile-chrome/error-context.md]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-mobile-chrome-retry1/test-failed-1.png]]
+
+[[ATTACHMENT|artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-mobile-chrome-retry1/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › divorced seeking variation of existing order" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › separated with both parties having lawyers" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › MIP unsure status flow" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › dating but not living together" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › seeking enforcement of existing order" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › postal code validation" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › lawyer LSO number validation" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="test_common_intake_enhanced_all_flows.spec.ts" timestamp="2025-09-05T14:35:38.497Z" hostname="mobile-safari" tests="10" failures="0" skipped="10" time="0" errors="0">
+<testcase name="Enhanced Common Intake - All Flows › emergency flow with restraining order and MIP defer" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › common-law relationship with property division and support" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › never together seeking paternity and child support" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › divorced seeking variation of existing order" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › separated with both parties having lawyers" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › MIP unsure status flow" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › dating but not living together" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › seeking enforcement of existing order" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › postal code validation" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Enhanced Common Intake - All Flows › lawyer LSO number validation" classname="test_common_intake_enhanced_all_flows.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+</testsuites>

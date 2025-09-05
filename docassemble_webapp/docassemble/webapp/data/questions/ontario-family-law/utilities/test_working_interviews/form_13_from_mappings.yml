@@ -1,0 +1,206 @@
+---
+metadata:
+  title: Form 13 - Generated from Domain Mappings
+  short title: Form 13
+  description: Interview generated from domain object mappings
+  generated: 2025-08-26T22:57:45.834494
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+modules:
+  - .debug_helpers
+---
+features:
+  debug: True
+  question help button: True
+  progress bar: True
+---
+objects:
+  - person: Individual
+  - investments: DAList.using(object_type=DAObject)
+  - properties: DAList.using(object_type=DAObject)
+  - real_estates: DAList.using(object_type=DAObject)
+  - vehicles: DAList.using(object_type=DAObject)
+  - banks: DAList.using(object_type=DAObject)
+  - assets: DAList.using(object_type=DAObject)
+  - income_information: DAObject
+  - support_information: DAObject
+  - expense_information: DAObject
+  - debt_information: DAObject
+  - amount_information: DAObject
+---
+mandatory: True
+code: |
+  intro_seen
+  person_collected
+  income_information_collected
+  support_information_collected
+  expense_information_collected
+  debt_information_collected
+  amount_information_collected
+  investments.gather()
+  properties.gather()
+  real_estates.gather()
+  vehicles.gather()
+  banks.gather()
+  assets.gather()
+  final_screen
+---
+question: |
+  Form Interview
+subquestion: |
+  This interview will collect information for the form.
+field: intro_seen
+---
+question: |
+  Person Information
+fields:
+  - First Name: person.name.first
+    required: True
+  - Last Name: person.name.last
+    required: True
+  - Date of Birth: person.birthdate
+    datatype: date
+continue button field: person_collected
+---
+question: |
+  Investment Item
+fields:
+  - Description: investments[i].description
+    required: True
+  - Value: investments[i].value
+    datatype: currency
+    min: 0
+---
+question: |
+  Any more investment items?
+yesno: investments.there_is_another
+---
+question: |
+  Property Item
+fields:
+  - Description: properties[i].description
+    required: True
+  - Value: properties[i].value
+    datatype: currency
+    min: 0
+---
+question: |
+  Any more property items?
+yesno: properties.there_is_another
+---
+question: |
+  Real Estate Item
+fields:
+  - Description: real_estates[i].description
+    required: True
+  - Value: real_estates[i].value
+    datatype: currency
+    min: 0
+---
+question: |
+  Any more real estate items?
+yesno: real_estates.there_is_another
+---
+question: |
+  Vehicle Item
+fields:
+  - Description: vehicles[i].description
+    required: True
+  - Value: vehicles[i].value
+    datatype: currency
+    min: 0
+---
+question: |
+  Any more vehicle items?
+yesno: vehicles.there_is_another
+---
+question: |
+  Bank Item
+fields:
+  - Description: banks[i].description
+    required: True
+  - Value: banks[i].value
+    datatype: currency
+    min: 0
+---
+question: |
+  Any more bank items?
+yesno: banks.there_is_another
+---
+question: |
+  Asset Item
+fields:
+  - Description: assets[i].description
+    required: True
+  - Value: assets[i].value
+    datatype: currency
+    min: 0
+---
+question: |
+  Any more asset items?
+yesno: assets.there_is_another
+---
+question: |
+  Income Information
+fields:
+  - Monthly Amount: income_information.monthly_amount
+    datatype: currency
+    min: 0
+  - Description: income_information.description
+    required: False
+continue button field: income_information_collected
+---
+question: |
+  Support Information
+fields:
+  - Monthly Amount: support_information.monthly_amount
+    datatype: currency
+    min: 0
+  - Description: support_information.description
+    required: False
+continue button field: support_information_collected
+---
+question: |
+  Expense Information
+fields:
+  - Monthly Amount: expense_information.monthly_amount
+    datatype: currency
+    min: 0
+  - Description: expense_information.description
+    required: False
+continue button field: expense_information_collected
+---
+question: |
+  Debt Information
+fields:
+  - Monthly Amount: debt_information.monthly_amount
+    datatype: currency
+    min: 0
+  - Description: debt_information.description
+    required: False
+continue button field: debt_information_collected
+---
+question: |
+  Amount Information
+fields:
+  - Monthly Amount: amount_information.monthly_amount
+    datatype: currency
+    min: 0
+  - Description: amount_information.description
+    required: False
+continue button field: amount_information_collected
+---
+event: final_screen
+question: |
+  Interview Complete
+subquestion: |
+  Thank you for completing this interview.
+  
+  Your information has been collected successfully.
+  
+  This was a test interview to validate the system.
+buttons:
+  - Exit: exit
+  - Restart: restart

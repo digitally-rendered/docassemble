@@ -1,0 +1,63 @@
+{
+  "parser_name": "intelligent",
+  "form_path": "workflow_output/ontario_forms/financial_statements/form_13a_-_certificate_financial_disclosure_flr-13a-may21-en-fil.docx",
+  "form_hash": "4f328d81cd28f41b2cdf47a4a26ccfa1e904b291287d741a993b17f2f382b0a1",
+  "timestamp": "2025-08-18T21:40:27.765667",
+  "fields": [
+    {
+      "field_name": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "field_type": "text",
+      "field_label": "Full legal name: Full legal name: Full legal name: Full legal name: Full legal name: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 1, Row 8",
+      "table_info": {
+        "table_index": 0,
+        "row_index": 7
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "address_address_address_address_address_address",
+      "field_type": "text",
+      "field_label": "Address: Address: Address: Address: Address: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Address: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 1, Row 9",
+      "table_info": {
+        "table_index": 0,
+        "row_index": 8
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "email_email_email_email_email_email",
+      "field_type": "email",
+      "field_label": "Email: Email: Email: Email: Email: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Email: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 1, Row 11",
+      "table_info": {
+        "table_index": 0,
+        "row_index": 10
+      },
+      "validation_rules": null
+    }
+  ],
+  "metadata": {
+    "ocr_used": true,
+    "ai_used": false
+  }
+}

@@ -1,0 +1,568 @@
+---
+metadata:
+  title: Ontario Family Law Form 28
+  short_title: Form 28
+  description: Structured interview with 92 fields and 1 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - '28'
+  form_number: '28'
+  form_category: application
+  generated: '2025-08-26 22:15:24'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+- docassemble.base:data/questions/financial.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: stepped
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+  table_css_class: table table-striped
+objects:
+- court_info: DAObject
+- person: Individual
+mandatory: true
+code: 'intro_seen
+
+  review_complete
+
+  form_complete'
+question: Form 28 Interview
+subquestion: 'This structured interview will help you complete Form 28.
+
+
+  You will be asked about:
+
+  - Personal information for parties involved
+
+
+  Total sections: 2
+
+  Fields to complete: 92'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Person Information
+fields:
+- label: Name Court
+  field: person.namecourt
+  required: false
+  choices:
+  - '          '
+  - Ontario Court of Justice
+  - Superior Court of Justice
+  - Superior Court of Justice Family Court Branch
+  help_text: ''
+- label: Address Court
+  field: person.addresscourt
+  datatype: text
+  required: false
+  help_text: ''
+- label: $ (Name of court) (Name of court) (Name of court) (Name of court) (Name of court) (Name of court)
+  field: person.name_of_court_name_of_court_name_of_court_name_of
+  datatype: currency
+  required: false
+  min: 0
+- label: $ at at at Name, address, telephone & fax numbers and e-mail address (if any) of filing party’s lawy
+  field: person.at_at_at_name_address_telephone_fax_numbers_and_e
+  datatype: currency
+  required: false
+  min: 0
+- label: $ Court office address Court office address Court office address Court office address Court office a
+  field: person.court_office_address_court_office_address_court_of
+  datatype: currency
+  required: false
+  min: 0
+question: Additional Information
+fields:
+- label: Text Field 1
+  field: text1
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_13
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_14
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_15
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_16
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_17
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_18
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_19
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_20
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_21
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_22
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_23
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_24
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_25
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_26
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_27
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_28
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_29
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_30
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_31
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_32
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_33
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_34
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_35
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_36
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_37
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_38
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_39
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_40
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_41
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_42
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_43
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_44
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_45
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_46
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_47
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_48
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_49
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_50
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_51
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_52
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_53
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_54
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_55
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_56
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_57
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_58
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_59
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_60
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_61
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_62
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_63
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_64
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_65
+  datatype: text
+  required: false
+  help_text: ''
+- label: Insert amount to be realized from paragraph 4(b) of the request for a writ of seizure and sale.  Ins
+  field: insert_amount_to_be_realized_from_paragraph_4_b_of
+  datatype: date
+  required: false
+- label: 'Priority for support payments: insert amount from paragraph 3 of request for a writ of seizure and s'
+  field: priority_for_support_payments_insert_amount_from_p
+  datatype: currency
+  required: false
+  min: 0
+- label: 'Assignment of costs to Legal Aid Ontario:  insert amount from paragraph 4(c) of request for writ of '
+  field: assignment_of_costs_to_legal_aid_ontario_insert_am
+  datatype: currency
+  required: false
+  min: 0
+- label: 'Fine, bond or recognizance Fine, bond or recognizance Fine, bond or recognizance This Writ enforces '
+  field: fine_bond_or_recognizance_fine_bond_or_recognizanc
+  datatype: currency
+  required: false
+  min: 0
+- label: $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $ Writ of Seizure and Sale Writ of Seizure and Sale
+  field: writ_of_seizure_and_sale_writ_of_seizure_and_sale
+  datatype: currency
+  required: false
+  min: 0
+- label: $ Writ of Seizure and Sale Writ of Seizure and Sale
+  field: writ_of_seizure_and_sale_writ_of_seizure_and_sale
+  datatype: currency
+  required: false
+  min: 0
+- label: $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: '$ NOTE:  This writ has no automatic expiry date.  It remains in effect: NOTE:  This writ has no auto'
+  field: note_this_writ_has_no_automatic_expiry_date_it_rem
+  datatype: date
+  required: false
+- label: $ (a)  until it is withdrawn by or on behalf of the party who filed it; or (a)  until it is withdraw
+  field: a_until_it_is_withdrawn_by_or_on_behalf_of_the_par
+  datatype: currency
+  required: false
+  min: 0
+- label: $ (b)  until it is set aside or suspended by order of a court in Ontario. (b)  until it is set aside
+  field: b_until_it_is_set_aside_or_suspended_by_order_of_a
+  datatype: currency
+  required: false
+  min: 0
+- label: $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: Name Court
+  field: person.namecourt
+  edit: true
+- label: Address Court
+  field: person.addresscourt
+  edit: true
+- label: $ (Name of court) (Name of court) (Name of court) (Name of court) (Name of court) (Name of court)
+  field: person.name_of_court_name_of_court_name_of_court_name_of
+  edit: true
+- label: Text Field 1
+  field: text1
+  edit: true
+- label: Text Field 1
+  field: text1_2
+  edit: true
+- label: Text Field 1
+  field: text1_3
+  edit: true
+- label: Text Field 1
+  field: text1_4
+  edit: true
+- label: Text Field 1
+  field: text1_5
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 28 Complete
+subquestion: 'Your Form 28 has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart

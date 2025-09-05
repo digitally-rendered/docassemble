@@ -55,7 +55,8 @@ async function completeWizardFlow(wizardPage, scenario) {
     await wizardPage.handleFinancialSituation(scenario.financial_data);
   }
   
-  // Handle recommendations screen
+  // The wizard now ends at Information Collection Complete
+  // No longer collects party/lawyer information
   await wizardPage.handleRecommendations();
   
   // Verify final screen

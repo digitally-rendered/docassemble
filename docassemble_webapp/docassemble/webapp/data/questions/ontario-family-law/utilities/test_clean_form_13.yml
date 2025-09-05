@@ -1,0 +1,111 @@
+metadata:
+  title: Form 13 - Financial Statement
+  short title: Form 13
+  description: Ontario Family Law Form 13
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-19
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual  
+  - court: DAObject
+  - financial: DAObject
+---
+mandatory: True
+question: |
+  Form 13: Financial Statement
+subquestion: |
+  This interview will help you complete Form 13.
+  
+  Please have your information ready.
+continue button field: intro_shown
+---
+mandatory: True
+question: |
+  Court Information
+fields:
+  - Court File Number: court.file_number
+    required: True
+  - Court Name: court.name
+    required: True
+  - Court Office Address: court.address
+---
+mandatory: True
+question: |
+  Applicant Information
+fields:
+  - First Name: applicant.name.first
+    required: True
+  - Last Name: applicant.name.last
+    required: True
+  - Date of Birth: applicant.birthdate
+    datatype: date
+  - Address: applicant.address.address
+  - City: applicant.address.city
+  - Province: applicant.address.state
+---
+mandatory: True
+question: |
+  Respondent Information
+fields:
+  - First Name: respondent.name.first
+    required: True
+  - Last Name: respondent.name.last
+    required: True
+  - Address: respondent.address.address
+---
+mandatory: True
+question: |
+  Financial Information
+fields:
+  - Monthly Income: financial.monthly_income
+    datatype: currency
+    min: 0
+  - Monthly Expenses: financial.monthly_expenses
+    datatype: currency
+    min: 0
+---
+mandatory: True
+question: |
+  Review Your Information
+review:
+  - Edit: applicant.name.first
+    button: |
+      **Applicant:** ${applicant.name.first} ${applicant.name.last}
+  - Edit: respondent.name.first
+    button: |
+      **Respondent:** ${respondent.name.first} ${respondent.name.last}
+  - Edit: court.file_number
+    button: |
+      **Court File:** ${court.file_number}
+continue button field: review_complete
+---
+mandatory: True
+question: |
+  Form 13 Complete
+subquestion: |
+  Your form has been completed.
+  
+  You can now download or print your form.
+buttons:
+  - Exit: exit
+  - Restart: restart
+attachment:
+  name: Form 13
+  filename: form_13
+  description: |
+    Ontario Family Law Form 13
+  content: |
+    % if defined('applicant.name.first'):
+    **Applicant:** ${applicant.name.first} ${applicant.name.last}
+    % endif
+    % if defined('respondent.name.first'):
+    **Respondent:** ${respondent.name.first} ${respondent.name.last}
+    % endif
+    % if defined('court.file_number'):
+    **Court File Number:** ${court.file_number}
+    % endif

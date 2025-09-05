@@ -1,0 +1,85 @@
+---
+metadata:
+  title: Form 13 - Fixed Version
+  short title: Form 13 Fixed
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - user: Individual
+  - spouse: Individual
+---
+mandatory: True
+code: |
+  # Simple flow - one step at a time
+  intro_seen
+  user.name.first
+  user.birthdate
+  is_married
+  if is_married:
+    spouse.name.first
+  income_amount
+  expense_amount
+  final_screen
+---
+question: |
+  Form 13 Interview
+subquestion: |
+  This is a working test interview.
+continue button field: intro_seen
+---
+question: |
+  Your Information
+fields:
+  - First Name: user.name.first
+  - Last Name: user.name.last
+  - Date of Birth: user.birthdate
+    datatype: date
+---
+question: |
+  Marital Status
+yesno: is_married
+---
+question: |
+  Spouse Information
+fields:
+  - First Name: spouse.name.first
+  - Last Name: spouse.name.last
+---
+question: |
+  Income Information
+fields:
+  - Monthly Income: income_amount
+    datatype: currency
+    min: 0
+---
+question: |
+  Expense Information  
+fields:
+  - Monthly Expenses: expense_amount
+    datatype: currency
+    min: 0
+---
+event: final_screen
+question: |
+  Interview Complete
+subquestion: |
+  **Summary:**
+  
+  Name: ${ user.name.full() }
+  
+  Born: ${ user.birthdate }
+  
+  % if is_married:
+  Spouse: ${ spouse.name.full() }
+  % endif
+  
+  Monthly Income: ${ currency(income_amount) }
+  
+  Monthly Expenses: ${ currency(expense_amount) }
+  
+  Net: ${ currency(income_amount - expense_amount) }
+buttons:
+  - Exit: exit
+  - Restart: restart

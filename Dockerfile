@@ -33,10 +33,13 @@ RUN DEBIAN_FRONTEND=noninteractive TERM=xterm LC_CTYPE=C.UTF-8 LANG=C.UTF-8 \
     cp /tmp/Docker/docassemble.conf /etc/apache2/conf-available/ && \
     cp /tmp/Docker/docassemble-behindlb.conf /etc/apache2/conf-available/ && \
     cp /tmp/Docker/docassemble-supervisor.conf /etc/supervisor/conf.d/docassemble.conf && \
-    cp /tmp/Docker/supervisor-yaml-watcher.conf /etc/supervisor/conf.d/ && \
+    cp /tmp/Docker/supervisor-yaml-watcher.conf /etc/supervisor/conf.d/supervisor-yaml-watcher.conf && \
     mkdir -p /usr/share/docassemble/scripts && \
-    cp /tmp/Docker/watch-yaml-changes.sh /usr/share/docassemble/scripts/ && \
+    cp /tmp/Docker/watch-yaml-robust.sh /usr/share/docassemble/scripts/watch-yaml-changes.sh && \
+    cp /tmp/Docker/start-yaml-watcher.sh /usr/share/docassemble/scripts/start-yaml-watcher.sh && \
     chmod +x /usr/share/docassemble/scripts/watch-yaml-changes.sh && \
+    chmod +x /usr/share/docassemble/scripts/start-yaml-watcher.sh && \
+    chown www-data:www-data /usr/share/docassemble/scripts/watch-yaml-changes.sh && \
     cp /tmp/Docker/ssl/* /usr/share/docassemble/certs/ && \
     cp -r /tmp/Docker/ssl /usr/share/docassemble/config/defaultcerts && \
     chmod og-rwx /usr/share/docassemble/certs/* && \
@@ -110,6 +113,23 @@ COPY --from=builder /usr/share/docassemble/local3.12 /usr/share/docassemble/loca
 COPY . /usr/share/docassemble/webapp/
 WORKDIR /usr/share/docassemble/webapp/
 
+# Fix startup files location issues
+# Copy the fix-startup script and run it during build
+COPY Docker/fix-startup.sh /usr/share/docassemble/webapp/fix-startup.sh
+RUN chmod +x /usr/share/docassemble/webapp/fix-startup.sh && \
+    /usr/share/docassemble/webapp/fix-startup.sh && \
+    # Also ensure these fixes are applied at build time
+    if [ -f /usr/share/docassemble/webapp/docassemble_webapp/docassemble.wsgi ]; then \
+        cp /usr/share/docassemble/webapp/docassemble_webapp/docassemble.wsgi /usr/share/docassemble/webapp/docassemble.wsgi; \
+    else \
+        echo "from docassemble.webapp.run import application" > /usr/share/docassemble/webapp/docassemble.wsgi; \
+    fi && \
+    mkdir -p /var/www && \
+    touch /var/www/.pypirc && \
+    chown www-data:www-data /var/www /var/www/.pypirc /usr/share/docassemble/webapp/docassemble.wsgi && \
+    chmod 600 /var/www/.pypirc && \
+    chmod 644 /usr/share/docassemble/webapp/docassemble.wsgi
+
 # Final setup
 RUN chown -R www-data:www-data /usr/share/docassemble && \
     # Perform other final setup steps from the original Dockerfile
@@ -151,4 +171,4 @@ RABBITMQ="" \
 DASUPERVISORUSERNAME="" \
 DASUPERVISORPASSWORD=""
 
-CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
+CMD ["/bin/bash", "-c", "/usr/share/docassemble/webapp/fix-startup.sh && /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf"]

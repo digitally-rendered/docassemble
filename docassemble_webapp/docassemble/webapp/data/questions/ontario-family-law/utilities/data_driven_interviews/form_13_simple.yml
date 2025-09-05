@@ -1,0 +1,113 @@
+---
+metadata:
+  title: Form 13 - Financial Statement (Simplified Data-Driven)
+  short title: Form 13 Simple
+  description: Simplified version from parsed data
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  progress bar: True
+  question back button: True
+---
+objects:
+  - person: Individual
+  - income_list: DAList.using(object_type=DAObject)
+---
+mandatory: True
+code: |
+  intro_seen
+  person.name.first
+  income_list.gathered
+  expenses_collected
+  show_results
+---
+question: |
+  Form 13 - Financial Statement
+subquestion: |
+  This interview helps you complete Form 13.
+continue button field: intro_seen
+---
+question: |
+  Your Information
+fields:
+  - First Name: person.name.first
+    required: True
+  - Last Name: person.name.last
+    required: True
+  - Date of Birth: person.birthdate
+    datatype: date
+    required: False
+---
+question: |
+  Income Source ${ i + 1 }
+fields:
+  - Type of income: income_list[i].source
+    choices:
+      - Employment
+      - Self-Employment
+      - Government Benefits
+      - Pension
+      - Other
+  - Monthly amount: income_list[i].amount
+    datatype: currency
+    min: 0
+---
+question: |
+  Do you have another source of income?
+yesno: income_list.there_is_another
+---
+question: |
+  Monthly Expenses
+fields:
+  - Housing: expense_housing
+    datatype: currency
+    default: 0
+    required: False
+  - Food: expense_food
+    datatype: currency
+    default: 0
+    required: False
+  - Transportation: expense_transport
+    datatype: currency
+    default: 0
+    required: False
+  - Other: expense_other
+    datatype: currency
+    default: 0
+    required: False
+continue button field: expenses_collected
+---
+code: |
+  total_income = sum(item.amount for item in income_list)
+  total_expenses = expense_housing + expense_food + expense_transport + expense_other
+  net_income = total_income - total_expenses
+---
+event: show_results
+question: |
+  Financial Summary
+subquestion: |
+  **Your Information:**
+  - Name: ${ person.name.full() }
+  % if defined('person.birthdate'):
+  - Date of Birth: ${ person.birthdate }
+  % endif
+  
+  **Income:** 
+  % for item in income_list:
+  - ${ item.source }: ${ currency(item.amount) }
+  % endfor
+  **Total Income:** ${ currency(total_income) }
+  
+  **Expenses:**
+  - Housing: ${ currency(expense_housing) }
+  - Food: ${ currency(expense_food) }
+  - Transportation: ${ currency(expense_transport) }
+  - Other: ${ currency(expense_other) }
+  **Total Expenses:** ${ currency(total_expenses) }
+  
+  **Net Income:** ${ currency(net_income) }
+buttons:
+  - Exit: exit
+  - Restart: restart

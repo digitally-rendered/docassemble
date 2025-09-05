@@ -1,0 +1,528 @@
+---
+metadata:
+  title: Ontario Family Law Form 29
+  short_title: Form 29
+  description: Structured interview with 80 fields and 2 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - '29'
+  form_number: '29'
+  form_category: general
+  generated: '2025-08-26 22:15:24'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+- docassemble.base:data/questions/financial.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: stepped
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+  table_css_class: table table-striped
+objects:
+- court_info: DAObject
+- person: Individual
+- amount_information: DAObject
+- income_sources: DAList.using(object_type=Income)
+- expenses: DAList.using(object_type=Expense)
+- assets: DAList.using(object_type=Asset)
+- debts: DAList.using(object_type=Liability)
+code: "# Calculation functions\n\ndef calculate_net_worth():\n    '''Calculate net worth (assets - liabilities)'''\n    total_assets = calculate_total(assets, 'value') if defined('assets') else 0\n    total_debts = calculate_total(debts, 'amount') if defined('debts') else 0\n    return total_assets - total_debts\n\ndef calculate_monthly_surplus():\n    '''Calculate monthly surplus (income - expenses)'''\n    total_income = calculate_total(income_sources, 'monthly_amount') if defined('income_sources') else 0\n    total_expenses = calculate_total(expenses, 'monthly_amount') if defined('expenses') else 0\n    return total_income - total_expenses\n"
+mandatory: true
+code: 'intro_seen
+
+  amount_information_complete
+
+  review_complete
+
+  form_complete'
+question: Form 29 Interview
+subquestion: 'This structured interview will help you complete Form 29.
+
+
+  You will be asked about:
+
+  - Personal information for parties involved
+
+  - Financial information and calculations
+
+
+  Total sections: 3
+
+  Fields to complete: 80'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Person Information
+fields:
+- label: 'Garnishee’s address: Garnishee’s address: Garnishee’s address: Garnishee’s address: Garnishee’s addr'
+  field: person.garnishee_s_address_garnishee_s_address_garnishee
+  datatype: text
+  required: false
+- label: 'Garnishee’s address: Garnishee’s address: Garnishee’s address: Garnishee’s address: Garnishee’s addr'
+  field: person.garnishee_s_address_garnishee_s_address_garnishee
+  datatype: text
+  required: false
+- label: 'Garnishee’s address: Garnishee’s address: Garnishee’s address: Garnishee’s address: Garnishee’s addr'
+  field: person.garnishee_s_address_garnishee_s_address_garnishee
+  datatype: text
+  required: false
+question: Amount Information
+fields:
+- label: periodic amounts periodic amounts periodic amounts periodic amounts periodic amounts periodic amount
+  field: amount_information.periodic_amounts_periodic_amounts_periodic_amounts
+  datatype: currency
+  required: false
+  min: 0
+- label: lump-sum amount lump-sum amount lump-sum amount lump-sum amount lump-sum amount lump-sum amount of $
+  field: amount_information.lump_sum_amount_lump_sum_amount_lump_sum_amount_lu
+  datatype: currency
+  required: false
+  min: 0
+- label: periodic amounts periodic amounts periodic amounts periodic amounts periodic amounts periodic amount
+  field: amount_information.periodic_amounts_periodic_amounts_periodic_amounts
+  datatype: currency
+  required: false
+  min: 0
+- label: lump-sum amount lump-sum amount lump-sum amount lump-sum amount lump-sum amount lump-sum amount of $
+  field: amount_information.lump_sum_amount_lump_sum_amount_lump_sum_amount_lu
+  datatype: currency
+  required: false
+  min: 0
+- label: periodic amounts periodic amounts periodic amounts periodic amounts periodic amounts periodic amount
+  field: amount_information.periodic_amounts_periodic_amounts_periodic_amounts
+  datatype: currency
+  required: false
+  min: 0
+- label: lump-sum amount lump-sum amount lump-sum amount lump-sum amount lump-sum amount lump-sum amount of $
+  field: amount_information.lump_sum_amount_lump_sum_amount_lump_sum_amount_lu
+  datatype: currency
+  required: false
+  min: 0
+question: Additional Information
+fields:
+- label: Dropdown 1
+  field: dropdown1
+  required: false
+  choices:
+  - '          '
+  - Ontario Court of Justice
+  - Superior Court of Justice
+  - Superior Court of Justice Family Court Branch
+  help_text: ''
+- label: Court File Number
+  field: courtfileno
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 3
+  field: text3
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 2
+  field: check2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 3
+  field: check3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 4
+  field: check4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 5
+  field: check5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 12
+  field: text12
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 10
+  field: check10
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_13
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 11
+  field: check11
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_7
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_8
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_9
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_14
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_15
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_16
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_10
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_11
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_17
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_12
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_18
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_13
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 10
+  field: check10_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_19
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 11
+  field: check11_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_14
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_15
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_16
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_17
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_18
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_20
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_21
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_22
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_19
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_20
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_23
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_21
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_24
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_22
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 10
+  field: check10_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_25
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 11
+  field: check11_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_23
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_24
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_25
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_26
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6_27
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_26
+  datatype: text
+  required: false
+  help_text: ''
+- label: '2. I want to enforce by way of garnishment the sum of $ I want to enforce by way of garnishment the '
+  field: field_2_i_want_to_enforce_by_way_of_garnishment_the_sum
+  datatype: currency
+  required: false
+  min: 0
+- label: 'I also want the garnishment to collect ongoing payments of $ I also want the garnishment to collect '
+  field: i_also_want_the_garnishment_to_collect_ongoing_pay
+  datatype: currency
+  required: false
+  min: 0
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: 'Garnishee’s address: Garnishee’s address: Garnishee’s address: Garnishee’s address: Garnishee’s addr'
+  field: person.garnishee_s_address_garnishee_s_address_garnishee
+  edit: true
+- label: 'Garnishee’s address: Garnishee’s address: Garnishee’s address: Garnishee’s address: Garnishee’s addr'
+  field: person.garnishee_s_address_garnishee_s_address_garnishee
+  edit: true
+- label: 'Garnishee’s address: Garnishee’s address: Garnishee’s address: Garnishee’s address: Garnishee’s addr'
+  field: person.garnishee_s_address_garnishee_s_address_garnishee
+  edit: true
+- label: periodic amounts periodic amounts periodic amounts periodic amounts periodic amounts periodic amount
+  field: amount_information.periodic_amounts_periodic_amounts_periodic_amounts
+  edit: true
+- label: lump-sum amount lump-sum amount lump-sum amount lump-sum amount lump-sum amount lump-sum amount of $
+  field: amount_information.lump_sum_amount_lump_sum_amount_lump_sum_amount_lu
+  edit: true
+- label: periodic amounts periodic amounts periodic amounts periodic amounts periodic amounts periodic amount
+  field: amount_information.periodic_amounts_periodic_amounts_periodic_amounts
+  edit: true
+- label: Dropdown 1
+  field: dropdown1
+  edit: true
+- label: Court File Number
+  field: courtfileno
+  edit: true
+- label: ''
+  field: field
+  edit: true
+- label: Text Field 3
+  field: text3
+  edit: true
+- label: ''
+  field: field_2
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 29 Complete
+subquestion: 'Your Form 29 has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart

@@ -1,0 +1,36 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: docassemble-startup-wrapper
+  namespace: docassemble
+data:
+  startup-wrapper.sh: |
+    #!/bin/bash
+    echo "Running Docassemble startup fixes..."
+    
+    # 1. Create/fix the WSGI file
+    if [ ! -f /usr/share/docassemble/webapp/docassemble.wsgi ]; then
+        echo "Creating missing WSGI file..."
+        if [ -f /usr/share/docassemble/webapp/docassemble_webapp/docassemble.wsgi ]; then
+            cp /usr/share/docassemble/webapp/docassemble_webapp/docassemble.wsgi /usr/share/docassemble/webapp/docassemble.wsgi
+        else
+            echo "from docassemble.webapp.run import application" > /usr/share/docassemble/webapp/docassemble.wsgi
+        fi
+        chown www-data:www-data /usr/share/docassemble/webapp/docassemble.wsgi
+        chmod 644 /usr/share/docassemble/webapp/docassemble.wsgi
+        echo "WSGI file created"
+    fi
+    
+    # 2. Create/fix the .pypirc file
+    if [ ! -f /var/www/.pypirc ]; then
+        echo "Creating missing .pypirc file..."
+        mkdir -p /var/www
+        touch /var/www/.pypirc
+        chown www-data:www-data /var/www /var/www/.pypirc
+        chmod 600 /var/www/.pypirc
+        echo "PyPI RC file created"
+    fi
+    
+    echo "Startup fixes completed, starting supervisord..."
+    exec /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf

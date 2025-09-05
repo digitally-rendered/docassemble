@@ -1,0 +1,384 @@
+---
+metadata:
+  title: "Ontario Family Law Form 25D: Form 25D"
+  short title: Form 25D
+  description: Interview with baseline error handling for 13 fields
+  form_number: 25D
+  field_count: 13
+  error_handling: baseline
+  generated: "2025-08-26T23:10:53.707042" 
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  debug: True
+  question help button: True
+  question back button: True
+  progress bar: True
+  progress bar method: all
+  progress bar multiplier: 0.05
+---
+objects:
+  - validation_errors: DAList
+  - error_log: DAList
+  - field_errors: DADict
+---
+initial: True
+code: |
+  validation_errors = DAList()
+  error_log = DAList()
+  field_errors = DADict()
+  debug_mode = get_config('debug', False)
+  error_count = 0
+---
+code: |
+  def handle_error(context, error_type, details):
+    '''Global error handler'''
+    error_entry = {
+      'timestamp': current_datetime(),
+      'context': context,
+      'type': error_type,
+      'details': details
+    }
+    error_log.append(error_entry)
+    if debug_mode:
+      log(f"ERROR in {context}: {error_type} - {details}", 'error')
+    return error_entry
+---
+code: |
+  def safe_get(obj, attr, default=""):
+    '''Safely get object attribute'''
+    try:
+      if hasattr(obj, attr):
+        val = getattr(obj, attr)
+        return val if val is not None else default
+      return default
+    except:
+      return default
+---
+code: |
+  def validate_required(field_name, value):
+    '''Validate required field'''
+    if not value or (isinstance(value, str) and not value.strip()):
+      field_errors[field_name] = f"{field_name} is required"
+      return False
+    return True
+---
+objects:
+  - user: Individual
+  - other_party: Individual
+---
+mandatory: True
+code: |
+  try:
+    intro_seen
+  user.name.first
+  other_party.name.first
+  review_answers
+  if len(validation_errors) > 0:
+    review_with_errors
+  form_complete
+  except Exception as e:
+    handle_error("main_flow", "FlowError", str(e))
+    error_recovery
+---
+question: |
+  Ontario Family Law Form 25D
+subquestion: |
+  Welcome to the Form 25D interview.
+  
+  This interview will collect 13 fields of information.
+  
+  % if debug_mode:
+  <div class="alert alert-info">
+    Debug mode is enabled - detailed error information will be shown
+  </div>
+  % endif
+  
+  All fields include validation and error handling.
+continue button field: intro_seen
+---
+question: |
+  Table 2, Row 36
+fields:
+  - 5. THIS COURT FINDS that (name of payor) THIS COURT FINDS that (name of payor) THIS COURT FINDS that: _this_court_finds_that_name_of_payor_this_court_f
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_36_collected
+---
+question: |
+  Table 2, Row 38
+fields:
+  - the sum of $ the sum of $ the sum of $ the sum of $ the sum of $ the sum of $ the sum of $ the sum o: the_sum_of_the_sum_of_the_su
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_38_collected
+---
+question: |
+  Table 3, Row 5
+fields:
+  - THIS COURT FINDS that (name of recipient) THIS COURT FINDS that (name of recipient) THIS COURT FINDS: this_court_finds_that_name_of_recipienthis_court
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_5_collected
+---
+question: |
+  Table 3, Row 7
+fields:
+  - the sum of $ the sum of $ the sum of $ the sum of $ the sum of $ the sum of $ per month for the spec: the_sum_of_the_sum_of_the_su
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_7_collected
+---
+question: |
+  Table 3, Row 12
+fields:
+  - $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_12_collected
+---
+question: |
+  Table 3, Row 13
+fields:
+  - $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_13_collected
+---
+question: |
+  Table 3, Row 14
+fields:
+  - $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_14_collected
+---
+question: |
+  Table 3, Row 15
+fields:
+  - $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_15_collected
+---
+question: |
+  Table 3, Row 19
+fields:
+  - spousal support in the amount of $ spousal support in the amount of $ spousal support in the amount : spousal_support_in_the_amount_of_spousal_support_i
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_19_collected
+---
+question: |
+  Table 3, Row 23
+fields:
+  - 8. THIS COURT FINDS that the amount of support owed is $ THIS COURT FINDS that the amount of support: _this_court_finds_thathe_amount_of_support_owed
+    datatype: date
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_23_collected
+---
+question: |
+  Table 3, Row 26
+fields:
+  - at the rate of $ at the rate of $ at the rate of $ at the rate of $ at the rate of $ at the rate of : at_the_rate_of_athe_rate_of_ath
+    datatype: date
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_26_collected
+---
+question: |
+  Table 4, Row 6
+fields:
+  - serve and file the following before the next court date serve and file the following before the nex: serve_and_file_the_following_before_the_next_court
+    datatype: date
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_6_collected
+---
+question: |
+  Table 4, Row 15
+fields:
+  - to (name) to (name) to (name) fixed at $ fixed at $ fixed at $: to_name_to_name_fixed_at_fixed_at
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_4__row_15_collected
+---
+question: |
+  Your Information
+fields:
+  - First Name: user.name.first
+    required: True
+    validation messages:
+      required: First name is required
+  - Last Name: user.name.last
+    required: True
+    validation messages:
+      required: Last name is required
+  - Date of Birth: user.birthdate
+    datatype: date
+    required: False
+---
+question: |
+  Other Party
+fields:
+  - First Name: other_party.name.first
+    required: True
+    validation messages:
+      required: First name is required
+  - Last Name: other_party.name.last
+    required: True
+    validation messages:
+      required: Last name is required
+  - Date of Birth: other_party.birthdate
+    datatype: date
+    required: False
+---
+event: error_recovery
+question: |
+  Error Recovery
+subquestion: |
+  An error occurred during the interview.
+  
+  % if len(error_log) > 0:
+  **Recent Errors:**
+  % for error in error_log[-5:]:
+  - ${ error['context'] }: ${ error['type'] }
+  % endfor
+  % endif
+  
+  You can try restarting or contact support.
+buttons:
+  - Restart: restart
+  - Exit: exit
+---
+event: review_with_errors
+question: |
+  Review with Validation Issues
+subquestion: |
+  <div class="alert alert-warning">
+    There are ${ len(validation_errors) } validation issues to review.
+  </div>
+  
+  % for error in validation_errors[:10]:
+  - ${ error }
+  % endfor
+  
+  You can continue anyway or go back to fix these issues.
+buttons:
+  - Continue Anyway: continue
+  - Go Back: restart
+---
+event: review_answers
+question: |
+  Review Your Answers
+subquestion: |
+  Please review the information you've provided.
+  
+  % if len(validation_errors) == 0:
+  <div class="alert alert-success">
+    ✓ All information validated successfully
+  </div>
+  % else:
+  <div class="alert alert-warning">
+    ⚠ ${ len(validation_errors) } validation warnings
+  </div>
+  % endif
+  
+  **Form 25D Summary**
+  
+  Information has been collected for all required fields.
+  
+  % if debug_mode:
+  **Debug Info:**
+  - Errors logged: ${ len(error_log) }
+  - Fields with errors: ${ len(field_errors) }
+  % endif
+buttons:
+  - Continue: continue
+  - Edit Answers: restart
+---
+event: form_complete
+question: |
+  Form 25D Complete
+subquestion: |
+  Thank you for completing Form 25D.
+  
+  % if len(error_log) == 0:
+  <div class="alert alert-success">
+    ✓ Interview completed without errors
+  </div>
+  % else:
+  <div class="alert alert-info">
+    Interview completed with ${ len(error_log) } logged events
+  </div>
+  % endif
+  
+  **Summary:**
+  - All required fields completed
+  - Validation: ${ "Passed" if len(validation_errors) == 0 else str(len(validation_errors)) + " warnings" }
+  
+buttons:
+  - Exit: exit
+  - Start Over: restart

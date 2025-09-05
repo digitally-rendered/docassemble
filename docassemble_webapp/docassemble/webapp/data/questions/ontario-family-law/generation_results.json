@@ -1,0 +1,242 @@
+[
+  {
+    "form": "29A",
+    "success": true,
+    "file": "../form_29A_automated.yml"
+  },
+  {
+    "form": "8D",
+    "success": true,
+    "file": "../form_8D_automated.yml"
+  },
+  {
+    "form": "43",
+    "success": true,
+    "file": "../form_43_automated.yml"
+  },
+  {
+    "form": "26",
+    "success": true,
+    "file": "../form_26_automated.yml"
+  },
+  {
+    "form": "15B",
+    "success": true,
+    "file": "../form_15B_automated.yml"
+  },
+  {
+    "form": "37B",
+    "success": true,
+    "file": "../form_37B_automated.yml"
+  },
+  {
+    "form": "14B",
+    "success": true,
+    "file": "../form_14B_automated.yml"
+  },
+  {
+    "form": "13B",
+    "success": true,
+    "file": "../form_13B_automated.yml"
+  },
+  {
+    "form": "34I",
+    "success": true,
+    "file": "../form_34I_automated.yml"
+  },
+  {
+    "form": "8A",
+    "success": true,
+    "file": "../form_8A_automated.yml"
+  },
+  {
+    "form": "36",
+    "success": true,
+    "file": "../form_36_automated.yml"
+  },
+  {
+    "form": "17C",
+    "success": true,
+    "file": "../form_17C_automated.yml"
+  },
+  {
+    "form": "8B",
+    "success": true,
+    "file": "../form_8B_automated.yml"
+  },
+  {
+    "form": "13A",
+    "success": true,
+    "file": "../form_13A_automated.yml"
+  },
+  {
+    "form": "6C",
+    "success": true,
+    "file": "../form_6C_automated.yml"
+  },
+  {
+    "form": "29",
+    "success": true,
+    "file": "../form_29_automated.yml"
+  },
+  {
+    "form": "25A",
+    "success": true,
+    "file": "../form_25A_automated.yml"
+  },
+  {
+    "form": "37A",
+    "success": true,
+    "file": "../form_37A_automated.yml"
+  },
+  {
+    "form": "34F",
+    "success": true,
+    "file": "../form_34F_automated.yml"
+  },
+  {
+    "form": "33F",
+    "success": true,
+    "file": "../form_33F_automated.yml"
+  },
+  {
+    "form": "25D",
+    "success": true,
+    "file": "../form_25D_automated.yml"
+  },
+  {
+    "form": "25",
+    "success": true,
+    "file": "../form_25_automated.yml"
+  },
+  {
+    "form": "36A",
+    "success": true,
+    "file": "../form_36A_automated.yml"
+  },
+  {
+    "form": "17F",
+    "success": true,
+    "file": "../form_17F_automated.yml"
+  },
+  {
+    "form": "30",
+    "success": true,
+    "file": "../form_30_automated.yml"
+  },
+  {
+    "form": "29B",
+    "success": true,
+    "file": "../form_29B_automated.yml"
+  },
+  {
+    "form": "37",
+    "success": true,
+    "file": "../form_37_automated.yml"
+  },
+  {
+    "form": "17A",
+    "success": true,
+    "file": "../form_17A_automated.yml"
+  },
+  {
+    "form": "10A",
+    "success": true,
+    "file": "../form_10A_automated.yml"
+  },
+  {
+    "form": "4",
+    "success": true,
+    "file": "../form_4_automated.yml"
+  },
+  {
+    "form": "13C",
+    "success": true,
+    "file": "../form_13C_automated.yml"
+  },
+  {
+    "form": "14C",
+    "success": true,
+    "file": "../form_14C_automated.yml"
+  },
+  {
+    "form": "10",
+    "success": true,
+    "file": "../form_10_automated.yml"
+  },
+  {
+    "form": "34A",
+    "success": true,
+    "file": "../form_34A_automated.yml"
+  },
+  {
+    "form": "25C",
+    "success": true,
+    "file": "../form_25C_automated.yml"
+  },
+  {
+    "form": "25F",
+    "success": true,
+    "file": "../form_25F_automated.yml"
+  },
+  {
+    "form": "15",
+    "success": true,
+    "file": "../form_15_automated.yml"
+  },
+  {
+    "form": "15C",
+    "success": true,
+    "file": "../form_15C_automated.yml"
+  },
+  {
+    "form": "8",
+    "success": true,
+    "file": "../form_8_automated.yml"
+  },
+  {
+    "form": "43A",
+    "success": true,
+    "file": "../form_43A_automated.yml"
+  },
+  {
+    "form": "27",
+    "success": true,
+    "file": "../form_27_automated.yml"
+  },
+  {
+    "form": "43B",
+    "success": true,
+    "file": "../form_43B_automated.yml"
+  },
+  {
+    "form": "13.1",
+    "success": true,
+    "file": "../form_13.1_automated.yml"
+  },
+  {
+    "form": "34G",
+    "success": true,
+    "file": "../form_34G_automated.yml"
+  },
+  {
+    "form": "13",
+    "success": true,
+    "file": "../form_13_automated.yml"
+  },
+  {
+    "form": "28",
+    "success": true,
+    "file": "../form_28_automated.yml"
+  },
+  {
+    "form": "6B",
+    "success": true,
+    "file": "../form_6B_automated.yml"
+  },
+  {
+    "form": "34",
+    "success": true,
+    "file": "../form_34_automated.yml"
+  }
+]

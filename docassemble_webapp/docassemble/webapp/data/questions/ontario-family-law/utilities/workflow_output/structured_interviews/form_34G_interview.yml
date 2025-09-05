@@ -1,0 +1,414 @@
+---
+metadata:
+  title: Ontario Family Law Form 34G
+  short_title: Form 34G
+  description: Structured interview with 45 fields and 0 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - 34G
+  form_number: 34G
+  form_category: general
+  generated: '2025-08-26 22:36:36'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: percentage
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+objects:
+- court_info: DAObject
+- error_log: DAList.using(object_type=DAObject, there_are_any=False)
+- debug_info: DAObject
+code: "if not defined('debug_mode'):\n    debug_mode = get_config('debug', False)"
+code: "def capture_form_error(context=\"\", field_name=\"\"):\n    '''Capture and log form validation errors'''\n    from .debug_helpers import DebugHelper\n    error_info = DebugHelper.capture_error()\n    if error_info:\n      error_entry = DAObject()\n      error_entry.timestamp = current_datetime()\n      error_entry.context = context\n      error_entry.field = field_name\n      error_entry.error = error_info\n      error_log.append(error_entry)\n      if debug_mode:\n        log(f\"Form error in {context}: {error_info['message']}\", 'error')\n    return error_info"
+code: "def safe_get_field(obj, field_name, default=\"\"):\n    '''Safely access object fields with error handling'''\n    try:\n      if hasattr(obj, field_name):\n        value = getattr(obj, field_name)\n        return value if value is not None else default\n      return default\n    except Exception as e:\n      capture_form_error(f\"safe_get_field({field_name})\", field_name)\n      return default"
+code: "def handle_validation_error(field_name, value, validation_type=\"\"):\n    '''Handle field validation errors with user-friendly messages'''\n    error_messages = {\n      'required': f\"The field '{field_name}' is required.\",\n      'date': f\"Please enter a valid date for '{field_name}'.\",\n      'email': f\"Please enter a valid email address for '{field_name}'.\",\n      'phone': f\"Please enter a valid phone number for '{field_name}'.\",\n      'currency': f\"Please enter a valid dollar amount for '{field_name}'.\",\n      'number': f\"Please enter a valid number for '{field_name}'.\",\n      'percentage': f\"Please enter a valid percentage for '{field_name}'.\",\n      'postal_code': f\"Please enter a valid postal code for '{field_name}'.\"\n    }\n    \n    message = error_messages.get(validation_type, f\"Invalid value for '{field_name}': {value}\")\n    \n    if debug_mode:\n      log(f\"Validation error: {message}\", 'error')\n      \n    validation_errors.append({\n    \
+  \  'field': field_name,\n      'value': value,\n      'type': validation_type,\n      'message': message\n    })\n    \n    return message"
+code: "if not defined('validation_errors'):\n    validation_errors = []"
+code: "def validate_field(field_name, value, validation_rules):\n    '''Validate a field against multiple rules'''\n    errors = []\n    \n    # Required field check\n    if 'required' in validation_rules and validation_rules['required']:\n      if not value or (isinstance(value, str) and not value.strip()):\n        errors.append(handle_validation_error(field_name, value, 'required'))\n    \n    # Type-specific validation\n    if value and 'type' in validation_rules:\n      field_type = validation_rules['type']\n      \n      if field_type == 'date':\n        try:\n          # Validate date format\n          if isinstance(value, str):\n            from datetime import datetime\n            datetime.strptime(value, '%Y-%m-%d')\n        except:\n          errors.append(handle_validation_error(field_name, value, 'date'))\n      \n      elif field_type == 'email':\n        import re\n        if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$', str(value)):\n          errors.append(handle_validation_error(field_name,\
+  \ value, 'email'))\n      \n      elif field_type == 'phone':\n        import re\n        phone_str = re.sub(r'[^0-9]', '', str(value))\n        if len(phone_str) not in [10, 11]:\n          errors.append(handle_validation_error(field_name, value, 'phone'))\n      \n      elif field_type == 'currency' or field_type == 'number':\n        try:\n          float(str(value).replace('$', '').replace(',', ''))\n        except:\n          errors.append(handle_validation_error(field_name, value, field_type))\n    \n    return errors"
+mandatory: true
+code: 'intro_seen
+
+  review_complete
+
+  form_complete'
+question: Form 34G Interview
+subquestion: 'This structured interview will help you complete Form 34G.
+
+
+  You will be asked about:
+
+  - Form information
+
+
+  Total sections: 1
+
+  Fields to complete: 45'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Additional Information
+fields:
+- label: ''
+  field: field
+  required: false
+  choices:
+  - '          '
+  - Ontario Court of Justice
+  - Superior Court of Justice
+  - Superior Court of Justice, Family Court
+  help_text: ''
+- label: Court File Number
+  field: courtfileno
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_13
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_14
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_7
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 4
+  field: text4
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_8
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_9
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 4
+  field: text4_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_10
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_11
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 4
+  field: text4_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_12
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_13
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_14
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_15
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_16
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_15
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_17
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_16
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_17
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_18
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_19
+  datatype: text
+  required: false
+  help_text: ''
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: ''
+  field: field
+  edit: true
+- label: Court File Number
+  field: courtfileno
+  edit: true
+- label: ''
+  field: field_2
+  edit: true
+- label: Text Field 1
+  field: text1
+  edit: true
+- label: Text Field 1
+  field: text1_2
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 34G Complete
+subquestion: 'Your Form 34G has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart
+
+
+---
+# Error display screen
+event: show_form_errors
+question: |
+  Form Validation Errors
+subquestion: |
+  % if len(validation_errors) > 0:
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Please correct the following errors:</h4>
+    <ul>
+    % for error in validation_errors:
+      <li><strong>${ error['field'] }:</strong> ${ error['message'] }</li>
+    % endfor
+    </ul>
+  </div>
+  % endif
+  
+  % if debug_mode and len(error_log) > 0:
+  <details>
+    <summary>Debug Information (${len(error_log)} errors logged)</summary>
+    % for entry in error_log:
+    <div class="card mb-2">
+      <div class="card-body">
+        <h6 class="card-title">Error at ${ entry.timestamp }</h6>
+        <p class="card-text">
+          <strong>Context:</strong> ${ entry.context }<br>
+          <strong>Field:</strong> ${ entry.field }<br>
+          <strong>Type:</strong> ${ entry.error['type'] }<br>
+          <strong>Message:</strong> ${ entry.error['message'] }
+        </p>
+        % if debug_mode:
+        <details>
+          <summary>Stack Trace</summary>
+          <pre>${ entry.error.get('formatted_exception', 'N/A') }</pre>
+        </details>
+        % endif
+      </div>
+    </div>
+    % endfor
+  </details>
+  % endif
+buttons:
+  - "Go Back": restart
+  - "Exit": exit
+---
+# Debug information screen
+event: show_debug_info
+question: |
+  Debug Information
+subquestion: |
+  <div class="alert alert-info">
+    <h4>Session Information</h4>
+    <ul>
+      <li><strong>Interview:</strong> ${ user_info().filename }</li>
+      <li><strong>Session ID:</strong> ${ user_info().session }</li>
+      <li><strong>Debug Mode:</strong> ${ debug_mode }</li>
+      <li><strong>Errors Logged:</strong> ${ len(error_log) }</li>
+      <li><strong>Validation Errors:</strong> ${ len(validation_errors) }</li>
+    </ul>
+  </div>
+  
+  % if defined('user_party'):
+  <h4>User Information</h4>
+  <ul>
+    <li><strong>Name:</strong> ${ safe_get_field(user_party, 'name', 'Not provided') }</li>
+    % if hasattr(user_party, 'email'):
+    <li><strong>Email:</strong> ${ safe_get_field(user_party, 'email', 'Not provided') }</li>
+    % endif
+  </ul>
+  % endif
+  
+  <h4>Form Progress</h4>
+  <ul>
+    % for var in ['intro_seen', 'user_party.name.first', 'other_party.name.first', 'children.gathered', 'review_complete']:
+    <li><strong>${ var }:</strong> ${ 'Yes' if defined(var) else 'No' }</li>
+    % endfor
+  </ul>
+buttons:
+  - "Continue": continue
+  - "Show Errors": show_form_errors
+  - "Restart": restart

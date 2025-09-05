@@ -1,0 +1,1071 @@
+{
+  "tables": [
+    {
+      "table_type": "income",
+      "table_name": "Employment Income",
+      "table_id": "income_employment_income",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "source",
+          "label": "Source",
+          "type": "text"
+        },
+        {
+          "name": "monthly_amount",
+          "label": "Monthly Amount",
+          "type": "currency"
+        },
+        {
+          "name": "annual_amount",
+          "label": "Annual Amount",
+          "type": "currency"
+        },
+        {
+          "name": "documents",
+          "label": "Supporting Documents",
+          "type": "file_upload"
+        }
+      ],
+      "rows": [],
+      "requires_value": false,
+      "requires_statements": true,
+      "statement_frequency": "",
+      "required_documents": [
+        "pay stubs",
+        "T4",
+        "employment letter"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "income",
+      "table_name": "Self Employment",
+      "table_id": "income_self_employment",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "source",
+          "label": "Source",
+          "type": "text"
+        },
+        {
+          "name": "monthly_amount",
+          "label": "Monthly Amount",
+          "type": "currency"
+        },
+        {
+          "name": "annual_amount",
+          "label": "Annual Amount",
+          "type": "currency"
+        },
+        {
+          "name": "documents",
+          "label": "Supporting Documents",
+          "type": "file_upload"
+        }
+      ],
+      "rows": [],
+      "requires_value": false,
+      "requires_statements": true,
+      "statement_frequency": "",
+      "required_documents": [
+        "T2125",
+        "financial statements",
+        "bank statements"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "income",
+      "table_name": "Investment Income",
+      "table_id": "income_investment_income",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "source",
+          "label": "Source",
+          "type": "text"
+        },
+        {
+          "name": "monthly_amount",
+          "label": "Monthly Amount",
+          "type": "currency"
+        },
+        {
+          "name": "annual_amount",
+          "label": "Annual Amount",
+          "type": "currency"
+        },
+        {
+          "name": "documents",
+          "label": "Supporting Documents",
+          "type": "file_upload"
+        }
+      ],
+      "rows": [],
+      "requires_value": false,
+      "requires_statements": true,
+      "statement_frequency": "",
+      "required_documents": [
+        "T5",
+        "T3",
+        "investment statements"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "income",
+      "table_name": "Rental Income",
+      "table_id": "income_rental_income",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "source",
+          "label": "Source",
+          "type": "text"
+        },
+        {
+          "name": "monthly_amount",
+          "label": "Monthly Amount",
+          "type": "currency"
+        },
+        {
+          "name": "annual_amount",
+          "label": "Annual Amount",
+          "type": "currency"
+        },
+        {
+          "name": "documents",
+          "label": "Supporting Documents",
+          "type": "file_upload"
+        }
+      ],
+      "rows": [],
+      "requires_value": false,
+      "requires_statements": true,
+      "statement_frequency": "",
+      "required_documents": [
+        "lease agreements",
+        "T776",
+        "rental statements"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "income",
+      "table_name": "Support Income",
+      "table_id": "income_support_income",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "source",
+          "label": "Source",
+          "type": "text"
+        },
+        {
+          "name": "monthly_amount",
+          "label": "Monthly Amount",
+          "type": "currency"
+        },
+        {
+          "name": "annual_amount",
+          "label": "Annual Amount",
+          "type": "currency"
+        },
+        {
+          "name": "documents",
+          "label": "Supporting Documents",
+          "type": "file_upload"
+        }
+      ],
+      "rows": [],
+      "requires_value": false,
+      "requires_statements": true,
+      "statement_frequency": "",
+      "required_documents": [
+        "support orders",
+        "payment records"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "income",
+      "table_name": "Government Benefits",
+      "table_id": "income_government_benefits",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "source",
+          "label": "Source",
+          "type": "text"
+        },
+        {
+          "name": "monthly_amount",
+          "label": "Monthly Amount",
+          "type": "currency"
+        },
+        {
+          "name": "annual_amount",
+          "label": "Annual Amount",
+          "type": "currency"
+        },
+        {
+          "name": "documents",
+          "label": "Supporting Documents",
+          "type": "file_upload"
+        }
+      ],
+      "rows": [],
+      "requires_value": false,
+      "requires_statements": true,
+      "statement_frequency": "",
+      "required_documents": [
+        "benefit statements",
+        "T4E",
+        "T4A"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "expense",
+      "table_name": "Housing",
+      "table_id": "expense_housing",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "description",
+          "label": "Description",
+          "type": "text"
+        },
+        {
+          "name": "monthly_amount",
+          "label": "Monthly Amount",
+          "type": "currency"
+        },
+        {
+          "name": "annual_amount",
+          "label": "Annual Amount",
+          "type": "currency"
+        },
+        {
+          "name": "receipts",
+          "label": "Receipts/Proof",
+          "type": "file_upload"
+        }
+      ],
+      "rows": [],
+      "requires_value": false,
+      "requires_statements": true,
+      "statement_frequency": "",
+      "required_documents": [
+        "lease",
+        "mortgage statement",
+        "utility bills",
+        "property tax bill"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "expense",
+      "table_name": "Transportation",
+      "table_id": "expense_transportation",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "description",
+          "label": "Description",
+          "type": "text"
+        },
+        {
+          "name": "monthly_amount",
+          "label": "Monthly Amount",
+          "type": "currency"
+        },
+        {
+          "name": "annual_amount",
+          "label": "Annual Amount",
+          "type": "currency"
+        },
+        {
+          "name": "receipts",
+          "label": "Receipts/Proof",
+          "type": "file_upload"
+        }
+      ],
+      "rows": [],
+      "requires_value": false,
+      "requires_statements": true,
+      "statement_frequency": "",
+      "required_documents": [
+        "loan agreement",
+        "insurance policy",
+        "gas receipts"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "expense",
+      "table_name": "Childcare",
+      "table_id": "expense_childcare",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "description",
+          "label": "Description",
+          "type": "text"
+        },
+        {
+          "name": "monthly_amount",
+          "label": "Monthly Amount",
+          "type": "currency"
+        },
+        {
+          "name": "annual_amount",
+          "label": "Annual Amount",
+          "type": "currency"
+        },
+        {
+          "name": "receipts",
+          "label": "Receipts/Proof",
+          "type": "file_upload"
+        }
+      ],
+      "rows": [],
+      "requires_value": false,
+      "requires_statements": true,
+      "statement_frequency": "",
+      "required_documents": [
+        "childcare receipts",
+        "provider statements"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "expense",
+      "table_name": "Medical",
+      "table_id": "expense_medical",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "description",
+          "label": "Description",
+          "type": "text"
+        },
+        {
+          "name": "monthly_amount",
+          "label": "Monthly Amount",
+          "type": "currency"
+        },
+        {
+          "name": "annual_amount",
+          "label": "Annual Amount",
+          "type": "currency"
+        },
+        {
+          "name": "receipts",
+          "label": "Receipts/Proof",
+          "type": "file_upload"
+        }
+      ],
+      "rows": [],
+      "requires_value": false,
+      "requires_statements": true,
+      "statement_frequency": "",
+      "required_documents": [
+        "receipts",
+        "insurance statements",
+        "prescription records"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "expense",
+      "table_name": "Debt Payments",
+      "table_id": "expense_debt_payments",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "description",
+          "label": "Description",
+          "type": "text"
+        },
+        {
+          "name": "monthly_amount",
+          "label": "Monthly Amount",
+          "type": "currency"
+        },
+        {
+          "name": "annual_amount",
+          "label": "Annual Amount",
+          "type": "currency"
+        },
+        {
+          "name": "receipts",
+          "label": "Receipts/Proof",
+          "type": "file_upload"
+        }
+      ],
+      "rows": [],
+      "requires_value": false,
+      "requires_statements": true,
+      "statement_frequency": "",
+      "required_documents": [
+        "statements",
+        "loan agreements"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "asset",
+      "table_name": "Real Estate",
+      "table_id": "asset_real_estate",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "description",
+          "label": "Description",
+          "type": "text"
+        },
+        {
+          "name": "ownership",
+          "label": "Ownership %",
+          "type": "number"
+        },
+        {
+          "name": "date_acquired",
+          "label": "Date Acquired",
+          "type": "date"
+        },
+        {
+          "name": "original_value",
+          "label": "Original Value",
+          "type": "currency"
+        },
+        {
+          "name": "current_value",
+          "label": "Current Market Value",
+          "type": "currency"
+        },
+        {
+          "name": "statements",
+          "label": "Statements/Valuations",
+          "type": "file_upload_multiple"
+        }
+      ],
+      "rows": [],
+      "requires_value": true,
+      "requires_statements": true,
+      "statement_frequency": "annual",
+      "required_documents": [
+        "deed",
+        "mortgage statement",
+        "property assessment",
+        "MPAC"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "asset",
+      "table_name": "Vehicles",
+      "table_id": "asset_vehicles",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "description",
+          "label": "Description",
+          "type": "text"
+        },
+        {
+          "name": "ownership",
+          "label": "Ownership %",
+          "type": "number"
+        },
+        {
+          "name": "date_acquired",
+          "label": "Date Acquired",
+          "type": "date"
+        },
+        {
+          "name": "original_value",
+          "label": "Original Value",
+          "type": "currency"
+        },
+        {
+          "name": "current_value",
+          "label": "Current Market Value",
+          "type": "currency"
+        },
+        {
+          "name": "statements",
+          "label": "Statements/Valuations",
+          "type": "file_upload_multiple"
+        }
+      ],
+      "rows": [],
+      "requires_value": true,
+      "requires_statements": true,
+      "statement_frequency": "annual",
+      "required_documents": [
+        "ownership",
+        "loan statement",
+        "valuation"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "asset",
+      "table_name": "Bank Accounts",
+      "table_id": "asset_bank_accounts",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "description",
+          "label": "Description",
+          "type": "text"
+        },
+        {
+          "name": "ownership",
+          "label": "Ownership %",
+          "type": "number"
+        },
+        {
+          "name": "date_acquired",
+          "label": "Date Acquired",
+          "type": "date"
+        },
+        {
+          "name": "original_value",
+          "label": "Original Value",
+          "type": "currency"
+        },
+        {
+          "name": "current_value",
+          "label": "Current Market Value",
+          "type": "currency"
+        },
+        {
+          "name": "statements",
+          "label": "Statements/Valuations",
+          "type": "file_upload_multiple"
+        },
+        {
+          "name": "monthly_statements",
+          "label": "Last 12 Monthly Statements",
+          "type": "file_upload_multiple",
+          "required": true,
+          "min_files": 12
+        }
+      ],
+      "rows": [],
+      "requires_value": true,
+      "requires_statements": true,
+      "statement_frequency": "monthly",
+      "required_documents": [
+        "bank statements (12 months)",
+        "account verification"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "asset",
+      "table_name": "Investments",
+      "table_id": "asset_investments",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "description",
+          "label": "Description",
+          "type": "text"
+        },
+        {
+          "name": "ownership",
+          "label": "Ownership %",
+          "type": "number"
+        },
+        {
+          "name": "date_acquired",
+          "label": "Date Acquired",
+          "type": "date"
+        },
+        {
+          "name": "original_value",
+          "label": "Original Value",
+          "type": "currency"
+        },
+        {
+          "name": "current_value",
+          "label": "Current Market Value",
+          "type": "currency"
+        },
+        {
+          "name": "statements",
+          "label": "Statements/Valuations",
+          "type": "file_upload_multiple"
+        }
+      ],
+      "rows": [],
+      "requires_value": true,
+      "requires_statements": true,
+      "statement_frequency": "quarterly",
+      "required_documents": [
+        "statements",
+        "portfolio summary"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "asset",
+      "table_name": "Pensions",
+      "table_id": "asset_pensions",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "description",
+          "label": "Description",
+          "type": "text"
+        },
+        {
+          "name": "ownership",
+          "label": "Ownership %",
+          "type": "number"
+        },
+        {
+          "name": "date_acquired",
+          "label": "Date Acquired",
+          "type": "date"
+        },
+        {
+          "name": "original_value",
+          "label": "Original Value",
+          "type": "currency"
+        },
+        {
+          "name": "current_value",
+          "label": "Current Market Value",
+          "type": "currency"
+        },
+        {
+          "name": "statements",
+          "label": "Statements/Valuations",
+          "type": "file_upload_multiple"
+        }
+      ],
+      "rows": [],
+      "requires_value": true,
+      "requires_statements": true,
+      "statement_frequency": "annual",
+      "required_documents": [
+        "pension statement",
+        "commuted value statement"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "asset",
+      "table_name": "Business Interests",
+      "table_id": "asset_business_interests",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "description",
+          "label": "Description",
+          "type": "text"
+        },
+        {
+          "name": "ownership",
+          "label": "Ownership %",
+          "type": "number"
+        },
+        {
+          "name": "date_acquired",
+          "label": "Date Acquired",
+          "type": "date"
+        },
+        {
+          "name": "original_value",
+          "label": "Original Value",
+          "type": "currency"
+        },
+        {
+          "name": "current_value",
+          "label": "Current Market Value",
+          "type": "currency"
+        },
+        {
+          "name": "statements",
+          "label": "Statements/Valuations",
+          "type": "file_upload_multiple"
+        }
+      ],
+      "rows": [],
+      "requires_value": true,
+      "requires_statements": true,
+      "statement_frequency": "annual",
+      "required_documents": [
+        "financial statements",
+        "tax returns",
+        "valuation report"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "debt",
+      "table_name": "Mortgages",
+      "table_id": "debt_mortgages",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "creditor",
+          "label": "Creditor Name",
+          "type": "text"
+        },
+        {
+          "name": "account_number",
+          "label": "Account Number",
+          "type": "text"
+        },
+        {
+          "name": "date_incurred",
+          "label": "Date Incurred",
+          "type": "date"
+        },
+        {
+          "name": "original_amount",
+          "label": "Original Amount",
+          "type": "currency"
+        },
+        {
+          "name": "current_balance",
+          "label": "Current Balance",
+          "type": "currency"
+        },
+        {
+          "name": "monthly_payment",
+          "label": "Monthly Payment",
+          "type": "currency"
+        },
+        {
+          "name": "statements",
+          "label": "Recent Statements",
+          "type": "file_upload_multiple"
+        }
+      ],
+      "rows": [],
+      "requires_value": true,
+      "requires_statements": true,
+      "statement_frequency": "monthly",
+      "required_documents": [
+        "mortgage statement",
+        "amortization schedule"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "debt",
+      "table_name": "Loans",
+      "table_id": "debt_loans",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "creditor",
+          "label": "Creditor Name",
+          "type": "text"
+        },
+        {
+          "name": "account_number",
+          "label": "Account Number",
+          "type": "text"
+        },
+        {
+          "name": "date_incurred",
+          "label": "Date Incurred",
+          "type": "date"
+        },
+        {
+          "name": "original_amount",
+          "label": "Original Amount",
+          "type": "currency"
+        },
+        {
+          "name": "current_balance",
+          "label": "Current Balance",
+          "type": "currency"
+        },
+        {
+          "name": "monthly_payment",
+          "label": "Monthly Payment",
+          "type": "currency"
+        },
+        {
+          "name": "statements",
+          "label": "Recent Statements",
+          "type": "file_upload_multiple"
+        }
+      ],
+      "rows": [],
+      "requires_value": true,
+      "requires_statements": true,
+      "statement_frequency": "monthly",
+      "required_documents": [
+        "loan statement",
+        "payment schedule"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "debt",
+      "table_name": "Credit Cards",
+      "table_id": "debt_credit_cards",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "creditor",
+          "label": "Creditor Name",
+          "type": "text"
+        },
+        {
+          "name": "account_number",
+          "label": "Account Number",
+          "type": "text"
+        },
+        {
+          "name": "date_incurred",
+          "label": "Date Incurred",
+          "type": "date"
+        },
+        {
+          "name": "original_amount",
+          "label": "Original Amount",
+          "type": "currency"
+        },
+        {
+          "name": "current_balance",
+          "label": "Current Balance",
+          "type": "currency"
+        },
+        {
+          "name": "monthly_payment",
+          "label": "Monthly Payment",
+          "type": "currency"
+        },
+        {
+          "name": "statements",
+          "label": "Recent Statements",
+          "type": "file_upload_multiple"
+        }
+      ],
+      "rows": [],
+      "requires_value": true,
+      "requires_statements": true,
+      "statement_frequency": "monthly",
+      "required_documents": [
+        "statements (3 months)"
+      ],
+      "optional_documents": []
+    },
+    {
+      "table_type": "debt",
+      "table_name": "Taxes Owed",
+      "table_id": "debt_taxes_owed",
+      "page_number": 0,
+      "columns": [
+        {
+          "name": "creditor",
+          "label": "Creditor Name",
+          "type": "text"
+        },
+        {
+          "name": "account_number",
+          "label": "Account Number",
+          "type": "text"
+        },
+        {
+          "name": "date_incurred",
+          "label": "Date Incurred",
+          "type": "date"
+        },
+        {
+          "name": "original_amount",
+          "label": "Original Amount",
+          "type": "currency"
+        },
+        {
+          "name": "current_balance",
+          "label": "Current Balance",
+          "type": "currency"
+        },
+        {
+          "name": "monthly_payment",
+          "label": "Monthly Payment",
+          "type": "currency"
+        },
+        {
+          "name": "statements",
+          "label": "Recent Statements",
+          "type": "file_upload_multiple"
+        }
+      ],
+      "rows": [],
+      "requires_value": true,
+      "requires_statements": true,
+      "statement_frequency": "monthly",
+      "required_documents": [
+        "notice of assessment",
+        "statement of account"
+      ],
+      "optional_documents": []
+    }
+  ],
+  "documents": [
+    {
+      "doc_type": "tax_document",
+      "doc_name": "T1 General Tax Return",
+      "related_field": "income",
+      "frequency": "annual",
+      "years_required": 3,
+      "required": true,
+      "description": "Please upload T1 General Tax Return for the last 3 year(s)",
+      "accepted_formats": [
+        "pdf",
+        "jpg",
+        "png"
+      ]
+    },
+    {
+      "doc_type": "tax_document",
+      "doc_name": "Notice of Assessment",
+      "related_field": "income",
+      "frequency": "annual",
+      "years_required": 3,
+      "required": true,
+      "description": "Please upload Notice of Assessment for the last 3 year(s)",
+      "accepted_formats": [
+        "pdf",
+        "jpg",
+        "png"
+      ]
+    },
+    {
+      "doc_type": "tax_document",
+      "doc_name": "T4 Statement of Remuneration",
+      "related_field": "income",
+      "frequency": "annual",
+      "years_required": 1,
+      "required": true,
+      "description": "Please upload T4 Statement of Remuneration for the last 1 year(s)",
+      "accepted_formats": [
+        "pdf",
+        "jpg",
+        "png"
+      ]
+    },
+    {
+      "doc_type": "tax_document",
+      "doc_name": "T5 Investment Income",
+      "related_field": "income",
+      "frequency": "annual",
+      "years_required": 1,
+      "required": false,
+      "description": "Please upload T5 Investment Income for the last 1 year(s)",
+      "accepted_formats": [
+        "pdf",
+        "jpg",
+        "png"
+      ]
+    },
+    {
+      "doc_type": "tax_document",
+      "doc_name": "T2125 Business Income",
+      "related_field": "income",
+      "frequency": "annual",
+      "years_required": 3,
+      "required": false,
+      "description": "Please upload T2125 Business Income for the last 3 year(s)",
+      "accepted_formats": [
+        "pdf",
+        "jpg",
+        "png"
+      ]
+    },
+    {
+      "doc_type": "pay_stub",
+      "doc_name": "Recent Pay Stubs",
+      "related_field": "employment_income",
+      "frequency": "bi-weekly",
+      "years_required": 0,
+      "required": true,
+      "description": "Please upload your last 3 pay stubs",
+      "accepted_formats": [
+        "pdf",
+        "jpg",
+        "png"
+      ]
+    },
+    {
+      "doc_type": "bank_statement",
+      "doc_name": "Bank Statements - All Accounts",
+      "related_field": "bank_accounts",
+      "frequency": "monthly",
+      "years_required": 1,
+      "required": true,
+      "description": "Upload 12 months of statements for EACH bank account",
+      "accepted_formats": [
+        "pdf",
+        "jpg",
+        "png"
+      ]
+    },
+    {
+      "doc_type": "investment_statement",
+      "doc_name": "Investment Account Statements",
+      "related_field": "investments",
+      "frequency": "quarterly",
+      "years_required": 1,
+      "required": false,
+      "description": "Upload quarterly statements for all investment accounts",
+      "accepted_formats": [
+        "pdf",
+        "jpg",
+        "png"
+      ]
+    },
+    {
+      "doc_type": "property_assessment",
+      "doc_name": "Property Tax Assessment (MPAC)",
+      "related_field": "real_estate",
+      "frequency": "annual",
+      "years_required": 1,
+      "required": false,
+      "description": "Upload most recent property tax assessment for all properties",
+      "accepted_formats": [
+        "pdf",
+        "jpg",
+        "png"
+      ]
+    },
+    {
+      "doc_type": "credit_card_statement",
+      "doc_name": "Credit Card Statements",
+      "related_field": "credit_cards",
+      "frequency": "monthly",
+      "years_required": 0,
+      "required": true,
+      "description": "Upload last 3 months of statements for all credit cards",
+      "accepted_formats": [
+        "pdf",
+        "jpg",
+        "png"
+      ]
+    }
+  ],
+  "summary": {
+    "total_tables": 21,
+    "income_categories": 6,
+    "expense_categories": 5,
+    "asset_categories": 6,
+    "debt_categories": 4,
+    "required_documents": 6,
+    "optional_documents": 4
+  }
+}

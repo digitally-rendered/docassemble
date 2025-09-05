@@ -1,0 +1,743 @@
+{
+  "parser_name": "intelligent",
+  "form_path": "workflow_output/ontario_forms/financial_statements/form_13c_-_comparison_net_family_property_flr-13c-may21-en-fil.docx",
+  "form_hash": "8b51d213fe484f5cf1a672a915dc882aa3aca44c0c6449b0b5e06dffe70e6552",
+  "timestamp": "2025-08-18T21:40:26.221261",
+  "fields": [
+    {
+      "field_name": "full_legal_name_full_legal_name_full_legal_name",
+      "field_type": "text",
+      "field_label": "Full legal name: Full legal name: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Full legal name: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 1, Row 10",
+      "table_info": {
+        "table_index": 0,
+        "row_index": 9
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "address_address_address",
+      "field_type": "text",
+      "field_label": "Address: Address: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Address: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 1, Row 11",
+      "table_info": {
+        "table_index": 0,
+        "row_index": 10
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "email_email_email",
+      "field_type": "email",
+      "field_label": "Email: Email: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Email: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 1, Row 13",
+      "table_info": {
+        "table_index": 0,
+        "row_index": 12
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "valuation_date_statement_date_statement_date_state",
+      "field_type": "date",
+      "field_label": "Valuation Date: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002   Statement Date: Statement Date: Statement Date: Statement Date: \u2002\u2002\u2002\u2002\u2002 ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 1",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 0
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "matrimonial_home_matrimonial_home",
+      "field_type": "currency",
+      "field_label": "Matrimonial Home Matrimonial Home \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 8",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 7
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 9",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 8
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "a_totals_value_of_land_a_totals_value_of_land_a_to",
+      "field_type": "currency",
+      "field_label": "(A) TOTALS: Value of Land (A) TOTALS: Value of Land (A) TOTALS: Value of Land (A) TOTALS: Value of L",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 11",
+      "table_info": {
+        "table_index": 1,
+        "row_index": 10
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "household_goods_furniture",
+      "field_type": "currency",
+      "field_label": "Household goods & furniture \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 5",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 4
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "cars_boats_vehicles",
+      "field_type": "currency",
+      "field_label": "Cars, boats, vehicles  \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 6",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 5
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "jewellery_art_electronics_tools_sports_hobby_equip",
+      "field_type": "currency",
+      "field_label": "Jewellery, art, electronics, tools, sports & hobby, equipment  \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 7",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 6
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "other_special_items",
+      "field_type": "currency",
+      "field_label": "Other special items \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 8",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 7
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 9",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 8
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "b_totals_value_of_general_household_items_and_vehi",
+      "field_type": "currency",
+      "field_label": "(B) TOTALS: Value of General Household Items and Vehicles (B) TOTALS: Value of General Household Ite",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 11",
+      "table_info": {
+        "table_index": 2,
+        "row_index": 10
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 5",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 4
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "c_totals_value_of_accounts_and_savings_c_totals_va",
+      "field_type": "currency",
+      "field_label": "(C) TOTALS: Value of Accounts and Savings (C) TOTALS: Value of Accounts and Savings (C) TOTALS: Valu",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 8",
+      "table_info": {
+        "table_index": 3,
+        "row_index": 7
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "company_type_policy_no_owner_beneficiary_face_amou",
+      "field_type": "currency",
+      "field_label": "COMPANY TYPE & POLICY NO. OWNER BENEFICIARY FACE\nAMOUNT ($) COMMENTS Document Number Applicant\u2019s Pos",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 2",
+      "table_info": {
+        "table_index": 4,
+        "row_index": 1
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 5",
+      "table_info": {
+        "table_index": 4,
+        "row_index": 4
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "d_totals_cash_surrender_value_of_insurance_policie",
+      "field_type": "currency",
+      "field_label": "(D) TOTALS: Cash Surrender Value of Insurance Policies (D) TOTALS: Cash Surrender Value of Insurance",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 8",
+      "table_info": {
+        "table_index": 4,
+        "row_index": 7
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002\n \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 6, Row 5",
+      "table_info": {
+        "table_index": 5,
+        "row_index": 4
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "e_totals_value_of_business_interests_e_totals_valu",
+      "field_type": "currency",
+      "field_label": "(E) TOTALS: Value of Business Interests (E) TOTALS: Value of Business Interests (E) TOTALS: Value of",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 6, Row 8",
+      "table_info": {
+        "table_index": 5,
+        "row_index": 7
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 5",
+      "table_info": {
+        "table_index": 6,
+        "row_index": 4
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "f_totals_money_owed_to_you_f_totals_money_owed_to_",
+      "field_type": "currency",
+      "field_label": "(F) TOTALS: Money Owed to You (F) TOTALS: Money Owed to You (F) TOTALS: Money Owed to You $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 8",
+      "table_info": {
+        "table_index": 6,
+        "row_index": 7
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 5",
+      "table_info": {
+        "table_index": 7,
+        "row_index": 4
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "g_totals_value_of_other_property_g_totals_value_of",
+      "field_type": "currency",
+      "field_label": "(G) TOTALS: Value of Other Property (G) TOTALS: Value of Other Property (G) TOTALS: Value of Other P",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 8",
+      "table_info": {
+        "table_index": 7,
+        "row_index": 7
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "value_of_property_owned_on_the_valuation_date_tota",
+      "field_type": "date",
+      "field_label": "VALUE OF PROPERTY OWNED ON THE VALUATION DATE, (TOTAL 1)\n(Add: item A to item G inclusive) $\u2002\u2002\u2002\u2002\u2002 $\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 9, Row 1",
+      "table_info": {
+        "table_index": 8,
+        "row_index": 0
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 6",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 5
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "totals_value_of_debts_and_other_liabilities_total_",
+      "field_type": "currency",
+      "field_label": "TOTALS: Value of Debts and Other Liabilities, (TOTAL 2) TOTALS: Value of Debts and Other Liabilities",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 10, Row 9",
+      "table_info": {
+        "table_index": 9,
+        "row_index": 8
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "assets",
+      "field_type": "currency",
+      "field_label": "Assets \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 11, Row 6",
+      "table_info": {
+        "table_index": 10,
+        "row_index": 5
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 11, Row 7",
+      "table_info": {
+        "table_index": 10,
+        "row_index": 6
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "total_of_property_items_total_of_property_items_to",
+      "field_type": "currency",
+      "field_label": "TOTAL OF PROPERTY ITEMS TOTAL OF PROPERTY ITEMS TOTAL OF PROPERTY ITEMS $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 11, Row 8",
+      "table_info": {
+        "table_index": 10,
+        "row_index": 7
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "debts_and_other_liabilities",
+      "field_type": "currency",
+      "field_label": "Debts and other liabilities \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 11, Row 10",
+      "table_info": {
+        "table_index": 10,
+        "row_index": 9
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "total_of_debts_items_total_of_debts_items_total_of",
+      "field_type": "currency",
+      "field_label": "TOTAL OF DEBTS ITEMS TOTAL OF DEBTS ITEMS TOTAL OF DEBTS ITEMS $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 11, Row 12",
+      "table_info": {
+        "table_index": 10,
+        "row_index": 11
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "net_value_of_property_owned_on_date_of_marriage_ne",
+      "field_type": "date",
+      "field_label": "NET VALUE OF PROPERTY OWNED ON DATE OF MARRIAGE (NET TOTAL 3) NET VALUE OF PROPERTY OWNED ON DATE OF",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 11, Row 13",
+      "table_info": {
+        "table_index": 10,
+        "row_index": 12
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 12, Row 5",
+      "table_info": {
+        "table_index": 11,
+        "row_index": 4
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "totals_value_of_excluded_property_total_4_totals_v",
+      "field_type": "currency",
+      "field_label": "TOTALS: Value of Excluded Property (TOTAL 4) TOTALS: Value of Excluded Property (TOTAL 4) TOTALS: Va",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 12, Row 12",
+      "table_info": {
+        "table_index": 11,
+        "row_index": 11
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "total_2_debts_and_other_liabilities",
+      "field_type": "currency",
+      "field_label": "TOTAL 2: Debts and Other Liabilities $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 13, Row 1",
+      "table_info": {
+        "table_index": 12,
+        "row_index": 0
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "total_3_value_of_property_owned_on_the_date_of_mar",
+      "field_type": "date",
+      "field_label": "TOTAL 3: Value of Property Owned on the Date of Marriage $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 13, Row 2",
+      "table_info": {
+        "table_index": 12,
+        "row_index": 1
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "total_4_value_of_excluded_property",
+      "field_type": "currency",
+      "field_label": "TOTAL 4: Value of Excluded Property $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 13, Row 3",
+      "table_info": {
+        "table_index": 12,
+        "row_index": 2
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "total_5_total_2_total_3_total_4",
+      "field_type": "currency",
+      "field_label": "TOTAL 5: (TOTAL 2 + TOTAL 3 + TOTAL 4) $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 13, Row 4",
+      "table_info": {
+        "table_index": 12,
+        "row_index": 3
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "total_1_value_of_property_owned_on_valuation_date",
+      "field_type": "date",
+      "field_label": "TOTAL 1: Value of Property Owned on Valuation Date $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 14, Row 1",
+      "table_info": {
+        "table_index": 13,
+        "row_index": 0
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "total_5_from_above",
+      "field_type": "currency",
+      "field_label": "TOTAL 5: (from above) $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 14, Row 2",
+      "table_info": {
+        "table_index": 13,
+        "row_index": 1
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "total_6_net_family_property_subtract_total_1_minus",
+      "field_type": "currency",
+      "field_label": "TOTAL 6: NET FAMILY PROPERTY (Subtract: TOTAL 1 minus TOTAL 5) $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 14, Row 3",
+      "table_info": {
+        "table_index": 13,
+        "row_index": 2
+      },
+      "validation_rules": null
+    },
+    {
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": " $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002 $\u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 15, Row 3",
+      "table_info": {
+        "table_index": 14,
+        "row_index": 2
+      },
+      "validation_rules": null
+    }
+  ],
+  "metadata": {
+    "ocr_used": true,
+    "ai_used": false
+  }
+}

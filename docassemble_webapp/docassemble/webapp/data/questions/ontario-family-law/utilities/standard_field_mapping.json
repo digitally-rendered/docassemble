@@ -1,0 +1,127 @@
+{
+  "court_info": {
+    "court_name": {
+      "type": "text",
+      "required": true
+    },
+    "court_file_number": {
+      "type": "text",
+      "required": true
+    },
+    "court_location": {
+      "type": "text",
+      "required": false
+    },
+    "judicial_region": {
+      "type": "text",
+      "required": false
+    }
+  },
+  "party_info": {
+    "first_name": {
+      "type": "text",
+      "required": true
+    },
+    "last_name": {
+      "type": "text",
+      "required": true
+    },
+    "middle_name": {
+      "type": "text",
+      "required": false
+    },
+    "birthdate": {
+      "type": "date",
+      "required": false
+    },
+    "address": {
+      "street": {
+        "type": "text",
+        "required": true
+      },
+      "city": {
+        "type": "text",
+        "required": true
+      },
+      "province": {
+        "type": "text",
+        "required": true
+      },
+      "postal_code": {
+        "type": "text",
+        "required": true
+      }
+    },
+    "phone": {
+      "type": "phone",
+      "required": false
+    },
+    "email": {
+      "type": "email",
+      "required": false
+    }
+  },
+  "lawyer_info": {
+    "name": {
+      "type": "text",
+      "required": true
+    },
+    "firm": {
+      "type": "text",
+      "required": false
+    },
+    "lsuc_number": {
+      "type": "text",
+      "required": true
+    },
+    "address": {
+      "street": {
+        "type": "text",
+        "required": true
+      },
+      "city": {
+        "type": "text",
+        "required": true
+      },
+      "province": {
+        "type": "text",
+        "required": true
+      },
+      "postal_code": {
+        "type": "text",
+        "required": true
+      }
+    },
+    "phone": {
+      "type": "phone",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": false
+    },
+    "fax": {
+      "type": "phone",
+      "required": false
+    }
+  },
+  "child_info": {
+    "full_name": {
+      "type": "text",
+      "required": true
+    },
+    "birthdate": {
+      "type": "date",
+      "required": true
+    },
+    "age": {
+      "type": "integer",
+      "required": false,
+      "calculated": true
+    },
+    "residing_with": {
+      "type": "text",
+      "required": false
+    }
+  }
+}

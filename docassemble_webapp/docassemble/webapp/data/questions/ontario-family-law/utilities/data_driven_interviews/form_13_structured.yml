@@ -1,0 +1,181 @@
+---
+metadata:
+  title: Form 13 - Financial Statement (Structured)
+  short title: Form 13
+  description: Generated from structured data with error handling
+  form_number: '13'
+---
+include:
+- docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  progress bar: true
+  question back button: true
+  debug: true
+---
+objects:
+- person: Individual
+- income_sources: DAList.using(object_type=DAObject)
+- expenses: DAObject
+- assets: DAList.using(object_type=DAObject)
+- debts: DAList.using(object_type=DAObject)
+- error_log: DAList
+- validation_errors: DADict
+---
+initial: true
+code: "# Initialize error handling\nerror_log = DAList()\nvalidation_errors = DADict()\n\
+  debug_mode = get_config('debug', False)\n\n# Initialize financial containers\nincome_sources.auto_gather\
+  \ = False\nexpense_categories = [\n  'housing', 'food', 'transportation', 'childcare',\n\
+  \  'health', 'insurance', 'utilities', 'other'\n]\nfor category in expense_categories:\n\
+  \  setattr(expenses, category, 0)\n\n# Set up default values\ntotal_income = 0\n\
+  total_expenses = 0\nnet_income = 0"
+---
+code: "def safe_currency_value(obj, attr, default=0):\n  '''Safely get currency value\
+  \ with error handling'''\n  try:\n    if hasattr(obj, attr):\n      val = getattr(obj,\
+  \ attr)\n      if val is None:\n        return default\n      if isinstance(val,\
+  \ (int, float)):\n        return float(val)\n      return default\n    return default\n\
+  \  except Exception as e:\n    error_log.append({\n      'error': str(e),\n    \
+  \  'field': attr,\n      'timestamp': current_datetime()\n    })\n    return default\n\
+  \ndef validate_income_field(value, field_name):\n  '''Validate income field value'''\n\
+  \  if value < 0:\n    validation_errors[field_name] = \"Income cannot be negative\"\
+  \n    return False\n  if value > 1000000:\n    validation_errors[field_name] = \"\
+  Please verify amount - seems unusually high\"\n    return False\n  return True"
+---
+mandatory: true
+code: "try:\n  intro_screen\n  applicant_info\n  income_collection\n  expense_collection\n\
+  \  perform_calculations\n  final_summary\nexcept Exception as e:\n  error_occurred\
+  \ = True\n  show_error_screen"
+---
+question: Form 13 - Financial Statement
+subquestion: This interview collects financial information for support claims.
+continue button field: intro_screen
+---
+question: Your Information
+fields:
+- First Name: applicant.name.first
+  required: true
+- Last Name: applicant.name.last
+  required: true
+- Date of Birth: applicant.birthdate
+  datatype: date
+  required: false
+continue button field: applicant_info
+---
+question: Monthly Income
+subquestion: Enter your monthly income from each source.
+fields:
+- Employment Income: income_data.employment_income
+  datatype: currency
+  min: 0
+  default: 0
+  required: false
+- Self-Employment Income: income_data.self_employment
+  datatype: currency
+  min: 0
+  default: 0
+  required: false
+- EI Benefits: income_data.ei_benefits
+  datatype: currency
+  min: 0
+  default: 0
+  required: false
+- Social Assistance: income_data.social_assistance
+  datatype: currency
+  min: 0
+  default: 0
+  required: false
+- Pension Income: income_data.pension
+  datatype: currency
+  min: 0
+  default: 0
+  required: false
+- Investment Income: income_data.investments
+  datatype: currency
+  min: 0
+  default: 0
+  required: false
+continue button field: income_collection
+validation code: "for field_name in ['employment_income', 'self_employment', 'ei_benefits']:\n\
+  \  if defined('income_data.' + field_name):\n    value = value('income_data.' +\
+  \ field_name)\n    validate_income_field(value, field_name)"
+---
+question: Monthly Expenses
+subquestion: Enter your monthly expenses.
+fields:
+- Housing (rent/mortgage): expenses.housing
+  datatype: currency
+  min: 0
+  default: 0
+  required: false
+- Food and groceries: expenses.food
+  datatype: currency
+  min: 0
+  default: 0
+  required: false
+- Transportation: expenses.transportation
+  datatype: currency
+  min: 0
+  default: 0
+  required: false
+- Childcare: expenses.childcare
+  datatype: currency
+  min: 0
+  default: 0
+  required: false
+- Health and medical: expenses.health
+  datatype: currency
+  min: 0
+  default: 0
+  required: false
+- Insurance: expenses.insurance
+  datatype: currency
+  min: 0
+  default: 0
+  required: false
+- Utilities: expenses.utilities
+  datatype: currency
+  min: 0
+  default: 0
+  required: false
+- Other expenses: expenses.other
+  datatype: currency
+  min: 0
+  default: 0
+  required: false
+continue button field: expense_collection
+---
+code: "# Calculate totals with error handling\ntry:\n  # Income total\n  income_fields\
+  \ = ['employment_income', 'self_employment', 'ei_benefits', \n                 \
+  \  'social_assistance', 'pension', 'investments']\n  total_income = 0\n  for field\
+  \ in income_fields:\n    if defined('income_data.' + field):\n      total_income\
+  \ += safe_currency_value(income_data, field)\n  \n  # Expense total\n  expense_fields\
+  \ = ['housing', 'food', 'transportation', 'childcare',\n                    'health',\
+  \ 'insurance', 'utilities', 'other']\n  total_expenses = 0\n  for field in expense_fields:\n\
+  \    total_expenses += safe_currency_value(expenses, field)\n  \n  # Net income\n\
+  \  net_income = total_income - total_expenses\n  \n  perform_calculations = True\n\
+  \  \nexcept Exception as e:\n  error_log.append({\n    'error': str(e),\n    'context':\
+  \ 'calculations',\n    'timestamp': current_datetime()\n  })\n  total_income = 0\n\
+  \  total_expenses = 0\n  net_income = 0\n  perform_calculations = True"
+---
+event: final_summary
+question: Financial Statement Summary
+subquestion: '**Applicant:** ${ applicant.name.full() }
+
+
+  **Total Monthly Income:** ${ currency(total_income) }
+
+
+  **Total Monthly Expenses:** ${ currency(total_expenses) }
+
+
+  **Net Monthly Income:** ${ currency(net_income) }
+
+
+  % if len(error_log) > 0:
+
+  **Note:** ${ len(error_log) } issues were handled during processing.
+
+  % endif'
+buttons:
+- Exit: exit
+- Restart: restart

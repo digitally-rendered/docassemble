@@ -1,0 +1,24 @@
+---
+# Version 1: Absolute minimum - just load and complete
+metadata:
+  title: Form 13 - Version 1 - Minimal
+  short title: Form 13 v1
+---
+mandatory: True
+code: |
+  intro_seen
+  final_screen
+---
+question: |
+  Form 13 Test
+subquestion: |
+  This is the simplest possible interview.
+field: intro_seen
+---
+event: final_screen
+question: |
+  Done
+subquestion: |
+  The interview completed successfully.
+buttons:
+  - Exit: exit

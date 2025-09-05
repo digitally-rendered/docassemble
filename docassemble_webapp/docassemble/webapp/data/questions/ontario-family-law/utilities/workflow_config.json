@@ -1,0 +1,57 @@
+{
+  "workflow_name": "Ontario Family Law Forms Processing",
+  "version": "2.0.0",
+  "base_dir": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities",
+  "output_dir": "workflow_output",
+  "steps": {
+    "download": {
+      "enabled": true,
+      "script": "download_all_forms.py",
+      "output": "ontario_forms"
+    },
+    "parse": {
+      "enabled": true,
+      "script": "comprehensive_form_parser.py",
+      "use_enhanced": true,
+      "output": "parsed_data"
+    },
+    "map_objects": {
+      "enabled": true,
+      "script": "enhanced_automated_processor.py",
+      "output": "mapped_objects"
+    },
+    "generate_yaml": {
+      "enabled": true,
+      "output": "yaml_interviews"
+    },
+    "validate": {
+      "enabled": true,
+      "script": "validate_interviews.py",
+      "output": "validation_reports"
+    },
+    "test": {
+      "enabled": false,
+      "script": "test_interviews.py",
+      "output": "test_results"
+    },
+    "deploy": {
+      "enabled": false,
+      "target": "../",
+      "backup": true
+    }
+  },
+  "forms": {
+    "process_all": true,
+    "specific_forms": [],
+    "exclude_forms": []
+  },
+  "options": {
+    "force_reprocess": false,
+    "parallel_processing": false,
+    "max_workers": 4,
+    "generate_documentation": true,
+    "create_backups": true,
+    "use_docassemble_objects": true,
+    "ontario_specific": true
+  }
+}

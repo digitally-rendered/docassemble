@@ -1,0 +1,1512 @@
+{
+  "config": {
+    "configFile": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/playwright.config.ts",
+    "rootDir": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 600000,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 5,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "failures-only",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "test-results/html"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "test-results/junit.xml"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "mobile-chrome",
+        "name": "mobile-chrome",
+        "testDir": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "mobile-safari",
+        "name": "mobile-safari",
+        "testDir": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.0",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "test_common_intake_enhanced_all_flows.spec.ts",
+      "file": "test_common_intake_enhanced_all_flows.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Enhanced Common Intake - All Flows",
+          "file": "test_common_intake_enhanced_all_flows.spec.ts",
+          "line": 492,
+          "column": 6,
+          "specs": [
+            {
+              "title": "emergency flow with restraining order and MIP defer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6852,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-05T14:35:38.887Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 7130,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-05T14:35:38.884Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 7309,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-05T14:35:38.875Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 10422,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-05T14:35:38.883Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-safari",
+                  "projectName": "mobile-safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "94e0f94e21ebe76c5eed-1fa7764aa2149e05104e",
+              "file": "test_common_intake_enhanced_all_flows.spec.ts",
+              "line": 507,
+              "column": 7
+            },
+            {
+              "title": "common-law relationship with property division and support",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 12234,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    3 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    3 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5",
+                        "location": {
+                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                          "column": 62,
+                          "line": 470
+                        },
+                        "snippet": "  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                            "column": 62,
+                            "line": 470
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    3 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n\n  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-05T14:35:46.308Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                        "column": 62,
+                        "line": 470
+                      }
+                    },
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 13368,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5",
+                        "location": {
+                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                          "column": 62,
+                          "line": 470
+                        },
+                        "snippet": "  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                            "column": 62,
+                            "line": 470
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n\n  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-09-05T14:35:59.022Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                        "column": 62,
+                        "line": 470
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 13672,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5",
+                        "location": {
+                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                          "column": 62,
+                          "line": 470
+                        },
+                        "snippet": "  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                            "column": 62,
+                            "line": 470
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n\n  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-05T14:35:46.945Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-firefox/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                        "column": 62,
+                        "line": 470
+                      }
+                    },
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 13655,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5",
+                        "location": {
+                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                          "column": 62,
+                          "line": 470
+                        },
+                        "snippet": "  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                            "column": 62,
+                            "line": 470
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n\n  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-09-05T14:36:01.309Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-firefox-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-firefox-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-firefox-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                        "column": 62,
+                        "line": 470
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 14216,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5",
+                        "location": {
+                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                          "column": 62,
+                          "line": 470
+                        },
+                        "snippet": "  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                            "column": 62,
+                            "line": 470
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n\n  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-05T14:35:46.435Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-webkit/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-webkit/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                        "column": 62,
+                        "line": 470
+                      }
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 14655,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5",
+                        "location": {
+                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                          "column": 62,
+                          "line": 470
+                        },
+                        "snippet": "  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                            "column": 62,
+                            "line": 470
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n\n  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-09-05T14:36:01.024Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-webkit-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-webkit-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-webkit-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                        "column": 62,
+                        "line": 470
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 13596,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5",
+                        "location": {
+                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                          "column": 62,
+                          "line": 470
+                        },
+                        "snippet": "  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                            "column": 62,
+                            "line": 470
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n\n  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-05T14:35:49.864Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-mobile-chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-mobile-chrome/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                        "column": 62,
+                        "line": 470
+                      }
+                    },
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 16407,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5",
+                        "location": {
+                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                          "column": 62,
+                          "line": 470
+                        },
+                        "snippet": "  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                            "column": 62,
+                            "line": 470
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n\n  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:560:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-09-05T14:36:03.975Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-mobile-chrome-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-mobile-chrome-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-c314d-operty-division-and-support-mobile-chrome-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                        "column": 62,
+                        "line": 470
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-safari",
+                  "projectName": "mobile-safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "94e0f94e21ebe76c5eed-44ffb30986f4bf728715",
+              "file": "test_common_intake_enhanced_all_flows.spec.ts",
+              "line": 530,
+              "column": 7
+            },
+            {
+              "title": "never together seeking paternity and child support",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 11279,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:595:5",
+                        "location": {
+                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                          "column": 62,
+                          "line": 470
+                        },
+                        "snippet": "  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                            "column": 62,
+                            "line": 470
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n\n  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:595:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-05T14:36:13.533Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                        "column": 62,
+                        "line": 470
+                      }
+                    },
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 11465,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    3 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    3 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:595:5",
+                        "location": {
+                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                          "column": 62,
+                          "line": 470
+                        },
+                        "snippet": "  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                            "column": 62,
+                            "line": 470
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    3 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n\n  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:595:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-09-05T14:36:25.694Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                        "column": 62,
+                        "line": 470
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 11841,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:595:5",
+                        "location": {
+                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                          "column": 62,
+                          "line": 470
+                        },
+                        "snippet": "  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                            "column": 62,
+                            "line": 470
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n\n  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:595:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-05T14:36:16.843Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-firefox/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                        "column": 62,
+                        "line": 470
+                      }
+                    },
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 1,
+                      "status": "interrupted",
+                      "duration": 7494,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-09-05T14:36:30.121Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-firefox-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-firefox-retry1/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 11525,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    3 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    3 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:595:5",
+                        "location": {
+                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                          "column": 62,
+                          "line": 470
+                        },
+                        "snippet": "  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                            "column": 62,
+                            "line": 470
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    3 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n\n  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:595:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-05T14:36:16.636Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-webkit/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-webkit/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                        "column": 62,
+                        "line": 470
+                      }
+                    },
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 2,
+                      "status": "interrupted",
+                      "duration": 9284,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-09-05T14:36:28.812Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-webkit-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-webkit-retry1/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 11155,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:595:5",
+                        "location": {
+                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                          "column": 62,
+                          "line": 470
+                        },
+                        "snippet": "  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                            "column": 62,
+                            "line": 470
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1#daMainQuestion')\nExpected string: \u001b[32m\"Information for Child 1\"\u001b[39m\nReceived: <element(s) not found>\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1#daMainQuestion')\u001b[22m\n\u001b[2m    2 × locator resolved to <h1 class=\"h3\" id=\"daMainQuestion\">Children Information</h1>\u001b[22m\n\u001b[2m      - unexpected value \"Children Information\"\u001b[22m\n\n\n  468 |       // Fill info for each child\n  469 |       for (let i = 0; i < numChildren; i++) {\n> 470 |         await expect(this.page.locator('h1#daMainQuestion')).toContainText(`Information for Child ${i + 1}`);\n      |                                                              ^\n  471 |         await this.page.getByLabel('First Name', { exact: false }).fill(`Child${i + 1}`);\n  472 |         await this.page.getByLabel('Last Name', { exact: false }).fill('Smith');\n  473 |         await this.page.getByLabel('Date of Birth', { exact: false }).fill('2015-01-01');\n    at EnhancedIntakePage.handleChildren (/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:470:62)\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts:595:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-05T14:36:21.658Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-mobile-chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-mobile-chrome/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_common_intake_enhanced_all_flows.spec.ts",
+                        "column": 62,
+                        "line": 470
+                      }
+                    },
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 3,
+                      "status": "interrupted",
+                      "duration": 4227,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-09-05T14:36:33.675Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-mobile-chrome-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_common_intake_enhance-a4432-paternity-and-child-support-mobile-chrome-retry1/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-safari",
+                  "projectName": "mobile-safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "94e0f94e21ebe76c5eed-44854bb12a0a03df7bf1",
+              "file": "test_common_intake_enhanced_all_flows.spec.ts",
+              "line": 570,
+              "column": 7
+            },
+            {
+              "title": "divorced seeking variation of existing order",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-safari",
+                  "projectName": "mobile-safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "94e0f94e21ebe76c5eed-034a48b3d6220e644532",
+              "file": "test_common_intake_enhanced_all_flows.spec.ts",
+              "line": 603,
+              "column": 7
+            },
+            {
+              "title": "separated with both parties having lawyers",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-safari",
+                  "projectName": "mobile-safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "94e0f94e21ebe76c5eed-922f52b0b4bde4fa9dba",
+              "file": "test_common_intake_enhanced_all_flows.spec.ts",
+              "line": 625,
+              "column": 7
+            },
+            {
+              "title": "MIP unsure status flow",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-safari",
+                  "projectName": "mobile-safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "94e0f94e21ebe76c5eed-0bf58295a35d7a10e585",
+              "file": "test_common_intake_enhanced_all_flows.spec.ts",
+              "line": 661,
+              "column": 7
+            },
+            {
+              "title": "dating but not living together",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-safari",
+                  "projectName": "mobile-safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "94e0f94e21ebe76c5eed-cef1f4a9a34114cd5dfa",
+              "file": "test_common_intake_enhanced_all_flows.spec.ts",
+              "line": 681,
+              "column": 7
+            },
+            {
+              "title": "seeking enforcement of existing order",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-safari",
+                  "projectName": "mobile-safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "94e0f94e21ebe76c5eed-8a78990f397d270be03d",
+              "file": "test_common_intake_enhanced_all_flows.spec.ts",
+              "line": 711,
+              "column": 7
+            },
+            {
+              "title": "postal code validation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-safari",
+                  "projectName": "mobile-safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "94e0f94e21ebe76c5eed-78387db49a1d8df50188",
+              "file": "test_common_intake_enhanced_all_flows.spec.ts",
+              "line": 732,
+              "column": 7
+            },
+            {
+              "title": "lawyer LSO number validation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-safari",
+                  "projectName": "mobile-safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "94e0f94e21ebe76c5eed-013d998226b734e94d23",
+              "file": "test_common_intake_enhanced_all_flows.spec.ts",
+              "line": 762,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "message": "\u001b[31mTesting stopped early after 5 maximum allowed failures.\u001b[39m"
+    }
+  ],
+  "stats": {
+    "startTime": "2025-09-05T14:35:38.387Z",
+    "duration": 60378.51,
+    "expected": 4,
+    "skipped": 38,
+    "unexpected": 8,
+    "flaky": 0
+  }
+}

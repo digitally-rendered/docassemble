@@ -1,0 +1,21 @@
+{
+  "parser_name": "unified",
+  "form_path": "workflow_output/ontario_forms/alternative_dispute/form_43_-_bjdr_hearing_request_flr-43-sep24-en-fil.docx",
+  "form_hash": "ca639b32cd10df2e3a28ef0ddda9b71947aabe5e4b88d371f43fbffb9bf2096e",
+  "timestamp": "2025-08-18T21:40:25.830712",
+  "fields": [],
+  "metadata": {
+    "gcp_used": false,
+    "validation_report": {
+      "total_fields": 0,
+      "high_confidence": 0,
+      "medium_confidence": 0,
+      "low_confidence": 0,
+      "single_method": 0,
+      "multi_method": 0,
+      "method_agreement": {},
+      "field_types": {},
+      "warnings": []
+    }
+  }
+}

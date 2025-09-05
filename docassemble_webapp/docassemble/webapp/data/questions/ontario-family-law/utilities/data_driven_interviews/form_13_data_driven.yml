@@ -1,0 +1,257 @@
+---
+metadata:
+  title: Form 13 - Financial Statement (Data-Driven)
+  short title: Form 13
+  description: Generated from parsed form data
+  form_number: 13
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  progress bar: True
+  question back button: True
+  debug: True
+---
+# Domain-mapped objects
+objects:
+  - person: Individual
+  - income_sources: DAList.using(object_type=DAObject)
+  - monthly_expenses: DAObject
+  - assets: DAList.using(object_type=DAObject)
+  - debts: DAList.using(object_type=DAObject)
+---
+initial: True
+code: |
+  # Initialize collections
+  income_sources = DAList()
+  income_sources.auto_gather = False
+  
+  # Initialize expense tracking
+  monthly_expenses = DAObject()
+  expense_categories = [
+    'housing', 'food', 'clothing', 'transportation',
+    'childcare', 'health', 'insurance', 'other'
+  ]
+  for category in expense_categories:
+    setattr(monthly_expenses, category, 0)
+---
+mandatory: True
+code: |
+  intro_screen
+  
+  # Collect party information
+  if needs_party_info:
+    collect_party_info
+  
+  # Collect financial information
+  collect_income
+  collect_expenses
+  
+  # Calculate totals
+  calculate_totals
+  
+  # Show summary
+  show_summary
+---
+question: |
+  Form 13 - Financial Statement
+subquestion: |
+  This interview will help you complete Form 13: Financial Statement (Support Claims).
+  
+  You will need to provide:
+  - Personal information
+  - Income sources
+  - Monthly expenses
+  - Assets and debts (if applicable)
+continue button field: intro_screen
+---
+code: |
+  needs_party_info = True
+---
+question: |
+  Party Information
+fields:
+  - "Are you the Applicant or Respondent?": party_type
+    datatype: radio
+    choices:
+      - Applicant
+      - Respondent
+  - First Name: person.name.first
+    required: True
+  - Last Name: person.name.last
+    required: True
+  - Date of Birth: person.birthdate
+    datatype: date
+    required: False
+  - Address: person.address.address
+    required: False
+  - City: person.address.city
+    required: False
+  - Province: person.address.state
+    default: "ON"
+    required: False
+  - Postal Code: person.address.zip
+    required: False
+continue button field: collect_party_info
+---
+question: |
+  Income Sources
+subquestion: |
+  List all sources of monthly income.
+fields:
+  - "Income Sources": income_sources.table
+    required: False
+    rows:
+      - Source: row_item.source
+      - Amount: currency(row_item.amount)
+    columns:
+      - Source: row_item.source
+        choices:
+          - Employment
+          - Self-Employment
+          - Government Benefits
+          - Support Payments
+          - Investment Income
+          - Pension
+          - Other
+      - Monthly Amount: row_item.amount
+        datatype: currency
+        min: 0
+    minimum_number: 0
+continue button field: collect_income
+---
+question: |
+  Monthly Expenses
+subquestion: |
+  Enter your monthly expenses. Leave blank for categories that don't apply.
+fields:
+  - "Housing (rent/mortgage)": monthly_expenses.housing
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Food and groceries": monthly_expenses.food
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Clothing": monthly_expenses.clothing
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Transportation": monthly_expenses.transportation
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Childcare": monthly_expenses.childcare
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Health and medical": monthly_expenses.health
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Insurance": monthly_expenses.insurance
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+  - "Other expenses": monthly_expenses.other
+    datatype: currency
+    min: 0
+    default: 0
+    required: False
+continue button field: collect_expenses
+---
+code: |
+  # Calculate totals
+  if len(income_sources) > 0:
+    total_income = sum(item.amount for item in income_sources)
+  else:
+    total_income = 0
+  
+  # Sum all expense categories
+  expense_fields = ['housing', 'food', 'clothing', 'transportation',
+                    'childcare', 'health', 'insurance', 'other']
+  total_expenses = sum(getattr(monthly_expenses, field, 0) for field in expense_fields)
+  
+  net_income = total_income - total_expenses
+  calculate_totals = True
+---
+event: show_summary
+question: |
+  Form 13 - Financial Statement Summary
+subquestion: |
+  % if defined('person'):
+  **Party Information:**
+  - Name: ${ person.name.full() }
+  - Type: ${ party_type }
+  % if defined('person.birthdate'):
+  - Date of Birth: ${ person.birthdate }
+  % endif
+  % if defined('person.address.address'):
+  - Address: ${ person.address.on_one_line() }
+  % endif
+  % endif
+  
+  ---
+  
+  **Income Summary:**
+  % if len(income_sources) > 0:
+  | Source | Monthly Amount |
+  |--------|---------------|
+  % for item in income_sources:
+  | ${ item.source } | ${ currency(item.amount) } |
+  % endfor
+  | **TOTAL** | **${ currency(total_income) }** |
+  % else:
+  No income sources listed.
+  % endif
+  
+  ---
+  
+  **Expense Summary:**
+  | Category | Amount |
+  |----------|--------|
+  % if monthly_expenses.housing > 0:
+  | Housing | ${ currency(monthly_expenses.housing) } |
+  % endif
+  % if monthly_expenses.food > 0:
+  | Food | ${ currency(monthly_expenses.food) } |
+  % endif
+  % if monthly_expenses.clothing > 0:
+  | Clothing | ${ currency(monthly_expenses.clothing) } |
+  % endif
+  % if monthly_expenses.transportation > 0:
+  | Transportation | ${ currency(monthly_expenses.transportation) } |
+  % endif
+  % if monthly_expenses.childcare > 0:
+  | Childcare | ${ currency(monthly_expenses.childcare) } |
+  % endif
+  % if monthly_expenses.health > 0:
+  | Health | ${ currency(monthly_expenses.health) } |
+  % endif
+  % if monthly_expenses.insurance > 0:
+  | Insurance | ${ currency(monthly_expenses.insurance) } |
+  % endif
+  % if monthly_expenses.other > 0:
+  | Other | ${ currency(monthly_expenses.other) } |
+  % endif
+  | **TOTAL** | **${ currency(total_expenses) }** |
+  
+  ---
+  
+  **Net Income:** ${ currency(net_income) }
+  
+  % if net_income < 0:
+  ⚠️ Your expenses exceed income by ${ currency(abs(net_income)) }
+  % endif
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

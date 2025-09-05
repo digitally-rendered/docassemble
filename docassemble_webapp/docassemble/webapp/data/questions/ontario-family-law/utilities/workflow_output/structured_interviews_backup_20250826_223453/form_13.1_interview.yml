@@ -1,0 +1,2386 @@
+---
+metadata:
+  title: 'Form 13.1: Financial Statement (Property and Support Claims)'
+  short_title: Form 13.1
+  description: Structured interview with 440 fields and 10 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - '13.1'
+  form_number: '13.1'
+  form_category: financial
+  generated: '2025-08-26 22:15:24'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+- docassemble.base:data/questions/financial.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: stepped
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+  table_css_class: table table-striped
+objects:
+- court_info: DAObject
+- person: Individual
+- properties: DAList.using(object_type=DAObject)
+- vehicles: DAList.using(object_type=DAObject)
+- income_information: DAObject
+- expense_information: DAObject
+- amount_information: DAObject
+- table_1_item_7: DAObject
+- table_1_item_8: DAObject
+- table_1_item_12: DAObject
+- table_1_item_13: DAObject
+- income_sources: DAList.using(object_type=Income)
+- expenses: DAList.using(object_type=Expense)
+- assets: DAList.using(object_type=Asset)
+- debts: DAList.using(object_type=Liability)
+code: "# Calculation functions\n\ndef calculate_net_worth():\n    '''Calculate net worth (assets - liabilities)'''\n    total_assets = calculate_total(assets, 'value') if defined('assets') else 0\n    total_debts = calculate_total(debts, 'amount') if defined('debts') else 0\n    return total_assets - total_debts\n\ndef calculate_monthly_surplus():\n    '''Calculate monthly surplus (income - expenses)'''\n    total_income = calculate_total(income_sources, 'monthly_amount') if defined('income_sources') else 0\n    total_expenses = calculate_total(expenses, 'monthly_amount') if defined('expenses') else 0\n    return total_income - total_expenses\n"
+mandatory: true
+code: 'intro_seen
+
+  properties.gathered
+
+  vehicles.gathered
+
+  income_information_complete
+
+  expense_information_complete
+
+  amount_information_complete
+
+  table_1_item_7_complete
+
+  table_1_item_8_complete
+
+  table_1_item_12_complete
+
+  table_1_item_13_complete
+
+  review_complete
+
+  form_complete'
+question: Form 13.1 Interview
+subquestion: 'This structured interview will help you complete Form 13.1.
+
+
+  You will be asked about:
+
+  - Personal information for parties involved
+
+  - Financial information and calculations
+
+  - Property and asset details
+
+
+  Total sections: 11
+
+  Fields to complete: 440'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Person Information
+fields:
+- label: 'Full legal name: Full legal name: Full legal name: Full legal name: Full legal name: Full legal name'
+  field: person.full_legal_name_full_legal_name_full_legal_name_fu
+  datatype: text
+  required: false
+- label: 'Address: Address: Address: Address: Address: Address: Address:'
+  field: person.address_address_address_address_address_address_ad
+  datatype: text
+  required: false
+- label: 'Full legal name: Full legal name: Full legal name: Full legal name: Full legal name: Full legal name'
+  field: person.full_legal_name_full_legal_name_full_legal_name_fu
+  datatype: text
+  required: false
+- label: 'Address: Address: Address: Address: Address: Address: Address:'
+  field: person.address_address_address_address_address_address_ad
+  datatype: text
+  required: false
+- label: Housing Housing Housing Housing Housing SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $
+  field: person.housing_housing_housing_housing_housing_subtotal_s
+  datatype: currency
+  required: false
+  min: 0
+- label: Telephone Telephone Telephone Telephone Telephone Telephone Telephone $ $ Education (specify) Educat
+  field: person.telephone_telephone_telephone_telephone_telephone
+  datatype: currency
+  required: false
+  min: 0
+- label: Cell phone Cell phone Cell phone Cell phone Cell phone Cell phone Cell phone $ $ Entertainment/recre
+  field: person.cell_phone_cell_phone_cell_phone_cell_phone_cell_p
+  datatype: currency
+  required: false
+  min: 0
+- label: 19.  TOTAL VALUE OF BUSINESS INTERESTS 19.  TOTAL VALUE OF BUSINESS INTERESTS 19.  TOTAL VALUE OF BU
+  field: person.field_19_total_value_of_business_interests_19_total_valu
+  datatype: currency
+  required: false
+  min: 0
+question: Property Details
+fields:
+- label: Property taxes Property taxes Property taxes $ Health insurance premiums Health insurance premiums H
+  field: properties[i].property_taxes_property_taxes_property_taxes_healt
+  datatype: currency
+  required: false
+  min: 0
+- label: Property insurance Property insurance Property insurance $ Dental expenses Dental expenses Dental ex
+  field: properties[i].property_insurance_property_insurance_property_ins
+  datatype: currency
+  required: false
+  min: 0
+- label: 21.  TOTAL VALUE OF OTHER PROPERTY 21.  TOTAL VALUE OF OTHER PROPERTY 21.  TOTAL VALUE OF OTHER PROP
+  field: properties[i].field_21_total_value_of_other_property_21_total_value_of
+  datatype: currency
+  required: false
+  min: 0
+- label: '22.  VALUE OF ALL PROPERTY OWNED ON THE VALUATION DATE
+
+    (Add items [15] to [21].) 22.  VALUE OF ALL P'
+  field: properties[i].field_22_value_of_all_property_owned_on_the_valuation_da
+  datatype: date
+  required: false
+- label: '24.  NET VALUE OF PROPERTY OWNED ON DATE OF MARRIAGE
+
+    (From the total of the “Assets” column, subtrac'
+  field: properties[i].field_24_net_value_of_property_owned_on_date_of_marriage
+  datatype: date
+  required: false
+- label: 26.  TOTAL VALUE OF EXCLUDED PROPERTY 26.  TOTAL VALUE OF EXCLUDED PROPERTY 26.  TOTAL VALUE OF EXCL
+  field: properties[i].field_26_total_value_of_excluded_property_26_total_value
+  datatype: currency
+  required: false
+  min: 0
+- label: 27.  TOTAL VALUE OF DISPOSED-OF PROPERTY 27.  TOTAL VALUE OF DISPOSED-OF PROPERTY 27.  TOTAL VALUE O
+  field: properties[i].field_27_total_value_of_disposed_of_property_27_total_va
+  datatype: currency
+  required: false
+  min: 0
+- label: Value of all property owned on valuation date  (from item [22] above) Value of all property owned on
+  field: properties[i].value_of_all_property_owned_on_valuation_date_from
+  datatype: date
+  required: false
+- label: Subtract total value of excluded property  (from item [26] above) Subtract total value of excluded p
+  field: properties[i].subtract_total_value_of_excluded_property_from_ite
+  datatype: currency
+  required: false
+  min: 0
+- label: '28.  NET FAMILY PROPERTY 28.  NET FAMILY PROPERTY 28.  NET FAMILY PROPERTY 28.  NET FAMILY PROPERTY '
+  field: properties[i].field_28_net_family_property_28_net_family_property_28_n
+  datatype: currency
+  required: false
+  min: 0
+list_collect: true
+question: Are there more property items to add?
+yesno: properties.there_is_another
+question: Vehicle Details
+fields:
+- label: Cars, boats, vehicles Cars, boats, vehicles $ $ $ $ $
+  field: vehicles[i].cars_boats_vehicles_cars_boats_vehicles
+  datatype: currency
+  required: false
+  min: 0
+- label: 16.  TOTAL VALUE OF GENERAL HOUSEHOLD ITEMS AND VEHICLES 16.  TOTAL VALUE OF GENERAL HOUSEHOLD ITEMS
+  field: vehicles[i].field_16_total_value_of_general_household_items_and_vehi
+  datatype: currency
+  required: false
+  min: 0
+list_collect: true
+question: Are there more vehicle items to add?
+yesno: vehicles.there_is_another
+question: Income Information
+fields:
+- label: 4. Last year, my gross income from all sources was $ Last year, my gross income from all sources was
+  field: income_information.field_4_last_year_my_gross_income_from_all_sources_was_l
+  datatype: currency
+  required: false
+  min: 0
+- label: '1. 1. Employment income (before deductions) Employment income (before deductions) Employment income '
+  field: income_information.field_1_1_employment_income_before_deductions_employment
+  datatype: currency
+  required: false
+  min: 0
+- label: '3. 3. Self-employment income (Monthly amount before expenses: $      ) Self-employment income (Month'
+  field: income_information.field_3_3_self_employment_income_monthly_amount_before_e
+  datatype: currency
+  required: false
+  min: 0
+- label: 6. 6. Social assistance income (including ODSP payments) Social assistance income (including ODSP pa
+  field: income_information.field_6_6_social_assistance_income_including_odsp_paymen
+  datatype: currency
+  required: false
+  min: 0
+- label: 7. 7. Interest and investment income Interest and investment income Interest and investment income I
+  field: income_information.field_7_7_interest_and_investment_income_interest_and_in
+  datatype: currency
+  required: false
+  min: 0
+- label: 8. 8. Pension income (including CPP and OAS) Pension income (including CPP and OAS) Pension income (
+  field: income_information.field_8_8_pension_income_including_cpp_and_oas_pension_i
+  datatype: currency
+  required: false
+  min: 0
+- label: 11. 11. Other sources of income (e.g. RRSP withdrawals, capital gains) (*attach Schedule A and divid
+  field: income_information.field_11_11_other_sources_of_income_e_g_rrsp_withdrawals
+  datatype: currency
+  required: false
+  min: 0
+- label: '12. 12. Total monthly income from all sources: Total monthly income from all sources: Total monthly '
+  field: income_information.field_12_12_total_monthly_income_from_all_sources_total
+  datatype: currency
+  required: false
+  min: 0
+- label: '13. 13. Total monthly income X 12 = Total annual income: Total monthly income X 12 = Total annual in'
+  field: income_information.field_13_13_total_monthly_income_x_12_total_annual_incom
+  datatype: currency
+  required: false
+  min: 0
+- label: Income taxes Income taxes Income taxes $ Car insurance and license Car insurance and license Car ins
+  field: income_information.income_taxes_income_taxes_income_taxes_car_insuran
+  datatype: currency
+  required: false
+  min: 0
+- label: '1. 1. 1. 1. 1. Net partnership income Net partnership income Net partnership income Net partnership '
+  field: income_information.field_1_1_1_1_1_net_partnership_income_net_partnership_i
+  datatype: currency
+  required: false
+  min: 0
+- label: 2. 2. 2. 2. 2. Net rental income (Gross annual rental income of $      ) Net rental income (Gross an
+  field: income_information.field_2_2_2_2_2_net_rental_income_gross_annual_rental_in
+  datatype: currency
+  required: false
+  min: 0
+- label: 6. 6. 6. 6. 6. Income from a Registered Retirement Income Fund or Annuity Income from a Registered R
+  field: income_information.field_6_6_6_6_6_income_from_a_registered_retirement_inco
+  datatype: currency
+  required: false
+  min: 0
+- label: '7. 7. 7. 7. 7. Any other income (specify source) Any other income (specify source) Any other income '
+  field: income_information.field_7_7_7_7_7_any_other_income_specify_source_any_othe
+  datatype: currency
+  required: false
+  min: 0
+question: Expense Information
+fields:
+- label: SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ $ Other expenses Other expenses Oth
+  field: expense_information.subtotal_subtotal_subtotal_subtotal_subtotal_subto
+  datatype: currency
+  required: false
+  min: 0
+- label: Household Expenses Household Expenses Household Expenses Household Expenses Household Expenses House
+  field: expense_information.household_expenses_household_expenses_household_ex
+  datatype: currency
+  required: false
+  min: 0
+- label: 'SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ $ Summer camp expenses Summer camp '
+  field: expense_information.subtotal_subtotal_subtotal_subtotal_subtotal_subto
+  datatype: currency
+  required: false
+  min: 0
+- label: Daycare expense Daycare expense Daycare expense Daycare expense Daycare expense Daycare expense Dayc
+  field: expense_information.daycare_expense_daycare_expense_daycare_expense_da
+  datatype: currency
+  required: false
+  min: 0
+- label: Total Amount of Monthly Expenses Total Amount of Monthly Expenses Total Amount of Monthly Expenses T
+  field: expense_information.total_amount_of_monthly_expenses_total_amount_of_m
+  datatype: currency
+  required: false
+  min: 0
+- label: Total Amount of Yearly Expenses Total Amount of Yearly Expenses Total Amount of Yearly Expenses Tota
+  field: expense_information.total_amount_of_yearly_expenses_total_amount_of_ye
+  datatype: currency
+  required: false
+  min: 0
+- label: I earn $ I earn $ per year which should be used to determine my share of the above expenses. per yea
+  field: expense_information.i_earn_i_earn_per_year_which_should_be_used_to_det
+  datatype: currency
+  required: false
+  min: 0
+- label: . . . Medical insurance premiums and certain health-related expenses for the child that cost more th
+  field: expense_information.medical_insurance_premiums_and_certain_health_rela
+  datatype: currency
+  required: false
+  min: 0
+question: Amount Information
+fields:
+- label: 6. My spouse/partner My spouse/partner My spouse/partner earns (give amount) $ earns (give amount) $
+  field: amount_information.field_6_my_spouse_partner_my_spouse_partner_my_spouse_pa
+  datatype: currency
+  required: false
+  min: 0
+- label: 3. 3. 3. 3. 3. Total amount of dividends received from taxable Canadian corporations Total amount of
+  field: amount_information.field_3_3_3_3_3_total_amount_of_dividends_received_from
+  datatype: currency
+  required: false
+  min: 0
+- label: Total Net Annual Amount Total Net Annual Amount Total Net Annual Amount Total Net Annual Amount Tota
+  field: amount_information.total_net_annual_amount_total_net_annual_amount_to
+  datatype: currency
+  required: false
+  min: 0
+- label: 'Total Net Monthly Amount Total Net Monthly Amount Total Net Monthly Amount Total Net Monthly Amount '
+  field: amount_information.total_net_monthly_amount_total_net_monthly_amount
+  datatype: currency
+  required: false
+  min: 0
+question: Additional Information
+fields:
+- label: ''
+  field: field
+  required: false
+  choices:
+  - '          '
+  - Ontario Court of Justice
+  - Superior Court of Justice
+  - Superior Court of Justice, Family Court
+  help_text: ''
+- label: Court File Number
+  field: courtfileno
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_13
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_14
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_15
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_16
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_17
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_18
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 2
+  field: check2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_19
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_20
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_8
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_9
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_10
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_11
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_12
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_13
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_14
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_15
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_16
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_17
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_18
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_19
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_20
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_21
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_22
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_23
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_24
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_25
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_26
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_27
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_28
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_29
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_30
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_31
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_32
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_33
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_34
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_35
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_36
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_37
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_38
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_39
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_40
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_41
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_42
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_43
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_44
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_45
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_46
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_47
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_48
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_49
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_50
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_51
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_52
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_53
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_54
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_55
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_56
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_57
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_58
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_59
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_60
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_61
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_62
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_63
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_64
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_65
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_66
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_67
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_68
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_69
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_70
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_71
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_72
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_73
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_74
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_75
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_76
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_77
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_78
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_79
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_80
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_81
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_82
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_83
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_84
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_85
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_86
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_87
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_88
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_89
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_90
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_91
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_92
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_93
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_94
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_95
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_96
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_97
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_98
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_99
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_100
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_101
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_102
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_103
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_104
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_105
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_106
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_107
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 24
+  field: check24
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 24
+  field: check24_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_21
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 24
+  field: check24_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_22
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 24
+  field: check24_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_23
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 25
+  field: check25
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_24
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 26
+  field: check26
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 27
+  field: check27
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_25
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_26
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 28
+  field: check28
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_27
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_28
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_108
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_109
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_110
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_111
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_112
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_113
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_114
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_115
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_116
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_117
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_118
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_119
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_120
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_121
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_122
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_123
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_124
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_125
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_126
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_127
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_128
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_129
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_130
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_131
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_132
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_133
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_134
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_135
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_136
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_137
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_138
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_139
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_140
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_141
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_142
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_143
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_144
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_145
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_146
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_147
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_148
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_149
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_150
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_151
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_152
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_153
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_154
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_155
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_156
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_157
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_158
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_159
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_160
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_161
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_162
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_163
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_164
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_165
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_166
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_167
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_168
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_169
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_170
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_171
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_172
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_173
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_174
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_175
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_176
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_177
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_178
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_179
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_180
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_181
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_182
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_183
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_184
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_185
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_186
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_187
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_188
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_189
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_190
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_191
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_192
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_193
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_194
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_195
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_196
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_197
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_198
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_199
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_200
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_201
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_202
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_203
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_204
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_205
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_206
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_207
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_208
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_209
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_210
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_211
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_212
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_213
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_214
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_215
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_216
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_217
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_218
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_219
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_220
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_221
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_222
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_223
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_224
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_225
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_226
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_227
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_228
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_229
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_230
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_231
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_232
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_233
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_234
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_235
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_236
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_237
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_238
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_239
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_240
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_241
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_242
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_243
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_244
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_245
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_246
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_247
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_248
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_249
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_250
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_251
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_252
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_253
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_254
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_255
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_256
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_257
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_258
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_259
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_260
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_261
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_262
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_263
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_264
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_265
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_266
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_267
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_268
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_269
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_270
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_271
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_272
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_273
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_274
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_275
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_276
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_277
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_278
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_279
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_280
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_281
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_282
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_283
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_284
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_285
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_286
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_287
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_288
+  datatype: text
+  required: false
+  help_text: ''
+- label: 2. 2. Commissions, tips and bonuses Commissions, tips and bonuses Commissions, tips and bonuses Comm
+  field: field_2_2_commissions_tips_and_bonuses_commissions_tips
+  datatype: currency
+  required: false
+  min: 0
+- label: 4. 4. Employment Insurance benefits Employment Insurance benefits Employment Insurance benefits Empl
+  field: field_4_4_employment_insurance_benefits_employment_insur
+  datatype: currency
+  required: false
+  min: 0
+- label: 5. 5. Workers' compensation benefits Workers' compensation benefits Workers' compensation benefits W
+  field: field_5_5_workers_compensation_benefits_workers_compensa
+  datatype: currency
+  required: false
+  min: 0
+- label: 9. 9. Spousal support received from a former spouse/partner Spousal support received from a former s
+  field: field_9_9_spousal_support_received_from_a_former_spouse
+  datatype: currency
+  required: false
+  min: 0
+- label: 10. 10. Child Tax Benefits or Tax Rebates (e.g. GST) Child Tax Benefits or Tax Rebates (e.g. GST) Ch
+  field: field_10_10_child_tax_benefits_or_tax_rebates_e_g_gst_ch
+  datatype: currency
+  required: false
+  min: 0
+- label: $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: 'CPP contributions CPP contributions CPP contributions $ Public transit, taxis Public transit, taxis '
+  field: cpp_contributions_cpp_contributions_cpp_contributi
+  datatype: currency
+  required: false
+  min: 0
+- label: EI premiums EI premiums EI premiums $ Gas and oil Gas and oil Gas and oil Gas and oil $
+  field: ei_premiums_ei_premiums_ei_premiums_gas_and_oil_ga
+  datatype: currency
+  required: false
+  min: 0
+- label: Employee pension contributions Employee pension contributions Employee pension contributions $ Repai
+  field: employee_pension_contributions_employee_pension_co
+  datatype: currency
+  required: false
+  min: 0
+- label: Union dues Union dues Union dues $ Parking Parking Parking Parking $
+  field: union_dues_union_dues_union_dues_parking_parking_p
+  datatype: currency
+  required: false
+  min: 0
+- label: SUBTOTAL SUBTOTAL SUBTOTAL $ Car Loan or Lease Payments Car Loan or Lease Payments Car Loan or Lease
+  field: subtotal_subtotal_subtotal_car_loan_or_lease_payme
+  datatype: currency
+  required: false
+  min: 0
+- label: Rent or mortgage Rent or mortgage Rent or mortgage $ Health Health Health Health Health Health
+  field: rent_or_mortgage_rent_or_mortgage_rent_or_mortgage
+  datatype: currency
+  required: false
+  min: 0
+- label: 'Condominium fees Condominium fees Condominium fees $ Medicine and drugs Medicine and drugs Medicine '
+  field: condominium_fees_condominium_fees_condominium_fees
+  datatype: currency
+  required: false
+  min: 0
+- label: Repairs and maintenance Repairs and maintenance Repairs and maintenance $ Eye care Eye care Eye care
+  field: repairs_and_maintenance_repairs_and_maintenance_re
+  datatype: currency
+  required: false
+  min: 0
+- label: SUBTOTAL SUBTOTAL SUBTOTAL $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $
+  field: subtotal_subtotal_subtotal_subtotal_subtotal_subto
+  datatype: currency
+  required: false
+  min: 0
+- label: Water Water Water $ Clothing Clothing Clothing Clothing $
+  field: water_water_water_clothing_clothing_clothing_cloth
+  datatype: currency
+  required: false
+  min: 0
+- label: Heat Heat Heat $ Hair care and beauty Hair care and beauty Hair care and beauty Hair care and beauty
+  field: heat_heat_heat_hair_care_and_beauty_hair_care_and
+  datatype: currency
+  required: false
+  min: 0
+- label: Electricity Electricity Electricity $ Alcohol and tobacco Alcohol and tobacco Alcohol and tobacco Al
+  field: electricity_electricity_electricity_alcohol_and_to
+  datatype: currency
+  required: false
+  min: 0
+- label: 'Cable Cable Cable Cable Cable Cable Cable $ $ Gifts Gifts Gifts Gifts Gifts Gifts Gifts Gifts Gifts '
+  field: cable_cable_cable_cable_cable_cable_cable_gifts_gi
+  datatype: currency
+  required: false
+  min: 0
+- label: Internet Internet Internet Internet Internet Internet Internet $ $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOT
+  field: internet_internet_internet_internet_internet_inter
+  datatype: currency
+  required: false
+  min: 0
+- label: Groceries Groceries Groceries Groceries Groceries Groceries Groceries $ $ RRSP/RESP withdrawals RRSP
+  field: groceries_groceries_groceries_groceries_groceries
+  datatype: currency
+  required: false
+  min: 0
+- label: Household supplies Household supplies Household supplies Household supplies Household supplies House
+  field: household_supplies_household_supplies_household_su
+  datatype: currency
+  required: false
+  min: 0
+- label: Meals outside the home Meals outside the home Meals outside the home Meals outside the home Meals ou
+  field: meals_outside_the_home_meals_outside_the_home_meal
+  datatype: currency
+  required: false
+  min: 0
+- label: Pet care Pet care Pet care Pet care Pet care Pet care Pet care $ $ Clothing for children Clothing fo
+  field: pet_care_pet_care_pet_care_pet_care_pet_care_pet_c
+  datatype: currency
+  required: false
+  min: 0
+- label: 'Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning '
+  field: laundry_and_dry_cleaning_laundry_and_dry_cleaning
+  datatype: currency
+  required: false
+  min: 0
+- label: Childcare Costs Childcare Costs Childcare Costs Childcare Costs Childcare Costs Childcare Costs Chil
+  field: childcare_costs_childcare_costs_childcare_costs_ch
+  datatype: currency
+  required: false
+  min: 0
+- label: Babysitting costs Babysitting costs Babysitting costs Babysitting costs Babysitting costs Babysittin
+  field: babysitting_costs_babysitting_costs_babysitting_co
+  datatype: currency
+  required: false
+  min: 0
+- label: SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOT
+  field: subtotal_subtotal_subtotal_subtotal_subtotal_subto
+  datatype: currency
+  required: false
+  min: 0
+- label: 7. My spouse/partner or other adult residing in the home contributes about $ My spouse/partner or ot
+  field: field_7_my_spouse_partner_or_other_adult_residing_in_the
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: '15.  TOTAL VALUE OF LAND 15.  TOTAL VALUE OF LAND 15.  TOTAL VALUE OF LAND 15.  TOTAL VALUE OF LAND '
+  field: field_15_total_value_of_land_15_total_value_of_land_15_t
+  datatype: currency
+  required: false
+  min: 0
+- label: Household goods & furniture Household goods & furniture $ $ $ $ $
+  field: household_goods_furniture_household_goods_furnitur
+  datatype: currency
+  required: false
+  min: 0
+- label: Jewellery, art, electronics, tools, sports & hobby equipment Jewellery, art, electronics, tools, spo
+  field: jewellery_art_electronics_tools_sports_hobby_equip
+  datatype: currency
+  required: false
+  min: 0
+- label: Other special items Other special items $ $ $ $ $
+  field: other_special_items_other_special_items
+  datatype: currency
+  required: false
+  min: 0
+- label: 17.  TOTAL VALUE OF ACCOUNTS, SAVINGS, SECURITIES AND PENSIONS 17.  TOTAL VALUE OF ACCOUNTS, SAVINGS
+  field: field_17_total_value_of_accounts_savings_securities_and
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: 18.  TOTAL CASH SURRENDER VALUE OF INSURANCE POLICIES 18.  TOTAL CASH SURRENDER VALUE OF INSURANCE P
+  field: field_18_total_cash_surrender_value_of_insurance_policie
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: '20.  TOTAL OF MONEY OWED TO YOU 20.  TOTAL OF MONEY OWED TO YOU 20.  TOTAL OF MONEY OWED TO YOU 20. '
+  field: field_20_total_of_money_owed_to_you_20_total_of_money_ow
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: 23.  TOTAL OF DEBTS AND OTHER LIABILITIES 23.  TOTAL OF DEBTS AND OTHER LIABILITIES 23.  TOTAL OF DE
+  field: field_23_total_of_debts_and_other_liabilities_23_total_o
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: TOTALS TOTALS TOTALS TOTALS $ $
+  field: totals_totals_totals_totals
+  datatype: currency
+  required: false
+  min: 0
+- label: 25.  VALUE OF ALL DEDUCTIONS  (Add items [23] and [24].) 25.  VALUE OF ALL DEDUCTIONS  (Add items [2
+  field: field_25_value_of_all_deductions_add_items_23_and_24_25
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: Subtract value of all deductions  (from item [25] above) Subtract value of all deductions  (from ite
+  field: subtract_value_of_all_deductions_from_item_25_abov
+  datatype: currency
+  required: false
+  min: 0
+- label: 4. 4. 4. 4. 4. Total capital gains ($      ) less capital losses ($      ) Total capital gains ($   
+  field: field_4_4_4_4_4_total_capital_gains_less_capital_losses
+  datatype: currency
+  required: false
+  min: 0
+- label: 5. 5. 5. 5. 5. Registered retirement savings plan withdrawals Registered retirement savings plan wit
+  field: field_5_5_5_5_5_registered_retirement_savings_plan_withd
+  datatype: currency
+  required: false
+  min: 0
+- label: 'Subtotal: Subtotal: Subtotal: $ $'
+  field: subtotal_subtotal_subtotal
+  datatype: currency
+  required: false
+  min: 0
+- label: 1. $ $
+  field: field_1
+  datatype: currency
+  required: false
+  min: 0
+- label: 2. $ $
+  field: field_2
+  datatype: currency
+  required: false
+  min: 0
+- label: 3. $ $
+  field: field_3
+  datatype: currency
+  required: false
+  min: 0
+- label: 4. $ $
+  field: field_4
+  datatype: currency
+  required: false
+  min: 0
+- label: 5. $ $
+  field: field_5
+  datatype: currency
+  required: false
+  min: 0
+- label: 6. $ $
+  field: field_6
+  datatype: currency
+  required: false
+  min: 0
+- label: 7. $ $
+  field: field_7
+  datatype: currency
+  required: false
+  min: 0
+- label: 8. $ $
+  field: field_8
+  datatype: currency
+  required: false
+  min: 0
+- label: 9. $ $
+  field: field_9
+  datatype: currency
+  required: false
+  min: 0
+- label: 10. 10. $ $
+  field: field_10_10
+  datatype: currency
+  required: false
+  min: 0
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: 'Full legal name: Full legal name: Full legal name: Full legal name: Full legal name: Full legal name'
+  field: person.full_legal_name_full_legal_name_full_legal_name_fu
+  edit: true
+- label: 'Address: Address: Address: Address: Address: Address: Address:'
+  field: person.address_address_address_address_address_address_ad
+  edit: true
+- label: 'Full legal name: Full legal name: Full legal name: Full legal name: Full legal name: Full legal name'
+  field: person.full_legal_name_full_legal_name_full_legal_name_fu
+  edit: true
+- label: 4. Last year, my gross income from all sources was $ Last year, my gross income from all sources was
+  field: income_information.field_4_last_year_my_gross_income_from_all_sources_was_l
+  edit: true
+- label: '1. 1. Employment income (before deductions) Employment income (before deductions) Employment income '
+  field: income_information.field_1_1_employment_income_before_deductions_employment
+  edit: true
+- label: '3. 3. Self-employment income (Monthly amount before expenses: $      ) Self-employment income (Month'
+  field: income_information.field_3_3_self_employment_income_monthly_amount_before_e
+  edit: true
+- label: SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ $ Other expenses Other expenses Oth
+  field: expense_information.subtotal_subtotal_subtotal_subtotal_subtotal_subto
+  edit: true
+- label: Household Expenses Household Expenses Household Expenses Household Expenses Household Expenses House
+  field: expense_information.household_expenses_household_expenses_household_ex
+  edit: true
+- label: 'SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ $ Summer camp expenses Summer camp '
+  field: expense_information.subtotal_subtotal_subtotal_subtotal_subtotal_subto
+  edit: true
+- label: 6. My spouse/partner My spouse/partner My spouse/partner earns (give amount) $ earns (give amount) $
+  field: amount_information.field_6_my_spouse_partner_my_spouse_partner_my_spouse_pa
+  edit: true
+- label: 3. 3. 3. 3. 3. Total amount of dividends received from taxable Canadian corporations Total amount of
+  field: amount_information.field_3_3_3_3_3_total_amount_of_dividends_received_from
+  edit: true
+- label: Total Net Annual Amount Total Net Annual Amount Total Net Annual Amount Total Net Annual Amount Tota
+  field: amount_information.total_net_annual_amount_total_net_annual_amount_to
+  edit: true
+- label: ''
+  field: field
+  edit: true
+- label: Court File Number
+  field: courtfileno
+  edit: true
+- label: Text Field 1
+  field: text1
+  edit: true
+- label: Text Field 1
+  field: text1_2
+  edit: true
+- label: Text Field 1
+  field: text1_3
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 13.1 Complete
+subquestion: 'Your Form 13.1 has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart

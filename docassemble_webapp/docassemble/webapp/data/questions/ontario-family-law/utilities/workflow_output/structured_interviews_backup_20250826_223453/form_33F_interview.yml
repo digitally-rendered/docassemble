@@ -1,0 +1,236 @@
+---
+metadata:
+  title: Ontario Family Law Form 33F
+  short_title: Form 33F
+  description: Structured interview with 28 fields and 0 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - 33F
+  form_number: 33F
+  form_category: general
+  generated: '2025-08-26 22:15:24'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: stepped
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+  table_css_class: table table-striped
+objects:
+- court_info: DAObject
+mandatory: true
+code: 'intro_seen
+
+  review_complete
+
+  form_complete'
+question: Form 33F Interview
+subquestion: 'This structured interview will help you complete Form 33F.
+
+
+  You will be asked about:
+
+  - Form information
+
+
+  Total sections: 1
+
+  Fields to complete: 28'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Additional Information
+fields:
+- label: ''
+  field: field
+  required: false
+  choices:
+  - '          '
+  - Ontario Court of Justice
+  - Superior Court of Justice
+  - Superior Court of Justice Family Court Branch
+  help_text: ''
+- label: Court File Number
+  field: courtfileno
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 4
+  field: text4
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 9
+  field: text9
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 10
+  field: text10
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 11
+  field: text11
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 17
+  field: text17
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 13
+  field: text13
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 2
+  field: check2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 3
+  field: check3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 4
+  field: check4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 5
+  field: check5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 7
+  field: check7
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 14
+  field: text14
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 8
+  field: check8
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 9
+  field: check9
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 10
+  field: check10
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 11
+  field: check11
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 12
+  field: check12
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 15
+  field: text15
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 13
+  field: check13
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 16
+  field: text16
+  datatype: text
+  required: false
+  help_text: ''
+- label: 'Birthdate: Birthdate: Birthdate: Birthdate: Birthdate: Birthdate: Birthdate:'
+  field: birthdate_birthdate_birthdate_birthdate_birthdate
+  datatype: date
+  required: false
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: ''
+  field: field
+  edit: true
+- label: Court File Number
+  field: courtfileno
+  edit: true
+- label: Text Field 2
+  field: text2
+  edit: true
+- label: Text Field 4
+  field: text4
+  edit: true
+- label: ''
+  field: field_2
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 33F Complete
+subquestion: 'Your Form 33F has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart

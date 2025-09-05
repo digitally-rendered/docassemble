@@ -1,0 +1,7 @@
+confidence,context,coordinates,extraction_method,field_label,field_name,field_type,page_number,required,table_info,validation_rules,value
+0.6,Paragraph 62,,docx_paragraph,"13.  If child and/or spousal support is an issue, my current annual gross incomes is $",13_if_child_and_or_spousal_support_is_an_issue_my_,currency,0,False,,,
+0.6,Paragraph 70,,docx_paragraph,15. I believe that the other party’s current annual income from all income sources is $       for th,15_i_believe_that_the_other_party_s_current_annual,currency,0,False,,,
+0.6,Paragraph 78,,docx_paragraph,"17.  There is unpaid child support owing to me in the amount of $      , as of (date)      , which i",17_there_is_unpaid_child_support_owing_to_me_in_th,date,0,False,,,
+0.6,Paragraph 81,,docx_paragraph,18.  I am claiming support in the amount of $       per month for (number)       child(ren) starting,18_i_am_claiming_support_in_the_amount_of_per_mont,date,0,False,,,
+0.6,Paragraph 101,,docx_paragraph,"23.  There is unpaid spousal support in the amount of $      , as of (date)      , which is",23_there_is_unpaid_spousal_support_in_the_amount_o,date,0,False,,,
+0.6,Paragraph 104,,docx_paragraph,"24.  I am requesting an order that spousal support payments be set at $       per month, beginning o",24_i_am_requesting_an_order_that_spousal_support_p,date,0,False,,,

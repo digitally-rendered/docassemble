@@ -1,0 +1,32 @@
+---
+metadata:
+  title: Absolutely Minimal Test
+  short title: Minimal Test
+---
+mandatory: True
+code: |
+  user_name
+  user_age
+  show_result
+---
+question: |
+  What is your name?
+fields:
+  - Name: user_name
+---
+question: |
+  How old are you?
+fields:
+  - Age: user_age
+    datatype: integer
+    min: 0
+    max: 120
+---
+event: show_result
+question: |
+  Complete
+subquestion: |
+  Hello ${ user_name }, you are ${ user_age } years old.
+buttons:
+  - Exit: exit
+  - Restart: restart

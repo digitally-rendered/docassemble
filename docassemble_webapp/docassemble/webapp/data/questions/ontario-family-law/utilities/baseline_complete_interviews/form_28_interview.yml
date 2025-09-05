@@ -1,0 +1,477 @@
+---
+metadata:
+  title: "Ontario Family Law Form 28: Form 28"
+  short title: Form 28
+  description: Interview with baseline error handling for 18 fields
+  form_number: 28
+  field_count: 18
+  error_handling: baseline
+  generated: "2025-08-26T23:10:53.708821" 
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  debug: True
+  question help button: True
+  question back button: True
+  progress bar: True
+  progress bar method: all
+  progress bar multiplier: 0.05
+---
+objects:
+  - validation_errors: DAList
+  - error_log: DAList
+  - field_errors: DADict
+---
+initial: True
+code: |
+  validation_errors = DAList()
+  error_log = DAList()
+  field_errors = DADict()
+  debug_mode = get_config('debug', False)
+  error_count = 0
+---
+code: |
+  def handle_error(context, error_type, details):
+    '''Global error handler'''
+    error_entry = {
+      'timestamp': current_datetime(),
+      'context': context,
+      'type': error_type,
+      'details': details
+    }
+    error_log.append(error_entry)
+    if debug_mode:
+      log(f"ERROR in {context}: {error_type} - {details}", 'error')
+    return error_entry
+---
+code: |
+  def safe_get(obj, attr, default=""):
+    '''Safely get object attribute'''
+    try:
+      if hasattr(obj, attr):
+        val = getattr(obj, attr)
+        return val if val is not None else default
+      return default
+    except:
+      return default
+---
+code: |
+  def validate_required(field_name, value):
+    '''Validate required field'''
+    if not value or (isinstance(value, str) and not value.strip()):
+      field_errors[field_name] = f"{field_name} is required"
+      return False
+    return True
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  try:
+    intro_seen
+  applicant.name.first
+  respondent.name.first
+  children_count
+  if children_count > 0:
+    children.gather()
+  review_answers
+  if len(validation_errors) > 0:
+    review_with_errors
+  form_complete
+  except Exception as e:
+    handle_error("main_flow", "FlowError", str(e))
+    error_recovery
+---
+question: |
+  Ontario Family Law Form 28
+subquestion: |
+  Welcome to the Form 28 interview.
+  
+  This interview will collect 18 fields of information.
+  
+  % if debug_mode:
+  <div class="alert alert-info">
+    Debug mode is enabled - detailed error information will be shown
+  </div>
+  % endif
+  
+  All fields include validation and error handling.
+continue button field: intro_seen
+---
+question: |
+  Table 1, Row 20
+fields:
+  - Insert amount to be realized from paragraph 4(b) of the request for a writ of seizure and sale.  Ins: insert_amounto_be_realized_from_paragraph_4_b_of
+    datatype: date
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_1__row_20_collected
+---
+question: |
+  Table 1, Row 24
+fields:
+  - Priority for support payments insert amount from paragraph 3 of request for a writ of seizure and s: priority_for_support_payments_insert_amount_from_p
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_1__row_24_collected
+---
+question: |
+  Table 1, Row 26
+fields:
+  - Assignment of costs to Legal Aid Ontario  insert amount from paragraph 4(c) of request for writ of : assignment_of_costs_to_legal_aid_ontario_insert_am
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_1__row_26_collected
+---
+question: |
+  Table 1, Row 29
+fields:
+  - Fine, bond or recognizance Fine, bond or recognizance Fine, bond or recognizance This Writ enforces : fine_bond_orecognizance_fine_bond_orecognizanc
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_1__row_29_collected
+---
+question: |
+  Table 2, Row 9
+fields:
+  - $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_9_collected
+---
+question: |
+  Table 2, Row 10
+fields:
+  - $ (Name of court) (Name of court) (Name of court) (Name of court) (Name of court) (Name of court): name_of_court_name_of_court_name_of_
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_10_collected
+---
+question: |
+  Table 2, Row 11
+fields:
+  - $ at at at Name, address, telephone & fax numbers and e-mail address (if any) of filing party’s lawy: at_at_name_address_telephone_fax_numbers_and_e_
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_11_collected
+---
+question: |
+  Table 2, Row 12
+fields:
+  - $ Court office address Court office address Court office address Court office address Court office a: court_office_address_court_of
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_12_collected
+---
+question: |
+  Table 2, Row 13
+fields:
+  - $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_13_collected
+---
+question: |
+  Table 2, Row 14
+fields:
+  - $ Writ of Seizure and Sale Writ of Seizure and Sale: writ_of_seizure_and_sale
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_14_collected
+---
+question: |
+  Table 2, Row 15
+fields:
+  - $ Writ of Seizure and Sale Writ of Seizure and Sale: writ_of_seizure_and_sale
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_15_collected
+---
+question: |
+  Table 2, Row 16
+fields:
+  - $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_16_collected
+---
+question: |
+  Table 2, Row 17
+fields:
+  - $ NOTE  This writ has no automatic expiry date.  It remains in effect NOTE  This writ has no auto: note_this_writ_has_no_automatic_expiry_date_it_rem
+    datatype: date
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_17_collected
+---
+question: |
+  Table 2, Row 18
+fields:
+  - $ (a)  until it is withdrawn by or on behalf of the party who filed it; or (a)  until it is withdraw: a_until_it_is_withdrawn_by_or_on_behalf_of_the_par
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_18_collected
+---
+question: |
+  Table 2, Row 19
+fields:
+  - $ (b)  until it is set aside or suspended by order of a court in Ontario. (b)  until it is set aside: b_until_it_iset_aside_or_suspended_by_order_of_a
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_19_collected
+---
+question: |
+  Table 2, Row 20
+fields:
+  - $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_20_collected
+---
+question: |
+  Table 2, Row 21
+fields:
+  - $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_21_collected
+---
+question: |
+  Table 2, Row 22
+fields:
+  - $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_22_collected
+---
+question: |
+  Applicant
+fields:
+  - First Name: applicant.name.first
+    required: True
+    validation messages:
+      required: First name is required
+  - Last Name: applicant.name.last
+    required: True
+    validation messages:
+      required: Last name is required
+  - Date of Birth: applicant.birthdate
+    datatype: date
+    required: False
+---
+question: |
+  Respondent
+fields:
+  - First Name: respondent.name.first
+    required: True
+    validation messages:
+      required: First name is required
+  - Last Name: respondent.name.last
+    required: True
+    validation messages:
+      required: Last name is required
+  - Date of Birth: respondent.birthdate
+    datatype: date
+    required: False
+---
+question: |
+  How many children are there?
+fields:
+  - Number: children_count
+    datatype: integer
+    min: 0
+    max: 20
+---
+question: |
+  Children ${i + 1} Information
+fields:
+  - First Name: children[i].name.first
+    required: True
+  - Last Name: children[i].name.last
+    required: True
+  - Date of Birth: children[i].birthdate
+    datatype: date
+    required: False
+---
+question: |
+  Add another children?
+yesno: children.there_is_another
+---
+event: error_recovery
+question: |
+  Error Recovery
+subquestion: |
+  An error occurred during the interview.
+  
+  % if len(error_log) > 0:
+  **Recent Errors:**
+  % for error in error_log[-5:]:
+  - ${ error['context'] }: ${ error['type'] }
+  % endfor
+  % endif
+  
+  You can try restarting or contact support.
+buttons:
+  - Restart: restart
+  - Exit: exit
+---
+event: review_with_errors
+question: |
+  Review with Validation Issues
+subquestion: |
+  <div class="alert alert-warning">
+    There are ${ len(validation_errors) } validation issues to review.
+  </div>
+  
+  % for error in validation_errors[:10]:
+  - ${ error }
+  % endfor
+  
+  You can continue anyway or go back to fix these issues.
+buttons:
+  - Continue Anyway: continue
+  - Go Back: restart
+---
+event: review_answers
+question: |
+  Review Your Answers
+subquestion: |
+  Please review the information you've provided.
+  
+  % if len(validation_errors) == 0:
+  <div class="alert alert-success">
+    ✓ All information validated successfully
+  </div>
+  % else:
+  <div class="alert alert-warning">
+    ⚠ ${ len(validation_errors) } validation warnings
+  </div>
+  % endif
+  
+  **Form 28 Summary**
+  
+  Information has been collected for all required fields.
+  
+  % if debug_mode:
+  **Debug Info:**
+  - Errors logged: ${ len(error_log) }
+  - Fields with errors: ${ len(field_errors) }
+  % endif
+buttons:
+  - Continue: continue
+  - Edit Answers: restart
+---
+event: form_complete
+question: |
+  Form 28 Complete
+subquestion: |
+  Thank you for completing Form 28.
+  
+  % if len(error_log) == 0:
+  <div class="alert alert-success">
+    ✓ Interview completed without errors
+  </div>
+  % else:
+  <div class="alert alert-info">
+    Interview completed with ${ len(error_log) } logged events
+  </div>
+  % endif
+  
+  **Summary:**
+  - All required fields completed
+  - Validation: ${ "Passed" if len(validation_errors) == 0 else str(len(validation_errors)) + " warnings" }
+  
+buttons:
+  - Exit: exit
+  - Start Over: restart

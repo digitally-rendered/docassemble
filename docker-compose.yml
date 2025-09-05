@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  docassemble:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: final
+    ports:
+      - "80:80"
+      - "443:443"
+      - "9001:9001"  # Supervisor web interface
+    environment:
+      - CONTAINERROLE=all
+      - DASUPERVISORUSERNAME=admin
+      - DASUPERVISORPASSWORD=password
+      - SUPERVISORLOGLEVEL=info
+      - TIMEZONE=America/New_York
+      - DAHOSTNAME=localhost
+      - USEHTTPS=false
+      - DAALLOWUPDATES=true
+    volumes:
+      # Mount the questions directory for development
+      - ./docassemble_webapp/docassemble/webapp/data/questions:/usr/share/docassemble/files/questions:rw
+      # Mount config if you have custom configuration
+      # - ./config.yml:/usr/share/docassemble/config/config.yml:ro
+      # Persist data
+      - docassemble_data:/usr/share/docassemble/files
+      - docassemble_log:/usr/share/docassemble/log
+      - postgres_data:/var/lib/postgresql
+      - redis_data:/var/lib/redis
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+volumes:
+  docassemble_data:
+  docassemble_log:
+  postgres_data:
+  redis_data:

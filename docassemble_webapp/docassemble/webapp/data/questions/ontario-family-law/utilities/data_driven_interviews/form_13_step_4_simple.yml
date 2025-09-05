@@ -1,0 +1,45 @@
+---
+metadata:
+  title: Form 13 - Incremental Data-Driven
+  short title: Form 13 Incremental
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - person: Individual
+  - form_data: DAObject
+---
+mandatory: True
+code: |
+  intro_seen
+  collect_basic_info
+  show_summary
+---
+question: |
+  Form 13 Financial Statement
+subquestion: |
+  Generated from parsed form data.
+continue button field: intro_seen
+---
+question: |
+  Basic Information
+fields:
+  - "Full legal name: Full legal name: Full legal na...": form_data.full_legal_name_full_legal_nam
+    required: False
+  - "Address:": form_data.address_address_address_addres
+    required: False
+  - "Full legal name: Full legal name: Full legal na...": form_data.full_legal_name_full_legal_nam
+    required: False
+  - "Address:": form_data.address_address_address_addres
+    required: False
+continue button field: collect_basic_info
+---
+event: show_summary
+question: |
+  Summary
+subquestion: |
+  Data collected successfully.
+buttons:
+  - Exit: exit
+---

@@ -1,0 +1,129 @@
+[
+  {
+    "table_id": "table_numbered_items",
+    "table_name": "Sources of Income",
+    "table_type": "income",
+    "columns": [
+      {
+        "name": "column_1",
+        "label": "Column 1",
+        "type": "currency",
+        "required": false,
+        "column_number": 1
+      }
+    ],
+    "rows": [],
+    "is_repeating": true,
+    "page_number": 0,
+    "context": "numbered_items",
+    "da_object_type": "DAList",
+    "da_variable_name": "income_sources",
+    "da_element_type": "IncomeItem"
+  },
+  {
+    "table_id": "implicit_table_income",
+    "table_name": "Income Table",
+    "table_type": "income",
+    "columns": [
+      {
+        "name": "item",
+        "label": "Item",
+        "type": "text",
+        "required": true,
+        "column_number": 1
+      },
+      {
+        "name": "amount",
+        "label": "Amount",
+        "type": "currency",
+        "required": true,
+        "column_number": 2
+      }
+    ],
+    "rows": [
+      {
+        "row_number": 1,
+        "data": {
+          "item": "$ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+          "amount": null
+        }
+      },
+      {
+        "row_number": 2,
+        "data": {
+          "item": "2. Commissions, tips and bonuses Commissions, tips and bonuses Commissions, tips and bonuses Comm",
+          "amount": null
+        }
+      },
+      {
+        "row_number": 3,
+        "data": {
+          "item": "4. Employment Insurance benefits Employment Insurance benefits Employment Insurance benefits Empl",
+          "amount": null
+        }
+      },
+      {
+        "row_number": 4,
+        "data": {
+          "item": "5. Workers' compensation benefits Workers' compensation benefits Workers' compensation benefits W",
+          "amount": null
+        }
+      },
+      {
+        "row_number": 5,
+        "data": {
+          "item": "9. Spousal support received from a former spouse/partner Spousal support received from a former s",
+          "amount": null
+        }
+      },
+      {
+        "row_number": 6,
+        "data": {
+          "item": "10. Child Tax Benefits or Tax Rebates (e.g. GST) Child Tax Benefits or Tax Rebates (e.g. GST) Ch",
+          "amount": null
+        }
+      },
+      {
+        "row_number": 7,
+        "data": {
+          "item": "3. Total amount of dividends received from taxable Canadian corporations Total amount of dividend",
+          "amount": null
+        }
+      },
+      {
+        "row_number": 8,
+        "data": {
+          "item": "4. Total capital gains ($ \u2002\u2002\u2002\u2002\u2002) less capital losses ($ \u2002\u2002\u2002\u2002\u2002) Total capital gains ($ \u2002\u2002\u2002\u2002\u2002) less",
+          "amount": null
+        }
+      },
+      {
+        "row_number": 9,
+        "data": {
+          "item": "5. Registered retirement savings plan withdrawals Registered retirement savings plan withdrawals ",
+          "amount": null
+        }
+      },
+      {
+        "row_number": 10,
+        "data": {
+          "item": "My spouse/partner My spouse/partner My spouse/partner  earns (give amount) $ earns (give amount) ",
+          "amount": null
+        }
+      },
+      {
+        "row_number": 11,
+        "data": {
+          "item": "My spouse/partner or other adult residing in the home contributes about $ My spouse/partner or ",
+          "amount": null
+        }
+      }
+    ],
+    "is_repeating": true,
+    "page_number": 0,
+    "context": "Implicit income table",
+    "da_object_type": "DAList",
+    "da_variable_name": "income_list",
+    "da_element_type": "DAObject"
+  }
+]

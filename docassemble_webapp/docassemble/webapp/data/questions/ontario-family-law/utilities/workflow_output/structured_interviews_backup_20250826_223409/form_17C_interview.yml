@@ -1,0 +1,691 @@
+---
+metadata:
+  title: Ontario Family Law Form 17C
+  short_title: Form 17C
+  description: Structured interview with 119 fields and 0 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - 17C
+  form_number: 17C
+  form_category: motion
+  generated: '2025-08-26 22:15:24'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+- docassemble.base:data/questions/financial.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: stepped
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+  table_css_class: table table-striped
+objects:
+- court_info: DAObject
+mandatory: true
+code: 'intro_seen
+
+  review_complete
+
+  form_complete'
+question: Form 17C Interview
+subquestion: 'This structured interview will help you complete Form 17C.
+
+
+  You will be asked about:
+
+  - Form information
+
+
+  Total sections: 1
+
+  Fields to complete: 119'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Additional Information
+fields:
+- label: ''
+  field: field
+  required: false
+  choices:
+  - '          '
+  - Ontario Court of Justice
+  - Superior Court of Justice
+  - Superior Court of Justice, Family Court
+  help_text: ''
+- label: Text Field 1
+  field: text1
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_13
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_14
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_15
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_16
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_17
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_18
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_19
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_20
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_21
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_22
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_23
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_24
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_25
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_26
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_27
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_28
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_29
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_30
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_31
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_32
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_33
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_34
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_35
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_36
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_37
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_38
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_39
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_40
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_41
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_42
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_7
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_8
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_9
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_10
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_11
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_12
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_13
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_14
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_15
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_43
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_16
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_17
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_18
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_19
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_20
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_21
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_22
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_23
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_24
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_25
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_44
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_45
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_46
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_47
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_26
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_27
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_48
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_28
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_29
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_30
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_49
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_31
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 63
+  field: text63
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_32
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_50
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_33
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_51
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 26
+  field: check26
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 26
+  field: check26_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_52
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 26
+  field: check26_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 26
+  field: check26_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_53
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_34
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_35
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_54
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_36
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_37
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_55
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_38
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_39
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_56
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_40
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_41
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_57
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_58
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_59
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_42
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1_43
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_60
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_61
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_62
+  datatype: text
+  required: false
+  help_text: ''
+- label: '1. APPLICANT: APPLICANT: APPLICANT: APPLICANT: Age: Age: Age: Birthdate: (d, m, y) Birthdate: (d, m,'
+  field: field_1_applicant_applicant_applicant_applicant_age_age
+  datatype: date
+  required: false
+- label: '2. RESPONDENT: RESPONDENT: RESPONDENT: RESPONDENT: Age: Age: Age: Birthdate: (d, m, y) Birthdate: (d'
+  field: field_2_respondent_respondent_respondent_respondent_age
+  datatype: date
+  required: false
+- label: 'Applicant: Applicant: Applicant: $ per year for the year 20 per year for the year 20 per year for th'
+  field: applicant_applicant_applicant_per_year_for_the_yea
+  datatype: currency
+  required: false
+  min: 0
+- label: 'Respondent: Respondent: Respondent: $ per year for the year 20 per year for the year 20 per year for'
+  field: respondent_respondent_respondent_per_year_for_the
+  datatype: currency
+  required: false
+  min: 0
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: ''
+  field: field
+  edit: true
+- label: Text Field 1
+  field: text1
+  edit: true
+- label: Text Field 1
+  field: text1_2
+  edit: true
+- label: Text Field 1
+  field: text1_3
+  edit: true
+- label: Text Field 1
+  field: text1_4
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 17C Complete
+subquestion: 'Your Form 17C has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart

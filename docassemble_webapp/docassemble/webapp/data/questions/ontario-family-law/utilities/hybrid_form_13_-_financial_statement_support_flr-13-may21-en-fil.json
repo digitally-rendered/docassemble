@@ -1,0 +1,1925 @@
+{
+  "report": {
+    "file": "workflow_output/ontario_forms/financial_statements/form_13_-_financial_statement_support_flr-13-may21-en-fil.docx",
+    "strategies_used": [
+      "advanced_docx",
+      "intelligent"
+    ],
+    "field_counts": {
+      "advanced_docx": 20,
+      "intelligent": 105
+    },
+    "consensus_report": {
+      "total_fields": 118,
+      "high_confidence": 6,
+      "medium_confidence": 112,
+      "low_confidence": 0,
+      "multi_method": 0,
+      "field_types": {
+        "text": 9,
+        "phone": 1,
+        "email": 2,
+        "date": 3,
+        "currency": 103
+      },
+      "method_coverage": {
+        "table-structure": 6,
+        "docx2python": 11,
+        "custom-properties": 2,
+        "docx2python-footer": 1,
+        "docx_table": 98
+      }
+    },
+    "total_fields": 118
+  },
+  "fields": [
+    {
+      "field_id": "hybrid_0",
+      "field_name": "name_of_court",
+      "field_type": "text",
+      "field_label": "(Name of Court)",
+      "value": null,
+      "required": false,
+      "confidence": 0.8,
+      "extraction_methods": [
+        "table-structure"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 0, Row 2",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_1",
+      "field_name": "court_office_address",
+      "field_type": "text",
+      "field_label": "Court office address",
+      "value": null,
+      "required": false,
+      "confidence": 0.8,
+      "extraction_methods": [
+        "table-structure"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 0, Row 4",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_2",
+      "field_name": "full_legal_name",
+      "field_type": "text",
+      "field_label": "Full legal name:",
+      "value": null,
+      "required": false,
+      "confidence": 0.8,
+      "extraction_methods": [
+        "table-structure"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 0, Row 7",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_3",
+      "field_name": "address",
+      "field_type": "text",
+      "field_label": "Address:",
+      "value": null,
+      "required": false,
+      "confidence": 0.8,
+      "extraction_methods": [
+        "table-structure"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 0, Row 8",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_4",
+      "field_name": "phone_fax",
+      "field_type": "phone",
+      "field_label": "Phone & fax:",
+      "value": null,
+      "required": false,
+      "confidence": 0.8,
+      "extraction_methods": [
+        "table-structure"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 0, Row 9",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_5",
+      "field_name": "email",
+      "field_type": "email",
+      "field_label": "Email:",
+      "value": null,
+      "required": false,
+      "confidence": 0.8,
+      "extraction_methods": [
+        "table-structure"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 0, Row 10",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_6",
+      "field_name": "docx2py_2_3_1_0",
+      "field_type": "date",
+      "field_label": "I attach proof of my year-to-date income from all sources, including my most recent (attach all that",
+      "value": null,
+      "required": false,
+      "confidence": 0.75,
+      "extraction_methods": [
+        "docx2python"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Section 2, Table 3, Row 1",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_7",
+      "field_name": "docx2py_2_8_1_0",
+      "field_type": "currency",
+      "field_label": "Last year, my gross income from all sources was $",
+      "value": null,
+      "required": false,
+      "confidence": 0.75,
+      "extraction_methods": [
+        "docx2python"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Section 2, Table 8, Row 1",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_8",
+      "field_name": "docx2py_2_23_2_0",
+      "field_type": "currency",
+      "field_label": "Self-employment income (Monthly amount before expenses: $ \u2002\u2002\u2002\u2002\u2002)",
+      "value": null,
+      "required": false,
+      "confidence": 0.75,
+      "extraction_methods": [
+        "docx2python"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Section 2, Table 23, Row 2",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_9",
+      "field_name": "docx2py_10_25_0_0",
+      "field_type": "date",
+      "field_label": "NOTE: This financial statement must be updated before any court event if it is:",
+      "value": null,
+      "required": false,
+      "confidence": 0.75,
+      "extraction_methods": [
+        "docx2python"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Section 10, Table 25, Row 0",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_10",
+      "field_name": "docx2py_10_29_0_0",
+      "field_type": "date",
+      "field_label": "You may update this financial statement by either completing and filing:",
+      "value": null,
+      "required": false,
+      "confidence": 0.75,
+      "extraction_methods": [
+        "docx2python"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Section 10, Table 29, Row 0",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_11",
+      "field_name": "docx2py_12_3_2_0",
+      "field_type": "currency",
+      "field_label": "Net rental income (Gross annual rental income of $ \u2002\u2002\u2002\u2002\u2002)",
+      "value": null,
+      "required": false,
+      "confidence": 0.75,
+      "extraction_methods": [
+        "docx2python"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Section 12, Table 3, Row 2",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_12",
+      "field_name": "docx2py_12_5_2_0",
+      "field_type": "currency",
+      "field_label": "Total capital gains ($ \u2002\u2002\u2002\u2002\u2002) less capital losses ($ \u2002\u2002\u2002\u2002\u2002)",
+      "value": null,
+      "required": false,
+      "confidence": 0.75,
+      "extraction_methods": [
+        "docx2python"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Section 12, Table 5, Row 2",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_13",
+      "field_name": "docx2py_12_21_5_0",
+      "field_type": "currency",
+      "field_label": "earns (give amount) $",
+      "value": null,
+      "required": false,
+      "confidence": 0.75,
+      "extraction_methods": [
+        "docx2python"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Section 12, Table 21, Row 5",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_14",
+      "field_name": "docx2py_12_23_3_0",
+      "field_type": "currency",
+      "field_label": "My spouse/partner or other adult residing in the home contributes about $",
+      "value": null,
+      "required": false,
+      "confidence": 0.75,
+      "extraction_methods": [
+        "docx2python"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Section 12, Table 23, Row 3",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_15",
+      "field_name": "docx2py_14_16_4_0",
+      "field_type": "currency",
+      "field_label": "I earn $",
+      "value": null,
+      "required": false,
+      "confidence": 0.75,
+      "extraction_methods": [
+        "docx2python"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Section 14, Table 16, Row 4",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_16",
+      "field_name": "docx2py_14_20_3_0",
+      "field_type": "currency",
+      "field_label": "Medical insurance premiums and certain health-related expenses for the child that cost more than $10",
+      "value": null,
+      "required": false,
+      "confidence": 0.75,
+      "extraction_methods": [
+        "docx2python"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Section 14, Table 20, Row 3",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_18",
+      "field_name": "ContentTypeId",
+      "field_type": "text",
+      "field_label": "ContentTypeId",
+      "value": "0x01010007BA1F3FABB393479E52B13B9178C6E2",
+      "required": false,
+      "confidence": 0.75,
+      "extraction_methods": [
+        "custom-properties"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_19",
+      "field_name": "MSIP_Label_034a106e-6316-442c-ad35-738afd673d2b_Enabled",
+      "field_type": "text",
+      "field_label": "MSIP_Label_034a106e-6316-442c-ad35-738afd673d2b_Enabled",
+      "value": "true",
+      "required": false,
+      "confidence": 0.75,
+      "extraction_methods": [
+        "custom-properties"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_17",
+      "field_name": "brackets_223",
+      "field_type": "text",
+      "field_label": "[]",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx2python-footer"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "footer",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_20",
+      "field_name": "full_legal_name_full_legal_name_full_legal_name_fu",
+      "field_type": "text",
+      "field_label": "Full legal name: Full legal name: Full legal name: Full legal name: Full legal name: Full legal name",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 1, Row 8",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_21",
+      "field_name": "address_address_address_address_address_address_ad",
+      "field_type": "text",
+      "field_label": "Address: Address: Address: Address: Address: Address: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Address: \u2002\u2002\u2002\u2002\u2002 ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 1, Row 9",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_22",
+      "field_name": "email_email_email_email_email_email_email",
+      "field_type": "email",
+      "field_label": "Email: Email: Email: Email: Email: Email: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Email: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 1, Row 11",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_23",
+      "field_name": "4_last_year_my_gross_income_from_all_sources_was_l",
+      "field_type": "currency",
+      "field_label": "4. Last year, my gross income from all sources was $ Last year, my gross income from all sources was",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 9",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_24",
+      "field_name": "1_1_employment_income_before_deductions_employment",
+      "field_type": "currency",
+      "field_label": "1. 1. Employment income (before deductions) Employment income (before deductions) Employment income ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 22",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_25",
+      "field_name": "2_2_commissions_tips_and_bonuses_commissions_tips_",
+      "field_type": "currency",
+      "field_label": "2. 2. Commissions, tips and bonuses Commissions, tips and bonuses Commissions, tips and bonuses Comm",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 23",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_26",
+      "field_name": "3_3_self_employment_income_monthly_amount_before_e",
+      "field_type": "currency",
+      "field_label": "3. 3. Self-employment income (Monthly amount before expenses: $ \u2002\u2002\u2002\u2002\u2002) Self-employment income (Month",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 24",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_27",
+      "field_name": "4_4_employment_insurance_benefits_employment_insur",
+      "field_type": "currency",
+      "field_label": "4. 4. Employment Insurance benefits Employment Insurance benefits Employment Insurance benefits Empl",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 25",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_28",
+      "field_name": "5_5_workers_compensation_benefits_workers_compensa",
+      "field_type": "currency",
+      "field_label": "5. 5. Workers' compensation benefits Workers' compensation benefits Workers' compensation benefits W",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 26",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_29",
+      "field_name": "6_6_social_assistance_income_including_odsp_paymen",
+      "field_type": "currency",
+      "field_label": "6. 6. Social assistance income (including ODSP payments) Social assistance income (including ODSP pa",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 27",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_30",
+      "field_name": "7_7_interest_and_investment_income_interest_and_in",
+      "field_type": "currency",
+      "field_label": "7. 7. Interest and investment income Interest and investment income Interest and investment income I",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 28",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_31",
+      "field_name": "8_8_pension_income_including_cpp_and_oas_pension_i",
+      "field_type": "currency",
+      "field_label": "8. 8. Pension income (including CPP and OAS) Pension income (including CPP and OAS) Pension income (",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 29",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_32",
+      "field_name": "9_9_spousal_support_received_from_a_former_spouse_",
+      "field_type": "currency",
+      "field_label": "9. 9. Spousal support received from a former spouse/partner Spousal support received from a former s",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 30",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_33",
+      "field_name": "10_10_child_tax_benefits_or_tax_rebates_e_g_gst_ch",
+      "field_type": "currency",
+      "field_label": "10. 10. Child Tax Benefits or Tax Rebates (e.g. GST) Child Tax Benefits or Tax Rebates (e.g. GST) Ch",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 31",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_34",
+      "field_name": "11_11_other_sources_of_income_e_g_rrsp_withdrawals",
+      "field_type": "currency",
+      "field_label": "11. 11. Other sources of income (e.g. RRSP withdrawals, capital gains) (*attach Schedule A and divid",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 32",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_35",
+      "field_name": "12_12_total_monthly_income_from_all_sources_total_",
+      "field_type": "currency",
+      "field_label": "12. 12. Total monthly income from all sources: Total monthly income from all sources: Total monthly ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 33",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_36",
+      "field_name": "13_13_total_monthly_income_x_12_total_annual_incom",
+      "field_type": "currency",
+      "field_label": "13. 13. Total monthly income X 12 = Total annual income: Total monthly income X 12 = Total annual in",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 2, Row 34",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_37",
+      "field_name": "field",
+      "field_type": "currency",
+      "field_label": "\u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 8",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_38",
+      "field_name": "cpp_contributions_cpp_contributions_cpp_contributi",
+      "field_type": "currency",
+      "field_label": "CPP contributions CPP contributions CPP contributions $ \u2002\u2002\u2002\u2002\u2002  Public transit, taxis Public transit,",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 15",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_39",
+      "field_name": "ei_premiums_ei_premiums_ei_premiums_gas_and_oil_ga",
+      "field_type": "currency",
+      "field_label": "EI premiums EI premiums EI premiums $ \u2002\u2002\u2002\u2002\u2002  Gas and oil Gas and oil Gas and oil Gas and oil Gas and",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 16",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_40",
+      "field_name": "income_taxes_income_taxes_income_taxes_car_insuran",
+      "field_type": "currency",
+      "field_label": "Income taxes Income taxes Income taxes $ \u2002\u2002\u2002\u2002\u2002  Car insurance and license Car insurance and license ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 17",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_41",
+      "field_name": "employee_pension_contributions_employee_pension_co",
+      "field_type": "currency",
+      "field_label": "Employee pension contributions Employee pension contributions Employee pension contributions $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 18",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_42",
+      "field_name": "union_dues_union_dues_union_dues_parking_parking_p",
+      "field_type": "currency",
+      "field_label": "Union dues Union dues Union dues $ \u2002\u2002\u2002\u2002\u2002  Parking Parking Parking Parking Parking $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 19",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_43",
+      "field_name": "subtotal_subtotal_subtotal_car_loan_or_lease_payme",
+      "field_type": "currency",
+      "field_label": "SUBTOTAL SUBTOTAL SUBTOTAL $ \u2002\u2002\u2002\u2002\u2002  Car Loan or Lease Payments Car Loan or Lease Payments Car Loan o",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 20",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_44",
+      "field_name": "housing_housing_housing_housing_housing_subtotal_s",
+      "field_type": "currency",
+      "field_label": "Housing Housing Housing Housing Housing  SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 21",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_45",
+      "field_name": "rent_or_mortgage_rent_or_mortgage_rent_or_mortgage",
+      "field_type": "currency",
+      "field_label": "Rent or mortgage Rent or mortgage Rent or mortgage $ \u2002\u2002\u2002\u2002\u2002  Health Health Health Health Health Healt",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 22",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_46",
+      "field_name": "property_taxes_property_taxes_property_taxes_healt",
+      "field_type": "currency",
+      "field_label": "Property taxes Property taxes Property taxes $ \u2002\u2002\u2002\u2002\u2002  Health insurance premiums Health insurance pre",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 23",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_47",
+      "field_name": "property_insurance_property_insurance_property_ins",
+      "field_type": "currency",
+      "field_label": "Property insurance Property insurance Property insurance $ \u2002\u2002\u2002\u2002\u2002  Dental expenses Dental expenses De",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 24",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_48",
+      "field_name": "condominium_fees_condominium_fees_condominium_fees",
+      "field_type": "currency",
+      "field_label": "Condominium fees Condominium fees Condominium fees $ \u2002\u2002\u2002\u2002\u2002  Medicine and drugs Medicine and drugs Me",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 25",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_49",
+      "field_name": "repairs_and_maintenance_repairs_and_maintenance_re",
+      "field_type": "currency",
+      "field_label": "Repairs and maintenance Repairs and maintenance Repairs and maintenance $ \u2002\u2002\u2002\u2002\u2002  Eye care Eye care E",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 26",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_50",
+      "field_name": "water_water_water_clothing_clothing_clothing_cloth",
+      "field_type": "currency",
+      "field_label": "Water Water Water $ \u2002\u2002\u2002\u2002\u2002  Clothing Clothing Clothing Clothing Clothing $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 29",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_51",
+      "field_name": "heat_heat_heat_hair_care_and_beauty_hair_care_and_",
+      "field_type": "currency",
+      "field_label": "Heat Heat Heat $ \u2002\u2002\u2002\u2002\u2002  Hair care and beauty Hair care and beauty Hair care and beauty Hair care and",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 30",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_52",
+      "field_name": "electricity_electricity_electricity_alcohol_and_to",
+      "field_type": "currency",
+      "field_label": "Electricity Electricity Electricity $ \u2002\u2002\u2002\u2002\u2002  Alcohol and tobacco Alcohol and tobacco Alcohol and tob",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 3, Row 31",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_53",
+      "field_name": "telephone_telephone_telephone_telephone_education_",
+      "field_type": "currency",
+      "field_label": "Telephone Telephone Telephone Telephone $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Education (specify) \u2002\u2002\u2002\u2002\u2002 Education (specify)",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 6",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_54",
+      "field_name": "cell_phone_cell_phone_cell_phone_cell_phone_entert",
+      "field_type": "currency",
+      "field_label": "Cell phone Cell phone Cell phone Cell phone $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Entertainment/recreation (including child",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 7",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_55",
+      "field_name": "cable_cable_cable_cable_gifts_gifts_gifts_gifts_gi",
+      "field_type": "currency",
+      "field_label": "Cable Cable Cable Cable $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Gifts Gifts Gifts Gifts Gifts Gifts $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 8",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_56",
+      "field_name": "internet_internet_internet_internet_subtotal_subto",
+      "field_type": "currency",
+      "field_label": "Internet Internet Internet Internet $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBT",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 9",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_58",
+      "field_name": "household_expenses_household_expenses_household_ex",
+      "field_type": "currency",
+      "field_label": "Household Expenses Household Expenses Household Expenses Household Expenses Household Expenses House",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 11",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_59",
+      "field_name": "groceries_groceries_groceries_groceries_rrsp_resp_",
+      "field_type": "currency",
+      "field_label": "Groceries Groceries Groceries Groceries $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  RRSP/RESP withdrawals RRSP/RESP withdrawals R",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 12",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_60",
+      "field_name": "household_supplies_household_supplies_household_su",
+      "field_type": "currency",
+      "field_label": "Household supplies Household supplies Household supplies Household supplies $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Vacations",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 13",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_61",
+      "field_name": "meals_outside_the_home_meals_outside_the_home_meal",
+      "field_type": "currency",
+      "field_label": "Meals outside the home Meals outside the home Meals outside the home Meals outside the home $ \u2002\u2002\u2002\u2002\u2002 ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 14",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_62",
+      "field_name": "pet_care_pet_care_pet_care_pet_care_clothing_for_c",
+      "field_type": "currency",
+      "field_label": "Pet care Pet care Pet care Pet care $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Clothing for children Clothing for children Cloth",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 15",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_63",
+      "field_name": "laundry_and_dry_cleaning_laundry_and_dry_cleaning_",
+      "field_type": "currency",
+      "field_label": "Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 16",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_64",
+      "field_name": "childcare_costs_childcare_costs_childcare_costs_ch",
+      "field_type": "currency",
+      "field_label": "Childcare Costs Childcare Costs Childcare Costs Childcare Costs Childcare Costs Childcare Costs Chil",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 18",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_65",
+      "field_name": "daycare_expense_daycare_expense_daycare_expense_da",
+      "field_type": "currency",
+      "field_label": "Daycare expense Daycare expense Daycare expense Daycare expense $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Support paid for othe",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 19",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_66",
+      "field_name": "babysitting_costs_babysitting_costs_babysitting_co",
+      "field_type": "currency",
+      "field_label": "Babysitting costs Babysitting costs Babysitting costs Babysitting costs $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Other expense",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 20",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_67",
+      "field_name": "total_amount_of_monthly_expenses_total_amount_of_m",
+      "field_type": "currency",
+      "field_label": "      Total Amount of Monthly Expenses Total Amount of Monthly Expenses Total Amount of Monthly Expe",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 23",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_68",
+      "field_name": "total_amount_of_yearly_expenses_total_amount_of_ye",
+      "field_type": "currency",
+      "field_label": "      Total Amount of Yearly Expenses Total Amount of Yearly Expenses Total Amount of Yearly Expense",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 24",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_69",
+      "field_name": "real_estate_real_estate_1",
+      "field_type": "currency",
+      "field_label": "Real Estate Real Estate 1 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 28",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_70",
+      "field_name": "real_estate_real_estate_2",
+      "field_type": "currency",
+      "field_label": "Real Estate Real Estate 2 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 29",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_71",
+      "field_name": "real_estate_real_estate_3",
+      "field_type": "currency",
+      "field_label": "Real Estate Real Estate 3 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 30",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_73",
+      "field_name": "other_possessions_of_value_e_g_computers_jewellery",
+      "field_type": "currency",
+      "field_label": "Other Possessions of Value (e.g. computers, jewellery, collections) Other Possessions of Value (e.g.",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 6",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_74",
+      "field_name": "investments_e_g_bonds_shares_term_deposits_and_mut",
+      "field_type": "currency",
+      "field_label": "Investments (e.g. bonds, shares, term deposits and mutual funds) Investments (e.g. bonds, shares, te",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 10",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_75",
+      "field_name": "bank_accounts_bank_accounts_1",
+      "field_type": "currency",
+      "field_label": "Bank Accounts Bank Accounts 1 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 14",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_76",
+      "field_name": "bank_accounts_bank_accounts_2",
+      "field_type": "currency",
+      "field_label": "Bank Accounts Bank Accounts 2 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 15",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_77",
+      "field_name": "bank_accounts_bank_accounts_3",
+      "field_type": "currency",
+      "field_label": "Bank Accounts Bank Accounts 3 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 16",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_78",
+      "field_name": "savings_plans_r_r_s_p_s_pension_plans_r_e_s_p_s_sa",
+      "field_type": "currency",
+      "field_label": "Savings Plans R.R.S.P.s \nPension Plans R.E.S.P.s Savings Plans R.R.S.P.s \nPension Plans R.E.S.P.s 1 ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 18",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_80",
+      "field_name": "interest_in_business_attach_separate_year_end_stat",
+      "field_type": "currency",
+      "field_label": "Interest in Business (*attach separate year-end statement for each business) Interest in Business (*",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 26",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_81",
+      "field_name": "money_owed_to_you_for_example_any_court_judgments_",
+      "field_type": "currency",
+      "field_label": "Money Owed to You (for example, any court judgments in your favour, estate money and income tax refu",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 30",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_82",
+      "field_name": "other_assets_other_assets_1",
+      "field_type": "currency",
+      "field_label": "Other Assets Other Assets 1 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 34",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_83",
+      "field_name": "other_assets_other_assets_2",
+      "field_type": "currency",
+      "field_label": "Other Assets Other Assets 2 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 35",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_84",
+      "field_name": "other_assets_other_assets_3",
+      "field_type": "currency",
+      "field_label": "Other Assets Other Assets 3 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 36",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_85",
+      "field_name": "total_value_of_all_property_total_value_of_all_pro",
+      "field_type": "currency",
+      "field_label": "      Total Value of All Property Total Value of All Property Total Value of All Property Total Valu",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 38",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_86",
+      "field_name": "mortgages_lines_of_credits_or_other_loans_from_a_b",
+      "field_type": "currency",
+      "field_label": "Mortgages, Lines of Credits or other Loans from a Bank, Trust or Finance Company Mortgages, Lines of",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 6, Row 7",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_87",
+      "field_name": "outstanding_credit_card_balances_outstanding_credi",
+      "field_type": "currency",
+      "field_label": "Outstanding Credit Card Balances Outstanding Credit Card Balances Outstanding Credit Card Balances O",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 6, Row 10",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_88",
+      "field_name": "unpaid_support_amounts_unpaid_support_amounts_unpa",
+      "field_type": "currency",
+      "field_label": "Unpaid Support Amounts  Unpaid Support Amounts  Unpaid Support Amounts  Unpaid Support Amounts  Unpa",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 6, Row 13",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_89",
+      "field_name": "other_debts_other_debts_other_debts_other_debts_ot",
+      "field_type": "currency",
+      "field_label": "Other Debts Other Debts Other Debts Other Debts Other Debts \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ $ ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 6, Row 16",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_90",
+      "field_name": "total_amount_of_debts_outstanding_total_amount_of_",
+      "field_type": "currency",
+      "field_label": "          Total Amount of Debts Outstanding Total Amount of Debts Outstanding Total Amount of Debts ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 6, Row 20",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_91",
+      "field_name": "total_assets_total_assets_total_assets_total_asset",
+      "field_type": "currency",
+      "field_label": "      Total Assets Total Assets Total Assets Total Assets Total Assets Total Assets Total Assets $ $",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 6, Row 22",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_92",
+      "field_name": "subtract_total_debts_subtract_total_debts_subtract",
+      "field_type": "currency",
+      "field_label": "      Subtract Total Debts Subtract Total Debts Subtract Total Debts Subtract Total Debts Subtract T",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 6, Row 23",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_93",
+      "field_name": "net_worth_net_worth_net_worth_net_worth_net_worth_",
+      "field_type": "currency",
+      "field_label": "      Net Worth Net Worth Net Worth Net Worth Net Worth Net Worth Net Worth $ $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 6, Row 24",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_94",
+      "field_name": "1_1_net_partnership_income_net_partnership_income_",
+      "field_type": "currency",
+      "field_label": "1. 1. Net partnership income Net partnership income Net partnership income Net partnership income Ne",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 3",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_95",
+      "field_name": "2_2_net_rental_income_gross_annual_rental_income_o",
+      "field_type": "currency",
+      "field_label": "2. 2. Net rental income (Gross annual rental income of $ \u2002\u2002\u2002\u2002\u2002) Net rental income (Gross annual rent",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 4",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_96",
+      "field_name": "3_3_total_amount_of_dividends_received_from_taxabl",
+      "field_type": "currency",
+      "field_label": "3. 3. Total amount of dividends received from taxable Canadian corporations Total amount of dividend",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 5",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_97",
+      "field_name": "4_4_total_capital_gains_less_capital_losses_total_",
+      "field_type": "currency",
+      "field_label": "4. 4. Total capital gains ($ \u2002\u2002\u2002\u2002\u2002) less capital losses ($ \u2002\u2002\u2002\u2002\u2002) Total capital gains ($ \u2002\u2002\u2002\u2002\u2002) less",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 6",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_98",
+      "field_name": "5_5_registered_retirement_savings_plan_withdrawals",
+      "field_type": "currency",
+      "field_label": "5. 5. Registered retirement savings plan withdrawals Registered retirement savings plan withdrawals ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 7",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_99",
+      "field_name": "6_6_income_from_a_registered_retirement_income_fun",
+      "field_type": "currency",
+      "field_label": "6. 6. Income from a Registered Retirement Income Fund or Annuity Income from a Registered Retirement",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 8",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_100",
+      "field_name": "7_7_any_other_income_specify_source_any_other_inco",
+      "field_type": "currency",
+      "field_label": "7. 7. Any other income (specify source) \u2002\u2002\u2002\u2002\u2002 Any other income (specify source) \u2002\u2002\u2002\u2002\u2002 Any other inco",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 9",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_101",
+      "field_name": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+      "field_type": "currency",
+      "field_label": "         Subtotal: Subtotal: Subtotal: Subtotal: Subtotal: Subtotal: $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 11",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_102",
+      "field_name": "6_my_spouse_partner_my_spouse_partner_my_spouse_pa",
+      "field_type": "currency",
+      "field_label": "6. My spouse/partner My spouse/partner My spouse/partner  earns (give amount) $ earns (give amount) ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 22",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_103",
+      "field_name": "7_my_spouse_partner_or_other_adult_residing_in_the",
+      "field_type": "currency",
+      "field_label": "7.   My spouse/partner or other adult residing in the home contributes about $ My spouse/partner or ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 7, Row 24",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_104",
+      "field_name": "1",
+      "field_type": "currency",
+      "field_label": "1. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 3",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_105",
+      "field_name": "2",
+      "field_type": "currency",
+      "field_label": "2. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 4",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_106",
+      "field_name": "3",
+      "field_type": "currency",
+      "field_label": "3. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 5",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_107",
+      "field_name": "4",
+      "field_type": "currency",
+      "field_label": "4. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 6",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_108",
+      "field_name": "5",
+      "field_type": "currency",
+      "field_label": "5. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 7",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_109",
+      "field_name": "6",
+      "field_type": "currency",
+      "field_label": "6. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 8",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_110",
+      "field_name": "7",
+      "field_type": "currency",
+      "field_label": "7. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 9",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_111",
+      "field_name": "8",
+      "field_type": "currency",
+      "field_label": "8. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 10",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_112",
+      "field_name": "9",
+      "field_type": "currency",
+      "field_label": "9. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 11",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_113",
+      "field_name": "10_10",
+      "field_type": "currency",
+      "field_label": "10. 10. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 12",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_114",
+      "field_name": "total_net_annual_amount_total_net_annual_amount_to",
+      "field_type": "currency",
+      "field_label": "        Total Net Annual Amount Total Net Annual Amount Total Net Annual Amount $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 14",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_115",
+      "field_name": "total_net_monthly_amount_total_net_monthly_amount_",
+      "field_type": "currency",
+      "field_label": "        Total Net Monthly Amount Total Net Monthly Amount Total Net Monthly Amount $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 15",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_116",
+      "field_name": "i_earn_per_year_which_should_be_used_to_determine_",
+      "field_type": "currency",
+      "field_label": "    I earn $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 per year which should be used to determine my share of the above expenses. ",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 17",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_117",
+      "field_name": "medical_insurance_premiums_and_certain_health_rela",
+      "field_type": "currency",
+      "field_label": ". . . Medical insurance premiums and certain health-related expenses for the child that cost more th",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 8, Row 21",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_57",
+      "field_name": "subtotal_subtotal_subtotal_subtotal_other_expenses",
+      "field_type": "currency",
+      "field_label": "SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Other expenses Other expenses Other expenses Othe",
+      "value": null,
+      "required": false,
+      "confidence": 0.6999999999999998,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 10",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_72",
+      "field_name": "cars_boats_vehicles_cars_boats_vehicles_1",
+      "field_type": "currency",
+      "field_label": "Cars, Boats, Vehicles Cars, Boats, Vehicles 1 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 ",
+      "value": null,
+      "required": false,
+      "confidence": 0.6999999999999998,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 4, Row 32",
+      "metadata": {}
+    },
+    {
+      "field_id": "hybrid_79",
+      "field_name": "life_insurance_life_insurance_1",
+      "field_type": "currency",
+      "field_label": "Life Insurance Life Insurance 1 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+      "value": null,
+      "required": false,
+      "confidence": 0.6999999999999998,
+      "extraction_methods": [
+        "docx_table"
+      ],
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 5, Row 22",
+      "metadata": {}
+    }
+  ]
+}

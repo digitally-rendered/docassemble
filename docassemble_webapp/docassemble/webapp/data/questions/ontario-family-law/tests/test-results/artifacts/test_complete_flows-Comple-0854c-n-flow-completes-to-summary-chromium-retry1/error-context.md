@@ -1,0 +1,89 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - button "Back" [ref=e6] [cursor=pointer]:
+        - generic [ref=e7] [cursor=pointer]:
+          - img [ref=e8] [cursor=pointer]
+          - generic [ref=e10] [cursor=pointer]: Back
+      - generic [ref=e12]: Ontario Family Law Common Intake - Enhanced
+      - button "Information for the developer" [ref=e14] [cursor=pointer]:
+        - img [ref=e15] [cursor=pointer]
+      - list [ref=e18]:
+        - listitem [ref=e19]:
+          - link "Sign in or sign up to save answers" [ref=e20] [cursor=pointer]:
+            - /url: /user/sign-in
+  - main "Ontario Family Law Common Intake - Enhanced" [ref=e23]:
+    - form "Financial Information" [ref=e24]:
+      - heading "Financial Information" [level=1] [ref=e26]
+      - paragraph [ref=e28]: This information helps determine which financial forms you need.
+      - radiogroup [ref=e29]:
+        - generic [ref=e30]: Are you claiming support? *
+        - generic [ref=e32]:
+          - radio "Yes" [ref=e33] [cursor=pointer]:
+            - img [ref=e35] [cursor=pointer]
+            - generic [ref=e37] [cursor=pointer]: "Yes"
+          - radio "No" [checked] [ref=e38] [cursor=pointer]:
+            - img [ref=e40] [cursor=pointer]
+            - generic [ref=e42] [cursor=pointer]: "No"
+      - radiogroup [ref=e43]:
+        - generic [ref=e44]: Are you paying support? *
+        - generic [ref=e46]:
+          - radio "Yes" [ref=e47] [cursor=pointer]:
+            - img [ref=e49] [cursor=pointer]
+            - generic [ref=e51] [cursor=pointer]: "Yes"
+          - radio "No" [checked] [ref=e52] [cursor=pointer]:
+            - img [ref=e54] [cursor=pointer]
+            - generic [ref=e56] [cursor=pointer]: "No"
+      - radiogroup [ref=e57]:
+        - generic [ref=e58]: Do you own real estate? *
+        - generic [ref=e60]:
+          - radio "Yes" [ref=e61] [cursor=pointer]:
+            - img [ref=e63] [cursor=pointer]
+            - generic [ref=e65] [cursor=pointer]: "Yes"
+          - radio "No" [checked] [ref=e66] [cursor=pointer]:
+            - img [ref=e68] [cursor=pointer]
+            - generic [ref=e70] [cursor=pointer]: "No"
+      - radiogroup [ref=e71]:
+        - generic [ref=e72]: Do you own a business? *
+        - generic [ref=e74]:
+          - radio "Yes" [ref=e75] [cursor=pointer]:
+            - img [ref=e77] [cursor=pointer]
+            - generic [ref=e79] [cursor=pointer]: "Yes"
+          - radio "No" [checked] [ref=e80] [cursor=pointer]:
+            - img [ref=e82] [cursor=pointer]
+            - generic [ref=e84] [cursor=pointer]: "No"
+      - radiogroup [ref=e85]:
+        - generic [ref=e86]: Do you have investments/RRSPs? *
+        - generic [ref=e88]:
+          - radio "Yes" [ref=e89] [cursor=pointer]:
+            - img [ref=e91] [cursor=pointer]
+            - generic [ref=e93] [cursor=pointer]: "Yes"
+          - radio "No" [checked] [ref=e94] [cursor=pointer]:
+            - img [ref=e96] [cursor=pointer]
+            - generic [ref=e98] [cursor=pointer]: "No"
+      - radiogroup [ref=e99]:
+        - generic [ref=e100]: Do you have pensions? *
+        - generic [ref=e102]:
+          - radio "Yes" [ref=e103] [cursor=pointer]:
+            - img [ref=e105] [cursor=pointer]
+            - generic [ref=e107] [cursor=pointer]: "Yes"
+          - radio "No" [checked] [ref=e108] [cursor=pointer]:
+            - img [ref=e110] [cursor=pointer]
+            - generic [ref=e112] [cursor=pointer]: "No"
+      - generic [ref=e113]:
+        - generic [ref=e114]: Total value of assets
+        - generic [ref=e116]:
+          - generic [ref=e117]: $
+          - textbox "Total value of assets" [ref=e118]
+      - generic [ref=e119]:
+        - generic [ref=e120]: Total debts
+        - generic [ref=e122]:
+          - generic [ref=e123]: $
+          - textbox "Total debts" [ref=e124]
+      - group "Press one of the following buttons:" [ref=e125]:
+        - generic [ref=e126]: "Press one of the following buttons:"
+        - button "Continue" [ref=e127] [cursor=pointer]
+```

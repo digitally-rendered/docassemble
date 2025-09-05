@@ -1,0 +1,29 @@
+{
+  "parser_name": "intelligent",
+  "form_path": "workflow_output/ontario_forms/child_protection_adoption/form_33f_-_access_application_flr-33f-may21-en-fil.docx",
+  "form_hash": "7f44ab83e87103e30f3050d8f5ad79f661052c4f3a8fcdd63443d6c87eea35de",
+  "timestamp": "2025-08-18T21:40:24.753875",
+  "fields": [
+    {
+      "field_name": "birthdate_birthdate_birthdate_birthdate_birthdate_",
+      "field_type": "date",
+      "field_label": "Birthdate: Birthdate: Birthdate: Birthdate: Birthdate: Birthdate: Birthdate:  \n\u2002\u2002\u2002\u2002\u2002 \n\u2002\u2002\u2002\u2002\u2002 \n\u2002\u2002\u2002\u2002\u2002 \n",
+      "value": null,
+      "required": false,
+      "confidence": 0.7,
+      "extraction_method": "docx_table",
+      "page_number": 0,
+      "coordinates": null,
+      "context": "Table 1, Row 12",
+      "table_info": {
+        "table_index": 0,
+        "row_index": 11
+      },
+      "validation_rules": null
+    }
+  ],
+  "metadata": {
+    "ocr_used": true,
+    "ai_used": false
+  }
+}

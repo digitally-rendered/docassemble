@@ -1,0 +1,242 @@
+---
+metadata:
+  title: Ontario Family Law Form 25A
+  short_title: Form 25A
+  description: Structured interview with 28 fields and 3 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - 25A
+  form_number: 25A
+  form_category: order
+  generated: '2025-08-26 22:15:24'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: stepped
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+objects:
+- court_info: DAObject
+- person: Individual
+- applicant: Individual
+- respondent: Individual
+mandatory: true
+code: 'intro_seen
+
+  applicant.name.first
+
+  applicant.name.last
+
+  respondent.name.first
+
+  respondent.name.last
+
+  review_complete
+
+  form_complete'
+question: Form 25A Interview
+subquestion: 'This structured interview will help you complete Form 25A.
+
+
+  You will be asked about:
+
+  - Personal information for parties involved
+
+
+  Total sections: 4
+
+  Fields to complete: 28'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Person Information
+fields:
+- label: Name of Court.  Select from the drop down menu.
+  field: person.form1_0_page1_0_p1_0_courtdetails_0_court_0_nameofcourt_0
+  datatype: text
+  required: false
+- label: Court office address
+  field: person.form1_0_page1_0_p1_0_courtdetails_0_court_0_courtofficeaddress_0
+  datatype: text
+  required: false
+- label: Judge (print or type name)
+  field: person.form1_0_page1_0_p1_0_appl_0_subform_0_judge_0
+  datatype: text
+  required: false
+- label: The court considered an application of (name)
+  field: person.form1_0_page1_0_p1_0_line1_0_application_0
+  datatype: text
+  required: false
+- label: The following persons were in court (Give names of parties and lawyers in court. This paragraph may be struck out if the divorce is uncontested.)
+  field: person.form1_0_page1_0_p1_0_line2_0_specify_0
+  datatype: text
+  required: false
+- label: name or names
+  field: person.form1_0_page1_0_p1_0_names_0_textfield_0
+  datatype: text
+  required: false
+question: Applicant Information
+fields:
+- label: Applicant. 1. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: applicant.form1_0_page1_0_p1_0_appl_0_start_0_applicants_0_appliant_0_textfield_0
+  datatype: text
+  required: false
+- label: Applicant. 1. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: applicant.form1_0_page1_0_p1_0_appl_0_start_0_applicants_0_applicantlawyer_0_textfield_0
+  datatype: text
+  required: false
+question: Respondent Information
+fields:
+- label: Respondent. 1. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: respondent.form1_0_page1_0_p1_0_appl_0_start_0_respondents_0_respondant_0_textfield_0
+  datatype: text
+  required: false
+- label: Respondent. 1. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: respondent.form1_0_page1_0_p1_0_appl_0_start_0_respondents_0_respondantlawyer_0_textfield_0
+  datatype: text
+  required: false
+question: Additional Information
+fields:
+- label: Court File Number
+  field: form1_0_page1_0_p1_0_courtdetails_0_courtfilenumber_0
+  datatype: text
+  required: false
+- label: Date of order
+  field: form1_0_page1_0_p1_0_appl_0_subform_0_dateoforder_0
+  datatype: text
+  required: false
+- label: Applicant. 2. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: form1_0_page1_0_p1_0_appl_0_start_0_applicants_0_appliant_0_textfield_1
+  datatype: text
+  required: false
+- label: Applicant. 2. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: form1_0_page1_0_p1_0_appl_0_start_0_applicants_0_applicantlawyer_0_textfield_1
+  datatype: text
+  required: false
+- label: Respondent. 2. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: form1_0_page1_0_p1_0_appl_0_start_0_respondents_0_respondant_0_textfield_1
+  datatype: text
+  required: false
+- label: Respondent. 2. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: form1_0_page1_0_p1_0_appl_0_start_0_respondents_0_respondantlawyer_0_textfield_1
+  datatype: text
+  required: false
+- label: date
+  field: form1_0_page1_0_p1_0_ondate_0_textfield_0
+  datatype: text
+  required: false
+- label: full legal names of spouses
+  field: form1_0_page1_0_p1_0_orders_0_textfield_0
+  datatype: text
+  required: false
+- label: place
+  field: form1_0_page1_0_p1_0_orders_0_textfield_1
+  datatype: text
+  required: false
+- label: date
+  field: form1_0_page1_0_p1_0_orders_0_textfield_2
+  datatype: text
+  required: false
+- label: Add further paragraphs where the court orders other relief.
+  field: form1_0_page1_0_p1_0_textfield_0
+  datatype: text
+  required: false
+- label: Court File Number
+  field: form1_0_page1_0_p2_0_subform_0_courtfilenumber_0
+  datatype: text
+  required: false
+- label: Add further paragraphs where the court orders other relief.
+  field: form1_0_page1_0_p2_0_textfield_0
+  datatype: text
+  required: false
+- label: Date of signature
+  field: form1_0_page1_0_p2_0_dateofsignature_0
+  datatype: text
+  required: false
+- label: Signature of judge or clerk of the court
+  field: form1_0_page1_0_p2_0_judgesignature_0
+  datatype: text
+  required: false
+- label: Save Form
+  field: form1_0_page1_0_navigationbtns_0_saveform_0
+  datatype: text
+  required: false
+- label: Print Form
+  field: form1_0_page1_0_navigationbtns_0_print_0
+  datatype: text
+  required: false
+- label: Clear Form
+  field: form1_0_page1_0_navigationbtns_0_reset_0
+  datatype: text
+  required: false
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: Name of Court.  Select from the drop down menu.
+  field: person.form1_0_page1_0_p1_0_courtdetails_0_court_0_nameofcourt_0
+  edit: true
+- label: Court office address
+  field: person.form1_0_page1_0_p1_0_courtdetails_0_court_0_courtofficeaddress_0
+  edit: true
+- label: Judge (print or type name)
+  field: person.form1_0_page1_0_p1_0_appl_0_subform_0_judge_0
+  edit: true
+- label: Applicant. 1. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: applicant.form1_0_page1_0_p1_0_appl_0_start_0_applicants_0_appliant_0_textfield_0
+  edit: true
+- label: Applicant. 1. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: applicant.form1_0_page1_0_p1_0_appl_0_start_0_applicants_0_applicantlawyer_0_textfield_0
+  edit: true
+- label: Respondent. 1. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: respondent.form1_0_page1_0_p1_0_appl_0_start_0_respondents_0_respondant_0_textfield_0
+  edit: true
+- label: Respondent. 1. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: respondent.form1_0_page1_0_p1_0_appl_0_start_0_respondents_0_respondantlawyer_0_textfield_0
+  edit: true
+- label: Court File Number
+  field: form1_0_page1_0_p1_0_courtdetails_0_courtfilenumber_0
+  edit: true
+- label: Date of order
+  field: form1_0_page1_0_p1_0_appl_0_subform_0_dateoforder_0
+  edit: true
+- label: Applicant. 2. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: form1_0_page1_0_p1_0_appl_0_start_0_applicants_0_appliant_0_textfield_1
+  edit: true
+- label: Applicant. 2. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: form1_0_page1_0_p1_0_appl_0_start_0_applicants_0_applicantlawyer_0_textfield_1
+  edit: true
+- label: Respondent. 2. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: form1_0_page1_0_p1_0_appl_0_start_0_respondents_0_respondant_0_textfield_1
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 25A Complete
+subquestion: 'Your Form 25A has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart

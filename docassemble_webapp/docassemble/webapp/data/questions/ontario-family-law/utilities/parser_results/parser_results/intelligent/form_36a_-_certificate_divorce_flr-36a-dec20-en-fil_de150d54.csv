@@ -1,0 +1,2 @@
+confidence,context,coordinates,extraction_method,field_label,field_name,field_type,page_number,required,table_info,validation_rules,value
+0.7,"Table 2, Row 24",,docx_table,"      recipient’s income [REQUIRED for special expenses (add-ons), split and shared parenting time, ",recipient_s_income_required_for_special_expenses_a,currency,0,False,"{'table_index': 1, 'row_index': 23}",,

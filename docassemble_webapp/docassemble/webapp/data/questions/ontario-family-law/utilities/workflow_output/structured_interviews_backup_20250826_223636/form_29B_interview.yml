@@ -1,0 +1,275 @@
+---
+metadata:
+  title: Ontario Family Law Form 29B
+  short_title: Form 29B
+  description: Structured interview with 30 fields and 4 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - 29B
+  form_number: 29B
+  form_category: general
+  generated: '2025-08-26 22:15:24'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+- docassemble.base:data/questions/financial.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: stepped
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+  table_css_class: table table-striped
+objects:
+- court_info: DAObject
+- amount_information: DAObject
+- table_1_item_22: DAObject
+- table_1_item_26: DAObject
+- table_1_item_27: DAObject
+- income_sources: DAList.using(object_type=Income)
+- expenses: DAList.using(object_type=Expense)
+- assets: DAList.using(object_type=Asset)
+- debts: DAList.using(object_type=Liability)
+mandatory: true
+code: 'intro_seen
+
+  amount_information_complete
+
+  table_1_item_22_complete
+
+  table_1_item_26_complete
+
+  table_1_item_27_complete
+
+  review_complete
+
+  form_complete'
+question: Form 29B Interview
+subquestion: 'This structured interview will help you complete Form 29B.
+
+
+  You will be asked about:
+
+  - Financial information and calculations
+
+
+  Total sections: 5
+
+  Fields to complete: 30'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Amount Information
+fields:
+- label: 'Check the first circle if you want the garnishment to deduct fixed dollar amounts.  If you want the '
+  field: amount_information.check_the_first_circle_if_you_want_the_garnishment
+  datatype: currency
+  required: false
+  min: 0
+- label: 'Check the first circle if you want the garnishment to deduct fixed dollar amounts.  If you want the '
+  field: amount_information.check_the_first_circle_if_you_want_the_garnishment
+  datatype: currency
+  required: false
+  min: 0
+- label: 'Check the first circle if you want the garnishment to deduct fixed dollar amounts.  If you want the '
+  field: amount_information.check_the_first_circle_if_you_want_the_garnishment
+  datatype: currency
+  required: false
+  min: 0
+question: Additional Information
+fields:
+- label: Dropdown 1
+  field: dropdown1
+  required: false
+  choices:
+  - '          '
+  - Ontario Court of Justice
+  - Superior Court of Justice
+  - Superior Court of Justice Family Court Branch
+  help_text: ''
+- label: Court File Number
+  field: courtfileno
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 2
+  field: check2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 1
+  field: check1
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 3
+  field: check3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 3
+  field: check3_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 4
+  field: check4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_13
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 4
+  field: check4_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 5
+  field: check5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_14
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 6
+  field: check6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_15
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 7
+  field: check7
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5
+  datatype: text
+  required: false
+  help_text: ''
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: 'Check the first circle if you want the garnishment to deduct fixed dollar amounts.  If you want the '
+  field: amount_information.check_the_first_circle_if_you_want_the_garnishment
+  edit: true
+- label: 'Check the first circle if you want the garnishment to deduct fixed dollar amounts.  If you want the '
+  field: amount_information.check_the_first_circle_if_you_want_the_garnishment
+  edit: true
+- label: 'Check the first circle if you want the garnishment to deduct fixed dollar amounts.  If you want the '
+  field: amount_information.check_the_first_circle_if_you_want_the_garnishment
+  edit: true
+- label: Dropdown 1
+  field: dropdown1
+  edit: true
+- label: Court File Number
+  field: courtfileno
+  edit: true
+- label: Text Field 2
+  field: text2
+  edit: true
+- label: Text Field 2
+  field: text2_2
+  edit: true
+- label: Text Field 2
+  field: text2_3
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 29B Complete
+subquestion: 'Your Form 29B has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart

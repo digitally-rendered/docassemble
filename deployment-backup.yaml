@@ -1,0 +1,201 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "36"
+    meta.helm.sh/release-name: docassemble
+    meta.helm.sh/release-namespace: docassemble
+  creationTimestamp: "2025-08-09T01:27:10Z"
+  generation: 36
+  labels:
+    app.kubernetes.io/instance: docassemble
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: docassemble
+    app.kubernetes.io/version: 1.16.0
+    helm.sh/chart: docassemble-0.1.0
+  name: docassemble
+  namespace: docassemble
+  resourceVersion: "3183004"
+  uid: 8a54a922-1340-4414-88b0-62156bd260e1
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: docassemble
+      app.kubernetes.io/name: docassemble
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/restartedAt: "2025-08-09T21:21:28-04:00"
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/component: web
+        app.kubernetes.io/instance: docassemble
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: docassemble
+        app.kubernetes.io/version: 1.16.0
+        helm.sh/chart: docassemble-0.1.0
+    spec:
+      containers:
+      - env:
+        - name: DBHOST
+          value: db.ceiplvxfrxlopndgviyc.supabase.co
+        - name: DBPORT
+          value: "5432"
+        - name: DBNAME
+          value: postgres
+        - name: DBUSER
+          value: postgres
+        - name: DBPASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: docassemble-db-secret
+        - name: REDIS
+          value: redis://docassemble-redis:6379
+        - name: DAHOSTNAME
+          value: docassemble.local
+        - name: USEHTTPS
+          value: "false"
+        - name: USELETSENCRYPT
+          value: "false"
+        - name: BEHINDHTTPSLOADBALANCER
+          value: "false"
+        - name: DA_ADMIN_EMAIL
+          value: admin@admin.com
+        - name: DA_ADMIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: docassemble-admin-secret
+        - name: DASUPERVISORUSERNAME
+          value: admin
+        - name: DASUPERVISORPASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: docassemble-supervisor-secret
+        - name: S3ENABLE
+          value: "false"
+        - name: DASESSIONTYPE
+          value: redis
+        - name: DACELERYREDIS
+          value: "true"
+        - name: CONTAINERROLE
+          value: web:worker:websockets:cron:mail
+        - name: TIMEZONE
+          value: America/New_York
+        - name: SUPERVISORLOGLEVEL
+          value: info
+        - name: EC2
+          value: "false"
+        - name: DBPREFIX
+        - name: DBBACKUP
+          value: "false"
+        - name: PGUSER
+          value: postgres
+        - name: PGPASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: docassemble-db-secret
+        - name: PGHOST
+          value: db.ceiplvxfrxlopndgviyc.supabase.co
+        - name: PGPORT
+          value: "5432"
+        - name: PGDATABASE
+          value: postgres
+        - name: DBSSLMODE
+          value: require
+        - name: PGSSLROOTCERT
+          value: /usr/share/ssl-certs/prod-ca-2021.crt
+        - name: POSTNGINX
+          value: "true"
+        - name: DAWEBSERVER
+          value: nginx
+        - name: DAPYTHONRUNTIME
+          value: python3
+        - name: DAROOTOWNED
+          value: "true"
+        - name: DAEXTERNALDATABASE
+          value: "true"
+        - name: PYTHONDONTWRITEBYTECODE
+          value: "1"
+        - name: DADEBUG
+          value: "true"
+        - name: DAALLOWUPLOADS
+          value: "true"
+        - name: DAALLOWPLAYGROUND
+          value: "true"
+        image: docassemble:latest
+        imagePullPolicy: Never
+        name: docassemble
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: "1"
+            memory: 2Gi
+          requests:
+            cpu: 500m
+            memory: 1Gi
+        securityContext:
+          runAsNonRoot: false
+          runAsUser: 0
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /usr/share/docassemble/files
+          name: docassemble-data
+        - mountPath: /usr/share/ssl-certs
+          name: ssl-cert
+          readOnly: true
+        - mountPath: /usr/share/docassemble/local3.12/lib/python3.12/site-packages/docassemble/webapp/data/questions
+          name: interview-questions
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: docassemble
+      serviceAccountName: docassemble
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: docassemble-data
+        persistentVolumeClaim:
+          claimName: docassemble-pvc
+      - configMap:
+          defaultMode: 420
+          name: docassemble-ssl-cert
+        name: ssl-cert
+      - hostPath:
+          path: /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions
+          type: Directory
+        name: interview-questions
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2025-08-09T12:01:28Z"
+    lastUpdateTime: "2025-08-10T14:23:18Z"
+    message: ReplicaSet "docassemble-5c578977fd" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2025-08-28T01:49:04Z"
+    lastUpdateTime: "2025-08-28T01:49:04Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 36
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

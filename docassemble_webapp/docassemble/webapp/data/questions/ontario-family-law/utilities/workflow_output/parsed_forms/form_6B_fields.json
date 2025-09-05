@@ -1,0 +1,17 @@
+[
+  {
+    "field_id": "table_2_row_16",
+    "field_name": "including_travel_including_travel_including_travel",
+    "field_type": "currency",
+    "field_label": "$ including travel. including travel. including travel. including travel. including travel. includin",
+    "required": false,
+    "validation_rules": "",
+    "max_length": null,
+    "options": null,
+    "table_name": "Table 3",
+    "table_row": 16,
+    "field_context": "Table 3, Row 17",
+    "page_number": 0,
+    "coordinates": null
+  }
+]

@@ -1,0 +1,1068 @@
+---
+metadata:
+  title: "Ontario Family Law Form 26: Form 26"
+  short title: Form 26
+  description: Interview with baseline error handling for 64 fields
+  form_number: 26
+  field_count: 64
+  error_handling: baseline
+  generated: "2025-08-26T23:10:53.707718" 
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  debug: True
+  question help button: True
+  question back button: True
+  progress bar: True
+  progress bar method: all
+  progress bar multiplier: 0.05
+---
+objects:
+  - validation_errors: DAList
+  - error_log: DAList
+  - field_errors: DADict
+---
+initial: True
+code: |
+  validation_errors = DAList()
+  error_log = DAList()
+  field_errors = DADict()
+  debug_mode = get_config('debug', False)
+  error_count = 0
+---
+code: |
+  def handle_error(context, error_type, details):
+    '''Global error handler'''
+    error_entry = {
+      'timestamp': current_datetime(),
+      'context': context,
+      'type': error_type,
+      'details': details
+    }
+    error_log.append(error_entry)
+    if debug_mode:
+      log(f"ERROR in {context}: {error_type} - {details}", 'error')
+    return error_entry
+---
+code: |
+  def safe_get(obj, attr, default=""):
+    '''Safely get object attribute'''
+    try:
+      if hasattr(obj, attr):
+        val = getattr(obj, attr)
+        return val if val is not None else default
+      return default
+    except:
+      return default
+---
+code: |
+  def validate_required(field_name, value):
+    '''Validate required field'''
+    if not value or (isinstance(value, str) and not value.strip()):
+      field_errors[field_name] = f"{field_name} is required"
+      return False
+    return True
+---
+objects:
+  - user: Individual
+  - other_party: Individual
+---
+mandatory: True
+code: |
+  try:
+    intro_seen
+  user.name.first
+  other_party.name.first
+  review_answers
+  if len(validation_errors) > 0:
+    review_with_errors
+  form_complete
+  except Exception as e:
+    handle_error("main_flow", "FlowError", str(e))
+    error_recovery
+---
+question: |
+  Ontario Family Law Form 26
+subquestion: |
+  Welcome to the Form 26 interview.
+  
+  This interview will collect 64 fields of information.
+  
+  % if debug_mode:
+  <div class="alert alert-info">
+    Debug mode is enabled - detailed error information will be shown
+  </div>
+  % endif
+  
+  All fields include validation and error handling.
+continue button field: intro_seen
+---
+question: |
+  Table 1, Row 26
+fields:
+  - 3. 3. The total of the periodic payments that remain unpaid today is $ The total of the periodic pay: _the_total_of_the_periodic_payments_that_remain
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_1__row_26_collected
+---
+question: |
+  Table 1, Row 29
+fields:
+  - is $ .  The detailed interest calculations are attached to this statement. .  The detailed interest : is_the_detailed_interest_calculations_are_attached
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_1__row_29_collected
+---
+question: |
+  Table 2, Row 10
+fields:
+  - (b) (b) if your order or domestic contract does not require the payor to make periodic payments. 
+
+I: b_if_your_order_or_domesticontract_does_not_re
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_10_collected
+---
+question: |
+  Table 2, Row 11
+fields:
+  - if your order or domestic contract does not require the payor to make periodic payments. 
+
+If you ar: if_your_order_or_domesticontract_does_not_requir
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_11_collected
+---
+question: |
+  Table 2, Row 12
+fields:
+  - if your order or domestic contract does not require the payor to make periodic payments. 
+
+If you ar: if_your_order_or_domesticontract_does_not_requir
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_12_collected
+---
+question: |
+  Table 2, Row 13
+fields:
+  - if your order or domestic contract does not require the payor to make periodic payments. 
+
+If you ar: if_your_order_or_domesticontract_does_not_requir
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_13_collected
+---
+question: |
+  Table 2, Row 14
+fields:
+  - if your order or domestic contract does not require the payor to make periodic payments. 
+
+If you ar: if_your_order_or_domesticontract_does_not_requir
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_14_collected
+---
+question: |
+  Table 2, Row 15
+fields:
+  - if your order or domestic contract does not require the payor to make periodic payments. 
+
+If you ar: if_your_order_or_domesticontract_does_not_requir
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_15_collected
+---
+question: |
+  Table 2, Row 16
+fields:
+  - if your order or domestic contract does not require the payor to make periodic payments. 
+
+If you ar: if_your_order_or_domesticontract_does_not_requir
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_16_collected
+---
+question: |
+  Table 2, Row 17
+fields:
+  - if your order or domestic contract does not require the payor to make periodic payments. 
+
+If you ar: if_your_order_or_domesticontract_does_not_requir
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_17_collected
+---
+question: |
+  Table 2, Row 18
+fields:
+  - if your order or domestic contract does not require the payor to make periodic payments. 
+
+If you ar: if_your_order_or_domesticontract_does_not_requir
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_18_collected
+---
+question: |
+  Table 2, Row 32
+fields:
+  - If there have been partial payments on the lump sum, you MUST attach one or more separate sheets as : if_there_have_been_partial_payments_on_the_lump_su
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_32_collected
+---
+question: |
+  Table 2, Row 33
+fields:
+  - If there have been partial payments on the lump sum, you MUST attach one or more separate sheets as : if_there_have_been_partial_payments_on_the_lump_su
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_33_collected
+---
+question: |
+  Table 2, Row 34
+fields:
+  - If there have been partial payments on the lump sum, you MUST attach one or more separate sheets as : if_there_have_been_partial_payments_on_the_lump_su
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_34_collected
+---
+question: |
+  Table 2, Row 35
+fields:
+  - If there have been partial payments on the lump sum, you MUST attach one or more separate sheets as : if_there_have_been_partial_payments_on_the_lump_su
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_2__row_35_collected
+---
+question: |
+  Table 3, Row 7
+fields:
+  - that remains unpaid today is $ that remains unpaid today is $ that remains unpaid today is $ that re: that_remains_unpaid_today_is_that_remains_unpaid_t
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_7_collected
+---
+question: |
+  Table 3, Row 9
+fields:
+  - 6. 6. 6. The total amount of unpaid interest on the lump sum up to today is $ The total amount of un: _6_the_total_amount_of_unpaid_interest_on_the_l
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_9_collected
+---
+question: |
+  Table 3, Row 12
+fields:
+  - 7. 7. 7. The amount of court costs remaining unpaid today is $ The amount of court costs remaining u: _7_the_amount_of_court_costs_remaining_unpaid_t
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_12_collected
+---
+question: |
+  Table 3, Row 15
+fields:
+  - 8. 8. 8. The amount of unpaid interest on court costs up to today is $ The amount of unpaid interest: _8_the_amount_of_unpaid_interest_on_court_costs
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_15_collected
+---
+question: |
+  Table 3, Row 19
+fields:
+  - 9. 9. 9. Of the money in paragraphs 5 and 6, I attribute $ Of the money in paragraphs 5 and 6, I att: _9_of_the_money_in_paragraphs_5_and_6_i_attribu
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_19_collected
+---
+question: |
+  Table 3, Row 21
+fields:
+  - 10. 10. 10. Of the money in paragraphs 3 and 4, I attribute $ Of the money in paragraphs 3 and 4, I : _10_of_the_money_in_paragraphs_3_and_4_i_attr
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_21_collected
+---
+question: |
+  Table 3, Row 23
+fields:
+  - 11. 11. 11. The total of the sums in paragraphs 9 and 10 is $ The total of the sums in paragraphs 9 : _11_the_total_of_the_sums_in_paragraphs_9_and
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_23_collected
+---
+question: |
+  Table 3, Row 27
+fields:
+  - (a) unpaid amounts of periodic payments (paragraph 3) unpaid amounts of periodic payments (paragraph: a_unpaid_amounts_of_periodic_payments_paragraph_3_
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_27_collected
+---
+question: |
+  Table 3, Row 28
+fields:
+  - (b) interest on unpaid amounts of periodic payments (paragraph 4) interest on unpaid amounts of peri: b_interest_on_unpaid_amounts_of_periodic_payments_
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_28_collected
+---
+question: |
+  Table 3, Row 29
+fields:
+  - (c) unpaid lump-sum debt (paragraph 5) unpaid lump-sum debt (paragraph 5) unpaid lump-sum debt (para: c_unpaid_lump_sum_debt_paragraph_5_unpaid_lump_sum
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_29_collected
+---
+question: |
+  Table 3, Row 30
+fields:
+  - (d) interest on unpaid lump-sum debt (paragraph 6) interest on unpaid lump-sum debt (paragraph 6) in: d_interest_on_unpaid_lump_sum_debt_paragraph_6_int
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_30_collected
+---
+question: |
+  Table 3, Row 31
+fields:
+  - (e) unpaid court costs (paragraph 7) unpaid court costs (paragraph 7) unpaid court costs (paragraph : e_unpaid_court_costs_paragraph_7_unpaid_court_cost
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_31_collected
+---
+question: |
+  Table 3, Row 32
+fields:
+  - (f) interest on unpaid court costs (paragraph 8) interest on unpaid court costs (paragraph 8) intere: f_interest_on_unpaid_court_costs_paragraph_8_inter
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_32_collected
+---
+question: |
+  Table 3, Row 33
+fields:
+  - TOTAL TOTAL TOTAL TOTAL TOTAL TOTAL TOTAL TOTAL TOTAL $: total_total_total_total_to
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_3__row_33_collected
+---
+question: |
+  Table 5, Row 5
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_5_collected
+---
+question: |
+  Table 5, Row 6
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_6_collected
+---
+question: |
+  Table 5, Row 7
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_7_collected
+---
+question: |
+  Table 5, Row 8
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_8_collected
+---
+question: |
+  Table 5, Row 9
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_9_collected
+---
+question: |
+  Table 5, Row 10
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_10_collected
+---
+question: |
+  Table 5, Row 11
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_11_collected
+---
+question: |
+  Table 5, Row 12
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_12_collected
+---
+question: |
+  Table 5, Row 13
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_13_collected
+---
+question: |
+  Table 5, Row 14
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_14_collected
+---
+question: |
+  Table 5, Row 15
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_15_collected
+---
+question: |
+  Table 5, Row 16
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_16_collected
+---
+question: |
+  Table 5, Row 17
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_17_collected
+---
+question: |
+  Table 5, Row 18
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_18_collected
+---
+question: |
+  Table 5, Row 19
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_19_collected
+---
+question: |
+  Table 5, Row 20
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_20_collected
+---
+question: |
+  Table 5, Row 21
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_21_collected
+---
+question: |
+  Table 5, Row 22
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_22_collected
+---
+question: |
+  Table 5, Row 23
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_23_collected
+---
+question: |
+  Table 5, Row 24
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_24_collected
+---
+question: |
+  Table 5, Row 25
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_25_collected
+---
+question: |
+  Table 5, Row 26
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_26_collected
+---
+question: |
+  Table 5, Row 27
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_27_collected
+---
+question: |
+  Table 5, Row 28
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_28_collected
+---
+question: |
+  Table 5, Row 29
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_29_collected
+---
+question: |
+  Table 5, Row 30
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_30_collected
+---
+question: |
+  Table 5, Row 31
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_31_collected
+---
+question: |
+  Table 5, Row 32
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_32_collected
+---
+question: |
+  Table 5, Row 33
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_33_collected
+---
+question: |
+  Table 5, Row 34
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_34_collected
+---
+question: |
+  Table 5, Row 35
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_35_collected
+---
+question: |
+  Table 5, Row 36
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_36_collected
+---
+question: |
+  Table 5, Row 37
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_37_collected
+---
+question: |
+  Table 5, Row 38
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_38_collected
+---
+question: |
+  Table 5, Row 39
+fields:
+  - $ $ $ $ $ $ $ $: field
+    datatype: currency
+    min: 0
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: table_5__row_39_collected
+---
+question: |
+  Your Information
+fields:
+  - First Name: user.name.first
+    required: True
+    validation messages:
+      required: First name is required
+  - Last Name: user.name.last
+    required: True
+    validation messages:
+      required: Last name is required
+  - Date of Birth: user.birthdate
+    datatype: date
+    required: False
+---
+question: |
+  Other Party
+fields:
+  - First Name: other_party.name.first
+    required: True
+    validation messages:
+      required: First name is required
+  - Last Name: other_party.name.last
+    required: True
+    validation messages:
+      required: Last name is required
+  - Date of Birth: other_party.birthdate
+    datatype: date
+    required: False
+---
+event: error_recovery
+question: |
+  Error Recovery
+subquestion: |
+  An error occurred during the interview.
+  
+  % if len(error_log) > 0:
+  **Recent Errors:**
+  % for error in error_log[-5:]:
+  - ${ error['context'] }: ${ error['type'] }
+  % endfor
+  % endif
+  
+  You can try restarting or contact support.
+buttons:
+  - Restart: restart
+  - Exit: exit
+---
+event: review_with_errors
+question: |
+  Review with Validation Issues
+subquestion: |
+  <div class="alert alert-warning">
+    There are ${ len(validation_errors) } validation issues to review.
+  </div>
+  
+  % for error in validation_errors[:10]:
+  - ${ error }
+  % endfor
+  
+  You can continue anyway or go back to fix these issues.
+buttons:
+  - Continue Anyway: continue
+  - Go Back: restart
+---
+event: review_answers
+question: |
+  Review Your Answers
+subquestion: |
+  Please review the information you've provided.
+  
+  % if len(validation_errors) == 0:
+  <div class="alert alert-success">
+    ✓ All information validated successfully
+  </div>
+  % else:
+  <div class="alert alert-warning">
+    ⚠ ${ len(validation_errors) } validation warnings
+  </div>
+  % endif
+  
+  **Form 26 Summary**
+  
+  Information has been collected for all required fields.
+  
+  % if debug_mode:
+  **Debug Info:**
+  - Errors logged: ${ len(error_log) }
+  - Fields with errors: ${ len(field_errors) }
+  % endif
+buttons:
+  - Continue: continue
+  - Edit Answers: restart
+---
+event: form_complete
+question: |
+  Form 26 Complete
+subquestion: |
+  Thank you for completing Form 26.
+  
+  % if len(error_log) == 0:
+  <div class="alert alert-success">
+    ✓ Interview completed without errors
+  </div>
+  % else:
+  <div class="alert alert-info">
+    Interview completed with ${ len(error_log) } logged events
+  </div>
+  % endif
+  
+  **Summary:**
+  - All required fields completed
+  - Validation: ${ "Passed" if len(validation_errors) == 0 else str(len(validation_errors)) + " warnings" }
+  
+buttons:
+  - Exit: exit
+  - Start Over: restart

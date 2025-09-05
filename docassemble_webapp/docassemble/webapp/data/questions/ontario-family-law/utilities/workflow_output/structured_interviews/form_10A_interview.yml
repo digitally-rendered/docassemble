@@ -1,0 +1,319 @@
+---
+metadata:
+  title: Ontario Family Law Form 10A
+  short_title: Form 10A
+  description: Structured interview with 24 fields and 3 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - 10A
+  form_number: 10A
+  form_category: application
+  generated: '2025-08-26 22:36:36'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: percentage
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+objects:
+- court_info: DAObject
+- person: Individual
+- applicant: Individual
+- respondent: Individual
+- error_log: DAList.using(object_type=DAObject, there_are_any=False)
+- debug_info: DAObject
+code: "if not defined('debug_mode'):\n    debug_mode = get_config('debug', False)"
+code: "def capture_form_error(context=\"\", field_name=\"\"):\n    '''Capture and log form validation errors'''\n    from .debug_helpers import DebugHelper\n    error_info = DebugHelper.capture_error()\n    if error_info:\n      error_entry = DAObject()\n      error_entry.timestamp = current_datetime()\n      error_entry.context = context\n      error_entry.field = field_name\n      error_entry.error = error_info\n      error_log.append(error_entry)\n      if debug_mode:\n        log(f\"Form error in {context}: {error_info['message']}\", 'error')\n    return error_info"
+code: "def safe_get_field(obj, field_name, default=\"\"):\n    '''Safely access object fields with error handling'''\n    try:\n      if hasattr(obj, field_name):\n        value = getattr(obj, field_name)\n        return value if value is not None else default\n      return default\n    except Exception as e:\n      capture_form_error(f\"safe_get_field({field_name})\", field_name)\n      return default"
+code: "def handle_validation_error(field_name, value, validation_type=\"\"):\n    '''Handle field validation errors with user-friendly messages'''\n    error_messages = {\n      'required': f\"The field '{field_name}' is required.\",\n      'date': f\"Please enter a valid date for '{field_name}'.\",\n      'email': f\"Please enter a valid email address for '{field_name}'.\",\n      'phone': f\"Please enter a valid phone number for '{field_name}'.\",\n      'currency': f\"Please enter a valid dollar amount for '{field_name}'.\",\n      'number': f\"Please enter a valid number for '{field_name}'.\",\n      'percentage': f\"Please enter a valid percentage for '{field_name}'.\",\n      'postal_code': f\"Please enter a valid postal code for '{field_name}'.\"\n    }\n    \n    message = error_messages.get(validation_type, f\"Invalid value for '{field_name}': {value}\")\n    \n    if debug_mode:\n      log(f\"Validation error: {message}\", 'error')\n      \n    validation_errors.append({\n    \
+  \  'field': field_name,\n      'value': value,\n      'type': validation_type,\n      'message': message\n    })\n    \n    return message"
+code: "if not defined('validation_errors'):\n    validation_errors = []"
+code: "def validate_field(field_name, value, validation_rules):\n    '''Validate a field against multiple rules'''\n    errors = []\n    \n    # Required field check\n    if 'required' in validation_rules and validation_rules['required']:\n      if not value or (isinstance(value, str) and not value.strip()):\n        errors.append(handle_validation_error(field_name, value, 'required'))\n    \n    # Type-specific validation\n    if value and 'type' in validation_rules:\n      field_type = validation_rules['type']\n      \n      if field_type == 'date':\n        try:\n          # Validate date format\n          if isinstance(value, str):\n            from datetime import datetime\n            datetime.strptime(value, '%Y-%m-%d')\n        except:\n          errors.append(handle_validation_error(field_name, value, 'date'))\n      \n      elif field_type == 'email':\n        import re\n        if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$', str(value)):\n          errors.append(handle_validation_error(field_name,\
+  \ value, 'email'))\n      \n      elif field_type == 'phone':\n        import re\n        phone_str = re.sub(r'[^0-9]', '', str(value))\n        if len(phone_str) not in [10, 11]:\n          errors.append(handle_validation_error(field_name, value, 'phone'))\n      \n      elif field_type == 'currency' or field_type == 'number':\n        try:\n          float(str(value).replace('$', '').replace(',', ''))\n        except:\n          errors.append(handle_validation_error(field_name, value, field_type))\n    \n    return errors"
+mandatory: true
+code: 'intro_seen
+
+  applicant.name.first
+
+  applicant.name.last
+
+  respondent.name.first
+
+  respondent.name.last
+
+  review_complete
+
+  form_complete'
+question: Form 10A Interview
+subquestion: 'This structured interview will help you complete Form 10A.
+
+
+  You will be asked about:
+
+  - Personal information for parties involved
+
+
+  Total sections: 4
+
+  Fields to complete: 24'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Person Information
+fields:
+- label: Name of Court.  Select from the drop down menu.
+  field: person.form1_0_page1_0_body_0_courtdetails_0_court_0_nameofcourt_0
+  datatype: text
+  required: false
+- label: Court office address
+  field: person.form1_0_page1_0_body_0_courtdetails_0_court_0_courtofficeaddress_0
+  datatype: text
+  required: false
+- label: 1.  My name is (full legal name)
+  field: person.form1_0_page1_0_body_0_instrunctionfinancial_0_applicant_0_q2_0_info_0
+  datatype: text
+  required: false
+question: Applicant Information
+fields:
+- label: Applicant. 1. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: applicant.form1_0_page1_0_body_0_applicants_0_appliant_0_textfield_0
+  datatype: text
+  required: false
+- label: Applicant. 1. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: applicant.form1_0_page1_0_body_0_applicants_0_applicantlawyer_0_textfield_0
+  datatype: text
+  required: false
+question: Respondent Information
+fields:
+- label: Respondent. 1. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: respondent.form1_0_page1_0_body_0_respondents_0_respondant_0_textfield_0
+  datatype: text
+  required: false
+- label: Respondent. 1. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: respondent.form1_0_page1_0_body_0_respondents_0_respondantlawyer_0_textfield_0
+  datatype: text
+  required: false
+question: Additional Information
+fields:
+- label: Court File Number
+  field: form1_0_page1_0_body_0_courtdetails_0_courtfileno_0
+  datatype: text
+  required: false
+- label: application
+  field: form1_0_page1_0_body_0_courtdetails_0_application_0
+  datatype: text
+  required: false
+- label: Applicant. 2. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: form1_0_page1_0_body_0_applicants_0_appliant_0_textfield_1
+  datatype: text
+  required: false
+- label: Applicant. 2. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: form1_0_page1_0_body_0_applicants_0_applicantlawyer_0_textfield_1
+  datatype: text
+  required: false
+- label: Respondent. 2. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: form1_0_page1_0_body_0_respondents_0_respondant_0_textfield_1
+  datatype: text
+  required: false
+- label: Respondent. 2. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: form1_0_page1_0_body_0_respondents_0_respondantlawyer_0_textfield_1
+  datatype: text
+  required: false
+- label: Children’s Lawyer. Name & address of Children’s Lawyer’s agent for service (street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any)) and name of person represented.
+  field: form1_0_page1_0_body_0_childrenslawyer_0_lawyer_0_textfield_0
+  datatype: text
+  required: false
+- label: '2.  I agree with the following claim(s) made by the respondent in his/her answer: (Refer to the numbers alongside the boxes on page 3 of the answer form.)'
+  field: form1_0_page1_0_body_0_instrunctionfinancial_0_applicant_0_q2_1_sub_0_info_0
+  datatype: text
+  required: false
+- label: '3.  I do not agree with the following claim(s) made by the respondent: (Again, refer to the numbers alongside the boxes on page 3 of the answer form.)'
+  field: form1_0_page1_0_body_0_instrunctionfinancial_0_applicant_0_q3_0_sub_0_info_0
+  datatype: text
+  required: false
+- label: 4.  I am asking that the respondent's claim (except for the parts with which I agree) be dismissed with costs.
+  field: form1_0_page1_0_body_0_instrunctionfinancial_0_applicant_0_q4_0_claim_0
+  datatype: yesno
+  required: false
+- label: Court File Number
+  field: form1_0_page1_0_body_0_subform_5_courtfilenumber_0
+  datatype: text
+  required: false
+- label: '5.  The important facts supporting my position in paragraph 3 are as follows: (In numbered paragraphs, set out the reasons for your position. Attach an additional sheet and number it if you need more space.)'
+  field: form1_0_page1_0_body_0_q5_0_sub_0_info_0
+  datatype: text
+  required: false
+- label: Date of Signature
+  field: form1_0_page1_0_signature_0_signature_0_date_0
+  datatype: text
+  required: false
+- label: Signature
+  field: form1_0_page1_0_signature_0_signature_0_sig_0
+  datatype: text
+  required: false
+- label: Save Form
+  field: form1_0_page1_0_navigationbtns_0_saveform_0
+  datatype: text
+  required: false
+- label: Print Form
+  field: form1_0_page1_0_navigationbtns_0_print_0
+  datatype: text
+  required: false
+- label: Clear Form
+  field: form1_0_page1_0_navigationbtns_0_reset_0
+  datatype: text
+  required: false
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: Name of Court.  Select from the drop down menu.
+  field: person.form1_0_page1_0_body_0_courtdetails_0_court_0_nameofcourt_0
+  edit: true
+- label: Court office address
+  field: person.form1_0_page1_0_body_0_courtdetails_0_court_0_courtofficeaddress_0
+  edit: true
+- label: 1.  My name is (full legal name)
+  field: person.form1_0_page1_0_body_0_instrunctionfinancial_0_applicant_0_q2_0_info_0
+  edit: true
+- label: Applicant. 1. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: applicant.form1_0_page1_0_body_0_applicants_0_appliant_0_textfield_0
+  edit: true
+- label: Applicant. 1. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: applicant.form1_0_page1_0_body_0_applicants_0_applicantlawyer_0_textfield_0
+  edit: true
+- label: Respondent. 1. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: respondent.form1_0_page1_0_body_0_respondents_0_respondant_0_textfield_0
+  edit: true
+- label: Respondent. 1. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: respondent.form1_0_page1_0_body_0_respondents_0_respondantlawyer_0_textfield_0
+  edit: true
+- label: Court File Number
+  field: form1_0_page1_0_body_0_courtdetails_0_courtfileno_0
+  edit: true
+- label: application
+  field: form1_0_page1_0_body_0_courtdetails_0_application_0
+  edit: true
+- label: Applicant. 2. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: form1_0_page1_0_body_0_applicants_0_appliant_0_textfield_1
+  edit: true
+- label: Applicant. 2. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: form1_0_page1_0_body_0_applicants_0_applicantlawyer_0_textfield_1
+  edit: true
+- label: Respondent. 2. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: form1_0_page1_0_body_0_respondents_0_respondant_0_textfield_1
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 10A Complete
+subquestion: 'Your Form 10A has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart
+
+
+---
+# Error display screen
+event: show_form_errors
+question: |
+  Form Validation Errors
+subquestion: |
+  % if len(validation_errors) > 0:
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Please correct the following errors:</h4>
+    <ul>
+    % for error in validation_errors:
+      <li><strong>${ error['field'] }:</strong> ${ error['message'] }</li>
+    % endfor
+    </ul>
+  </div>
+  % endif
+  
+  % if debug_mode and len(error_log) > 0:
+  <details>
+    <summary>Debug Information (${len(error_log)} errors logged)</summary>
+    % for entry in error_log:
+    <div class="card mb-2">
+      <div class="card-body">
+        <h6 class="card-title">Error at ${ entry.timestamp }</h6>
+        <p class="card-text">
+          <strong>Context:</strong> ${ entry.context }<br>
+          <strong>Field:</strong> ${ entry.field }<br>
+          <strong>Type:</strong> ${ entry.error['type'] }<br>
+          <strong>Message:</strong> ${ entry.error['message'] }
+        </p>
+        % if debug_mode:
+        <details>
+          <summary>Stack Trace</summary>
+          <pre>${ entry.error.get('formatted_exception', 'N/A') }</pre>
+        </details>
+        % endif
+      </div>
+    </div>
+    % endfor
+  </details>
+  % endif
+buttons:
+  - "Go Back": restart
+  - "Exit": exit
+---
+# Debug information screen
+event: show_debug_info
+question: |
+  Debug Information
+subquestion: |
+  <div class="alert alert-info">
+    <h4>Session Information</h4>
+    <ul>
+      <li><strong>Interview:</strong> ${ user_info().filename }</li>
+      <li><strong>Session ID:</strong> ${ user_info().session }</li>
+      <li><strong>Debug Mode:</strong> ${ debug_mode }</li>
+      <li><strong>Errors Logged:</strong> ${ len(error_log) }</li>
+      <li><strong>Validation Errors:</strong> ${ len(validation_errors) }</li>
+    </ul>
+  </div>
+  
+  % if defined('user_party'):
+  <h4>User Information</h4>
+  <ul>
+    <li><strong>Name:</strong> ${ safe_get_field(user_party, 'name', 'Not provided') }</li>
+    % if hasattr(user_party, 'email'):
+    <li><strong>Email:</strong> ${ safe_get_field(user_party, 'email', 'Not provided') }</li>
+    % endif
+  </ul>
+  % endif
+  
+  <h4>Form Progress</h4>
+  <ul>
+    % for var in ['intro_seen', 'user_party.name.first', 'other_party.name.first', 'children.gathered', 'review_complete']:
+    <li><strong>${ var }:</strong> ${ 'Yes' if defined(var) else 'No' }</li>
+    % endfor
+  </ul>
+buttons:
+  - "Continue": continue
+  - "Show Errors": show_form_errors
+  - "Restart": restart

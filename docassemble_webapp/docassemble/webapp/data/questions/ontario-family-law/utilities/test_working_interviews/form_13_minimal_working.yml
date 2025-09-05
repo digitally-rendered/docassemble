@@ -1,0 +1,215 @@
+---
+metadata:
+  title: Form 13 - Minimal Working Interview
+  short title: Form 13
+  description: Test interview to validate object mapping and flow
+  authors:
+    - name: Simple Working Generator
+  generated: 2025-08-26T22:57:45.834092
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+modules:
+  - .debug_helpers
+---
+features:
+  debug: True
+  question help button: True
+  progress bar: True
+---
+objects:
+  - user: Individual
+  - spouse: Individual
+  - children: DAList.using(object_type=Individual)
+  - income: DAObject
+  - expenses: DAObject
+  - assets: DAList.using(object_type=DAObject)
+  - debts: DAList.using(object_type=DAObject)
+---
+mandatory: True
+code: |
+  # Simple linear flow
+  intro_screen
+  user.name.first
+  user.birthdate
+  
+  # Check if married
+  if is_married:
+    spouse.name.first
+    spouse.birthdate
+  
+  # Children
+  if has_children:
+    children.gather()
+  
+  # Financial info
+  income.employment
+  income.total_monthly
+  
+  expenses.housing
+  expenses.total_monthly
+  
+  # Review
+  review_screen
+  
+  # Done
+  final_screen
+---
+question: |
+  Form 13 Interview
+subquestion: |
+  This is a test interview to validate Docassemble object mapping.
+  
+  We will collect:
+  - Your personal information
+  - Family information
+  - Basic financial details
+  
+  This should take about 5 minutes.
+field: intro_screen
+continue button field: intro_screen
+---
+question: |
+  Your Information
+fields:
+  - First Name: user.name.first
+    required: True
+  - Last Name: user.name.last
+    required: True
+  - Date of Birth: user.birthdate
+    datatype: date
+    required: True
+---
+question: |
+  Contact Information
+fields:
+  - Street Address: user.address.address
+    required: True
+  - City: user.address.city
+    required: True
+  - Province: user.address.state
+    default: "ON"
+  - Postal Code: user.address.postal_code
+    required: True
+  - Phone: user.phone_number
+  - Email: user.email
+    datatype: email
+---
+question: |
+  Marital Status
+fields:
+  - Are you married?: is_married
+    datatype: yesno
+---
+question: |
+  Spouse Information
+fields:
+  - First Name: spouse.name.first
+    required: True
+  - Last Name: spouse.name.last
+    required: True
+  - Date of Birth: spouse.birthdate
+    datatype: date
+---
+question: |
+  Children
+fields:
+  - Do you have children?: has_children
+    datatype: yesno
+---
+question: |
+  Child Information
+fields:
+  - First Name: children[i].name.first
+    required: True
+  - Last Name: children[i].name.last
+    required: True
+  - Date of Birth: children[i].birthdate
+    datatype: date
+    required: True
+---
+question: |
+  Any more children?
+yesno: children.there_is_another
+---
+question: |
+  Employment Income
+fields:
+  - Are you employed?: income.employment
+    datatype: yesno
+  - Employer Name: income.employer_name
+    show if: income.employment
+  - Monthly Income: income.total_monthly
+    datatype: currency
+    min: 0
+    required: True
+---
+question: |
+  Monthly Expenses
+fields:
+  - Housing (rent/mortgage): expenses.housing
+    datatype: currency
+    min: 0
+    required: True
+  - Food: expenses.food
+    datatype: currency
+    min: 0
+  - Transportation: expenses.transportation
+    datatype: currency
+    min: 0
+  - Other: expenses.other
+    datatype: currency
+    min: 0
+---
+code: |
+  expenses.total_monthly = (
+    expenses.housing + 
+    expenses.food + 
+    expenses.transportation + 
+    expenses.other
+  )
+---
+event: review_screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you've provided:
+  
+  **Personal Information:**
+  - Name: ${ user.name.full() }
+  - Date of Birth: ${ user.birthdate }
+  - Address: ${ user.address.on_one_line() }
+  
+  % if is_married:
+  **Spouse:**
+  - Name: ${ spouse.name.full() }
+  - Date of Birth: ${ spouse.birthdate }
+  % endif
+  
+  % if has_children:
+  **Children:**
+  % for child in children:
+  - ${ child.name.full() } (DOB: ${ child.birthdate })
+  % endfor
+  % endif
+  
+  **Financial Summary:**
+  - Monthly Income: ${ currency(income.total_monthly) }
+  - Monthly Expenses: ${ currency(expenses.total_monthly) }
+  - Net: ${ currency(income.total_monthly - expenses.total_monthly) }
+buttons:
+  - Continue: continue
+---
+event: final_screen
+question: |
+  Interview Complete
+subquestion: |
+  Thank you for completing this interview.
+  
+  Your information has been collected successfully.
+  
+  This was a test interview to validate the system.
+buttons:
+  - Exit: exit
+  - Restart: restart

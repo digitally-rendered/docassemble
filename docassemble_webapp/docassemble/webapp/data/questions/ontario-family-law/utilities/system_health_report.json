@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-08-19T07:54:57.070593",
+  "system_status": {},
+  "forms": {
+    "divorce_specific": 2,
+    "child_protection_adoption": 6,
+    "alternative_dispute": 3,
+    "financial_statements": 5,
+    "interjurisdictional": 3,
+    "orders": 5,
+    "enforcement": 7,
+    "core_applications": 6,
+    "service_process": 3,
+    "motions_conferences": 8
+  },
+  "interviews": {
+    "total": 2,
+    "files": [
+      "form_13_-_financial_statement.yml",
+      "form_13_comprehensive.yml"
+    ]
+  },
+  "tests": {},
+  "recommendations": []
+}

@@ -1,0 +1,178 @@
+---
+metadata:
+  title: Ontario Family Law Form 29A
+  short_title: Form 29A
+  description: Structured interview with 16 fields and 0 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - 29A
+  form_number: 29A
+  form_category: general
+  generated: '2025-08-26 22:15:24'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+- docassemble.base:data/questions/financial.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: stepped
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+  table_css_class: table table-striped
+objects:
+- court_info: DAObject
+mandatory: true
+code: 'intro_seen
+
+  review_complete
+
+  form_complete'
+question: Form 29A Interview
+subquestion: 'This structured interview will help you complete Form 29A.
+
+
+  You will be asked about:
+
+  - Form information
+
+
+  Total sections: 1
+
+  Fields to complete: 16'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Additional Information
+fields:
+- label: Dropdown 1
+  field: dropdown1
+  required: false
+  choices:
+  - '          '
+  - Ontario Court of Justice
+  - Superior Court of Justice
+  - Superior Court of Justice Family Court Branch
+  help_text: ''
+- label: Court File Number
+  field: courtfileno
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 2
+  field: check2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 5
+  field: text5
+  datatype: text
+  required: false
+  help_text: ''
+- label: The total amount of your payments is not to exceed $ The total amount of your payments is not to exc
+  field: the_total_amount_of_your_payments_is_not_to_exceed
+  datatype: currency
+  required: false
+  min: 0
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: Dropdown 1
+  field: dropdown1
+  edit: true
+- label: Court File Number
+  field: courtfileno
+  edit: true
+- label: Text Field 2
+  field: text2
+  edit: true
+- label: Text Field 2
+  field: text2_2
+  edit: true
+- label: Text Field 2
+  field: text2_3
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 29A Complete
+subquestion: 'Your Form 29A has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart

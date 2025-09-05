@@ -1,0 +1,33 @@
+# Helm values to fix Docassemble startup issues without rebuilding the image
+# Apply with: helm upgrade <release-name> <chart> -f helm-values-fix.yaml
+
+# Mount the startup fix script as a ConfigMap
+extraVolumes:
+  - name: startup-fix
+    configMap:
+      name: docassemble-startup-fix
+      defaultMode: 0755
+
+extraVolumeMounts:
+  - name: startup-fix
+    mountPath: /tmp/startup-fix
+
+# Override the command to run the fix script first
+command:
+  - /bin/bash
+  - -c
+  - |
+    cp /tmp/startup-fix/fix-startup.sh /usr/share/docassemble/webapp/fix-startup.sh && \
+    chmod +x /usr/share/docassemble/webapp/fix-startup.sh && \
+    /usr/share/docassemble/webapp/fix-startup.sh
+
+# Alternative approach if your Helm chart uses different field names:
+deployment:
+  command:
+    - /bin/bash
+  args:
+    - -c
+    - |
+      cp /tmp/startup-fix/fix-startup.sh /usr/share/docassemble/webapp/fix-startup.sh && \
+      chmod +x /usr/share/docassemble/webapp/fix-startup.sh && \
+      /usr/share/docassemble/webapp/fix-startup.sh

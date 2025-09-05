@@ -1,0 +1,26 @@
+[
+  {
+    "op": "add",
+    "path": "/spec/template/spec/containers/0/command",
+    "value": ["/bin/bash", "/scripts/startup-wrapper.sh"]
+  },
+  {
+    "op": "add",
+    "path": "/spec/template/spec/containers/0/volumeMounts/-",
+    "value": {
+      "name": "startup-wrapper",
+      "mountPath": "/scripts"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/spec/template/spec/volumes/-",
+    "value": {
+      "name": "startup-wrapper",
+      "configMap": {
+        "name": "docassemble-startup-wrapper",
+        "defaultMode": 493
+      }
+    }
+  }
+]

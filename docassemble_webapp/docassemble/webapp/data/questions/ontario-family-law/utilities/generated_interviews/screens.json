@@ -1,0 +1,812 @@
+[
+  {
+    "screen_id": "identification_1",
+    "title": "Personal Information",
+    "subtitle": "Please provide your personal details",
+    "fields": [
+      {
+        "label": "Full legal name:",
+        "field": "users[i].name.text",
+        "datatype": "text",
+        "required": false
+      },
+      {
+        "label": "(Name of Court)",
+        "field": "fields[i]",
+        "datatype": "text",
+        "required": false
+      },
+      {
+        "label": "Housing Housing Housing Housing Housing  SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ \u2002\u2002\u2002\u2002\u2002",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Interest in Business (*attach separate year-end statement for each business) Interest in Business (*",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      }
+    ],
+    "tables": [],
+    "page_number": 0,
+    "question_type": "fields",
+    "mandatory": false,
+    "depends_on": null
+  },
+  {
+    "screen_id": "contact_1",
+    "title": "Contact Information",
+    "subtitle": "How can we reach you?",
+    "fields": [
+      {
+        "label": "Court office address",
+        "field": "users[i].address",
+        "datatype": "text",
+        "required": false
+      },
+      {
+        "label": "Email:",
+        "field": "users[i].email",
+        "datatype": "email",
+        "required": false
+      },
+      {
+        "label": "Phone & fax:",
+        "field": "users[i].phone_number",
+        "datatype": "phone",
+        "required": false
+      },
+      {
+        "label": "Telephone Telephone Telephone Telephone $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Education (specify) \u2002\u2002\u2002\u2002\u2002 Education (specify)",
+        "field": "users[i].phone_number",
+        "datatype": "currency",
+        "required": false
+      }
+    ],
+    "tables": [],
+    "page_number": 0,
+    "question_type": "fields",
+    "mandatory": false,
+    "depends_on": null
+  },
+  {
+    "screen_id": "legal_1",
+    "title": "Legal Information",
+    "subtitle": "Court and legal representation information",
+    "fields": [
+      {
+        "label": "NOTE: This financial statement must be updated before any court event if it is:",
+        "field": "dates[i]",
+        "datatype": "date",
+        "required": false
+      }
+    ],
+    "tables": [],
+    "page_number": 0,
+    "question_type": "fields",
+    "mandatory": false,
+    "depends_on": null
+  },
+  {
+    "screen_id": "children_1",
+    "title": "Children Information",
+    "subtitle": "Information about children involved",
+    "fields": [
+      {
+        "label": "10. 10. Child Tax Benefits or Tax Rebates (e.g. GST) Child Tax Benefits or Tax Rebates (e.g. GST) Ch",
+        "field": "children[i]",
+        "datatype": "currency",
+        "required": false
+      }
+    ],
+    "tables": [],
+    "page_number": 0,
+    "question_type": "fields",
+    "mandatory": false,
+    "depends_on": null
+  },
+  {
+    "screen_id": "financial_1",
+    "title": "Financial Information",
+    "subtitle": "Your income, expenses, assets, and debts",
+    "fields": [
+      {
+        "label": "My spouse/partner or other adult residing in the home contributes about $",
+        "field": "users[i].income",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Other Assets Other Assets 1 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+        "field": "assets[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "I earn $",
+        "field": "users[i].expense",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "I attach proof of my year-to-date income from all sources, including my most recent (attach all that",
+        "field": "users[i].income",
+        "datatype": "date",
+        "required": false
+      },
+      {
+        "label": "Other Debts Other Debts Other Debts Other Debts Other Debts \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ $ ",
+        "field": "debts[i]",
+        "datatype": "currency",
+        "required": false
+      }
+    ],
+    "tables": [],
+    "page_number": 0,
+    "question_type": "fields",
+    "mandatory": false,
+    "depends_on": null
+  },
+  {
+    "screen_id": "support_1",
+    "title": "Support Information",
+    "subtitle": "Support payment information",
+    "fields": [
+      {
+        "label": "SUBTOTAL SUBTOTAL SUBTOTAL $ \u2002\u2002\u2002\u2002\u2002  Car Loan or Lease Payments Car Loan or Lease Payments Car Loan o",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "9. 9. Spousal support received from a former spouse/partner Spousal support received from a former s",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Repairs and maintenance Repairs and maintenance Repairs and maintenance $ \u2002\u2002\u2002\u2002\u2002  Eye care Eye care E",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Unpaid Support Amounts  Unpaid Support Amounts  Unpaid Support Amounts  Unpaid Support Amounts  Unpa",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      }
+    ],
+    "tables": [],
+    "page_number": 0,
+    "question_type": "fields",
+    "mandatory": false,
+    "depends_on": null
+  },
+  {
+    "screen_id": "other_1",
+    "title": "Additional Information",
+    "subtitle": "Any additional required information",
+    "fields": [
+      {
+        "label": "1. \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Real Estate Real Estate 1 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Cars, Boats, Vehicles Cars, Boats, Vehicles 1 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 ",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Bank Accounts Bank Accounts 1 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Life Insurance Life Insurance 1 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "ContentTypeId",
+        "field": "fields[i]",
+        "datatype": "text",
+        "required": false
+      },
+      {
+        "label": "MSIP_Label_034a106e-6316-442c-ad35-738afd673d2b_Enabled",
+        "field": "fields[i]",
+        "datatype": "text",
+        "required": false
+      }
+    ],
+    "tables": [],
+    "page_number": 0,
+    "question_type": "fields",
+    "mandatory": false,
+    "depends_on": null
+  },
+  {
+    "screen_id": "other_2",
+    "title": "Additional Information (Continued)",
+    "subtitle": "Any additional required information",
+    "fields": [
+      {
+        "label": "        Total Net Monthly Amount Total Net Monthly Amount Total Net Monthly Amount $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "[]",
+        "field": "fields[i]",
+        "datatype": "text",
+        "required": false
+      },
+      {
+        "label": "2. 2. Commissions, tips and bonuses Commissions, tips and bonuses Commissions, tips and bonuses Comm",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "4. 4. Employment Insurance benefits Employment Insurance benefits Employment Insurance benefits Empl",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "5. 5. Workers' compensation benefits Workers' compensation benefits Workers' compensation benefits W",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "CPP contributions CPP contributions CPP contributions $ \u2002\u2002\u2002\u2002\u2002  Public transit, taxis Public transit,",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "EI premiums EI premiums EI premiums $ \u2002\u2002\u2002\u2002\u2002  Gas and oil Gas and oil Gas and oil Gas and oil Gas and",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      }
+    ],
+    "tables": [],
+    "page_number": 0,
+    "question_type": "fields",
+    "mandatory": false,
+    "depends_on": null
+  },
+  {
+    "screen_id": "other_3",
+    "title": "Additional Information (Continued)",
+    "subtitle": "Any additional required information",
+    "fields": [
+      {
+        "label": "Employee pension contributions Employee pension contributions Employee pension contributions $ \u2002\u2002\u2002\u2002\u2002",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Union dues Union dues Union dues $ \u2002\u2002\u2002\u2002\u2002  Parking Parking Parking Parking Parking $ \u2002\u2002\u2002\u2002\u2002",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Rent or mortgage Rent or mortgage Rent or mortgage $ \u2002\u2002\u2002\u2002\u2002  Health Health Health Health Health Healt",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Property taxes Property taxes Property taxes $ \u2002\u2002\u2002\u2002\u2002  Health insurance premiums Health insurance pre",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Condominium fees Condominium fees Condominium fees $ \u2002\u2002\u2002\u2002\u2002  Medicine and drugs Medicine and drugs Me",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Water Water Water $ \u2002\u2002\u2002\u2002\u2002  Clothing Clothing Clothing Clothing Clothing $ \u2002\u2002\u2002\u2002\u2002",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Heat Heat Heat $ \u2002\u2002\u2002\u2002\u2002  Hair care and beauty Hair care and beauty Hair care and beauty Hair care and",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      }
+    ],
+    "tables": [],
+    "page_number": 0,
+    "question_type": "fields",
+    "mandatory": false,
+    "depends_on": null
+  },
+  {
+    "screen_id": "other_4",
+    "title": "Additional Information (Continued)",
+    "subtitle": "Any additional required information",
+    "fields": [
+      {
+        "label": "Electricity Electricity Electricity $ \u2002\u2002\u2002\u2002\u2002  Alcohol and tobacco Alcohol and tobacco Alcohol and tob",
+        "field": "users[i].address.city",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Cable Cable Cable Cable $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Gifts Gifts Gifts Gifts Gifts Gifts $ \u2002\u2002\u2002\u2002\u2002",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Internet Internet Internet Internet $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBT",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Groceries Groceries Groceries Groceries $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  RRSP/RESP withdrawals RRSP/RESP withdrawals R",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Household supplies Household supplies Household supplies Household supplies $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Vacations",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Meals outside the home Meals outside the home Meals outside the home Meals outside the home $ \u2002\u2002\u2002\u2002\u2002 ",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning ",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      }
+    ],
+    "tables": [],
+    "page_number": 0,
+    "question_type": "fields",
+    "mandatory": false,
+    "depends_on": null
+  },
+  {
+    "screen_id": "other_5",
+    "title": "Additional Information (Continued)",
+    "subtitle": "Any additional required information",
+    "fields": [
+      {
+        "label": "Other Possessions of Value (e.g. computers, jewellery, collections) Other Possessions of Value (e.g.",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Investments (e.g. bonds, shares, term deposits and mutual funds) Investments (e.g. bonds, shares, te",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Savings Plans R.R.S.P.s \nPension Plans R.E.S.P.s Savings Plans R.R.S.P.s \nPension Plans R.E.S.P.s 1 ",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "      Total Value of All Property Total Value of All Property Total Value of All Property Total Valu",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Mortgages, Lines of Credits or other Loans from a Bank, Trust or Finance Company Mortgages, Lines of",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "Outstanding Credit Card Balances Outstanding Credit Card Balances Outstanding Credit Card Balances O",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "      Net Worth Net Worth Net Worth Net Worth Net Worth Net Worth Net Worth $ $ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      }
+    ],
+    "tables": [],
+    "page_number": 0,
+    "question_type": "fields",
+    "mandatory": false,
+    "depends_on": null
+  },
+  {
+    "screen_id": "other_6",
+    "title": "Additional Information (Continued)",
+    "subtitle": "Any additional required information",
+    "fields": [
+      {
+        "label": "3. 3. Total amount of dividends received from taxable Canadian corporations Total amount of dividend",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "4. 4. Total capital gains ($ \u2002\u2002\u2002\u2002\u2002) less capital losses ($ \u2002\u2002\u2002\u2002\u2002) Total capital gains ($ \u2002\u2002\u2002\u2002\u2002) less",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "5. 5. Registered retirement savings plan withdrawals Registered retirement savings plan withdrawals ",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "6. My spouse/partner My spouse/partner My spouse/partner  earns (give amount) $ earns (give amount) ",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      },
+      {
+        "label": "7.   My spouse/partner or other adult residing in the home contributes about $ My spouse/partner or ",
+        "field": "amounts[i]",
+        "datatype": "currency",
+        "required": false
+      }
+    ],
+    "tables": [],
+    "page_number": 0,
+    "question_type": "fields",
+    "mandatory": false,
+    "depends_on": null
+  },
+  {
+    "screen_id": "table_table_numbered_items",
+    "title": "Sources of Income",
+    "subtitle": "Please provide information for each income",
+    "fields": [
+      {
+        "label": "Sources of Income",
+        "field": "income_sources",
+        "datatype": "table",
+        "table": {
+          "rows": "income_sources",
+          "columns": [
+            {
+              "label": "Column 1",
+              "field": "row.column_1",
+              "datatype": "currency",
+              "required": false,
+              "currency": true,
+              "min": 0
+            }
+          ],
+          "show_row_numbers": true,
+          "allow_add": true,
+          "allow_delete": true,
+          "allow_reorder": true
+        },
+        "validation": "validate_income_table"
+      }
+    ],
+    "tables": [
+      {
+        "table_id": "table_numbered_items",
+        "table_name": "Sources of Income",
+        "table_type": "income",
+        "columns": [
+          {
+            "name": "column_1",
+            "label": "Column 1",
+            "type": "currency",
+            "required": false,
+            "column_number": 1
+          }
+        ],
+        "rows": [],
+        "is_repeating": true,
+        "page_number": 0,
+        "context": "numbered_items",
+        "da_object_type": "DAList",
+        "da_variable_name": "income_sources",
+        "da_element_type": "IncomeItem"
+      }
+    ],
+    "page_number": 0,
+    "question_type": "table",
+    "mandatory": false,
+    "depends_on": null
+  },
+  {
+    "screen_id": "table_implicit_table_income",
+    "title": "Income Table",
+    "subtitle": "Please provide information for each income",
+    "fields": [
+      {
+        "label": "Income Table",
+        "field": "income_list",
+        "datatype": "table",
+        "table": {
+          "rows": "income_list",
+          "columns": [
+            {
+              "label": "Item",
+              "field": "row.item",
+              "datatype": "text",
+              "required": true
+            },
+            {
+              "label": "Amount",
+              "field": "row.amount",
+              "datatype": "currency",
+              "required": true,
+              "currency": true,
+              "min": 0
+            }
+          ],
+          "show_row_numbers": true,
+          "allow_add": true,
+          "allow_delete": true,
+          "allow_reorder": true
+        },
+        "validation": "validate_income_table"
+      }
+    ],
+    "tables": [
+      {
+        "table_id": "implicit_table_income",
+        "table_name": "Income Table",
+        "table_type": "income",
+        "columns": [
+          {
+            "name": "item",
+            "label": "Item",
+            "type": "text",
+            "required": true,
+            "column_number": 1
+          },
+          {
+            "name": "amount",
+            "label": "Amount",
+            "type": "currency",
+            "required": true,
+            "column_number": 2
+          }
+        ],
+        "rows": [
+          {
+            "row_number": 1,
+            "data": {
+              "item": "$ \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 $ \u2002\u2002\u2002\u2002\u2002",
+              "amount": null
+            }
+          },
+          {
+            "row_number": 2,
+            "data": {
+              "item": "2. Commissions, tips and bonuses Commissions, tips and bonuses Commissions, tips and bonuses Comm",
+              "amount": null
+            }
+          },
+          {
+            "row_number": 3,
+            "data": {
+              "item": "4. Employment Insurance benefits Employment Insurance benefits Employment Insurance benefits Empl",
+              "amount": null
+            }
+          },
+          {
+            "row_number": 4,
+            "data": {
+              "item": "5. Workers' compensation benefits Workers' compensation benefits Workers' compensation benefits W",
+              "amount": null
+            }
+          },
+          {
+            "row_number": 5,
+            "data": {
+              "item": "9. Spousal support received from a former spouse/partner Spousal support received from a former s",
+              "amount": null
+            }
+          },
+          {
+            "row_number": 6,
+            "data": {
+              "item": "10. Child Tax Benefits or Tax Rebates (e.g. GST) Child Tax Benefits or Tax Rebates (e.g. GST) Ch",
+              "amount": null
+            }
+          },
+          {
+            "row_number": 7,
+            "data": {
+              "item": "3. Total amount of dividends received from taxable Canadian corporations Total amount of dividend",
+              "amount": null
+            }
+          },
+          {
+            "row_number": 8,
+            "data": {
+              "item": "4. Total capital gains ($ \u2002\u2002\u2002\u2002\u2002) less capital losses ($ \u2002\u2002\u2002\u2002\u2002) Total capital gains ($ \u2002\u2002\u2002\u2002\u2002) less",
+              "amount": null
+            }
+          },
+          {
+            "row_number": 9,
+            "data": {
+              "item": "5. Registered retirement savings plan withdrawals Registered retirement savings plan withdrawals ",
+              "amount": null
+            }
+          },
+          {
+            "row_number": 10,
+            "data": {
+              "item": "My spouse/partner My spouse/partner My spouse/partner  earns (give amount) $ earns (give amount) ",
+              "amount": null
+            }
+          },
+          {
+            "row_number": 11,
+            "data": {
+              "item": "My spouse/partner or other adult residing in the home contributes about $ My spouse/partner or ",
+              "amount": null
+            }
+          }
+        ],
+        "is_repeating": true,
+        "page_number": 0,
+        "context": "Implicit income table",
+        "da_object_type": "DAList",
+        "da_variable_name": "income_list",
+        "da_element_type": "DAObject"
+      }
+    ],
+    "page_number": 0,
+    "question_type": "table",
+    "mandatory": false,
+    "depends_on": null
+  },
+  {
+    "screen_id": "review",
+    "title": "Review Your Information",
+    "subtitle": "Please review all information before submitting",
+    "fields": [
+      {
+        "section": "Financial Information",
+        "screen_id": "financial_1",
+        "editable": true
+      },
+      {
+        "section": "Contact Information",
+        "screen_id": "contact_1",
+        "editable": true
+      },
+      {
+        "section": "Additional Information",
+        "screen_id": "other_1",
+        "editable": true
+      },
+      {
+        "section": "Additional Information (Continued)",
+        "screen_id": "other_2",
+        "editable": true
+      },
+      {
+        "section": "Additional Information (Continued)",
+        "screen_id": "other_3",
+        "editable": true
+      },
+      {
+        "section": "Additional Information (Continued)",
+        "screen_id": "other_4",
+        "editable": true
+      },
+      {
+        "section": "Additional Information (Continued)",
+        "screen_id": "other_5",
+        "editable": true
+      },
+      {
+        "section": "Additional Information (Continued)",
+        "screen_id": "other_6",
+        "editable": true
+      },
+      {
+        "section": "Support Information",
+        "screen_id": "support_1",
+        "editable": true
+      },
+      {
+        "section": "Personal Information",
+        "screen_id": "identification_1",
+        "editable": true
+      },
+      {
+        "section": "Legal Information",
+        "screen_id": "legal_1",
+        "editable": true
+      },
+      {
+        "section": "Children Information",
+        "screen_id": "children_1",
+        "editable": true
+      },
+      {
+        "section": "Sources of Income",
+        "screen_id": "table_table_numbered_items",
+        "editable": true
+      },
+      {
+        "section": "Income Table",
+        "screen_id": "table_implicit_table_income",
+        "editable": true
+      }
+    ],
+    "tables": [],
+    "page_number": 0,
+    "question_type": "review",
+    "mandatory": true,
+    "depends_on": null
+  },
+  {
+    "screen_id": "signature",
+    "title": "Sign and Submit",
+    "subtitle": "By signing below, you certify that the information provided is true and complete",
+    "fields": [
+      {
+        "label": "Signature",
+        "field": "users[0].signature",
+        "datatype": "signature",
+        "required": true
+      },
+      {
+        "label": "Date",
+        "field": "signature_date",
+        "datatype": "date",
+        "default": "today",
+        "required": true
+      }
+    ],
+    "tables": [],
+    "page_number": 0,
+    "question_type": "signature",
+    "mandatory": true,
+    "depends_on": null
+  }
+]

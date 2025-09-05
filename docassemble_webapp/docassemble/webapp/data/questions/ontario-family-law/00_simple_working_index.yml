@@ -1,0 +1,44 @@
+---
+metadata:
+  title: Ontario Family Law Forms - Simple Index
+  short title: Forms Index
+---
+mandatory: True
+question: |
+  Ontario Family Law Forms
+subquestion: |
+  ## Available Interview Systems
+  
+  ### Working Interviews with Error Handling
+  
+  These interviews have been regenerated with comprehensive error handling:
+  
+  #### Structured Interviews (Domain-Mapped with Error Handling)
+  - [Form 13: Financial Statement](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_13_interview.yml)
+  - [Form 13.1: Financial Statement Property](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_13.1_interview.yml)
+  - [Form 8: Application General](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_8_interview.yml)
+  - [Form 10: Answer](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_10_interview.yml)
+  
+  #### Generated Interviews
+  - [Form 13: Financial Statement](/interview?i=docassemble.webapp:ontario-family-law/utilities/generated_interviews/form_13_-_financial_statement.yml)
+  - [Form 13: Comprehensive](/interview?i=docassemble.webapp:ontario-family-law/utilities/generated_interviews/form_13_comprehensive.yml)
+  
+  ### Index Files
+  
+  - [All Structured Interviews Index](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/00_structured_index.yml)
+  
+  ### Test Interviews
+  
+  #### Wizard Interviews
+  - [Ontario Family Law Wizard](/interview?i=docassemble.webapp:ontario-family-law/ontario-family-law-wizard.yml)
+  - [Wizard Clean Version](/interview?i=docassemble.webapp:ontario-family-law/ontario-family-law-wizard-clean.yml)
+  - [Wizard Progressive Test](/interview?i=docassemble.webapp:ontario-family-law/wizard-test-progressive.yml)
+  
+  ## Notes
+  
+  - All interviews include error handling and debug features
+  - Use `?debug=1` in the URL to enable debug mode
+  - The structured interviews use domain object mapping
+  - Generated interviews include comprehensive validation
+buttons:
+  - Exit: exit

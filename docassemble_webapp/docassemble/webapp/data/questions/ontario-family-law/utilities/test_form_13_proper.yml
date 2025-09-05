@@ -1,0 +1,75 @@
+metadata:
+  title: Form 13 - Financial Statement
+  short title: Form 13
+  description: Ontario Family Law Form 13
+  authors:
+    - name: Ontario Family Law Forms System
+  revision_date: 2025-08-19
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - user: Individual
+  - court: DAObject
+  - income: DAObject
+  - expenses: DAObject
+---
+mandatory: True
+question: |
+  Form 13: Financial Statement
+subquestion: |
+  This interview will help you complete Form 13.
+  
+  Please have the following information ready:
+  * Court information
+  * Personal information
+continue button field: intro_shown
+---
+mandatory: True
+question: |
+  Court Information
+fields:
+  - Court File Number: court.court_file_number
+  - Name of Court: court.name_of_court
+---
+mandatory: True
+question: |
+  Your Information
+fields:
+  - First Name: user.name.first
+  - Last Name: user.name.last
+  - Address: user.address.address
+  - City: user.address.city
+  - Province: user.address.state
+    default: ON
+  - Postal Code: user.address.postal_code
+---
+mandatory: True
+question: |
+  Financial Information
+fields:
+  - Monthly Income: income.monthly
+    datatype: currency
+    min: 0
+  - Monthly Expenses: expenses.monthly
+    datatype: currency
+    min: 0
+---
+mandatory: True
+question: |
+  Form 13 Complete
+subquestion: |
+  You have completed all required information for Form 13.
+  
+  Click below to download your completed form.
+buttons:
+  - Exit: exit
+  - Restart: restart
+attachment:
+  name: Form 13
+  filename: form_13
+  description: |
+    Form 13 - Financial Statement
+  content: |
+    [Your form content will be generated here]

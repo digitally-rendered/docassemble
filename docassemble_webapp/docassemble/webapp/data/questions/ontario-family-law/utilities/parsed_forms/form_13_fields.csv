@@ -1,0 +1,134 @@
+field_id,field_name,field_type,field_label,required,field_context,page_number,table_name
+table_0_row_7,full_legal_name_full_legal_name_full_legal_name_fu,text,Full legal name: Full legal name: Full legal name: Full legal name: Full legal name: Full legal name,False,"Table 1, Row 8",0,Table 1
+table_0_row_8,address_address_address_address_address_address_ad,text,Address: Address: Address: Address: Address: Address: Address:,False,"Table 1, Row 9",0,Table 1
+table_0_row_12,full_legal_name_full_legal_name_full_legal_name_fu,text,Full legal name: Full legal name: Full legal name: Full legal name: Full legal name: Full legal name,False,"Table 1, Row 13",0,Table 1
+table_0_row_13,address_address_address_address_address_address_ad,text,Address: Address: Address: Address: Address: Address: Address:,False,"Table 1, Row 14",0,Table 1
+table_1_row_8,4_last_year_my_gross_income_from_all_sources_was_l,currency,"4. Last year, my gross income from all sources was $ Last year, my gross income from all sources was",False,"Table 2, Row 9",0,Table 2
+table_1_row_21,1_1_employment_income_before_deductions_employment,currency,1. 1. Employment income (before deductions) Employment income (before deductions) Employment income ,False,"Table 2, Row 22",0,Table 2
+table_1_row_22,2_2_commissions_tips_and_bonuses_commissions_tips_,currency,"2. 2. Commissions, tips and bonuses Commissions, tips and bonuses Commissions, tips and bonuses Comm",False,"Table 2, Row 23",0,Table 2
+table_1_row_23,3_3_self_employment_income_monthly_amount_before_e,currency,3. 3. Self-employment income (Monthly amount before expenses: $      ) Self-employment income (Month,False,"Table 2, Row 24",0,Table 2
+table_1_row_24,4_4_employment_insurance_benefits_employment_insur,currency,4. 4. Employment Insurance benefits Employment Insurance benefits Employment Insurance benefits Empl,False,"Table 2, Row 25",0,Table 2
+table_1_row_25,5_5_workers_compensation_benefits_workers_compensa,currency,5. 5. Workers' compensation benefits Workers' compensation benefits Workers' compensation benefits W,False,"Table 2, Row 26",0,Table 2
+table_1_row_26,6_6_social_assistance_income_including_odsp_paymen,currency,6. 6. Social assistance income (including ODSP payments) Social assistance income (including ODSP pa,False,"Table 2, Row 27",0,Table 2
+table_1_row_27,7_7_interest_and_investment_income_interest_and_in,currency,7. 7. Interest and investment income Interest and investment income Interest and investment income I,False,"Table 2, Row 28",0,Table 2
+table_1_row_28,8_8_pension_income_including_cpp_and_oas_pension_i,currency,8. 8. Pension income (including CPP and OAS) Pension income (including CPP and OAS) Pension income (,False,"Table 2, Row 29",0,Table 2
+table_1_row_29,9_9_spousal_support_received_from_a_former_spouse_,currency,9. 9. Spousal support received from a former spouse/partner Spousal support received from a former s,False,"Table 2, Row 30",0,Table 2
+table_1_row_30,10_10_child_tax_benefits_or_tax_rebates_e_g_gst_ch,currency,10. 10. Child Tax Benefits or Tax Rebates (e.g. GST) Child Tax Benefits or Tax Rebates (e.g. GST) Ch,False,"Table 2, Row 31",0,Table 2
+table_1_row_31,11_11_other_sources_of_income_e_g_rrsp_withdrawals,currency,"11. 11. Other sources of income (e.g. RRSP withdrawals, capital gains) (*attach Schedule A and divid",False,"Table 2, Row 32",0,Table 2
+table_1_row_32,12_12_total_monthly_income_from_all_sources_total_,currency,12. 12. Total monthly income from all sources: Total monthly income from all sources: Total monthly ,False,"Table 2, Row 33",0,Table 2
+table_1_row_33,13_13_total_monthly_income_x_12_total_annual_incom,currency,13. 13. Total monthly income X 12 = Total annual income: Total monthly income X 12 = Total annual in,False,"Table 2, Row 34",0,Table 2
+table_2_row_7,field,currency,$,False,"Table 3, Row 8",0,Table 3
+table_2_row_8,field,currency,$,False,"Table 3, Row 9",0,Table 3
+table_2_row_9,field,currency,$,False,"Table 3, Row 10",0,Table 3
+table_2_row_10,field,currency,$,False,"Table 3, Row 11",0,Table 3
+table_2_row_14,cpp_contributions_cpp_contributions_cpp_contributi,currency,"CPP contributions CPP contributions CPP contributions $ Public transit, taxis Public transit, taxis ",False,"Table 3, Row 15",0,Table 3
+table_2_row_15,ei_premiums_ei_premiums_ei_premiums_gas_and_oil_ga,currency,EI premiums EI premiums EI premiums $ Gas and oil Gas and oil Gas and oil Gas and oil Gas and oil $,False,"Table 3, Row 16",0,Table 3
+table_2_row_16,income_taxes_income_taxes_income_taxes_car_insuran,currency,Income taxes Income taxes Income taxes $ Car insurance and license Car insurance and license Car ins,False,"Table 3, Row 17",0,Table 3
+table_2_row_17,employee_pension_contributions_employee_pension_co,currency,Employee pension contributions Employee pension contributions Employee pension contributions $ Repai,False,"Table 3, Row 18",0,Table 3
+table_2_row_18,union_dues_union_dues_union_dues_parking_parking_p,currency,Union dues Union dues Union dues $ Parking Parking Parking Parking Parking $,False,"Table 3, Row 19",0,Table 3
+table_2_row_19,subtotal_subtotal_subtotal_car_loan_or_lease_payme,currency,SUBTOTAL SUBTOTAL SUBTOTAL $ Car Loan or Lease Payments Car Loan or Lease Payments Car Loan or Lease,False,"Table 3, Row 20",0,Table 3
+table_2_row_20,housing_housing_housing_housing_housing_subtotal_s,currency,Housing Housing Housing Housing Housing SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $,False,"Table 3, Row 21",0,Table 3
+table_2_row_21,rent_or_mortgage_rent_or_mortgage_rent_or_mortgage,currency,Rent or mortgage Rent or mortgage Rent or mortgage $ Health Health Health Health Health Health Healt,False,"Table 3, Row 22",0,Table 3
+table_2_row_22,property_taxes_property_taxes_property_taxes_healt,currency,Property taxes Property taxes Property taxes $ Health insurance premiums Health insurance premiums H,False,"Table 3, Row 23",0,Table 3
+table_2_row_23,property_insurance_property_insurance_property_ins,currency,Property insurance Property insurance Property insurance $ Dental expenses Dental expenses Dental ex,False,"Table 3, Row 24",0,Table 3
+table_2_row_24,condominium_fees_condominium_fees_condominium_fees,currency,Condominium fees Condominium fees Condominium fees $ Medicine and drugs Medicine and drugs Medicine ,False,"Table 3, Row 25",0,Table 3
+table_2_row_25,repairs_and_maintenance_repairs_and_maintenance_re,currency,Repairs and maintenance Repairs and maintenance Repairs and maintenance $ Eye care Eye care Eye care,False,"Table 3, Row 26",0,Table 3
+table_2_row_26,subtotal_subtotal_subtotal_subtotal_subtotal_subto,currency,SUBTOTAL SUBTOTAL SUBTOTAL $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $,False,"Table 3, Row 27",0,Table 3
+table_2_row_28,water_water_water_clothing_clothing_clothing_cloth,currency,Water Water Water $ Clothing Clothing Clothing Clothing Clothing $,False,"Table 3, Row 29",0,Table 3
+table_2_row_29,heat_heat_heat_hair_care_and_beauty_hair_care_and_,currency,Heat Heat Heat $ Hair care and beauty Hair care and beauty Hair care and beauty Hair care and beauty,False,"Table 3, Row 30",0,Table 3
+table_2_row_30,electricity_electricity_electricity_alcohol_and_to,currency,Electricity Electricity Electricity $ Alcohol and tobacco Alcohol and tobacco Alcohol and tobacco Al,False,"Table 3, Row 31",0,Table 3
+table_3_row_5,telephone_telephone_telephone_telephone_education_,currency,Telephone Telephone Telephone Telephone $ Education (specify) Education (specify) Education (specify,False,"Table 4, Row 6",0,Table 4
+table_3_row_6,cell_phone_cell_phone_cell_phone_cell_phone_entert,currency,Cell phone Cell phone Cell phone Cell phone $ Entertainment/recreation (including children) Entertai,False,"Table 4, Row 7",0,Table 4
+table_3_row_7,cable_cable_cable_cable_gifts_gifts_gifts_gifts_gi,currency,Cable Cable Cable Cable $ Gifts Gifts Gifts Gifts Gifts Gifts $,False,"Table 4, Row 8",0,Table 4
+table_3_row_8,internet_internet_internet_internet_subtotal_subto,currency,Internet Internet Internet Internet $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $,False,"Table 4, Row 9",0,Table 4
+table_3_row_9,subtotal_subtotal_subtotal_subtotal_other_expenses,currency,SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ Other expenses Other expenses Other expenses Other expenses Ot,False,"Table 4, Row 10",0,Table 4
+table_3_row_10,household_expenses_household_expenses_household_ex,currency,Household Expenses Household Expenses Household Expenses Household Expenses Household Expenses House,False,"Table 4, Row 11",0,Table 4
+table_3_row_11,groceries_groceries_groceries_groceries_rrsp_resp_,currency,Groceries Groceries Groceries Groceries $ RRSP/RESP withdrawals RRSP/RESP withdrawals RRSP/RESP with,False,"Table 4, Row 12",0,Table 4
+table_3_row_12,household_supplies_household_supplies_household_su,currency,Household supplies Household supplies Household supplies Household supplies $ Vacations Vacations Va,False,"Table 4, Row 13",0,Table 4
+table_3_row_13,meals_outside_the_home_meals_outside_the_home_meal,currency,Meals outside the home Meals outside the home Meals outside the home Meals outside the home $ School,False,"Table 4, Row 14",0,Table 4
+table_3_row_14,pet_care_pet_care_pet_care_pet_care_clothing_for_c,currency,Pet care Pet care Pet care Pet care $ Clothing for children Clothing for children Clothing for child,False,"Table 4, Row 15",0,Table 4
+table_3_row_15,laundry_and_dry_cleaning_laundry_and_dry_cleaning_,currency,Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning ,False,"Table 4, Row 16",0,Table 4
+table_3_row_16,subtotal_subtotal_subtotal_subtotal_summer_camp_ex,currency,SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ Summer camp expenses Summer camp expenses Summer camp expenses,False,"Table 4, Row 17",0,Table 4
+table_3_row_17,childcare_costs_childcare_costs_childcare_costs_ch,currency,Childcare Costs Childcare Costs Childcare Costs Childcare Costs Childcare Costs Childcare Costs Chil,False,"Table 4, Row 18",0,Table 4
+table_3_row_18,daycare_expense_daycare_expense_daycare_expense_da,currency,Daycare expense Daycare expense Daycare expense Daycare expense $ Support paid for other children Su,False,"Table 4, Row 19",0,Table 4
+table_3_row_19,babysitting_costs_babysitting_costs_babysitting_co,currency,Babysitting costs Babysitting costs Babysitting costs Babysitting costs $ Other expenses not shown a,False,"Table 4, Row 20",0,Table 4
+table_3_row_20,subtotal_subtotal_subtotal_subtotal_subtotal_subto,currency,SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $,False,"Table 4, Row 21",0,Table 4
+table_3_row_22,total_amount_of_monthly_expenses_total_amount_of_m,currency,Total Amount of Monthly Expenses Total Amount of Monthly Expenses Total Amount of Monthly Expenses T,False,"Table 4, Row 23",0,Table 4
+table_3_row_23,total_amount_of_yearly_expenses_total_amount_of_ye,currency,Total Amount of Yearly Expenses Total Amount of Yearly Expenses Total Amount of Yearly Expenses Tota,False,"Table 4, Row 24",0,Table 4
+table_3_row_27,real_estate_real_estate_1,currency,Real Estate Real Estate 1 $,False,"Table 4, Row 28",0,Table 4
+table_3_row_28,real_estate_real_estate_2,currency,Real Estate Real Estate 2 $,False,"Table 4, Row 29",0,Table 4
+table_3_row_29,real_estate_real_estate_3,currency,Real Estate Real Estate 3 $,False,"Table 4, Row 30",0,Table 4
+table_3_row_31,cars_boats_vehicles_cars_boats_vehicles_1,currency,"Cars, Boats, Vehicles Cars, Boats, Vehicles 1 $",False,"Table 4, Row 32",0,Table 4
+table_3_row_32,cars_boats_vehicles_cars_boats_vehicles_2,currency,"Cars, Boats, Vehicles Cars, Boats, Vehicles 2 $",False,"Table 4, Row 33",0,Table 4
+table_3_row_33,cars_boats_vehicles_cars_boats_vehicles_3,currency,"Cars, Boats, Vehicles Cars, Boats, Vehicles 3 $",False,"Table 4, Row 34",0,Table 4
+table_4_row_5,other_possessions_of_value_e_g_computers_jewellery,currency,"Other Possessions of Value (e.g. computers, jewellery, collections) Other Possessions of Value (e.g.",False,"Table 5, Row 6",0,Table 5
+table_4_row_6,other_possessions_of_value_e_g_computers_jewellery,currency,"Other Possessions of Value (e.g. computers, jewellery, collections) Other Possessions of Value (e.g.",False,"Table 5, Row 7",0,Table 5
+table_4_row_7,other_possessions_of_value_e_g_computers_jewellery,currency,"Other Possessions of Value (e.g. computers, jewellery, collections) Other Possessions of Value (e.g.",False,"Table 5, Row 8",0,Table 5
+table_4_row_9,investments_e_g_bonds_shares_term_deposits_and_mut,currency,"Investments (e.g. bonds, shares, term deposits and mutual funds) Investments (e.g. bonds, shares, te",False,"Table 5, Row 10",0,Table 5
+table_4_row_10,investments_e_g_bonds_shares_term_deposits_and_mut,currency,"Investments (e.g. bonds, shares, term deposits and mutual funds) Investments (e.g. bonds, shares, te",False,"Table 5, Row 11",0,Table 5
+table_4_row_11,investments_e_g_bonds_shares_term_deposits_and_mut,currency,"Investments (e.g. bonds, shares, term deposits and mutual funds) Investments (e.g. bonds, shares, te",False,"Table 5, Row 12",0,Table 5
+table_4_row_13,bank_accounts_bank_accounts_1,currency,Bank Accounts Bank Accounts 1 $,False,"Table 5, Row 14",0,Table 5
+table_4_row_14,bank_accounts_bank_accounts_2,currency,Bank Accounts Bank Accounts 2 $,False,"Table 5, Row 15",0,Table 5
+table_4_row_15,bank_accounts_bank_accounts_3,currency,Bank Accounts Bank Accounts 3 $,False,"Table 5, Row 16",0,Table 5
+table_4_row_17,savings_plans_r_r_s_p_s_pension_plans_r_e_s_p_s_sa,currency,"Savings Plans R.R.S.P.s 
+Pension Plans R.E.S.P.s Savings Plans R.R.S.P.s 
+Pension Plans R.E.S.P.s 1 ",False,"Table 5, Row 18",0,Table 5
+table_4_row_18,savings_plans_r_r_s_p_s_pension_plans_r_e_s_p_s_sa,currency,"Savings Plans R.R.S.P.s 
+Pension Plans R.E.S.P.s Savings Plans R.R.S.P.s 
+Pension Plans R.E.S.P.s 2 ",False,"Table 5, Row 19",0,Table 5
+table_4_row_19,savings_plans_r_r_s_p_s_pension_plans_r_e_s_p_s_sa,currency,"Savings Plans R.R.S.P.s 
+Pension Plans R.E.S.P.s Savings Plans R.R.S.P.s 
+Pension Plans R.E.S.P.s 3 ",False,"Table 5, Row 20",0,Table 5
+table_4_row_21,life_insurance_life_insurance_1,currency,Life Insurance Life Insurance 1 $,False,"Table 5, Row 22",0,Table 5
+table_4_row_22,life_insurance_life_insurance_2,currency,Life Insurance Life Insurance 2 $,False,"Table 5, Row 23",0,Table 5
+table_4_row_23,life_insurance_life_insurance_3,currency,Life Insurance Life Insurance 3 $,False,"Table 5, Row 24",0,Table 5
+table_4_row_25,interest_in_business_attach_separate_year_end_stat,currency,Interest in Business (*attach separate year-end statement for each business) Interest in Business (*,False,"Table 5, Row 26",0,Table 5
+table_4_row_26,interest_in_business_attach_separate_year_end_stat,currency,Interest in Business (*attach separate year-end statement for each business) Interest in Business (*,False,"Table 5, Row 27",0,Table 5
+table_4_row_27,interest_in_business_attach_separate_year_end_stat,currency,Interest in Business (*attach separate year-end statement for each business) Interest in Business (*,False,"Table 5, Row 28",0,Table 5
+table_4_row_29,money_owed_to_you_for_example_any_court_judgments_,currency,"Money Owed to You (for example, any court judgments in your favour, estate money and income tax refu",False,"Table 5, Row 30",0,Table 5
+table_4_row_30,money_owed_to_you_for_example_any_court_judgments_,currency,"Money Owed to You (for example, any court judgments in your favour, estate money and income tax refu",False,"Table 5, Row 31",0,Table 5
+table_4_row_31,money_owed_to_you_for_example_any_court_judgments_,currency,"Money Owed to You (for example, any court judgments in your favour, estate money and income tax refu",False,"Table 5, Row 32",0,Table 5
+table_4_row_33,other_assets_other_assets_1,currency,Other Assets Other Assets 1 $,False,"Table 5, Row 34",0,Table 5
+table_4_row_34,other_assets_other_assets_2,currency,Other Assets Other Assets 2 $,False,"Table 5, Row 35",0,Table 5
+table_4_row_35,other_assets_other_assets_3,currency,Other Assets Other Assets 3 $,False,"Table 5, Row 36",0,Table 5
+table_4_row_37,total_value_of_all_property_total_value_of_all_pro,currency,Total Value of All Property Total Value of All Property Total Value of All Property Total Value of A,False,"Table 5, Row 38",0,Table 5
+table_5_row_6,mortgages_lines_of_credits_or_other_loans_from_a_b,currency,"Mortgages, Lines of Credits or other Loans from a Bank, Trust or Finance Company Mortgages, Lines of",False,"Table 6, Row 7",0,Table 6
+table_5_row_7,mortgages_lines_of_credits_or_other_loans_from_a_b,currency,"Mortgages, Lines of Credits or other Loans from a Bank, Trust or Finance Company Mortgages, Lines of",False,"Table 6, Row 8",0,Table 6
+table_5_row_8,mortgages_lines_of_credits_or_other_loans_from_a_b,currency,"Mortgages, Lines of Credits or other Loans from a Bank, Trust or Finance Company Mortgages, Lines of",False,"Table 6, Row 9",0,Table 6
+table_5_row_9,outstanding_credit_card_balances_outstanding_credi,currency,Outstanding Credit Card Balances Outstanding Credit Card Balances Outstanding Credit Card Balances O,False,"Table 6, Row 10",0,Table 6
+table_5_row_10,outstanding_credit_card_balances_outstanding_credi,currency,Outstanding Credit Card Balances Outstanding Credit Card Balances Outstanding Credit Card Balances O,False,"Table 6, Row 11",0,Table 6
+table_5_row_11,outstanding_credit_card_balances_outstanding_credi,currency,Outstanding Credit Card Balances Outstanding Credit Card Balances Outstanding Credit Card Balances O,False,"Table 6, Row 12",0,Table 6
+table_5_row_12,unpaid_support_amounts_unpaid_support_amounts_unpa,currency,Unpaid Support Amounts Unpaid Support Amounts Unpaid Support Amounts Unpaid Support Amounts Unpaid S,False,"Table 6, Row 13",0,Table 6
+table_5_row_13,unpaid_support_amounts_unpaid_support_amounts_unpa,currency,Unpaid Support Amounts Unpaid Support Amounts Unpaid Support Amounts Unpaid Support Amounts Unpaid S,False,"Table 6, Row 14",0,Table 6
+table_5_row_14,unpaid_support_amounts_unpaid_support_amounts_unpa,currency,Unpaid Support Amounts Unpaid Support Amounts Unpaid Support Amounts Unpaid Support Amounts Unpaid S,False,"Table 6, Row 15",0,Table 6
+table_5_row_15,other_debts_other_debts_other_debts_other_debts_ot,currency,Other Debts Other Debts Other Debts Other Debts Other Debts $ $ $ $ Yes No,False,"Table 6, Row 16",0,Table 6
+table_5_row_16,other_debts_other_debts_other_debts_other_debts_ot,currency,Other Debts Other Debts Other Debts Other Debts Other Debts $ $ $ $ Yes No,False,"Table 6, Row 17",0,Table 6
+table_5_row_17,other_debts_other_debts_other_debts_other_debts_ot,currency,Other Debts Other Debts Other Debts Other Debts Other Debts $ $ $ $ Yes No,False,"Table 6, Row 18",0,Table 6
+table_5_row_19,total_amount_of_debts_outstanding_total_amount_of_,currency,Total Amount of Debts Outstanding Total Amount of Debts Outstanding Total Amount of Debts Outstandin,False,"Table 6, Row 20",0,Table 6
+table_5_row_21,total_assets_total_assets_total_assets_total_asset,currency,Total Assets Total Assets Total Assets Total Assets Total Assets Total Assets Total Assets $ $,False,"Table 6, Row 22",0,Table 6
+table_5_row_22,subtract_total_debts_subtract_total_debts_subtract,currency,Subtract Total Debts Subtract Total Debts Subtract Total Debts Subtract Total Debts Subtract Total D,False,"Table 6, Row 23",0,Table 6
+table_5_row_23,net_worth_net_worth_net_worth_net_worth_net_worth_,currency,Net Worth Net Worth Net Worth Net Worth Net Worth Net Worth Net Worth $ $,False,"Table 6, Row 24",0,Table 6
+table_6_row_2,1_1_net_partnership_income_net_partnership_income_,currency,1. 1. Net partnership income Net partnership income Net partnership income Net partnership income Ne,False,"Table 7, Row 3",0,Table 7
+table_6_row_3,2_2_net_rental_income_gross_annual_rental_income_o,currency,2. 2. Net rental income (Gross annual rental income of $      ) Net rental income (Gross annual rent,False,"Table 7, Row 4",0,Table 7
+table_6_row_4,3_3_total_amount_of_dividends_received_from_taxabl,currency,3. 3. Total amount of dividends received from taxable Canadian corporations Total amount of dividend,False,"Table 7, Row 5",0,Table 7
+table_6_row_5,4_4_total_capital_gains_less_capital_losses_total_,currency,4. 4. Total capital gains ($      ) less capital losses ($      ) Total capital gains ($      ) less,False,"Table 7, Row 6",0,Table 7
+table_6_row_6,5_5_registered_retirement_savings_plan_withdrawals,currency,5. 5. Registered retirement savings plan withdrawals Registered retirement savings plan withdrawals ,False,"Table 7, Row 7",0,Table 7
+table_6_row_7,6_6_income_from_a_registered_retirement_income_fun,currency,6. 6. Income from a Registered Retirement Income Fund or Annuity Income from a Registered Retirement,False,"Table 7, Row 8",0,Table 7
+table_6_row_8,7_7_any_other_income_specify_source_any_other_inco,currency,7. 7. Any other income (specify source) Any other income (specify source) Any other income (specify ,False,"Table 7, Row 9",0,Table 7
+table_6_row_10,subtotal_subtotal_subtotal_subtotal_subtotal_subto,currency,Subtotal: Subtotal: Subtotal: Subtotal: Subtotal: Subtotal: $,False,"Table 7, Row 11",0,Table 7
+table_6_row_21,6_my_spouse_partner_my_spouse_partner_my_spouse_pa,currency,6. My spouse/partner My spouse/partner My spouse/partner earns (give amount) $ earns (give amount) $,False,"Table 7, Row 22",0,Table 7
+table_6_row_23,7_my_spouse_partner_or_other_adult_residing_in_the,currency,7. My spouse/partner or other adult residing in the home contributes about $ My spouse/partner or ot,False,"Table 7, Row 24",0,Table 7
+table_7_row_2,1,currency,1. $ $,False,"Table 8, Row 3",0,Table 8
+table_7_row_3,2,currency,2. $ $,False,"Table 8, Row 4",0,Table 8
+table_7_row_4,3,currency,3. $ $,False,"Table 8, Row 5",0,Table 8
+table_7_row_5,4,currency,4. $ $,False,"Table 8, Row 6",0,Table 8
+table_7_row_6,5,currency,5. $ $,False,"Table 8, Row 7",0,Table 8
+table_7_row_7,6,currency,6. $ $,False,"Table 8, Row 8",0,Table 8
+table_7_row_8,7,currency,7. $ $,False,"Table 8, Row 9",0,Table 8
+table_7_row_9,8,currency,8. $ $,False,"Table 8, Row 10",0,Table 8
+table_7_row_10,9,currency,9. $ $,False,"Table 8, Row 11",0,Table 8
+table_7_row_11,10_10,currency,10. 10. $ $,False,"Table 8, Row 12",0,Table 8
+table_7_row_13,total_net_annual_amount_total_net_annual_amount_to,currency,Total Net Annual Amount Total Net Annual Amount Total Net Annual Amount $,False,"Table 8, Row 14",0,Table 8
+table_7_row_14,total_net_monthly_amount_total_net_monthly_amount_,currency,Total Net Monthly Amount Total Net Monthly Amount Total Net Monthly Amount $,False,"Table 8, Row 15",0,Table 8
+table_7_row_16,i_earn_per_year_which_should_be_used_to_determine_,currency,I earn $ per year which should be used to determine my share of the above expenses. per year which s,False,"Table 8, Row 17",0,Table 8
+table_7_row_20,medical_insurance_premiums_and_certain_health_rela,currency,. . . Medical insurance premiums and certain health-related expenses for the child that cost more th,False,"Table 8, Row 21",0,Table 8

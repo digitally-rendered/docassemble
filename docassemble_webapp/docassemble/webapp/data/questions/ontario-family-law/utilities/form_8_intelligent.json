@@ -1,0 +1,138 @@
+[
+  {
+    "field_name": "full_legal_name_full_legal_name_name_name",
+    "field_type": "text",
+    "field_label": "Full legal name: Full legal name: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Name: Name: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+    "value": null,
+    "required": false,
+    "confidence": 0.7,
+    "extraction_method": "docx_table",
+    "page_number": 0,
+    "coordinates": null,
+    "context": "Table 1, Row 7",
+    "table_info": {
+      "table_index": 0,
+      "row_index": 6
+    },
+    "validation_rules": null
+  },
+  {
+    "field_name": "address_address_address_address",
+    "field_type": "text",
+    "field_label": "Address: Address: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Address: Address: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002",
+    "value": null,
+    "required": false,
+    "confidence": 0.7,
+    "extraction_method": "docx_table",
+    "page_number": 0,
+    "coordinates": null,
+    "context": "Table 1, Row 8",
+    "table_info": {
+      "table_index": 0,
+      "row_index": 7
+    },
+    "validation_rules": null
+  },
+  {
+    "field_name": "email_email_email_email",
+    "field_type": "email",
+    "field_label": "Email: Email: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002  Email: Email: \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002 \u2002\u2002\u2002\u2002\u2002",
+    "value": null,
+    "required": false,
+    "confidence": 0.7,
+    "extraction_method": "docx_table",
+    "page_number": 0,
+    "coordinates": null,
+    "context": "Table 1, Row 10",
+    "table_info": {
+      "table_index": 0,
+      "row_index": 9
+    },
+    "validation_rules": null
+  },
+  {
+    "field_name": "applicant_applicant_applicant_applicant_applicant_",
+    "field_type": "date",
+    "field_label": "APPLICANT: APPLICANT: APPLICANT: APPLICANT: APPLICANT: APPLICANT: APPLICANT: APPLICANT: Age: Age: Ag",
+    "value": null,
+    "required": false,
+    "confidence": 0.7,
+    "extraction_method": "docx_table",
+    "page_number": 0,
+    "coordinates": null,
+    "context": "Table 3, Row 5",
+    "table_info": {
+      "table_index": 2,
+      "row_index": 4
+    },
+    "validation_rules": null
+  },
+  {
+    "field_name": "first_name_on_the_day_before_the_marriage_date_fir",
+    "field_type": "date",
+    "field_label": "First name on the day before the marriage date: First name on the day before the marriage date: Firs",
+    "value": null,
+    "required": false,
+    "confidence": 0.7,
+    "extraction_method": "docx_table",
+    "page_number": 0,
+    "coordinates": null,
+    "context": "Table 3, Row 7",
+    "table_info": {
+      "table_index": 2,
+      "row_index": 6
+    },
+    "validation_rules": null
+  },
+  {
+    "field_name": "last_name_on_the_day_before_the_marriage_date_last",
+    "field_type": "date",
+    "field_label": "Last name on the day before the marriage date: Last name on the day before the marriage date: Last n",
+    "value": null,
+    "required": false,
+    "confidence": 0.7,
+    "extraction_method": "docx_table",
+    "page_number": 0,
+    "coordinates": null,
+    "context": "Table 3, Row 8",
+    "table_info": {
+      "table_index": 2,
+      "row_index": 7
+    },
+    "validation_rules": null
+  },
+  {
+    "field_name": "gender_on_the_day_before_the_marriage_date_gender_",
+    "field_type": "date",
+    "field_label": "Gender on the day before the marriage date: Gender on the day before the marriage date: Gender on th",
+    "value": null,
+    "required": false,
+    "confidence": 0.7,
+    "extraction_method": "docx_table",
+    "page_number": 0,
+    "coordinates": null,
+    "context": "Table 3, Row 9",
+    "table_info": {
+      "table_index": 2,
+      "row_index": 8
+    },
+    "validation_rules": null
+  },
+  {
+    "field_name": "respondent_respondent_respondent_respondent_respon",
+    "field_type": "date",
+    "field_label": "RESPONDENT: RESPONDENT: RESPONDENT: RESPONDENT: RESPONDENT: RESPONDENT: RESPONDENT: RESPONDENT: Age:",
+    "value": null,
+    "required": false,
+    "confidence": 0.7,
+    "extraction_method": "docx_table",
+    "page_number": 0,
+    "coordinates": null,
+    "context": "Table 3, Row 14",
+    "table_info": {
+      "table_index": 2,
+      "row_index": 13
+    },
+    "validation_rules": null
+  }
+]

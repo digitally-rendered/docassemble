@@ -1,0 +1,32 @@
+{
+  "form": "workflow_output/ontario_forms/financial_statements/form_13_-_financial_statement_support_flr-13-may21-en-fil.docx",
+  "no_gcp": {
+    "total_fields": 0,
+    "report": {
+      "total_fields": 0,
+      "high_confidence": 0,
+      "medium_confidence": 0,
+      "low_confidence": 0,
+      "single_method": 0,
+      "multi_method": 0,
+      "method_agreement": {},
+      "field_types": {},
+      "warnings": []
+    }
+  },
+  "with_gcp": {
+    "total_fields": 0,
+    "report": {
+      "total_fields": 0,
+      "high_confidence": 0,
+      "medium_confidence": 0,
+      "low_confidence": 0,
+      "single_method": 0,
+      "multi_method": 0,
+      "method_agreement": {},
+      "field_types": {},
+      "warnings": []
+    },
+    "gcp_fields": 0
+  }
+}

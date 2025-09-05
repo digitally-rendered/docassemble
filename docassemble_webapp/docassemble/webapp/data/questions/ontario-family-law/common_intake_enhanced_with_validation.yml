@@ -1,0 +1,849 @@
+---
+metadata:
+  title: Ontario Family Law Common Intake - Enhanced
+  short title: Common Intake
+  description: |
+    Comprehensive intake form for Ontario family law matters including emergency assessment
+---
+objects:
+  - user: Individual
+  - user_lawyer: Individual
+  - opposing_party: Individual
+  - opposing_lawyer: Individual
+  - court: DAObject
+---
+mandatory: True
+code: |
+  # Introduction
+  intro_seen
+  
+  # Emergency check first
+  emergency_situation
+  if emergency_situation:
+    emergency_warning_seen
+  
+  # MIP requirement check
+  mip_status_checked
+  if mip_status == "not_completed":
+    mip_information_seen
+  
+  # Relationship and case details
+  relationship_status
+  orders_being_sought
+  
+  # Financial assessment if needed
+  if needs_financial_forms:
+    financial_situation_complete
+  
+  # Party information
+  user_info_complete
+  user_contact_complete
+  
+  # Legal representation
+  user_lawyer_needed
+  if has_lawyer:
+    user_lawyer_info_complete
+    user_lawyer_contact_complete
+  
+  # Other party
+  opposing_party_info_complete
+  opposing_party_contact_complete
+  opposing_has_lawyer
+  if opposing_has_lawyer == True:
+    opposing_lawyer_info_complete
+    opposing_lawyer_contact_complete
+  
+  # Court information
+  court_info_complete
+  
+  # Children information
+  has_children
+  children_review
+  
+  # Show summary
+  show_summary
+---
+# Introduction
+question: |
+  Ontario Family Law Common Intake
+subquestion: |
+  This comprehensive intake form will collect all information needed for your Ontario family law matter.
+  
+  We will assess:
+  * Emergency situations requiring immediate action
+  * Mandatory Information Program (MIP) requirements
+  * Your relationship status and case type
+  * What orders you are seeking
+  * Party and children information
+  * Legal representation
+  * Court information
+  
+  This should take about 10-15 minutes to complete.
+  
+  **Legal Disclaimer:** This tool provides procedural information only, not legal advice.
+continue button field: intro_seen
+---
+# Emergency check
+question: |
+  Is this an emergency situation?
+subquestion: |
+  **You may have an emergency if you are experiencing:**
+  
+  * Immediate physical danger or threats
+  * Domestic violence or abuse
+  * Fear for your safety or your children's safety
+  * Someone threatening to take your children
+  * Someone threatening to harm you or your property
+field: emergency_situation
+buttons:
+  - "Yes, this is an emergency": True
+  - "No, this is not an emergency": False
+---
+# Emergency warning
+question: |
+  ⚠️ URGENT: Emergency Filing Required
+subquestion: |
+  **Your situation requires immediate action.** You should file emergency forms TODAY.
+  
+  ## Emergency Forms You Need NOW:
+  1. **Form 8 - Application (General)** 
+  2. **Form 14B - Notice of Motion** (for urgent relief)
+  3. **Form 14A - Supporting Affidavit** (explain the emergency)
+  4. **Form 14D - Order Without Notice** (if seeking order before serving other party)
+  
+  **If seeking restraining order:**
+  - **Form 25F - Restraining Order**
+  
+  ## Immediate Actions:
+  1. **If in danger, call 911 NOW**
+  2. Complete emergency forms immediately
+  3. Go directly to courthouse (emergency filings possible after hours)
+  4. You may get a temporary order the same day
+  
+  ## Crisis Resources:
+  - **Emergency: 911**
+  - **Assaulted Women's Helpline: 1-866-863-0511**
+  - **Legal Aid Ontario: 1-800-668-8258**
+  
+  ---
+  
+  **We will continue gathering information, but please prioritize your safety and file emergency forms first.**
+continue button field: emergency_warning_seen
+continue button label: Continue (I understand the urgency)
+---
+# MIP Status
+question: |
+  Mandatory Information Program (MIP) Status
+subquestion: |
+  **Before filing any family court application in Ontario, you must attend the Mandatory Information Program (MIP).**
+  
+  MIP is a free 2-hour session that covers:
+  * Family law basics
+  * Court procedures
+  * Alternatives to court
+  * Available resources
+  
+  **Have you completed the MIP?**
+field: mip_status
+buttons:
+  - "Yes, I have my certificate": completed
+  - "No, I need to attend": not_completed
+  - "Not sure": unsure
+  - "Emergency - will complete after": emergency_defer
+continue button field: mip_status_checked
+---
+# MIP Information
+question: |
+  MIP Registration Required
+subquestion: |
+  % if mip_status == "not_completed" or mip_status == "unsure":
+  **You must attend MIP before filing your application** (unless emergency).
+  
+  **How to Register:**
+  1. Contact your local courthouse
+  2. Visit Ontario Court Services online
+  3. Register for next available session
+  4. Attend and receive certificate
+  
+  The certificate does not expire. You can complete forms while waiting for your MIP session.
+  % elif mip_status == "emergency_defer":
+  Due to your emergency situation, you may file emergency motions before attending MIP, but you must attend as soon as possible.
+  % endif
+continue button field: mip_information_seen
+---
+# Relationship status
+question: |
+  What is your relationship status with the other party?
+field: relationship_status
+buttons:
+  - "Married": married
+  - "Common-law partners": common_law
+  - "Never lived together": never_together
+  - "Dating but not living together": dating
+  - "Separated": separated
+  - "Divorced": divorced
+---
+# Orders being sought
+question: |
+  What orders are you seeking?
+subquestion: |
+  Select all that apply:
+fields:
+  - "Divorce": seeking_divorce
+    datatype: yesno
+    default: False
+    show if:
+      variable: relationship_status
+      is: married
+  - "Child custody and/or access": seeking_custody
+    datatype: yesno
+    default: False
+  - "Child support": seeking_child_support
+    datatype: yesno
+    default: False
+  - "Spousal support": seeking_spousal_support
+    datatype: yesno
+    default: False
+    hide if:
+      variable: relationship_status
+      is: never_together
+  - "Property division/equalization": seeking_property
+    datatype: yesno
+    default: False
+    hide if:
+      variable: relationship_status
+      is: never_together
+  - "Exclusive possession of home": seeking_exclusive_possession
+    datatype: yesno
+    default: False
+    hide if:
+      variable: relationship_status
+      is: never_together
+  - "Restraining order": seeking_restraining_order
+    datatype: yesno
+    default: False
+  - "Paternity/parentage declaration": seeking_paternity
+    datatype: yesno
+    default: False
+    show if:
+      variable: relationship_status
+      is: never_together
+  - "Enforcement of existing order": seeking_enforcement
+    datatype: yesno
+    default: False
+  - "Variation of existing order": seeking_variation
+    datatype: yesno
+    default: False
+  - "Other relief": seeking_other
+    datatype: yesno
+    default: False
+continue button field: orders_being_sought
+validation code: |
+  # Initialize only the variables that were shown based on relationship status
+  # Always shown fields
+  if not defined('seeking_custody'):
+    seeking_custody = False
+  if not defined('seeking_child_support'):
+    seeking_child_support = False
+  if not defined('seeking_restraining_order'):
+    seeking_restraining_order = False
+  if not defined('seeking_enforcement'):
+    seeking_enforcement = False
+  if not defined('seeking_variation'):
+    seeking_variation = False
+  if not defined('seeking_other'):
+    seeking_other = False
+    
+  # Conditional fields - only set if they were shown
+  if relationship_status == 'married':
+    if not defined('seeking_divorce'):
+      seeking_divorce = False
+  else:
+    seeking_divorce = False
+    
+  if relationship_status != 'never_together':
+    if not defined('seeking_spousal_support'):
+      seeking_spousal_support = False
+    if not defined('seeking_property'):
+      seeking_property = False
+    if not defined('seeking_exclusive_possession'):
+      seeking_exclusive_possession = False
+  else:
+    seeking_spousal_support = False
+    seeking_property = False
+    seeking_exclusive_possession = False
+    
+  if relationship_status == 'never_together':
+    if not defined('seeking_paternity'):
+      seeking_paternity = False
+  else:
+    seeking_paternity = False
+    
+  # Check if financial forms needed
+  needs_financial_forms = (seeking_child_support or seeking_spousal_support or 
+                          seeking_property or seeking_exclusive_possession)
+---
+# Financial situation
+question: |
+  Financial Information
+subquestion: |
+  This information helps determine which financial forms you need.
+fields:
+  - "Are you claiming support?": claiming_support
+    datatype: yesnoradio
+    default: False
+  - "Are you paying support?": paying_support
+    datatype: yesnoradio
+    default: False
+  - "Do you own real estate?": owns_real_estate
+    datatype: yesnoradio
+    default: False
+  - "Do you own a business?": owns_business
+    datatype: yesnoradio
+    default: False
+  - "Do you have investments/RRSPs?": has_investments
+    datatype: yesnoradio
+    default: False
+  - "Do you have pensions?": has_pension
+    datatype: yesnoradio
+    default: False
+  - "Total value of assets": total_assets
+    datatype: currency
+    min: 0
+    required: False
+  - "Total debts": total_debts
+    datatype: currency
+    min: 0
+    required: False
+continue button field: financial_situation_complete
+---
+# User personal information
+question: |
+  Your Personal Information
+fields:
+  - First Name: user.name.first
+    required: True
+  - Middle Name: user.name.middle
+    required: False
+  - Last Name: user.name.last
+    required: True
+  - Date of Birth: user.birthdate
+    datatype: date
+    required: True
+    max: ${ today() }
+    min: ${ today().minus(years=120) }
+  - "Also known as": user.also_known_as
+    required: False
+    help: Include maiden name, previous names, or aliases
+continue button field: user_info_complete
+validation code: |
+  # Check if user is a minor
+  if user.birthdate and user.birthdate > today().minus(years=18):
+    note("Note: Party is under 18 years old")
+---
+# User contact information
+question: |
+  Your Contact Information
+fields:
+  - Street Address: user.address.address
+    required: True
+    address autocomplete: True
+  - Unit/Apt: user.address.unit
+    required: False
+  - City: user.address.city
+    required: True
+  - Province: user.address.state
+    choices:
+      - Alberta
+      - British Columbia
+      - Manitoba
+      - New Brunswick
+      - Newfoundland and Labrador
+      - Northwest Territories
+      - Nova Scotia
+      - Nunavut
+      - Ontario
+      - Prince Edward Island
+      - Quebec
+      - Saskatchewan
+      - Yukon
+    default: Ontario
+  - Postal Code: user.address.postal_code
+    required: True
+    help: Format A1A 1A1
+  - Phone Number: user.phone_number
+    datatype: phone
+    required: True
+  - Alternative Phone: user.mobile_number
+    datatype: phone
+    required: False
+  - Email Address: user.email
+    datatype: email
+    required: False
+  - Preferred contact method: user.contact_preference
+    datatype: radio
+    choices:
+      - Phone: phone
+      - Email: email
+      - Mail: mail
+    default: phone
+continue button field: user_contact_complete
+validation code: |
+  import re
+  # Validate postal code format
+  if user.address.postal_code and not re.match(r'^[A-Za-z]\d[A-Za-z]\s?\d[A-Za-z]\d$', user.address.postal_code.upper().strip()):
+    validation_error("Please enter a valid Canadian postal code (e.g., M5V 3A8)", field="user.address.postal_code")
+---
+# Legal representation
+question: |
+  Do you have a lawyer?
+yesno: has_lawyer
+continue button field: user_lawyer_needed
+---
+# User lawyer information
+question: |
+  Your Lawyer Information
+fields:
+  - Lawyer Name: user_lawyer.name.text
+    required: True
+  - Law Firm: user_lawyer.firm_name
+    required: False
+  - Law Society Number: user_lawyer.lsuc_number
+    required: True
+    help: 5 digits, optionally followed by a letter (e.g., 12345 or 12345A)
+continue button field: user_lawyer_info_complete
+validation code: |
+  import re
+  # Validate LSO number format
+  if user_lawyer.lsuc_number and not re.match(r'^\d{5}[A-Za-z]?$', user_lawyer.lsuc_number.upper().strip()):
+    validation_error("Invalid LSO number format. Should be 5 digits, optionally followed by a letter", field="user_lawyer.lsuc_number")
+---
+# User lawyer contact
+question: |
+  Your Lawyer Contact Information
+fields:
+  - Street Address: user_lawyer.address.address
+    required: True
+    address autocomplete: True
+  - Suite/Unit: user_lawyer.address.unit
+    required: False
+  - City: user_lawyer.address.city
+    required: True
+  - Province: user_lawyer.address.state
+    choices:
+      - Ontario
+      - Other
+    default: Ontario
+  - Postal Code: user_lawyer.address.postal_code
+    required: True
+  - Phone: user_lawyer.phone_number
+    required: True
+  - Extension: user_lawyer.phone_extension
+    required: False
+  - Fax: user_lawyer.fax_number
+    required: False
+  - Email: user_lawyer.email
+    datatype: email
+    required: False
+continue button field: user_lawyer_contact_complete
+---
+# Other party information
+question: |
+  Other Party Information
+fields:
+  - First Name: opposing_party.name.first
+    required: True
+  - Middle Name: opposing_party.name.middle
+    required: False
+  - Last Name: opposing_party.name.last
+    required: True
+  - Date of Birth: opposing_party.birthdate
+    datatype: date
+    required: False
+  - "Also known as": opposing_party.also_known_as
+    required: False
+continue button field: opposing_party_info_complete
+---
+# Other party contact
+question: |
+  Other Party Contact Information
+subquestion: |
+  Provide if known. Leave blank if unknown.
+fields:
+  - Street Address: opposing_party.address.address
+    required: False
+  - Unit/Apt: opposing_party.address.unit
+    required: False
+  - City: opposing_party.address.city
+    required: False
+  - Province: opposing_party.address.state
+    choices:
+      - Alberta
+      - British Columbia
+      - Manitoba
+      - New Brunswick
+      - Newfoundland and Labrador
+      - Northwest Territories
+      - Nova Scotia
+      - Nunavut
+      - Ontario
+      - Prince Edward Island
+      - Quebec
+      - Saskatchewan
+      - Yukon
+    default: Ontario
+    required: False
+  - Postal Code: opposing_party.address.postal_code
+    required: False
+  - Phone Number: opposing_party.phone_number
+    required: False
+  - Email: opposing_party.email
+    datatype: email
+    required: False
+continue button field: opposing_party_contact_complete
+---
+# Opposing party lawyer
+question: |
+  Does the other party have a lawyer?
+field: opposing_has_lawyer
+buttons:
+  - "Yes": True
+  - "No": False
+  - "Unknown": unknown
+---
+# Opposing lawyer info
+question: |
+  Other Party Lawyer Information
+subquestion: |
+  Provide if known.
+fields:
+  - Lawyer Name: opposing_lawyer.name.text
+    required: False
+  - Law Firm: opposing_lawyer.firm_name
+    required: False
+  - Law Society Number: opposing_lawyer.lsuc_number
+    required: False
+continue button field: opposing_lawyer_info_complete
+---
+# Opposing lawyer contact
+question: |
+  Other Party Lawyer Contact Information
+fields:
+  - Street Address: opposing_lawyer.address.address
+    required: False
+  - Suite/Unit: opposing_lawyer.address.unit
+    required: False
+  - City: opposing_lawyer.address.city
+    required: False
+  - Province: opposing_lawyer.address.state
+    choices:
+      - Ontario
+      - Other
+    default: Ontario
+    required: False
+  - Postal Code: opposing_lawyer.address.postal_code
+    required: False
+  - Phone: opposing_lawyer.phone_number
+    required: False
+  - Fax: opposing_lawyer.fax_number
+    required: False
+  - Email: opposing_lawyer.email
+    datatype: email
+    required: False
+continue button field: opposing_lawyer_contact_complete
+---
+# Court information
+question: |
+  Court Information
+fields:
+  - "Is there an existing court file?": court.file_exists
+    datatype: yesnoradio
+  - Court Name: court.name
+    show if: court.file_exists
+    choices:
+      - Superior Court of Justice
+      - Ontario Court of Justice
+      - Family Court Branch
+  - Court Location: court.location
+    show if: court.file_exists
+  - Court File Number: court.file_number
+    show if: court.file_exists
+  - Date Started: court.date_started
+    datatype: date
+    required: False
+    show if: court.file_exists
+continue button field: court_info_complete
+---
+# Ask if they have children
+question: |
+  Do you have any children together?
+subquestion: |
+  Include all children under 18, or adult children who are dependent due to disability or education.
+yesno: has_children
+---
+# Children review screen with table
+question: |
+  Children Information
+subquestion: |
+  % if has_children:
+  Click "Add a child" to add children to your case.
+  
+    % if defined('children_data'):
+  ### Your Children
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Birth Date</th>
+        <th>Lives With</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      % for idx, child in enumerate(children_data):
+      <tr>
+        <td>${ child.get('first_name', '') } ${ child.get('last_name', '') }</td>
+        <td>${ child.get('birthdate', '') }</td>
+        <td>${ child.get('lives_with', '') }</td>
+        <td>
+          ${ action_button_html(url_action('edit_child', index=idx), label='Edit', icon='pencil', color='primary', size='sm') }
+          ${ action_button_html(url_action('delete_child', index=idx), label='Delete', icon='trash', color='danger', size='sm') }
+        </td>
+      </tr>
+      % endfor
+    </tbody>
+  </table>
+    % endif
+  
+  ${ action_button_html(url_action('add_child'), label='Add a child', icon='plus-circle', color='success') }
+  % else:
+  You indicated you do not have children together.
+  % endif
+continue button field: children_review
+---
+# Initialize children data as empty list
+code: |
+  if not defined('children_data'):
+    children_data = []
+---
+# Temporary child data for adding/editing
+code: |
+  if not defined('temp_child'):
+    temp_child = {}
+---
+# Action to add a child
+event: add_child
+code: |
+  if not defined('children_data'):
+    children_data = []
+  temp_child = {}
+  force_ask('temp_child_info', 'children_review')
+---
+# Action to edit a child
+event: edit_child
+code: |
+  child_index = int(action_argument('index'))
+  temp_child = children_data[child_index].copy()
+  temp_child['_index'] = child_index
+  force_ask('temp_child_info', 'children_review')
+---
+# Action to delete a child
+event: delete_child
+code: |
+  child_index = int(action_argument('index'))
+  children_data.pop(child_index)
+  force_ask('children_review')
+---
+# Collect temporary child information
+question: |
+  ${ "Edit Child Information" if defined('temp_child._index') else "Add Child Information" }
+fields:
+  - First Name: temp_child['first_name']
+    required: True
+    default: ${ temp_child.get('first_name', '') }
+  - Middle Name: temp_child['middle_name'] 
+    required: False
+    default: ${ temp_child.get('middle_name', '') }
+  - Last Name: temp_child['last_name']
+    required: True
+    default: ${ temp_child.get('last_name', '') }
+  - Date of Birth: temp_child['birthdate']
+    datatype: date
+    required: True
+    max: ${ today() }
+    default: ${ temp_child.get('birthdate', '') }
+  - "Lives with": temp_child['lives_with']
+    choices:
+      - Me
+      - Other party
+      - Both (shared)
+      - Other person
+    default: ${ temp_child.get('lives_with', '') }
+  - "Special needs or medical conditions": temp_child['special_needs']
+    datatype: area
+    required: False
+    default: ${ temp_child.get('special_needs', '') }
+continue button field: temp_child_info
+validation code: |
+  # Save the child data
+  if not defined('children_data'):
+    children_data = []
+  
+  if '_index' in temp_child:
+    # Editing existing child
+    children_data[temp_child['_index']] = {k: v for k, v in temp_child.items() if k != '_index'}
+  else:
+    # Adding new child
+    children_data.append({k: v for k, v in temp_child.items()})
+---
+# Summary
+event: show_summary
+question: |
+  Information Summary
+subquestion: |
+  ## Case Type
+  
+  **Emergency:** ${ "Yes - URGENT" if emergency_situation else "No" }
+  
+  **MIP Status:** ${ mip_status.replace("_", " ").title() }
+  
+  **Relationship:** ${ relationship_status.replace("_", " ").title() }
+  
+  **Orders Sought:**
+  % if defined('seeking_divorce') and seeking_divorce:
+  - Divorce
+  % endif
+  % if seeking_custody:
+  - Child custody/access
+  % endif
+  % if seeking_child_support:
+  - Child support
+  % endif
+  % if seeking_spousal_support:
+  - Spousal support
+  % endif
+  % if seeking_property:
+  - Property division
+  % endif
+  % if seeking_exclusive_possession:
+  - Exclusive possession
+  % endif
+  % if seeking_restraining_order:
+  - Restraining order
+  % endif
+  % if seeking_paternity:
+  - Paternity/parentage
+  % endif
+  % if seeking_enforcement:
+  - Enforcement
+  % endif
+  % if seeking_variation:
+  - Variation
+  % endif
+  
+  ## Party Information
+  
+  **You:** ${ user.name.full() }
+  
+  Address: ${ user.address.block() }
+  
+  Phone: ${ user.phone_number }
+  
+  % if user.email:
+  Email: ${ user.email }
+  % endif
+  
+  % if has_lawyer:
+  **Your Lawyer:** ${ user_lawyer.name.text }
+  % if user_lawyer.firm_name:
+  - ${ user_lawyer.firm_name }
+  % endif
+  % else:
+  **Legal Representation:** Self-represented
+  % endif
+  
+  **Other Party:** ${ opposing_party.name.full() }
+  
+  % if opposing_party.address.address:
+  Address: ${ opposing_party.address.block() }
+  % endif
+  
+  % if opposing_has_lawyer == True:
+  **Their Lawyer:** ${ opposing_lawyer.name.text if opposing_lawyer.name.text else "Information not provided" }
+  % elif opposing_has_lawyer == "unknown":
+  **Their Lawyer:** Unknown
+  % else:
+  **Their Lawyer:** Self-represented
+  % endif
+  
+  ## Court Information
+  
+  % if court.file_exists:
+  **Court:** ${ court.name }
+  
+  **Location:** ${ court.location }
+  
+  **File #:** ${ court.file_number }
+  % else:
+  **Court File:** No existing file
+  % endif
+  
+  ## Children
+  
+  % if has_children and defined('children_data') and len(children_data) > 0:
+  **Number of Children:** ${ len(children_data) }
+  
+  % for child in children_data:
+  - ${ child.get('first_name', '') } ${ child.get('last_name', '') } (Born: ${ child.get('birthdate', 'N/A') }, Lives with: ${ child.get('lives_with', 'N/A') })
+  % endfor
+  % elif has_children:
+  **Children:** Yes (details not yet provided)
+  % else:
+  **Children:** None
+  % endif
+  
+  % if needs_financial_forms:
+  ## Financial Information
+  
+  % if defined('claiming_support'):
+  **Claiming support:** ${ "Yes" if claiming_support else "No" }
+  % endif
+  % if defined('owns_business'):
+  **Business owner:** ${ "Yes" if owns_business else "No" }
+  % endif
+  % if defined('has_pension'):
+  **Has pension:** ${ "Yes" if has_pension else "No" }
+  % endif
+  % endif
+  
+  ---
+  
+  ## Recommended Forms
+  
+  Based on your information, you will likely need:
+  
+  % if emergency_situation:
+  **URGENT - File These Today:**
+  - Form 8 - Application
+  - Form 14B - Motion
+  - Form 14A - Affidavit
+  % if seeking_restraining_order:
+  - Form 25F - Restraining Order
+  % endif
+  % else:
+  % if relationship_status == "married" and seeking_divorce:
+  - Form 8A - Application (Divorce)
+  % else:
+  - Form 8 - Application (General)
+  % endif
+  % if needs_financial_forms:
+  - Form 13 - Financial Statement (Support)
+  % if seeking_property:
+  - Form 13.1 - Financial Statement (Property)
+  % endif
+  % endif
+  % endif
+buttons:
+  - Exit: exit
+  - Restart: restart

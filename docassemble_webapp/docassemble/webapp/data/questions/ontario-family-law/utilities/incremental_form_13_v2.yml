@@ -1,0 +1,35 @@
+---
+# Version 2: Add basic objects
+metadata:
+  title: Form 13 - Version 2 - With Objects
+  short title: Form 13 v2
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - user: Individual
+---
+mandatory: True
+code: |
+  intro_seen
+  user.name.first
+  final_screen
+---
+question: |
+  Form 13 Test
+field: intro_seen
+---
+question: |
+  Your Name
+fields:
+  - First Name: user.name.first
+  - Last Name: user.name.last
+---
+event: final_screen
+question: |
+  Done
+subquestion: |
+  Name collected: ${ user.name.full() }
+buttons:
+  - Exit: exit

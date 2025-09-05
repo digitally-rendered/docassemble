@@ -1,0 +1,28 @@
+{
+  "name": "ontario-family-law-tests",
+  "version": "1.0.0",
+  "description": "Playwright tests for Ontario Family Law Docassemble interviews",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:chrome": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:safari": "playwright test --project=webkit",
+    "test:mobile": "playwright test --project=mobile-chrome --project=mobile-safari",
+    "test:common-intake": "playwright test test_common_intake_complete.spec.ts",
+    "test:common-intake:headed": "playwright test test_common_intake_complete.spec.ts --headed",
+    "report": "playwright show-report test-results/html",
+    "install": "playwright install",
+    "install:deps": "playwright install-deps"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

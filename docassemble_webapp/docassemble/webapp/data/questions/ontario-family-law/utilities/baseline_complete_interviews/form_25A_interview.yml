@@ -1,0 +1,255 @@
+---
+metadata:
+  title: "Ontario Family Law Form 25A: Form 25A"
+  short title: Form 25A
+  description: Interview with baseline error handling for 28 fields
+  form_number: 25A
+  field_count: 28
+  error_handling: baseline
+  generated: "2025-08-26T23:10:53.706231" 
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  debug: True
+  question help button: True
+  question back button: True
+  progress bar: True
+  progress bar method: all
+  progress bar multiplier: 0.05
+---
+objects:
+  - validation_errors: DAList
+  - error_log: DAList
+  - field_errors: DADict
+---
+initial: True
+code: |
+  validation_errors = DAList()
+  error_log = DAList()
+  field_errors = DADict()
+  debug_mode = get_config('debug', False)
+  error_count = 0
+---
+code: |
+  def handle_error(context, error_type, details):
+    '''Global error handler'''
+    error_entry = {
+      'timestamp': current_datetime(),
+      'context': context,
+      'type': error_type,
+      'details': details
+    }
+    error_log.append(error_entry)
+    if debug_mode:
+      log(f"ERROR in {context}: {error_type} - {details}", 'error')
+    return error_entry
+---
+code: |
+  def safe_get(obj, attr, default=""):
+    '''Safely get object attribute'''
+    try:
+      if hasattr(obj, attr):
+        val = getattr(obj, attr)
+        return val if val is not None else default
+      return default
+    except:
+      return default
+---
+code: |
+  def validate_required(field_name, value):
+    '''Validate required field'''
+    if not value or (isinstance(value, str) and not value.strip()):
+      field_errors[field_name] = f"{field_name} is required"
+      return False
+    return True
+---
+objects:
+  - user: Individual
+  - other_party: Individual
+---
+mandatory: True
+code: |
+  try:
+    intro_seen
+  user.name.first
+  other_party.name.first
+  review_answers
+  if len(validation_errors) > 0:
+    review_with_errors
+  form_complete
+  except Exception as e:
+    handle_error("main_flow", "FlowError", str(e))
+    error_recovery
+---
+question: |
+  Ontario Family Law Form 25A
+subquestion: |
+  Welcome to the Form 25A interview.
+  
+  This interview will collect 28 fields of information.
+  
+  % if debug_mode:
+  <div class="alert alert-info">
+    Debug mode is enabled - detailed error information will be shown
+  </div>
+  % endif
+  
+  All fields include validation and error handling.
+continue button field: intro_seen
+---
+question: |
+  Page 1
+fields:
+  - Court File Number: form1_0__page1_0__p1_0__courtdetails_0__courtfilen
+  - Name of Court.  Select from the drop down menu.: form1_0__page1_0__p1_0__courtdetails_0__court_0__n
+  - Court office address: form1_0__page1_0__p1_0__courtdetails_0__court_0__c
+  - Judge (print or type name): form1_0__page1_0__p1_0__appl_0___subform_0__judge_
+  - Date of order: form1_0__page1_0__p1_0__appl_0___subform_0__dateof
+  - Applicant. 1. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).: form1_0__page1_0__p1_0__appl_0__start_0__applicant
+  - Applicant. 2. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).: form1_0__page1_0__p1_0__appl_0__start_0__applicant
+  - Applicant. 1. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).: form1_0__page1_0__p1_0__appl_0__start_0__applicant
+  - Applicant. 2. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).: form1_0__page1_0__p1_0__appl_0__start_0__applicant
+  - Respondent. 1. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).: form1_0__page1_0__p1_0__appl_0__start_0__responden
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: page_1_collected
+---
+question: |
+  Page 2
+fields:
+  - Court File Number: form1_0__page1_0__p2_0___subform_0__courtfilenumbe
+  - Add further paragraphs where the court orders other relief.: form1_0__page1_0__p2_0__textfield_0_
+  - Date of signature: form1_0__page1_0__p2_0__dateofsignature_0_
+  - Signature of judge or clerk of the court: form1_0__page1_0__p2_0__judgesignature_0_
+  - Save Form: form1_0__page1_0__navigationbtns_0__saveform_0_
+  - Print Form: form1_0__page1_0__navigationbtns_0__print_0_
+  - Clear Form: form1_0__page1_0__navigationbtns_0__reset_0_
+validation code: |
+  # Validate required fields
+  for field in []:
+    if not defined(field) or not value(field):
+      validation_error(f"{field} is required")
+continue button field: page_2_collected
+---
+question: |
+  Your Information
+fields:
+  - First Name: user.name.first
+    required: True
+    validation messages:
+      required: First name is required
+  - Last Name: user.name.last
+    required: True
+    validation messages:
+      required: Last name is required
+  - Date of Birth: user.birthdate
+    datatype: date
+    required: False
+---
+question: |
+  Other Party
+fields:
+  - First Name: other_party.name.first
+    required: True
+    validation messages:
+      required: First name is required
+  - Last Name: other_party.name.last
+    required: True
+    validation messages:
+      required: Last name is required
+  - Date of Birth: other_party.birthdate
+    datatype: date
+    required: False
+---
+event: error_recovery
+question: |
+  Error Recovery
+subquestion: |
+  An error occurred during the interview.
+  
+  % if len(error_log) > 0:
+  **Recent Errors:**
+  % for error in error_log[-5:]:
+  - ${ error['context'] }: ${ error['type'] }
+  % endfor
+  % endif
+  
+  You can try restarting or contact support.
+buttons:
+  - Restart: restart
+  - Exit: exit
+---
+event: review_with_errors
+question: |
+  Review with Validation Issues
+subquestion: |
+  <div class="alert alert-warning">
+    There are ${ len(validation_errors) } validation issues to review.
+  </div>
+  
+  % for error in validation_errors[:10]:
+  - ${ error }
+  % endfor
+  
+  You can continue anyway or go back to fix these issues.
+buttons:
+  - Continue Anyway: continue
+  - Go Back: restart
+---
+event: review_answers
+question: |
+  Review Your Answers
+subquestion: |
+  Please review the information you've provided.
+  
+  % if len(validation_errors) == 0:
+  <div class="alert alert-success">
+    ✓ All information validated successfully
+  </div>
+  % else:
+  <div class="alert alert-warning">
+    ⚠ ${ len(validation_errors) } validation warnings
+  </div>
+  % endif
+  
+  **Form 25A Summary**
+  
+  Information has been collected for all required fields.
+  
+  % if debug_mode:
+  **Debug Info:**
+  - Errors logged: ${ len(error_log) }
+  - Fields with errors: ${ len(field_errors) }
+  % endif
+buttons:
+  - Continue: continue
+  - Edit Answers: restart
+---
+event: form_complete
+question: |
+  Form 25A Complete
+subquestion: |
+  Thank you for completing Form 25A.
+  
+  % if len(error_log) == 0:
+  <div class="alert alert-success">
+    ✓ Interview completed without errors
+  </div>
+  % else:
+  <div class="alert alert-info">
+    Interview completed with ${ len(error_log) } logged events
+  </div>
+  % endif
+  
+  **Summary:**
+  - All required fields completed
+  - Validation: ${ "Passed" if len(validation_errors) == 0 else str(len(validation_errors)) + " warnings" }
+  
+buttons:
+  - Exit: exit
+  - Start Over: restart

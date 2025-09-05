@@ -1,0 +1,2542 @@
+---
+metadata:
+  title: 'Form 13C: Comparison of Net Family Properties'
+  short_title: Form 13C
+  description: Structured interview with 450 fields and 15 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - 13C
+  form_number: 13C
+  form_category: financial
+  generated: '2025-08-26 22:36:36'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+- docassemble.base:data/questions/financial.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: percentage
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+  table_css_class: table table-striped
+objects:
+- court_info: DAObject
+- person: Individual
+- vehicles: DAList.using(object_type=DAObject)
+- properties: DAList.using(object_type=DAObject)
+- debt_information: DAObject
+- table_1_item_9: DAObject
+- table_1_item_10: DAObject
+- table_1_item_14: DAObject
+- table_1_item_15: DAObject
+- table_4_item_4: DAObject
+- table_4_item_5: DAObject
+- table_4_item_6: DAObject
+- table_4_item_7: DAObject
+- table_5_item_1: DAObject
+- table_5_item_2: DAObject
+- table_5_item_7: DAObject
+- income_sources: DAList.using(object_type=Income)
+- expenses: DAList.using(object_type=Expense)
+- assets: DAList.using(object_type=Asset)
+- debts: DAList.using(object_type=Liability)
+- error_log: DAList.using(object_type=DAObject, there_are_any=False)
+- debug_info: DAObject
+code: "if not defined('debug_mode'):\n    debug_mode = get_config('debug', False)"
+code: "def capture_form_error(context=\"\", field_name=\"\"):\n    '''Capture and log form validation errors'''\n    from .debug_helpers import DebugHelper\n    error_info = DebugHelper.capture_error()\n    if error_info:\n      error_entry = DAObject()\n      error_entry.timestamp = current_datetime()\n      error_entry.context = context\n      error_entry.field = field_name\n      error_entry.error = error_info\n      error_log.append(error_entry)\n      if debug_mode:\n        log(f\"Form error in {context}: {error_info['message']}\", 'error')\n    return error_info"
+code: "def safe_get_field(obj, field_name, default=\"\"):\n    '''Safely access object fields with error handling'''\n    try:\n      if hasattr(obj, field_name):\n        value = getattr(obj, field_name)\n        return value if value is not None else default\n      return default\n    except Exception as e:\n      capture_form_error(f\"safe_get_field({field_name})\", field_name)\n      return default"
+code: "def handle_validation_error(field_name, value, validation_type=\"\"):\n    '''Handle field validation errors with user-friendly messages'''\n    error_messages = {\n      'required': f\"The field '{field_name}' is required.\",\n      'date': f\"Please enter a valid date for '{field_name}'.\",\n      'email': f\"Please enter a valid email address for '{field_name}'.\",\n      'phone': f\"Please enter a valid phone number for '{field_name}'.\",\n      'currency': f\"Please enter a valid dollar amount for '{field_name}'.\",\n      'number': f\"Please enter a valid number for '{field_name}'.\",\n      'percentage': f\"Please enter a valid percentage for '{field_name}'.\",\n      'postal_code': f\"Please enter a valid postal code for '{field_name}'.\"\n    }\n    \n    message = error_messages.get(validation_type, f\"Invalid value for '{field_name}': {value}\")\n    \n    if debug_mode:\n      log(f\"Validation error: {message}\", 'error')\n      \n    validation_errors.append({\n    \
+  \  'field': field_name,\n      'value': value,\n      'type': validation_type,\n      'message': message\n    })\n    \n    return message"
+code: "if not defined('validation_errors'):\n    validation_errors = []"
+code: "def validate_field(field_name, value, validation_rules):\n    '''Validate a field against multiple rules'''\n    errors = []\n    \n    # Required field check\n    if 'required' in validation_rules and validation_rules['required']:\n      if not value or (isinstance(value, str) and not value.strip()):\n        errors.append(handle_validation_error(field_name, value, 'required'))\n    \n    # Type-specific validation\n    if value and 'type' in validation_rules:\n      field_type = validation_rules['type']\n      \n      if field_type == 'date':\n        try:\n          # Validate date format\n          if isinstance(value, str):\n            from datetime import datetime\n            datetime.strptime(value, '%Y-%m-%d')\n        except:\n          errors.append(handle_validation_error(field_name, value, 'date'))\n      \n      elif field_type == 'email':\n        import re\n        if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$', str(value)):\n          errors.append(handle_validation_error(field_name,\
+  \ value, 'email'))\n      \n      elif field_type == 'phone':\n        import re\n        phone_str = re.sub(r'[^0-9]', '', str(value))\n        if len(phone_str) not in [10, 11]:\n          errors.append(handle_validation_error(field_name, value, 'phone'))\n      \n      elif field_type == 'currency' or field_type == 'number':\n        try:\n          float(str(value).replace('$', '').replace(',', ''))\n        except:\n          errors.append(handle_validation_error(field_name, value, field_type))\n    \n    return errors"
+code: "# Calculation functions\n\ndef calculate_net_worth():\n    '''Calculate net worth (assets - liabilities)'''\n    total_assets = calculate_total(assets, 'value') if defined('assets') else 0\n    total_debts = calculate_total(debts, 'amount') if defined('debts') else 0\n    return total_assets - total_debts\n\ndef calculate_monthly_surplus():\n    '''Calculate monthly surplus (income - expenses)'''\n    total_income = calculate_total(income_sources, 'monthly_amount') if defined('income_sources') else 0\n    total_expenses = calculate_total(expenses, 'monthly_amount') if defined('expenses') else 0\n    return total_income - total_expenses\n"
+mandatory: true
+code: 'intro_seen
+
+  vehicles.gathered
+
+  properties.gathered
+
+  debt_information_complete
+
+  table_1_item_9_complete
+
+  table_1_item_10_complete
+
+  table_1_item_14_complete
+
+  table_1_item_15_complete
+
+  table_4_item_4_complete
+
+  table_4_item_5_complete
+
+  table_4_item_6_complete
+
+  table_4_item_7_complete
+
+  table_5_item_1_complete
+
+  table_5_item_2_complete
+
+  table_5_item_7_complete
+
+  review_complete
+
+  form_complete'
+question: Form 13C Interview
+subquestion: 'This structured interview will help you complete Form 13C.
+
+
+  You will be asked about:
+
+  - Personal information for parties involved
+
+  - Financial information and calculations
+
+  - Property and asset details
+
+
+  Total sections: 16
+
+  Fields to complete: 450'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Person Information
+fields:
+- label: 'Full legal name: Full legal name: Full legal name:'
+  field: person.full_legal_name_full_legal_name_full_legal_name
+  datatype: text
+  required: false
+- label: 'Address: Address: Address:'
+  field: person.address_address_address
+  datatype: text
+  required: false
+- label: 'Full legal name: Full legal name: Full legal name:'
+  field: person.full_legal_name_full_legal_name_full_legal_name
+  datatype: text
+  required: false
+- label: 'Address: Address: Address:'
+  field: person.address_address_address
+  datatype: text
+  required: false
+- label: '(E) TOTALS: Value of Business Interests (E) TOTALS: Value of Business Interests (E) TOTALS: Value of'
+  field: person.e_totals_value_of_business_interests_e_totals_valu
+  datatype: currency
+  required: false
+  min: 0
+question: Vehicle Details
+fields:
+- label: Cars, boats, vehicles $ $ $ $
+  field: vehicles[i].cars_boats_vehicles
+  datatype: currency
+  required: false
+  min: 0
+- label: '(B) TOTALS: Value of General Household Items and Vehicles (B) TOTALS: Value of General Household Ite'
+  field: vehicles[i].b_totals_value_of_general_household_items_and_vehi
+  datatype: currency
+  required: false
+  min: 0
+list_collect: true
+question: Are there more vehicle items to add?
+yesno: vehicles.there_is_another
+question: Property Details
+fields:
+- label: '(G) TOTALS: Value of Other Property (G) TOTALS: Value of Other Property (G) TOTALS: Value of Other P'
+  field: properties[i].g_totals_value_of_other_property_g_totals_value_of
+  datatype: currency
+  required: false
+  min: 0
+- label: 'VALUE OF PROPERTY OWNED ON THE VALUATION DATE, (TOTAL 1)
+
+    (Add: item A to item G inclusive) $ $ $ $'
+  field: properties[i].value_of_property_owned_on_the_valuation_date_tota
+  datatype: date
+  required: false
+- label: TOTAL OF PROPERTY ITEMS TOTAL OF PROPERTY ITEMS TOTAL OF PROPERTY ITEMS $ $ $ $
+  field: properties[i].total_of_property_items_total_of_property_items_to
+  datatype: currency
+  required: false
+  min: 0
+- label: NET VALUE OF PROPERTY OWNED ON DATE OF MARRIAGE (NET TOTAL 3) NET VALUE OF PROPERTY OWNED ON DATE OF
+  field: properties[i].net_value_of_property_owned_on_date_of_marriage_ne
+  datatype: date
+  required: false
+- label: 'TOTALS: Value of Excluded Property (TOTAL 4) TOTALS: Value of Excluded Property (TOTAL 4) TOTALS: Va'
+  field: properties[i].totals_value_of_excluded_property_total_4_totals_v
+  datatype: currency
+  required: false
+  min: 0
+- label: 'TOTAL 3: Value of Property Owned on the Date of Marriage $ $ $ $'
+  field: properties[i].total_3_value_of_property_owned_on_the_date_of_mar
+  datatype: date
+  required: false
+- label: 'TOTAL 4: Value of Excluded Property $ $ $ $'
+  field: properties[i].total_4_value_of_excluded_property
+  datatype: currency
+  required: false
+  min: 0
+- label: 'TOTAL 1: Value of Property Owned on Valuation Date $ $ $ $'
+  field: properties[i].total_1_value_of_property_owned_on_valuation_date
+  datatype: date
+  required: false
+- label: 'TOTAL 6: NET FAMILY PROPERTY (Subtract: TOTAL 1 minus TOTAL 5) $ $ $ $'
+  field: properties[i].total_6_net_family_property_subtract_total_1_minus
+  datatype: currency
+  required: false
+  min: 0
+list_collect: true
+question: Are there more property items to add?
+yesno: properties.there_is_another
+question: Debt Information
+fields:
+- label: 'TOTALS: Value of Debts and Other Liabilities, (TOTAL 2) TOTALS: Value of Debts and Other Liabilities'
+  field: debt_information.totals_value_of_debts_and_other_liabilities_total
+  datatype: currency
+  required: false
+  min: 0
+- label: Debts and other liabilities $ $ $ $
+  field: debt_information.debts_and_other_liabilities
+  datatype: currency
+  required: false
+  min: 0
+- label: TOTAL OF DEBTS ITEMS TOTAL OF DEBTS ITEMS TOTAL OF DEBTS ITEMS $ $ $ $
+  field: debt_information.total_of_debts_items_total_of_debts_items_total_of
+  datatype: currency
+  required: false
+  min: 0
+- label: 'TOTAL 2: Debts and Other Liabilities $ $ $ $'
+  field: debt_information.total_2_debts_and_other_liabilities
+  datatype: currency
+  required: false
+  min: 0
+question: Table 4 Item 4
+fields:
+- label: $ $ $ $
+  field: table_4_item_4.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 4 Item 5
+fields:
+- label: $ $ $ $
+  field: table_4_item_5.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 4 Item 6
+fields:
+- label: $ $ $ $
+  field: table_4_item_6.field
+  datatype: currency
+  required: false
+  min: 0
+question: Table 4 Item 7
+fields:
+- label: '(C) TOTALS: Value of Accounts and Savings (C) TOTALS: Value of Accounts and Savings (C) TOTALS: Valu'
+  field: table_4_item_7.c_totals_value_of_accounts_and_savings_c_totals_va
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 1
+fields:
+- label: 'COMPANY TYPE & POLICY NO. OWNER BENEFICIARY FACE
+
+    AMOUNT ($) COMMENTS Document Number Applicant’s Pos'
+  field: table_5_item_1.company_type_policy_no_owner_beneficiary_face_amou
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 2
+fields:
+- label: 'COMPANY TYPE & POLICY NO. OWNER BENEFICIARY FACE
+
+    AMOUNT ($) COMMENTS Document Number APPLICANT RESPO'
+  field: table_5_item_2.company_type_policy_no_owner_beneficiary_face_amou
+  datatype: currency
+  required: false
+  min: 0
+question: Table 5 Item 7
+fields:
+- label: '(D) TOTALS: Cash Surrender Value of Insurance Policies (D) TOTALS: Cash Surrender Value of Insurance'
+  field: table_5_item_7.d_totals_cash_surrender_value_of_insurance_policie
+  datatype: currency
+  required: false
+  min: 0
+question: Additional Information
+fields:
+- label: ''
+  field: field
+  required: false
+  choices:
+  - '          '
+  - Ontario Court of Justice
+  - Superior Court of Justice
+  - Superior Court of Justice, Family Court
+  help_text: ''
+- label: Court File Number
+  field: courtfileno
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_13
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 1
+  field: text1_14
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_13
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_14
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_15
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_16
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_17
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_18
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_19
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_20
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_21
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_22
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_23
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_24
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_25
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_26
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_27
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_28
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_29
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_30
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_31
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_32
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_33
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_34
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_35
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_36
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_37
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_38
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_39
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_40
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_41
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_42
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_43
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_44
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_45
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_46
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_47
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_48
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_49
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_50
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_51
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_52
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_53
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_54
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_55
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_56
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_57
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_58
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_59
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_60
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_61
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_62
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_63
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_64
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_65
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_66
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_67
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_68
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_69
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_70
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_71
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_72
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_73
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_74
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_75
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_76
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_77
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_78
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_79
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_80
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_81
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_82
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_83
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_84
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_85
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_86
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_87
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_88
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_89
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_90
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_91
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_92
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_93
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_94
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_95
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_96
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_97
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_98
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_99
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_100
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_101
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_102
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_103
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_104
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_105
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_106
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_107
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_108
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_109
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_110
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_111
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_112
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_113
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_114
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_115
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_116
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_117
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_118
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_119
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_120
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_121
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_122
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_123
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_124
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_125
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_126
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_127
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_128
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_129
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_130
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_131
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_132
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_133
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_134
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_135
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_136
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_137
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_138
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_139
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_140
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_141
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_142
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_143
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_144
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_145
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_146
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_147
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_148
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_149
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_150
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_151
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_152
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_153
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_154
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_155
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_156
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_157
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_158
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_159
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_160
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_161
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_162
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_163
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_164
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_165
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_166
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_167
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_168
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_169
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_170
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_171
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_172
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_173
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_174
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_175
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_176
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_177
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_178
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_179
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_180
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_181
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_182
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_183
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_184
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_185
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_186
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_187
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_188
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_189
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_190
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_191
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_192
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_193
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_194
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_195
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_196
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_197
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_198
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_199
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_200
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_201
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_202
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_203
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_204
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_205
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_206
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_207
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_208
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_209
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_210
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_211
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_212
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_213
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_214
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_215
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_216
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_217
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_218
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_219
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_220
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_221
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_222
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_223
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_224
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_225
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_226
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_227
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_228
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_229
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_230
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_231
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_232
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_233
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_234
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_235
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_236
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_237
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_238
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_239
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_240
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_241
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_242
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_243
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_244
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_245
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_246
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_247
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_248
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_249
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_250
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_251
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_252
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_253
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_254
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_255
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_256
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_257
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_258
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_259
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_260
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_261
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_262
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_263
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_264
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_265
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_266
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_267
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_268
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_269
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_270
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_271
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_272
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_273
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_274
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_275
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_276
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_277
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_278
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_279
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_280
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_281
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_282
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_283
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_284
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_285
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_286
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_287
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_288
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_289
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_290
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_291
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_292
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_293
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_294
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_295
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_296
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_297
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_298
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_299
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_300
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_301
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_302
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_303
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_304
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_305
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_306
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_307
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_308
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_309
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_310
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_311
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_312
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_313
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_314
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_315
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_316
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_317
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_318
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_319
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_320
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_321
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_322
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_323
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_324
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_325
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_326
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_327
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_328
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_329
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_330
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_331
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_332
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_333
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_334
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_335
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_336
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_337
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_338
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_339
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_340
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_341
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_342
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_343
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_344
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_345
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_346
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_347
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_348
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_349
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_350
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_351
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_352
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_353
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_354
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_355
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_356
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_357
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_358
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_359
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_360
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_361
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_362
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_363
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_364
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_365
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_366
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_367
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_368
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_369
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_370
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_371
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_372
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_373
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_374
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_375
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_376
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_377
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_378
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_379
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_380
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_381
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_382
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_383
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_384
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_385
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_386
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_387
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_388
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_389
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_390
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_391
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_392
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_393
+  datatype: text
+  required: false
+  help_text: ''
+- label: 'Valuation Date: Statement Date: Statement Date: Statement Date: Statement Date:'
+  field: valuation_date_statement_date_statement_date_state
+  datatype: date
+  required: false
+- label: Matrimonial Home Matrimonial Home $ $ $ $ $
+  field: matrimonial_home_matrimonial_home
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: '(A) TOTALS: Value of Land (A) TOTALS: Value of Land (A) TOTALS: Value of Land (A) TOTALS: Value of L'
+  field: a_totals_value_of_land_a_totals_value_of_land_a_to
+  datatype: currency
+  required: false
+  min: 0
+- label: Household goods & furniture $ $ $ $
+  field: household_goods_furniture
+  datatype: currency
+  required: false
+  min: 0
+- label: Jewellery, art, electronics, tools, sports & hobby, equipment $ $ $ $
+  field: jewellery_art_electronics_tools_sports_hobby_equip
+  datatype: currency
+  required: false
+  min: 0
+- label: Other special items $ $ $ $
+  field: other_special_items
+  datatype: currency
+  required: false
+  min: 0
+- label: '(F) TOTALS: Money Owed to You (F) TOTALS: Money Owed to You (F) TOTALS: Money Owed to You $ $ $ $'
+  field: f_totals_money_owed_to_you_f_totals_money_owed_to
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: Assets $ $ $ $
+  field: assets
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: 'TOTAL 5: (TOTAL 2 + TOTAL 3 + TOTAL 4) $ $ $ $'
+  field: total_5_total_2_total_3_total_4
+  datatype: currency
+  required: false
+  min: 0
+- label: 'TOTAL 5: (from above) $ $ $ $'
+  field: total_5_from_above
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: 'Full legal name: Full legal name: Full legal name:'
+  field: person.full_legal_name_full_legal_name_full_legal_name
+  edit: true
+- label: 'Address: Address: Address:'
+  field: person.address_address_address
+  edit: true
+- label: 'Full legal name: Full legal name: Full legal name:'
+  field: person.full_legal_name_full_legal_name_full_legal_name
+  edit: true
+- label: 'TOTALS: Value of Debts and Other Liabilities, (TOTAL 2) TOTALS: Value of Debts and Other Liabilities'
+  field: debt_information.totals_value_of_debts_and_other_liabilities_total
+  edit: true
+- label: Debts and other liabilities $ $ $ $
+  field: debt_information.debts_and_other_liabilities
+  edit: true
+- label: TOTAL OF DEBTS ITEMS TOTAL OF DEBTS ITEMS TOTAL OF DEBTS ITEMS $ $ $ $
+  field: debt_information.total_of_debts_items_total_of_debts_items_total_of
+  edit: true
+- label: $ $ $ $
+  field: table_4_item_4.field
+  edit: true
+- label: $ $ $ $
+  field: table_4_item_5.field
+  edit: true
+- label: ''
+  field: field
+  edit: true
+- label: Court File Number
+  field: courtfileno
+  edit: true
+- label: ''
+  field: field_2
+  edit: true
+- label: ''
+  field: field_3
+  edit: true
+- label: ''
+  field: field_4
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 13C Complete
+subquestion: 'Your Form 13C has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart
+
+
+---
+# Error display screen
+event: show_form_errors
+question: |
+  Form Validation Errors
+subquestion: |
+  % if len(validation_errors) > 0:
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Please correct the following errors:</h4>
+    <ul>
+    % for error in validation_errors:
+      <li><strong>${ error['field'] }:</strong> ${ error['message'] }</li>
+    % endfor
+    </ul>
+  </div>
+  % endif
+  
+  % if debug_mode and len(error_log) > 0:
+  <details>
+    <summary>Debug Information (${len(error_log)} errors logged)</summary>
+    % for entry in error_log:
+    <div class="card mb-2">
+      <div class="card-body">
+        <h6 class="card-title">Error at ${ entry.timestamp }</h6>
+        <p class="card-text">
+          <strong>Context:</strong> ${ entry.context }<br>
+          <strong>Field:</strong> ${ entry.field }<br>
+          <strong>Type:</strong> ${ entry.error['type'] }<br>
+          <strong>Message:</strong> ${ entry.error['message'] }
+        </p>
+        % if debug_mode:
+        <details>
+          <summary>Stack Trace</summary>
+          <pre>${ entry.error.get('formatted_exception', 'N/A') }</pre>
+        </details>
+        % endif
+      </div>
+    </div>
+    % endfor
+  </details>
+  % endif
+buttons:
+  - "Go Back": restart
+  - "Exit": exit
+---
+# Debug information screen
+event: show_debug_info
+question: |
+  Debug Information
+subquestion: |
+  <div class="alert alert-info">
+    <h4>Session Information</h4>
+    <ul>
+      <li><strong>Interview:</strong> ${ user_info().filename }</li>
+      <li><strong>Session ID:</strong> ${ user_info().session }</li>
+      <li><strong>Debug Mode:</strong> ${ debug_mode }</li>
+      <li><strong>Errors Logged:</strong> ${ len(error_log) }</li>
+      <li><strong>Validation Errors:</strong> ${ len(validation_errors) }</li>
+    </ul>
+  </div>
+  
+  % if defined('user_party'):
+  <h4>User Information</h4>
+  <ul>
+    <li><strong>Name:</strong> ${ safe_get_field(user_party, 'name', 'Not provided') }</li>
+    % if hasattr(user_party, 'email'):
+    <li><strong>Email:</strong> ${ safe_get_field(user_party, 'email', 'Not provided') }</li>
+    % endif
+  </ul>
+  % endif
+  
+  <h4>Form Progress</h4>
+  <ul>
+    % for var in ['intro_seen', 'user_party.name.first', 'other_party.name.first', 'children.gathered', 'review_complete']:
+    <li><strong>${ var }:</strong> ${ 'Yes' if defined(var) else 'No' }</li>
+    % endfor
+  </ul>
+buttons:
+  - "Continue": continue
+  - "Show Errors": show_form_errors
+  - "Restart": restart

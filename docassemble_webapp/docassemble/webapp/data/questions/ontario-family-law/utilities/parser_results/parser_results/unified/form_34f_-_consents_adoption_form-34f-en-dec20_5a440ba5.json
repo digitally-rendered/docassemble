@@ -1,0 +1,21 @@
+{
+  "parser_name": "unified",
+  "form_path": "workflow_output/ontario_forms/child_protection_adoption/form_34f_-_consents_adoption_form-34f-en-dec20.docx",
+  "form_hash": "5a440ba5b0f3b8f0af9a1903abb53e10b0b2693f11bb7f45e922a3bd1ca2f6c1",
+  "timestamp": "2025-08-18T21:40:25.068234",
+  "fields": [],
+  "metadata": {
+    "gcp_used": false,
+    "validation_report": {
+      "total_fields": 0,
+      "high_confidence": 0,
+      "medium_confidence": 0,
+      "low_confidence": 0,
+      "single_method": 0,
+      "multi_method": 0,
+      "method_agreement": {},
+      "field_types": {},
+      "warnings": []
+    }
+  }
+}

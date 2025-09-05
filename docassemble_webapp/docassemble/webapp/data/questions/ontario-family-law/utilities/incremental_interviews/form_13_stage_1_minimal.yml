@@ -1,0 +1,29 @@
+---
+metadata:
+  title: Form 13 - Stage 1 - Minimal
+  short title: Stage 1
+  stage: 1
+  description: Bare minimum working interview
+---
+mandatory: True
+code: |
+  show_intro
+  show_complete
+---
+question: |
+  Form 13 Financial Statement
+subquestion: |
+  Stage 1: This is the simplest possible working interview.
+  
+  Click Continue to proceed.
+continue button field: show_intro
+---
+event: show_complete
+question: |
+  Stage 1 Complete
+subquestion: |
+  The minimal interview loaded and completed successfully.
+  
+  This proves the basic structure works.
+buttons:
+  - Exit: exit

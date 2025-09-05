@@ -1,0 +1,21 @@
+{
+  "parser_name": "unified",
+  "form_path": "workflow_output/ontario_forms/divorce_specific/form_36_-_affidavit_for_divorce_flr-36-apr24-en-fil.docx",
+  "form_hash": "ccf396d73defa1b11727f947246b65b8a98895601a5490e009a37151eddf0e17",
+  "timestamp": "2025-08-18T21:40:24.577834",
+  "fields": [],
+  "metadata": {
+    "gcp_used": false,
+    "validation_report": {
+      "total_fields": 0,
+      "high_confidence": 0,
+      "medium_confidence": 0,
+      "low_confidence": 0,
+      "single_method": 0,
+      "multi_method": 0,
+      "method_agreement": {},
+      "field_types": {},
+      "warnings": []
+    }
+  }
+}

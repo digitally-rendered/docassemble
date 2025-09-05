@@ -191,7 +191,7 @@ class WizardPage {
    * Handle MIP information screen
    */
   async handleMipQuestion(mipStatus) {
-    await this.waitForQuestion('Mandatory Information Program');
+    await this.waitForQuestionContaining(['Mandatory Information Program', 'MIP']);
     
     switch (mipStatus) {
       case 'completed':
@@ -207,7 +207,7 @@ class WizardPage {
     await this.page.waitForLoadState('networkidle');
     
     // Handle the follow-up MIP information screen
-    await this.waitForQuestion('MIP Session Information');
+    await this.waitForQuestionContaining(['MIP Session Information', 'What is MIP']);
     await this.clickContinue();
   }
 

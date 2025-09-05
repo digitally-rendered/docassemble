@@ -1,0 +1,204 @@
+---
+metadata:
+  title: Form 13 - Financial Statement (Real Data)
+  short title: Form 13 Real
+  description: Generated from actual parsed Form 13 fields
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  progress bar: True
+  question back button: True
+---
+objects:
+  - applicant: Individual
+  - financial_data: DAObject
+---
+mandatory: True
+code: |
+  intro_screen
+  court_info_collected
+  applicant.name.first
+  income_collected
+  show_summary
+---
+question: |
+  Form 13 - Financial Statement
+subquestion: |
+  This interview uses real fields parsed from Form 13.
+continue button field: intro_screen
+---
+question: |
+  Court Information
+fields:
+  - "Court File Number": financial_data.courtfileno
+    required: False
+  - "Money Owed to You (for example, any court judgments in": financial_data.money_owed_to_you_for_example_any_court_
+    required: False
+  - "Money Owed to You (for example, any court judgments in": financial_data.money_owed_to_you_for_example_any_court_
+    required: False
+continue button field: court_info_collected
+---
+question: |
+  Your Information
+fields:
+  - First Name: applicant.name.first
+    required: True
+  - Last Name: applicant.name.last
+    required: True
+  - Address: applicant.address.address
+    required: False
+  - City: applicant.address.city
+    required: False
+  - Province: applicant.address.state
+    default: ON
+  - Postal Code: applicant.address.zip
+    required: False
+---
+question: |
+  Monthly Income
+subquestion: |
+  Enter your monthly income from each source. Leave blank if not applicable.
+fields:
+  - "4.": financial_data.4_last_year_my_gross_income_from_all_sou
+    datatype: currency
+    min: 0
+    required: False
+    default: 0
+  - "Employment Income": financial_data.1_1_employment_income_before_deductions_
+    datatype: currency
+    min: 0
+    required: False
+    default: 0
+  - "Commissions, tips and bonuses Commissions, tips...": financial_data.2_2_commissions_tips_and_bonuses_commiss
+    datatype: currency
+    min: 0
+    required: False
+    default: 0
+  - "Self-Employment Income": financial_data.3_3_self_employment_income_monthly_amoun
+    datatype: currency
+    min: 0
+    required: False
+    default: 0
+  - "EI Benefits": financial_data.4_4_employment_insurance_benefits_employ
+    datatype: currency
+    min: 0
+    required: False
+    default: 0
+  - "Workers' compensation benefits Workers' compens...": financial_data.5_5_workers_compensation_benefits_worker
+    datatype: currency
+    min: 0
+    required: False
+    default: 0
+  - "Social Assistance": financial_data.6_6_social_assistance_income_including_o
+    datatype: currency
+    min: 0
+    required: False
+    default: 0
+  - "Investment Income": financial_data.7_7_interest_and_investment_income_inter
+    datatype: currency
+    min: 0
+    required: False
+    default: 0
+  - "Pension Income": financial_data.8_8_pension_income_including_cpp_and_oas
+    datatype: currency
+    min: 0
+    required: False
+    default: 0
+  - "Spousal support received from a former spouse/p...": financial_data.9_9_spousal_support_received_from_a_form
+    datatype: currency
+    min: 0
+    required: False
+    default: 0
+  - "Child Tax Benefits or Tax Rebates (e.g. GST) Ch...": financial_data.10_10_child_tax_benefits_or_tax_rebates_
+    datatype: currency
+    min: 0
+    required: False
+    default: 0
+  - "Other sources of income (e.g. RRSP withdrawals,...": financial_data.11_11_other_sources_of_income_e_g_rrsp_w
+    datatype: currency
+    min: 0
+    required: False
+    default: 0
+  - "Total Monthly Income": financial_data.12_12_total_monthly_income_from_all_sour
+    datatype: currency
+    min: 0
+    required: False
+    default: 0
+  - "Total Monthly Income": financial_data.13_13_total_monthly_income_x_12_total_an
+    datatype: currency
+    min: 0
+    required: False
+    default: 0
+continue button field: income_collected
+---
+code: |
+  # Calculate total income
+  income_fields = ['financial_data.4_last_year_my_gross_income_from_all_sou',
+    'financial_data.1_1_employment_income_before_deductions_',
+    'financial_data.2_2_commissions_tips_and_bonuses_commiss',
+    'financial_data.3_3_self_employment_income_monthly_amoun',
+    'financial_data.4_4_employment_insurance_benefits_employ',
+    'financial_data.5_5_workers_compensation_benefits_worker',
+    'financial_data.6_6_social_assistance_income_including_o',
+    'financial_data.7_7_interest_and_investment_income_inter',
+    'financial_data.8_8_pension_income_including_cpp_and_oas',
+    'financial_data.9_9_spousal_support_received_from_a_form'
+  ]
+  
+  total_income = 0
+  for field_name in income_fields:
+    if defined(field_name):
+      value = eval(field_name)
+      if value:
+        total_income += value
+---
+event: show_summary
+question: |
+  Financial Statement Summary
+subquestion: |
+  **Your Information:**
+  - Name: ${ applicant.name.full() }
+  % if defined('applicant.address.address'):
+  - Address: ${ applicant.address.on_one_line() }
+  % endif
+  
+  **Monthly Income:**
+  % if defined('financial_data.4_last_year_my_gross_income_from_all_sou') and financial_data.4_last_year_my_gross_income_from_all_sou > 0:
+  - 4.: ${{ currency(financial_data.4_last_year_my_gross_income_from_all_sou) }}
+  % endif
+  % if defined('financial_data.1_1_employment_income_before_deductions_') and financial_data.1_1_employment_income_before_deductions_ > 0:
+  - Employment Income: ${{ currency(financial_data.1_1_employment_income_before_deductions_) }}
+  % endif
+  % if defined('financial_data.2_2_commissions_tips_and_bonuses_commiss') and financial_data.2_2_commissions_tips_and_bonuses_commiss > 0:
+  - Commissions, tips and bonuses Commissions, tips...: ${{ currency(financial_data.2_2_commissions_tips_and_bonuses_commiss) }}
+  % endif
+  % if defined('financial_data.3_3_self_employment_income_monthly_amoun') and financial_data.3_3_self_employment_income_monthly_amoun > 0:
+  - Self-Employment Income: ${{ currency(financial_data.3_3_self_employment_income_monthly_amoun) }}
+  % endif
+  % if defined('financial_data.4_4_employment_insurance_benefits_employ') and financial_data.4_4_employment_insurance_benefits_employ > 0:
+  - EI Benefits: ${{ currency(financial_data.4_4_employment_insurance_benefits_employ) }}
+  % endif
+  % if defined('financial_data.5_5_workers_compensation_benefits_worker') and financial_data.5_5_workers_compensation_benefits_worker > 0:
+  - Workers' compensation benefits Workers' compens...: ${{ currency(financial_data.5_5_workers_compensation_benefits_worker) }}
+  % endif
+  % if defined('financial_data.6_6_social_assistance_income_including_o') and financial_data.6_6_social_assistance_income_including_o > 0:
+  - Social Assistance: ${{ currency(financial_data.6_6_social_assistance_income_including_o) }}
+  % endif
+  % if defined('financial_data.7_7_interest_and_investment_income_inter') and financial_data.7_7_interest_and_investment_income_inter > 0:
+  - Investment Income: ${{ currency(financial_data.7_7_interest_and_investment_income_inter) }}
+  % endif
+  % if defined('financial_data.8_8_pension_income_including_cpp_and_oas') and financial_data.8_8_pension_income_including_cpp_and_oas > 0:
+  - Pension Income: ${{ currency(financial_data.8_8_pension_income_including_cpp_and_oas) }}
+  % endif
+  % if defined('financial_data.9_9_spousal_support_received_from_a_form') and financial_data.9_9_spousal_support_received_from_a_form > 0:
+  - Spousal support received from a former spouse/p...: ${{ currency(financial_data.9_9_spousal_support_received_from_a_form) }}
+  % endif
+  
+  **Total Monthly Income:** ${ currency(total_income) if defined('total_income') else '$0' }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart
+---

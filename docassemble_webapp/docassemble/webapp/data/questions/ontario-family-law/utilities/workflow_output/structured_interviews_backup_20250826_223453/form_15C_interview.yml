@@ -1,0 +1,1078 @@
+---
+metadata:
+  title: Ontario Family Law Form 15C
+  short_title: Form 15C
+  description: Structured interview with 189 fields and 8 entities
+  authors:
+  - name: Structured Interview Generator
+    organization: Ontario Family Law Automation
+  tags:
+  - ontario
+  - family-law
+  - 15C
+  form_number: 15C
+  form_category: motion
+  generated: '2025-08-26 22:15:24'
+include:
+- docassemble.base:data/questions/basic-questions.yml
+- docassemble.base:data/questions/financial.yml
+features:
+  navigation: true
+  progress_bar: true
+  progress_bar_method: stepped
+  show_progress_bar_percentage: true
+  navigation_back_button: true
+  question_back_button: true
+  review_button: true
+  hide_navbar: false
+  hide_standard_menu: false
+  table_css_class: table table-striped
+objects:
+- court_info: DAObject
+- person: Individual
+- payment_information: DAObject
+- table_1_item_6: DAObject
+- table_1_item_7: DAObject
+- table_1_item_12: DAObject
+- table_1_item_13: DAObject
+- table_1_item_18: DAObject
+- table_1_item_19: DAObject
+- income_sources: DAList.using(object_type=Income)
+- expenses: DAList.using(object_type=Expense)
+- assets: DAList.using(object_type=Asset)
+- debts: DAList.using(object_type=Liability)
+mandatory: true
+code: 'intro_seen
+
+  payment_information_complete
+
+  table_1_item_6_complete
+
+  table_1_item_7_complete
+
+  table_1_item_12_complete
+
+  table_1_item_13_complete
+
+  table_1_item_18_complete
+
+  table_1_item_19_complete
+
+  review_complete
+
+  form_complete'
+question: Form 15C Interview
+subquestion: 'This structured interview will help you complete Form 15C.
+
+
+  You will be asked about:
+
+  - Personal information for parties involved
+
+  - Financial information and calculations
+
+
+  Total sections: 9
+
+  Fields to complete: 189'
+continue_button_field: intro_seen
+continue_button_label: Begin Interview
+question: Person Information
+fields:
+- label: 'Full legal name: Full legal name: Full legal name: Full legal name: Full legal name: Name: Name:'
+  field: person.full_legal_name_full_legal_name_full_legal_name_fu
+  datatype: text
+  required: false
+- label: 'Address: Address: Address: Address: Address: Address: Address:'
+  field: person.address_address_address_address_address_address_ad
+  datatype: text
+  required: false
+- label: 'Full legal name: Full legal name: Full legal name: Full legal name: Full legal name: Name: Name:'
+  field: person.full_legal_name_full_legal_name_full_legal_name_fu
+  datatype: text
+  required: false
+- label: 'Address: Address: Address: Address: Address: Address: Address:'
+  field: person.address_address_address_address_address_address_ad
+  datatype: text
+  required: false
+- label: 'Full legal name: Full legal name: Full legal name: Full legal name: Full legal name: Name: Name:'
+  field: person.full_legal_name_full_legal_name_full_legal_name_fu
+  datatype: text
+  required: false
+- label: 'Address: Address: Address: Address: Address: Address: Address:'
+  field: person.address_address_address_address_address_address_ad
+  datatype: text
+  required: false
+- label: 'shall pay to (name of party) shall pay to (name of party) shall pay to (name of party) shall pay to '
+  field: person.shall_pay_to_name_of_party_shall_pay_to_name_of_pa
+  datatype: currency
+  required: false
+  min: 0
+- label: shall pay (name of party) shall pay (name of party) shall pay (name of party) shall pay (name of par
+  field: person.shall_pay_name_of_party_shall_pay_name_of_party_sh
+  datatype: currency
+  required: false
+  min: 0
+question: Payment Information
+fields:
+- label: $ $ per month, with payments to begin on (date) per month, with payments to begin on (date) per mont
+  field: payment_information.per_month_with_payments_to_begin_on_date_per_month
+  datatype: date
+  required: false
+- label: $ per month, with payments to begin on (date) per month, with payments to begin on (date) per month,
+  field: payment_information.per_month_with_payments_to_begin_on_date_per_month
+  datatype: date
+  required: false
+- label: $ $ $ per month, with payments to begin on (date) per month, with payments to begin on (date) per mo
+  field: payment_information.per_month_with_payments_to_begin_on_date_per_month
+  datatype: date
+  required: false
+- label: $ per month, with payments to begin on (date) per month, with payments to begin on (date) per month,
+  field: payment_information.per_month_with_payments_to_begin_on_date_per_month
+  datatype: date
+  required: false
+- label: $ $ $ per month, with payments to begin on (date) per month, with payments to begin on (date) per mo
+  field: payment_information.per_month_with_payments_to_begin_on_date_per_month
+  datatype: date
+  required: false
+question: Additional Information
+fields:
+- label: ''
+  field: field
+  required: false
+  choices:
+  - '          '
+  - Superior Court of Justice
+  - Superior Court of Justice, Family Court
+  - Ontario Court of Justice
+  help_text: ''
+- label: Court File Number
+  field: courtfileno
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_13
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_14
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_15
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_16
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_17
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_18
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_19
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_20
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_21
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_22
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_23
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_24
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_25
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 3
+  field: check3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 3
+  field: check3_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 3
+  field: check3_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_26
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_27
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 3
+  field: check3_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_28
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_29
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_30
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_31
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_32
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_33
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_34
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_35
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_36
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_37
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_38
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_39
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_40
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_41
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_42
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_43
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_44
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 3
+  field: check3_5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_45
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_46
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 3
+  field: check3_6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_47
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_48
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 3
+  field: check3_7
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 4
+  field: check4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 4
+  field: check4_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 4
+  field: check4_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 4
+  field: check4_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Checkbox 17
+  field: check17
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 7
+  field: check7
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 2
+  field: text2_12
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 11
+  field: text11
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 16
+  field: text16
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_49
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_50
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_51
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 12
+  field: text12
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 15
+  field: text15
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 18
+  field: text18
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 21
+  field: text21
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_52
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 13
+  field: text13
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 14
+  field: text14
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 19
+  field: text19
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 22
+  field: text22
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_53
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_54
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_55
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_56
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_57
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_58
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_59
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_60
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_61
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_62
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_63
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 17
+  field: check17_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_64
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 17
+  field: check17_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_65
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_66
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_67
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 18
+  field: check18
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 28
+  field: text28
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_68
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_69
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_70
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_71
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_72
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_73
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 18
+  field: check18_2
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 28
+  field: text28_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_74
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_75
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_76
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_77
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_78
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_79
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 18
+  field: check18_3
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_80
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_81
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_82
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_83
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 18
+  field: check18_4
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: ''
+  field: field_84
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_85
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 18
+  field: check18_5
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 27
+  field: text27
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 27
+  field: text27_2
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 27
+  field: text27_3
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 27
+  field: text27_4
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_86
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 27
+  field: text27_5
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_87
+  datatype: text
+  required: false
+  help_text: ''
+- label: Checkbox 18
+  field: check18_6
+  datatype: yesno
+  required: false
+  help_text: ''
+- label: Text Field 27
+  field: text27_6
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 27
+  field: text27_7
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 27
+  field: text27_8
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 27
+  field: text27_9
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 27
+  field: text27_10
+  datatype: text
+  required: false
+  help_text: ''
+- label: Text Field 27
+  field: text27_11
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_88
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_89
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_90
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_91
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_92
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_93
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_94
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_95
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_96
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_97
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_98
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_99
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_100
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_101
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_102
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_103
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_104
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_105
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_106
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_107
+  datatype: text
+  required: false
+  help_text: ''
+- label: ''
+  field: field_108
+  datatype: text
+  required: false
+  help_text: ''
+- label: Based on the payor’s annual income of $ Based on the payor’s annual income of $ Based on the payor’s
+  field: based_on_the_payor_s_annual_income_of_based_on_the
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $ $ $
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: $ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+  field: field
+  datatype: currency
+  required: false
+  min: 0
+- label: fixed at $ fixed at $ fixed at $ fixed at $ fixed at $ fixed at $ fixed at $ as of (date) as of (dat
+  field: fixed_at_fixed_at_fixed_at_fixed_at_fixed_at_fixed
+  datatype: date
+  required: false
+- label: fixed at $ fixed at $ fixed at $ fixed at $ fixed at $ fixed at $ as of (date) as of (date) as of (d
+  field: fixed_at_fixed_at_fixed_at_fixed_at_fixed_at_fixed
+  datatype: date
+  required: false
+- label: fixed at $ fixed at $ fixed at $ fixed at $ fixed at $ fixed at $ as of (date) as of (date) as of (d
+  field: fixed_at_fixed_at_fixed_at_fixed_at_fixed_at_fixed
+  datatype: date
+  required: false
+- label: 'shall be fixed at $ shall be fixed at $ shall be fixed at $ shall be fixed at $ shall be fixed at $ '
+  field: shall_be_fixed_at_shall_be_fixed_at_shall_be_fixed
+  datatype: date
+  required: false
+continue_button_field: additional_info_complete
+review:
+- note: '### Review Your Information'
+- label: 'Full legal name: Full legal name: Full legal name: Full legal name: Full legal name: Name: Name:'
+  field: person.full_legal_name_full_legal_name_full_legal_name_fu
+  edit: true
+- label: 'Address: Address: Address: Address: Address: Address: Address:'
+  field: person.address_address_address_address_address_address_ad
+  edit: true
+- label: 'Full legal name: Full legal name: Full legal name: Full legal name: Full legal name: Name: Name:'
+  field: person.full_legal_name_full_legal_name_full_legal_name_fu
+  edit: true
+- label: $ $ per month, with payments to begin on (date) per month, with payments to begin on (date) per mont
+  field: payment_information.per_month_with_payments_to_begin_on_date_per_month
+  edit: true
+- label: $ per month, with payments to begin on (date) per month, with payments to begin on (date) per month,
+  field: payment_information.per_month_with_payments_to_begin_on_date_per_month
+  edit: true
+- label: $ $ $ per month, with payments to begin on (date) per month, with payments to begin on (date) per mo
+  field: payment_information.per_month_with_payments_to_begin_on_date_per_month
+  edit: true
+- label: ''
+  field: field
+  edit: true
+- label: Court File Number
+  field: courtfileno
+  edit: true
+- label: Text Field 2
+  field: text2
+  edit: true
+- label: ''
+  field: field_2
+  edit: true
+- label: ''
+  field: field_3
+  edit: true
+question: Review Your Answers
+subquestion: Please review all information before submitting. Click any item to edit.
+continue button field: review_complete
+event: form_complete
+question: Form 15C Complete
+subquestion: 'Your Form 15C has been completed successfully.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate Ontario court
+
+
+  **Important:** This is a structured, auto-generated form. Please review carefully before submission.'
+buttons:
+- Exit: exit
+- Start Over: restart

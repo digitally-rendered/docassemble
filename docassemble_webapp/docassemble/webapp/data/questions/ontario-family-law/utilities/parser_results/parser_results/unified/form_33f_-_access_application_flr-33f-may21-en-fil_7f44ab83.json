@@ -1,0 +1,21 @@
+{
+  "parser_name": "unified",
+  "form_path": "workflow_output/ontario_forms/child_protection_adoption/form_33f_-_access_application_flr-33f-may21-en-fil.docx",
+  "form_hash": "7f44ab83e87103e30f3050d8f5ad79f661052c4f3a8fcdd63443d6c87eea35de",
+  "timestamp": "2025-08-18T21:40:24.757617",
+  "fields": [],
+  "metadata": {
+    "gcp_used": false,
+    "validation_report": {
+      "total_fields": 0,
+      "high_confidence": 0,
+      "medium_confidence": 0,
+      "low_confidence": 0,
+      "single_method": 0,
+      "multi_method": 0,
+      "method_agreement": {},
+      "field_types": {},
+      "warnings": []
+    }
+  }
+}

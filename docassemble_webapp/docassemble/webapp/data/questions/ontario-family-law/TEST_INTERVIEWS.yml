@@ -1,0 +1,58 @@
+---
+metadata:
+  title: Test Interviews - Validated Working
+  short title: Test Interviews
+---
+mandatory: True
+question: |
+  Test Interviews - Start with These
+subquestion: |
+  ## 🧪 Progressive Testing Order
+  
+  Test these interviews in order to verify the system works:
+  
+  ### 1️⃣ Absolutely Minimal (Start Here)
+  **[Absolutely Minimal Test](/interview?i=docassemble.webapp:ontario-family-law/utilities/test_working_interviews/absolutely_minimal.yml)**
+  - Just 2 questions
+  - No objects, no complexity
+  - If this doesn't work, nothing will
+  
+  ### 2️⃣ Form 13 Fixed Version
+  **[Form 13 Fixed](/interview?i=docassemble.webapp:ontario-family-law/utilities/test_working_interviews/form_13_fixed.yml)**
+  - Uses Individual objects
+  - Simple linear flow
+  - Basic calculations
+  
+  ### 3️⃣ Test All Field Types
+  **[All Field Types Test](/interview?i=docassemble.webapp:ontario-family-law/utilities/test_working_interviews/test_all_field_types.yml)**
+  - Tests every field type
+  - Tests DAList collections
+  - Tests Individual objects
+  
+  ### 4️⃣ Original Generated Interviews (May Have Issues)
+  - [Form 13 Minimal Working](/interview?i=docassemble.webapp:ontario-family-law/utilities/test_working_interviews/form_13_minimal_working.yml)
+  - [Form 13 From Mappings](/interview?i=docassemble.webapp:ontario-family-law/utilities/test_working_interviews/form_13_from_mappings.yml)
+  
+  ## ✅ What Should Work
+  
+  If the interviews load and run:
+  - Individual objects (person.name.first)
+  - DAList collections 
+  - Basic field types (text, date, currency)
+  - Simple calculations
+  - Linear flow with conditionals
+  
+  ## ❌ Known Issues
+  
+  - Error handling module may not load correctly
+  - Complex address objects may need separate questions
+  - Some generated field names may be incorrect
+  
+  ## 🐛 Debugging
+  
+  Add `?debug=1` to any URL to see debug information.
+  
+  Check browser console (F12) for JavaScript errors.
+  
+buttons:
+  - Exit: exit

@@ -1,0 +1,55 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - button "Back" [ref=e6] [cursor=pointer]:
+        - generic [ref=e7] [cursor=pointer]:
+          - img [ref=e8] [cursor=pointer]
+          - generic [ref=e10] [cursor=pointer]: Back
+      - generic [ref=e12]: Ontario Family Law Common Intake - Enhanced
+      - button "Information for the developer" [ref=e14] [cursor=pointer]:
+        - img [ref=e15] [cursor=pointer]
+      - list [ref=e18]:
+        - listitem [ref=e19]:
+          - link "Sign in or sign up to save answers" [ref=e20] [cursor=pointer]:
+            - /url: /user/sign-in
+  - main "Ontario Family Law Common Intake - Enhanced" [ref=e23]:
+    - form "What orders are you seeking?" [ref=e24]:
+      - heading "What orders are you seeking?" [level=1] [ref=e26]
+      - paragraph [ref=e28]: "Select all that apply:"
+      - radiogroup [ref=e29]:
+        - generic [ref=e30]: Check if applicable
+        - checkbox "Child custody and/or access" [ref=e33] [cursor=pointer]:
+          - img [ref=e35] [cursor=pointer]
+          - generic [ref=e37] [cursor=pointer]: Child custody and/or access
+      - radiogroup [ref=e38]:
+        - generic [ref=e39]: Check if applicable
+        - checkbox "Child support" [ref=e42] [cursor=pointer]:
+          - img [ref=e44] [cursor=pointer]
+          - generic [ref=e46] [cursor=pointer]: Child support
+      - radiogroup [ref=e47]:
+        - generic [ref=e48]: Check if applicable
+        - checkbox "Restraining order" [ref=e51] [cursor=pointer]:
+          - img [ref=e53] [cursor=pointer]
+          - generic [ref=e55] [cursor=pointer]: Restraining order
+      - radiogroup [ref=e56]:
+        - generic [ref=e57]: Check if applicable
+        - checkbox "Enforcement of existing order" [ref=e60] [cursor=pointer]:
+          - img [ref=e62] [cursor=pointer]
+          - generic [ref=e64] [cursor=pointer]: Enforcement of existing order
+      - radiogroup [ref=e65]:
+        - generic [ref=e66]: Check if applicable
+        - checkbox "Variation of existing order" [ref=e69] [cursor=pointer]:
+          - img [ref=e71] [cursor=pointer]
+          - generic [ref=e73] [cursor=pointer]: Variation of existing order
+      - radiogroup [ref=e74]:
+        - generic [ref=e75]: Check if applicable
+        - checkbox "Other relief" [ref=e78] [cursor=pointer]:
+          - img [ref=e80] [cursor=pointer]
+          - generic [ref=e82] [cursor=pointer]: Other relief
+      - group "Press one of the following buttons:" [ref=e83]:
+        - generic [ref=e84]: "Press one of the following buttons:"
+        - button "Continue" [ref=e85] [cursor=pointer]
+```

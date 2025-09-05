@@ -1,0 +1,57 @@
+---
+metadata:
+  title: Form 13 - Stage 3 - Individual Object
+  short title: Stage 3
+  stage: 3
+  description: Using Individual object for person data
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  progress bar: True
+  question back button: True
+---
+objects:
+  - user: Individual
+---
+mandatory: True
+code: |
+  intro_screen
+  user.name.first
+  user.birthdate
+  final_screen
+---
+question: |
+  Form 13 Financial Statement
+subquestion: |
+  Stage 3: Using Individual object for person data.
+  
+  This adds:
+  - Individual object declaration
+  - Proper name fields using user.name.first/last
+  - Date field for birthdate
+continue button field: intro_screen
+---
+question: |
+  Your Information
+fields:
+  - First Name: user.name.first
+    required: True
+  - Last Name: user.name.last
+    required: True
+  - Date of Birth: user.birthdate
+    datatype: date
+---
+event: final_screen
+question: |
+  Stage 3 Complete
+subquestion: |
+  **Your Information:**
+  - Name: ${ user.name.full() }
+  - Date of Birth: ${ user.birthdate }
+  
+  Individual object works correctly!
+buttons:
+  - Exit: exit
+  - Restart: restart

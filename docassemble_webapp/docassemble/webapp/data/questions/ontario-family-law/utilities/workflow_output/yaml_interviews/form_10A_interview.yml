@@ -1,0 +1,184 @@
+---
+metadata:
+  title: e
+  short title: Form 10A
+  description: 'Ontario Family Law Form 10A: e
+
+
+    This interview uses docassemble standard objects for better data management.
+
+    Generated: 2025-08-26 21:11:49'
+  authors:
+  - name: Ontario Family Law Forms Automation System
+    organization: Fixed YAML Processing
+  revision_date: '2025-08-26'
+  form_number: 10A
+  form_category: answers
+  form_type: general
+  uses_standard_objects: true
+include:
+- docassemble.base:data/questions/basic-questions.yml
+features:
+  navigation: true
+  progress bar: true
+  progress bar method: stepped
+  show progress bar percentage: true
+  navigation back button: true
+  question back button: true
+  review button: true
+  hide navbar: false
+  hide standard menu: false
+objects:
+- applicant: Individual
+- respondent: Individual
+- court_info: DAObject
+- children: DAList.using(object_type=Individual)
+- assets: DAList
+- debts: DAList
+- income_sources: DAList
+- expenses: DAList
+mandatory: true
+code: 'form_intro_seen
+
+  applicant.name.first
+
+  respondent.name.first
+
+  form_complete'
+question: Form 10A - e
+subquestion: 'This interview will help you complete the official Ontario family law form.
+
+
+  You will need:
+
+  - Personal information for all parties
+
+  - Court case information (if applicable)
+
+  - Financial information (if applicable)'
+continue button field: form_intro_seen
+continue button label: Start Interview
+question: Information - Part 1
+fields:
+- label: Court File Number
+  field: court_file_number
+  datatype: number
+- label: Name of Court.  Select from the drop down menu.
+  field: name_of_court_select_from_the_drop_down_menu
+- label: Court office address
+  field: court_office_address
+- label: application
+  field: application
+- label: Applicant. 1. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: applicant_1_full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address_if_any
+  datatype: number
+  hint: (xxx) xxx-xxxx
+question: Information - Part 2
+fields:
+- label: Applicant. 2. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: applicant_2_full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address_if_any
+  datatype: number
+  hint: (xxx) xxx-xxxx
+- label: Applicant. 1. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: applicant_1_lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address_if_any
+  datatype: number
+  hint: (xxx) xxx-xxxx
+- label: Applicant. 2. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: applicant_2_lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address_if_any
+  datatype: number
+  hint: (xxx) xxx-xxxx
+- label: Respondent. 1. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: respondent_1_full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address_if_any
+  datatype: number
+  hint: (xxx) xxx-xxxx
+- label: Respondent. 2. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: respondent_2_full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address_if_any
+  datatype: number
+  hint: (xxx) xxx-xxxx
+question: Information - Part 3
+fields:
+- label: Respondent. 1. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: respondent_1_lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address_if_any
+  datatype: number
+  hint: (xxx) xxx-xxxx
+- label: Respondent. 2. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: respondent_2_lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address_if_any
+  datatype: number
+  hint: (xxx) xxx-xxxx
+- label: Children’s Lawyer. Name & address of Children’s Lawyer’s agent for service (street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any)) and name of person represented.
+  field: childrens_lawyer_name_address_of_childrens_lawyers_agent_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address_if_any_and_name_of_person_represented
+  datatype: number
+  hint: (xxx) xxx-xxxx
+- label: 1.  My name is (full legal name)
+  field: field_1_my_name_is_full_legal_name
+- label: '2.  I agree with the following claim(s) made by the respondent in his/her answer: (Refer to the numbers alongside the boxes on page 3 of the answer form.)'
+  field: field_2_i_agree_with_the_following_claims_made_by_the_respondent_in_hisher_answer_refer_to_the_numbers_alongside_the_boxes_on_page_3_of_the_answer_form
+  datatype: number
+question: Information - Part 4
+fields:
+- label: '3.  I do not agree with the following claim(s) made by the respondent: (Again, refer to the numbers alongside the boxes on page 3 of the answer form.)'
+  field: field_3_i_do_not_agree_with_the_following_claims_made_by_the_respondent_again_refer_to_the_numbers_alongside_the_boxes_on_page_3_of_the_answer_form
+  datatype: number
+- label: 4.  I am asking that the respondent's claim (except for the parts with which I agree) be dismissed with costs.
+  field: field_4_i_am_asking_that_the_respondents_claim_except_for_the_parts_with_which_i_agree_be_dismissed_with_costs
+- label: Court File Number
+  field: court_file_number
+  datatype: number
+- label: '5.  The important facts supporting my position in paragraph 3 are as follows: (In numbered paragraphs, set out the reasons for your position. Attach an additional sheet and number it if you need more space.)'
+  field: field_5_the_important_facts_supporting_my_position_in_paragraph_3_are_as_follows_in_numbered_paragraphs_set_out_the_reasons_for_your_position_attach_an_additional_sheet_and_number_it_if_you_need_more_space
+  datatype: number
+- label: Date of Signature
+  field: date_of_signature
+  datatype: date
+question: Information - Part 5
+fields:
+- label: Signature
+  field: signature
+- label: Save Form
+  field: save_form
+- label: Print Form
+  field: print_form
+- label: Clear Form
+  field: clear_form
+review:
+- note: '### Review Your Information'
+- label: Court File Number
+  field: court_file_number
+- label: Name of Court.  Select from the drop down menu.
+  field: name_of_court_select_from_the_drop_down_menu
+- label: Court office address
+  field: court_office_address
+- label: application
+  field: application
+- label: Applicant. 1. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: applicant_1_full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address_if_any
+- label: Applicant. 2. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: applicant_2_full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address_if_any
+- label: Applicant. 1. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: applicant_1_lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address_if_any
+- label: Applicant. 2. Lawyer’s name & address — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: applicant_2_lawyers_name_address_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address_if_any
+- label: Respondent. 1. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: respondent_1_full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address_if_any
+- label: Respondent. 2. Full legal name & address for service — street & number, municipality, postal code, telephone & fax numbers and e-mail address (if any).
+  field: respondent_2_full_legal_name_address_for_service_street_number_municipality_postal_code_telephone_fax_numbers_and_email_address_if_any
+question: Review Your Answers
+subquestion: Please review your information. Click any item to edit.
+event: form_complete
+question: Form 10A Complete
+subquestion: 'Your form is ready.
+
+
+  **Next Steps:**
+
+  1. Download your completed form
+
+  2. Review all information carefully
+
+  3. Print and sign where required
+
+  4. File with the appropriate court'
+buttons:
+- Exit: exit
+- Start Over: restart
+code: "# Validation functions\ndef validate_ontario_postal_code(postal_code):\n    import re\n    if not postal_code:\n        return True\n    pattern = r'^[A-Z]\\d[A-Z]\\s?\\d[A-Z]\\d$'\n    return bool(re.match(pattern, postal_code.upper()))\n\ndef validate_phone_number(phone):\n    import re\n    if not phone:\n        return True\n    pattern = r'^[\\d\\s\\(\\)\\-\\.\\+]+$'\n    return bool(re.match(pattern, phone))\n\ndef format_currency(amount):\n    try:\n        return f\"${float(amount):,.2f}\"\n    except:\n        return \"$0.00\"\n"

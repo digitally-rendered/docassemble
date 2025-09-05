@@ -1,0 +1,47 @@
+[
+  {
+    "field_id": "table_0_row_22",
+    "field_name": "check_the_first_circle_if_you_want_the_garnishment",
+    "field_type": "currency",
+    "field_label": "Check the first circle if you want the garnishment to deduct fixed dollar amounts.  If you want the ",
+    "required": false,
+    "validation_rules": "",
+    "max_length": null,
+    "options": null,
+    "table_name": "Table 1",
+    "table_row": 22,
+    "field_context": "Table 1, Row 23",
+    "page_number": 0,
+    "coordinates": null
+  },
+  {
+    "field_id": "table_0_row_26",
+    "field_name": "check_the_first_circle_if_you_want_the_garnishment",
+    "field_type": "currency",
+    "field_label": "Check the first circle if you want the garnishment to deduct fixed dollar amounts.  If you want the ",
+    "required": false,
+    "validation_rules": "",
+    "max_length": null,
+    "options": null,
+    "table_name": "Table 1",
+    "table_row": 26,
+    "field_context": "Table 1, Row 27",
+    "page_number": 0,
+    "coordinates": null
+  },
+  {
+    "field_id": "table_0_row_27",
+    "field_name": "check_the_first_circle_if_you_want_the_garnishment",
+    "field_type": "currency",
+    "field_label": "Check the first circle if you want the garnishment to deduct fixed dollar amounts.  If you want the ",
+    "required": false,
+    "validation_rules": "",
+    "max_length": null,
+    "options": null,
+    "table_name": "Table 1",
+    "table_row": 27,
+    "field_context": "Table 1, Row 28",
+    "page_number": 0,
+    "coordinates": null
+  }
+]

@@ -1,0 +1,40 @@
+field_id,field_name,field_type,field_label,required,field_context,page_number,table_name
+table_1_row_3,1,currency,1. $ $,False,"Table 2, Row 4",0,Table 2
+table_1_row_4,field,currency,$ $,False,"Table 2, Row 5",0,Table 2
+table_1_row_5,field,currency,$ $,False,"Table 2, Row 6",0,Table 2
+table_1_row_6,field,currency,$ $,False,"Table 2, Row 7",0,Table 2
+table_1_row_7,field,currency,$ $,False,"Table 2, Row 8",0,Table 2
+table_1_row_8,field,currency,$ $,False,"Table 2, Row 9",0,Table 2
+table_1_row_9,field,currency,$ $,False,"Table 2, Row 10",0,Table 2
+table_1_row_10,field,currency,$ $,False,"Table 2, Row 11",0,Table 2
+table_1_row_11,field,currency,$ $,False,"Table 2, Row 12",0,Table 2
+table_1_row_12,field,currency,$ $,False,"Table 2, Row 13",0,Table 2
+table_1_row_13,field,currency,$ $,False,"Table 2, Row 14",0,Table 2
+table_1_row_14,field,currency,$ $,False,"Table 2, Row 15",0,Table 2
+table_1_row_15,field,currency,$ $,False,"Table 2, Row 16",0,Table 2
+table_1_row_16,total_1,currency,TOTAL 1 $ $,False,"Table 2, Row 17",0,Table 2
+table_3_row_3,1_1,currency,1. 1. $ $ $ $,False,"Table 4, Row 4",0,Table 4
+table_3_row_16,total_2_total_2,currency,TOTAL 2 TOTAL 2 $ $ $ $,False,"Table 4, Row 17",0,Table 4
+table_3_row_20,field,currency,$ $,False,"Table 4, Row 21",0,Table 4
+table_3_row_21,field,currency,$ $,False,"Table 4, Row 22",0,Table 4
+table_3_row_22,field,currency,$ $,False,"Table 4, Row 23",0,Table 4
+table_3_row_23,field,currency,$ $,False,"Table 4, Row 24",0,Table 4
+table_3_row_24,field,currency,$ $,False,"Table 4, Row 25",0,Table 4
+table_3_row_25,field,currency,$ $,False,"Table 4, Row 26",0,Table 4
+table_3_row_26,total_of_property_items_total_of_property_items,currency,TOTAL OF PROPERTY ITEMS TOTAL OF PROPERTY ITEMS $ $,False,"Table 4, Row 27",0,Table 4
+table_3_row_28,field,currency,$ $,False,"Table 4, Row 29",0,Table 4
+table_3_row_29,field,currency,$ $,False,"Table 4, Row 30",0,Table 4
+table_3_row_30,field,currency,$ $,False,"Table 4, Row 31",0,Table 4
+table_3_row_31,field,currency,$ $,False,"Table 4, Row 32",0,Table 4
+table_3_row_32,field,currency,$ $,False,"Table 4, Row 33",0,Table 4
+table_3_row_33,field,currency,$ $,False,"Table 4, Row 34",0,Table 4
+table_3_row_34,total_of_debt_items_total_of_debt_items,currency,TOTAL OF DEBT ITEMS TOTAL OF DEBT ITEMS $ $,False,"Table 4, Row 35",0,Table 4
+table_3_row_35,net_total_3_3_a_minus_3_b_net_total_3_3_a_minus_3_,currency,NET TOTAL 3 [3(a) minus 3(b)] NET TOTAL 3 [3(a) minus 3(b)] $ $,False,"Table 4, Row 36",0,Table 4
+table_5_row_16,total_4,currency,TOTAL 4 $ $ $,False,"Table 6, Row 17",0,Table 6
+table_5_row_18,total_2_from_page_2,currency,TOTAL 2 (from page 2) $ $ $,False,"Table 6, Row 19",0,Table 6
+table_5_row_19,total_3_from_page_2,currency,TOTAL 3 (from page 2) $ $ $,False,"Table 6, Row 20",0,Table 6
+table_5_row_20,total_4_from_page_3,currency,TOTAL 4 (from page 3) $ $ $,False,"Table 6, Row 21",0,Table 6
+table_5_row_21,total_5_total_2_total_3_total_4,currency,TOTAL 5 ([Total 2] + [Total 3] +[Total 4]) $ $ $,False,"Table 6, Row 22",0,Table 6
+table_5_row_23,total_1_from_page_1,currency,TOTAL 1 (from page 1) $ $,False,"Table 6, Row 24",0,Table 6
+table_5_row_24,total_5_from_above,currency,TOTAL 5 (from above) $ $,False,"Table 6, Row 25",0,Table 6
+table_5_row_25,total_6_net_family_property_total_1_minus_total_5,currency,TOTAL 6:  NET FAMILY PROPERTY ([Total 1] minus [Total 5]) $ $,False,"Table 6, Row 26",0,Table 6

@@ -1,0 +1,116 @@
+[
+  {
+    "file": "form_13C_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_28_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_29A_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_15_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_15C_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_33F_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_29B_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_36_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_8_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_25A_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_17C_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_36A_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_6C_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_26_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_17A_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_8A_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "ontario_forms_index.yml",
+    "valid": false,
+    "error": "expected a single document in the stream\n  in \"<unicode string>\", line 2, column 1:\n    metadata:\n    ^\nbut found another document\n  in \"<unicode string>\", line 7, column 1:\n    ---\n    ^"
+  },
+  {
+    "file": "form_10A_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_6B_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_13.1_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "00_ontario_forms_index.yml",
+    "valid": false,
+    "error": "expected a single document in the stream\n  in \"<unicode string>\", line 2, column 1:\n    metadata:\n    ^\nbut found another document\n  in \"<unicode string>\", line 8, column 1:\n    ---\n    ^"
+  },
+  {
+    "file": "form_25D_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_15B_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_13_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_13A_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_29_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_13B_interview.yml",
+    "valid": true
+  },
+  {
+    "file": "form_10_interview.yml",
+    "valid": true
+  }
+]

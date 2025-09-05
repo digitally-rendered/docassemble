@@ -1,0 +1,47 @@
+---
+metadata:
+  title: Form 13 - Stage 2 - Basic Structure  
+  short title: Stage 2
+  stage: 2
+  description: Basic docassemble structure with includes and features
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  progress bar: True
+  question back button: True
+---
+mandatory: True
+code: |
+  intro_screen
+  name_collected
+  final_screen
+---
+question: |
+  Form 13 Financial Statement
+subquestion: |
+  Stage 2: Basic structure with includes and features.
+  
+  This interview has:
+  - Include statement for basic questions
+  - Progress bar enabled
+  - Back button enabled
+continue button field: intro_screen
+---
+question: |
+  Test Question
+fields:
+  - Your Name: user_name
+continue button field: name_collected
+---
+event: final_screen
+question: |
+  Stage 2 Complete
+subquestion: |
+  You entered: **${ user_name }**
+  
+  Basic structure with includes works correctly.
+buttons:
+  - Exit: exit
+  - Restart: restart

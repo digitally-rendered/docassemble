@@ -1,0 +1,17 @@
+[
+  {
+    "field_id": "table_0_row_11",
+    "field_name": "birthdate_birthdate_birthdate_birthdate_birthdate_",
+    "field_type": "date",
+    "field_label": "Birthdate: Birthdate: Birthdate: Birthdate: Birthdate: Birthdate: Birthdate:",
+    "required": false,
+    "validation_rules": "",
+    "max_length": null,
+    "options": null,
+    "table_name": "Table 1",
+    "table_row": 11,
+    "field_context": "Table 1, Row 12",
+    "page_number": 0,
+    "coordinates": null
+  }
+]

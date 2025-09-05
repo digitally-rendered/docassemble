@@ -1,0 +1,21 @@
+{
+  "parser_name": "unified",
+  "form_path": "workflow_output/ontario_forms/financial_statements/form_13.1_-_financial_statement_property_flr-13-1-may21-en-fil.docx",
+  "form_hash": "a1e53dc4501ede7f92b201de769d40af9a4e9bf48df36931db62cc751f7a1691",
+  "timestamp": "2025-08-18T21:40:26.926475",
+  "fields": [],
+  "metadata": {
+    "gcp_used": false,
+    "validation_report": {
+      "total_fields": 0,
+      "high_confidence": 0,
+      "medium_confidence": 0,
+      "low_confidence": 0,
+      "single_method": 0,
+      "multi_method": 0,
+      "method_agreement": {},
+      "field_types": {},
+      "warnings": []
+    }
+  }
+}
