@@ -509,7 +509,7 @@ field: opposing_has_lawyer
 buttons:
   - "Yes": True
   - "No": False
-  - "Unknown": unknown
+  - "Unknown": Unknown
 ---
 # Opposing lawyer info
 question: |

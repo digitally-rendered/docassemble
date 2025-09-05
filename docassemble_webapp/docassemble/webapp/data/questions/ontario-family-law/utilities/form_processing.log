@@ -1,1 +1,21 @@
 2025-08-19 21:32:58,311 - INFO - Generated YAML interview: workflow_output/yaml/form_08A_interview.yml
+2025-09-05 13:10:31,989 - ERROR - Error loading forms registry: 'str' object has no attribute 'get'
+2025-09-05 13:10:32,000 - ERROR - ❌ Error processing Form 10A: No configuration found for Form 10A
+2025-09-05 13:10:32,113 - ERROR - ❌ Error processing Form 13A: No configuration found for Form 13A
+2025-09-05 13:10:32,114 - ERROR - ❌ Error processing Form 13B: No configuration found for Form 13B
+2025-09-05 13:10:32,118 - ERROR - ❌ Error processing Form 13C: No configuration found for Form 13C
+2025-09-05 13:10:32,131 - ERROR - ❌ Error processing Form 15B: No configuration found for Form 15B
+2025-09-05 13:10:32,132 - ERROR - ❌ Error processing Form 15C: No configuration found for Form 15C
+2025-09-05 13:10:32,132 - ERROR - ❌ Error processing Form 17A: No configuration found for Form 17A
+2025-09-05 13:10:32,132 - ERROR - ❌ Error processing Form 17C: No configuration found for Form 17C
+2025-09-05 13:10:32,134 - ERROR - ❌ Error processing Form 25A: No configuration found for Form 25A
+2025-09-05 13:10:32,135 - ERROR - ❌ Error processing Form 25D: No configuration found for Form 25D
+2025-09-05 13:10:32,143 - ERROR - ❌ Error processing Form 26: No configuration found for Form 26
+2025-09-05 13:10:32,144 - ERROR - ❌ Error processing Form 28: No configuration found for Form 28
+2025-09-05 13:10:32,145 - ERROR - ❌ Error processing Form 29: No configuration found for Form 29
+2025-09-05 13:10:32,145 - ERROR - ❌ Error processing Form 29A: No configuration found for Form 29A
+2025-09-05 13:10:32,145 - ERROR - ❌ Error processing Form 29B: No configuration found for Form 29B
+2025-09-05 13:10:32,145 - ERROR - ❌ Error processing Form 33F: No configuration found for Form 33F
+2025-09-05 13:10:32,160 - ERROR - ❌ Error processing Form 36A: No configuration found for Form 36A
+2025-09-05 13:10:32,160 - ERROR - ❌ Error processing Form 6B: No configuration found for Form 6B
+2025-09-05 13:10:32,160 - ERROR - ❌ Error processing Form 6C: No configuration found for Form 6C
