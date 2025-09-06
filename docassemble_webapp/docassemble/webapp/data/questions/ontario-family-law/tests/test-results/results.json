@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 5,
     "metadata": {
-      "actualWorkers": 4
+      "actualWorkers": 1
     },
     "preserveOutput": "failures-only",
     "reporter": [
@@ -49,7 +49,7 @@
         "repeatEach": 1,
         "retries": 1,
         "metadata": {
-          "actualWorkers": 4
+          "actualWorkers": 1
         },
         "id": "chromium",
         "name": "chromium",
@@ -58,14 +58,14 @@
         "testMatch": [
           "**/*.spec.ts"
         ],
-        "timeout": 60000
+        "timeout": 180000
       },
       {
         "outputDir": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts",
         "repeatEach": 1,
         "retries": 1,
         "metadata": {
-          "actualWorkers": 4
+          "actualWorkers": 1
         },
         "id": "firefox",
         "name": "firefox",
@@ -74,14 +74,14 @@
         "testMatch": [
           "**/*.spec.ts"
         ],
-        "timeout": 60000
+        "timeout": 180000
       },
       {
         "outputDir": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts",
         "repeatEach": 1,
         "retries": 1,
         "metadata": {
-          "actualWorkers": 4
+          "actualWorkers": 1
         },
         "id": "webkit",
         "name": "webkit",
@@ -90,14 +90,14 @@
         "testMatch": [
           "**/*.spec.ts"
         ],
-        "timeout": 60000
+        "timeout": 180000
       },
       {
         "outputDir": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts",
         "repeatEach": 1,
         "retries": 1,
         "metadata": {
-          "actualWorkers": 4
+          "actualWorkers": 1
         },
         "id": "mobile-chrome",
         "name": "mobile-chrome",
@@ -106,14 +106,14 @@
         "testMatch": [
           "**/*.spec.ts"
         ],
-        "timeout": 60000
+        "timeout": 180000
       },
       {
         "outputDir": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts",
         "repeatEach": 1,
         "retries": 1,
         "metadata": {
-          "actualWorkers": 4
+          "actualWorkers": 1
         },
         "id": "mobile-safari",
         "name": "mobile-safari",
@@ -122,7 +122,7 @@
         "testMatch": [
           "**/*.spec.ts"
         ],
-        "timeout": 60000
+        "timeout": 180000
       }
     ],
     "shard": null,
@@ -134,1195 +134,643 @@
   },
   "suites": [
     {
-      "title": "test_complete_flows.spec.ts",
-      "file": "test_complete_flows.spec.ts",
+      "title": "test_form_8_investigation.spec.ts",
+      "file": "test_form_8_investigation.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Complete Interview Flows",
-          "file": "test_complete_flows.spec.ts",
-          "line": 5,
+          "title": "Form 8 Investigation and Field Testing",
+          "file": "test_form_8_investigation.spec.ts",
+          "line": 8,
           "column": 6,
-          "specs": [
+          "specs": [],
+          "suites": [
             {
-              "title": "divorce flow completes to summary",
-              "ok": false,
-              "tags": [],
-              "tests": [
+              "title": "Working Interview Baseline",
+              "file": "test_form_8_investigation.spec.ts",
+              "line": 10,
+              "column": 8,
+              "specs": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
+                  "title": "Working interview loads successfully",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 13278,
-                      "error": {
-                        "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    18 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
-                        "stack": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    18 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:29:48",
-                        "location": {
-                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                          "column": 48,
-                          "line": 29
-                        },
-                        "snippet": "  27 |     \n  28 |     // Orders - Find and click divorce checkbox (use text-based approach)\n> 29 |     await page.locator('text=Divorce').first().click();\n     |                                                ^\n  30 |     await page.click('button:has-text(\"Continue\")');\n  31 |     console.log('✓ Orders selection completed');\n  32 |     "
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                            "column": 48,
-                            "line": 29
-                          },
-                          "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    18 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  27 |     \n  28 |     // Orders - Find and click divorce checkbox (use text-based approach)\n> 29 |     await page.locator('text=Divorce').first().click();\n     |                                                ^\n  30 |     await page.click('button:has-text(\"Continue\")');\n  31 |     console.log('✓ Orders selection completed');\n  32 |     \n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:29:48"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "Starting divorce flow test...\n"
-                        },
-                        {
-                          "text": "✓ Introduction completed\n"
-                        },
-                        {
-                          "text": "✓ Emergency assessment completed\n"
-                        },
-                        {
-                          "text": "✓ MIP status completed\n"
-                        },
-                        {
-                          "text": "✓ Relationship status completed\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-09-05T17:32:41.818Z",
+                      "timeout": 120000,
                       "annotations": [],
-                      "attachments": [
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
                         {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                        "column": 48,
-                        "line": 29
-                      }
-                    },
-                    {
-                      "workerIndex": 6,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 13350,
-                      "error": {
-                        "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    18 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
-                        "stack": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    18 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:29:48",
-                        "location": {
-                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                          "column": 48,
-                          "line": 29
-                        },
-                        "snippet": "  27 |     \n  28 |     // Orders - Find and click divorce checkbox (use text-based approach)\n> 29 |     await page.locator('text=Divorce').first().click();\n     |                                                ^\n  30 |     await page.click('button:has-text(\"Continue\")');\n  31 |     console.log('✓ Orders selection completed');\n  32 |     "
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                            "column": 48,
-                            "line": 29
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 1834,
+                          "error": {
+                            "message": "Error: expect.toBeVisible: Error: strict mode violation: locator('form') resolved to 2 elements:\n    1) <form id=\"daform\" method=\"POST\" class=\"daformcontinue\" novalidate=\"novalidate\" aria-labelledby=\"daMainQuestion\" action=\"/interview?i=docassemble.webapp:data/questions/ontario-family-law/common_intake_enhanced_with_validation.yml\">…</form> aka getByRole('form', { name: 'Ontario Family Law Common' })\n    2) <form id=\"dachat\" autocomplete=\"off\" aria-labelledby=\"dachatHeading\">…</form> aka getByLabel('Live chat')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form')\u001b[22m\n",
+                            "stack": "Error: expect.toBeVisible: Error: strict mode violation: locator('form') resolved to 2 elements:\n    1) <form id=\"daform\" method=\"POST\" class=\"daformcontinue\" novalidate=\"novalidate\" aria-labelledby=\"daMainQuestion\" action=\"/interview?i=docassemble.webapp:data/questions/ontario-family-law/common_intake_enhanced_with_validation.yml\">…</form> aka getByRole('form', { name: 'Ontario Family Law Common' })\n    2) <form id=\"dachat\" autocomplete=\"off\" aria-labelledby=\"dachatHeading\">…</form> aka getByLabel('Live chat')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form')\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts:24:42",
+                            "location": {
+                              "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts",
+                              "column": 42,
+                              "line": 24
+                            },
+                            "snippet": "  22 |       \n  23 |       // Look for form elements\n> 24 |       await expect(page.locator('form')).toBeVisible();\n     |                                          ^\n  25 |       \n  26 |       // Check for any error messages\n  27 |       const errorMessage = page.locator('.alert-danger, .error, [class*=\"error\"]');"
                           },
-                          "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    18 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  27 |     \n  28 |     // Orders - Find and click divorce checkbox (use text-based approach)\n> 29 |     await page.locator('text=Divorce').first().click();\n     |                                                ^\n  30 |     await page.click('button:has-text(\"Continue\")');\n  31 |     console.log('✓ Orders selection completed');\n  32 |     \n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:29:48"
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts",
+                                "column": 42,
+                                "line": 24
+                              },
+                              "message": "Error: expect.toBeVisible: Error: strict mode violation: locator('form') resolved to 2 elements:\n    1) <form id=\"daform\" method=\"POST\" class=\"daformcontinue\" novalidate=\"novalidate\" aria-labelledby=\"daMainQuestion\" action=\"/interview?i=docassemble.webapp:data/questions/ontario-family-law/common_intake_enhanced_with_validation.yml\">…</form> aka getByRole('form', { name: 'Ontario Family Law Common' })\n    2) <form id=\"dachat\" autocomplete=\"off\" aria-labelledby=\"dachatHeading\">…</form> aka getByLabel('Live chat')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form')\u001b[22m\n\n\n  22 |       \n  23 |       // Look for form elements\n> 24 |       await expect(page.locator('form')).toBeVisible();\n     |                                          ^\n  25 |       \n  26 |       // Check for any error messages\n  27 |       const errorMessage = page.locator('.alert-danger, .error, [class*=\"error\"]');\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts:24:42"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-09-05T19:57:56.464Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_form_8_investigation--38646-nterview-loads-successfully-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_form_8_investigation--38646-nterview-loads-successfully-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_form_8_investigation--38646-nterview-loads-successfully-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts",
+                            "column": 42,
+                            "line": 24
+                          }
+                        },
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 1883,
+                          "error": {
+                            "message": "Error: expect.toBeVisible: Error: strict mode violation: locator('form') resolved to 2 elements:\n    1) <form id=\"daform\" method=\"POST\" class=\"daformcontinue\" novalidate=\"novalidate\" aria-labelledby=\"daMainQuestion\" action=\"/interview?i=docassemble.webapp:data/questions/ontario-family-law/common_intake_enhanced_with_validation.yml\">…</form> aka getByRole('form', { name: 'Ontario Family Law Common' })\n    2) <form id=\"dachat\" autocomplete=\"off\" aria-labelledby=\"dachatHeading\">…</form> aka getByLabel('Live chat')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form')\u001b[22m\n",
+                            "stack": "Error: expect.toBeVisible: Error: strict mode violation: locator('form') resolved to 2 elements:\n    1) <form id=\"daform\" method=\"POST\" class=\"daformcontinue\" novalidate=\"novalidate\" aria-labelledby=\"daMainQuestion\" action=\"/interview?i=docassemble.webapp:data/questions/ontario-family-law/common_intake_enhanced_with_validation.yml\">…</form> aka getByRole('form', { name: 'Ontario Family Law Common' })\n    2) <form id=\"dachat\" autocomplete=\"off\" aria-labelledby=\"dachatHeading\">…</form> aka getByLabel('Live chat')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form')\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts:24:42",
+                            "location": {
+                              "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts",
+                              "column": 42,
+                              "line": 24
+                            },
+                            "snippet": "  22 |       \n  23 |       // Look for form elements\n> 24 |       await expect(page.locator('form')).toBeVisible();\n     |                                          ^\n  25 |       \n  26 |       // Check for any error messages\n  27 |       const errorMessage = page.locator('.alert-danger, .error, [class*=\"error\"]');"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts",
+                                "column": 42,
+                                "line": 24
+                              },
+                              "message": "Error: expect.toBeVisible: Error: strict mode violation: locator('form') resolved to 2 elements:\n    1) <form id=\"daform\" method=\"POST\" class=\"daformcontinue\" novalidate=\"novalidate\" aria-labelledby=\"daMainQuestion\" action=\"/interview?i=docassemble.webapp:data/questions/ontario-family-law/common_intake_enhanced_with_validation.yml\">…</form> aka getByRole('form', { name: 'Ontario Family Law Common' })\n    2) <form id=\"dachat\" autocomplete=\"off\" aria-labelledby=\"dachatHeading\">…</form> aka getByLabel('Live chat')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form')\u001b[22m\n\n\n  22 |       \n  23 |       // Look for form elements\n> 24 |       await expect(page.locator('form')).toBeVisible();\n     |                                          ^\n  25 |       \n  26 |       // Check for any error messages\n  27 |       const errorMessage = page.locator('.alert-danger, .error, [class*=\"error\"]');\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts:24:42"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 1,
+                          "startTime": "2025-09-05T19:57:59.170Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_form_8_investigation--38646-nterview-loads-successfully-chromium-retry1/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_form_8_investigation--38646-nterview-loads-successfully-chromium-retry1/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_form_8_investigation--38646-nterview-loads-successfully-chromium-retry1/error-context.md"
+                            },
+                            {
+                              "name": "trace",
+                              "contentType": "application/zip",
+                              "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_form_8_investigation--38646-nterview-loads-successfully-chromium-retry1/trace.zip"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts",
+                            "column": 42,
+                            "line": 24
+                          }
                         }
                       ],
-                      "stdout": [
-                        {
-                          "text": "Starting divorce flow test...\n"
-                        },
-                        {
-                          "text": "✓ Introduction completed\n"
-                        },
-                        {
-                          "text": "✓ Emergency assessment completed\n"
-                        },
-                        {
-                          "text": "✓ MIP status completed\n"
-                        },
-                        {
-                          "text": "✓ Relationship status completed\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2025-09-05T17:32:56.350Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-chromium-retry1/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-chromium-retry1/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-chromium-retry1/error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-chromium-retry1/trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                        "column": 48,
-                        "line": 29
-                      }
+                      "status": "unexpected"
                     }
                   ],
-                  "status": "unexpected"
+                  "id": "b4a66223c5314d2ddb75-5447398360b8d2e4d834",
+                  "file": "test_form_8_investigation.spec.ts",
+                  "line": 19,
+                  "column": 9
                 },
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
-                  "results": [
+                  "title": "Working interview can be navigated",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 13428,
-                      "error": {
-                        "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
-                        "stack": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:29:48",
-                        "location": {
-                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                          "column": 48,
-                          "line": 29
-                        },
-                        "snippet": "  27 |     \n  28 |     // Orders - Find and click divorce checkbox (use text-based approach)\n> 29 |     await page.locator('text=Divorce').first().click();\n     |                                                ^\n  30 |     await page.click('button:has-text(\"Continue\")');\n  31 |     console.log('✓ Orders selection completed');\n  32 |     "
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                            "column": 48,
-                            "line": 29
-                          },
-                          "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  27 |     \n  28 |     // Orders - Find and click divorce checkbox (use text-based approach)\n> 29 |     await page.locator('text=Divorce').first().click();\n     |                                                ^\n  30 |     await page.click('button:has-text(\"Continue\")');\n  31 |     console.log('✓ Orders selection completed');\n  32 |     \n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:29:48"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "Starting divorce flow test...\n"
-                        },
-                        {
-                          "text": "✓ Introduction completed\n"
-                        },
-                        {
-                          "text": "✓ Emergency assessment completed\n"
-                        },
-                        {
-                          "text": "✓ MIP status completed\n"
-                        },
-                        {
-                          "text": "✓ Relationship status completed\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-09-05T17:32:41.818Z",
+                      "timeout": 120000,
                       "annotations": [],
-                      "attachments": [
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
                         {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-firefox/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-firefox/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-firefox/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                        "column": 48,
-                        "line": 29
-                      }
-                    },
-                    {
-                      "workerIndex": 7,
-                      "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 13414,
-                      "error": {
-                        "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
-                        "stack": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:29:48",
-                        "location": {
-                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                          "column": 48,
-                          "line": 29
-                        },
-                        "snippet": "  27 |     \n  28 |     // Orders - Find and click divorce checkbox (use text-based approach)\n> 29 |     await page.locator('text=Divorce').first().click();\n     |                                                ^\n  30 |     await page.click('button:has-text(\"Continue\")');\n  31 |     console.log('✓ Orders selection completed');\n  32 |     "
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                            "column": 48,
-                            "line": 29
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 1964,
+                          "error": {
+                            "message": "Error: expect.toBeVisible: Error: strict mode violation: locator('form') resolved to 2 elements:\n    1) <form id=\"daform\" method=\"POST\" class=\"daformcontinue\" novalidate=\"novalidate\" aria-labelledby=\"daMainQuestion\" action=\"/interview?i=docassemble.webapp:data/questions/ontario-family-law/common_intake_enhanced_with_validation.yml\">…</form> aka getByRole('form', { name: 'Ontario Family Law Common' })\n    2) <form id=\"dachat\" autocomplete=\"off\" aria-labelledby=\"dachatHeading\">…</form> aka getByLabel('Live chat')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form')\u001b[22m\n",
+                            "stack": "Error: expect.toBeVisible: Error: strict mode violation: locator('form') resolved to 2 elements:\n    1) <form id=\"daform\" method=\"POST\" class=\"daformcontinue\" novalidate=\"novalidate\" aria-labelledby=\"daMainQuestion\" action=\"/interview?i=docassemble.webapp:data/questions/ontario-family-law/common_intake_enhanced_with_validation.yml\">…</form> aka getByRole('form', { name: 'Ontario Family Law Common' })\n    2) <form id=\"dachat\" autocomplete=\"off\" aria-labelledby=\"dachatHeading\">…</form> aka getByLabel('Live chat')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form')\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts:65:44",
+                            "location": {
+                              "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts",
+                              "column": 44,
+                              "line": 65
+                            },
+                            "snippet": "  63 |         \n  64 |         // Verify we moved to a new question\n> 65 |         await expect(page.locator('form')).toBeVisible();\n     |                                            ^\n  66 |         console.log('✅ Working interview navigation successful');\n  67 |       }\n  68 |     });"
                           },
-                          "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  27 |     \n  28 |     // Orders - Find and click divorce checkbox (use text-based approach)\n> 29 |     await page.locator('text=Divorce').first().click();\n     |                                                ^\n  30 |     await page.click('button:has-text(\"Continue\")');\n  31 |     console.log('✓ Orders selection completed');\n  32 |     \n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:29:48"
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts",
+                                "column": 44,
+                                "line": 65
+                              },
+                              "message": "Error: expect.toBeVisible: Error: strict mode violation: locator('form') resolved to 2 elements:\n    1) <form id=\"daform\" method=\"POST\" class=\"daformcontinue\" novalidate=\"novalidate\" aria-labelledby=\"daMainQuestion\" action=\"/interview?i=docassemble.webapp:data/questions/ontario-family-law/common_intake_enhanced_with_validation.yml\">…</form> aka getByRole('form', { name: 'Ontario Family Law Common' })\n    2) <form id=\"dachat\" autocomplete=\"off\" aria-labelledby=\"dachatHeading\">…</form> aka getByLabel('Live chat')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form')\u001b[22m\n\n\n  63 |         \n  64 |         // Verify we moved to a new question\n> 65 |         await expect(page.locator('form')).toBeVisible();\n     |                                            ^\n  66 |         console.log('✅ Working interview navigation successful');\n  67 |       }\n  68 |     });\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts:65:44"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-09-05T19:58:01.844Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_form_8_investigation--1ee5f--interview-can-be-navigated-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_form_8_investigation--1ee5f--interview-can-be-navigated-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_form_8_investigation--1ee5f--interview-can-be-navigated-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts",
+                            "column": 44,
+                            "line": 65
+                          }
+                        },
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 2028,
+                          "error": {
+                            "message": "Error: expect.toBeVisible: Error: strict mode violation: locator('form') resolved to 2 elements:\n    1) <form id=\"daform\" method=\"POST\" class=\"daformcontinue\" novalidate=\"novalidate\" aria-labelledby=\"daMainQuestion\" action=\"/interview?i=docassemble.webapp:data/questions/ontario-family-law/common_intake_enhanced_with_validation.yml\">…</form> aka getByRole('form', { name: 'Ontario Family Law Common' })\n    2) <form id=\"dachat\" autocomplete=\"off\" aria-labelledby=\"dachatHeading\">…</form> aka getByLabel('Live chat')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form')\u001b[22m\n",
+                            "stack": "Error: expect.toBeVisible: Error: strict mode violation: locator('form') resolved to 2 elements:\n    1) <form id=\"daform\" method=\"POST\" class=\"daformcontinue\" novalidate=\"novalidate\" aria-labelledby=\"daMainQuestion\" action=\"/interview?i=docassemble.webapp:data/questions/ontario-family-law/common_intake_enhanced_with_validation.yml\">…</form> aka getByRole('form', { name: 'Ontario Family Law Common' })\n    2) <form id=\"dachat\" autocomplete=\"off\" aria-labelledby=\"dachatHeading\">…</form> aka getByLabel('Live chat')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form')\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts:65:44",
+                            "location": {
+                              "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts",
+                              "column": 44,
+                              "line": 65
+                            },
+                            "snippet": "  63 |         \n  64 |         // Verify we moved to a new question\n> 65 |         await expect(page.locator('form')).toBeVisible();\n     |                                            ^\n  66 |         console.log('✅ Working interview navigation successful');\n  67 |       }\n  68 |     });"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts",
+                                "column": 44,
+                                "line": 65
+                              },
+                              "message": "Error: expect.toBeVisible: Error: strict mode violation: locator('form') resolved to 2 elements:\n    1) <form id=\"daform\" method=\"POST\" class=\"daformcontinue\" novalidate=\"novalidate\" aria-labelledby=\"daMainQuestion\" action=\"/interview?i=docassemble.webapp:data/questions/ontario-family-law/common_intake_enhanced_with_validation.yml\">…</form> aka getByRole('form', { name: 'Ontario Family Law Common' })\n    2) <form id=\"dachat\" autocomplete=\"off\" aria-labelledby=\"dachatHeading\">…</form> aka getByLabel('Live chat')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form')\u001b[22m\n\n\n  63 |         \n  64 |         // Verify we moved to a new question\n> 65 |         await expect(page.locator('form')).toBeVisible();\n     |                                            ^\n  66 |         console.log('✅ Working interview navigation successful');\n  67 |       }\n  68 |     });\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts:65:44"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 1,
+                          "startTime": "2025-09-05T19:58:04.588Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_form_8_investigation--1ee5f--interview-can-be-navigated-chromium-retry1/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_form_8_investigation--1ee5f--interview-can-be-navigated-chromium-retry1/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_form_8_investigation--1ee5f--interview-can-be-navigated-chromium-retry1/error-context.md"
+                            },
+                            {
+                              "name": "trace",
+                              "contentType": "application/zip",
+                              "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_form_8_investigation--1ee5f--interview-can-be-navigated-chromium-retry1/trace.zip"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_form_8_investigation.spec.ts",
+                            "column": 44,
+                            "line": 65
+                          }
                         }
                       ],
-                      "stdout": [
-                        {
-                          "text": "Starting divorce flow test...\n"
-                        },
-                        {
-                          "text": "✓ Introduction completed\n"
-                        },
-                        {
-                          "text": "✓ Emergency assessment completed\n"
-                        },
-                        {
-                          "text": "✓ MIP status completed\n"
-                        },
-                        {
-                          "text": "✓ Relationship status completed\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2025-09-05T17:32:57.342Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-firefox-retry1/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-firefox-retry1/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-firefox-retry1/error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-firefox-retry1/trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                        "column": 48,
-                        "line": 29
-                      }
+                      "status": "unexpected"
                     }
                   ],
-                  "status": "unexpected"
-                },
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "failed",
-                      "duration": 12988,
-                      "error": {
-                        "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    18 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
-                        "stack": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    18 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:29:48",
-                        "location": {
-                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                          "column": 48,
-                          "line": 29
-                        },
-                        "snippet": "  27 |     \n  28 |     // Orders - Find and click divorce checkbox (use text-based approach)\n> 29 |     await page.locator('text=Divorce').first().click();\n     |                                                ^\n  30 |     await page.click('button:has-text(\"Continue\")');\n  31 |     console.log('✓ Orders selection completed');\n  32 |     "
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                            "column": 48,
-                            "line": 29
-                          },
-                          "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    18 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  27 |     \n  28 |     // Orders - Find and click divorce checkbox (use text-based approach)\n> 29 |     await page.locator('text=Divorce').first().click();\n     |                                                ^\n  30 |     await page.click('button:has-text(\"Continue\")');\n  31 |     console.log('✓ Orders selection completed');\n  32 |     \n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:29:48"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "Starting divorce flow test...\n"
-                        },
-                        {
-                          "text": "✓ Introduction completed\n"
-                        },
-                        {
-                          "text": "✓ Emergency assessment completed\n"
-                        },
-                        {
-                          "text": "✓ MIP status completed\n"
-                        },
-                        {
-                          "text": "✓ Relationship status completed\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-09-05T17:32:41.815Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-webkit/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-webkit/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-webkit/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                        "column": 48,
-                        "line": 29
-                      }
-                    },
-                    {
-                      "workerIndex": 4,
-                      "parallelIndex": 2,
-                      "status": "failed",
-                      "duration": 13036,
-                      "error": {
-                        "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
-                        "stack": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:29:48",
-                        "location": {
-                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                          "column": 48,
-                          "line": 29
-                        },
-                        "snippet": "  27 |     \n  28 |     // Orders - Find and click divorce checkbox (use text-based approach)\n> 29 |     await page.locator('text=Divorce').first().click();\n     |                                                ^\n  30 |     await page.click('button:has-text(\"Continue\")');\n  31 |     console.log('✓ Orders selection completed');\n  32 |     "
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                            "column": 48,
-                            "line": 29
-                          },
-                          "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  27 |     \n  28 |     // Orders - Find and click divorce checkbox (use text-based approach)\n> 29 |     await page.locator('text=Divorce').first().click();\n     |                                                ^\n  30 |     await page.click('button:has-text(\"Continue\")');\n  31 |     console.log('✓ Orders selection completed');\n  32 |     \n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:29:48"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "Starting divorce flow test...\n"
-                        },
-                        {
-                          "text": "✓ Introduction completed\n"
-                        },
-                        {
-                          "text": "✓ Emergency assessment completed\n"
-                        },
-                        {
-                          "text": "✓ MIP status completed\n"
-                        },
-                        {
-                          "text": "✓ Relationship status completed\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2025-09-05T17:32:55.496Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-webkit-retry1/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-webkit-retry1/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-webkit-retry1/error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-webkit-retry1/trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                        "column": 48,
-                        "line": 29
-                      }
-                    }
-                  ],
-                  "status": "unexpected"
-                },
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-chrome",
-                  "projectName": "mobile-chrome",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
-                      "status": "failed",
-                      "duration": 13203,
-                      "error": {
-                        "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    18 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
-                        "stack": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    18 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:29:48",
-                        "location": {
-                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                          "column": 48,
-                          "line": 29
-                        },
-                        "snippet": "  27 |     \n  28 |     // Orders - Find and click divorce checkbox (use text-based approach)\n> 29 |     await page.locator('text=Divorce').first().click();\n     |                                                ^\n  30 |     await page.click('button:has-text(\"Continue\")');\n  31 |     console.log('✓ Orders selection completed');\n  32 |     "
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                            "column": 48,
-                            "line": 29
-                          },
-                          "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    18 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  27 |     \n  28 |     // Orders - Find and click divorce checkbox (use text-based approach)\n> 29 |     await page.locator('text=Divorce').first().click();\n     |                                                ^\n  30 |     await page.click('button:has-text(\"Continue\")');\n  31 |     console.log('✓ Orders selection completed');\n  32 |     \n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:29:48"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "Starting divorce flow test...\n"
-                        },
-                        {
-                          "text": "✓ Introduction completed\n"
-                        },
-                        {
-                          "text": "✓ Emergency assessment completed\n"
-                        },
-                        {
-                          "text": "✓ MIP status completed\n"
-                        },
-                        {
-                          "text": "✓ Relationship status completed\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-09-05T17:32:41.824Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-mobile-chrome/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-mobile-chrome/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-mobile-chrome/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                        "column": 48,
-                        "line": 29
-                      }
-                    },
-                    {
-                      "workerIndex": 5,
-                      "parallelIndex": 3,
-                      "status": "failed",
-                      "duration": 13036,
-                      "error": {
-                        "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
-                        "stack": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:29:48",
-                        "location": {
-                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                          "column": 48,
-                          "line": 29
-                        },
-                        "snippet": "  27 |     \n  28 |     // Orders - Find and click divorce checkbox (use text-based approach)\n> 29 |     await page.locator('text=Divorce').first().click();\n     |                                                ^\n  30 |     await page.click('button:has-text(\"Continue\")');\n  31 |     console.log('✓ Orders selection completed');\n  32 |     "
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                            "column": 48,
-                            "line": 29
-                          },
-                          "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Divorce').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"submit\" value=\"divorced\" class=\"btn btn-da btn-light\" name=\"cmVsYXRpb25zaGlwX3N0YXR1cw\">Divorced</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"labelauty-unchecked\">Divorce</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  27 |     \n  28 |     // Orders - Find and click divorce checkbox (use text-based approach)\n> 29 |     await page.locator('text=Divorce').first().click();\n     |                                                ^\n  30 |     await page.click('button:has-text(\"Continue\")');\n  31 |     console.log('✓ Orders selection completed');\n  32 |     \n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:29:48"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "Starting divorce flow test...\n"
-                        },
-                        {
-                          "text": "✓ Introduction completed\n"
-                        },
-                        {
-                          "text": "✓ Emergency assessment completed\n"
-                        },
-                        {
-                          "text": "✓ MIP status completed\n"
-                        },
-                        {
-                          "text": "✓ Relationship status completed\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2025-09-05T17:32:56.239Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-mobile-chrome-retry1/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-mobile-chrome-retry1/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-mobile-chrome-retry1/error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-2ad26-e-flow-completes-to-summary-mobile-chrome-retry1/trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                        "column": 48,
-                        "line": 29
-                      }
-                    }
-                  ],
-                  "status": "unexpected"
-                },
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-safari",
-                  "projectName": "mobile-safari",
-                  "results": [],
-                  "status": "skipped"
+                  "id": "b4a66223c5314d2ddb75-525993bc8cc496abca11",
+                  "file": "test_form_8_investigation.spec.ts",
+                  "line": 37,
+                  "column": 9
                 }
-              ],
-              "id": "f750df3e2100714b9bcf-c57e2ae3023961fac1b3",
-              "file": "test_complete_flows.spec.ts",
-              "line": 6,
-              "column": 7
+              ]
             },
             {
-              "title": "custody with children flow completes to summary",
-              "ok": false,
-              "tags": [],
-              "tests": [
+              "title": "Form 8 Unified Investigation",
+              "file": "test_form_8_investigation.spec.ts",
+              "line": 71,
+              "column": 8,
+              "specs": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
+                  "title": "Form 8 unified interview loading investigation",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 10,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 13216,
-                      "error": {
-                        "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"radio\"][value=\"True\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input alt=\"Yes\" type=\"radio\" value=\"True\" aria-label=\"Yes\" aria-hidden=\"true\" data-color=\"primary\" id=\"Y2xhaW1pbmdfc3VwcG9ydA_0\" name=\"Y2xhaW1pbmdfc3VwcG9ydA\" class=\"da-to-labelauty labelauty da-active-invisible dafullwidth\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
-                        "stack": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"radio\"][value=\"True\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input alt=\"Yes\" type=\"radio\" value=\"True\" aria-label=\"Yes\" aria-hidden=\"true\" data-color=\"primary\" id=\"Y2xhaW1pbmdfc3VwcG9ydA_0\" name=\"Y2xhaW1pbmdfc3VwcG9ydA\" class=\"da-to-labelauty labelauty da-active-invisible dafullwidth\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:108:69",
-                        "location": {
-                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                          "column": 69,
-                          "line": 108
-                        },
-                        "snippet": "  106 |     \n  107 |     // Financial situation (appears because we're seeking support)\n> 108 |     await page.locator('input[type=\"radio\"][value=\"True\"]').first().click(); // Claiming support\n      |                                                                     ^\n  109 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(1).click(); // Not paying\n  110 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(2).click(); // No real estate\n  111 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(3).click(); // No business"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                            "column": 69,
-                            "line": 108
-                          },
-                          "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"radio\"][value=\"True\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input alt=\"Yes\" type=\"radio\" value=\"True\" aria-label=\"Yes\" aria-hidden=\"true\" data-color=\"primary\" id=\"Y2xhaW1pbmdfc3VwcG9ydA_0\" name=\"Y2xhaW1pbmdfc3VwcG9ydA\" class=\"da-to-labelauty labelauty da-active-invisible dafullwidth\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  106 |     \n  107 |     // Financial situation (appears because we're seeking support)\n> 108 |     await page.locator('input[type=\"radio\"][value=\"True\"]').first().click(); // Claiming support\n      |                                                                     ^\n  109 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(1).click(); // Not paying\n  110 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(2).click(); // No real estate\n  111 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(3).click(); // No business\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:108:69"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "Starting custody with children flow test...\n"
-                        },
-                        {
-                          "text": "✓ Orders with custody and support selected\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-09-05T17:33:10.894Z",
+                      "timeout": 180000,
                       "annotations": [],
-                      "attachments": [
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
                         {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-chromium/error-context.md"
+                          "workerIndex": 4,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 1444,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "Form 8 Unified Investigation Results:\n"
+                            },
+                            {
+                              "text": "- Page Title: Error\n"
+                            },
+                            {
+                              "text": "- Has Error in Title: true\n"
+                            },
+                            {
+                              "text": "- Page Content Length: 10006\n"
+                            },
+                            {
+                              "text": "❌ Form 8 unified interview failed to load - Error page detected\n"
+                            },
+                            {
+                              "text": "- Error Heading: Error\n"
+                            },
+                            {
+                              "text": "- Error Detail: There was an error. Please contact the system administrator.\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-09-05T19:58:07.416Z",
+                          "annotations": [],
+                          "attachments": []
                         }
                       ],
-                      "errorLocation": {
-                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                        "column": 69,
-                        "line": 108
-                      }
-                    },
-                    {
-                      "workerIndex": 14,
-                      "parallelIndex": 0,
-                      "status": "interrupted",
-                      "duration": 10998,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Starting custody with children flow test...\n"
-                        },
-                        {
-                          "text": "✓ Orders with custody and support selected\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2025-09-05T17:33:25.109Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-chromium-retry1/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-chromium-retry1/video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-chromium-retry1/trace.zip"
-                        }
-                      ]
+                      "status": "expected"
                     }
                   ],
-                  "status": "unexpected"
-                },
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
-                  "results": [
-                    {
-                      "workerIndex": 11,
-                      "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 13475,
-                      "error": {
-                        "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"radio\"][value=\"True\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input alt=\"Yes\" type=\"radio\" value=\"True\" aria-label=\"Yes\" aria-hidden=\"true\" data-color=\"primary\" id=\"Y2xhaW1pbmdfc3VwcG9ydA_0\" name=\"Y2xhaW1pbmdfc3VwcG9ydA\" class=\"da-to-labelauty labelauty da-active-invisible dafullwidth\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
-                        "stack": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"radio\"][value=\"True\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input alt=\"Yes\" type=\"radio\" value=\"True\" aria-label=\"Yes\" aria-hidden=\"true\" data-color=\"primary\" id=\"Y2xhaW1pbmdfc3VwcG9ydA_0\" name=\"Y2xhaW1pbmdfc3VwcG9ydA\" class=\"da-to-labelauty labelauty da-active-invisible dafullwidth\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:108:69",
-                        "location": {
-                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                          "column": 69,
-                          "line": 108
-                        },
-                        "snippet": "  106 |     \n  107 |     // Financial situation (appears because we're seeking support)\n> 108 |     await page.locator('input[type=\"radio\"][value=\"True\"]').first().click(); // Claiming support\n      |                                                                     ^\n  109 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(1).click(); // Not paying\n  110 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(2).click(); // No real estate\n  111 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(3).click(); // No business"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                            "column": 69,
-                            "line": 108
-                          },
-                          "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"radio\"][value=\"True\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input alt=\"Yes\" type=\"radio\" value=\"True\" aria-label=\"Yes\" aria-hidden=\"true\" data-color=\"primary\" id=\"Y2xhaW1pbmdfc3VwcG9ydA_0\" name=\"Y2xhaW1pbmdfc3VwcG9ydA\" class=\"da-to-labelauty labelauty da-active-invisible dafullwidth\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  106 |     \n  107 |     // Financial situation (appears because we're seeking support)\n> 108 |     await page.locator('input[type=\"radio\"][value=\"True\"]').first().click(); // Claiming support\n      |                                                                     ^\n  109 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(1).click(); // Not paying\n  110 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(2).click(); // No real estate\n  111 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(3).click(); // No business\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:108:69"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "Starting custody with children flow test...\n"
-                        },
-                        {
-                          "text": "✓ Orders with custody and support selected\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-09-05T17:33:12.258Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-firefox/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-firefox/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-firefox/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                        "column": 69,
-                        "line": 108
-                      }
-                    },
-                    {
-                      "workerIndex": 15,
-                      "parallelIndex": 1,
-                      "status": "interrupted",
-                      "duration": 8721,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Starting custody with children flow test...\n"
-                        },
-                        {
-                          "text": "✓ Orders with custody and support selected\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2025-09-05T17:33:27.073Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-firefox-retry1/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-firefox-retry1/video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-firefox-retry1/trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "unexpected"
-                },
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 8,
-                      "parallelIndex": 2,
-                      "status": "failed",
-                      "duration": 12967,
-                      "error": {
-                        "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"radio\"][value=\"True\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input alt=\"Yes\" type=\"radio\" value=\"True\" aria-label=\"Yes\" aria-hidden=\"true\" data-color=\"primary\" id=\"Y2xhaW1pbmdfc3VwcG9ydA_0\" name=\"Y2xhaW1pbmdfc3VwcG9ydA\" class=\"da-to-labelauty labelauty da-active-invisible dafullwidth\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
-                        "stack": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"radio\"][value=\"True\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input alt=\"Yes\" type=\"radio\" value=\"True\" aria-label=\"Yes\" aria-hidden=\"true\" data-color=\"primary\" id=\"Y2xhaW1pbmdfc3VwcG9ydA_0\" name=\"Y2xhaW1pbmdfc3VwcG9ydA\" class=\"da-to-labelauty labelauty da-active-invisible dafullwidth\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:108:69",
-                        "location": {
-                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                          "column": 69,
-                          "line": 108
-                        },
-                        "snippet": "  106 |     \n  107 |     // Financial situation (appears because we're seeking support)\n> 108 |     await page.locator('input[type=\"radio\"][value=\"True\"]').first().click(); // Claiming support\n      |                                                                     ^\n  109 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(1).click(); // Not paying\n  110 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(2).click(); // No real estate\n  111 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(3).click(); // No business"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                            "column": 69,
-                            "line": 108
-                          },
-                          "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"radio\"][value=\"True\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input alt=\"Yes\" type=\"radio\" value=\"True\" aria-label=\"Yes\" aria-hidden=\"true\" data-color=\"primary\" id=\"Y2xhaW1pbmdfc3VwcG9ydA_0\" name=\"Y2xhaW1pbmdfc3VwcG9ydA\" class=\"da-to-labelauty labelauty da-active-invisible dafullwidth\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  106 |     \n  107 |     // Financial situation (appears because we're seeking support)\n> 108 |     await page.locator('input[type=\"radio\"][value=\"True\"]').first().click(); // Claiming support\n      |                                                                     ^\n  109 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(1).click(); // Not paying\n  110 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(2).click(); // No real estate\n  111 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(3).click(); // No business\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:108:69"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "Starting custody with children flow test...\n"
-                        },
-                        {
-                          "text": "✓ Orders with custody and support selected\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-09-05T17:33:09.271Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-webkit/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-webkit/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-webkit/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                        "column": 69,
-                        "line": 108
-                      }
-                    },
-                    {
-                      "workerIndex": 12,
-                      "parallelIndex": 2,
-                      "status": "failed",
-                      "duration": 12962,
-                      "error": {
-                        "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"radio\"][value=\"True\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input alt=\"Yes\" type=\"radio\" value=\"True\" aria-label=\"Yes\" aria-hidden=\"true\" data-color=\"primary\" id=\"Y2xhaW1pbmdfc3VwcG9ydA_0\" name=\"Y2xhaW1pbmdfc3VwcG9ydA\" class=\"da-to-labelauty labelauty da-active-invisible dafullwidth\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
-                        "stack": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"radio\"][value=\"True\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input alt=\"Yes\" type=\"radio\" value=\"True\" aria-label=\"Yes\" aria-hidden=\"true\" data-color=\"primary\" id=\"Y2xhaW1pbmdfc3VwcG9ydA_0\" name=\"Y2xhaW1pbmdfc3VwcG9ydA\" class=\"da-to-labelauty labelauty da-active-invisible dafullwidth\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:108:69",
-                        "location": {
-                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                          "column": 69,
-                          "line": 108
-                        },
-                        "snippet": "  106 |     \n  107 |     // Financial situation (appears because we're seeking support)\n> 108 |     await page.locator('input[type=\"radio\"][value=\"True\"]').first().click(); // Claiming support\n      |                                                                     ^\n  109 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(1).click(); // Not paying\n  110 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(2).click(); // No real estate\n  111 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(3).click(); // No business"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                            "column": 69,
-                            "line": 108
-                          },
-                          "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"radio\"][value=\"True\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input alt=\"Yes\" type=\"radio\" value=\"True\" aria-label=\"Yes\" aria-hidden=\"true\" data-color=\"primary\" id=\"Y2xhaW1pbmdfc3VwcG9ydA_0\" name=\"Y2xhaW1pbmdfc3VwcG9ydA\" class=\"da-to-labelauty labelauty da-active-invisible dafullwidth\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  106 |     \n  107 |     // Financial situation (appears because we're seeking support)\n> 108 |     await page.locator('input[type=\"radio\"][value=\"True\"]').first().click(); // Claiming support\n      |                                                                     ^\n  109 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(1).click(); // Not paying\n  110 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(2).click(); // No real estate\n  111 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(3).click(); // No business\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:108:69"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "Starting custody with children flow test...\n"
-                        },
-                        {
-                          "text": "✓ Orders with custody and support selected\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2025-09-05T17:33:22.780Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-webkit-retry1/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-webkit-retry1/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-webkit-retry1/error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-webkit-retry1/trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                        "column": 69,
-                        "line": 108
-                      }
-                    }
-                  ],
-                  "status": "unexpected"
-                },
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-chrome",
-                  "projectName": "mobile-chrome",
-                  "results": [
-                    {
-                      "workerIndex": 9,
-                      "parallelIndex": 3,
-                      "status": "failed",
-                      "duration": 13171,
-                      "error": {
-                        "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"radio\"][value=\"True\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input alt=\"Yes\" type=\"radio\" value=\"True\" aria-label=\"Yes\" aria-hidden=\"true\" data-color=\"primary\" id=\"Y2xhaW1pbmdfc3VwcG9ydA_0\" name=\"Y2xhaW1pbmdfc3VwcG9ydA\" class=\"da-to-labelauty labelauty da-active-invisible dafullwidth\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
-                        "stack": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"radio\"][value=\"True\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input alt=\"Yes\" type=\"radio\" value=\"True\" aria-label=\"Yes\" aria-hidden=\"true\" data-color=\"primary\" id=\"Y2xhaW1pbmdfc3VwcG9ydA_0\" name=\"Y2xhaW1pbmdfc3VwcG9ydA\" class=\"da-to-labelauty labelauty da-active-invisible dafullwidth\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:108:69",
-                        "location": {
-                          "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                          "column": 69,
-                          "line": 108
-                        },
-                        "snippet": "  106 |     \n  107 |     // Financial situation (appears because we're seeking support)\n> 108 |     await page.locator('input[type=\"radio\"][value=\"True\"]').first().click(); // Claiming support\n      |                                                                     ^\n  109 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(1).click(); // Not paying\n  110 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(2).click(); // No real estate\n  111 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(3).click(); // No business"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                            "column": 69,
-                            "line": 108
-                          },
-                          "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"radio\"][value=\"True\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input alt=\"Yes\" type=\"radio\" value=\"True\" aria-label=\"Yes\" aria-hidden=\"true\" data-color=\"primary\" id=\"Y2xhaW1pbmdfc3VwcG9ydA_0\" name=\"Y2xhaW1pbmdfc3VwcG9ydA\" class=\"da-to-labelauty labelauty da-active-invisible dafullwidth\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  106 |     \n  107 |     // Financial situation (appears because we're seeking support)\n> 108 |     await page.locator('input[type=\"radio\"][value=\"True\"]').first().click(); // Claiming support\n      |                                                                     ^\n  109 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(1).click(); // Not paying\n  110 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(2).click(); // No real estate\n  111 |     await page.locator('input[type=\"radio\"][value=\"False\"]').nth(3).click(); // No business\n    at /Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts:108:69"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "Starting custody with children flow test...\n"
-                        },
-                        {
-                          "text": "✓ Orders with custody and support selected\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-09-05T17:33:10.245Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-mobile-chrome/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-mobile-chrome/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-mobile-chrome/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test_complete_flows.spec.ts",
-                        "column": 69,
-                        "line": 108
-                      }
-                    },
-                    {
-                      "workerIndex": 13,
-                      "parallelIndex": 3,
-                      "status": "interrupted",
-                      "duration": 11749,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Starting custody with children flow test...\n"
-                        },
-                        {
-                          "text": "✓ Orders with custody and support selected\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2025-09-05T17:33:24.265Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-mobile-chrome-retry1/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-mobile-chrome-retry1/video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/tests/test-results/artifacts/test_complete_flows-Comple-0854c-n-flow-completes-to-summary-mobile-chrome-retry1/trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "unexpected"
-                },
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-safari",
-                  "projectName": "mobile-safari",
-                  "results": [],
-                  "status": "skipped"
+                  "id": "b4a66223c5314d2ddb75-f3b43ca842ad470b6328",
+                  "file": "test_form_8_investigation.spec.ts",
+                  "line": 74,
+                  "column": 9
                 }
-              ],
-              "id": "f750df3e2100714b9bcf-d60684345860d097848a",
-              "file": "test_complete_flows.spec.ts",
-              "line": 89,
-              "column": 7
+              ]
             },
             {
-              "title": "emergency flow completes to summary",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "title": "Field Name Analysis",
+              "file": "test_form_8_investigation.spec.ts",
+              "line": 122,
+              "column": 8,
+              "specs": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                },
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
-                  "results": [],
-                  "status": "skipped"
-                },
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [],
-                  "status": "skipped"
-                },
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-chrome",
-                  "projectName": "mobile-chrome",
-                  "results": [],
-                  "status": "skipped"
-                },
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-safari",
-                  "projectName": "mobile-safari",
-                  "results": [],
-                  "status": "skipped"
+                  "title": "Analyze Form 8 unified YAML structure",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 4,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 249,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "Form 8 Field Analysis Results:\n"
+                            },
+                            {
+                              "text": "- Generic fields identified: 5\n"
+                            },
+                            {
+                              "text": "- Meaningful fields identified: 8\n"
+                            },
+                            {
+                              "text": "- Structural issues: 3\n"
+                            },
+                            {
+                              "text": "✅ Field name analysis completed\n"
+                            },
+                            {
+                              "text": "  - Meaningful field: form_specific_courtfileno\n"
+                            },
+                            {
+                              "text": "  - Meaningful field: case.court_file_number\n"
+                            },
+                            {
+                              "text": "  - Meaningful field: form_specific_important_facts\n"
+                            },
+                            {
+                              "text": "  - Meaningful field: form_specific_email\n"
+                            },
+                            {
+                              "text": "  - Meaningful field: form_specific_phone\n"
+                            },
+                            {
+                              "text": "  - Meaningful field: form_specific_full_legal_name\n"
+                            },
+                            {
+                              "text": "  - Meaningful field: form_specific_municipality\n"
+                            },
+                            {
+                              "text": "  - Meaningful field: form_specific_province\n"
+                            },
+                            {
+                              "text": "  - Issue: Mandatory code block references 137+ fields but many are not defined\n"
+                            },
+                            {
+                              "text": "  - Issue: Mixed generic (field_0) and meaningful (court_file_number) naming\n"
+                            },
+                            {
+                              "text": "  - Issue: Incomplete field definitions causing Docassemble errors\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-09-05T19:58:09.174Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b4a66223c5314d2ddb75-dfbb141e74f886d0be63",
+                  "file": "test_form_8_investigation.spec.ts",
+                  "line": 123,
+                  "column": 9
                 }
-              ],
-              "id": "f750df3e2100714b9bcf-5314411727c3e122812d",
-              "file": "test_complete_flows.spec.ts",
-              "line": 181,
-              "column": 7
+              ]
+            },
+            {
+              "title": "Improvement Recommendations",
+              "file": "test_form_8_investigation.spec.ts",
+              "line": 175,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Generate improvement recommendations",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 4,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 220,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "Form 8 Improvement Recommendations:\n"
+                            },
+                            {
+                              "text": "1. Complete the mandatory code block to reference all defined question fields\n"
+                            },
+                            {
+                              "text": "2. Ensure every field referenced in mandatory code has a corresponding question block\n"
+                            },
+                            {
+                              "text": "3. Standardize field naming - avoid generic \"field_N\" names where possible\n"
+                            },
+                            {
+                              "text": "4. Add proper validation and error handling for incomplete forms\n"
+                            },
+                            {
+                              "text": "5. Test YAML syntax before deployment to catch structural issues\n"
+                            },
+                            {
+                              "text": "6. Implement incremental testing of generated interviews\n"
+                            },
+                            {
+                              "text": "7. Consider splitting large forms into sections for better maintainability\n"
+                            },
+                            {
+                              "text": "8. Add field mapping validation to ensure consistency between parser and generator\n"
+                            },
+                            {
+                              "text": "✅ Generated 8 improvement recommendations\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-09-05T19:58:09.431Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b4a66223c5314d2ddb75-4d25f99dd14e508b5d21",
+                  "file": "test_form_8_investigation.spec.ts",
+                  "line": 176,
+                  "column": 9
+                }
+              ]
+            },
+            {
+              "title": "Test Results Summary",
+              "file": "test_form_8_investigation.spec.ts",
+              "line": 198,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Generate comprehensive test report",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 4,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 222,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "\n=== FORM 8 UNIFIED TEST REPORT ===\n"
+                            },
+                            {
+                              "text": "Working Interview: ✅ PASSED - Baseline working interview loads and navigates properly\n"
+                            },
+                            {
+                              "text": "Form 8 Unified: ❌ EXPECTED FAILURE - Form 8 unified has structural issues preventing load\n"
+                            },
+                            {
+                              "text": "Field Analysis: ✅ PASSED - Identified mix of generic and meaningful field names\n"
+                            },
+                            {
+                              "text": "Issue Identification: ✅ PASSED - Structural issues documented and analyzed\n"
+                            },
+                            {
+                              "text": "Improvement Plan: ✅ PASSED - Comprehensive improvement recommendations generated\n"
+                            },
+                            {
+                              "text": "\n=== CRITICAL ISSUES IDENTIFIED ===\n"
+                            },
+                            {
+                              "text": "1. Form 8 unified interview has incomplete mandatory code block\n"
+                            },
+                            {
+                              "text": "2. Missing question blocks for referenced fields\n"
+                            },
+                            {
+                              "text": "3. Mixed field naming conventions need standardization\n"
+                            },
+                            {
+                              "text": "\n=== RECOMMENDED NEXT STEPS ===\n"
+                            },
+                            {
+                              "text": "1. Fix mandatory code block in Form 8 unified\n"
+                            },
+                            {
+                              "text": "2. Complete missing question block definitions\n"
+                            },
+                            {
+                              "text": "3. Implement field name standardization\n"
+                            },
+                            {
+                              "text": "4. Add automated YAML validation to generation pipeline\n"
+                            },
+                            {
+                              "text": "\n=== FIELD NAME IMPROVEMENTS VERIFIED ===\n"
+                            },
+                            {
+                              "text": "The hybrid intelligent parser DID identify meaningful field names:\n"
+                            },
+                            {
+                              "text": "✅ court_file_number (improved from generic field names)\n"
+                            },
+                            {
+                              "text": "✅ important_facts (improved from generic field names)\n"
+                            },
+                            {
+                              "text": "✅ email (improved from generic field names)\n"
+                            },
+                            {
+                              "text": "✅ phone (improved from generic field names)\n"
+                            },
+                            {
+                              "text": "However, the interview structure needs completion for proper testing.\n"
+                            },
+                            {
+                              "text": "\n✅ Comprehensive test report generated successfully\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-09-05T19:58:09.657Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b4a66223c5314d2ddb75-7d8bb2eca89849856da8",
+                  "file": "test_form_8_investigation.spec.ts",
+                  "line": 199,
+                  "column": 9
+                }
+              ]
             }
           ]
         }
       ]
     }
   ],
-  "errors": [
-    {
-      "message": "\u001b[31mTesting stopped early after 5 maximum allowed failures.\u001b[39m"
-    }
-  ],
+  "errors": [],
   "stats": {
-    "startTime": "2025-09-05T17:32:41.441Z",
-    "duration": 55472.696,
-    "expected": 0,
-    "skipped": 7,
-    "unexpected": 8,
+    "startTime": "2025-09-05T19:57:56.064Z",
+    "duration": 13948.785,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 2,
     "flaky": 0
   }
 }

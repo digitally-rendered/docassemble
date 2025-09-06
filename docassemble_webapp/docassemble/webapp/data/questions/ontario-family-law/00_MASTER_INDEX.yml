@@ -1,127 +1,70 @@
 ---
 metadata:
-  title: Ontario Family Law - MASTER INDEX
-  short title: Master Index
-  description: Complete directory of all Ontario Family Law interviews and tools
+  title: Ontario Family Law Forms - Complete Collection
+  short_title: All Forms Index
+  description: Complete collection of 44 Ontario Family Law forms
+  generated: 2025-09-05 14:41
+---
+include:
+  - common-intake-enhanced-with-validation.yml
 ---
 mandatory: True
 question: |
-  🏛️ Ontario Family Law Forms System - Master Index
+  Ontario Family Law Forms
 subquestion: |
-  Welcome to the complete Ontario Family Law Forms system. All interviews now include comprehensive error handling and debugging features.
-  
-  ## 🚀 Quick Start - Most Common Forms
-  
-  ### Financial Disclosure
-  - **[Form 13: Financial Statement (Support)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_13_interview.yml)** - With error handling
-  - **[Form 13.1: Financial Statement (Property)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_13.1_interview.yml)** - With error handling
-  
-  ### Applications
-  - **[Form 8: Application (General)](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_8_interview.yml)** - With error handling
-  - **[Form 10: Answer](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/form_10_interview.yml)** - With error handling
-  
-  ## 📚 Complete Interview Collections
-  
-  ### Structured Interviews (Domain-Mapped with Error Handling)
-  These use domain object mapping for better organization and include comprehensive error handling:
-  - **[View All 48 Structured Interviews](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/structured_interviews/00_structured_index.yml)**
-  
-  ### YAML-Based Interviews
-  Traditional YAML structure:
-  - **[View YAML Interviews](/interview?i=docassemble.webapp:ontario-family-law/utilities/workflow_output/yaml_interviews/00_ontario_forms_index.yml)**
-  
-  ## 🧪 Test & Development Tools
-  
-  ### Wizard Interfaces
-  - **[Ontario Family Law Wizard](/interview?i=docassemble.webapp:ontario-family-law/ontario-family-law-wizard.yml)**
-  - **[Wizard Clean Version](/interview?i=docassemble.webapp:ontario-family-law/ontario-family-law-wizard-clean.yml)**
-  - **[Wizard No Validation](/interview?i=docassemble.webapp:ontario-family-law/ontario-family-law-wizard-no-validation.yml)**
-  - **[Wizard Progressive Test](/interview?i=docassemble.webapp:ontario-family-law/wizard-test-progressive.yml)**
-  
-  ### Test Interviews
-  - **[Test Wizard Complete](/interview?i=docassemble.webapp:ontario-family-law/test-wizard-complete.yml)**
-  - **[Test Wizard Debug](/interview?i=docassemble.webapp:ontario-family-law/test-wizard-debug.yml)**
-  - **[Test Wizard Minimal](/interview?i=docassemble.webapp:ontario-family-law/test-wizard-minimal.yml)**
-  - **[Test Wizard Validation](/interview?i=docassemble.webapp:ontario-family-law/test-wizard-validation.yml)**
-  
-  ## 📊 Forms by Category
-  
-  ### Financial Disclosure (Form 13 Series)
-  - Form 13: Financial Statement (Support Claims)
-  - Form 13.1: Financial Statement (Property and Support)
-  - Form 13A: Certificate of Financial Disclosure
-  - Form 13B: Net Family Property Statement
-  - Form 13C: Comparison of Net Family Properties
-  
-  ### Applications & Responses
-  - Form 8: Application (General)
-  - Form 8A: Application (Divorce)
-  - Form 10: Answer
-  - Form 10A: Reply
-  
-  ### Motions
-  - Form 14B: Motion Form
-  - Form 15: Motion to Change
-  - Form 15B: Response to Motion to Change
-  - Form 15C: Consent Motion to Change
-  
-  ### Court Orders
-  - Form 25: Order (General)
-  - Form 25A: Divorce Order
-  - Form 25C: Final Order
-  - Form 25D: Order on Motion Without Notice
-  
-  ### Affidavits & Divorce
-  - Form 36: Affidavit for Divorce
-  - Form 36A: Certificate of Divorce
-  
-  ## ⚙️ System Features
-  
-  ### Error Handling (NEW)
-  All interviews now include:
-  - ✅ Automatic error capture and logging
-  - ✅ User-friendly validation messages
-  - ✅ Debug mode (`?debug=1` in URL)
-  - ✅ Session information tracking
-  - ✅ Recovery options
-  
-  ### Interview Features
-  - Progressive disclosure questions
-  - Smart field validation
-  - Automatic calculations
-  - Review screens
-  - Document generation
-  
-  ## 🔧 Debug Mode
-  
-  To enable debug mode on any interview:
-  1. Add `?debug=1` to the end of the URL
-  2. You'll see detailed error information
-  3. Session details will be displayed
-  4. All validation errors will be logged
-  
-  ## 📖 Documentation
-  
-  ### Other Index Files
-  - [Simple Working Index](/interview?i=docassemble.webapp:ontario-family-law/00_simple_working_index.yml)
-  - [Master Index with Error Handling](/interview?i=docassemble.webapp:ontario-family-law/00_master_index_with_error_handling.yml)
-  - [Generated Interviews Index](/interview?i=docassemble.webapp:ontario-family-law/utilities/generated_interviews/index_with_error_handling.yml)
-  
-  ## 🆘 Troubleshooting
-  
-  If an interview doesn't load:
-  1. Check the URL path is correct
-  2. Try the structured version (most reliable)
-  3. Enable debug mode with `?debug=1`
-  4. Check browser console for errors
-  
-  ## 📝 Notes
-  
-  - **Structured Interviews**: Best for complex forms with relationships, includes error handling
-  - **YAML Interviews**: Traditional Docassemble format
-  - All structured interviews now include comprehensive error handling
-  - Debug mode available with `?debug=1`
-  
+  Select from 44 available forms.
+  Each form is a complete interview with all required fields.
+field: selected_form
 buttons:
-  - "Exit": exit
-  - "Refresh": refresh
+  - Form 10 (73 fields): form_10_complete.yml
+  - Form 13 (361 fields): form_13_complete.yml
+  - Form 13A (167 fields): form_13A_complete.yml
+  - Form 13B (12 fields): form_13B_complete.yml
+  - Form 13C (408 fields): form_13C_complete.yml
+  - Form 14B (36 fields): form_14B_complete.yml
+  - Form 14C (54 fields): form_14C_complete.yml
+  - Form 15 (165 fields): form_15_complete.yml
+  - Form 15B (121 fields): form_15B_complete.yml
+  - Form 15C (153 fields): form_15C_complete.yml
+  - Form 17A (55 fields): form_17A_complete.yml
+  - Form 17C (35 fields): form_17C_complete.yml
+  - Form 17F (55 fields): form_17F_complete.yml
+  - Form 25 (16 fields): form_25_complete.yml
+  - Form 25C (19 fields): form_25C_complete.yml
+  - Form 25F (39 fields): form_25F_complete.yml
+  - Form 26 (187 fields): form_26_complete.yml
+  - Form 27 (15 fields): form_27_complete.yml
+  - Form 28 (19 fields): form_28_complete.yml
+  - Form 29 (54 fields): form_29_complete.yml
+  - Form 29A (17 fields): form_29A_complete.yml
+  - Form 29B (20 fields): form_29B_complete.yml
+  - Form 30 (11 fields): form_30_complete.yml
+  - Form 33F (40 fields): form_33F_complete.yml
+  - Form 34 (39 fields): form_34_complete.yml
+  - Form 34A (74 fields): form_34A_complete.yml
+  - Form 34F (18 fields): form_34F_complete.yml
+  - Form 34G (25 fields): form_34G_complete.yml
+  - Form 34I (40 fields): form_34I_complete.yml
+  - Form 36 (86 fields): form_36_complete.yml
+  - Form 36A (74 fields): form_36A_complete.yml
+  - Form 37 (30 fields): form_37_complete.yml
+  - Form 37A (15 fields): form_37A_complete.yml
+  - Form 37B (27 fields): form_37B_complete.yml
+  - Form 4 (24 fields): form_4_complete.yml
+  - Form 43 (49 fields): form_43_complete.yml
+  - Form 43A (33 fields): form_43A_complete.yml
+  - Form 43B (91 fields): form_43B_complete.yml
+  - Form 6B (67 fields): form_6B_complete.yml
+  - Form 6C (89 fields): form_6C_complete.yml
+  - Form 8 (157 fields): form_8_complete.yml
+  - Form 8A (156 fields): form_8A_complete.yml
+  - Form 8B (109 fields): form_8B_complete.yml
+  - Form 8D (38 fields): form_8D_complete.yml
+  - Exit: exit
+---
+mandatory: True
+code: |
+  if selected_form == 'exit':
+    command('exit')
+  else:
+    command('restart', url=selected_form)
