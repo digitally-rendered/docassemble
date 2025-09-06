@@ -1,0 +1,238 @@
+---
+metadata:
+  title: Ontario Family Law Form 28
+  short_title: Form 28
+  description: Complete interview for Form 28
+  form_number: 28
+  total_fields: 19
+  generated: 2025-09-05 14:41
+  tags:
+    - ontario
+    - family law
+    - form 28
+---
+include:
+  - common-intake-enhanced-with-validation.yml
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - applicant_lawyer: Individual
+  - respondent_lawyer: Individual
+---
+mandatory: True
+code: |
+  # Form 28 Interview Flow
+  # Common intake fields are inherited
+  
+  # Form-specific fields
+  # Form Field
+  namecourt
+  text1
+  addresscourt
+  check1
+  field_22
+  # court_info
+  court_address
+  municipality
+  # party_info
+  street_address
+  postal_code
+  phone
+  fax
+  # long_form
+  other_specify
+  # Table 1, Row 19
+  and_to_realize_from_that_sale_the_following_sums
+  # Table 2, Row 3
+  name_of_payor
+  # Table 2, Row 4
+  name_of_recipients
+  # Table 2, Row 6
+  full_legal_name_of_filing_party
+  # Table 2, Row 8
+  filing_partys_address_for_service
+  # Table 2, Row 11
+  name_address_telephone__fax_numbers_and_email_address_if_any_of_filing_partys_lawyer
+  # Table 2, Row 17
+  note_this_writ_has_no_automatic_expiry_date_it_remains_in_effect
+  
+  # Generate Form 28
+  form_28_ready
+  final_screen
+---
+question: |
+  Name Court
+fields:
+  - namecourt: dropdown
+    choices:
+      -           
+      - Ontario Court of Justice
+      - Superior Court of Justice
+      - Superior Court of Justice Family Court Branch
+---
+question: |
+  Text1
+fields:
+  - text1: text
+---
+question: |
+  Address Court
+fields:
+  - addresscourt: text
+---
+question: |
+  Check1
+yesno: check1
+---
+question: |
+  Field 22
+yesno: field_22
+---
+question: |
+  Court Address
+fields:
+  - court_address: text
+---
+question: |
+  Municipality
+fields:
+  - municipality: text
+---
+question: |
+  Street Address
+fields:
+  - street_address: text
+---
+question: |
+  Postal Code
+fields:
+  - postal_code: text
+---
+question: |
+  Phone Number
+fields:
+  - phone: text
+---
+question: |
+  Fax
+fields:
+  - fax: text
+---
+question: |
+  Other Specify
+fields:
+  - other_specify: area
+    rows: 4
+---
+question: |
+  and to realize from that sale the following sums:
+fields:
+  - and_to_realize_from_that_sale_the_following_sums: text
+---
+question: |
+  Name of payor:
+fields:
+  - name_of_payor: text
+---
+question: |
+  Name of recipient(s):
+fields:
+  - name_of_recipients: text
+---
+question: |
+  Full legal name of filing party:
+fields:
+  - full_legal_name_of_filing_party: text
+---
+question: |
+  Filing party’s address for service:
+fields:
+  - filing_partys_address_for_service: text
+---
+question: |
+  Name, address, telephone & fax numbers and e-mail address (if any) of filing party’s lawyer:
+fields:
+  - name_address_telephone__fax_numbers_and_email_address_if_any_of_filing_partys_lawyer: text
+---
+question: |
+  NOTE:    This writ has no automatic expiry date.  It remains in effect:
+fields:
+  - note_this_writ_has_no_automatic_expiry_date_it_remains_in_effect: date
+    help: None
+---
+question: |
+  Review Form 28 Information
+subquestion: |
+  Please review all information before generating the form.
+review:
+  - namecourt:
+      button: |
+        **Form Field**
+  - court_address:
+      button: |
+        **court_info**
+  - street_address:
+      button: |
+        **party_info**
+  - other_specify:
+      button: |
+        **long_form**
+  - and_to_realize_from_that_sale_the_following_sums:
+      button: |
+        **Table 1, Row 19**
+  - name_of_payor:
+      button: |
+        **Table 2, Row 3**
+  - name_of_recipients:
+      button: |
+        **Table 2, Row 4**
+  - full_legal_name_of_filing_party:
+      button: |
+        **Table 2, Row 6**
+  - filing_partys_address_for_service:
+      button: |
+        **Table 2, Row 8**
+  - name_address_telephone__fax_numbers_and_email_address_if_any_of_filing_partys_lawyer:
+      button: |
+        **Table 2, Row 11**
+  - note_this_writ_has_no_automatic_expiry_date_it_remains_in_effect:
+      button: |
+        **Table 2, Row 17**
+---
+event: final_screen
+question: |
+  Form 28 Complete
+subquestion: |
+  Your Form 28 has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 28: ${ form_28_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 28
+  filename: form_28
+  variable name: form_28_document
+  content: |
+    # Ontario Family Law Form 28
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 28 Specific Information
+    [Form fields would be inserted here]
+---
+code: |
+  form_28_ready = True

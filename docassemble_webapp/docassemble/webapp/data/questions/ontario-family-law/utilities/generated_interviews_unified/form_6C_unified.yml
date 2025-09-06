@@ -1,0 +1,405 @@
+---
+metadata:
+  title: Ontario Family Law Form 6C
+  short_title: Form 6C
+  description: Complete interview for Ontario Family Law Form 6C
+  form_number: 6C
+  generated: 2025-09-05T16:41:13.206867
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 6C
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_field_0
+  form_specific_courtfileno
+  form_specific_field_2
+  form_specific_field_3
+  form_specific_field_4
+  form_specific_field_5
+  form_specific_field_6
+  form_specific_field_7
+  form_specific_field_8
+  form_specific_field_9
+  form_specific_field_10
+  form_specific_check1
+  form_specific_field_12
+  form_specific_field_14
+  form_specific_field_15
+  form_specific_field_16
+  form_specific_field_17
+  form_specific_field_18
+  form_specific_field_28
+  form_specific_check2
+  # ... and 69 more fields
+  
+  # Complete the interview
+  form_6C_ready
+  final_screen
+---
+question: Field 0
+fields:
+  - form_specific_field_0: text
+---
+question: Courtfileno
+fields:
+  - form_specific_courtfileno: text
+---
+question: Field 2
+fields:
+  - form_specific_field_2: text
+---
+question: Field 3
+fields:
+  - form_specific_field_3: text
+---
+question: Field 4
+fields:
+  - form_specific_field_4: text
+---
+question: Field 5
+fields:
+  - form_specific_field_5: text
+---
+question: Field 6
+fields:
+  - form_specific_field_6: text
+---
+question: Field 7
+fields:
+  - form_specific_field_7: text
+---
+question: Field 8
+fields:
+  - form_specific_field_8: text
+---
+question: Field 9
+fields:
+  - form_specific_field_9: text
+---
+question: Field 10
+fields:
+  - form_specific_field_10: text
+---
+question: Check1
+yesno: form_specific_check1
+---
+question: Field 12
+fields:
+  - form_specific_field_12: text
+---
+question: Field 14
+fields:
+  - form_specific_field_14: text
+---
+question: Field 15
+fields:
+  - form_specific_field_15: text
+---
+question: Field 16
+fields:
+  - form_specific_field_16: text
+---
+question: Field 17
+fields:
+  - form_specific_field_17: text
+---
+question: Field 18
+fields:
+  - form_specific_field_18: text
+---
+question: Field 28
+fields:
+  - form_specific_field_28: text
+---
+question: Check2
+yesno: form_specific_check2
+---
+question: Check3
+yesno: form_specific_check3
+---
+question: Field 31
+fields:
+  - form_specific_field_31: text
+---
+question: Check9
+yesno: form_specific_check9
+---
+question: Check10
+yesno: form_specific_check10
+---
+question: Check11
+yesno: form_specific_check11
+---
+question: Field 35
+fields:
+  - form_specific_field_35: text
+---
+question: Field 38
+fields:
+  - form_specific_field_38: text
+---
+question: Field 40
+fields:
+  - form_specific_field_40: text
+---
+question: Field 41
+fields:
+  - form_specific_field_41: text
+---
+question: Check4
+yesno: form_specific_check4
+---
+question: Check5
+yesno: form_specific_check5
+---
+question: Check6
+yesno: form_specific_check6
+---
+question: Check7
+yesno: form_specific_check7
+---
+question: Check8
+yesno: form_specific_check8
+---
+question: Check12
+yesno: form_specific_check12
+---
+question: Field 48
+fields:
+  - form_specific_field_48: text
+---
+question: Field 49
+fields:
+  - form_specific_field_49: text
+---
+question: Dropdown1
+fields:
+  - form_specific_dropdown1: text
+---
+question: Field 51
+fields:
+  - form_specific_field_51: text
+---
+question: Field 52
+fields:
+  - form_specific_field_52: text
+---
+question: Field 53
+fields:
+  - form_specific_field_53: text
+---
+question: Field 60
+fields:
+  - form_specific_field_60: text
+---
+question: Field 61
+fields:
+  - form_specific_field_61: text
+---
+question: Check13
+yesno: form_specific_check13
+---
+question: Field 64
+fields:
+  - form_specific_field_64: text
+---
+question: Field 65
+fields:
+  - form_specific_field_65: text
+---
+question: Field 66
+fields:
+  - form_specific_field_66: text
+---
+question: Field 67
+fields:
+  - form_specific_field_67: text
+---
+question: Field 68
+fields:
+  - form_specific_field_68: text
+---
+question: Field 69
+fields:
+  - form_specific_field_69: text
+---
+question: Field 70
+fields:
+  - form_specific_field_70: text
+---
+question: Field 71
+fields:
+  - form_specific_field_71: text
+---
+question: Field 72
+fields:
+  - form_specific_field_72: text
+---
+question: Field 73
+fields:
+  - form_specific_field_73: text
+---
+question: Field 74
+fields:
+  - form_specific_field_74: text
+---
+question: Field 75
+fields:
+  - form_specific_field_75: text
+---
+question: Field 76
+fields:
+  - form_specific_field_76: text
+---
+question: Field 77
+fields:
+  - form_specific_field_77: text
+---
+question: Field 78
+fields:
+  - form_specific_field_78: text
+---
+question: Field 79
+fields:
+  - form_specific_field_79: text
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Province
+fields:
+  - form_specific_province: text
+---
+question: Street Address
+fields:
+  - form_specific_street_address: text
+---
+question: Applicant Postal Code
+fields:
+  - applicant.address.postal_code: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Email
+fields:
+  - form_specific_email:
+      datatype: email
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Lso Number
+fields:
+  - form_specific_lso_number: text
+---
+question: Details
+fields:
+  - form_specific_details: text
+---
+question: Other Specify
+fields:
+  - form_specific_other_specify: text
+---
+question: And I Certify That The Following Is True
+fields:
+  - form_specific_and_i_certify_that_the_following_is_true: text
+---
+question: With The Following Documents In This Case
+fields:
+  - form_specific_with_the_following_documents_in_this_case: text
+---
+question: And I Am Satisfied That Service Was Effected In The Manner Described Below
+fields:
+  - form_specific_and_i_am_satisfied_that_service_was_effected_in_the_manner_described_below: text
+---
+question: The Documents Mentioned In Paragraph 1 Were Served By
+fields:
+  - form_specific_the_documents_mentioned_in_paragraph_1_were_served_by: text
+---
+question: Form 6 C
+fields:
+  - form_specific_form_6_c: text
+---
+question: By
+fields:
+  - form_specific_by: text
+---
+question: T He Documents Were Mailed By Addressing The Covering Envelope To The Person Named In Paragraph 1 At
+fields:
+  - form_specific_t_he_documents_were_mailed_by_addressing_the_covering_envelope_to_the_person_named_in_paragraph_1_at: text
+---
+question: My Relationship To Or Affiliation With Any Party In This Case Is As Follows
+fields:
+  - form_specific_my_relationship_to_or_affiliation_with_any_party_in_this_case_is_as_follows: text
+---
+question: Lawyerparalegals Name
+fields:
+  - form_specific_lawyerparalegals_name: text
+---
+question: Lawyerparalegals Firm
+fields:
+  - form_specific_lawyerparalegals_firm: text
+---
+question: Lawyerparalegal For
+fields:
+  - form_specific_lawyerparalegal_for: text
+---
+question: Law Society Of Ontario
+fields:
+  - form_specific_law_society_of_ontario: text
+---
+question: City Or Town
+fields:
+  - form_specific_city_or_town: text
+---
+question: Province
+fields:
+  - form_specific_province: text
+---
+question: Country
+fields:
+  - form_specific_country: text
+---
+question: Email Address
+fields:
+  - form_specific_email_address:
+      datatype: email
+---
+question: Telephone Number
+fields:
+  - form_specific_telephone_number: text
+---
+event: final_screen
+question: Form 6C Complete
+subquestion: Your Ontario Family Law Form 6C has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_6C_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_6C_ready = True

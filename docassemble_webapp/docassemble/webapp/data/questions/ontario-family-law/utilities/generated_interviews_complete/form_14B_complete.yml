@@ -1,0 +1,266 @@
+---
+metadata:
+  title: Ontario Family Law Form 14B
+  short_title: Form 14B
+  description: Complete standalone interview for Form 14B
+  form_number: 14B
+  total_fields: 36
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 14b
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+---
+mandatory: True
+code: |
+  # Form 14B Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  dropdown1
+  courtfileno
+  text1
+  check2
+  text3
+  text4
+  text5
+  text6
+  check1
+  check3
+  text7
+  check4
+  check6
+  check7
+  text8
+  field_19
+  field_20
+  field_21
+  text14
+  court_file_number
+  # ... and 16 more fields
+  
+  # Generate Form 14B
+  form_14B_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - dropdown1:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Text1
+fields:
+  - text1: text
+---
+question: Check2
+yesno: check2
+---
+question: Text3
+fields:
+  - text3: text
+---
+question: Text4
+fields:
+  - text4: text
+---
+question: Text5
+fields:
+  - text5: text
+---
+question: Text6
+fields:
+  - text6: text
+---
+question: Check1
+yesno: check1
+---
+question: Check3
+yesno: check3
+---
+question: Text7
+fields:
+  - text7: text
+---
+question: Check4
+yesno: check4
+---
+question: Check6
+yesno: check6
+---
+question: Check7
+yesno: check7
+---
+question: Text8
+fields:
+  - text8: text
+---
+question: Field 19
+fields:
+  - field_19: text
+---
+question: Field 20
+fields:
+  - field_20: text
+---
+question: Field 21
+fields:
+  - field_21: text
+---
+question: Text14
+fields:
+  - text14: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: Other Specify
+fields:
+  - other_specify: text
+---
+question: |
+  I am:
+fields:
+  - i_am: text
+---
+question: |
+  Names of parties :
+fields:
+  - names_of_parties: text
+---
+question: |
+  Applicant:
+fields:
+  - applicant: text
+---
+question: |
+  Respondent:
+fields:
+  - respondent: text
+---
+question: |
+  Next scheduled court date   (if any) :
+fields:
+  - next_scheduled_court_date_if_any:
+      datatype: date
+---
+question: |
+  Name of case management judge   (if any) :
+fields:
+  - name_of_case_management_judge_if_any: text
+---
+question: |
+  This form is filed by:
+fields:
+  - this_form_is_filed_by: text
+---
+question: |
+  This motion is made:
+fields:
+  - this_motion_is_made: text
+---
+question: |
+  without notice to:           
+fields:
+  - without_notice_to: text
+---
+question: |
+  Procedural, uncomplicated or unopposed order that you want the court to make:
+fields:
+  - procedural_uncomplicated_or_unopposed_order_that_you_want_the_court_to_make: text
+---
+question: |
+  Form 14B:
+fields:
+  - form_14b: text
+---
+question: |
+  Why the court should make this order:  
+fields:
+  - why_the_court_should_make_this_order: text
+---
+question: Review Form 14B Information
+subquestion: Please review all information before generating the form.
+review:
+  dropdown1:
+    button: **Dropdown1**
+  courtfileno:
+    button: **Court File No**
+  text1:
+    button: **Text1**
+  check2:
+    button: **Check2**
+  text3:
+    button: **Text3**
+  text4:
+    button: **Text4**
+  text5:
+    button: **Text5**
+  text6:
+    button: **Text6**
+  check1:
+    button: **Check1**
+  check3:
+    button: **Check3**
+---
+event: final_screen
+question: Form 14B Complete
+subquestion: |
+  Your Form 14B has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 14B: ${ form_14B_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 14B
+  filename: form_14B
+  variable name: form_14B_document
+  content: |
+    # Ontario Family Law Form 14B
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 14B Specific Information
+    [Form fields would be inserted here]
+---
+code: form_14B_ready = True

@@ -1,0 +1,65 @@
+---
+metadata:
+  title: |
+    Form 33F: Form 33F
+  short title: |
+    Form 33F
+  description: |
+    Form-specific questions for Ontario Family Law Form 33F
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form33F_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 33F specific sections
+  form33F_additional_information_complete
+  form33F_review
+  form33F_complete
+---
+question: |
+  Form 33F - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 33F.
+fields:
+  - Birthdate: form33F_birthdate
+    datatype: date
+continue button field: form33F_additional_information_complete
+---
+event: form33F_review
+question: |
+  Review Form 33F Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form33F_complete
+question: |
+  Form 33F Complete
+subquestion: |
+  Your Form 33F (Form 33F) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 33F specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

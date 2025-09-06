@@ -1,0 +1,290 @@
+metadata:
+  title: Ontario Family Law Form 6B - Affidavit of Service
+  short_title: Form 6B
+  description: Docassemble interview for Ontario Family Law Form 6B
+  authors:
+  - Ontario Family Law System
+  revision_date: '2025-09-05'
+  form_number: '6B'
+  form_title: 'Affidavit of Service'
+  field_count: 67
+  generated_from: improved_parsed_data
+  tags:
+  - ontario
+  - family law
+  - form 6B
+---
+include:
+- docassemble.base:data/questions/basic-questions.yml
+modules:
+- .ontario_common_fields
+- .ontario_party_objects
+- .ontario_validation_functions
+---
+objects:
+- 'court: Organization'
+- 'person_served: Individual'
+- 'server: Individual'
+---
+code: |
+  # Ontario-specific validation functions
+  def validate_ontario_postal_code(postal_code):
+      if not postal_code:
+          return True
+      postal_clean = re.sub(r'\s+', '', postal_code.upper())
+      pattern = r'^[A-Z][0-9][A-Z][0-9][A-Z][0-9]$'
+      if not re.match(pattern, postal_clean):
+          return False
+      ontario_first_letters = 'KLMNP'
+      return postal_clean[0] in ontario_first_letters
+  
+  def validate_ontario_court_file(file_number):
+      if not file_number:
+          return True
+      patterns = [
+          r'^(FS|FC|FD|FM|FE)-[0-9]{2}-[0-9]{5,6}$',
+          r'^[0-9]{2}-[0-9]{5,6}$',
+          r'^[A-Z]{2}-[0-9]{2}-[0-9]{5,6}$'
+      ]
+      file_upper = file_number.upper().strip()
+      return any(re.match(pattern, file_upper) for pattern in patterns)
+  
+  def validate_canadian_phone(phone_number):
+      if not phone_number:
+          return True
+      digits_only = re.sub(r'\D', '', phone_number)
+      if len(digits_only) == 10:
+          return True
+      elif len(digits_only) == 11 and digits_only[0] == '1':
+          return True
+      return False
+---
+mandatory: True
+code: |
+  intro_screen
+  service_information
+  server_information
+  review_answers
+  signature_date
+  final_screen
+---
+question: |
+  Ontario Family Law Form 6B: Affidavit of Service
+subquestion: |
+  This interview will help you document service of documents.
+  
+  **Important Information:**
+  
+  * Have all required documents ready
+  * Answer all questions truthfully
+  * You can save your progress and return later
+  * This form must be filed with the court
+  
+  **Note:** This is not legal advice. Consider consulting a lawyer for your specific situation.
+  
+continue button field: intro_screen
+---
+question: |
+  General Information
+fields:
+  - 'Field 0': field_0
+  - 'Court File No': courtfileno
+  - 'Field 2': field_2
+  - 'Date': date
+  - 'Field 4': field_4
+  - 'Field 5': field_5
+  - 'Field 6': field_6
+  - 'Field 7': field_7
+  - 'Field 8': field_8
+  - 'Field 9': field_9
+  - 'Field 10': field_10
+  - 'Field 11': field_11
+  - 'Field 12': field_12
+  - 'Field 13': field_13
+  - 'Field 14': field_14
+  - 'Field 15': field_15
+  - 'Check1': check1
+    datatype: yesno
+  - 'Field 25': field_25
+  - 'Check2': check2
+    datatype: yesno
+  - 'Check3': check3
+    datatype: yesno
+  - 'Field 28': field_28
+  - 'Check9': check9
+    datatype: yesno
+  - 'Check10': check10
+    datatype: yesno
+  - 'Check11': check11
+    datatype: yesno
+  - 'Field 32': field_32
+  - 'Field 35': field_35
+  - 'Field 37': field_37
+  - 'Field 38': field_38
+  - 'Check4': check4
+    datatype: yesno
+  - 'Check5': check5
+    datatype: yesno
+  - 'Check6': check6
+    datatype: yesno
+  - 'Check7': check7
+    datatype: yesno
+  - 'Check8': check8
+    datatype: yesno
+  - 'Check12': check12
+    datatype: yesno
+  - 'Field 45': field_45
+  - 'Field 46': field_46
+  - 'Dropdown1': dropdown1
+  - 'Field 48': field_48
+  - 'Field 49': field_49
+  - 'Field 50': field_50
+  - 'Field 57': field_57
+  - 'Field 58': field_58
+  - 'Check13': check13
+    datatype: yesno
+  - 'Field 61': field_61
+  - 'Field 62': field_62
+  - 'Field 63': field_63
+  - 'Field 64': field_64
+  - 'Field 65': field_65
+  - 'Field 66': field_66
+  - 'Field 67': field_67
+  - 'and I swear/affirm that the following is true:': and_i_swearaffirm_that_the_following_is_true
+  - 'with the following document(s) in this case:': with_the_following_documents_in_this_case
+  - 'I served the documents mentioned in paragraph 1 by:': i_served_the_documents_mentioned_in_paragraph_1_by
+  - 'Form 6B:': form_6b
+  - 'by:': by
+  - 'I mailed the document(s) to be served by addressing the covering envelope to the person named in paragraph 1 at:': i_mailed_the_documents_to_be_served_by_addressing_the_covering_envelope_to_the_person_named_in_paragraph_1_at
+  - 'My relationship to, or affiliation with, any party in this case is as follows:': my_relationship_to_or_affiliation_with_any_party_in_this_case_is_as_follows
+continue button field: general_information
+---
+question: |
+  Court Info
+fields:
+  - 'Court File Number': court_file_number
+  - 'Court Address': court_address
+  - 'Municipality': municipality
+  - 'Province': province
+continue button field: court_info
+---
+question: |
+  Party Info
+fields:
+  - 'Street Address': street_address
+  - 'Postal Code': postal_code
+  - 'Phone Number': phone
+  - 'Email Address': email
+    datatype: email
+  - 'Fax': fax
+continue button field: party_info
+---
+question: |
+  Long Form
+fields:
+  - 'Other Specify': other_specify
+continue button field: long_form
+---
+question: |
+  Signature Information
+fields:
+  - "Today's Date": signature_date
+    datatype: date
+    default: ${ today() }
+  - "Signature Location (City)": signature_city
+    default: Toronto
+  - "I understand that swearing a false affidavit is a criminal offense": oath_understood
+    datatype: yesno
+    required: True
+validation code: |
+  if not oath_understood:
+    validation_error("You must acknowledge understanding the oath")
+continue button field: signature_date
+---
+event: final_screen
+question: |
+  Form 6B Complete
+subquestion: |
+  Your Affidavit of Service has been completed and is ready for download.
+  
+  **Next Steps:**
+  1. Review your information below
+  2. Download the completed form
+  3. Print and sign the form
+  4. File with the court
+  
+  ${{ form_download }}
+  
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
+event: review_answers
+question: |
+  Review Your Answers
+subquestion: |
+  Please review your information below. Click on any item to make changes.
+review:
+  - Edit: court.name
+    button: |
+      **Court**: ${ court.name }
+continue button field: review_complete
+---
+attachment:
+  name: Form 6B - Affidavit of Service
+  filename: form_6B_completed
+  variable name: form_download
+  pdf template file: form_6B_template.pdf
+  editable: False
+  fields:
+    - 'field_0': ${{ field_0 }}
+    - 'courtfileno': ${{ courtfileno }}
+    - 'field_2': ${{ field_2 }}
+    - 'date': ${{ date }}
+    - 'field_4': ${{ field_4 }}
+    - 'field_5': ${{ field_5 }}
+    - 'field_6': ${{ field_6 }}
+    - 'field_7': ${{ field_7 }}
+    - 'field_8': ${{ field_8 }}
+    - 'field_9': ${{ field_9 }}
+    - 'field_10': ${{ field_10 }}
+    - 'field_11': ${{ field_11 }}
+    - 'field_12': ${{ field_12 }}
+    - 'field_13': ${{ field_13 }}
+    - 'field_14': ${{ field_14 }}
+    - 'field_15': ${{ field_15 }}
+    - 'check1': ${{ check1 }}
+    - 'field_25': ${{ field_25 }}
+    - 'check2': ${{ check2 }}
+    - 'check3': ${{ check3 }}
+    - 'field_28': ${{ field_28 }}
+    - 'check9': ${{ check9 }}
+    - 'check10': ${{ check10 }}
+    - 'check11': ${{ check11 }}
+    - 'field_32': ${{ field_32 }}
+    - 'field_35': ${{ field_35 }}
+    - 'field_37': ${{ field_37 }}
+    - 'field_38': ${{ field_38 }}
+    - 'check4': ${{ check4 }}
+    - 'check5': ${{ check5 }}
+    - 'check6': ${{ check6 }}
+    - 'check7': ${{ check7 }}
+    - 'check8': ${{ check8 }}
+    - 'check12': ${{ check12 }}
+    - 'field_45': ${{ field_45 }}
+    - 'field_46': ${{ field_46 }}
+    - 'dropdown1': ${{ dropdown1 }}
+    - 'field_48': ${{ field_48 }}
+    - 'field_49': ${{ field_49 }}
+    - 'field_50': ${{ field_50 }}
+    - 'field_57': ${{ field_57 }}
+    - 'field_58': ${{ field_58 }}
+    - 'check13': ${{ check13 }}
+    - 'field_61': ${{ field_61 }}
+    - 'field_62': ${{ field_62 }}
+    - 'field_63': ${{ field_63 }}
+    - 'field_64': ${{ field_64 }}
+    - 'field_65': ${{ field_65 }}
+    - 'field_66': ${{ field_66 }}
+    - 'field_67': ${{ field_67 }}
+    # Additional fields truncated for brevity

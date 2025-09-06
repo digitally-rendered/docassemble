@@ -1,0 +1,198 @@
+---
+metadata:
+  title: Ontario Family Law Form 17C
+  short_title: Form 17C
+  description: Complete interview for Ontario Family Law Form 17C
+  form_number: 17C
+  generated: 2025-09-05T16:41:13.195019
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 17C
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_field_0
+  form_specific_text1
+  form_specific_check1
+  form_specific_field_71
+  form_specific_field_73
+  form_specific_field_83
+  form_specific_field_84
+  form_specific_text63
+  form_specific_check26
+  case.court_file_number
+  form_specific_court_address
+  form_specific_municipality
+  form_specific_street_address
+  applicant.address.postal_code
+  form_specific_phone
+  form_specific_fax
+  form_specific_claims_property_division
+  children[i].name.full
+  children[i].birthdate
+  children[i].age
+  # ... and 15 more fields
+  
+  # Complete the interview
+  form_17C_ready
+  final_screen
+---
+question: Field 0
+fields:
+  - form_specific_field_0: text
+---
+question: Text1
+fields:
+  - form_specific_text1: text
+---
+question: Check1
+yesno: form_specific_check1
+---
+question: Field 71
+fields:
+  - form_specific_field_71: text
+---
+question: Field 73
+fields:
+  - form_specific_field_73: text
+---
+question: Field 83
+yesno: form_specific_field_83
+---
+question: Field 84
+yesno: form_specific_field_84
+---
+question: Text63
+fields:
+  - form_specific_text63: text
+---
+question: Check26
+yesno: form_specific_check26
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Street Address
+fields:
+  - form_specific_street_address: text
+---
+question: Applicant Postal Code
+fields:
+  - applicant.address.postal_code: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Claims Property Division
+yesno: form_specific_claims_property_division
+---
+question: Child Full Legal Name
+fields:
+  - children[i].name.full: text
+---
+question: Child Birth Date
+fields:
+  - children[i].birthdate:
+      datatype: date
+---
+question: Child Current Age
+fields:
+  - children[i].age:
+      datatype: integer
+---
+question: Financial Statement Attached
+yesno: form_specific_financial_statement_attached
+---
+question: Important Facts
+fields:
+  - form_specific_important_facts: text
+---
+question: Details
+fields:
+  - form_specific_details: text
+---
+question: Other Specify
+fields:
+  - form_specific_other_specify: text
+---
+question: Applicant
+fields:
+  - form_specific_applicant: text
+---
+question: Age
+fields:
+  - form_specific_age: text
+---
+question: Respondent
+fields:
+  - form_specific_respondent: text
+---
+question: Relationship Dates
+fields:
+  - form_specific_relationship_dates:
+      datatype: date
+---
+question: Form 17C
+fields:
+  - form_specific_form_17c: text
+---
+question: The Basic Information About The Children Is As Follows
+fields:
+  - form_specific_the_basic_information_about_the_children_is_as_follows: text
+---
+question: What Are The Issues In This Case That Have Been Settled
+fields:
+  - form_specific_what_are_the_issues_in_this_case_that_have_been_settled: text
+---
+question: What Are The Issues In This Case That Have Not Yet Been Settled
+fields:
+  - form_specific_what_are_the_issues_in_this_case_that_have_not_yet_been_settled: text
+---
+question: If Child Or Spousal Support Is An Issue Give The Income Of The Parties
+fields:
+  - form_specific_if_child_or_spousal_support_is_an_issue_give_the_income_of_the_parties: text
+---
+question: Yes If It Is Not Already Filed In The Continuing Record File It Now Give The Tabpage Numbers Of The Assessment
+fields:
+  - form_specific_yes_if_it_is_not_already_filed_in_the_continuing_record_file_it_now_give_the_tabpage_numbers_of_the_assessment: text
+---
+question: The Following Is My Offer To Settle The Outstanding Issues In This Case
+fields:
+  - form_specific_the_following_is_my_offer_to_settle_the_outstanding_issues_in_this_case: text
+---
+event: final_screen
+question: Form 17C Complete
+subquestion: Your Ontario Family Law Form 17C has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_17C_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_17C_ready = True

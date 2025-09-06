@@ -1,0 +1,72 @@
+---
+metadata:
+  title: |
+    Form 29: Form 29
+  short title: |
+    Form 29
+  description: |
+    Form-specific questions for Ontario Family Law Form 29
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form29_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 29 specific sections
+  form29_additional_information_complete
+  form29_review
+  form29_complete
+---
+question: |
+  Form 29 - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 29.
+fields:
+  - 2. I want to enforce by way of garnishment the sum of $ I want to enforce by way of garnishment the: form29_2_i_want_to_enforce_by_way_of_
+    datatype: currency
+  - I also want the garnishment to collect ongoing payments of $ I also want the garnishment to collect: form29_i_also_want_the_garnishment_to
+    datatype: currency
+  - Garnishee’s address: form29_garnishees_address
+  - periodic amounts periodic amounts periodic amounts periodic amounts periodic amounts periodic amount: form29_periodic_amounts_periodic_amou
+    datatype: currency
+  - lump-sum amount lump-sum amount lump-sum amount lump-sum amount lump-sum amount lump-sum amount of $: form29_lumpsum_amount_lumpsum_amount_
+    datatype: currency
+continue button field: form29_additional_information_complete
+---
+event: form29_review
+question: |
+  Review Form 29 Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form29_complete
+question: |
+  Form 29 Complete
+subquestion: |
+  Your Form 29 (Form 29) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 29 specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

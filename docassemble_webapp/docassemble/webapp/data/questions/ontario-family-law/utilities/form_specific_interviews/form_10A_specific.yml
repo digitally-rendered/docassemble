@@ -1,0 +1,72 @@
+---
+metadata:
+  title: |
+    Form 10A: Form 10A
+  short title: |
+    Form 10A
+  description: |
+    Form-specific questions for Ontario Family Law Form 10A
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form10A_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 10A specific sections
+  form10A_additional_information_complete
+  form10A_review
+  form10A_complete
+---
+question: |
+  Form 10A - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 10A.
+fields:
+  - Court office address: form10A_court_office_address
+  - application: form10A_application
+  - 1. My name is (full legal name): form10A_1_my_name_is_full_legal_name
+  - Date of Signature: form10A_date_of_signature
+    datatype: date
+  - Signature: form10A_signature
+  - Save Form: form10A_save_form
+  - Print Form: form10A_print_form
+  - Clear Form: form10A_clear_form
+continue button field: form10A_additional_information_complete
+---
+event: form10A_review
+question: |
+  Review Form 10A Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form10A_complete
+question: |
+  Form 10A Complete
+subquestion: |
+  Your Form 10A (Form 10A) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 10A specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

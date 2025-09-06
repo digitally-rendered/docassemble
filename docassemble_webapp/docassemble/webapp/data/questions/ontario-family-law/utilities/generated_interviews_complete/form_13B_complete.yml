@@ -1,0 +1,156 @@
+---
+metadata:
+  title: Ontario Family Law Form 13B
+  short_title: Form 13B
+  description: Complete standalone interview for Form 13B
+  form_number: 13B
+  total_fields: 12
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 13b
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+---
+mandatory: True
+code: |
+  # Form 13B Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  dropdown1
+  courtfilenumber
+  text1
+  court_file_number
+  court_address
+  municipality
+  street_address
+  postal_code
+  phone
+  fax
+  marriage_date
+  form_13b
+  
+  # Generate Form 13B
+  form_13B_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - dropdown1:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File Number
+fields:
+  - courtfilenumber: text
+---
+question: Text1
+fields:
+  - text1: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Municipality
+fields:
+  - municipality: text
+---
+question: Street Address
+fields:
+  - street_address: text
+---
+question: Postal Code
+fields:
+  - postal_code: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: Marriage Date
+fields:
+  - marriage_date:
+      datatype: date
+---
+question: |
+  Form 13B:
+fields:
+  - form_13b: text
+---
+question: Review Form 13B Information
+subquestion: Please review all information before generating the form.
+review:
+  dropdown1:
+    button: **Dropdown1**
+  courtfilenumber:
+    button: **Court File Number**
+  text1:
+    button: **Text1**
+  court_file_number:
+    button: **Court File Number**
+  court_address:
+    button: **Court Address**
+  municipality:
+    button: **Municipality**
+  street_address:
+    button: **Street Address**
+  postal_code:
+    button: **Postal Code**
+  phone:
+    button: **Phone Number**
+  fax:
+    button: **Fax**
+---
+event: final_screen
+question: Form 13B Complete
+subquestion: |
+  Your Form 13B has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 13B: ${ form_13B_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 13B
+  filename: form_13B
+  variable name: form_13B_document
+  content: |
+    # Ontario Family Law Form 13B
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 13B Specific Information
+    [Form fields would be inserted here]
+---
+code: form_13B_ready = True

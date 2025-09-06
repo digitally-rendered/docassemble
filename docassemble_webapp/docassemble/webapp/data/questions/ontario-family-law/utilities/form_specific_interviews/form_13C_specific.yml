@@ -1,0 +1,121 @@
+---
+metadata:
+  title: |
+    Form 13C: Form 13C
+  short title: |
+    Form 13C
+  description: |
+    Form-specific questions for Ontario Family Law Form 13C
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form13C_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 13C specific sections
+  form13C_additional_information_complete
+  form13C_review
+  form13C_complete
+---
+question: |
+  Form 13C - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 13C.
+fields:
+  - Full legal name: form13C_full_legal_name
+  - Address: form13C_address
+  - Valuation Date: form13C_valuation_date
+    datatype: date
+  - Matrimonial Home Matrimonial Home $ $ $ $ $: form13C_matrimonial_home_matrimonial_h
+    datatype: currency
+  - $ $ $ $ $: form13C__
+    datatype: currency
+  - (A) TOTALS: form13C_a_totals
+    datatype: currency
+  - Household goods & furniture $ $ $ $: form13C_household_goods_furniture_
+    datatype: currency
+  - Cars, boats, vehicles $ $ $ $: form13C_cars_boats_vehicles_
+    datatype: currency
+  - Jewellery, art, electronics, tools, sports & hobby, equipment $ $ $ $: form13C_jewellery_art_electronics_tool
+    datatype: currency
+  - Other special items $ $ $ $: form13C_other_special_items_
+    datatype: currency
+  - (B) TOTALS: form13C_b_totals
+    datatype: currency
+  - $ $ $ $: form13C__
+    datatype: currency
+  - (C) TOTALS: form13C_c_totals
+    datatype: currency
+  - COMPANY TYPE & POLICY NO. OWNER BENEFICIARY FACE AMOUNT ($) COMMENTS Document Number Applicant’s Pos: form13C_company_type_policy_no_owner_b
+    datatype: currency
+  - COMPANY TYPE & POLICY NO. OWNER BENEFICIARY FACE AMOUNT ($) COMMENTS Document Number APPLICANT RESPO: form13C_company_type_policy_no_owner_b
+    datatype: currency
+  - (D) TOTALS: form13C_d_totals
+    datatype: currency
+  - (E) TOTALS: form13C_e_totals
+    datatype: currency
+  - (F) TOTALS: form13C_f_totals
+    datatype: currency
+  - (G) TOTALS: form13C_g_totals
+    datatype: currency
+  - VALUE OF PROPERTY OWNED ON THE VALUATION DATE, (TOTAL 1) (Add: form13C_value_of_property_owned_on_the
+    datatype: date
+  - TOTALS: form13C_totals
+    datatype: currency
+  - Assets $ $ $ $: form13C_assets_
+    datatype: currency
+  - TOTAL OF PROPERTY ITEMS TOTAL OF PROPERTY ITEMS TOTAL OF PROPERTY ITEMS $ $ $ $: form13C_total_of_property_items_total_
+    datatype: currency
+  - Debts and other liabilities $ $ $ $: form13C_debts_and_other_liabilities_
+    datatype: currency
+  - TOTAL OF DEBTS ITEMS TOTAL OF DEBTS ITEMS TOTAL OF DEBTS ITEMS $ $ $ $: form13C_total_of_debts_items_total_of_
+    datatype: currency
+  - TOTAL 2: form13C_total_2
+    datatype: currency
+  - TOTAL 4: form13C_total_4
+    datatype: currency
+  - TOTAL 5: form13C_total_5
+    datatype: currency
+  - TOTAL 1: form13C_total_1
+    datatype: date
+  - TOTAL 6: form13C_total_6
+    datatype: currency
+continue button field: form13C_additional_information_complete
+---
+event: form13C_review
+question: |
+  Review Form 13C Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form13C_complete
+question: |
+  Form 13C Complete
+subquestion: |
+  Your Form 13C (Form 13C) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 13C specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

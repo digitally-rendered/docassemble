@@ -1,0 +1,65 @@
+---
+metadata:
+  title: |
+    Form 10: Answer
+  short title: |
+    Form 10
+  description: |
+    Form-specific questions for Ontario Family Law Form 10
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form10_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 10 specific sections
+  form10_additional_information_complete
+  form10_review
+  form10_complete
+---
+question: |
+  Form 10 - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 10.
+fields:
+  - Full legal name: form10_full_legal_name
+  - Address: form10_address
+continue button field: form10_additional_information_complete
+---
+event: form10_review
+question: |
+  Review Form 10 Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form10_complete
+question: |
+  Form 10 Complete
+subquestion: |
+  Your Form 10 (Answer) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 10 specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

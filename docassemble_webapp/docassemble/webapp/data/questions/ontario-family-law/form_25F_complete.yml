@@ -1,0 +1,315 @@
+---
+metadata:
+  title: Ontario Family Law Form 25F
+  short_title: Form 25F
+  description: Complete interview for Form 25F
+  form_number: 25F
+  total_fields: 39
+  generated: 2025-09-05 14:41
+  tags:
+    - ontario
+    - family law
+    - form 25f
+---
+include:
+  - common-intake-enhanced-with-validation.yml
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - applicant_lawyer: Individual
+  - respondent_lawyer: Individual
+---
+mandatory: True
+code: |
+  # Form 25F Interview Flow
+  # Common intake fields are inherited
+  
+  # Form-specific fields
+  # Form Field
+  field_0
+  field_1
+  field_2
+  field_3
+  field_4
+  # court_info
+  court_address
+  municipality
+  # party_info
+  street_address
+  postal_code
+  phone
+  fax
+  # Table 1, Row 14
+  this_court_orders_that
+  # Table 2, Row 1
+  form_25f
+  # Table 2, Row 7
+  the_following_persons_were_in_court_list_names_of_parties_and_lawyers_in_court
+  # Table 2, Row 9
+  the_court_read_the_following_materials_filed_in_support_of_a_request_for_this_order
+  # Table 2, Row 11
+  the_court_heard_submissions_in_support_of_a_request_for_this_order_from
+  
+  # Generate Form 25F
+  form_25F_ready
+  final_screen
+---
+question: |
+  Field 0
+fields:
+  - field_0: dropdown
+    choices:
+      -            
+      - Ontario Court of Justice
+      - Superior Court of Justice
+      - Superior Court of Justice, Family Court
+---
+question: |
+  Field 1
+fields:
+  - field_1: text
+---
+question: |
+  Field 2
+fields:
+  - field_2: text
+---
+question: |
+  Field 3
+yesno: field_3
+---
+question: |
+  Field 4
+yesno: field_4
+---
+question: |
+  Field 5
+fields:
+  - field_5: text
+---
+question: |
+  Field 6
+fields:
+  - field_6: text
+---
+question: |
+  Field 7
+fields:
+  - field_7: text
+---
+question: |
+  Field 8
+fields:
+  - field_8: text
+---
+question: |
+  Field 9
+fields:
+  - field_9: text
+---
+question: |
+  Field 10
+fields:
+  - field_10: text
+---
+question: |
+  Field 11
+fields:
+  - field_11: text
+---
+question: |
+  Field 12
+fields:
+  - field_12: text
+---
+question: |
+  Field 13
+fields:
+  - field_13: text
+---
+question: |
+  Field 14
+fields:
+  - field_14: text
+---
+question: |
+  Field 15
+fields:
+  - field_15: text
+---
+question: |
+  Field 16
+yesno: field_16
+---
+question: |
+  Field 17
+fields:
+  - field_17: text
+---
+question: |
+  Field 18
+fields:
+  - field_18: text
+---
+question: |
+  Field 19
+fields:
+  - field_19: text
+---
+question: |
+  Field 20
+fields:
+  - field_20: text
+---
+question: |
+  Field 21
+fields:
+  - field_21: text
+---
+question: |
+  Field 22
+fields:
+  - field_22: text
+---
+question: |
+  Field 23
+fields:
+  - field_23: text
+---
+question: |
+  Field 24
+fields:
+  - field_24: text
+---
+question: |
+  Field 25
+fields:
+  - field_25: text
+---
+question: |
+  Field 26
+fields:
+  - field_26: text
+---
+question: |
+  Court Address
+fields:
+  - court_address: text
+---
+question: |
+  Municipality
+fields:
+  - municipality: text
+---
+question: |
+  Street Address
+fields:
+  - street_address: text
+---
+question: |
+  Postal Code
+fields:
+  - postal_code: text
+---
+question: |
+  Phone Number
+fields:
+  - phone: text
+---
+question: |
+  Fax
+fields:
+  - fax: text
+---
+question: |
+  THIS COURT ORDERS THAT:
+fields:
+  - this_court_orders_that: text
+---
+question: |
+  Form 25F: 
+fields:
+  - form_25f: text
+---
+question: |
+  The following persons were in court  (list names of parties and lawyers in court) :
+fields:
+  - the_following_persons_were_in_court_list_names_of_parties_and_lawyers_in_court: text
+---
+question: |
+  The court read the following materials filed in support of a request for this order:
+fields:
+  - the_court_read_the_following_materials_filed_in_support_of_a_request_for_this_order: text
+---
+question: |
+  The court heard submissions in support of a request for this order from:
+fields:
+  - the_court_heard_submissions_in_support_of_a_request_for_this_order_from: text
+---
+question: |
+  Review Form 25F Information
+subquestion: |
+  Please review all information before generating the form.
+review:
+  - field_0:
+      button: |
+        **Form Field**
+  - court_file_number:
+      button: |
+        **court_info**
+  - street_address:
+      button: |
+        **party_info**
+  - this_court_orders_that:
+      button: |
+        **Table 1, Row 14**
+  - form_25f:
+      button: |
+        **Table 2, Row 1**
+  - the_following_persons_were_in_court_list_names_of_parties_and_lawyers_in_court:
+      button: |
+        **Table 2, Row 7**
+  - the_court_read_the_following_materials_filed_in_support_of_a_request_for_this_order:
+      button: |
+        **Table 2, Row 9**
+  - the_court_heard_submissions_in_support_of_a_request_for_this_order_from:
+      button: |
+        **Table 2, Row 11**
+---
+event: final_screen
+question: |
+  Form 25F Complete
+subquestion: |
+  Your Form 25F has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 25F: ${ form_25F_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 25F
+  filename: form_25F
+  variable name: form_25F_document
+  content: |
+    # Ontario Family Law Form 25F
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 25F Specific Information
+    [Form fields would be inserted here]
+---
+code: |
+  form_25F_ready = True

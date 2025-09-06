@@ -1,0 +1,31 @@
+---
+metadata:
+  title: Form 8 Test - Simplified
+  short_title: Form 8 Test
+  description: Simplified test version of Form 8 for debugging
+---
+mandatory: True
+code: |
+  # Simple test version with just a few fields
+  form_specific_field_0
+  form_specific_courtfileno
+  form_specific_field_2
+  final_screen
+---
+question: Field 0
+fields:
+  - form_specific_field_0: text
+---
+question: Court File Number
+fields:
+  - form_specific_courtfileno: text
+---
+question: Field 2
+fields:
+  - form_specific_field_2: text
+---
+event: final_screen
+question: Form 8 Test Complete
+subquestion: This is a simplified test version.
+buttons:
+  - Start Over: restart

@@ -1,0 +1,192 @@
+metadata:
+  title: Ontario Family Law Form 27 - Request for Financial Statement
+  short_title: Form 27
+  description: Docassemble interview for Ontario Family Law Form 27
+  authors:
+  - Ontario Family Law System
+  revision_date: '2025-09-05'
+  form_number: '27'
+  form_title: 'Request for Financial Statement'
+  field_count: 15
+  generated_from: improved_parsed_data
+  tags:
+  - ontario
+  - family law
+  - form 27
+---
+include:
+- docassemble.base:data/questions/basic-questions.yml
+modules:
+- .ontario_common_fields
+- .ontario_party_objects
+- .ontario_validation_functions
+- .ontario_enforcement_objects
+---
+objects:
+- 'court: Organization'
+- 'garnishee: Individual'
+- 'payor: Individual'
+- 'recipient: Individual'
+---
+code: |
+  # Ontario-specific validation functions
+  def validate_ontario_postal_code(postal_code):
+      if not postal_code:
+          return True
+      postal_clean = re.sub(r'\s+', '', postal_code.upper())
+      pattern = r'^[A-Z][0-9][A-Z][0-9][A-Z][0-9]$'
+      if not re.match(pattern, postal_clean):
+          return False
+      ontario_first_letters = 'KLMNP'
+      return postal_clean[0] in ontario_first_letters
+  
+  def validate_ontario_court_file(file_number):
+      if not file_number:
+          return True
+      patterns = [
+          r'^(FS|FC|FD|FM|FE)-[0-9]{2}-[0-9]{5,6}$',
+          r'^[0-9]{2}-[0-9]{5,6}$',
+          r'^[A-Z]{2}-[0-9]{2}-[0-9]{5,6}$'
+      ]
+      file_upper = file_number.upper().strip()
+      return any(re.match(pattern, file_upper) for pattern in patterns)
+  
+  def validate_canadian_phone(phone_number):
+      if not phone_number:
+          return True
+      digits_only = re.sub(r'\D', '', phone_number)
+      if len(digits_only) == 10:
+          return True
+      elif len(digits_only) == 11 and digits_only[0] == '1':
+          return True
+      return False
+---
+mandatory: True
+code: |
+  intro_screen
+  court_information
+  enforcement_details
+  payment_information
+  review_answers
+  signature_date
+  final_screen
+---
+question: |
+  Ontario Family Law Form 27: Request for Financial Statement
+subquestion: |
+  This interview will help you with enforcement proceedings.
+  
+  **Important Information:**
+  
+  * Have all required documents ready
+  * Answer all questions truthfully
+  * You can save your progress and return later
+  * This form must be filed with the court
+  
+  **Note:** This is not legal advice. Consider consulting a lawyer for your specific situation.
+  
+continue button field: intro_screen
+---
+question: |
+  General Information
+fields:
+  - 'Dropdown1': dropdown1
+  - 'Court File No': courtfileno
+  - 'Text1': text1
+  - 'Text8': text8
+  - 'Text11': text11
+  - 'Text12': text12
+  - 'Text5': text5
+continue button field: general_information
+---
+question: |
+  Court Info
+fields:
+  - 'Court File Number': court_file_number
+  - 'Court Address': court_address
+  - 'Municipality': municipality
+continue button field: court_info
+---
+question: |
+  Party Info
+fields:
+  - 'Street Address': street_address
+  - 'Postal Code': postal_code
+  - 'Phone Number': phone
+  - 'Fax': fax
+continue button field: party_info
+---
+question: |
+  Financial
+fields:
+  - 'Financial Statement Attached': financial_statement_attached
+    datatype: yesno
+continue button field: financial
+---
+question: |
+  Signature Information
+fields:
+  - "Today's Date": signature_date
+    datatype: date
+    default: ${ today() }
+  - "Signature Location (City)": signature_city
+    default: Toronto
+  - "I understand that swearing a false affidavit is a criminal offense": oath_understood
+    datatype: yesno
+    required: True
+validation code: |
+  if not oath_understood:
+    validation_error("You must acknowledge understanding the oath")
+continue button field: signature_date
+---
+event: final_screen
+question: |
+  Form 27 Complete
+subquestion: |
+  Your Request for Financial Statement has been completed and is ready for download.
+  
+  **Next Steps:**
+  1. Review your information below
+  2. Download the completed form
+  3. Print and sign the form
+  4. File with the court
+  
+  ${{ form_download }}
+  
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
+event: review_answers
+question: |
+  Review Your Answers
+subquestion: |
+  Please review your information below. Click on any item to make changes.
+review:
+  - Edit: court.name
+    button: |
+      **Court**: ${ court.name }
+continue button field: review_complete
+---
+attachment:
+  name: Form 27 - Request for Financial Statement
+  filename: form_27_completed
+  variable name: form_download
+  pdf template file: form_27_template.pdf
+  editable: False
+  fields:
+    - 'dropdown1': ${{ dropdown1 }}
+    - 'courtfileno': ${{ courtfileno }}
+    - 'text1': ${{ text1 }}
+    - 'text8': ${{ text8 }}
+    - 'text11': ${{ text11 }}
+    - 'text12': ${{ text12 }}
+    - 'text5': ${{ text5 }}
+    - 'court_file_number': ${{ court_file_number }}
+    - 'court_address': ${{ court_address }}
+    - 'municipality': ${{ municipality }}
+    - 'street_address': ${{ street_address }}
+    - 'postal_code': ${{ postal_code }}
+    - 'phone': ${{ phone }}
+    - 'fax': ${{ fax }}
+    - 'financial_statement_attached': ${{ financial_statement_attached }}

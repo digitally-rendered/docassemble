@@ -1,0 +1,301 @@
+---
+metadata:
+  title: |
+    Form 13: Financial Statement (Support)
+  short title: |
+    Form 13
+  description: |
+    Form-specific questions for Ontario Family Law Form 13
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form13_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 13 specific sections
+  form13_additional_information_complete
+  form13_income_details_complete
+  form13_expense_details_complete
+  form13_debt_details_complete
+  form13_asset_details_complete
+  form13_review
+  form13_complete
+---
+question: |
+  Form 13 - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 13.
+fields:
+  - Full legal name: form13_full_legal_name
+  - Address: form13_address
+  - 2. 2. Commissions, tips and bonuses Commissions, tips and bonuses Commissions, tips and bonuses Comm: form13_2_2_commissions_tips_and_bonus
+    datatype: currency
+  - 4. 4. Employment Insurance benefits Employment Insurance benefits Employment Insurance benefits Empl: form13_4_4_employment_insurance_benef
+    datatype: currency
+  - 5. 5. Workers' compensation benefits Workers' compensation benefits Workers' compensation benefits W: form13_5_5_workers_compensation_benef
+    datatype: currency
+  - 9. 9. Spousal support received from a former spouse/partner Spousal support received from a former s: form13_9_9_spousal_support_received_f
+    datatype: currency
+  - 10. 10. Child Tax Benefits or Tax Rebates (e.g. GST) Child Tax Benefits or Tax Rebates (e.g. GST) Ch: form13_10_10_child_tax_benefits_or_ta
+    datatype: currency
+  - $: form13_
+    datatype: currency
+  - CPP contributions CPP contributions CPP contributions $ Public transit, taxis Public transit, taxis: form13_cpp_contributions_cpp_contribu
+    datatype: currency
+  - EI premiums EI premiums EI premiums $ Gas and oil Gas and oil Gas and oil Gas and oil Gas and oil $: form13_ei_premiums_ei_premiums_ei_pre
+    datatype: currency
+  - Employee pension contributions Employee pension contributions Employee pension contributions $ Repai: form13_employee_pension_contributions
+    datatype: currency
+  - Union dues Union dues Union dues $ Parking Parking Parking Parking Parking $: form13_union_dues_union_dues_union_du
+    datatype: currency
+  - Housing Housing Housing Housing Housing SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $: form13_housing_housing_housing_housin
+    datatype: currency
+  - Condominium fees Condominium fees Condominium fees $ Medicine and drugs Medicine and drugs Medicine: form13_condominium_fees_condominium_f
+    datatype: currency
+  - Repairs and maintenance Repairs and maintenance Repairs and maintenance $ Eye care Eye care Eye care: form13_repairs_and_maintenance_repair
+    datatype: currency
+  - SUBTOTAL SUBTOTAL SUBTOTAL $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $: form13_subtotal_subtotal_subtotal_sub
+    datatype: currency
+  - Water Water Water $ Clothing Clothing Clothing Clothing Clothing $: form13_water_water_water_clothing_clo
+    datatype: currency
+  - Heat Heat Heat $ Hair care and beauty Hair care and beauty Hair care and beauty Hair care and beauty: form13_heat_heat_heat_hair_care_and_b
+    datatype: currency
+  - Electricity Electricity Electricity $ Alcohol and tobacco Alcohol and tobacco Alcohol and tobacco Al: form13_electricity_electricity_electr
+    datatype: currency
+  - Telephone Telephone Telephone Telephone $ Education (specify) Education (specify) Education (specify: form13_telephone_telephone_telephone_
+    datatype: currency
+  - Cell phone Cell phone Cell phone Cell phone $ Entertainment/recreation (including children) Entertai: form13_cell_phone_cell_phone_cell_pho
+    datatype: currency
+  - Cable Cable Cable Cable $ Gifts Gifts Gifts Gifts Gifts Gifts $: form13_cable_cable_cable_cable_gifts_
+    datatype: currency
+  - Internet Internet Internet Internet $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $: form13_internet_internet_internet_int
+    datatype: currency
+  - Groceries Groceries Groceries Groceries $ RRSP/RESP withdrawals RRSP/RESP withdrawals RRSP/RESP with: form13_groceries_groceries_groceries_
+    datatype: currency
+  - Household supplies Household supplies Household supplies Household supplies $ Vacations Vacations Va: form13_household_supplies_household_s
+    datatype: currency
+  - Meals outside the home Meals outside the home Meals outside the home Meals outside the home $ School: form13_meals_outside_the_home_meals_o
+    datatype: currency
+  - Pet care Pet care Pet care Pet care $ Clothing for children Clothing for children Clothing for child: form13_pet_care_pet_care_pet_care_pet
+    datatype: currency
+  - Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning: form13_laundry_and_dry_cleaning_laund
+    datatype: currency
+  - SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $: form13_subtotal_subtotal_subtotal_sub
+    datatype: currency
+  - Cars, Boats, Vehicles Cars, Boats, Vehicles 1 $: form13_cars_boats_vehicles_cars_boats
+    datatype: currency
+  - Cars, Boats, Vehicles Cars, Boats, Vehicles 2 $: form13_cars_boats_vehicles_cars_boats
+    datatype: currency
+  - Cars, Boats, Vehicles Cars, Boats, Vehicles 3 $: form13_cars_boats_vehicles_cars_boats
+    datatype: currency
+  - Other Possessions of Value (e.g. computers, jewellery, collections) Other Possessions of Value (e.g.: form13_other_possessions_of_value_eg_
+    datatype: currency
+  - Investments (e.g. bonds, shares, term deposits and mutual funds) Investments (e.g. bonds, shares, te: form13_investments_eg_bonds_shares_te
+    datatype: currency
+  - Bank Accounts Bank Accounts 1 $: form13_bank_accounts_bank_accounts_1_
+    datatype: currency
+  - Bank Accounts Bank Accounts 2 $: form13_bank_accounts_bank_accounts_2_
+    datatype: currency
+  - Bank Accounts Bank Accounts 3 $: form13_bank_accounts_bank_accounts_3_
+    datatype: currency
+  - Savings Plans R.R.S.P.s Pension Plans R.E.S.P.s Savings Plans R.R.S.P.s Pension Plans R.E.S.P.s 1: form13_savings_plans_rrsps_pension_pl
+    datatype: currency
+  - Savings Plans R.R.S.P.s Pension Plans R.E.S.P.s Savings Plans R.R.S.P.s Pension Plans R.E.S.P.s 2: form13_savings_plans_rrsps_pension_pl
+    datatype: currency
+  - Savings Plans R.R.S.P.s Pension Plans R.E.S.P.s Savings Plans R.R.S.P.s Pension Plans R.E.S.P.s 3: form13_savings_plans_rrsps_pension_pl
+    datatype: currency
+  - Life Insurance Life Insurance 1 $: form13_life_insurance_life_insurance_
+    datatype: currency
+  - Life Insurance Life Insurance 2 $: form13_life_insurance_life_insurance_
+    datatype: currency
+  - Life Insurance Life Insurance 3 $: form13_life_insurance_life_insurance_
+    datatype: currency
+  - Interest in Business (*attach separate year-end statement for each business) Interest in Business (*: form13_interest_in_business_attach_se
+    datatype: currency
+  - Outstanding Credit Card Balances Outstanding Credit Card Balances Outstanding Credit Card Balances O: form13_outstanding_credit_card_balanc
+    datatype: currency
+  - Unpaid Support Amounts Unpaid Support Amounts Unpaid Support Amounts Unpaid Support Amounts Unpaid S: form13_unpaid_support_amounts_unpaid_
+    datatype: currency
+  - Net Worth Net Worth Net Worth Net Worth Net Worth Net Worth Net Worth $ $: form13_net_worth_net_worth_net_worth_
+    datatype: currency
+  - 3. 3. Total amount of dividends received from taxable Canadian corporations Total amount of dividend: form13_3_3_total_amount_of_dividends_
+    datatype: currency
+  - 4. 4. Total capital gains ($ ) less capital losses ($ ) Total capital gains ($ ) less: form13_4_4_total_capital_gains_less_c
+    datatype: currency
+  - 5. 5. Registered retirement savings plan withdrawals Registered retirement savings plan withdrawals: form13_5_5_registered_retirement_savi
+    datatype: currency
+  - Subtotal: form13_subtotal
+    datatype: currency
+  - 6. My spouse/partner My spouse/partner My spouse/partner earns (give amount) $ earns (give amount) $: form13_6_my_spousepartner_my_spousepa
+    datatype: currency
+  - 7. My spouse/partner or other adult residing in the home contributes about $ My spouse/partner or ot: form13_7_my_spousepartner_or_other_ad
+    datatype: currency
+  - 1. $ $: form13_1_
+    datatype: currency
+  - 2. $ $: form13_2_
+    datatype: currency
+  - 3. $ $: form13_3_
+    datatype: currency
+  - 4. $ $: form13_4_
+    datatype: currency
+  - 5. $ $: form13_5_
+    datatype: currency
+  - 6. $ $: form13_6_
+    datatype: currency
+  - 7. $ $: form13_7_
+    datatype: currency
+  - 8. $ $: form13_8_
+    datatype: currency
+  - 9. $ $: form13_9_
+    datatype: currency
+  - 10. 10. $ $: form13_10_10_
+    datatype: currency
+  - Total Net Annual Amount Total Net Annual Amount Total Net Annual Amount $: form13_total_net_annual_amount_total_
+    datatype: currency
+  - Total Net Monthly Amount Total Net Monthly Amount Total Net Monthly Amount $: form13_total_net_monthly_amount_total
+    datatype: currency
+continue button field: form13_additional_information_complete
+---
+question: |
+  Form 13 - Income Details
+subquestion: |
+  Please provide the following additional information specific to Form 13.
+fields:
+  - 4. Last year, my gross income from all sources was $ Last year, my gross income from all sources was: form13_4_last_year_my_gross_income_fr
+    datatype: currency
+  - 1. 1. Employment income (before deductions) Employment income (before deductions) Employment income: form13_1_1_employment_income_before_d
+    datatype: currency
+  - 3. 3. Self-employment income (Monthly amount before expenses: form13_3_3_selfemployment_income_mont
+    datatype: currency
+  - 6. 6. Social assistance income (including ODSP payments) Social assistance income (including ODSP pa: form13_6_6_social_assistance_income_i
+    datatype: currency
+  - 7. 7. Interest and investment income Interest and investment income Interest and investment income I: form13_7_7_interest_and_investment_in
+    datatype: currency
+  - 8. 8. Pension income (including CPP and OAS) Pension income (including CPP and OAS) Pension income (: form13_8_8_pension_income_including_c
+    datatype: currency
+  - 11. 11. Other sources of income (e.g. RRSP withdrawals, capital gains) (*attach Schedule A and divid: form13_11_11_other_sources_of_income_
+    datatype: currency
+  - 12. 12. Total monthly income from all sources: form13_12_12_total_monthly_income_fro
+    datatype: currency
+  - 13. 13. Total monthly income X 12 = Total annual income: form13_13_13_total_monthly_income_x_1
+    datatype: currency
+  - Income taxes Income taxes Income taxes $ Car insurance and license Car insurance and license Car ins: form13_income_taxes_income_taxes_inco
+    datatype: currency
+  - Money Owed to You (for example, any court judgments in your favour, estate money and income tax refu: form13_money_owed_to_you_for_example_
+    datatype: currency
+  - 1. 1. Net partnership income Net partnership income Net partnership income Net partnership income Ne: form13_1_1_net_partnership_income_net
+    datatype: currency
+  - 2. 2. Net rental income (Gross annual rental income of $ ) Net rental income (Gross annual rent: form13_2_2_net_rental_income_gross_an
+    datatype: currency
+  - 6. 6. Income from a Registered Retirement Income Fund or Annuity Income from a Registered Retirement: form13_6_6_income_from_a_registered_r
+    datatype: currency
+  - 7. 7. Any other income (specify source) Any other income (specify source) Any other income (specify: form13_7_7_any_other_income_specify_s
+    datatype: currency
+continue button field: form13_income_details_complete
+---
+question: |
+  Form 13 - Expense Details
+subquestion: |
+  Please provide the following additional information specific to Form 13.
+fields:
+  - SUBTOTAL SUBTOTAL SUBTOTAL $ Car Loan or Lease Payments Car Loan or Lease Payments Car Loan or Lease: form13_subtotal_subtotal_subtotal_car
+    datatype: currency
+  - Property insurance Property insurance Property insurance $ Dental expenses Dental expenses Dental ex: form13_property_insurance_property_in
+    datatype: currency
+  - SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ Other expenses Other expenses Other expenses Other expenses Ot: form13_subtotal_subtotal_subtotal_sub
+    datatype: currency
+  - Household Expenses Household Expenses Household Expenses Household Expenses Household Expenses House: form13_household_expenses_household_e
+    datatype: currency
+  - SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ Summer camp expenses Summer camp expenses Summer camp expenses: form13_subtotal_subtotal_subtotal_sub
+    datatype: currency
+  - Childcare Costs Childcare Costs Childcare Costs Childcare Costs Childcare Costs Childcare Costs Chil: form13_childcare_costs_childcare_cost
+    datatype: currency
+  - Daycare expense Daycare expense Daycare expense Daycare expense $ Support paid for other children Su: form13_daycare_expense_daycare_expens
+    datatype: currency
+  - Babysitting costs Babysitting costs Babysitting costs Babysitting costs $ Other expenses not shown a: form13_babysitting_costs_babysitting_
+    datatype: currency
+  - Total Amount of Monthly Expenses Total Amount of Monthly Expenses Total Amount of Monthly Expenses T: form13_total_amount_of_monthly_expens
+    datatype: currency
+  - Total Amount of Yearly Expenses Total Amount of Yearly Expenses Total Amount of Yearly Expenses Tota: form13_total_amount_of_yearly_expense
+    datatype: currency
+  - I earn $ per year which should be used to determine my share of the above expenses. per year which s: form13_i_earn_per_year_which_should_b
+    datatype: currency
+  - . . . Medical insurance premiums and certain health-related expenses for the child that cost more th: form13__medical_insurance_premiums_an
+    datatype: currency
+continue button field: form13_expense_details_complete
+---
+question: |
+  Form 13 - Debt Details
+subquestion: |
+  Please provide the following additional information specific to Form 13.
+fields:
+  - Rent or mortgage Rent or mortgage Rent or mortgage $ Health Health Health Health Health Health Healt: form13_rent_or_mortgage_rent_or_mortg
+    datatype: currency
+  - Mortgages, Lines of Credits or other Loans from a Bank, Trust or Finance Company Mortgages, Lines of: form13_mortgages_lines_of_credits_or_
+    datatype: currency
+  - Other Debts Other Debts Other Debts Other Debts Other Debts $ $ $ $ Yes No: form13_other_debts_other_debts_other_
+    datatype: currency
+  - Total Amount of Debts Outstanding Total Amount of Debts Outstanding Total Amount of Debts Outstandin: form13_total_amount_of_debts_outstand
+    datatype: currency
+continue button field: form13_debt_details_complete
+---
+question: |
+  Form 13 - Asset Details
+subquestion: |
+  Please provide the following additional information specific to Form 13.
+fields:
+  - Property taxes Property taxes Property taxes $ Health insurance premiums Health insurance premiums H: form13_property_taxes_property_taxes_
+    datatype: currency
+  - Real Estate Real Estate 1 $: form13_real_estate_real_estate_1_
+    datatype: currency
+  - Real Estate Real Estate 2 $: form13_real_estate_real_estate_2_
+    datatype: currency
+  - Real Estate Real Estate 3 $: form13_real_estate_real_estate_3_
+    datatype: currency
+  - Other Assets Other Assets 1 $: form13_other_assets_other_assets_1_
+    datatype: currency
+  - Other Assets Other Assets 2 $: form13_other_assets_other_assets_2_
+    datatype: currency
+  - Other Assets Other Assets 3 $: form13_other_assets_other_assets_3_
+    datatype: currency
+  - Total Value of All Property Total Value of All Property Total Value of All Property Total Value of A: form13_total_value_of_all_property_to
+    datatype: currency
+continue button field: form13_asset_details_complete
+---
+event: form13_review
+question: |
+  Review Form 13 Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form13_complete
+question: |
+  Form 13 Complete
+subquestion: |
+  Your Form 13 (Financial Statement (Support)) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 13 specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

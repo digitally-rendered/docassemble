@@ -1,0 +1,212 @@
+metadata:
+  title: Ontario Family Law Form 36
+  short_title: Form 36
+  description: Docassemble interview for Ontario Family Law Form 36
+  authors:
+  - Ontario Family Law System
+  revision_date: '2025-09-05'
+  form_number: '36'
+  field_count: 86
+  generated_from: improved_parsed_data
+  tags:
+  - ontario
+  - family law
+  - form 36
+---
+include:
+- docassemble.base:data/questions/basic-questions.yml
+modules:
+- .ontario_common_fields
+- .ontario_party_objects
+- .ontario_validation_functions
+---
+objects:
+- 'applicant: Individual'
+- 'respondent: Individual'
+- 'court: Organization'
+- 'children: DAList.using(object_type=Individual, there_are_any=False)'
+objects from code:
+- 'applicant.lawyer: Individual if applicant.has_lawyer else None'
+- 'respondent.lawyer: Individual if respondent.has_lawyer else None'
+---
+code: "\n# Ontario-specific validation functions\ndef validate_ontario_postal_code(postal_code):\n\
+  \    if not postal_code:\n        return True\n    postal_clean = re.sub(r'\\s+',\
+  \ '', postal_code.upper())\n    pattern = r'^[A-Z][0-9][A-Z][0-9][A-Z][0-9]$'\n\
+  \    if not re.match(pattern, postal_clean):\n        return False\n    ontario_first_letters\
+  \ = 'KLMNP'\n    return postal_clean[0] in ontario_first_letters\n\ndef validate_ontario_court_file(file_number):\n\
+  \    if not file_number:\n        return True\n    patterns = [\n        r'^(FS|FC|FD|FM|FE)-[0-9]{2}-[0-9]{5,6}$',\n\
+  \        r'^[0-9]{2}-[0-9]{5,6}$',\n        r'^[A-Z]{2}-[0-9]{2}-[0-9]{5,6}$'\n\
+  \    ]\n    file_upper = file_number.upper().strip()\n    return any(re.match(pattern,\
+  \ file_upper) for pattern in patterns)\n\ndef validate_canadian_phone(phone_number):\n\
+  \    if not phone_number:\n        return True\n    digits_only = re.sub(r'\\D',\
+  \ '', phone_number)\n    if len(digits_only) == 10:\n        return True\n    elif\
+  \ len(digits_only) == 11 and digits_only[0] == '1':\n        return True\n    return\
+  \ False\n"
+---
+mandatory: true
+question: Form 36 Interview Complete
+subquestion: '
+
+  Your form has been completed and is ready for download.
+
+
+  **Next Steps:**
+
+  1. Review your information below
+
+  2. Download the completed form
+
+  3. Print and sign the form
+
+  4. File with the court
+
+
+  ${ form_download }
+
+  '
+buttons:
+- Exit: exit
+- Restart: restart
+---
+question: Court Information
+fields:
+- Court File No: courtfileno
+- Court Address: court_address
+---
+question: Party Information
+fields:
+- Street Address: form36_street_address
+- Child Name: child_name
+- ? 'The certificate or registration of my marriage to the respondent has been signed
+    and sealed by the Registrar General of Ontario and:'
+  : form36_the_certificate_or_registration_of_my_marriage_to_the_respondent_has_been_signed_and_sealed_by_the_registrar_general_of_ontario_and
+---
+question: Children Information
+fields:
+- Child Birthdate: child_birthdate
+  datatype: date
+- Child Age: child_age
+  datatype: number
+- "children of the marriage.  ( Write \u201CNONE\u201D if there are no children of the marriage) .  They are:": children_of_the_marriage_write_none_if_there_are_no_children_of_the_marriage_they_are
+- 'These are the arrangements that have been made for the support of the child(ren) of the marriage:': form36_these_are_the_arrangements_that_have_been_made_for_the_support_of_the_children_of_the_marriage
+- 'Child support is already covered by:': child_support_is_already_covered_by
+---
+question: Additional Information
+fields:
+- Dropdown1: form36_dropdown1
+  datatype: radio
+  choices:
+  - '          '
+  - Ontario Court of Justice
+  - Superior Court of Justice
+  - Superior Court of Justice Family Court Branch
+- Field 2: form36_field_2
+- Field 3: form36_field_3
+- Field 4: form36_field_4
+- Field 5: form36_field_5
+- Field 6: form36_field_6
+- Field 7: form36_field_7
+- Field 8: form36_field_8
+- Field 9: form36_field_9
+- Check5: form36_check5
+  datatype: yesno
+- Check6: form36_check6
+  datatype: yesno
+- Check7: form36_check7
+  datatype: yesno
+- Check8: form36_check8
+  datatype: yesno
+- Field 14: form36_field_14
+- Field 15: form36_field_15
+- Field 16: form36_field_16
+- Field 17: form36_field_17
+- Check9: form36_check9
+  datatype: yesno
+- Field 19: form36_field_19
+- Field 20: form36_field_20
+- Field 21: form36_field_21
+- Check15: form36_check15
+  datatype: yesno
+- Field 23: form36_field_23
+- Check16: form36_check16
+  datatype: yesno
+- Field 25: form36_field_25
+- Field 26: form36_field_26
+- Field 27: form36_field_27
+- Field 28: form36_field_28
+- Field 29: form36_field_29
+- Field 30: form36_field_30
+- Field 31: form36_field_31
+- Field 32: form36_field_32
+- Field 33: form36_field_33
+- Field 34: form36_field_34
+- Field 35: form36_field_35
+- Field 36: form36_field_36
+- Field 37: form36_field_37
+- Field 38: form36_field_38
+- Field 39: form36_field_39
+- Field 40: form36_field_40
+- Field 41: form36_field_41
+- Field 42: form36_field_42
+- Field 43: form36_field_43
+- Field 44: form36_field_44
+- Check19: form36_check19
+  datatype: yesno
+- Field 46: form36_field_46
+- Field 48: form36_field_48
+- Field 50: form36_field_50
+- Field 52: form36_field_52
+- Field 53: form36_field_53
+- Field 54: form36_field_54
+- Check20: form36_check20
+  datatype: yesno
+- Check21: form36_check21
+  datatype: yesno
+- Field 57: form36_field_57
+- Field 60: form36_field_60
+- Field 62: form36_field_62
+- Field 64: form36_field_64
+- Field 66: form36_field_66
+- Field 67: form36_field_67
+- Field 68: form36_field_68
+- Field 69: form36_field_69
+- Field 70: form36_field_70
+- Field 71: form36_field_71
+- Province: form36_province
+  datatype: radio
+- Postal Code: form36_postal_code
+- Phone Number: form36_phone
+- Fax: form36_fax
+- Marriage Place: form36_marriage_place
+- Separation Date: form36_separation_date
+  datatype: date
+- Other Specify: form36_other_specify
+  datatype: area
+  rows: 4
+- 'and I swear/affirm that the following is true:': form36_and_i_swearaffirm_that_the_following_is_true
+- 'All the information in the application in this case is correct, except:': form36_all_the_information_in_the_application_in_this_case_is_correct_except
+- 'Form 36:': form36_form_36
+- 'The legal basis for the divorce is:': form36_the_legal_basis_for_the_divorce_is
+---
+review:
+  question: Review Form 36
+  subquestion: Please review your information before submitting.
+  review:
+  - label: Court Information
+    fields:
+    - court.court_type
+    - court.file_number
+  - label: Applicant
+    fields:
+    - applicant.name.full()
+    - applicant.address.block()
+  - label: Respondent
+    fields:
+    - respondent.name.full()
+    - respondent.address.block()
+---
+attachment:
+  name: Form 36
+  filename: form_36_completed
+  variable_name: form_download
+  content: '[Your completed Form 36 content will be generated here]'

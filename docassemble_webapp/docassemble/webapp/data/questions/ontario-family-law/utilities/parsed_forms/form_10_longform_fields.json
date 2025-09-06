@@ -1,0 +1,285 @@
+{
+  "form_number": "10",
+  "form_file": "workflow_output/ontario_forms/form_10_-_answer_flr-10-jun25-en-fil.docx",
+  "total_longform_fields": 16,
+  "categories": {
+    "support": 2,
+    "children": 5,
+    "property": 2,
+    "other": 7
+  },
+  "fields": [
+    {
+      "field_id": "form10_t0_r23_c3",
+      "field_key": "form10_support_you_are_making_or_responding_to_a_claim_",
+      "prompt": "you are making or responding to a claim for spousal support; or",
+      "instructions": "",
+      "table_location": {
+        "table": 0,
+        "row": 23,
+        "cell": 3
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 3,
+      "max_chars": null,
+      "section": "Support Claims",
+      "category": "support"
+    },
+    {
+      "field_id": "form10_t0_r24_c3",
+      "field_key": "form10_children_you_are_responding_to_a_claim_for_child_",
+      "prompt": "you are responding to a claim for child support; or",
+      "instructions": "",
+      "table_location": {
+        "table": 0,
+        "row": 24,
+        "cell": 3
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 3,
+      "max_chars": null,
+      "section": "Support Claims",
+      "category": "children"
+    },
+    {
+      "field_id": "form10_t0_r25_c3",
+      "field_key": "form10_children_you_are_making_a_claim_for_child_support",
+      "prompt": "you are making a claim for child support in an amount different from the table amount specified under the Child Support Guidelines.",
+      "instructions": "",
+      "table_location": {
+        "table": 0,
+        "row": 25,
+        "cell": 3
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 3,
+      "max_chars": null,
+      "section": "Support Claims",
+      "category": "children"
+    },
+    {
+      "field_id": "form10_t0_r26_c0",
+      "field_key": "form10_children_you_must_complete_all_parts_of_the_form_",
+      "prompt": "You must complete all parts of the form UNLESS you are ONLY responding to a claim for child support in the table amount specified under the Child Support Guidelines AND you agree with the claim.",
+      "instructions": "",
+      "table_location": {
+        "table": 0,
+        "row": 26,
+        "cell": 0
+      },
+      "field_type": "area",
+      "required": true,
+      "min_lines": 3,
+      "max_chars": null,
+      "section": "Support Claims",
+      "category": "children"
+    },
+    {
+      "field_id": "form10_t0_r28_c3",
+      "field_key": "form10_property_you_are_making_or_responding_to_a_claim_",
+      "prompt": "you are making or responding to a claim for property or exclusive possession of the matrimonial home and its contents; or",
+      "instructions": "",
+      "table_location": {
+        "table": 0,
+        "row": 28,
+        "cell": 3
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 3,
+      "max_chars": null,
+      "section": "Property Claims",
+      "category": "property"
+    },
+    {
+      "field_id": "form10_t1_r8_c2",
+      "field_key": "form10_other_the_family_history_as_set_out_in_the_app",
+      "prompt": "The FAMILY HISTORY, as set out in the application",
+      "instructions": "",
+      "table_location": {
+        "table": 1,
+        "row": 8,
+        "cell": 2
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Other Claims",
+      "category": "other"
+    },
+    {
+      "field_id": "form10_t1_r10_c1",
+      "field_key": "form10_other_if_it_is_not_correct_attach_your_own_fam",
+      "prompt": "(If it is not correct, attach your own FAMILY HISTORY page and underline those parts that are different from the applicant\u2019s version.)",
+      "instructions": "If it is not correct, attach your own FAMILY HISTORY page and underline those parts that are different from the applicant\u2019s version.",
+      "table_location": {
+        "table": 1,
+        "row": 10,
+        "cell": 1
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 3,
+      "max_chars": null,
+      "section": "Other Claims",
+      "category": "other"
+    },
+    {
+      "field_id": "form10_t1_r11_c1",
+      "field_key": "form10_other_the_important_facts_that_form_the_legal_",
+      "prompt": "The important facts that form the legal basis for my position in paragraph 2 are as follows:",
+      "instructions": "",
+      "table_location": {
+        "table": 1,
+        "row": 11,
+        "cell": 1
+      },
+      "field_type": "area",
+      "required": true,
+      "min_lines": 8,
+      "max_chars": null,
+      "section": "Supporting Facts",
+      "category": "other"
+    },
+    {
+      "field_id": "form10_t1_r12_c1",
+      "field_key": "form10_other_in_numbered_paragraphs_set_out_the_facts",
+      "prompt": "(In numbered paragraphs, set out the facts for your position. Attach an additional sheet and number it if you need more space.)",
+      "instructions": "In numbered paragraphs, set out the facts for your position. Attach an additional sheet and number it if you need more space.",
+      "table_location": {
+        "table": 1,
+        "row": 12,
+        "cell": 1
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 8,
+      "max_chars": null,
+      "section": "Supporting Facts",
+      "category": "other"
+    },
+    {
+      "field_id": "form10_t3_r10_c2",
+      "field_key": "form10_other_claims_below_include_claims_for_temporar",
+      "prompt": "(Claims below include claims for temporary orders.)",
+      "instructions": "Claims below include claims for temporary orders.",
+      "table_location": {
+        "table": 3,
+        "row": 10,
+        "cell": 2
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 3,
+      "max_chars": null,
+      "section": "Other Claims",
+      "category": "other"
+    },
+    {
+      "field_id": "form10_t3_r11_c5",
+      "field_key": "form10_property_claims_relating_to_property_check_boxes_",
+      "prompt": "Claims relating to property (Check boxes in this column only if your case is in the Superior Court of Justice or Family Court of the Superior Court of Justice.)",
+      "instructions": "Check boxes in this column only if your case is in the Superior Court of Justice or Family Court of the Superior Court of Justice.",
+      "table_location": {
+        "table": 3,
+        "row": 11,
+        "cell": 5
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 3,
+      "max_chars": null,
+      "section": "Property Claims",
+      "category": "property"
+    },
+    {
+      "field_id": "form10_t3_r11_c10",
+      "field_key": "form10_children_claims_relating_to_child_protection",
+      "prompt": "Claims relating to child protection",
+      "instructions": "",
+      "table_location": {
+        "table": 3,
+        "row": 11,
+        "cell": 10
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 3,
+      "max_chars": null,
+      "section": "Children",
+      "category": "children"
+    },
+    {
+      "field_id": "form10_t3_r25_c7",
+      "field_key": "form10_other_claims_relating_to_a_family_arbitration",
+      "prompt": "claims relating to a family arbitration",
+      "instructions": "",
+      "table_location": {
+        "table": 3,
+        "row": 25,
+        "cell": 7
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Other Claims",
+      "category": "other"
+    },
+    {
+      "field_id": "form10_t3_r35_c0",
+      "field_key": "form10_children_give_details_of_the_order_that_you_want_",
+      "prompt": "Give details of the order that you want the court to make.",
+      "instructions": "Include any amounts of support (if known",
+      "table_location": {
+        "table": 3,
+        "row": 35,
+        "cell": 0
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Support Claims",
+      "category": "children"
+    },
+    {
+      "field_id": "form10_t4_r3_c0",
+      "field_key": "form10_support_important_facts_supporting_my_claims",
+      "prompt": "IMPORTANT FACTS SUPPORTING MY CLAIM(S)",
+      "instructions": "S",
+      "table_location": {
+        "table": 4,
+        "row": 3,
+        "cell": 0
+      },
+      "field_type": "area",
+      "required": true,
+      "min_lines": 8,
+      "max_chars": null,
+      "section": "Support Claims",
+      "category": "support"
+    },
+    {
+      "field_id": "form10_t4_r4_c0",
+      "field_key": "form10_other_in_numbered_paragraphs_set_out_the_facts",
+      "prompt": "(In numbered paragraphs, set out the facts that form the legal basis for your claim(s). Attach an additional page and number it if you need more space.)",
+      "instructions": "In numbered paragraphs, set out the facts that form the legal basis for your claim(s",
+      "table_location": {
+        "table": 4,
+        "row": 4,
+        "cell": 0
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 8,
+      "max_chars": null,
+      "section": "Supporting Facts",
+      "category": "other"
+    }
+  ]
+}

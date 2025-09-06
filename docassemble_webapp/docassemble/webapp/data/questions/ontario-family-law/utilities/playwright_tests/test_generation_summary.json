@@ -1,0 +1,265 @@
+{
+  "generated_at": "2025-09-05T13:25:01.671953",
+  "total_tests": 37,
+  "tests": [
+    {
+      "yaml_file": "form_13C_interview.yml",
+      "form_number": "13C",
+      "test_file": "form_13C_test.spec.js",
+      "questions": 8,
+      "fields": 43
+    },
+    {
+      "yaml_file": "form_28_interview.yml",
+      "form_number": "28",
+      "test_file": "form_28_test.spec.js",
+      "questions": 6,
+      "fields": 24
+    },
+    {
+      "yaml_file": "form_10_enhanced.yml",
+      "form_number": "10",
+      "test_file": "form_10_test.spec.js",
+      "questions": 16,
+      "fields": 26
+    },
+    {
+      "yaml_file": "form_29A_interview.yml",
+      "form_number": "29A",
+      "test_file": "form_29A_test.spec.js",
+      "questions": 6,
+      "fields": 17
+    },
+    {
+      "yaml_file": "form_15_interview.yml",
+      "form_number": "15",
+      "test_file": "form_15_test.spec.js",
+      "questions": 6,
+      "fields": 22
+    },
+    {
+      "yaml_file": "form_8A_enhanced.yml",
+      "form_number": "8A",
+      "test_file": "form_8A_test.spec.js",
+      "questions": 40,
+      "fields": 67
+    },
+    {
+      "yaml_file": "form_15C_interview.yml",
+      "form_number": "15C",
+      "test_file": "form_15C_test.spec.js",
+      "questions": 7,
+      "fields": 25
+    },
+    {
+      "yaml_file": "form_33F_interview.yml",
+      "form_number": "33F",
+      "test_file": "form_33F_test.spec.js",
+      "questions": 6,
+      "fields": 17
+    },
+    {
+      "yaml_file": "form_13.1_enhanced.yml",
+      "form_number": "13.1",
+      "test_file": "form_13.1_test.spec.js",
+      "questions": 32,
+      "fields": 101
+    },
+    {
+      "yaml_file": "form_29B_interview.yml",
+      "form_number": "29B",
+      "test_file": "form_29B_test.spec.js",
+      "questions": 6,
+      "fields": 17
+    },
+    {
+      "yaml_file": "form_8_interview_fixed.yml",
+      "form_number": "8",
+      "test_file": "form_8_test.spec.js",
+      "questions": 7,
+      "fields": 22
+    },
+    {
+      "yaml_file": "form_36_interview.yml",
+      "form_number": "36",
+      "test_file": "form_36_test.spec.js",
+      "questions": 7,
+      "fields": 20
+    },
+    {
+      "yaml_file": "form_8_interview.yml",
+      "form_number": "8",
+      "test_file": "form_8_test.spec.js",
+      "questions": 7,
+      "fields": 19
+    },
+    {
+      "yaml_file": "form_25A_interview.yml",
+      "form_number": "25A",
+      "test_file": "form_25A_test.spec.js",
+      "questions": 6,
+      "fields": 26
+    },
+    {
+      "yaml_file": "form_17C_interview.yml",
+      "form_number": "17C",
+      "test_file": "form_17C_test.spec.js",
+      "questions": 5,
+      "fields": 16
+    },
+    {
+      "yaml_file": "form_8_valid.yml",
+      "form_number": "8",
+      "test_file": "form_8_test.spec.js",
+      "questions": 2,
+      "fields": 0
+    },
+    {
+      "yaml_file": "form_13_comprehensive.yml",
+      "form_number": "13",
+      "test_file": "form_13_test.spec.js",
+      "questions": 13,
+      "fields": 8
+    },
+    {
+      "yaml_file": "form_36A_interview.yml",
+      "form_number": "36A",
+      "test_file": "form_36A_test.spec.js",
+      "questions": 6,
+      "fields": 17
+    },
+    {
+      "yaml_file": "form_6C_interview.yml",
+      "form_number": "6C",
+      "test_file": "form_6C_test.spec.js",
+      "questions": 6,
+      "fields": 20
+    },
+    {
+      "yaml_file": "form_26_interview.yml",
+      "form_number": "26",
+      "test_file": "form_26_test.spec.js",
+      "questions": 6,
+      "fields": 18
+    },
+    {
+      "yaml_file": "form_17A_interview.yml",
+      "form_number": "17A",
+      "test_file": "form_17A_test.spec.js",
+      "questions": 5,
+      "fields": 16
+    },
+    {
+      "yaml_file": "form_8A_interview.yml",
+      "form_number": "8A",
+      "test_file": "form_8A_test.spec.js",
+      "questions": 7,
+      "fields": 19
+    },
+    {
+      "yaml_file": "index_with_error_handling.yml",
+      "form_number": "unknown",
+      "test_file": "form_unknown_test.spec.js",
+      "questions": 4,
+      "fields": 1
+    },
+    {
+      "yaml_file": "form_10A_interview.yml",
+      "form_number": "10A",
+      "test_file": "form_10A_test.spec.js",
+      "questions": 6,
+      "fields": 24
+    },
+    {
+      "yaml_file": "form_6B_interview.yml",
+      "form_number": "6B",
+      "test_file": "form_6B_test.spec.js",
+      "questions": 6,
+      "fields": 17
+    },
+    {
+      "yaml_file": "form_13.1_interview.yml",
+      "form_number": "13.1",
+      "test_file": "form_13.1_test.spec.js",
+      "questions": 9,
+      "fields": 102
+    },
+    {
+      "yaml_file": "form_8_enhanced.yml",
+      "form_number": "8",
+      "test_file": "form_8_test.spec.js",
+      "questions": 30,
+      "fields": 48
+    },
+    {
+      "yaml_file": "form_25D_interview.yml",
+      "form_number": "25D",
+      "test_file": "form_25D_test.spec.js",
+      "questions": 6,
+      "fields": 21
+    },
+    {
+      "yaml_file": "form_15B_interview.yml",
+      "form_number": "15B",
+      "test_file": "form_15B_test.spec.js",
+      "questions": 6,
+      "fields": 20
+    },
+    {
+      "yaml_file": "form_13_enhanced.yml",
+      "form_number": "13",
+      "test_file": "form_13_test.spec.js",
+      "questions": 30,
+      "fields": 93
+    },
+    {
+      "yaml_file": "form_13_interview.yml",
+      "form_number": "13",
+      "test_file": "form_13_test.spec.js",
+      "questions": 8,
+      "fields": 51
+    },
+    {
+      "yaml_file": "form_13A_interview.yml",
+      "form_number": "13A",
+      "test_file": "form_13A_test.spec.js",
+      "questions": 6,
+      "fields": 18
+    },
+    {
+      "yaml_file": "form_15_enhanced.yml",
+      "form_number": "15",
+      "test_file": "form_15_test.spec.js",
+      "questions": 24,
+      "fields": 41
+    },
+    {
+      "yaml_file": "form_29_interview.yml",
+      "form_number": "29",
+      "test_file": "form_29_test.spec.js",
+      "questions": 6,
+      "fields": 21
+    },
+    {
+      "yaml_file": "form_13B_interview.yml",
+      "form_number": "13B",
+      "test_file": "form_13B_test.spec.js",
+      "questions": 8,
+      "fields": 32
+    },
+    {
+      "yaml_file": "form_10_interview.yml",
+      "form_number": "10",
+      "test_file": "form_10_test.spec.js",
+      "questions": 6,
+      "fields": 18
+    },
+    {
+      "yaml_file": "form_36_enhanced.yml",
+      "form_number": "36",
+      "test_file": "form_36_test.spec.js",
+      "questions": 29,
+      "fields": 50
+    }
+  ]
+}

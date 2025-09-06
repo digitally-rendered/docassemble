@@ -1,0 +1,651 @@
+---
+metadata:
+  title: Ontario Family Law Form 8A
+  short_title: Form 8A
+  description: Complete interview for Ontario Family Law Form 8A
+  form_number: 8A
+  generated: 2025-09-05T16:41:13.183996
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 8A
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_field_0
+  form_specific_courtfileno
+  form_specific_field_2
+  form_specific_check85
+  form_specific_field_5
+  form_specific_field_6
+  form_specific_field_7
+  form_specific_field_8
+  form_specific_field_9
+  form_specific_field_10
+  form_specific_field_11
+  form_specific_field_12
+  form_specific_field_13
+  form_specific_field_14
+  form_specific_field_15
+  form_specific_field_16
+  form_specific_field_17
+  form_specific_field_18
+  form_specific_field_19
+  form_specific_field_20
+  # ... and 136 more fields
+  
+  # Complete the interview
+  form_8A_ready
+  final_screen
+---
+question: Field 0
+fields:
+  - form_specific_field_0: text
+---
+question: Courtfileno
+fields:
+  - form_specific_courtfileno: text
+---
+question: Field 2
+fields:
+  - form_specific_field_2: text
+---
+question: Check85
+yesno: form_specific_check85
+---
+question: Field 5
+fields:
+  - form_specific_field_5: text
+---
+question: Field 6
+fields:
+  - form_specific_field_6: text
+---
+question: Field 7
+fields:
+  - form_specific_field_7: text
+---
+question: Field 8
+fields:
+  - form_specific_field_8: text
+---
+question: Field 9
+fields:
+  - form_specific_field_9: text
+---
+question: Field 10
+fields:
+  - form_specific_field_10: text
+---
+question: Field 11
+fields:
+  - form_specific_field_11: text
+---
+question: Field 12
+fields:
+  - form_specific_field_12: text
+---
+question: Field 13
+fields:
+  - form_specific_field_13: text
+---
+question: Field 14
+fields:
+  - form_specific_field_14: text
+---
+question: Field 15
+fields:
+  - form_specific_field_15: text
+---
+question: Field 16
+fields:
+  - form_specific_field_16: text
+---
+question: Field 17
+fields:
+  - form_specific_field_17: text
+---
+question: Field 18
+fields:
+  - form_specific_field_18: text
+---
+question: Field 19
+fields:
+  - form_specific_field_19: text
+---
+question: Field 20
+fields:
+  - form_specific_field_20: text
+---
+question: Check68
+yesno: form_specific_check68
+---
+question: Check69
+yesno: form_specific_check69
+---
+question: Field 23
+fields:
+  - form_specific_field_23: text
+---
+question: Field 24
+fields:
+  - form_specific_field_24: text
+---
+question: Field 25
+fields:
+  - form_specific_field_25: text
+---
+question: Field 26
+fields:
+  - form_specific_field_26: text
+---
+question: Field 27
+fields:
+  - form_specific_field_27: text
+---
+question: Field 28
+fields:
+  - form_specific_field_28: text
+---
+question: Check10
+yesno: form_specific_check10
+---
+question: Check11
+yesno: form_specific_check11
+---
+question: Field 34
+fields:
+  - form_specific_field_34: text
+---
+question: Field 37
+fields:
+  - form_specific_field_37: text
+---
+question: Field 38
+fields:
+  - form_specific_field_38: text
+---
+question: Field 39
+fields:
+  - form_specific_field_39: text
+---
+question: Field 40
+fields:
+  - form_specific_field_40: text
+---
+question: Field 41
+fields:
+  - form_specific_field_41: text
+---
+question: Field 48
+fields:
+  - form_specific_field_48: text
+---
+question: Check14
+yesno: form_specific_check14
+---
+question: Field 52
+fields:
+  - form_specific_field_52: text
+---
+question: Field 54
+fields:
+  - form_specific_field_54: text
+---
+question: Check15
+yesno: form_specific_check15
+---
+question: Field 56
+fields:
+  - form_specific_field_56: text
+---
+question: Field 58
+fields:
+  - form_specific_field_58: text
+---
+question: Field 59
+fields:
+  - form_specific_field_59: text
+---
+question: Field 60
+fields:
+  - form_specific_field_60: text
+---
+question: Field 61
+fields:
+  - form_specific_field_61: text
+---
+question: Field 62
+fields:
+  - form_specific_field_62: text
+---
+question: Field 63
+fields:
+  - form_specific_field_63: text
+---
+question: Field 64
+fields:
+  - form_specific_field_64: text
+---
+question: Field 65
+fields:
+  - form_specific_field_65: text
+---
+question: Field 66
+fields:
+  - form_specific_field_66: text
+---
+question: Field 67
+fields:
+  - form_specific_field_67: text
+---
+question: Field 68
+fields:
+  - form_specific_field_68: text
+---
+question: Field 69
+fields:
+  - form_specific_field_69: text
+---
+question: Field 70
+fields:
+  - form_specific_field_70: text
+---
+question: Field 71
+fields:
+  - form_specific_field_71: text
+---
+question: Field 72
+fields:
+  - form_specific_field_72: text
+---
+question: Field 73
+fields:
+  - form_specific_field_73: text
+---
+question: Field 74
+fields:
+  - form_specific_field_74: text
+---
+question: Field 75
+fields:
+  - form_specific_field_75: text
+---
+question: Field 76
+fields:
+  - form_specific_field_76: text
+---
+question: Field 77
+fields:
+  - form_specific_field_77: text
+---
+question: Field 78
+fields:
+  - form_specific_field_78: text
+---
+question: Field 79
+fields:
+  - form_specific_field_79: text
+---
+question: Field 80
+fields:
+  - form_specific_field_80: text
+---
+question: Field 81
+fields:
+  - form_specific_field_81: text
+---
+question: Field 82
+fields:
+  - form_specific_field_82: text
+---
+question: Field 83
+fields:
+  - form_specific_field_83: text
+---
+question: Field 84
+fields:
+  - form_specific_field_84: text
+---
+question: Field 85
+fields:
+  - form_specific_field_85: text
+---
+question: Field 86
+fields:
+  - form_specific_field_86: text
+---
+question: Field 87
+fields:
+  - form_specific_field_87: text
+---
+question: Check19
+yesno: form_specific_check19
+---
+question: Field 92
+fields:
+  - form_specific_field_92: text
+---
+question: Field 95
+fields:
+  - form_specific_field_95: text
+---
+question: Field 98
+fields:
+  - form_specific_field_98: text
+---
+question: Check30
+yesno: form_specific_check30
+---
+question: Check36
+yesno: form_specific_check36
+---
+question: Check45
+yesno: form_specific_check45
+---
+question: Check87
+yesno: form_specific_check87
+---
+question: Check88
+yesno: form_specific_check88
+---
+question: Check31
+yesno: form_specific_check31
+---
+question: Check46
+yesno: form_specific_check46
+---
+question: Check90
+yesno: form_specific_check90
+---
+question: Check89
+yesno: form_specific_check89
+---
+question: Check91
+yesno: form_specific_check91
+---
+question: Check38
+yesno: form_specific_check38
+---
+question: Check92
+yesno: form_specific_check92
+---
+question: Check93
+yesno: form_specific_check93
+---
+question: Check33
+yesno: form_specific_check33
+---
+question: Check39
+yesno: form_specific_check39
+---
+question: Check61
+yesno: form_specific_check61
+---
+question: Check94
+yesno: form_specific_check94
+---
+question: Check62
+yesno: form_specific_check62
+---
+question: Check41
+yesno: form_specific_check41
+---
+question: Check95
+yesno: form_specific_check95
+---
+question: Check81
+yesno: form_specific_check81
+---
+question: Check82
+yesno: form_specific_check82
+---
+question: Check83
+yesno: form_specific_check83
+---
+question: Check84
+yesno: form_specific_check84
+---
+question: Field 123
+fields:
+  - form_specific_field_123: text
+---
+question: Check74
+yesno: form_specific_check74
+---
+question: Check75
+yesno: form_specific_check75
+---
+question: Check76
+yesno: form_specific_check76
+---
+question: Field 127
+fields:
+  - form_specific_field_127: text
+---
+question: Check77
+yesno: form_specific_check77
+---
+question: Check78
+yesno: form_specific_check78
+---
+question: Field 130
+fields:
+  - form_specific_field_130: text
+---
+question: Check79
+yesno: form_specific_check79
+---
+question: Field 132
+fields:
+  - form_specific_field_132: text
+---
+question: Field 133
+fields:
+  - form_specific_field_133: text
+---
+question: Check80
+yesno: form_specific_check80
+---
+question: Field 135
+fields:
+  - form_specific_field_135: text
+---
+question: Field 136
+fields:
+  - form_specific_field_136: text
+---
+question: Field 137
+fields:
+  - form_specific_field_137: text
+---
+question: Field 138
+fields:
+  - form_specific_field_138: text
+---
+question: Field 139
+fields:
+  - form_specific_field_139: text
+---
+question: Dropdown1
+fields:
+  - form_specific_dropdown1: text
+---
+question: Dropdown2
+fields:
+  - form_specific_dropdown2: text
+---
+question: Field 142
+fields:
+  - form_specific_field_142: text
+---
+question: Field 143
+fields:
+  - form_specific_field_143: text
+---
+question: Field 144
+fields:
+  - form_specific_field_144: text
+---
+question: Field 145
+fields:
+  - form_specific_field_145: text
+---
+question: Field 146
+fields:
+  - form_specific_field_146: text
+---
+question: Field 147
+fields:
+  - form_specific_field_147: text
+---
+question: Field 148
+fields:
+  - form_specific_field_148: text
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Province
+fields:
+  - form_specific_province: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Email
+fields:
+  - form_specific_email:
+      datatype: email
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Name Before Marriage
+fields:
+  - form_specific_name_before_marriage: text
+---
+question: Claims Property Division
+yesno: form_specific_claims_property_division
+---
+question: Child Full Legal Name
+fields:
+  - children[i].name.full: text
+---
+question: Child Birth Date
+fields:
+  - children[i].birthdate:
+      datatype: date
+---
+question: Child Current Age
+fields:
+  - children[i].age:
+      datatype: integer
+---
+question: Financial Statement Attached
+yesno: form_specific_financial_statement_attached
+---
+question: Important Facts
+fields:
+  - form_specific_important_facts: text
+---
+question: Other Specify
+fields:
+  - form_specific_other_specify: text
+---
+question: Full Legal Name
+fields:
+  - form_specific_full_legal_name: text
+---
+question: Name
+fields:
+  - form_specific_name: text
+---
+question: Address
+fields:
+  - form_specific_address: text
+---
+question: Phone  Fax
+fields:
+  - form_specific_phone__fax: text
+---
+question: Form 8A
+fields:
+  - form_specific_form_8a: text
+---
+question: Applicant
+fields:
+  - form_specific_applicant: text
+---
+question: Age
+fields:
+  - form_specific_age: text
+---
+question: First Name On The Day Before The Marriage Date
+fields:
+  - form_specific_first_name_on_the_day_before_the_marriage_date:
+      datatype: date
+---
+question: Last Name On The Day Before The Marriage Date
+fields:
+  - form_specific_last_name_on_the_day_before_the_marriage_date:
+      datatype: date
+---
+question: Gender On The Day Before The Marriage Date
+fields:
+  - form_specific_gender_on_the_day_before_the_marriage_date:
+      datatype: date
+---
+question: Respondentjoint Applicant
+fields:
+  - form_specific_respondentjoint_applicant: text
+---
+question: Relationship Dates
+fields:
+  - form_specific_relationship_dates:
+      datatype: date
+---
+question: We Jointly Ask The Court For The Following
+fields:
+  - form_specific_we_jointly_ask_the_court_for_the_following: text
+---
+question: I Ask The Court For
+fields:
+  - form_specific_i_ask_the_court_for: text
+---
+question: My Name Is
+fields:
+  - form_specific_my_name_is: text
+---
+event: final_screen
+question: Form 8A Complete
+subquestion: Your Ontario Family Law Form 8A has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_8A_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_8A_ready = True

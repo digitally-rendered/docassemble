@@ -1,0 +1,68 @@
+---
+metadata:
+  title: |
+    Form 6C: Form 6C
+  short title: |
+    Form 6C
+  description: |
+    Form-specific questions for Ontario Family Law Form 6C
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form6C_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 6C specific sections
+  form6C_additional_information_complete
+  form6C_review
+  form6C_complete
+---
+question: |
+  Form 6C - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 6C.
+fields:
+  - $ including travel. including travel. including travel. including travel. including travel. includin: form6C__including_travel_including_tr
+    datatype: currency
+  - Lawyer/paralegal’s name: form6C_lawyerparalegals_name
+  - Street address: form6C_street_address
+  - Email address: form6C_email_address
+continue button field: form6C_additional_information_complete
+---
+event: form6C_review
+question: |
+  Review Form 6C Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form6C_complete
+question: |
+  Form 6C Complete
+subquestion: |
+  Your Form 6C (Form 6C) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 6C specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

@@ -1,0 +1,1619 @@
+{
+  "metadata": {
+    "analysis_date": "2025-09-05",
+    "total_forms_analyzed": 26,
+    "total_fields_analyzed": 582,
+    "common_fields_found": 55,
+    "field_groups_created": 6
+  },
+  "forms_analyzed": [
+    "form_29A",
+    "form_26",
+    "form_15B",
+    "form_13B",
+    "form_8A",
+    "form_36",
+    "form_17C",
+    "form_13A",
+    "form_6C",
+    "form_29",
+    "form_25A",
+    "form_33F",
+    "form_25D",
+    "form_36A",
+    "form_29B",
+    "form_17A",
+    "form_10A",
+    "form_13C",
+    "form_10",
+    "form_15",
+    "form_15C",
+    "form_8",
+    "form_13.1",
+    "form_13",
+    "form_28",
+    "form_6B"
+  ],
+  "common_fields": {
+    "total": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 4,
+      "forms_using": [
+        "form_13B",
+        "form_13.1",
+        "form_26",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_26",
+          "label": "TOTAL TOTAL TOTAL TOTAL TOTAL TOTAL TOTAL TOTAL TOTAL $",
+          "field_name": "total_total_total_total_total_total_total_total_to",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13B",
+          "label": "TOTAL 1 $ $",
+          "field_name": "total_1",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13B",
+          "label": "TOTAL 4 $ $ $",
+          "field_name": "total_4",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "applicant_name": {
+      "semantic_category": "applicant_name",
+      "field_type": "text",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_8",
+        "form_10A"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_10A",
+          "label": "1.  My name is (full legal name)",
+          "field_name": "form1[0].page1[0].body[0].instrunctionFinancial[0].applicant[0].q2[0].info[0]",
+          "field_type": "text"
+        },
+        {
+          "form": "form_8",
+          "label": "Full legal name: Full legal name: Name: Name:",
+          "field_name": "full_legal_name_full_legal_name_name_name",
+          "field_type": "text"
+        },
+        {
+          "form": "form_8",
+          "label": "Full legal name: Full legal name: Name: Name:",
+          "field_name": "full_legal_name_full_legal_name_name_name",
+          "field_type": "text"
+        }
+      ]
+    },
+    "address": {
+      "semantic_category": "address",
+      "field_type": "text",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_25A",
+        "form_10A"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_25A",
+          "label": "Court office address",
+          "field_name": "form1[0].page1[0].p1[0].courtDetails[0].court[0].courtOfficeAddress[0]",
+          "field_type": "text"
+        },
+        {
+          "form": "form_10A",
+          "label": "Court office address",
+          "field_name": "form1[0].page1[0].body[0].courtDetails[0].court[0].courtOfficeAddress[0]",
+          "field_type": "text"
+        }
+      ]
+    },
+    "date_general": {
+      "semantic_category": "date_general",
+      "field_type": "currency",
+      "docassemble_type": "date",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "I earn $ I earn $ per year which should be used to determine my share of the above expenses. per yea",
+          "field_name": "i_earn_i_earn_per_year_which_should_be_used_to_det",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "I earn $ per year which should be used to determine my share of the above expenses. per year which s",
+          "field_name": "i_earn_per_year_which_should_be_used_to_determine_",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "1": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 3,
+      "forms_using": [
+        "form_13B",
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13B",
+          "label": "1. $ $",
+          "field_name": "1",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13B",
+          "label": "1. 1. $ $ $ $",
+          "field_name": "1_1",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13.1",
+          "label": "1. $ $",
+          "field_name": "1",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "total_of_property": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13C",
+        "form_13B"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13B",
+          "label": "TOTAL OF PROPERTY ITEMS TOTAL OF PROPERTY ITEMS $ $",
+          "field_name": "total_of_property_items_total_of_property_items",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13B",
+          "label": "TOTAL OF DEBT ITEMS TOTAL OF DEBT ITEMS $ $",
+          "field_name": "total_of_debt_items_total_of_debt_items",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13C",
+          "label": "TOTAL OF PROPERTY ITEMS TOTAL OF PROPERTY ITEMS TOTAL OF PROPERTY ITEMS $ $ $ $",
+          "field_name": "total_of_property_items_total_of_property_items_to",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "total_3_from": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13C",
+        "form_13B"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13B",
+          "label": "TOTAL 3 (from page 2) $ $ $",
+          "field_name": "total_3_from_page_2",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13B",
+          "label": "TOTAL 4 (from page 3) $ $ $",
+          "field_name": "total_4_from_page_3",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13B",
+          "label": "TOTAL 1 (from page 1) $ $",
+          "field_name": "total_1_from_page_1",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "total_5_total": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13C",
+        "form_13B"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13B",
+          "label": "TOTAL 5 ([Total 2] + [Total 3] +[Total 4]) $ $ $",
+          "field_name": "total_5_total_2_total_3_total_4",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13C",
+          "label": "TOTAL 5: (TOTAL 2 + TOTAL 3 + TOTAL 4) $ $ $ $",
+          "field_name": "total_5_total_2_total_3_total_4",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "total_6_net": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13C",
+        "form_13B"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13B",
+          "label": "TOTAL 6:  NET FAMILY PROPERTY ([Total 1] minus [Total 5]) $ $",
+          "field_name": "total_6_net_family_property_total_1_minus_total_5",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13C",
+          "label": "TOTAL 6: NET FAMILY PROPERTY (Subtract: TOTAL 1 minus TOTAL 5) $ $ $ $",
+          "field_name": "total_6_net_family_property_subtract_total_1_minus",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "including_travel_including": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_6B",
+        "form_6C"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_6C",
+          "label": "$ including travel. including travel. including travel. including travel. including travel. includin",
+          "field_name": "including_travel_including_travel_including_travel",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_6B",
+          "label": "$ including travel. including travel. including travel. including travel. including travel. includin",
+          "field_name": "including_travel_including_travel_including_travel",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "court_file_number": {
+      "semantic_category": "court_file_number",
+      "field_type": "text",
+      "docassemble_type": "text",
+      "validation_pattern": "^[A-Z]{2}-\\d{2}-\\d{8}$",
+      "usage_count": 2,
+      "forms_using": [
+        "form_25A",
+        "form_10A"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_25A",
+          "label": "Court File Number",
+          "field_name": "form1[0].page1[0].p1[0].courtDetails[0].courtFileNumber[0]",
+          "field_type": "text"
+        },
+        {
+          "form": "form_25A",
+          "label": "Court File Number",
+          "field_name": "form1[0].page1[0].p2[0].#subform[0].courtFileNumber[0]",
+          "field_type": "text"
+        },
+        {
+          "form": "form_10A",
+          "label": "Court File Number",
+          "field_name": "form1[0].page1[0].body[0].courtDetails[0].courtFileNo[0]",
+          "field_type": "text"
+        }
+      ]
+    },
+    "a_totals_value": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 3,
+      "forms_using": [
+        "form_13C",
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13C",
+          "label": "(A) TOTALS: Value of Land (A) TOTALS: Value of Land (A) TOTALS: Value of Land (A) TOTALS: Value of L",
+          "field_name": "a_totals_value_of_land_a_totals_value_of_land_a_to",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13.1",
+          "label": "15.  TOTAL VALUE OF LAND 15.  TOTAL VALUE OF LAND 15.  TOTAL VALUE OF LAND 15.  TOTAL VALUE OF LAND ",
+          "field_name": "15_total_value_of_land_15_total_value_of_land_15_t",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Total Value of All Property Total Value of All Property Total Value of All Property Total Value of A",
+          "field_name": "total_value_of_all_property_total_value_of_all_pro",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "b_totals_value": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13C",
+        "form_13.1"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13C",
+          "label": "(B) TOTALS: Value of General Household Items and Vehicles (B) TOTALS: Value of General Household Ite",
+          "field_name": "b_totals_value_of_general_household_items_and_vehi",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13.1",
+          "label": "16.  TOTAL VALUE OF GENERAL HOUSEHOLD ITEMS AND VEHICLES 16.  TOTAL VALUE OF GENERAL HOUSEHOLD ITEMS",
+          "field_name": "16_total_value_of_general_household_items_and_vehi",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "c_totals_value": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13C",
+        "form_13.1"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13C",
+          "label": "(C) TOTALS: Value of Accounts and Savings (C) TOTALS: Value of Accounts and Savings (C) TOTALS: Valu",
+          "field_name": "c_totals_value_of_accounts_and_savings_c_totals_va",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13.1",
+          "label": "17.  TOTAL VALUE OF ACCOUNTS, SAVINGS, SECURITIES AND PENSIONS 17.  TOTAL VALUE OF ACCOUNTS, SAVINGS",
+          "field_name": "17_total_value_of_accounts_savings_securities_and_",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "d_totals_cash": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13C",
+        "form_13.1"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13C",
+          "label": "(D) TOTALS: Cash Surrender Value of Insurance Policies (D) TOTALS: Cash Surrender Value of Insurance",
+          "field_name": "d_totals_cash_surrender_value_of_insurance_policie",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13.1",
+          "label": "18.  TOTAL CASH SURRENDER VALUE OF INSURANCE POLICIES 18.  TOTAL CASH SURRENDER VALUE OF INSURANCE P",
+          "field_name": "18_total_cash_surrender_value_of_insurance_policie",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "e_totals_value": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13C",
+        "form_13.1"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13C",
+          "label": "(E) TOTALS: Value of Business Interests (E) TOTALS: Value of Business Interests (E) TOTALS: Value of",
+          "field_name": "e_totals_value_of_business_interests_e_totals_valu",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13.1",
+          "label": "19.  TOTAL VALUE OF BUSINESS INTERESTS 19.  TOTAL VALUE OF BUSINESS INTERESTS 19.  TOTAL VALUE OF BU",
+          "field_name": "19_total_value_of_business_interests_19_total_valu",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "g_totals_value": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13C",
+        "form_13.1"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13C",
+          "label": "(G) TOTALS: Value of Other Property (G) TOTALS: Value of Other Property (G) TOTALS: Value of Other P",
+          "field_name": "g_totals_value_of_other_property_g_totals_value_of",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13.1",
+          "label": "21.  TOTAL VALUE OF OTHER PROPERTY 21.  TOTAL VALUE OF OTHER PROPERTY 21.  TOTAL VALUE OF OTHER PROP",
+          "field_name": "21_total_value_of_other_property_21_total_value_of",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13.1",
+          "label": "26.  TOTAL VALUE OF EXCLUDED PROPERTY 26.  TOTAL VALUE OF EXCLUDED PROPERTY 26.  TOTAL VALUE OF EXCL",
+          "field_name": "26_total_value_of_excluded_property_26_total_value",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "totals_value_of": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13C",
+        "form_13.1"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13C",
+          "label": "TOTALS: Value of Debts and Other Liabilities, (TOTAL 2) TOTALS: Value of Debts and Other Liabilities",
+          "field_name": "totals_value_of_debts_and_other_liabilities_total_",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13.1",
+          "label": "23.  TOTAL OF DEBTS AND OTHER LIABILITIES 23.  TOTAL OF DEBTS AND OTHER LIABILITIES 23.  TOTAL OF DE",
+          "field_name": "23_total_of_debts_and_other_liabilities_23_total_o",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "income_amount": {
+      "semantic_category": "income_amount",
+      "field_type": "currency",
+      "docassemble_type": "currency",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "7. 7. 7. 7. 7. Any other income (specify source) Any other income (specify source) Any other income ",
+          "field_name": "7_7_7_7_7_any_other_income_specify_source_any_othe",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "7. 7. Any other income (specify source) Any other income (specify source) Any other income (specify ",
+          "field_name": "7_7_any_other_income_specify_source_any_other_inco",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "4_employment_insurance": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "4. 4. Employment Insurance benefits Employment Insurance benefits Employment Insurance benefits Empl",
+          "field_name": "4_4_employment_insurance_benefits_employment_insur",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "4. 4. Employment Insurance benefits Employment Insurance benefits Employment Insurance benefits Empl",
+          "field_name": "4_4_employment_insurance_benefits_employment_insur",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "support_amount": {
+      "semantic_category": "support_amount",
+      "field_type": "currency",
+      "docassemble_type": "currency",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "9. 9. Spousal support received from a former spouse/partner Spousal support received from a former s",
+          "field_name": "9_9_spousal_support_received_from_a_former_spouse_",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "9. 9. Spousal support received from a former spouse/partner Spousal support received from a former s",
+          "field_name": "9_9_spousal_support_received_from_a_former_spouse_",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "child_name": {
+      "semantic_category": "child_name",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": ". . . Medical insurance premiums and certain health-related expenses for the child that cost more th",
+          "field_name": "medical_insurance_premiums_and_certain_health_rela",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": ". . . Medical insurance premiums and certain health-related expenses for the child that cost more th",
+          "field_name": "medical_insurance_premiums_and_certain_health_rela",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "ei_premiums_ei": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "EI premiums EI premiums EI premiums $ Gas and oil Gas and oil Gas and oil Gas and oil $",
+          "field_name": "ei_premiums_ei_premiums_ei_premiums_gas_and_oil_ga",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "EI premiums EI premiums EI premiums $ Gas and oil Gas and oil Gas and oil Gas and oil Gas and oil $",
+          "field_name": "ei_premiums_ei_premiums_ei_premiums_gas_and_oil_ga",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "subtotal_car_loan": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "SUBTOTAL SUBTOTAL SUBTOTAL $ Car Loan or Lease Payments Car Loan or Lease Payments Car Loan or Lease",
+          "field_name": "subtotal_subtotal_subtotal_car_loan_or_lease_payme",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "SUBTOTAL SUBTOTAL SUBTOTAL $ Car Loan or Lease Payments Car Loan or Lease Payments Car Loan or Lease",
+          "field_name": "subtotal_subtotal_subtotal_car_loan_or_lease_payme",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "housing_subtotal": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Housing Housing Housing Housing Housing SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $",
+          "field_name": "housing_housing_housing_housing_housing_subtotal_s",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Housing Housing Housing Housing Housing SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $",
+          "field_name": "housing_housing_housing_housing_housing_subtotal_s",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "rent_or_mortgage": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Rent or mortgage Rent or mortgage Rent or mortgage $ Health Health Health Health Health Health",
+          "field_name": "rent_or_mortgage_rent_or_mortgage_rent_or_mortgage",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Rent or mortgage Rent or mortgage Rent or mortgage $ Health Health Health Health Health Health Healt",
+          "field_name": "rent_or_mortgage_rent_or_mortgage_rent_or_mortgage",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "property_taxes_property": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Property taxes Property taxes Property taxes $ Health insurance premiums Health insurance premiums H",
+          "field_name": "property_taxes_property_taxes_property_taxes_healt",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Property taxes Property taxes Property taxes $ Health insurance premiums Health insurance premiums H",
+          "field_name": "property_taxes_property_taxes_property_taxes_healt",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "property_insurance_property": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Property insurance Property insurance Property insurance $ Dental expenses Dental expenses Dental ex",
+          "field_name": "property_insurance_property_insurance_property_ins",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Property insurance Property insurance Property insurance $ Dental expenses Dental expenses Dental ex",
+          "field_name": "property_insurance_property_insurance_property_ins",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "repairs_and_maintenance": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Repairs and maintenance Repairs and maintenance Repairs and maintenance $ Eye care Eye care Eye care",
+          "field_name": "repairs_and_maintenance_repairs_and_maintenance_re",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Repairs and maintenance Repairs and maintenance Repairs and maintenance $ Eye care Eye care Eye care",
+          "field_name": "repairs_and_maintenance_repairs_and_maintenance_re",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "water_clothing": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Water Water Water $ Clothing Clothing Clothing Clothing $",
+          "field_name": "water_water_water_clothing_clothing_clothing_cloth",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Water Water Water $ Clothing Clothing Clothing Clothing Clothing $",
+          "field_name": "water_water_water_clothing_clothing_clothing_cloth",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "heat_hair_care": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Heat Heat Heat $ Hair care and beauty Hair care and beauty Hair care and beauty Hair care and beauty",
+          "field_name": "heat_heat_heat_hair_care_and_beauty_hair_care_and_",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Heat Heat Heat $ Hair care and beauty Hair care and beauty Hair care and beauty Hair care and beauty",
+          "field_name": "heat_heat_heat_hair_care_and_beauty_hair_care_and_",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "electricity_alcohol_and": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Electricity Electricity Electricity $ Alcohol and tobacco Alcohol and tobacco Alcohol and tobacco Al",
+          "field_name": "electricity_electricity_electricity_alcohol_and_to",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Electricity Electricity Electricity $ Alcohol and tobacco Alcohol and tobacco Alcohol and tobacco Al",
+          "field_name": "electricity_electricity_electricity_alcohol_and_to",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "phone_number": {
+      "semantic_category": "phone_number",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "^(\\d{3}[-\\.\\s]??\\d{3}[-\\.\\s]??\\d{4}|\\(\\d{3}\\)\\s*\\d{3}[-\\.\\s]??\\d{4}|\\d{3}[-\\.\\s]??\\d{4})$",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Telephone Telephone Telephone Telephone Telephone Telephone Telephone $ $ Education (specify) Educat",
+          "field_name": "telephone_telephone_telephone_telephone_telephone_",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Telephone Telephone Telephone Telephone $ Education (specify) Education (specify) Education (specify",
+          "field_name": "telephone_telephone_telephone_telephone_education_",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "cable_gifts": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Cable Cable Cable Cable Cable Cable Cable $ $ Gifts Gifts Gifts Gifts Gifts Gifts Gifts Gifts Gifts ",
+          "field_name": "cable_cable_cable_cable_cable_cable_cable_gifts_gi",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Cable Cable Cable Cable $ Gifts Gifts Gifts Gifts Gifts Gifts $",
+          "field_name": "cable_cable_cable_cable_gifts_gifts_gifts_gifts_gi",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "internet_subtotal_subtot": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Internet Internet Internet Internet Internet Internet Internet $ $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOT",
+          "field_name": "internet_internet_internet_internet_internet_inter",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13.1",
+          "label": "SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOT",
+          "field_name": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Internet Internet Internet Internet $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $",
+          "field_name": "internet_internet_internet_internet_subtotal_subto",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "subtotal_other_expenses": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ $ Other expenses Other expenses Oth",
+          "field_name": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ Other expenses Other expenses Other expenses Other expenses Ot",
+          "field_name": "subtotal_subtotal_subtotal_subtotal_other_expenses",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "household_expenses_household": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Household Expenses Household Expenses Household Expenses Household Expenses Household Expenses House",
+          "field_name": "household_expenses_household_expenses_household_ex",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13.1",
+          "label": "Household supplies Household supplies Household supplies Household supplies Household supplies House",
+          "field_name": "household_supplies_household_supplies_household_su",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Household Expenses Household Expenses Household Expenses Household Expenses Household Expenses House",
+          "field_name": "household_expenses_household_expenses_household_ex",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "meals_outside_the": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Meals outside the home Meals outside the home Meals outside the home Meals outside the home Meals ou",
+          "field_name": "meals_outside_the_home_meals_outside_the_home_meal",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Meals outside the home Meals outside the home Meals outside the home Meals outside the home $ School",
+          "field_name": "meals_outside_the_home_meals_outside_the_home_meal",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "laundry_and_dry": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning ",
+          "field_name": "laundry_and_dry_cleaning_laundry_and_dry_cleaning_",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning Laundry and Dry Cleaning ",
+          "field_name": "laundry_and_dry_cleaning_laundry_and_dry_cleaning_",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "subtotal_summer_camp": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ $ Summer camp expenses Summer camp ",
+          "field_name": "subtotal_subtotal_subtotal_subtotal_subtotal_subto",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ Summer camp expenses Summer camp expenses Summer camp expenses",
+          "field_name": "subtotal_subtotal_subtotal_subtotal_summer_camp_ex",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "babysitting_costs_babysitting": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Babysitting costs Babysitting costs Babysitting costs Babysitting costs Babysitting costs Babysittin",
+          "field_name": "babysitting_costs_babysitting_costs_babysitting_co",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Babysitting costs Babysitting costs Babysitting costs Babysitting costs $ Other expenses not shown a",
+          "field_name": "babysitting_costs_babysitting_costs_babysitting_co",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "6_my_spouse": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "6. My spouse/partner My spouse/partner My spouse/partner earns (give amount) $ earns (give amount) $",
+          "field_name": "6_my_spouse_partner_my_spouse_partner_my_spouse_pa",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "6. My spouse/partner My spouse/partner My spouse/partner earns (give amount) $ earns (give amount) $",
+          "field_name": "6_my_spouse_partner_my_spouse_partner_my_spouse_pa",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "cars_boats_vehicles": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Cars, boats, vehicles Cars, boats, vehicles $ $ $ $ $",
+          "field_name": "cars_boats_vehicles_cars_boats_vehicles",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Cars, Boats, Vehicles Cars, Boats, Vehicles 1 $",
+          "field_name": "cars_boats_vehicles_cars_boats_vehicles_1",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Cars, Boats, Vehicles Cars, Boats, Vehicles 2 $",
+          "field_name": "cars_boats_vehicles_cars_boats_vehicles_2",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "4_total_capital": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "4. 4. 4. 4. 4. Total capital gains ($      ) less capital losses ($      ) Total capital gains ($   ",
+          "field_name": "4_4_4_4_4_total_capital_gains_less_capital_losses_",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "4. 4. Total capital gains ($      ) less capital losses ($      ) Total capital gains ($      ) less",
+          "field_name": "4_4_total_capital_gains_less_capital_losses_total_",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "5_registered_retirement": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "5. 5. 5. 5. 5. Registered retirement savings plan withdrawals Registered retirement savings plan wit",
+          "field_name": "5_5_5_5_5_registered_retirement_savings_plan_withd",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "5. 5. Registered retirement savings plan withdrawals Registered retirement savings plan withdrawals ",
+          "field_name": "5_5_registered_retirement_savings_plan_withdrawals",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "2": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "2. $ $",
+          "field_name": "2",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "2. $ $",
+          "field_name": "2",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "3": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "3. $ $",
+          "field_name": "3",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "3. $ $",
+          "field_name": "3",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "4": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "4. $ $",
+          "field_name": "4",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "4. $ $",
+          "field_name": "4",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "5": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "5. $ $",
+          "field_name": "5",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "5. $ $",
+          "field_name": "5",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "6": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "6. $ $",
+          "field_name": "6",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "6. $ $",
+          "field_name": "6",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "7": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "7. $ $",
+          "field_name": "7",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "7. $ $",
+          "field_name": "7",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "8": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "8. $ $",
+          "field_name": "8",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "8. $ $",
+          "field_name": "8",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "9": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "9. $ $",
+          "field_name": "9",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "9. $ $",
+          "field_name": "9",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "10": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "10. 10. $ $",
+          "field_name": "10_10",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "10. 10. $ $",
+          "field_name": "10_10",
+          "field_type": "currency"
+        }
+      ]
+    },
+    "total_net_annual": {
+      "semantic_category": "general",
+      "field_type": "currency",
+      "docassemble_type": "text",
+      "validation_pattern": "",
+      "usage_count": 2,
+      "forms_using": [
+        "form_13.1",
+        "form_13"
+      ],
+      "sample_variations": [
+        {
+          "form": "form_13.1",
+          "label": "Total Net Annual Amount Total Net Annual Amount Total Net Annual Amount Total Net Annual Amount Tota",
+          "field_name": "total_net_annual_amount_total_net_annual_amount_to",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13.1",
+          "label": "Total Net Monthly Amount Total Net Monthly Amount Total Net Monthly Amount Total Net Monthly Amount ",
+          "field_name": "total_net_monthly_amount_total_net_monthly_amount_",
+          "field_type": "currency"
+        },
+        {
+          "form": "form_13",
+          "label": "Total Net Annual Amount Total Net Annual Amount Total Net Annual Amount $",
+          "field_name": "total_net_annual_amount_total_net_annual_amount_to",
+          "field_type": "currency"
+        }
+      ]
+    }
+  },
+  "field_groups": {
+    "court_case_info": {
+      "description": "Court and case identification fields",
+      "field_count": 1,
+      "dependencies": [],
+      "docassemble_objects": [
+        "Court"
+      ],
+      "fields": [
+        "court_file_number"
+      ]
+    },
+    "party_information": {
+      "description": "Applicant and respondent personal information",
+      "field_count": 3,
+      "dependencies": [
+        "court_case_info"
+      ],
+      "docassemble_objects": [
+        "Individual",
+        "Address",
+        "Person"
+      ],
+      "fields": [
+        "applicant_name",
+        "address",
+        "phone_number"
+      ]
+    },
+    "child_information": {
+      "description": "Information about children involved in the case",
+      "field_count": 1,
+      "dependencies": [
+        "court_case_info",
+        "party_information"
+      ],
+      "docassemble_objects": [
+        "Individual",
+        "DAList"
+      ],
+      "fields": [
+        "child_name"
+      ]
+    },
+    "financial_information": {
+      "description": "Income, support, and financial details",
+      "field_count": 2,
+      "dependencies": [
+        "court_case_info",
+        "party_information"
+      ],
+      "docassemble_objects": [
+        "Value",
+        "Currency"
+      ],
+      "fields": [
+        "income_amount",
+        "support_amount"
+      ]
+    },
+    "dates_and_timing": {
+      "description": "Date fields used across forms",
+      "field_count": 1,
+      "dependencies": [
+        "court_case_info"
+      ],
+      "docassemble_objects": [],
+      "fields": [
+        "date_general"
+      ]
+    },
+    "general_fields": {
+      "description": "General purpose fields used across multiple forms",
+      "field_count": 47,
+      "dependencies": [
+        "court_case_info"
+      ],
+      "docassemble_objects": [],
+      "fields": [
+        "total",
+        "1",
+        "total_of_property",
+        "total_3_from",
+        "total_5_total",
+        "total_6_net",
+        "including_travel_including",
+        "a_totals_value",
+        "b_totals_value",
+        "c_totals_value",
+        "d_totals_cash",
+        "e_totals_value",
+        "g_totals_value",
+        "totals_value_of",
+        "4_employment_insurance",
+        "ei_premiums_ei",
+        "subtotal_car_loan",
+        "housing_subtotal",
+        "rent_or_mortgage",
+        "property_taxes_property",
+        "property_insurance_property",
+        "repairs_and_maintenance",
+        "water_clothing",
+        "heat_hair_care",
+        "electricity_alcohol_and",
+        "cable_gifts",
+        "internet_subtotal_subtot",
+        "subtotal_other_expenses",
+        "household_expenses_household",
+        "meals_outside_the",
+        "laundry_and_dry",
+        "subtotal_summer_camp",
+        "babysitting_costs_babysitting",
+        "6_my_spouse",
+        "cars_boats_vehicles",
+        "4_total_capital",
+        "5_registered_retirement",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "total_net_annual"
+      ]
+    }
+  }
+}

@@ -1,0 +1,199 @@
+metadata:
+  title: Ontario Family Law Form 25C - Consent Order
+  short_title: Form 25C
+  description: Docassemble interview for Ontario Family Law Form 25C
+  authors:
+  - Ontario Family Law System
+  revision_date: '2025-09-05'
+  form_number: '25C'
+  form_title: 'Consent Order'
+  field_count: 19
+  generated_from: improved_parsed_data
+  tags:
+  - ontario
+  - family law
+  - form 25C
+---
+include:
+- docassemble.base:data/questions/basic-questions.yml
+modules:
+- .ontario_common_fields
+- .ontario_party_objects
+- .ontario_validation_functions
+---
+objects:
+- 'court: Organization'
+- 'children: DAList.using(object_type=Individual, there_are_any=False)'
+---
+code: |
+  # Ontario-specific validation functions
+  def validate_ontario_postal_code(postal_code):
+      if not postal_code:
+          return True
+      postal_clean = re.sub(r'\s+', '', postal_code.upper())
+      pattern = r'^[A-Z][0-9][A-Z][0-9][A-Z][0-9]$'
+      if not re.match(pattern, postal_clean):
+          return False
+      ontario_first_letters = 'KLMNP'
+      return postal_clean[0] in ontario_first_letters
+  
+  def validate_ontario_court_file(file_number):
+      if not file_number:
+          return True
+      patterns = [
+          r'^(FS|FC|FD|FM|FE)-[0-9]{2}-[0-9]{5,6}$',
+          r'^[0-9]{2}-[0-9]{5,6}$',
+          r'^[A-Z]{2}-[0-9]{2}-[0-9]{5,6}$'
+      ]
+      file_upper = file_number.upper().strip()
+      return any(re.match(pattern, file_upper) for pattern in patterns)
+  
+  def validate_canadian_phone(phone_number):
+      if not phone_number:
+          return True
+      digits_only = re.sub(r'\D', '', phone_number)
+      if len(digits_only) == 10:
+          return True
+      elif len(digits_only) == 11 and digits_only[0] == '1':
+          return True
+      return False
+---
+mandatory: True
+code: |
+  intro_screen
+  court_information
+  form_specific_information
+  review_answers
+  signature_date
+  final_screen
+---
+question: |
+  Ontario Family Law Form 25C: Consent Order
+subquestion: |
+  This interview will help you draft the court order.
+  
+  **Important Information:**
+  
+  * Have all required documents ready
+  * Answer all questions truthfully
+  * You can save your progress and return later
+  * This form must be filed with the court
+  
+  **Note:** This is not legal advice. Consider consulting a lawyer for your specific situation.
+  
+continue button field: intro_screen
+---
+question: |
+  General Information
+fields:
+  - 'Dropdown1': dropdown1
+  - 'Court File No': courtfileno
+  - 'Text11': text11
+  - 'Field 6': field_6
+  - 'Text10': text10
+  - 'The person  to  be adopted is:': the_person_to_be_adopted_is
+  - 'The application is for a (n)   (check all boxes that apply) :': the_application_is_for_a_n_check_all_boxes_that_apply
+  - 'THIS COURT ORDERS THAT:': this_court_orders_that
+  - 'To be completed for a stepparent adoption:': to_be_completed_for_a_stepparent_adoption
+continue button field: general_information
+---
+question: |
+  Court Info
+fields:
+  - 'Court File Number': court_file_number
+  - 'Court Address': court_address
+  - 'Municipality': municipality
+  - 'Province': province
+continue button field: court_info
+---
+question: |
+  Party Info
+fields:
+  - 'Date Of Birth': date_of_birth
+    datatype: date
+  - 'Street Address': street_address
+  - 'Postal Code': postal_code
+  - 'Phone Number': phone
+  - 'Fax': fax
+continue button field: party_info
+---
+question: |
+  Children
+fields:
+  - 'Child Name': child_name
+continue button field: children
+---
+question: |
+  Signature Information
+fields:
+  - "Today's Date": signature_date
+    datatype: date
+    default: ${ today() }
+  - "Signature Location (City)": signature_city
+    default: Toronto
+  - "I understand that swearing a false affidavit is a criminal offense": oath_understood
+    datatype: yesno
+    required: True
+validation code: |
+  if not oath_understood:
+    validation_error("You must acknowledge understanding the oath")
+continue button field: signature_date
+---
+event: final_screen
+question: |
+  Form 25C Complete
+subquestion: |
+  Your Consent Order has been completed and is ready for download.
+  
+  **Next Steps:**
+  1. Review your information below
+  2. Download the completed form
+  3. Print and sign the form
+  4. File with the court
+  
+  ${{ form_download }}
+  
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
+event: review_answers
+question: |
+  Review Your Answers
+subquestion: |
+  Please review your information below. Click on any item to make changes.
+review:
+  - Edit: court.name
+    button: |
+      **Court**: ${ court.name }
+  - Edit: date_of_birth
+    button: |
+      **Date Of Birth**: ${{ date_of_birth }}
+continue button field: review_complete
+---
+attachment:
+  name: Form 25C - Consent Order
+  filename: form_25C_completed
+  variable name: form_download
+  pdf template file: form_25C_template.pdf
+  editable: False
+  fields:
+    - 'dropdown1': ${{ dropdown1 }}
+    - 'courtfileno': ${{ courtfileno }}
+    - 'text11': ${{ text11 }}
+    - 'field_6': ${{ field_6 }}
+    - 'text10': ${{ text10 }}
+    - 'court_file_number': ${{ court_file_number }}
+    - 'court_address': ${{ court_address }}
+    - 'municipality': ${{ municipality }}
+    - 'province': ${{ province }}
+    - 'date_of_birth': ${{ date_of_birth }}
+    - 'street_address': ${{ street_address }}
+    - 'postal_code': ${{ postal_code }}
+    - 'phone': ${{ phone }}
+    - 'fax': ${{ fax }}
+    - 'child_name': ${{ child_name }}
+    - 'the_person_to_be_adopted_is': ${{ the_person_to_be_adopted_is }}
+    - 'the_application_is_for_a_n_check_all_boxes_that_apply': ${{ the_application_is_for_a_n_check_all_boxes_that_apply }}
+    - 'this_court_orders_that': ${{ this_court_orders_that }}
+    - 'to_be_completed_for_a_stepparent_adoption': ${{ to_be_completed_for_a_stepparent_adoption }}

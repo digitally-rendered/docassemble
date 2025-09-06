@@ -1,0 +1,133 @@
+---
+metadata:
+  title: Ontario Family Law Form 28
+  short_title: Form 28
+  description: Complete interview for Ontario Family Law Form 28
+  form_number: 28
+  generated: 2025-09-05T16:41:13.228983
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 28
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_namecourt
+  form_specific_text1
+  form_specific_addresscourt
+  form_specific_check1
+  form_specific_field_22
+  form_specific_court_address
+  form_specific_municipality
+  form_specific_street_address
+  applicant.address.postal_code
+  form_specific_phone
+  form_specific_fax
+  form_specific_other_specify
+  form_specific_and_to_realize_from_that_sale_the_following_sums
+  form_specific_name_of_payor
+  form_specific_name_of_recipients
+  form_specific_full_legal_name_of_filing_party
+  form_specific_filing_partys_address_for_service
+  form_specific_name_address_telephone__fax_numbers_and_email_address_if_any_of_filing_partys_lawyer
+  form_specific_note_this_writ_has_no_automatic_expiry_date_it_remains_in_effect
+  
+  # Complete the interview
+  form_28_ready
+  final_screen
+---
+question: Namecourt
+fields:
+  - form_specific_namecourt: text
+---
+question: Text1
+fields:
+  - form_specific_text1: text
+---
+question: Addresscourt
+fields:
+  - form_specific_addresscourt: text
+---
+question: Check1
+yesno: form_specific_check1
+---
+question: Field 22
+yesno: form_specific_field_22
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Street Address
+fields:
+  - form_specific_street_address: text
+---
+question: Applicant Postal Code
+fields:
+  - applicant.address.postal_code: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Other Specify
+fields:
+  - form_specific_other_specify: text
+---
+question: And To Realize From That Sale The Following Sums
+fields:
+  - form_specific_and_to_realize_from_that_sale_the_following_sums: text
+---
+question: Name Of Payor
+fields:
+  - form_specific_name_of_payor: text
+---
+question: Name Of Recipients
+fields:
+  - form_specific_name_of_recipients: text
+---
+question: Full Legal Name Of Filing Party
+fields:
+  - form_specific_full_legal_name_of_filing_party: text
+---
+question: Filing Partys Address For Service
+fields:
+  - form_specific_filing_partys_address_for_service: text
+---
+question: Name Address Telephone  Fax Numbers And Email Address If Any Of Filing Partys Lawyer
+fields:
+  - form_specific_name_address_telephone__fax_numbers_and_email_address_if_any_of_filing_partys_lawyer: text
+---
+question: Note This Writ Has No Automatic Expiry Date It Remains In Effect
+fields:
+  - form_specific_note_this_writ_has_no_automatic_expiry_date_it_remains_in_effect:
+      datatype: date
+---
+event: final_screen
+question: Form 28 Complete
+subquestion: Your Ontario Family Law Form 28 has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_28_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_28_ready = True

@@ -1,0 +1,214 @@
+---
+metadata:
+  title: |
+    Form 25A: Form 25A - Specific Fields
+  short title: |
+    Form 25A Specific
+  description: |
+    Form-specific fields for Ontario Family Law Form 25A
+    To be used after common intake completion
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+  tags:
+    - family law
+    - ontario
+    - form 25A
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+# NOTE: This interview assumes common_intake_enhanced_with_validation.yml
+# has already been completed and data is available in the session
+---
+objects:
+  - form25A: DAObject
+---
+code: |
+  # Ontario-specific validation functions
+  def ontario_postal_code_validation(value):
+    '''Validate Ontario postal code (K, L, M, N, P prefixes)'''
+    import re
+    pattern = r'^[KLMNP][0-9][A-Z]\s?[0-9][A-Z][0-9]$'
+    if not re.match(pattern, str(value).upper().replace(' ', '')):
+      validation_error("Please enter a valid Ontario postal code")
+    return True
+  
+  def ontario_phone_validation(value):
+    '''Validate Ontario phone numbers'''
+    import re
+    # Remove all non-digits
+    digits = re.sub(r'\D', '', str(value))
+    # Check for 10 digits (with optional 1 prefix)
+    if len(digits) == 11 and digits[0] == '1':
+      digits = digits[1:]
+    if len(digits) != 10:
+      validation_error("Please enter a valid 10-digit phone number")
+    # Check for valid Ontario area codes
+    area_code = digits[:3]
+    ontario_codes = ['226', '249', '289', '343', '365', '416', '437', '519', '548', 
+                     '613', '647', '705', '807', '905']
+    if area_code not in ontario_codes:
+      validation_error(f"Area code {area_code} is not a valid Ontario area code")
+    return True
+  
+  def sin_validation(value):
+    '''Validate Canadian SIN'''
+    import re
+    # Remove spaces and hyphens
+    sin = re.sub(r'[\s-]', '', str(value))
+    if not re.match(r'^\d{9}$', sin):
+      validation_error("SIN must be 9 digits")
+    # Luhn algorithm check
+    check_sum = 0
+    for i in range(9):
+      digit = int(sin[i])
+      if i % 2 == 1:  # Every second digit
+        digit = digit * 2
+        if digit > 9:
+          digit = digit - 9
+      check_sum += digit
+    if check_sum % 10 != 0:
+      validation_error("Invalid SIN number")
+    return True
+---
+code: |
+  def ontario_court_locations():
+    '''List of Ontario court locations'''
+    return [
+      "Toronto (47 Sheppard Avenue East)",
+      "Toronto (311 Jarvis Street)", 
+      "Toronto (393 University Avenue)",
+      "Ottawa (161 Elgin Street)",
+      "London (80 Dundas Street)",
+      "Hamilton (55 Main Street West)",
+      "Kitchener (85 Frederick Street)",
+      "Windsor (245 Windsor Avenue)",
+      "Barrie (75 Mulcaster Street)",
+      "Kingston (5 Court Street)",
+      "Thunder Bay (125 Brodie Street North)",
+      "Sudbury (155 Elm Street)",
+      "Peterborough (470 Water Street)",
+      "Oshawa (150 Bond Street East)",
+      "Belleville (15 Victoria Avenue)",
+      "St. Catharines (59 Church Street)",
+      "Brampton (7755 Hurontario Street)",
+      "Mississauga (7755 Hurontario Street)",
+      "North Bay (360 Plouffe Street)",
+      "Timmins (220 Algonquin Boulevard East)",
+      "Sault Ste. Marie (426 Queen Street East)",
+      "Guelph (74 Woolwich Street)",
+      "Cambridge (85 Frederick Street)",
+      "Woodstock (415 Hunter Street)",
+      "Stratford (1 Huron Street)",
+      "Orangeville (10 Louisa Street)",
+      "Milton (491 Steeles Avenue East)",
+      "Newmarket (50 Eagle Street West)"
+    ]
+---
+mandatory: True
+code: |
+  # Form 25A specific flow
+  
+  # Introduction to form-specific questions
+  form25A_intro
+  form25A_additional_information_complete
+  form25A_review
+  form25A_complete
+---
+question: |
+  Form 25A: Form 25A
+subquestion: |
+  We've collected your basic information in the common intake.
+  
+  Now we need some additional information specific to Form 25A.
+  
+  % if len(['additional_information']) > 1:
+  We'll ask about:
+  % for section in ['additional_information']:
+  - ${ section.replace('_', ' ').title() }
+  % endfor
+  % endif
+continue button field: form25A_intro
+------
+question: |
+  Additional Information
+subquestion: |
+  % if 'additional_information' == 'employment_details':
+  Please provide details about employment and income sources.
+  % elif 'additional_information' == 'bank_accounts':
+  Please list all bank accounts and financial institutions.
+  % elif 'additional_information' == 'vehicles':
+  Please provide information about all vehicles owned or leased.
+  % elif 'additional_information' == 'debts_and_liabilities':
+  Please list all debts, loans, and financial obligations.
+  % else:
+  Please provide the following information for Form 25A.
+  % endif
+fields:
+  - Court office address: form25A_court_office_address
+  - Judge (print or type name): form25A_judge_print_or_type
+  - Date of order: form25A_date_of_order
+    datatype: date
+  - date: form25A_date
+    datatype: date
+  - name or names: form25A_name_or_names
+  - full legal names of spouses: form25A_full_legal_names_of
+  - place: form25A_place
+  - Add further paragraphs where the court orders other relief.: form25A_add_further_paragraphs_where
+  - Date of signature: form25A_date_of_signature
+    datatype: date
+  - Signature of judge or clerk of the court: form25A_signature_of_judge_or
+  - Save Form: form25A_save_form
+  - Print Form: form25A_print_form
+  - Clear Form: form25A_clear_form
+continue button field: form25A_additional_information_complete
+---
+event: form25A_review
+question: |
+  Review Form 25A Information
+subquestion: |
+  Please review the form-specific information you've provided.
+  
+  Click on any section to make changes.
+review:
+  - note: |
+      ### Common Information
+      *(From intake - already reviewed)*
+      
+      **Applicant:** ${ user.name.full() }
+      
+      **Respondent:** ${ opposing_party.name.full() }
+      
+      **Court:** ${ court.location if court.file_exists else "No existing file" }
+---
+event: form25A_complete
+question: |
+  Form 25A Complete
+subquestion: |
+  You have completed all required information for Form 25A (Form 25A).
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 25A specific fields (15 fields)
+  
+  **Next Steps:**
+  1. Review all information for accuracy
+  2. Generate the PDF form
+  3. Print and sign where required
+  4. File with the court
+  
+  **Filing Information:**
+  % if court.file_exists:
+  - Court: ${ court.name }
+  - Location: ${ court.location }
+  - File Number: ${ court.file_number }
+  % else:
+  - You will need to file this as a new application
+  - Court location will be determined based on your municipality
+  % endif
+  
+buttons:
+  - Generate PDF: generate_pdf
+  - Exit: exit
+  - Restart: restart

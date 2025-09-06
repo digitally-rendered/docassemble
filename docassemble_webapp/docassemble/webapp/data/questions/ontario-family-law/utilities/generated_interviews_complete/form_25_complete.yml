@@ -1,0 +1,176 @@
+---
+metadata:
+  title: Ontario Family Law Form 25
+  short_title: Form 25
+  description: Complete standalone interview for Form 25
+  form_number: 25
+  total_fields: 16
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 25
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 25 Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  dropdown1
+  courtfileno
+  text2
+  check109
+  check110
+  text5
+  court_file_number
+  court_address
+  municipality
+  street_address
+  postal_code
+  phone
+  fax
+  child_age
+  form_25
+  this_court_orders_that__specify_legislation_where_applicable
+  
+  # Generate Form 25
+  form_25_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - dropdown1:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Text2
+fields:
+  - text2: text
+---
+question: Check109
+yesno: check109
+---
+question: Check110
+yesno: check110
+---
+question: Text5
+fields:
+  - text5: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Municipality
+fields:
+  - municipality: text
+---
+question: Street Address
+fields:
+  - street_address: text
+---
+question: Postal Code
+fields:
+  - postal_code: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: Child Age
+fields:
+  - child_age:
+      datatype: integer
+---
+question: |
+  Form 25:
+fields:
+  - form_25: text
+---
+question: |
+  THIS COURT ORDERS THAT  ( specify legislation, where applicable ) :   
+fields:
+  - this_court_orders_that__specify_legislation_where_applicable: text
+---
+question: Review Form 25 Information
+subquestion: Please review all information before generating the form.
+review:
+  dropdown1:
+    button: **Dropdown1**
+  courtfileno:
+    button: **Court File No**
+  text2:
+    button: **Text2**
+  check109:
+    button: **Check109**
+  check110:
+    button: **Check110**
+  text5:
+    button: **Text5**
+  court_file_number:
+    button: **Court File Number**
+  court_address:
+    button: **Court Address**
+  municipality:
+    button: **Municipality**
+  street_address:
+    button: **Street Address**
+---
+event: final_screen
+question: Form 25 Complete
+subquestion: |
+  Your Form 25 has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 25: ${ form_25_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 25
+  filename: form_25
+  variable name: form_25_document
+  content: |
+    # Ontario Family Law Form 25
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 25 Specific Information
+    [Form fields would be inserted here]
+---
+code: form_25_ready = True

@@ -1,0 +1,70 @@
+---
+metadata:
+  title: Ontario Family Law Forms - Complete Collection
+  short_title: All Forms Index
+  description: Complete collection of 44 Ontario Family Law forms
+  generated: 2025-09-05 14:41
+---
+include:
+  - common-intake-enhanced-with-validation.yml
+---
+mandatory: True
+question: |
+  Ontario Family Law Forms
+subquestion: |
+  Select from 44 available forms.
+  Each form is a complete interview with all required fields.
+field: selected_form
+buttons:
+  - Form 10 (73 fields): form_10_complete.yml
+  - Form 13 (361 fields): form_13_complete.yml
+  - Form 13A (167 fields): form_13A_complete.yml
+  - Form 13B (12 fields): form_13B_complete.yml
+  - Form 13C (408 fields): form_13C_complete.yml
+  - Form 14B (36 fields): form_14B_complete.yml
+  - Form 14C (54 fields): form_14C_complete.yml
+  - Form 15 (165 fields): form_15_complete.yml
+  - Form 15B (121 fields): form_15B_complete.yml
+  - Form 15C (153 fields): form_15C_complete.yml
+  - Form 17A (55 fields): form_17A_complete.yml
+  - Form 17C (35 fields): form_17C_complete.yml
+  - Form 17F (55 fields): form_17F_complete.yml
+  - Form 25 (16 fields): form_25_complete.yml
+  - Form 25C (19 fields): form_25C_complete.yml
+  - Form 25F (39 fields): form_25F_complete.yml
+  - Form 26 (187 fields): form_26_complete.yml
+  - Form 27 (15 fields): form_27_complete.yml
+  - Form 28 (19 fields): form_28_complete.yml
+  - Form 29 (54 fields): form_29_complete.yml
+  - Form 29A (17 fields): form_29A_complete.yml
+  - Form 29B (20 fields): form_29B_complete.yml
+  - Form 30 (11 fields): form_30_complete.yml
+  - Form 33F (40 fields): form_33F_complete.yml
+  - Form 34 (39 fields): form_34_complete.yml
+  - Form 34A (74 fields): form_34A_complete.yml
+  - Form 34F (18 fields): form_34F_complete.yml
+  - Form 34G (25 fields): form_34G_complete.yml
+  - Form 34I (40 fields): form_34I_complete.yml
+  - Form 36 (86 fields): form_36_complete.yml
+  - Form 36A (74 fields): form_36A_complete.yml
+  - Form 37 (30 fields): form_37_complete.yml
+  - Form 37A (15 fields): form_37A_complete.yml
+  - Form 37B (27 fields): form_37B_complete.yml
+  - Form 4 (24 fields): form_4_complete.yml
+  - Form 43 (49 fields): form_43_complete.yml
+  - Form 43A (33 fields): form_43A_complete.yml
+  - Form 43B (91 fields): form_43B_complete.yml
+  - Form 6B (67 fields): form_6B_complete.yml
+  - Form 6C (89 fields): form_6C_complete.yml
+  - Form 8 (157 fields): form_8_complete.yml
+  - Form 8A (156 fields): form_8A_complete.yml
+  - Form 8B (109 fields): form_8B_complete.yml
+  - Form 8D (38 fields): form_8D_complete.yml
+  - Exit: exit
+---
+mandatory: True
+code: |
+  if selected_form == 'exit':
+    command('exit')
+  else:
+    command('restart', url=selected_form)

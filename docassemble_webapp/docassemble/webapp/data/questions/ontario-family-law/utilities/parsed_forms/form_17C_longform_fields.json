@@ -1,0 +1,96 @@
+{
+  "form_number": "17C",
+  "form_file": "workflow_output/ontario_forms/form_17c_-_settlement_conference_brief_flr-17c-sep23-en.docx",
+  "total_longform_fields": 5,
+  "categories": {
+    "other": 4,
+    "children": 1
+  },
+  "fields": [
+    {
+      "field_id": "form17C_t1_r27_c2",
+      "field_key": "form17C_other_what_are_the_issues_for_this_settlement_",
+      "prompt": "What are the issues for this settlement conference?",
+      "instructions": "",
+      "table_location": {
+        "table": 1,
+        "row": 27,
+        "cell": 2
+      },
+      "field_type": "area",
+      "required": true,
+      "min_lines": 8,
+      "max_chars": null,
+      "section": "Supporting Facts",
+      "category": "other"
+    },
+    {
+      "field_id": "form17C_t2_r4_c10",
+      "field_key": "form17C_other_yes",
+      "prompt": "Yes.",
+      "instructions": "Give details.",
+      "table_location": {
+        "table": 2,
+        "row": 4,
+        "cell": 10
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Other Claims",
+      "category": "other"
+    },
+    {
+      "field_id": "form17C_t2_r17_c3",
+      "field_key": "form17C_other_no",
+      "prompt": "No.",
+      "instructions": "Explain why the assessment is not ready.",
+      "table_location": {
+        "table": 2,
+        "row": 17,
+        "cell": 3
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Other Claims",
+      "category": "other"
+    },
+    {
+      "field_id": "form17C_t2_r19_c1",
+      "field_key": "form17C_other_are_there_issues_that_require_expert_evi",
+      "prompt": "Are there issues that require expert evidence or a report?",
+      "instructions": "",
+      "table_location": {
+        "table": 2,
+        "row": 19,
+        "cell": 1
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Other Claims",
+      "category": "other"
+    },
+    {
+      "field_id": "form17C_t4_r8_c1",
+      "field_key": "form17C_children_in_your_offer_for_child_support_give_det",
+      "prompt": "In your offer for child support, give detailed calculations for any claim for special expenses or for undue hardship.",
+      "instructions": "detailed calculations for any claim for special expenses or for undue hardship",
+      "table_location": {
+        "table": 4,
+        "row": 8,
+        "cell": 1
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Support Claims",
+      "category": "children"
+    }
+  ]
+}

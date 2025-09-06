@@ -1,0 +1,213 @@
+---
+metadata:
+  title: Ontario Family Law Form 34F
+  short_title: Form 34F
+  description: Complete interview for Form 34F
+  form_number: 34F
+  total_fields: 18
+  generated: 2025-09-05 14:41
+  tags:
+    - ontario
+    - family law
+    - form 34f
+---
+include:
+  - common-intake-enhanced-with-validation.yml
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 34F Interview Flow
+  # Common intake fields are inherited
+  
+  # Form-specific fields
+  # Form Field
+  field_0
+  courtfileno
+  text1
+  check3
+  field_22
+  # court_info
+  court_address
+  municipality
+  province
+  # party_info
+  date_of_birth
+  # children
+  child_name
+  child_birthdate
+  child_age
+  # long_form
+  details
+  # Table 1, Row 24
+  i_understand_the_nature_and_effect_of_this_consent_i_understand_that_i_may_withdraw_this_consent_in_one_or_more_of_the_following_ways
+  # Table 2, Row 1
+  form_34f
+  # Table 2, Row 22
+  and_i_swearaffirm_that_the_following_is_true
+  
+  # Generate Form 34F
+  form_34F_ready
+  final_screen
+---
+question: |
+  Field 0
+fields:
+  - field_0: dropdown
+    choices:
+      -           
+      - Superior Court of Justice
+      - Superior Court of Justice, Family Court
+      - Ontario Court of Justice
+---
+question: |
+  Court File No
+fields:
+  - courtfileno: text
+---
+question: |
+  Text1
+fields:
+  - text1: text
+---
+question: |
+  Check3
+yesno: check3
+---
+question: |
+  Field 22
+fields:
+  - field_22: text
+---
+question: |
+  Check2
+yesno: check2
+---
+question: |
+  Court Address
+fields:
+  - court_address: text
+---
+question: |
+  Municipality
+fields:
+  - municipality: text
+---
+question: |
+  Province
+fields:
+  - province: dropdown
+---
+question: |
+  Date Of Birth
+fields:
+  - date_of_birth: date
+    help: None
+---
+question: |
+  Child Name
+fields:
+  - child_name: text
+---
+question: |
+  Child Birthdate
+fields:
+  - child_birthdate: date
+    help: None
+---
+question: |
+  Child Age
+fields:
+  - child_age: number
+---
+question: |
+  Details
+fields:
+  - details: area
+    rows: 4
+---
+question: |
+  I understand the nature and effect of this consent. I understand that I may withdraw this consent  in one or more of the following ways :
+fields:
+  - i_understand_the_nature_and_effect_of_this_consent_i_understand_that_i_may_withdraw_this_consent_in_one_or_more_of_the_following_ways: text
+---
+question: |
+  Form 34F: 
+fields:
+  - form_34f: text
+---
+question: |
+  and I swear/affirm that the following is true:
+fields:
+  - and_i_swearaffirm_that_the_following_is_true: text
+---
+question: |
+  Review Form 34F Information
+subquestion: |
+  Please review all information before generating the form.
+review:
+  - field_0:
+      button: |
+        **Form Field**
+  - court_file_number:
+      button: |
+        **court_info**
+  - date_of_birth:
+      button: |
+        **party_info**
+  - child_name:
+      button: |
+        **children**
+  - details:
+      button: |
+        **long_form**
+  - i_understand_the_nature_and_effect_of_this_consent_i_understand_that_i_may_withdraw_this_consent_in_one_or_more_of_the_following_ways:
+      button: |
+        **Table 1, Row 24**
+  - form_34f:
+      button: |
+        **Table 2, Row 1**
+  - and_i_swearaffirm_that_the_following_is_true:
+      button: |
+        **Table 2, Row 22**
+---
+event: final_screen
+question: |
+  Form 34F Complete
+subquestion: |
+  Your Form 34F has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 34F: ${ form_34F_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 34F
+  filename: form_34F
+  variable name: form_34F_document
+  content: |
+    # Ontario Family Law Form 34F
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 34F Specific Information
+    [Form fields would be inserted here]
+---
+code: |
+  form_34F_ready = True

@@ -1,0 +1,18 @@
+---
+metadata:
+  title: Form 8 Minimal Test
+---
+mandatory: True
+code: |
+  test_field
+  final_screen
+---
+question: Test Question
+fields:
+  - test_field: text
+---
+event: final_screen
+question: Test Complete
+subquestion: This is a minimal test.
+buttons:
+  - Start Over: restart

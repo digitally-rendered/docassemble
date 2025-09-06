@@ -1,0 +1,229 @@
+{
+  "form_path": "workflow_output/ontario_forms/form_29b_-_notice_garnishment_periodic_flr-29b-apr16-en-fil.docx",
+  "total_fields": 20,
+  "field_types": {
+    "text": 20
+  },
+  "fields": [
+    {
+      "id": "t0_r1_c0",
+      "key": "ontario",
+      "label": "ONTARIO",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r1_c0:T0:R1:C0",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r1_c1",
+      "key": "seal",
+      "label": "[SEAL]",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r1_c1:T0:R1:C1",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r1_c2",
+      "key": "seal",
+      "label": "[SEAL]",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r1_c2:T0:R1:C2",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r1_c3",
+      "key": "seal",
+      "label": "[SEAL]",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r1_c3:T0:R1:C3",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r1_c4",
+      "key": "seal",
+      "label": "[SEAL]",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r1_c4:T0:R1:C4",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r2_c0",
+      "key": "ontario",
+      "label": "ONTARIO",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r2_c0:T0:R2:C0",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r2_c1",
+      "key": "seal",
+      "label": "[SEAL]",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r2_c1:T0:R2:C1",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r2_c2",
+      "key": "seal",
+      "label": "[SEAL]",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r2_c2:T0:R2:C2",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r2_c3",
+      "key": "seal",
+      "label": "[SEAL]",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r2_c3:T0:R2:C3",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r2_c4",
+      "key": "seal",
+      "label": "[SEAL]",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r2_c4:T0:R2:C4",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r3_c0",
+      "key": "ontario",
+      "label": "ONTARIO",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r3_c0:T0:R3:C0",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r3_c1",
+      "key": "seal",
+      "label": "[SEAL]",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r3_c1:T0:R3:C1",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r3_c2",
+      "key": "seal",
+      "label": "[SEAL]",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r3_c2:T0:R3:C2",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r3_c3",
+      "key": "seal",
+      "label": "[SEAL]",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r3_c3:T0:R3:C3",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r3_c4",
+      "key": "seal",
+      "label": "[SEAL]",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r3_c4:T0:R3:C4",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r4_c0",
+      "key": "ontario",
+      "label": "ONTARIO",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r4_c0:T0:R4:C0",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r4_c1",
+      "key": "seal",
+      "label": "[SEAL]",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r4_c1:T0:R4:C1",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r4_c2",
+      "key": "seal",
+      "label": "[SEAL]",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r4_c2:T0:R4:C2",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r4_c3",
+      "key": "seal",
+      "label": "[SEAL]",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r4_c3:T0:R4:C3",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    },
+    {
+      "id": "t0_r4_c4",
+      "key": "seal",
+      "label": "[SEAL]",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r4_c4:T0:R4:C4",
+      "required": false,
+      "section": "",
+      "context": "[SEAL]"
+    }
+  ]
+}

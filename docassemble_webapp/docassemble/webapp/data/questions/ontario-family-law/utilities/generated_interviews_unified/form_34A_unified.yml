@@ -1,0 +1,358 @@
+---
+metadata:
+  title: Ontario Family Law Form 34A
+  short_title: Form 34A
+  description: Complete interview for Ontario Family Law Form 34A
+  form_number: 34A
+  generated: 2025-09-05T16:41:13.230418
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 34A
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_dropdown1
+  form_specific_courtfilenumber
+  form_specific_field_2
+  form_specific_field_3
+  form_specific_field_4
+  form_specific_field_5
+  form_specific_field_6
+  form_specific_field_7
+  form_specific_field_8
+  form_specific_field_9
+  form_specific_field_10
+  form_specific_field_11
+  form_specific_field_12
+  form_specific_field_13
+  form_specific_field_14
+  form_specific_field_15
+  form_specific_field_16
+  form_specific_field_17
+  form_specific_field_18
+  form_specific_field_19
+  # ... and 54 more fields
+  
+  # Complete the interview
+  form_34A_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - form_specific_dropdown1: text
+---
+question: Courtfilenumber
+fields:
+  - form_specific_courtfilenumber: text
+---
+question: Field 2
+fields:
+  - form_specific_field_2: text
+---
+question: Field 3
+fields:
+  - form_specific_field_3: text
+---
+question: Field 4
+fields:
+  - form_specific_field_4: text
+---
+question: Field 5
+fields:
+  - form_specific_field_5: text
+---
+question: Field 6
+fields:
+  - form_specific_field_6: text
+---
+question: Field 7
+fields:
+  - form_specific_field_7: text
+---
+question: Field 8
+fields:
+  - form_specific_field_8: text
+---
+question: Field 9
+fields:
+  - form_specific_field_9: text
+---
+question: Field 10
+fields:
+  - form_specific_field_10: text
+---
+question: Field 11
+fields:
+  - form_specific_field_11: text
+---
+question: Field 12
+fields:
+  - form_specific_field_12: text
+---
+question: Field 13
+fields:
+  - form_specific_field_13: text
+---
+question: Field 14
+fields:
+  - form_specific_field_14: text
+---
+question: Field 15
+fields:
+  - form_specific_field_15: text
+---
+question: Field 16
+fields:
+  - form_specific_field_16: text
+---
+question: Field 17
+fields:
+  - form_specific_field_17: text
+---
+question: Field 18
+fields:
+  - form_specific_field_18: text
+---
+question: Field 19
+fields:
+  - form_specific_field_19: text
+---
+question: Check2
+yesno: form_specific_check2
+---
+question: Field 21
+fields:
+  - form_specific_field_21: text
+---
+question: Field 23
+fields:
+  - form_specific_field_23: text
+---
+question: Field 25
+fields:
+  - form_specific_field_25: text
+---
+question: Field 26
+fields:
+  - form_specific_field_26: text
+---
+question: Field 30
+fields:
+  - form_specific_field_30: text
+---
+question: Field 33
+fields:
+  - form_specific_field_33: text
+---
+question: Field 34
+fields:
+  - form_specific_field_34: text
+---
+question: Field 37
+fields:
+  - form_specific_field_37: text
+---
+question: Field 39
+fields:
+  - form_specific_field_39: text
+---
+question: Field 40
+fields:
+  - form_specific_field_40: text
+---
+question: Field 44
+fields:
+  - form_specific_field_44: text
+---
+question: Field 47
+fields:
+  - form_specific_field_47: text
+---
+question: Field 48
+fields:
+  - form_specific_field_48: text
+---
+question: Field 51
+fields:
+  - form_specific_field_51: text
+---
+question: Field 54
+fields:
+  - form_specific_field_54: text
+---
+question: Field 57
+fields:
+  - form_specific_field_57: text
+---
+question: Field 60
+fields:
+  - form_specific_field_60: text
+---
+question: Check3
+yesno: form_specific_check3
+---
+question: Field 63
+fields:
+  - form_specific_field_63: text
+---
+question: Field 64
+fields:
+  - form_specific_field_64: text
+---
+question: Field 65
+fields:
+  - form_specific_field_65: text
+---
+question: Field 67
+fields:
+  - form_specific_field_67: text
+---
+question: Field 68
+fields:
+  - form_specific_field_68: text
+---
+question: Field 69
+fields:
+  - form_specific_field_69: text
+---
+question: Field 70
+fields:
+  - form_specific_field_70: text
+---
+question: Field 73
+fields:
+  - form_specific_field_73: text
+---
+question: Field 74
+fields:
+  - form_specific_field_74: text
+---
+question: Field 75
+fields:
+  - form_specific_field_75: text
+---
+question: Field 77
+fields:
+  - form_specific_field_77: text
+---
+question: Field 78
+fields:
+  - form_specific_field_78: text
+---
+question: Field 79
+fields:
+  - form_specific_field_79: text
+---
+question: Field 80
+fields:
+  - form_specific_field_80: text
+---
+question: Field 83
+fields:
+  - form_specific_field_83: text
+---
+question: Field 84
+fields:
+  - form_specific_field_84: text
+---
+question: Field 85
+fields:
+  - form_specific_field_85: text
+---
+question: Field 86
+fields:
+  - form_specific_field_86: text
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Province
+fields:
+  - form_specific_province: text
+---
+question: Date Of Birth
+fields:
+  - form_specific_date_of_birth:
+      datatype: date
+---
+question: Street Address
+fields:
+  - form_specific_street_address: text
+---
+question: Applicant Postal Code
+fields:
+  - applicant.address.postal_code: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Name Before Marriage
+fields:
+  - form_specific_name_before_marriage: text
+---
+question: Child Full Legal Name
+fields:
+  - children[i].name.full: text
+---
+question: Child Birth Date
+fields:
+  - children[i].birthdate:
+      datatype: date
+---
+question: Child Current Age
+fields:
+  - children[i].age:
+      datatype: integer
+---
+question: And I Swearaffirm That The Following Is True
+fields:
+  - form_specific_and_i_swearaffirm_that_the_following_is_true: text
+---
+question: Under The Following Names
+fields:
+  - form_specific_under_the_following_names: text
+---
+question: The Review Mentioned In Paragraph 5 Included An Examination Of The Following Checklist
+fields:
+  - form_specific_the_review_mentioned_in_paragraph_5_included_an_examination_of_the_following_checklist: text
+---
+question: Form 34A
+fields:
+  - form_specific_form_34a: text
+---
+event: final_screen
+question: Form 34A Complete
+subquestion: Your Ontario Family Law Form 34A has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_34A_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_34A_ready = True

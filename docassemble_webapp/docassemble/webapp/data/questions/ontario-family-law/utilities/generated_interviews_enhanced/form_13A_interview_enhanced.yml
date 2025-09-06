@@ -1,0 +1,286 @@
+metadata:
+  title: Ontario Family Law Form 13A
+  short_title: Form 13A
+  description: Docassemble interview for Ontario Family Law Form 13A
+  authors:
+  - Ontario Family Law System
+  revision_date: '2025-09-05'
+  form_number: 13A
+  field_count: 167
+  generated_from: improved_parsed_data
+  tags:
+  - ontario
+  - family law
+  - form 13A
+---
+include:
+- docassemble.base:data/questions/basic-questions.yml
+modules:
+- .ontario_common_fields
+- .ontario_party_objects
+- .ontario_financial_objects
+- .ontario_validation_functions
+---
+objects:
+- 'applicant: Individual'
+- 'respondent: Individual'
+- 'court: Organization'
+- 'children: DAList.using(object_type=Individual, there_are_any=False)'
+objects from code:
+- 'applicant.lawyer: Individual if applicant.has_lawyer else None'
+- 'respondent.lawyer: Individual if respondent.has_lawyer else None'
+---
+code: "\n# Ontario-specific validation functions\ndef validate_ontario_postal_code(postal_code):\n\
+  \    if not postal_code:\n        return True\n    postal_clean = re.sub(r'\\s+',\
+  \ '', postal_code.upper())\n    pattern = r'^[A-Z][0-9][A-Z][0-9][A-Z][0-9]$'\n\
+  \    if not re.match(pattern, postal_clean):\n        return False\n    ontario_first_letters\
+  \ = 'KLMNP'\n    return postal_clean[0] in ontario_first_letters\n\ndef validate_ontario_court_file(file_number):\n\
+  \    if not file_number:\n        return True\n    patterns = [\n        r'^(FS|FC|FD|FM|FE)-[0-9]{2}-[0-9]{5,6}$',\n\
+  \        r'^[0-9]{2}-[0-9]{5,6}$',\n        r'^[A-Z]{2}-[0-9]{2}-[0-9]{5,6}$'\n\
+  \    ]\n    file_upper = file_number.upper().strip()\n    return any(re.match(pattern,\
+  \ file_upper) for pattern in patterns)\n\ndef validate_canadian_phone(phone_number):\n\
+  \    if not phone_number:\n        return True\n    digits_only = re.sub(r'\\D',\
+  \ '', phone_number)\n    if len(digits_only) == 10:\n        return True\n    elif\
+  \ len(digits_only) == 11 and digits_only[0] == '1':\n        return True\n    return\
+  \ False\n"
+---
+mandatory: true
+question: Form 13A Interview Complete
+subquestion: '
+
+  Your form has been completed and is ready for download.
+
+
+  **Next Steps:**
+
+  1. Review your information below
+
+  2. Download the completed form
+
+  3. Print and sign the form
+
+  4. File with the court
+
+
+  ${ form_download }
+
+  '
+buttons:
+- Exit: exit
+- Restart: restart
+---
+question: Court Information
+fields:
+- Court File No: courtfileno
+- Court Address: court_address
+---
+question: Party Information
+fields:
+- Email Address: form13A_email
+  datatype: email
+- Name Before Marriage: form13A_name_before_marriage
+- 'Full legal name:': form13A_full_legal_name
+- 'Address:': form13A_address
+---
+question: Claims and Relief Sought
+fields:
+- Claim Property: form13A_claim_property
+  datatype: yesno
+- ? 'if your case includes support with or without special expenses but does not include
+    a claim under Part I of the Family Law Act (Family Property), you must:'
+  : form13A_if_your_case_includes_support_with_or_without_special_expenses_but_does_not_include_a_claim_under_part_i_of_the_family_law_act_family_property_you_must
+- ? 'if your case includes a claim under Part I of the  Family Law Act  (Family Property)
+    with or without a claim for support, you must:'
+  : form13A_if_your_case_includes_a_claim_under_part_i_of_the_family_law_act_family_property_with_or_without_a_claim_for_support_you_must
+---
+question: Additional Information
+fields:
+- Field 0: form13A_field_0
+  datatype: radio
+  choices:
+  - '          '
+  - Ontario Court of Justice
+  - Superior Court of Justice
+  - Superior Court of Justice, Family Court
+- Text1: form13A_text1
+- Field 3: form13A_field_3
+- Field 11: form13A_field_11
+- Check1: form13A_check1
+  datatype: yesno
+- Check2: form13A_check2
+  datatype: yesno
+- Field 21: form13A_field_21
+- Field 25: form13A_field_25
+- Field 29: form13A_field_29
+- Field 33: form13A_field_33
+- Field 37: form13A_field_37
+- Field 41: form13A_field_41
+- Field 45: form13A_field_45
+- Field 49: form13A_field_49
+- Field 53: form13A_field_53
+- Field 57: form13A_field_57
+- Field 61: form13A_field_61
+- Field 65: form13A_field_65
+- Field 69: form13A_field_69
+- Field 73: form13A_field_73
+- Field 77: form13A_field_77
+- Field 81: form13A_field_81
+- Field 85: form13A_field_85
+- Field 89: form13A_field_89
+- Field 93: form13A_field_93
+- Field 97: form13A_field_97
+- Field 101: form13A_field_101
+- Field 105: form13A_field_105
+- Field 109: form13A_field_109
+- Field 113: form13A_field_113
+- Field 117: form13A_field_117
+- Field 121: form13A_field_121
+- Field 125: form13A_field_125
+- Field 129: form13A_field_129
+- Field 133: form13A_field_133
+- Field 137: form13A_field_137
+- Field 141: form13A_field_141
+- Field 145: form13A_field_145
+- Field 149: form13A_field_149
+- Field 153: form13A_field_153
+- Field 157: form13A_field_157
+- Field 161: form13A_field_161
+- Field 165: form13A_field_165
+- Field 169: form13A_field_169
+- Field 173: form13A_field_173
+- Field 177: form13A_field_177
+- Field 181: form13A_field_181
+- Field 185: form13A_field_185
+- Field 189: form13A_field_189
+- Field 193: form13A_field_193
+- Field 197: form13A_field_197
+- Field 201: form13A_field_201
+- Field 205: form13A_field_205
+- Field 209: form13A_field_209
+- Field 213: form13A_field_213
+- Field 217: form13A_field_217
+- Field 221: form13A_field_221
+- Field 225: form13A_field_225
+- Field 229: form13A_field_229
+- Field 233: form13A_field_233
+- Field 237: form13A_field_237
+- Field 241: form13A_field_241
+- Field 245: form13A_field_245
+- Field 249: form13A_field_249
+- Field 253: form13A_field_253
+- Field 257: form13A_field_257
+- Field 261: form13A_field_261
+- Field 265: form13A_field_265
+- Field 269: form13A_field_269
+- Field 273: form13A_field_273
+- Field 277: form13A_field_277
+- Field 281: form13A_field_281
+- Field 285: form13A_field_285
+- Field 289: form13A_field_289
+- Field 293: form13A_field_293
+- Field 297: form13A_field_297
+- Field 301: form13A_field_301
+- Field 305: form13A_field_305
+- Field 309: form13A_field_309
+- Field 313: form13A_field_313
+- Field 317: form13A_field_317
+- Field 321: form13A_field_321
+- Field 325: form13A_field_325
+- Field 329: form13A_field_329
+- Field 333: form13A_field_333
+- Field 337: form13A_field_337
+- Field 341: form13A_field_341
+- Field 345: form13A_field_345
+- Field 349: form13A_field_349
+- Field 353: form13A_field_353
+- Field 357: form13A_field_357
+- Field 361: form13A_field_361
+- Field 365: form13A_field_365
+- Field 369: form13A_field_369
+- Field 373: form13A_field_373
+- Field 377: form13A_field_377
+- Field 381: form13A_field_381
+- Field 385: form13A_field_385
+- Field 389: form13A_field_389
+- Field 393: form13A_field_393
+- Field 397: form13A_field_397
+- Field 401: form13A_field_401
+- Field 405: form13A_field_405
+- Field 409: form13A_field_409
+- Field 413: form13A_field_413
+- Field 417: form13A_field_417
+- Field 421: form13A_field_421
+- Field 425: form13A_field_425
+- Field 429: form13A_field_429
+- Field 433: form13A_field_433
+- Field 437: form13A_field_437
+- Field 441: form13A_field_441
+- Field 445: form13A_field_445
+- Field 449: form13A_field_449
+- Field 453: form13A_field_453
+- Field 457: form13A_field_457
+- Field 461: form13A_field_461
+- Field 465: form13A_field_465
+- Field 469: form13A_field_469
+- Field 473: form13A_field_473
+- Field 477: form13A_field_477
+- Field 481: form13A_field_481
+- Field 485: form13A_field_485
+- Field 489: form13A_field_489
+- Field 493: form13A_field_493
+- Field 497: form13A_field_497
+- Field 501: form13A_field_501
+- Field 505: form13A_field_505
+- Field 509: form13A_field_509
+- Field 513: form13A_field_513
+- Field 517: form13A_field_517
+- Field 521: form13A_field_521
+- Field 525: form13A_field_525
+- Field 529: form13A_field_529
+- Field 533: form13A_field_533
+- Field 537: form13A_field_537
+- Field 541: form13A_field_541
+- Field 545: form13A_field_545
+- Field 549: form13A_field_549
+- Field 553: form13A_field_553
+- Field 557: form13A_field_557
+- Field 561: form13A_field_561
+- Field 565: form13A_field_565
+- Field 569: form13A_field_569
+- Field 573: form13A_field_573
+- Field 577: form13A_field_577
+- Field 581: form13A_field_581
+- Field 585: form13A_field_585
+- Field 589: form13A_field_589
+- Field 593: form13A_field_593
+- Field 597: form13A_field_597
+- Phone Number: form13A_phone
+- Fax: form13A_fax
+- Financial Statement Attached: form13A_financial_statement_attached
+  datatype: yesno
+- 'Phone & fax:': form13A_phone_fax
+- 'This form is filed by:': form13A_this_form_is_filed_by
+- 'Form 13A :': form13A_form_13a
+---
+review:
+  question: Review Form 13A
+  subquestion: Please review your information before submitting.
+  review:
+  - label: Court Information
+    fields:
+    - court.court_type
+    - court.file_number
+  - label: Applicant
+    fields:
+    - applicant.name.full()
+    - applicant.address.block()
+  - label: Respondent
+    fields:
+    - respondent.name.full()
+    - respondent.address.block()
+---
+attachment:
+  name: Form 13A
+  filename: form_13A_completed
+  variable_name: form_download
+  content: '[Your completed Form 13A content will be generated here]'

@@ -1,0 +1,336 @@
+---
+metadata:
+  title: Ontario Family Law Form 14C
+  short_title: Form 14C
+  description: Complete standalone interview for Form 14C
+  form_number: 14C
+  total_fields: 54
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 14c
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 14C Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  dropdown1
+  courtfileno
+  field_2
+  field_3
+  field_4
+  field_5
+  field_6
+  field_7
+  field_8
+  check2
+  field_10
+  check3
+  field_14
+  field_17
+  field_18
+  field_19
+  dropdown2
+  check10
+  check11
+  field_23
+  # ... and 34 more fields
+  
+  # Generate Form 14C
+  form_14C_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - dropdown1:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Field 2
+fields:
+  - field_2: text
+---
+question: Field 3
+fields:
+  - field_3: text
+---
+question: Field 4
+fields:
+  - field_4: text
+---
+question: Field 5
+fields:
+  - field_5: text
+---
+question: Field 6
+fields:
+  - field_6: text
+---
+question: Field 7
+fields:
+  - field_7: text
+---
+question: Field 8
+fields:
+  - field_8: text
+---
+question: Check2
+yesno: check2
+---
+question: Field 10
+fields:
+  - field_10: text
+---
+question: Check3
+yesno: check3
+---
+question: Field 14
+fields:
+  - field_14: text
+---
+question: Field 17
+fields:
+  - field_17: text
+---
+question: Field 18
+fields:
+  - field_18: text
+---
+question: Field 19
+fields:
+  - field_19: text
+---
+question: Dropdown2
+fields:
+  - dropdown2:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Check10
+yesno: check10
+---
+question: Check11
+yesno: check11
+---
+question: Field 23
+fields:
+  - field_23: text
+---
+question: Field 25
+fields:
+  - field_25: text
+---
+question: Check15
+yesno: check15
+---
+question: Check13
+yesno: check13
+---
+question: Field 29
+fields:
+  - field_29: text
+---
+question: Field 30
+fields:
+  - field_30: text
+---
+question: Field 31
+fields:
+  - field_31: text
+---
+question: Field 33
+fields:
+  - field_33: text
+---
+question: Field 34
+fields:
+  - field_34: text
+---
+question: Field 35
+fields:
+  - field_35: text
+---
+question: Text21
+fields:
+  - text21: text
+---
+question: Field 37
+fields:
+  - field_37: text
+---
+question: Field 38
+fields:
+  - field_38: text
+---
+question: Field 39
+fields:
+  - field_39: text
+---
+question: Field 40
+fields:
+  - field_40: text
+---
+question: Field 41
+fields:
+  - field_41: text
+---
+question: Field 43
+fields:
+  - field_43: text
+---
+question: Field 45
+fields:
+  - field_45: text
+---
+question: Field 46
+fields:
+  - field_46: text
+---
+question: Field 47
+fields:
+  - field_47: text
+---
+question: Text5
+fields:
+  - text5: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Municipality
+fields:
+  - municipality: text
+---
+question: Street Address
+fields:
+  - street_address: text
+---
+question: Postal Code
+fields:
+  - postal_code: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: Child Name
+fields:
+  - child_name: text
+---
+question: Child Age
+fields:
+  - child_age:
+      datatype: integer
+---
+question: Other Specify
+fields:
+  - other_specify: text
+---
+question: |
+  Form 14C:
+fields:
+  - form_14c: text
+---
+question: |
+  The presiding judge will be referred to the following pages/tabs:
+fields:
+  - the_presiding_judge_will_be_referred_to_the_following_pagestabs: text
+---
+question: |
+  Time estimate:  applicant:
+fields:
+  - time_estimate_applicant: text
+---
+question: |
+  minutes; respondent:
+fields:
+  - minutes_respondent: text
+---
+question: Review Form 14C Information
+subquestion: Please review all information before generating the form.
+review:
+  dropdown1:
+    button: **Dropdown1**
+  courtfileno:
+    button: **Court File No**
+  field_2:
+    button: **Field 2**
+  field_3:
+    button: **Field 3**
+  field_4:
+    button: **Field 4**
+  field_5:
+    button: **Field 5**
+  field_6:
+    button: **Field 6**
+  field_7:
+    button: **Field 7**
+  field_8:
+    button: **Field 8**
+  check2:
+    button: **Check2**
+---
+event: final_screen
+question: Form 14C Complete
+subquestion: |
+  Your Form 14C has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 14C: ${ form_14C_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 14C
+  filename: form_14C
+  variable name: form_14C_document
+  content: |
+    # Ontario Family Law Form 14C
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 14C Specific Information
+    [Form fields would be inserted here]
+---
+code: form_14C_ready = True

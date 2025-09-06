@@ -1,0 +1,272 @@
+---
+metadata:
+  title: Ontario Family Law Form 14C
+  short_title: Form 14C
+  description: Complete interview for Ontario Family Law Form 14C
+  form_number: 14C
+  generated: 2025-09-05T16:41:13.216695
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 14C
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_dropdown1
+  form_specific_courtfileno
+  form_specific_field_2
+  form_specific_field_3
+  form_specific_field_4
+  form_specific_field_5
+  form_specific_field_6
+  form_specific_field_7
+  form_specific_field_8
+  form_specific_check2
+  form_specific_field_10
+  form_specific_check3
+  form_specific_field_14
+  form_specific_field_17
+  form_specific_field_18
+  form_specific_field_19
+  form_specific_dropdown2
+  form_specific_check10
+  form_specific_check11
+  form_specific_field_23
+  # ... and 34 more fields
+  
+  # Complete the interview
+  form_14C_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - form_specific_dropdown1: text
+---
+question: Courtfileno
+fields:
+  - form_specific_courtfileno: text
+---
+question: Field 2
+fields:
+  - form_specific_field_2: text
+---
+question: Field 3
+fields:
+  - form_specific_field_3: text
+---
+question: Field 4
+fields:
+  - form_specific_field_4: text
+---
+question: Field 5
+fields:
+  - form_specific_field_5: text
+---
+question: Field 6
+fields:
+  - form_specific_field_6: text
+---
+question: Field 7
+fields:
+  - form_specific_field_7: text
+---
+question: Field 8
+fields:
+  - form_specific_field_8: text
+---
+question: Check2
+yesno: form_specific_check2
+---
+question: Field 10
+fields:
+  - form_specific_field_10: text
+---
+question: Check3
+yesno: form_specific_check3
+---
+question: Field 14
+fields:
+  - form_specific_field_14: text
+---
+question: Field 17
+fields:
+  - form_specific_field_17: text
+---
+question: Field 18
+fields:
+  - form_specific_field_18: text
+---
+question: Field 19
+fields:
+  - form_specific_field_19: text
+---
+question: Dropdown2
+fields:
+  - form_specific_dropdown2: text
+---
+question: Check10
+yesno: form_specific_check10
+---
+question: Check11
+yesno: form_specific_check11
+---
+question: Field 23
+fields:
+  - form_specific_field_23: text
+---
+question: Field 25
+fields:
+  - form_specific_field_25: text
+---
+question: Check15
+yesno: form_specific_check15
+---
+question: Check13
+yesno: form_specific_check13
+---
+question: Field 29
+fields:
+  - form_specific_field_29: text
+---
+question: Field 30
+fields:
+  - form_specific_field_30: text
+---
+question: Field 31
+fields:
+  - form_specific_field_31: text
+---
+question: Field 33
+fields:
+  - form_specific_field_33: text
+---
+question: Field 34
+fields:
+  - form_specific_field_34: text
+---
+question: Field 35
+fields:
+  - form_specific_field_35: text
+---
+question: Text21
+fields:
+  - form_specific_text21: text
+---
+question: Field 37
+fields:
+  - form_specific_field_37: text
+---
+question: Field 38
+fields:
+  - form_specific_field_38: text
+---
+question: Field 39
+fields:
+  - form_specific_field_39: text
+---
+question: Field 40
+fields:
+  - form_specific_field_40: text
+---
+question: Field 41
+fields:
+  - form_specific_field_41: text
+---
+question: Field 43
+fields:
+  - form_specific_field_43: text
+---
+question: Field 45
+fields:
+  - form_specific_field_45: text
+---
+question: Field 46
+fields:
+  - form_specific_field_46: text
+---
+question: Field 47
+fields:
+  - form_specific_field_47: text
+---
+question: Text5
+fields:
+  - form_specific_text5: text
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Street Address
+fields:
+  - form_specific_street_address: text
+---
+question: Applicant Postal Code
+fields:
+  - applicant.address.postal_code: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Child Full Legal Name
+fields:
+  - children[i].name.full: text
+---
+question: Child Current Age
+fields:
+  - children[i].age:
+      datatype: integer
+---
+question: Other Specify
+fields:
+  - form_specific_other_specify: text
+---
+question: Form 14C
+fields:
+  - form_specific_form_14c: text
+---
+question: The Presiding Judge Will Be Referred To The Following Pagestabs
+fields:
+  - form_specific_the_presiding_judge_will_be_referred_to_the_following_pagestabs: text
+---
+question: Time Estimate Applicant
+fields:
+  - form_specific_time_estimate_applicant: text
+---
+question: Minutes Respondent
+fields:
+  - form_specific_minutes_respondent: text
+---
+event: final_screen
+question: Form 14C Complete
+subquestion: Your Ontario Family Law Form 14C has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_14C_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_14C_ready = True

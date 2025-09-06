@@ -1,0 +1,87 @@
+---
+metadata:
+  title: |
+    Form 28: Form 28
+  short title: |
+    Form 28
+  description: |
+    Form-specific questions for Ontario Family Law Form 28
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form28_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 28 specific sections
+  form28_additional_information_complete
+  form28_review
+  form28_complete
+---
+question: |
+  Form 28 - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 28.
+fields:
+  - Insert amount to be realized from paragraph 4(b) of the request for a writ of seizure and sale. Ins: form28_insert_amount_to_be_realized_f
+    datatype: date
+  - Priority for support payments: form28_priority_for_support_payments
+    datatype: currency
+  - Assignment of costs to Legal Aid Ontario: form28_assignment_of_costs_to_legal_a
+    datatype: currency
+  - Fine, bond or recognizance Fine, bond or recognizance Fine, bond or recognizance This Writ enforces: form28_fine_bond_or_recognizance_fine
+    datatype: currency
+  - $: form28_
+    datatype: currency
+  - $ (Name of court) (Name of court) (Name of court) (Name of court) (Name of court) (Name of court): form28__name_of_court_name_of_court_n
+    datatype: currency
+  - $ at at at Name, address, telephone & fax numbers and e-mail address (if any) of filing party’s lawy: form28__at_at_at_name_address_telepho
+    datatype: currency
+  - $ Court office address Court office address Court office address Court office address Court office a: form28__court_office_address_court_of
+    datatype: currency
+  - $ Writ of Seizure and Sale Writ of Seizure and Sale: form28__writ_of_seizure_and_sale_writ
+    datatype: currency
+  - $ NOTE: form28__note
+    datatype: date
+  - $ (a) until it is withdrawn by or on behalf of the party who filed it; or (a) until it is withdraw: form28__a_until_it_is_withdrawn_by_or
+    datatype: currency
+  - $ (b) until it is set aside or suspended by order of a court in Ontario. (b) until it is set aside: form28__b_until_it_is_set_aside_or_su
+    datatype: currency
+continue button field: form28_additional_information_complete
+---
+event: form28_review
+question: |
+  Review Form 28 Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form28_complete
+question: |
+  Form 28 Complete
+subquestion: |
+  Your Form 28 (Form 28) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 28 specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

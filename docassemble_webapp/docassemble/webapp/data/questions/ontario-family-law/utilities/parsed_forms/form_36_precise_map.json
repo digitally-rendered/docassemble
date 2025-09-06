@@ -1,0 +1,383 @@
+{
+  "form_path": "workflow_output/ontario_forms/form_36_-_affidavit_for_divorce_flr-36-apr24-en-fil.docx",
+  "total_fields": 34,
+  "field_types": {
+    "text": 34
+  },
+  "fields": [
+    {
+      "id": "t1_r30_c3",
+      "key": "note",
+      "label": "(NOTE",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t1_r30_c3:T1:R30:C3",
+      "required": false,
+      "section": "",
+      "context": "(NOTE: - Where the dollar amounts in clauses [c] and [d] are different, you must fill out the frame "
+    },
+    {
+      "id": "t1_r30_c4",
+      "key": "note",
+      "label": "(NOTE",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t1_r30_c4:T1:R30:C4",
+      "required": false,
+      "section": "",
+      "context": "(NOTE: - Where the dollar amounts in clauses [c] and [d] are different, you must fill out the frame "
+    },
+    {
+      "id": "t1_r30_c5",
+      "key": "note",
+      "label": "(NOTE",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t1_r30_c5:T1:R30:C5",
+      "required": false,
+      "section": "",
+      "context": "(NOTE: - Where the dollar amounts in clauses [c] and [d] are different, you must fill out the frame "
+    },
+    {
+      "id": "t1_r30_c6",
+      "key": "note",
+      "label": "(NOTE",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t1_r30_c6:T1:R30:C6",
+      "required": false,
+      "section": "",
+      "context": "(NOTE: - Where the dollar amounts in clauses [c] and [d] are different, you must fill out the frame "
+    },
+    {
+      "id": "t1_r30_c7",
+      "key": "note",
+      "label": "(NOTE",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t1_r30_c7:T1:R30:C7",
+      "required": false,
+      "section": "",
+      "context": "(NOTE: - Where the dollar amounts in clauses [c] and [d] are different, you must fill out the frame "
+    },
+    {
+      "id": "t1_r30_c8",
+      "key": "note",
+      "label": "(NOTE",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t1_r30_c8:T1:R30:C8",
+      "required": false,
+      "section": "",
+      "context": "(NOTE: - Where the dollar amounts in clauses [c] and [d] are different, you must fill out the frame "
+    },
+    {
+      "id": "t1_r30_c9",
+      "key": "note",
+      "label": "(NOTE",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t1_r30_c9:T1:R30:C9",
+      "required": false,
+      "section": "",
+      "context": "(NOTE: - Where the dollar amounts in clauses [c] and [d] are different, you must fill out the frame "
+    },
+    {
+      "id": "t1_r30_c10",
+      "key": "note",
+      "label": "(NOTE",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t1_r30_c10:T1:R30:C10",
+      "required": false,
+      "section": "",
+      "context": "(NOTE: - Where the dollar amounts in clauses [c] and [d] are different, you must fill out the frame "
+    },
+    {
+      "id": "t1_r30_c11",
+      "key": "note",
+      "label": "(NOTE",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t1_r30_c11:T1:R30:C11",
+      "required": false,
+      "section": "",
+      "context": "(NOTE: - Where the dollar amounts in clauses [c] and [d] are different, you must fill out the frame "
+    },
+    {
+      "id": "t1_r30_c12",
+      "key": "note",
+      "label": "(NOTE",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t1_r30_c12:T1:R30:C12",
+      "required": false,
+      "section": "",
+      "context": "(NOTE: - Where the dollar amounts in clauses [c] and [d] are different, you must fill out the frame "
+    },
+    {
+      "id": "t1_r30_c13",
+      "key": "note",
+      "label": "(NOTE",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t1_r30_c13:T1:R30:C13",
+      "required": false,
+      "section": "",
+      "context": "(NOTE: - Where the dollar amounts in clauses [c] and [d] are different, you must fill out the frame "
+    },
+    {
+      "id": "t1_r30_c14",
+      "key": "note",
+      "label": "(NOTE",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t1_r30_c14:T1:R30:C14",
+      "required": false,
+      "section": "",
+      "context": "(NOTE: - Where the dollar amounts in clauses [c] and [d] are different, you must fill out the frame "
+    },
+    {
+      "id": "t1_r30_c15",
+      "key": "note",
+      "label": "(NOTE",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t1_r30_c15:T1:R30:C15",
+      "required": false,
+      "section": "",
+      "context": "(NOTE: - Where the dollar amounts in clauses [c] and [d] are different, you must fill out the frame "
+    },
+    {
+      "id": "t1_r30_c16",
+      "key": "note",
+      "label": "(NOTE",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t1_r30_c16:T1:R30:C16",
+      "required": false,
+      "section": "",
+      "context": "(NOTE: - Where the dollar amounts in clauses [c] and [d] are different, you must fill out the frame "
+    },
+    {
+      "id": "t1_r30_c17",
+      "key": "note",
+      "label": "(NOTE",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t1_r30_c17:T1:R30:C17",
+      "required": false,
+      "section": "",
+      "context": "(NOTE: - Where the dollar amounts in clauses [c] and [d] are different, you must fill out the frame "
+    },
+    {
+      "id": "t2_r24_c1",
+      "key": "e",
+      "label": "e)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c1:T2:R24:C1",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c2",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c2:T2:R24:C2",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c3",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c3:T2:R24:C3",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c4",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c4:T2:R24:C4",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c5",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c5:T2:R24:C5",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c6",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c6:T2:R24:C6",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c7",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c7:T2:R24:C7",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c8",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c8:T2:R24:C8",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c9",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c9:T2:R24:C9",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c10",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c10:T2:R24:C10",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c11",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c11:T2:R24:C11",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c12",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c12:T2:R24:C12",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c13",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c13:T2:R24:C13",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c14",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c14:T2:R24:C14",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c15",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c15:T2:R24:C15",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c16",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c16:T2:R24:C16",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c17",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c17:T2:R24:C17",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c18",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c18:T2:R24:C18",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    },
+    {
+      "id": "t2_r24_c19",
+      "key": "if_you_ticked_off_box_i_above_you_can_go_to_paragr",
+      "label": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] or [iv] above, then fill out the information after box of the corresponding number below.  For example, if you ticked off box [iii] above, you would fill out the information alongside box [iii] below.)",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t2_r24_c19:T2:R24:C19",
+      "required": false,
+      "section": "",
+      "context": "(If you ticked off box [i] above, you can go to paragraph 12.  If you ticked off boxes [ii], [iii] o"
+    }
+  ]
+}

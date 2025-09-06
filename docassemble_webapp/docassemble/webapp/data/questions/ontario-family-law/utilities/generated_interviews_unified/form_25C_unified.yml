@@ -1,0 +1,136 @@
+---
+metadata:
+  title: Ontario Family Law Form 25C
+  short_title: Form 25C
+  description: Complete interview for Ontario Family Law Form 25C
+  form_number: 25C
+  generated: 2025-09-05T16:41:13.186779
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 25C
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_dropdown1
+  form_specific_courtfileno
+  form_specific_text11
+  form_specific_field_6
+  form_specific_text10
+  case.court_file_number
+  form_specific_court_address
+  form_specific_municipality
+  form_specific_province
+  form_specific_date_of_birth
+  form_specific_street_address
+  applicant.address.postal_code
+  form_specific_phone
+  form_specific_fax
+  children[i].name.full
+  form_specific_the_person_to_be_adopted_is
+  form_specific_the_application_is_for_a_n_check_all_boxes_that_apply
+  form_specific_this_court_orders_that
+  form_specific_to_be_completed_for_a_stepparent_adoption
+  
+  # Complete the interview
+  form_25C_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - form_specific_dropdown1: text
+---
+question: Courtfileno
+fields:
+  - form_specific_courtfileno: text
+---
+question: Text11
+fields:
+  - form_specific_text11: text
+---
+question: Field 6
+fields:
+  - form_specific_field_6: text
+---
+question: Text10
+fields:
+  - form_specific_text10: text
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Province
+fields:
+  - form_specific_province: text
+---
+question: Date Of Birth
+fields:
+  - form_specific_date_of_birth:
+      datatype: date
+---
+question: Street Address
+fields:
+  - form_specific_street_address: text
+---
+question: Applicant Postal Code
+fields:
+  - applicant.address.postal_code: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Child Full Legal Name
+fields:
+  - children[i].name.full: text
+---
+question: The Person To Be Adopted Is
+fields:
+  - form_specific_the_person_to_be_adopted_is: text
+---
+question: The Application Is For A N Check All Boxes That Apply
+fields:
+  - form_specific_the_application_is_for_a_n_check_all_boxes_that_apply: text
+---
+question: This Court Orders That
+fields:
+  - form_specific_this_court_orders_that: text
+---
+question: To Be Completed For A Stepparent Adoption
+fields:
+  - form_specific_to_be_completed_for_a_stepparent_adoption: text
+---
+event: final_screen
+question: Form 25C Complete
+subquestion: Your Ontario Family Law Form 25C has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_25C_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_25C_ready = True

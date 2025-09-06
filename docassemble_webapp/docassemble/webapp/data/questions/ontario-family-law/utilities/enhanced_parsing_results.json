@@ -1,0 +1,382 @@
+{
+  "8": {
+    "file": "workflow_output/ontario_forms/form_8_-_application_general_flr-8-jun25-en.docx",
+    "fields": {
+      "precise_mapper": {
+        "total": 9,
+        "by_type": {
+          "text": 9
+        },
+        "by_location": {
+          "table": 9
+        },
+        "long_form_fields": []
+      },
+      "long_form_detector": {
+        "total": 0,
+        "fields": []
+      }
+    },
+    "enhancement": {
+      "before": 12,
+      "added": 0,
+      "after": 12
+    }
+  },
+  "8A": {
+    "file": "workflow_output/ontario_forms/form_8a_-_application_divorce_flr-8a-apr24-en-fil.docx",
+    "fields": {
+      "precise_mapper": {
+        "total": 16,
+        "by_type": {
+          "text": 16
+        },
+        "by_location": {
+          "table": 16
+        },
+        "long_form_fields": []
+      },
+      "long_form_detector": {
+        "total": 0,
+        "fields": []
+      }
+    },
+    "enhancement": {
+      "before": 12,
+      "added": 0,
+      "after": 12
+    }
+  },
+  "10": {
+    "file": "workflow_output/ontario_forms/form_10_-_answer_flr-10-jun25-en-fil.docx",
+    "fields": {
+      "precise_mapper": {
+        "total": 0,
+        "by_type": {},
+        "by_location": {},
+        "long_form_fields": []
+      },
+      "long_form_detector": {
+        "total": 0,
+        "fields": []
+      }
+    },
+    "enhancement": {
+      "before": 4,
+      "added": 0,
+      "after": 4
+    }
+  },
+  "36": {
+    "file": "workflow_output/ontario_forms/form_36_-_affidavit_for_divorce_flr-36-apr24-en-fil.docx",
+    "fields": {
+      "precise_mapper": {
+        "total": 34,
+        "by_type": {
+          "text": 34
+        },
+        "by_location": {
+          "table": 34
+        },
+        "long_form_fields": []
+      },
+      "long_form_detector": {
+        "total": 0,
+        "fields": []
+      }
+    },
+    "enhancement": {
+      "before": 4,
+      "added": 0,
+      "after": 4
+    }
+  },
+  "17A": {
+    "file": "workflow_output/ontario_forms/form_17a_-_case_conference_brief_flr-17a-sep23-en.docx",
+    "fields": {
+      "precise_mapper": {
+        "total": 12,
+        "by_type": {
+          "text": 12
+        },
+        "by_location": {
+          "table": 12
+        },
+        "long_form_fields": []
+      },
+      "long_form_detector": {
+        "total": 0,
+        "fields": []
+      }
+    },
+    "enhancement": {
+      "before": 4,
+      "added": 0,
+      "after": 4
+    }
+  },
+  "17C": {
+    "file": "workflow_output/ontario_forms/form_17c_-_settlement_conference_brief_flr-17c-sep23-en.docx",
+    "fields": {
+      "precise_mapper": {
+        "total": 3,
+        "by_type": {
+          "text": 3
+        },
+        "by_location": {
+          "table": 3
+        },
+        "long_form_fields": []
+      },
+      "long_form_detector": {
+        "total": 0,
+        "fields": []
+      }
+    },
+    "enhancement": {
+      "before": 4,
+      "added": 0,
+      "after": 4
+    }
+  },
+  "13A": {
+    "file": "workflow_output/ontario_forms/form_13a_-_certificate_financial_disclosure_flr-13a-may21-en-fil.docx",
+    "fields": {
+      "precise_mapper": {
+        "total": 0,
+        "by_type": {},
+        "by_location": {},
+        "long_form_fields": []
+      },
+      "long_form_detector": {
+        "total": 0,
+        "fields": []
+      }
+    },
+    "enhancement": {
+      "before": 4,
+      "added": 0,
+      "after": 4
+    }
+  },
+  "29A": {
+    "file": "workflow_output/ontario_forms/form_29a_-_notice_garnishment_lump_sum_flr-29a-apr16-en-fil.docx",
+    "fields": {
+      "precise_mapper": {
+        "total": 15,
+        "by_type": {
+          "text": 15
+        },
+        "by_location": {
+          "table": 15
+        },
+        "long_form_fields": []
+      },
+      "long_form_detector": {
+        "total": 0,
+        "fields": []
+      }
+    },
+    "enhancement": {
+      "before": 1,
+      "added": 0,
+      "after": 1
+    }
+  },
+  "29B": {
+    "file": "workflow_output/ontario_forms/form_29b_-_notice_garnishment_periodic_flr-29b-apr16-en-fil.docx",
+    "fields": {
+      "precise_mapper": {
+        "total": 20,
+        "by_type": {
+          "text": 20
+        },
+        "by_location": {
+          "table": 20
+        },
+        "long_form_fields": []
+      },
+      "long_form_detector": {
+        "total": 0,
+        "fields": []
+      }
+    },
+    "enhancement": {
+      "before": 3,
+      "added": 0,
+      "after": 3
+    }
+  },
+  "33F": {
+    "file": "workflow_output/ontario_forms/form_33f_-_access_application_flr-33f-may21-en-fil.docx",
+    "fields": {
+      "precise_mapper": {
+        "total": 0,
+        "by_type": {},
+        "by_location": {},
+        "long_form_fields": []
+      },
+      "long_form_detector": {
+        "total": 0,
+        "fields": []
+      }
+    },
+    "enhancement": {
+      "before": 1,
+      "added": 0,
+      "after": 1
+    }
+  },
+  "36A": {
+    "file": "workflow_output/ontario_forms/form_36a_-_certificate_divorce_flr-36a-dec20-en-fil.docx",
+    "fields": {
+      "precise_mapper": {
+        "total": 54,
+        "by_type": {
+          "text": 2,
+          "area": 25,
+          "currency": 27
+        },
+        "by_location": {
+          "table": 54
+        },
+        "long_form_fields": [
+          {
+            "id": "t0_r44_c6",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c6:T0:R44:C6"
+          },
+          {
+            "id": "t0_r44_c7",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c7:T0:R44:C7"
+          },
+          {
+            "id": "t0_r44_c8",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c8:T0:R44:C8"
+          },
+          {
+            "id": "t0_r44_c9",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c9:T0:R44:C9"
+          },
+          {
+            "id": "t0_r44_c10",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c10:T0:R44:C10"
+          },
+          {
+            "id": "t0_r44_c11",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c11:T0:R44:C11"
+          },
+          {
+            "id": "t0_r44_c12",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c12:T0:R44:C12"
+          },
+          {
+            "id": "t0_r44_c13",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c13:T0:R44:C13"
+          },
+          {
+            "id": "t0_r44_c14",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c14:T0:R44:C14"
+          },
+          {
+            "id": "t0_r44_c15",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c15:T0:R44:C15"
+          },
+          {
+            "id": "t0_r44_c16",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c16:T0:R44:C16"
+          },
+          {
+            "id": "t0_r44_c17",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c17:T0:R44:C17"
+          },
+          {
+            "id": "t0_r44_c18",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c18:T0:R44:C18"
+          },
+          {
+            "id": "t0_r44_c19",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c19:T0:R44:C19"
+          },
+          {
+            "id": "t0_r44_c20",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c20:T0:R44:C20"
+          },
+          {
+            "id": "t0_r44_c21",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c21:T0:R44:C21"
+          },
+          {
+            "id": "t0_r44_c22",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c22:T0:R44:C22"
+          },
+          {
+            "id": "t0_r44_c23",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c23:T0:R44:C23"
+          },
+          {
+            "id": "t0_r44_c24",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c24:T0:R44:C24"
+          },
+          {
+            "id": "t0_r44_c25",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c25:T0:R44:C25"
+          },
+          {
+            "id": "t0_r44_c26",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c26:T0:R44:C26"
+          },
+          {
+            "id": "t0_r44_c27",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c27:T0:R44:C27"
+          },
+          {
+            "id": "t0_r44_c28",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c28:T0:R44:C28"
+          },
+          {
+            "id": "t0_r44_c29",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c29:T0:R44:C29"
+          },
+          {
+            "id": "t0_r44_c30",
+            "label": "Claim for child support [details in part 9 below]",
+            "location": "table:t0_r44_c30:T0:R44:C30"
+          }
+        ]
+      },
+      "long_form_detector": {
+        "total": 0,
+        "fields": []
+      }
+    },
+    "enhancement": {
+      "before": 1,
+      "added": 0,
+      "after": 1
+    }
+  }
+}

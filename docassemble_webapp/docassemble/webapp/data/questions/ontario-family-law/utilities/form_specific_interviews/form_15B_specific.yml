@@ -1,0 +1,71 @@
+---
+metadata:
+  title: |
+    Form 15B: Form 15B
+  short title: |
+    Form 15B
+  description: |
+    Form-specific questions for Ontario Family Law Form 15B
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form15B_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 15B specific sections
+  form15B_additional_information_complete
+  form15B_review
+  form15B_complete
+---
+question: |
+  Form 15B - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 15B.
+fields:
+  - Full legal name: form15B_full_legal_name
+  - Address: form15B_address
+  - $ $: form15B__
+    datatype: currency
+  - $ $ $ $ $: form15B__
+    datatype: currency
+  - Before today (give exact date: form15B_before_today_give_exact_date
+    datatype: date
+continue button field: form15B_additional_information_complete
+---
+event: form15B_review
+question: |
+  Review Form 15B Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form15B_complete
+question: |
+  Form 15B Complete
+subquestion: |
+  Your Form 15B (Form 15B) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 15B specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

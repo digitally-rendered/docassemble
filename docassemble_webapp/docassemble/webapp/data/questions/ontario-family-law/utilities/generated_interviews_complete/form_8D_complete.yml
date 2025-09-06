@@ -1,0 +1,266 @@
+---
+metadata:
+  title: Ontario Family Law Form 8D
+  short_title: Form 8D
+  description: Complete standalone interview for Form 8D
+  form_number: 8D
+  total_fields: 38
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 8d
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 8D Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  field_0
+  field_1
+  field_2
+  field_3
+  field_4
+  field_5
+  field_6
+  field_7
+  field_8
+  field_9
+  field_10
+  field_11
+  field_12
+  field_13
+  field_14
+  field_15
+  field_16
+  field_17
+  field_18
+  field_19
+  # ... and 18 more fields
+  
+  # Generate Form 8D
+  form_8D_ready
+  final_screen
+---
+question: Field 0
+fields:
+  - field_0:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Field 1
+fields:
+  - field_1: text
+---
+question: Field 2
+fields:
+  - field_2: text
+---
+question: Field 3
+fields:
+  - field_3: text
+---
+question: Field 4
+fields:
+  - field_4: text
+---
+question: Field 5
+fields:
+  - field_5: text
+---
+question: Field 6
+fields:
+  - field_6: text
+---
+question: Field 7
+yesno: field_7
+---
+question: Field 8
+yesno: field_8
+---
+question: Field 9
+yesno: field_9
+---
+question: Field 10
+yesno: field_10
+---
+question: Field 11
+yesno: field_11
+---
+question: Field 12
+yesno: field_12
+---
+question: Field 13
+yesno: field_13
+---
+question: Field 14
+yesno: field_14
+---
+question: Field 15
+fields:
+  - field_15: text
+---
+question: Field 16
+fields:
+  - field_16: text
+---
+question: Field 17
+fields:
+  - field_17: text
+---
+question: Field 18
+fields:
+  - field_18: text
+---
+question: Field 19
+fields:
+  - field_19: text
+---
+question: Text10
+fields:
+  - text10: text
+---
+question: Field 22
+fields:
+  - field_22: text
+---
+question: Field 23
+fields:
+  - field_23: text
+---
+question: Field 24
+fields:
+  - field_24: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Municipality
+fields:
+  - municipality: text
+---
+question: Date Of Birth
+fields:
+  - date_of_birth:
+      datatype: date
+---
+question: Street Address
+fields:
+  - street_address: text
+---
+question: Postal Code
+fields:
+  - postal_code: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: Child Name
+fields:
+  - child_name: text
+---
+question: Child Birthdate
+fields:
+  - child_birthdate:
+      datatype: date
+---
+question: Child Age
+fields:
+  - child_age:
+      datatype: integer
+---
+question: |
+  The application is for a (n)   (check all boxes that apply) :
+fields:
+  - the_application_is_for_a_n_check_all_boxes_that_apply: text
+---
+question: |
+  To be completed for a stepparent adoption:
+fields:
+  - to_be_completed_for_a_stepparent_adoption: text
+---
+question: |
+  If the adoption order is made ,  pursuant to s.  217(2)(b)  of the  Child, Youth and Family Services Act, 2017 , the parents of the person  will be:
+fields:
+  - if_the_adoption_order_is_made__pursuant_to_s_2172b_of_the_child_youth_and_family_services_act_2017__the_parents_of_the_person_will_be: text
+---
+question: Review Form 8D Information
+subquestion: Please review all information before generating the form.
+review:
+  field_0:
+    button: **Field 0**
+  field_1:
+    button: **Field 1**
+  field_2:
+    button: **Field 2**
+  field_3:
+    button: **Field 3**
+  field_4:
+    button: **Field 4**
+  field_5:
+    button: **Field 5**
+  field_6:
+    button: **Field 6**
+  field_7:
+    button: **Field 7**
+  field_8:
+    button: **Field 8**
+  field_9:
+    button: **Field 9**
+---
+event: final_screen
+question: Form 8D Complete
+subquestion: |
+  Your Form 8D has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 8D: ${ form_8D_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 8D
+  filename: form_8D
+  variable name: form_8D_document
+  content: |
+    # Ontario Family Law Form 8D
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 8D Specific Information
+    [Form fields would be inserted here]
+---
+code: form_8D_ready = True

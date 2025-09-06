@@ -1,0 +1,149 @@
+{
+  "metadata": {
+    "document_id": "5dea9a9e3b9584da20a7a074b6fada4e",
+    "file_path": "test_download/core_applications/form_8_-_application_general_flr-8-jun25-en.docx",
+    "form_type": "form_8",
+    "form_number": null,
+    "total_pages": 0,
+    "document_quality": 0.0,
+    "processing_time": 0.333815,
+    "extraction_methods_used": [
+      "ExtractionMethod.TEMPLATE_BASED"
+    ],
+    "preprocessing_applied": [],
+    "overall_confidence": 0.0
+  },
+  "fields": [
+    {
+      "field_id": "template_form_8_court_name",
+      "field_name": "court_name",
+      "field_type": "FieldType.DROPDOWN",
+      "field_label": "Court Name",
+      "value": null,
+      "confidence": 0.0,
+      "extraction_method": "ExtractionMethod.TEMPLATE_BASED",
+      "position": {
+        "x": 100,
+        "y": 150,
+        "w": 400,
+        "h": 30
+      },
+      "page_number": 1,
+      "validation_status": "unvalidated",
+      "validation_errors": [],
+      "alternatives": [],
+      "metadata": {}
+    },
+    {
+      "field_id": "template_form_8_court_file_number",
+      "field_name": "court_file_number",
+      "field_type": "FieldType.TEXT",
+      "field_label": "Court File Number",
+      "value": null,
+      "confidence": 0.0,
+      "extraction_method": "ExtractionMethod.TEMPLATE_BASED",
+      "position": {
+        "x": 450,
+        "y": 150,
+        "w": 200,
+        "h": 30
+      },
+      "page_number": 1,
+      "validation_status": "valid",
+      "validation_errors": [],
+      "alternatives": [],
+      "metadata": {}
+    },
+    {
+      "field_id": "template_form_8_applicant_name",
+      "field_name": "applicant_name",
+      "field_type": "FieldType.TEXT",
+      "field_label": "Applicant Name",
+      "value": null,
+      "confidence": 0.0,
+      "extraction_method": "ExtractionMethod.TEMPLATE_BASED",
+      "position": {
+        "x": 100,
+        "y": 250,
+        "w": 400,
+        "h": 30
+      },
+      "page_number": 1,
+      "validation_status": "unvalidated",
+      "validation_errors": [],
+      "alternatives": [],
+      "metadata": {}
+    },
+    {
+      "field_id": "template_form_8_applicant_address",
+      "field_name": "applicant_address",
+      "field_type": "FieldType.TEXT",
+      "field_label": "Applicant Address",
+      "value": null,
+      "confidence": 0.0,
+      "extraction_method": "ExtractionMethod.TEMPLATE_BASED",
+      "position": {
+        "x": 100,
+        "y": 290,
+        "w": 400,
+        "h": 60
+      },
+      "page_number": 1,
+      "validation_status": "unvalidated",
+      "validation_errors": [],
+      "alternatives": [],
+      "metadata": {}
+    },
+    {
+      "field_id": "template_form_8_respondent_name",
+      "field_name": "respondent_name",
+      "field_type": "FieldType.TEXT",
+      "field_label": "Respondent Name",
+      "value": null,
+      "confidence": 0.0,
+      "extraction_method": "ExtractionMethod.TEMPLATE_BASED",
+      "position": {
+        "x": 100,
+        "y": 400,
+        "w": 400,
+        "h": 30
+      },
+      "page_number": 1,
+      "validation_status": "unvalidated",
+      "validation_errors": [],
+      "alternatives": [],
+      "metadata": {}
+    },
+    {
+      "field_id": "template_form_8_respondent_address",
+      "field_name": "respondent_address",
+      "field_type": "FieldType.TEXT",
+      "field_label": "Respondent Address",
+      "value": null,
+      "confidence": 0.0,
+      "extraction_method": "ExtractionMethod.TEMPLATE_BASED",
+      "position": {
+        "x": 100,
+        "y": 440,
+        "w": 400,
+        "h": 60
+      },
+      "page_number": 1,
+      "validation_status": "unvalidated",
+      "validation_errors": [],
+      "alternatives": [],
+      "metadata": {}
+    }
+  ],
+  "tables": [],
+  "sections": [],
+  "extraction_summary": {
+    "total_fields": 6,
+    "valid_fields": 1,
+    "invalid_fields": 0,
+    "average_confidence": 0.0,
+    "methods_used": [
+      "template_based"
+    ]
+  }
+}

@@ -1,0 +1,75 @@
+---
+metadata:
+  title: |
+    Form 15: Motion to Change
+  short title: |
+    Form 15
+  description: |
+    Form-specific questions for Ontario Family Law Form 15
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form15_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 15 specific sections
+  form15_additional_information_complete
+  form15_review
+  form15_complete
+---
+question: |
+  Form 15 - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 15.
+fields:
+  - Full legal name: form15_full_legal_name
+  - Address: form15_address
+  - 4. Requesting party’s birth date: form15_4_requesting_partys_birth_date
+    datatype: date
+  - 5. Responding party’s birth date: form15_5_responding_partys_birth_date
+    datatype: date
+  - $ $: form15__
+    datatype: currency
+  - $ $ $ $ $: form15__
+    datatype: currency
+  - Before today (give exact date: form15_before_today_give_exact_date
+    datatype: date
+continue button field: form15_additional_information_complete
+---
+event: form15_review
+question: |
+  Review Form 15 Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form15_complete
+question: |
+  Form 15 Complete
+subquestion: |
+  Your Form 15 (Motion to Change) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 15 specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

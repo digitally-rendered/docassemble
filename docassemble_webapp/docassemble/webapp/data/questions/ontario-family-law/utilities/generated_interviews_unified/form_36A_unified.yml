@@ -1,0 +1,327 @@
+---
+metadata:
+  title: Ontario Family Law Form 36A
+  short_title: Form 36A
+  description: Complete interview for Ontario Family Law Form 36A
+  form_number: 36A
+  generated: 2025-09-05T16:41:13.204442
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 36A
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_dropdown1
+  form_specific_courtfileno
+  form_specific_field_2
+  form_specific_field_3
+  form_specific_field_4
+  form_specific_check1
+  form_specific_check2
+  form_specific_check3
+  form_specific_field_9
+  form_specific_check4
+  form_specific_field_11
+  form_specific_check5
+  form_specific_field_13
+  form_specific_field_14
+  form_specific_check6
+  form_specific_field_16
+  form_specific_field_17
+  form_specific_check7
+  form_specific_field_19
+  form_specific_check8
+  # ... and 54 more fields
+  
+  # Complete the interview
+  form_36A_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - form_specific_dropdown1: text
+---
+question: Courtfileno
+fields:
+  - form_specific_courtfileno: text
+---
+question: Field 2
+fields:
+  - form_specific_field_2: text
+---
+question: Field 3
+fields:
+  - form_specific_field_3: text
+---
+question: Field 4
+fields:
+  - form_specific_field_4: text
+---
+question: Check1
+yesno: form_specific_check1
+---
+question: Check2
+yesno: form_specific_check2
+---
+question: Check3
+yesno: form_specific_check3
+---
+question: Field 9
+fields:
+  - form_specific_field_9: text
+---
+question: Check4
+yesno: form_specific_check4
+---
+question: Field 11
+fields:
+  - form_specific_field_11: text
+---
+question: Check5
+yesno: form_specific_check5
+---
+question: Field 13
+fields:
+  - form_specific_field_13: text
+---
+question: Field 14
+fields:
+  - form_specific_field_14: text
+---
+question: Check6
+yesno: form_specific_check6
+---
+question: Field 16
+fields:
+  - form_specific_field_16: text
+---
+question: Field 17
+fields:
+  - form_specific_field_17: text
+---
+question: Check7
+yesno: form_specific_check7
+---
+question: Field 19
+fields:
+  - form_specific_field_19: text
+---
+question: Check8
+yesno: form_specific_check8
+---
+question: Field 21
+fields:
+  - form_specific_field_21: text
+---
+question: Check21
+yesno: form_specific_check21
+---
+question: Check11
+yesno: form_specific_check11
+---
+question: Check12
+yesno: form_specific_check12
+---
+question: Check13
+yesno: form_specific_check13
+---
+question: Check15
+yesno: form_specific_check15
+---
+question: Check16
+yesno: form_specific_check16
+---
+question: Check17
+yesno: form_specific_check17
+---
+question: Check18
+yesno: form_specific_check18
+---
+question: Check19
+yesno: form_specific_check19
+---
+question: Check20
+yesno: form_specific_check20
+---
+question: Field 34
+fields:
+  - form_specific_field_34: text
+---
+question: Field 35
+fields:
+  - form_specific_field_35: text
+---
+question: Field 36
+fields:
+  - form_specific_field_36: text
+---
+question: Field 39
+fields:
+  - form_specific_field_39: text
+---
+question: Field 44
+fields:
+  - form_specific_field_44: text
+---
+question: Check22
+yesno: form_specific_check22
+---
+question: Field 46
+fields:
+  - form_specific_field_46: text
+---
+question: Check23
+yesno: form_specific_check23
+---
+question: Check24
+yesno: form_specific_check24
+---
+question: Check25
+yesno: form_specific_check25
+---
+question: Check26
+yesno: form_specific_check26
+---
+question: Field 59
+fields:
+  - form_specific_field_59: text
+---
+question: Check27
+yesno: form_specific_check27
+---
+question: Field 61
+fields:
+  - form_specific_field_61: text
+---
+question: Check28
+yesno: form_specific_check28
+---
+question: Field 63
+fields:
+  - form_specific_field_63: text
+---
+question: Field 66
+fields:
+  - form_specific_field_66: text
+---
+question: Check29
+yesno: form_specific_check29
+---
+question: Field 68
+fields:
+  - form_specific_field_68: text
+---
+question: Field 70
+fields:
+  - form_specific_field_70: text
+---
+question: Field 71
+fields:
+  - form_specific_field_71: text
+---
+question: Field 73
+fields:
+  - form_specific_field_73: text
+---
+question: Field 78
+fields:
+  - form_specific_field_78: text
+---
+question: Check30
+yesno: form_specific_check30
+---
+question: Check31
+yesno: form_specific_check31
+---
+question: Check32
+yesno: form_specific_check32
+---
+question: Check34
+yesno: form_specific_check34
+---
+question: Check33
+yesno: form_specific_check33
+---
+question: Check35
+yesno: form_specific_check35
+---
+question: Field 100
+fields:
+  - form_specific_field_100: text
+---
+question: Field 102
+fields:
+  - form_specific_field_102: text
+---
+question: Field 105
+fields:
+  - form_specific_field_105: text
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Province
+fields:
+  - form_specific_province: text
+---
+question: Email
+fields:
+  - form_specific_email:
+      datatype: email
+---
+question: Child Current Age
+fields:
+  - children[i].age:
+      datatype: integer
+---
+question: Details
+fields:
+  - form_specific_details: text
+---
+question: Other Specify
+fields:
+  - form_specific_other_specify: text
+---
+question: The Clerk Of The Court Certifies As Follows
+fields:
+  - form_specific_the_clerk_of_the_court_certifies_as_follows: text
+---
+question: Form 36A
+fields:
+  - form_specific_form_36a: text
+---
+question: The Following Material Has Been Filed
+fields:
+  - form_specific_the_following_material_has_been_filed: text
+---
+event: final_screen
+question: Form 36A Complete
+subquestion: Your Ontario Family Law Form 36A has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_36A_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_36A_ready = True

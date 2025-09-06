@@ -1,0 +1,193 @@
+---
+metadata:
+  title: Ontario Family Law Form 29A
+  short_title: Form 29A
+  description: Complete interview for Form 29A
+  form_number: 29A
+  total_fields: 17
+  generated: 2025-09-05 14:41
+  tags:
+    - ontario
+    - family law
+    - form 29a
+---
+include:
+  - common-intake-enhanced-with-validation.yml
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+---
+mandatory: True
+code: |
+  # Form 29A Interview Flow
+  # Common intake fields are inherited
+  
+  # Form-specific fields
+  # Form Field
+  dropdown1
+  courtfileno
+  text2
+  check2
+  field_9
+  # court_info
+  court_address
+  municipality
+  # party_info
+  street_address
+  postal_code
+  phone
+  fax
+  # Table 2, Row 1
+  form_29a
+  # Table 2, Row 4
+  if_your_debt_is_jointly_owed_to_the_payor_and_to_one_or_more_other_persons_you_must_immediately_mail_a_notice_to_coowner_of_the_debt_form_29c_to_the_following_persons
+  # Table 2, Row 12
+  section_7_of_the_ontarios_wages_act_says_that_you_cannot_deduct_more_than
+  
+  # Generate Form 29A
+  form_29A_ready
+  final_screen
+---
+question: |
+  Dropdown1
+fields:
+  - dropdown1: dropdown
+    choices:
+      -           
+      - Ontario Court of Justice
+      - Superior Court of Justice
+      - Superior Court of Justice Family Court Branch
+---
+question: |
+  Court File No
+fields:
+  - courtfileno: text
+---
+question: |
+  Text2
+fields:
+  - text2: text
+---
+question: |
+  Check2
+yesno: check2
+---
+question: |
+  Field 9
+yesno: field_9
+---
+question: |
+  Field 13
+yesno: field_13
+---
+question: |
+  Text5
+fields:
+  - text5: text
+---
+question: |
+  Court Address
+fields:
+  - court_address: text
+---
+question: |
+  Municipality
+fields:
+  - municipality: text
+---
+question: |
+  Street Address
+fields:
+  - street_address: text
+---
+question: |
+  Postal Code
+fields:
+  - postal_code: text
+---
+question: |
+  Phone Number
+fields:
+  - phone: text
+---
+question: |
+  Fax
+fields:
+  - fax: text
+---
+question: |
+  Form 29A:
+fields:
+  - form_29a: text
+---
+question: |
+  If your debt is jointly owed to the payor and to one or more other persons,  YOU MUST IMMEDIATELY MAIL a notice to co-owner of the debt (Form 29C) to the following persons:
+fields:
+  - if_your_debt_is_jointly_owed_to_the_payor_and_to_one_or_more_other_persons_you_must_immediately_mail_a_notice_to_coowner_of_the_debt_form_29c_to_the_following_persons: text
+---
+question: |
+  section 7 of the Ontario’s  Wages Act  says that you cannot deduct more than:
+fields:
+  - section_7_of_the_ontarios_wages_act_says_that_you_cannot_deduct_more_than: text
+---
+question: |
+  Review Form 29A Information
+subquestion: |
+  Please review all information before generating the form.
+review:
+  - dropdown1:
+      button: |
+        **Form Field**
+  - court_file_number:
+      button: |
+        **court_info**
+  - street_address:
+      button: |
+        **party_info**
+  - form_29a:
+      button: |
+        **Table 2, Row 1**
+  - if_your_debt_is_jointly_owed_to_the_payor_and_to_one_or_more_other_persons_you_must_immediately_mail_a_notice_to_coowner_of_the_debt_form_29c_to_the_following_persons:
+      button: |
+        **Table 2, Row 4**
+  - section_7_of_the_ontarios_wages_act_says_that_you_cannot_deduct_more_than:
+      button: |
+        **Table 2, Row 12**
+---
+event: final_screen
+question: |
+  Form 29A Complete
+subquestion: |
+  Your Form 29A has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 29A: ${ form_29A_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 29A
+  filename: form_29A
+  variable name: form_29A_document
+  content: |
+    # Ontario Family Law Form 29A
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 29A Specific Information
+    [Form fields would be inserted here]
+---
+code: |
+  form_29A_ready = True

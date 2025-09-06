@@ -1,0 +1,946 @@
+---
+metadata:
+  title: Ontario Family Law Form 8A
+  short_title: Form 8A
+  description: Complete interview for Form 8A
+  form_number: 8A
+  total_fields: 156
+  generated: 2025-09-05 14:41
+  tags:
+    - ontario
+    - family law
+    - form 8a
+---
+include:
+  - common-intake-enhanced-with-validation.yml
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 8A Interview Flow
+  # Common intake fields are inherited
+  
+  # Form-specific fields
+  # Form Field
+  field_0
+  courtfileno
+  field_2
+  check85
+  field_5
+  # court_info
+  court_address
+  municipality
+  province
+  # party_info
+  phone
+  email
+  fax
+  # marriage_info
+  name_before_marriage
+  # claims
+  claim_property
+  # children
+  child_name
+  child_birthdate
+  child_age
+  # financial
+  financial_statement_attached
+  # long_form
+  important_facts
+  other_specify
+  # Table 1, Row 8
+  full_legal_name
+  name
+  # Table 1, Row 9
+  address
+  # Table 1, Row 10
+  phone__fax
+  # Table 2, Row 1
+  form_8a
+  # Table 3, Row 5
+  applicant
+  age
+  # Table 3, Row 7
+  first_name_on_the_day_before_the_marriage_date
+  # Table 3, Row 8
+  last_name_on_the_day_before_the_marriage_date
+  # Table 3, Row 9
+  gender_on_the_day_before_the_marriage_date
+  # Table 3, Row 14
+  respondentjoint_applicant
+  # Table 3, Row 23
+  relationship_dates
+  # Table 4, Row 11
+  we_jointly_ask_the_court_for_the_following
+  # Table 4, Row 33
+  i_ask_the_court_for
+  # Table 6, Row 4
+  my_name_is
+  
+  # Generate Form 8A
+  form_8A_ready
+  final_screen
+---
+question: |
+  Field 0
+fields:
+  - field_0: dropdown
+    choices:
+      -            
+      - Ontario Court of Justice
+      - Superior Court of Justice
+      - Superior Court of Justice Family Branch
+---
+question: |
+  Court File No
+fields:
+  - courtfileno: text
+---
+question: |
+  Field 2
+fields:
+  - field_2: text
+---
+question: |
+  Check85
+yesno: check85
+---
+question: |
+  Field 5
+fields:
+  - field_5: text
+---
+question: |
+  Field 6
+fields:
+  - field_6: text
+---
+question: |
+  Field 7
+fields:
+  - field_7: text
+---
+question: |
+  Field 8
+fields:
+  - field_8: text
+---
+question: |
+  Field 9
+fields:
+  - field_9: text
+---
+question: |
+  Field 10
+fields:
+  - field_10: text
+---
+question: |
+  Field 11
+fields:
+  - field_11: text
+---
+question: |
+  Field 12
+fields:
+  - field_12: text
+---
+question: |
+  Field 13
+fields:
+  - field_13: text
+---
+question: |
+  Field 14
+fields:
+  - field_14: text
+---
+question: |
+  Field 15
+fields:
+  - field_15: text
+---
+question: |
+  Field 16
+fields:
+  - field_16: text
+---
+question: |
+  Field 17
+fields:
+  - field_17: text
+---
+question: |
+  Field 18
+fields:
+  - field_18: text
+---
+question: |
+  Field 19
+fields:
+  - field_19: text
+---
+question: |
+  Field 20
+fields:
+  - field_20: text
+---
+question: |
+  Check68
+yesno: check68
+---
+question: |
+  Check69
+yesno: check69
+---
+question: |
+  Field 23
+fields:
+  - field_23: text
+---
+question: |
+  Field 24
+fields:
+  - field_24: text
+---
+question: |
+  Field 25
+fields:
+  - field_25: text
+---
+question: |
+  Field 26
+fields:
+  - field_26: text
+---
+question: |
+  Field 27
+fields:
+  - field_27: text
+---
+question: |
+  Field 28
+fields:
+  - field_28: text
+---
+question: |
+  Check10
+yesno: check10
+---
+question: |
+  Check11
+yesno: check11
+---
+question: |
+  Field 34
+fields:
+  - field_34: text
+---
+question: |
+  Field 37
+fields:
+  - field_37: text
+---
+question: |
+  Field 38
+fields:
+  - field_38: text
+---
+question: |
+  Field 39
+fields:
+  - field_39: text
+---
+question: |
+  Field 40
+fields:
+  - field_40: text
+---
+question: |
+  Field 41
+fields:
+  - field_41: text
+---
+question: |
+  Field 48
+fields:
+  - field_48: text
+---
+question: |
+  Check14
+yesno: check14
+---
+question: |
+  Field 52
+fields:
+  - field_52: text
+---
+question: |
+  Field 54
+fields:
+  - field_54: text
+---
+question: |
+  Check15
+yesno: check15
+---
+question: |
+  Field 56
+fields:
+  - field_56: text
+---
+question: |
+  Field 58
+fields:
+  - field_58: text
+---
+question: |
+  Field 59
+fields:
+  - field_59: text
+---
+question: |
+  Field 60
+fields:
+  - field_60: text
+---
+question: |
+  Field 61
+fields:
+  - field_61: text
+---
+question: |
+  Field 62
+fields:
+  - field_62: text
+---
+question: |
+  Field 63
+fields:
+  - field_63: text
+---
+question: |
+  Field 64
+fields:
+  - field_64: text
+---
+question: |
+  Field 65
+fields:
+  - field_65: text
+---
+question: |
+  Field 66
+fields:
+  - field_66: text
+---
+question: |
+  Field 67
+fields:
+  - field_67: text
+---
+question: |
+  Field 68
+fields:
+  - field_68: text
+---
+question: |
+  Field 69
+fields:
+  - field_69: text
+---
+question: |
+  Field 70
+fields:
+  - field_70: text
+---
+question: |
+  Field 71
+fields:
+  - field_71: text
+---
+question: |
+  Field 72
+fields:
+  - field_72: text
+---
+question: |
+  Field 73
+fields:
+  - field_73: text
+---
+question: |
+  Field 74
+fields:
+  - field_74: text
+---
+question: |
+  Field 75
+fields:
+  - field_75: text
+---
+question: |
+  Field 76
+fields:
+  - field_76: text
+---
+question: |
+  Field 77
+fields:
+  - field_77: text
+---
+question: |
+  Field 78
+fields:
+  - field_78: text
+---
+question: |
+  Field 79
+fields:
+  - field_79: text
+---
+question: |
+  Field 80
+fields:
+  - field_80: text
+---
+question: |
+  Field 81
+fields:
+  - field_81: text
+---
+question: |
+  Field 82
+fields:
+  - field_82: text
+---
+question: |
+  Field 83
+fields:
+  - field_83: text
+---
+question: |
+  Field 84
+fields:
+  - field_84: text
+---
+question: |
+  Field 85
+fields:
+  - field_85: text
+---
+question: |
+  Field 86
+fields:
+  - field_86: text
+---
+question: |
+  Field 87
+fields:
+  - field_87: text
+---
+question: |
+  Check19
+yesno: check19
+---
+question: |
+  Field 92
+fields:
+  - field_92: text
+---
+question: |
+  Field 95
+fields:
+  - field_95: text
+---
+question: |
+  Field 98
+fields:
+  - field_98: text
+---
+question: |
+  Check30
+yesno: check30
+---
+question: |
+  Check36
+yesno: check36
+---
+question: |
+  Check45
+yesno: check45
+---
+question: |
+  Check87
+yesno: check87
+---
+question: |
+  Check88
+yesno: check88
+---
+question: |
+  Check31
+yesno: check31
+---
+question: |
+  Check46
+yesno: check46
+---
+question: |
+  Check90
+yesno: check90
+---
+question: |
+  Check89
+yesno: check89
+---
+question: |
+  Check91
+yesno: check91
+---
+question: |
+  Check38
+yesno: check38
+---
+question: |
+  Check92
+yesno: check92
+---
+question: |
+  Check93
+yesno: check93
+---
+question: |
+  Check33
+yesno: check33
+---
+question: |
+  Check39
+yesno: check39
+---
+question: |
+  Check61
+yesno: check61
+---
+question: |
+  Check94
+yesno: check94
+---
+question: |
+  Check62
+yesno: check62
+---
+question: |
+  Check41
+yesno: check41
+---
+question: |
+  Check95
+yesno: check95
+---
+question: |
+  Check81
+yesno: check81
+---
+question: |
+  Check82
+yesno: check82
+---
+question: |
+  Check83
+yesno: check83
+---
+question: |
+  Check84
+yesno: check84
+---
+question: |
+  Field 123
+fields:
+  - field_123: text
+---
+question: |
+  Check74
+yesno: check74
+---
+question: |
+  Check75
+yesno: check75
+---
+question: |
+  Check76
+yesno: check76
+---
+question: |
+  Field 127
+fields:
+  - field_127: text
+---
+question: |
+  Check77
+yesno: check77
+---
+question: |
+  Check78
+yesno: check78
+---
+question: |
+  Field 130
+fields:
+  - field_130: text
+---
+question: |
+  Check79
+yesno: check79
+---
+question: |
+  Field 132
+fields:
+  - field_132: text
+---
+question: |
+  Field 133
+fields:
+  - field_133: text
+---
+question: |
+  Check80
+yesno: check80
+---
+question: |
+  Field 135
+fields:
+  - field_135: text
+---
+question: |
+  Field 136
+fields:
+  - field_136: text
+---
+question: |
+  Field 137
+fields:
+  - field_137: text
+---
+question: |
+  Field 138
+fields:
+  - field_138: text
+---
+question: |
+  Field 139
+fields:
+  - field_139: text
+---
+question: |
+  Dropdown1
+fields:
+  - dropdown1: dropdown
+    choices:
+      - We/I
+      - We
+      - I
+---
+question: |
+  Dropdown2
+fields:
+  - dropdown2: dropdown
+    choices:
+      - we are/I am
+      - we are
+      - I am
+---
+question: |
+  Field 142
+fields:
+  - field_142: text
+---
+question: |
+  Field 143
+fields:
+  - field_143: text
+---
+question: |
+  Field 144
+fields:
+  - field_144: text
+---
+question: |
+  Field 145
+fields:
+  - field_145: text
+---
+question: |
+  Field 146
+fields:
+  - field_146: text
+---
+question: |
+  Field 147
+fields:
+  - field_147: text
+---
+question: |
+  Field 148
+fields:
+  - field_148: text
+---
+question: |
+  Court Address
+fields:
+  - court_address: text
+---
+question: |
+  Municipality
+fields:
+  - municipality: text
+---
+question: |
+  Province
+fields:
+  - province: dropdown
+---
+question: |
+  Phone Number
+fields:
+  - phone: text
+---
+question: |
+  Email Address
+fields:
+  - email: email
+---
+question: |
+  Fax
+fields:
+  - fax: text
+---
+question: |
+  Name Before Marriage
+fields:
+  - name_before_marriage: text
+---
+question: |
+  Claim Property
+yesno: claim_property
+---
+question: |
+  Child Name
+fields:
+  - child_name: text
+---
+question: |
+  Child Birthdate
+fields:
+  - child_birthdate: date
+    help: None
+---
+question: |
+  Child Age
+fields:
+  - child_age: number
+---
+question: |
+  Financial Statement Attached
+yesno: financial_statement_attached
+---
+question: |
+  Important Facts
+fields:
+  - important_facts: area
+    rows: 4
+---
+question: |
+  Other Specify
+fields:
+  - other_specify: area
+    rows: 4
+---
+question: |
+  Full legal name:
+fields:
+  - full_legal_name: text
+---
+question: |
+  Name:
+fields:
+  - name: text
+---
+question: |
+  Address:
+fields:
+  - address: text
+---
+question: |
+  Phone & fax:
+fields:
+  - phone__fax: text
+---
+question: |
+  Form 8A:
+fields:
+  - form_8a: text
+---
+question: |
+  APPLICANT:
+fields:
+  - applicant: text
+---
+question: |
+  Age:
+fields:
+  - age: text
+---
+question: |
+  First name on the day before the marriage date:
+fields:
+  - first_name_on_the_day_before_the_marriage_date: date
+    help: None
+---
+question: |
+  Last name on the day before the marriage date:
+fields:
+  - last_name_on_the_day_before_the_marriage_date: date
+    help: None
+---
+question: |
+  Gender on the day before the marriage date:
+fields:
+  - gender_on_the_day_before_the_marriage_date: date
+    help: None
+---
+question: |
+  RESPONDENT/JOINT APPLICANT:
+fields:
+  - respondentjoint_applicant: text
+---
+question: |
+  RELATIONSHIP DATES:
+fields:
+  - relationship_dates: date
+    help: None
+---
+question: |
+  WE JOINTLY ASK THE COURT FOR THE FOLLOWING:
+fields:
+  - we_jointly_ask_the_court_for_the_following: text
+---
+question: |
+  I ASK THE COURT FOR:
+fields:
+  - i_ask_the_court_for: text
+---
+question: |
+  My name is:
+fields:
+  - my_name_is: text
+---
+question: |
+  Review Form 8A Information
+subquestion: |
+  Please review all information before generating the form.
+review:
+  - field_0:
+      button: |
+        **Form Field**
+  - court_file_number:
+      button: |
+        **court_info**
+  - phone:
+      button: |
+        **party_info**
+  - name_before_marriage:
+      button: |
+        **marriage_info**
+  - claim_property:
+      button: |
+        **claims**
+  - child_name:
+      button: |
+        **children**
+  - financial_statement_attached:
+      button: |
+        **financial**
+  - important_facts:
+      button: |
+        **long_form**
+  - full_legal_name:
+      button: |
+        **Table 1, Row 8**
+  - address:
+      button: |
+        **Table 1, Row 9**
+  - phone__fax:
+      button: |
+        **Table 1, Row 10**
+  - form_8a:
+      button: |
+        **Table 2, Row 1**
+  - applicant:
+      button: |
+        **Table 3, Row 5**
+  - first_name_on_the_day_before_the_marriage_date:
+      button: |
+        **Table 3, Row 7**
+  - last_name_on_the_day_before_the_marriage_date:
+      button: |
+        **Table 3, Row 8**
+  - gender_on_the_day_before_the_marriage_date:
+      button: |
+        **Table 3, Row 9**
+  - respondentjoint_applicant:
+      button: |
+        **Table 3, Row 14**
+  - relationship_dates:
+      button: |
+        **Table 3, Row 23**
+  - we_jointly_ask_the_court_for_the_following:
+      button: |
+        **Table 4, Row 11**
+  - i_ask_the_court_for:
+      button: |
+        **Table 4, Row 33**
+  - my_name_is:
+      button: |
+        **Table 6, Row 4**
+---
+event: final_screen
+question: |
+  Form 8A Complete
+subquestion: |
+  Your Form 8A has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 8A: ${ form_8A_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 8A
+  filename: form_8A
+  variable name: form_8A_document
+  content: |
+    # Ontario Family Law Form 8A
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 8A Specific Information
+    [Form fields would be inserted here]
+---
+code: |
+  form_8A_ready = True

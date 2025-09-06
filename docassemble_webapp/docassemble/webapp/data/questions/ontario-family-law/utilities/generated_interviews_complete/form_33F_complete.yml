@@ -1,0 +1,269 @@
+---
+metadata:
+  title: Ontario Family Law Form 33F
+  short_title: Form 33F
+  description: Complete standalone interview for Form 33F
+  form_number: 33F
+  total_fields: 40
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 33f
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 33F Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  field_0
+  courtfileno
+  text2
+  text4
+  field_4
+  text9
+  field_6
+  text10
+  text11
+  text17
+  text13
+  check1
+  check2
+  check3
+  check4
+  check5
+  check6
+  check7
+  text14
+  check8
+  # ... and 20 more fields
+  
+  # Generate Form 33F
+  form_33F_ready
+  final_screen
+---
+question: Field 0
+fields:
+  - field_0:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Text2
+fields:
+  - text2: text
+---
+question: Text4
+fields:
+  - text4: text
+---
+question: Field 4
+fields:
+  - field_4: text
+---
+question: Text9
+fields:
+  - text9: text
+---
+question: Field 6
+fields:
+  - field_6: text
+---
+question: Text10
+fields:
+  - text10: text
+---
+question: Text11
+fields:
+  - text11: text
+---
+question: Text17
+fields:
+  - text17: text
+---
+question: Text13
+fields:
+  - text13: text
+---
+question: Check1
+yesno: check1
+---
+question: Check2
+yesno: check2
+---
+question: Check3
+yesno: check3
+---
+question: Check4
+yesno: check4
+---
+question: Check5
+yesno: check5
+---
+question: Check6
+yesno: check6
+---
+question: Check7
+yesno: check7
+---
+question: Text14
+fields:
+  - text14: text
+---
+question: Check8
+yesno: check8
+---
+question: Check9
+yesno: check9
+---
+question: Check10
+yesno: check10
+---
+question: Check11
+yesno: check11
+---
+question: Check12
+yesno: check12
+---
+question: Text15
+fields:
+  - text15: text
+---
+question: Check13
+yesno: check13
+---
+question: Text16
+fields:
+  - text16: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Municipality
+fields:
+  - municipality: text
+---
+question: Street Address
+fields:
+  - street_address: text
+---
+question: Postal Code
+fields:
+  - postal_code: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: Child Name
+fields:
+  - child_name: text
+---
+question: Child Birthdate
+fields:
+  - child_birthdate:
+      datatype: date
+---
+question: Child Age
+fields:
+  - child_age:
+      datatype: integer
+---
+question: |
+  Full legal name of child:
+fields:
+  - full_legal_name_of_child: text
+---
+question: |
+  Birthdate:
+fields:
+  - birthdate:
+      datatype: date
+---
+question: |
+  Sex:
+fields:
+  - sex: text
+---
+question: Review Form 33F Information
+subquestion: Please review all information before generating the form.
+review:
+  field_0:
+    button: **Field 0**
+  courtfileno:
+    button: **Court File No**
+  text2:
+    button: **Text2**
+  text4:
+    button: **Text4**
+  field_4:
+    button: **Field 4**
+  text9:
+    button: **Text9**
+  field_6:
+    button: **Field 6**
+  text10:
+    button: **Text10**
+  text11:
+    button: **Text11**
+  text17:
+    button: **Text17**
+---
+event: final_screen
+question: Form 33F Complete
+subquestion: |
+  Your Form 33F has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 33F: ${ form_33F_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 33F
+  filename: form_33F
+  variable name: form_33F_document
+  content: |
+    # Ontario Family Law Form 33F
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 33F Specific Information
+    [Form fields would be inserted here]
+---
+code: form_33F_ready = True

@@ -1,0 +1,65 @@
+---
+metadata:
+  title: |
+    Form 29A: Form 29A
+  short title: |
+    Form 29A
+  description: |
+    Form-specific questions for Ontario Family Law Form 29A
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form29A_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 29A specific sections
+  form29A_additional_information_complete
+  form29A_review
+  form29A_complete
+---
+question: |
+  Form 29A - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 29A.
+fields:
+  - The total amount of your payments is not to exceed $ The total amount of your payments is not to exc: form29A_the_total_amount_of_your_payme
+    datatype: currency
+continue button field: form29A_additional_information_complete
+---
+event: form29A_review
+question: |
+  Review Form 29A Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form29A_complete
+question: |
+  Form 29A Complete
+subquestion: |
+  Your Form 29A (Form 29A) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 29A specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

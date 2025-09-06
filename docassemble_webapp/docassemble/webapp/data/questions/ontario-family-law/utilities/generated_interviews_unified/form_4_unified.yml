@@ -1,0 +1,157 @@
+---
+metadata:
+  title: Ontario Family Law Form 4
+  short_title: Form 4
+  description: Complete interview for Ontario Family Law Form 4
+  form_number: 4
+  generated: 2025-09-05T16:41:13.172938
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 4
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_dropdown1
+  form_specific_courtfileno
+  form_specific_field_2
+  form_specific_field_3
+  form_specific_field_4
+  form_specific_field_5
+  form_specific_field_6
+  form_specific_field_7
+  form_specific_field_8
+  form_specific_check1
+  form_specific_field_10
+  form_specific_field_15
+  form_specific_field_16
+  case.court_file_number
+  form_specific_court_address
+  form_specific_municipality
+  form_specific_street_address
+  applicant.address.postal_code
+  form_specific_phone
+  form_specific_fax
+  # ... and 4 more fields
+  
+  # Complete the interview
+  form_4_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - form_specific_dropdown1: text
+---
+question: Courtfileno
+fields:
+  - form_specific_courtfileno: text
+---
+question: Field 2
+fields:
+  - form_specific_field_2: text
+---
+question: Field 3
+fields:
+  - form_specific_field_3: text
+---
+question: Field 4
+fields:
+  - form_specific_field_4: text
+---
+question: Field 5
+fields:
+  - form_specific_field_5: text
+---
+question: Field 6
+fields:
+  - form_specific_field_6: text
+---
+question: Field 7
+fields:
+  - form_specific_field_7: text
+---
+question: Field 8
+fields:
+  - form_specific_field_8: text
+---
+question: Check1
+yesno: form_specific_check1
+---
+question: Field 10
+fields:
+  - form_specific_field_10: text
+---
+question: Field 15
+fields:
+  - form_specific_field_15: text
+---
+question: Field 16
+fields:
+  - form_specific_field_16: text
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Street Address
+fields:
+  - form_specific_street_address: text
+---
+question: Applicant Postal Code
+fields:
+  - applicant.address.postal_code: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Lawyer Name
+fields:
+  - form_specific_lawyer_name: text
+---
+question: Child Current Age
+fields:
+  - children[i].age:
+      datatype: integer
+---
+question: Form 4
+fields:
+  - form_specific_form_4: text
+---
+question: Notes
+fields:
+  - form_specific_notes: text
+---
+event: final_screen
+question: Form 4 Complete
+subquestion: Your Ontario Family Law Form 4 has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_4_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_4_ready = True

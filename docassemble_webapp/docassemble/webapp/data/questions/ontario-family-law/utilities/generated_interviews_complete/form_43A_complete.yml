@@ -1,0 +1,254 @@
+---
+metadata:
+  title: Ontario Family Law Form 43A
+  short_title: Form 43A
+  description: Complete standalone interview for Form 43A
+  form_number: 43A
+  total_fields: 33
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 43a
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 43A Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  dropdown1
+  courtfileno
+  text1
+  text3
+  field_7
+  field_8
+  field_9
+  field_10
+  field_11
+  check85
+  field_13
+  field_15
+  field_17
+  field_18
+  field_19
+  field_22
+  field_25
+  field_26
+  field_27
+  field_28
+  # ... and 13 more fields
+  
+  # Generate Form 43A
+  form_43A_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - dropdown1:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Text1
+fields:
+  - text1: text
+---
+question: Text3
+fields:
+  - text3: text
+---
+question: Field 7
+fields:
+  - field_7: text
+---
+question: Field 8
+fields:
+  - field_8: text
+---
+question: Field 9
+fields:
+  - field_9: text
+---
+question: Field 10
+fields:
+  - field_10: text
+---
+question: Field 11
+fields:
+  - field_11: text
+---
+question: Check85
+yesno: check85
+---
+question: Field 13
+fields:
+  - field_13: text
+---
+question: Field 15
+fields:
+  - field_15: text
+---
+question: Field 17
+fields:
+  - field_17: text
+---
+question: Field 18
+fields:
+  - field_18: text
+---
+question: Field 19
+fields:
+  - field_19: text
+---
+question: Field 22
+fields:
+  - field_22: text
+---
+question: Field 25
+fields:
+  - field_25: text
+---
+question: Field 26
+fields:
+  - field_26: text
+---
+question: Field 27
+fields:
+  - field_27: text
+---
+question: Field 28
+fields:
+  - field_28: text
+---
+question: Field 29
+fields:
+  - field_29: text
+---
+question: Field 32
+fields:
+  - field_32: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Municipality
+fields:
+  - municipality: text
+---
+question: Province
+fields:
+  - province:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Street Address
+fields:
+  - street_address: text
+---
+question: Postal Code
+fields:
+  - postal_code: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: Child Name
+fields:
+  - child_name: text
+---
+question: Child Age
+fields:
+  - child_age:
+      datatype: integer
+---
+question: |
+  RE:
+fields:
+  - re: text
+---
+question: Review Form 43A Information
+subquestion: Please review all information before generating the form.
+review:
+  dropdown1:
+    button: **Dropdown1**
+  courtfileno:
+    button: **Court File No**
+  text1:
+    button: **Text1**
+  text3:
+    button: **Text3**
+  field_7:
+    button: **Field 7**
+  field_8:
+    button: **Field 8**
+  field_9:
+    button: **Field 9**
+  field_10:
+    button: **Field 10**
+  field_11:
+    button: **Field 11**
+  check85:
+    button: **Check85**
+---
+event: final_screen
+question: Form 43A Complete
+subquestion: |
+  Your Form 43A has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 43A: ${ form_43A_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 43A
+  filename: form_43A
+  variable name: form_43A_document
+  content: |
+    # Ontario Family Law Form 43A
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 43A Specific Information
+    [Form fields would be inserted here]
+---
+code: form_43A_ready = True

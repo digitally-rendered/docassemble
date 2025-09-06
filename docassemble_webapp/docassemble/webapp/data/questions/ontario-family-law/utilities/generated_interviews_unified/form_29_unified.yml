@@ -1,0 +1,268 @@
+---
+metadata:
+  title: Ontario Family Law Form 29
+  short_title: Form 29
+  description: Complete interview for Ontario Family Law Form 29
+  form_number: 29
+  generated: 2025-09-05T16:41:13.174076
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 29
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_dropdown1
+  form_specific_courtfileno
+  form_specific_field_2
+  form_specific_text3
+  form_specific_field_4
+  form_specific_field_5
+  form_specific_field_6
+  form_specific_check1
+  form_specific_check2
+  form_specific_check3
+  form_specific_check4
+  form_specific_field_11
+  form_specific_field_12
+  form_specific_check5
+  form_specific_field_14
+  form_specific_field_15
+  form_specific_text5
+  form_specific_text12
+  form_specific_field_18
+  form_specific_field_19
+  # ... and 34 more fields
+  
+  # Complete the interview
+  form_29_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - form_specific_dropdown1: text
+---
+question: Courtfileno
+fields:
+  - form_specific_courtfileno: text
+---
+question: Field 2
+fields:
+  - form_specific_field_2: text
+---
+question: Text3
+fields:
+  - form_specific_text3: text
+---
+question: Field 4
+fields:
+  - form_specific_field_4: text
+---
+question: Field 5
+fields:
+  - form_specific_field_5: text
+---
+question: Field 6
+fields:
+  - form_specific_field_6: text
+---
+question: Check1
+yesno: form_specific_check1
+---
+question: Check2
+yesno: form_specific_check2
+---
+question: Check3
+yesno: form_specific_check3
+---
+question: Check4
+yesno: form_specific_check4
+---
+question: Field 11
+fields:
+  - form_specific_field_11: text
+---
+question: Field 12
+fields:
+  - form_specific_field_12: text
+---
+question: Check5
+yesno: form_specific_check5
+---
+question: Field 14
+fields:
+  - form_specific_field_14: text
+---
+question: Field 15
+fields:
+  - form_specific_field_15: text
+---
+question: Text5
+fields:
+  - form_specific_text5: text
+---
+question: Text12
+fields:
+  - form_specific_text12: text
+---
+question: Field 18
+fields:
+  - form_specific_field_18: text
+---
+question: Field 19
+fields:
+  - form_specific_field_19: text
+---
+question: Check6
+yesno: form_specific_check6
+---
+question: Field 22
+fields:
+  - form_specific_field_22: text
+---
+question: Field 24
+fields:
+  - form_specific_field_24: text
+---
+question: Check10
+yesno: form_specific_check10
+---
+question: Field 27
+fields:
+  - form_specific_field_27: text
+---
+question: Check11
+yesno: form_specific_check11
+---
+question: Field 34
+fields:
+  - form_specific_field_34: text
+---
+question: Field 35
+fields:
+  - form_specific_field_35: text
+---
+question: Field 36
+fields:
+  - form_specific_field_36: text
+---
+question: Field 39
+fields:
+  - form_specific_field_39: text
+---
+question: Field 41
+fields:
+  - form_specific_field_41: text
+---
+question: Field 44
+fields:
+  - form_specific_field_44: text
+---
+question: Field 51
+fields:
+  - form_specific_field_51: text
+---
+question: Field 52
+fields:
+  - form_specific_field_52: text
+---
+question: Field 53
+fields:
+  - form_specific_field_53: text
+---
+question: Field 56
+fields:
+  - form_specific_field_56: text
+---
+question: Field 58
+fields:
+  - form_specific_field_58: text
+---
+question: Field 61
+fields:
+  - form_specific_field_61: text
+---
+question: Field 68
+fields:
+  - form_specific_field_68: text
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Street Address
+fields:
+  - form_specific_street_address: text
+---
+question: Applicant Postal Code
+fields:
+  - applicant.address.postal_code: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Details
+fields:
+  - form_specific_details: text
+---
+question: Other Specify
+fields:
+  - form_specific_other_specify: text
+---
+question: To The Clerk Of The Court
+fields:
+  - form_specific_to_the_clerk_of_the_court: text
+---
+question: Form 29
+fields:
+  - form_specific_form_29: text
+---
+question: Name Of Garnishee
+fields:
+  - form_specific_name_of_garnishee: text
+---
+question: Garnishees Address
+fields:
+  - form_specific_garnishees_address: text
+---
+question: Amount That The Garnishee Owes Or Will Owe To The Payor
+fields:
+  - form_specific_amount_that_the_garnishee_owes_or_will_owe_to_the_payor: text
+---
+question: Description Of Debt Owed By The Garnishee To The Payor
+fields:
+  - form_specific_description_of_debt_owed_by_the_garnishee_to_the_payor: text
+---
+event: final_screen
+question: Form 29 Complete
+subquestion: Your Ontario Family Law Form 29 has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_29_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_29_ready = True

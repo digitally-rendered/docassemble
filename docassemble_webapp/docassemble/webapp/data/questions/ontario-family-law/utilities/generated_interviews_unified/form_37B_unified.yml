@@ -1,0 +1,163 @@
+---
+metadata:
+  title: Ontario Family Law Form 37B
+  short_title: Form 37B
+  description: Complete interview for Ontario Family Law Form 37B
+  form_number: 37B
+  generated: 2025-09-05T16:41:13.202810
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 37B
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_dropdown1
+  form_specific_courtfileno
+  form_specific_field_2
+  form_specific_text4
+  form_specific_check2
+  form_specific_check3
+  form_specific_check4
+  form_specific_field_12
+  form_specific_field_13
+  form_specific_check5
+  form_specific_check6
+  form_specific_check7
+  form_specific_check8
+  form_specific_text6
+  case.court_file_number
+  form_specific_court_address
+  form_specific_municipality
+  form_specific_street_address
+  applicant.address.postal_code
+  form_specific_phone
+  # ... and 7 more fields
+  
+  # Complete the interview
+  form_37B_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - form_specific_dropdown1: text
+---
+question: Courtfileno
+fields:
+  - form_specific_courtfileno: text
+---
+question: Field 2
+fields:
+  - form_specific_field_2: text
+---
+question: Text4
+fields:
+  - form_specific_text4: text
+---
+question: Check2
+yesno: form_specific_check2
+---
+question: Check3
+yesno: form_specific_check3
+---
+question: Check4
+yesno: form_specific_check4
+---
+question: Field 12
+fields:
+  - form_specific_field_12: text
+---
+question: Field 13
+fields:
+  - form_specific_field_13: text
+---
+question: Check5
+yesno: form_specific_check5
+---
+question: Check6
+yesno: form_specific_check6
+---
+question: Check7
+yesno: form_specific_check7
+---
+question: Check8
+yesno: form_specific_check8
+---
+question: Text6
+fields:
+  - form_specific_text6: text
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Street Address
+fields:
+  - form_specific_street_address: text
+---
+question: Applicant Postal Code
+fields:
+  - applicant.address.postal_code: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Child Current Age
+fields:
+  - children[i].age:
+      datatype: integer
+---
+question: Applicants
+fields:
+  - form_specific_applicants: text
+---
+question: The Ontario Interjurisdictional Support Orders Unit
+fields:
+  - form_specific_the_ontario_interjurisdictional_support_orders_unit: text
+---
+question: This Court Considered The Application For Support Or The Application To Change A Support Order Under
+fields:
+  - form_specific_this_court_considered_the_application_for_support_or_the_application_to_change_a_support_order_under: text
+---
+question: Form 37 B
+fields:
+  - form_specific_form_37_b: text
+---
+question: At The Hearing A Temporary Order
+fields:
+  - form_specific_at_the_hearing_a_temporary_order: text
+---
+event: final_screen
+question: Form 37B Complete
+subquestion: Your Ontario Family Law Form 37B has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_37B_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_37B_ready = True

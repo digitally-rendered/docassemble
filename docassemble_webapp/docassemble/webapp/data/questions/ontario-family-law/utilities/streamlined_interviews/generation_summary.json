@@ -1,0 +1,163 @@
+{
+  "generated_at": "2025-09-05T13:35:11.024543",
+  "total_forms": 26,
+  "forms": [
+    {
+      "form_number": "29A",
+      "total_specific_fields": 0,
+      "sections": 0,
+      "output_file": "form_29A_streamlined.yml"
+    },
+    {
+      "form_number": "26",
+      "total_specific_fields": 36,
+      "sections": 1,
+      "output_file": "form_26_streamlined.yml"
+    },
+    {
+      "form_number": "15B",
+      "total_specific_fields": 4,
+      "sections": 1,
+      "output_file": "form_15B_streamlined.yml"
+    },
+    {
+      "form_number": "13B",
+      "total_specific_fields": 34,
+      "sections": 1,
+      "output_file": "form_13B_streamlined.yml"
+    },
+    {
+      "form_number": "8A",
+      "total_specific_fields": 0,
+      "sections": 0,
+      "output_file": "form_8A_streamlined.yml"
+    },
+    {
+      "form_number": "36",
+      "total_specific_fields": 0,
+      "sections": 0,
+      "output_file": "form_36_streamlined.yml"
+    },
+    {
+      "form_number": "17C",
+      "total_specific_fields": 0,
+      "sections": 0,
+      "output_file": "form_17C_streamlined.yml"
+    },
+    {
+      "form_number": "13A",
+      "total_specific_fields": 0,
+      "sections": 0,
+      "output_file": "form_13A_streamlined.yml"
+    },
+    {
+      "form_number": "6C",
+      "total_specific_fields": 1,
+      "sections": 1,
+      "output_file": "form_6C_streamlined.yml"
+    },
+    {
+      "form_number": "29",
+      "total_specific_fields": 3,
+      "sections": 1,
+      "output_file": "form_29_streamlined.yml"
+    },
+    {
+      "form_number": "25A",
+      "total_specific_fields": 15,
+      "sections": 1,
+      "output_file": "form_25A_streamlined.yml"
+    },
+    {
+      "form_number": "33F",
+      "total_specific_fields": 0,
+      "sections": 0,
+      "output_file": "form_33F_streamlined.yml"
+    },
+    {
+      "form_number": "25D",
+      "total_specific_fields": 4,
+      "sections": 1,
+      "output_file": "form_25D_streamlined.yml"
+    },
+    {
+      "form_number": "36A",
+      "total_specific_fields": 0,
+      "sections": 0,
+      "output_file": "form_36A_streamlined.yml"
+    },
+    {
+      "form_number": "29B",
+      "total_specific_fields": 0,
+      "sections": 0,
+      "output_file": "form_29B_streamlined.yml"
+    },
+    {
+      "form_number": "17A",
+      "total_specific_fields": 0,
+      "sections": 0,
+      "output_file": "form_17A_streamlined.yml"
+    },
+    {
+      "form_number": "10A",
+      "total_specific_fields": 8,
+      "sections": 1,
+      "output_file": "form_10A_streamlined.yml"
+    },
+    {
+      "form_number": "13C",
+      "total_specific_fields": 17,
+      "sections": 1,
+      "output_file": "form_13C_streamlined.yml"
+    },
+    {
+      "form_number": "10",
+      "total_specific_fields": 0,
+      "sections": 0,
+      "output_file": "form_10_streamlined.yml"
+    },
+    {
+      "form_number": "15",
+      "total_specific_fields": 4,
+      "sections": 1,
+      "output_file": "form_15_streamlined.yml"
+    },
+    {
+      "form_number": "15C",
+      "total_specific_fields": 6,
+      "sections": 1,
+      "output_file": "form_15C_streamlined.yml"
+    },
+    {
+      "form_number": "8",
+      "total_specific_fields": 0,
+      "sections": 0,
+      "output_file": "form_8_streamlined.yml"
+    },
+    {
+      "form_number": "13.1",
+      "total_specific_fields": 53,
+      "sections": 4,
+      "output_file": "form_13.1_streamlined.yml"
+    },
+    {
+      "form_number": "13",
+      "total_specific_fields": 59,
+      "sections": 5,
+      "output_file": "form_13_streamlined.yml"
+    },
+    {
+      "form_number": "28",
+      "total_specific_fields": 6,
+      "sections": 1,
+      "output_file": "form_28_streamlined.yml"
+    },
+    {
+      "form_number": "6B",
+      "total_specific_fields": 1,
+      "sections": 1,
+      "output_file": "form_6B_streamlined.yml"
+    }
+  ],
+  "note": "These are streamlined interviews with ONLY form-specific fields"
+}

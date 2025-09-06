@@ -1,0 +1,275 @@
+{
+  "specification_version": "2.0",
+  "generated_date": "2025-09-05",
+  "based_on_analysis": {
+    "total_forms": 45,
+    "total_fields": 3373,
+    "common_fields_identified": 907
+  },
+  "shared_modules": {
+    "ontario_common_fields": {
+      "description": "Core field definitions used across all forms",
+      "categories": [
+        "court_info",
+        "signature_fields",
+        "claim_checkboxes",
+        "service_fields"
+      ],
+      "field_count": 45,
+      "usage": "All forms"
+    },
+    "ontario_party_objects": {
+      "description": "Party information structures (applicant, respondent, lawyers)",
+      "objects": [
+        "applicant",
+        "respondent",
+        "added_parties",
+        "lawyer"
+      ],
+      "field_count": 68,
+      "usage": "All forms with party information"
+    },
+    "ontario_children_objects": {
+      "description": "Children information and custody/support calculations",
+      "objects": [
+        "children",
+        "children_of_marriage",
+        "custody_arrangement",
+        "child_support"
+      ],
+      "field_count": 42,
+      "usage": "Forms 8, 10, 13, 13A, 15, 17A, 25, 26, 28, 36"
+    },
+    "ontario_financial_objects": {
+      "description": "Financial information and property division",
+      "objects": [
+        "income",
+        "expenses",
+        "assets",
+        "debts",
+        "net_family_property"
+      ],
+      "field_count": 38,
+      "usage": "Forms 13, 13A, 13B, 15, 26"
+    },
+    "ontario_court_objects": {
+      "description": "Court and case management information",
+      "objects": [
+        "court",
+        "case",
+        "motion",
+        "order"
+      ],
+      "field_count": 25,
+      "usage": "All procedural forms"
+    }
+  },
+  "common_fields_mapping": {
+    "court_file_number": {
+      "module": "ontario_common_fields",
+      "variable": "court.file_number",
+      "forms_used": ["All"],
+      "occurrences": 37
+    },
+    "court_name": {
+      "module": "ontario_common_fields",
+      "variable": "court.court_type",
+      "forms_used": ["All"],
+      "occurrences": 20
+    },
+    "applicant_name": {
+      "module": "ontario_party_objects",
+      "variable": "applicant.name.full()",
+      "forms_used": ["All"],
+      "occurrences": 45
+    },
+    "respondent_name": {
+      "module": "ontario_party_objects",
+      "variable": "respondent.name.full()",
+      "forms_used": ["All"],
+      "occurrences": 45
+    },
+    "applicant_address": {
+      "module": "ontario_party_objects",
+      "variable": "applicant.address.block()",
+      "forms_used": ["All"],
+      "occurrences": 45
+    },
+    "respondent_address": {
+      "module": "ontario_party_objects",
+      "variable": "respondent.address.block()",
+      "forms_used": ["All"],
+      "occurrences": 45
+    },
+    "children_list": {
+      "module": "ontario_children_objects",
+      "variable": "children",
+      "forms_used": ["8", "10", "13", "13A", "15", "17A", "25", "26", "28", "36"],
+      "occurrences": 25
+    },
+    "signature_date": {
+      "module": "ontario_common_fields",
+      "variable": "signature_date",
+      "forms_used": ["All"],
+      "occurrences": 45
+    },
+    "lawyer_info": {
+      "module": "ontario_party_objects",
+      "variable": "applicant.lawyer",
+      "forms_used": ["Most"],
+      "occurrences": 35
+    }
+  },
+  "form_specific_fields": {
+    "form_8": {
+      "specific_fields": [
+        "grounds_for_divorce",
+        "separation_circumstances",
+        "reconciliation_attempts",
+        "marriage_certificate_attached"
+      ],
+      "shared_modules_used": [
+        "ontario_common_fields",
+        "ontario_party_objects",
+        "ontario_children_objects"
+      ]
+    },
+    "form_10": {
+      "specific_fields": [
+        "answer_to_claim",
+        "dispute_claim",
+        "consent_to_claim"
+      ],
+      "shared_modules_used": [
+        "ontario_common_fields",
+        "ontario_party_objects"
+      ]
+    },
+    "form_13": {
+      "specific_fields": [
+        "assets_table",
+        "debts_table",
+        "income_sources",
+        "expense_categories",
+        "net_family_property_calculation"
+      ],
+      "shared_modules_used": [
+        "ontario_common_fields",
+        "ontario_party_objects",
+        "ontario_financial_objects"
+      ]
+    },
+    "form_13A": {
+      "specific_fields": [
+        "property_claims",
+        "equalization_payment",
+        "matrimonial_home_details"
+      ],
+      "shared_modules_used": [
+        "ontario_common_fields",
+        "ontario_party_objects",
+        "ontario_financial_objects"
+      ]
+    },
+    "form_15": {
+      "specific_fields": [
+        "motion_type",
+        "urgency_reasons",
+        "relief_sought",
+        "supporting_affidavit"
+      ],
+      "shared_modules_used": [
+        "ontario_common_fields",
+        "ontario_party_objects",
+        "ontario_court_objects"
+      ]
+    },
+    "form_17A": {
+      "specific_fields": [
+        "conference_type",
+        "issues_for_conference",
+        "settlement_proposals",
+        "disclosure_completed"
+      ],
+      "shared_modules_used": [
+        "ontario_common_fields",
+        "ontario_party_objects",
+        "ontario_court_objects"
+      ]
+    },
+    "form_36": {
+      "specific_fields": [
+        "affidavit_purpose",
+        "sworn_statements",
+        "exhibits_attached"
+      ],
+      "shared_modules_used": [
+        "ontario_common_fields",
+        "ontario_party_objects"
+      ]
+    }
+  },
+  "excluded_from_generation": {
+    "reason": "Already in common-intake-enhanced-with-validation.yml",
+    "fields": [
+      "case_type",
+      "user_role",
+      "initial_assessment_complete",
+      "eligibility_check",
+      "document_checklist"
+    ]
+  },
+  "generation_rules": {
+    "import_strategy": "Always import shared modules at the beginning of each form-specific interview",
+    "field_override": "Form-specific fields can override shared field definitions if needed",
+    "validation": "Use ontario_validation_functions for all Ontario-specific validation",
+    "object_initialization": "Initialize all required objects in the metadata block",
+    "question_flow": "Follow the official form order but group related questions logically"
+  },
+  "validation_patterns": {
+    "postal_code": "Ontario postal codes (K, L, M, N, P prefixes)",
+    "court_file": "Ontario court file format (FS-XX-XXXXX)",
+    "phone": "Canadian phone number format",
+    "sin": "Canadian Social Insurance Number with Luhn check",
+    "dates": "Past dates for birth/marriage, logical date relationships"
+  },
+  "docassemble_conventions": {
+    "objects": {
+      "Individual": "Use for all people (parties, lawyers, children)",
+      "DAList": "Use for collections (children, assets, debts)",
+      "Address": "Use built-in Address object for all addresses",
+      "Organization": "Use for courts, agencies, firms"
+    },
+    "datatypes": {
+      "yesnoradio": "For yes/no questions",
+      "checkboxes": "For multiple selections",
+      "radio": "For single selection from options",
+      "currency": "For all monetary amounts",
+      "date": "For all date fields",
+      "email": "For email addresses",
+      "area": "For multi-line text input"
+    },
+    "methods": {
+      "name.full()": "Get full name of Individual",
+      "age_in_years()": "Calculate age from birthdate",
+      "address.block()": "Format address for display",
+      "currency()": "Format number as currency"
+    }
+  },
+  "testing_requirements": {
+    "coverage": "All generated interviews must have Playwright tests",
+    "scenarios": [
+      "Simple case (no children, no property)",
+      "Complex case (children, property, support)",
+      "Self-represented party",
+      "Party with lawyer",
+      "Multiple children with different arrangements"
+    ],
+    "validation_tests": [
+      "Required fields enforcement",
+      "Date logic validation",
+      "Financial calculations accuracy",
+      "Document generation completeness"
+    ]
+  }
+}

@@ -1,0 +1,390 @@
+---
+metadata:
+  title: Ontario Family Law Form 36A
+  short_title: Form 36A
+  description: Complete standalone interview for Form 36A
+  form_number: 36A
+  total_fields: 74
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 36a
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 36A Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  dropdown1
+  courtfileno
+  field_2
+  field_3
+  field_4
+  check1
+  check2
+  check3
+  field_9
+  check4
+  field_11
+  check5
+  field_13
+  field_14
+  check6
+  field_16
+  field_17
+  check7
+  field_19
+  check8
+  # ... and 54 more fields
+  
+  # Generate Form 36A
+  form_36A_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - dropdown1:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Field 2
+fields:
+  - field_2: text
+---
+question: Field 3
+fields:
+  - field_3: text
+---
+question: Field 4
+fields:
+  - field_4: text
+---
+question: Check1
+yesno: check1
+---
+question: Check2
+yesno: check2
+---
+question: Check3
+yesno: check3
+---
+question: Field 9
+fields:
+  - field_9: text
+---
+question: Check4
+yesno: check4
+---
+question: Field 11
+fields:
+  - field_11: text
+---
+question: Check5
+yesno: check5
+---
+question: Field 13
+fields:
+  - field_13: text
+---
+question: Field 14
+fields:
+  - field_14: text
+---
+question: Check6
+yesno: check6
+---
+question: Field 16
+fields:
+  - field_16: text
+---
+question: Field 17
+fields:
+  - field_17: text
+---
+question: Check7
+yesno: check7
+---
+question: Field 19
+fields:
+  - field_19: text
+---
+question: Check8
+yesno: check8
+---
+question: Field 21
+fields:
+  - field_21: text
+---
+question: Check21
+yesno: check21
+---
+question: Check11
+yesno: check11
+---
+question: Check12
+yesno: check12
+---
+question: Check13
+yesno: check13
+---
+question: Check15
+yesno: check15
+---
+question: Check16
+yesno: check16
+---
+question: Check17
+yesno: check17
+---
+question: Check18
+yesno: check18
+---
+question: Check19
+yesno: check19
+---
+question: Check20
+yesno: check20
+---
+question: Field 34
+fields:
+  - field_34: text
+---
+question: Field 35
+fields:
+  - field_35: text
+---
+question: Field 36
+fields:
+  - field_36: text
+---
+question: Field 39
+fields:
+  - field_39: text
+---
+question: Field 44
+fields:
+  - field_44: text
+---
+question: Check22
+yesno: check22
+---
+question: Field 46
+fields:
+  - field_46: text
+---
+question: Check23
+yesno: check23
+---
+question: Check24
+yesno: check24
+---
+question: Check25
+yesno: check25
+---
+question: Check26
+yesno: check26
+---
+question: Field 59
+fields:
+  - field_59: text
+---
+question: Check27
+yesno: check27
+---
+question: Field 61
+fields:
+  - field_61: text
+---
+question: Check28
+yesno: check28
+---
+question: Field 63
+fields:
+  - field_63: text
+---
+question: Field 66
+fields:
+  - field_66: text
+---
+question: Check29
+yesno: check29
+---
+question: Field 68
+fields:
+  - field_68: text
+---
+question: Field 70
+fields:
+  - field_70: text
+---
+question: Field 71
+fields:
+  - field_71: text
+---
+question: Field 73
+fields:
+  - field_73: text
+---
+question: Field 78
+fields:
+  - field_78: text
+---
+question: Check30
+yesno: check30
+---
+question: Check31
+yesno: check31
+---
+question: Check32
+yesno: check32
+---
+question: Check34
+yesno: check34
+---
+question: Check33
+yesno: check33
+---
+question: Check35
+yesno: check35
+---
+question: Field 100
+fields:
+  - field_100: text
+---
+question: Field 102
+fields:
+  - field_102: text
+---
+question: Field 105
+fields:
+  - field_105: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Municipality
+fields:
+  - municipality: text
+---
+question: Province
+fields:
+  - province:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Email Address
+fields:
+  - email:
+      datatype: email
+---
+question: Child Age
+fields:
+  - child_age:
+      datatype: integer
+---
+question: Details
+fields:
+  - details: text
+---
+question: Other Specify
+fields:
+  - other_specify: text
+---
+question: |
+  The clerk of the court certifies as follows:
+fields:
+  - the_clerk_of_the_court_certifies_as_follows: text
+---
+question: |
+  Form 36A:
+fields:
+  - form_36a: text
+---
+question: |
+  The following material has been filed:
+fields:
+  - the_following_material_has_been_filed: text
+---
+question: Review Form 36A Information
+subquestion: Please review all information before generating the form.
+review:
+  dropdown1:
+    button: **Dropdown1**
+  courtfileno:
+    button: **Court File No**
+  field_2:
+    button: **Field 2**
+  field_3:
+    button: **Field 3**
+  field_4:
+    button: **Field 4**
+  check1:
+    button: **Check1**
+  check2:
+    button: **Check2**
+  check3:
+    button: **Check3**
+  field_9:
+    button: **Field 9**
+  check4:
+    button: **Check4**
+---
+event: final_screen
+question: Form 36A Complete
+subquestion: |
+  Your Form 36A has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 36A: ${ form_36A_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 36A
+  filename: form_36A
+  variable name: form_36A_document
+  content: |
+    # Ontario Family Law Form 36A
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 36A Specific Information
+    [Form fields would be inserted here]
+---
+code: form_36A_ready = True

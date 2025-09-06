@@ -1,0 +1,141 @@
+{
+  "form_path": "workflow_output/ontario_forms/form_17a_-_case_conference_brief_flr-17a-sep23-en.docx",
+  "total_fields": 12,
+  "field_types": {
+    "text": 12
+  },
+  "fields": [
+    {
+      "id": "t0_r2_c19",
+      "key": "form_17a",
+      "label": "Form 17A",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r2_c19:T0:R2:C19",
+      "required": false,
+      "section": "",
+      "context": "Form 17A: \nCase Conference Brief \u2013  \nGeneral"
+    },
+    {
+      "id": "t0_r2_c20",
+      "key": "form_17a",
+      "label": "Form 17A",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r2_c20:T0:R2:C20",
+      "required": false,
+      "section": "",
+      "context": "Form 17A: \nCase Conference Brief \u2013  \nGeneral"
+    },
+    {
+      "id": "t0_r2_c21",
+      "key": "form_17a",
+      "label": "Form 17A",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r2_c21:T0:R2:C21",
+      "required": false,
+      "section": "",
+      "context": "Form 17A: \nCase Conference Brief \u2013  \nGeneral"
+    },
+    {
+      "id": "t0_r2_c22",
+      "key": "form_17a",
+      "label": "Form 17A",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r2_c22:T0:R2:C22",
+      "required": false,
+      "section": "",
+      "context": "Form 17A: \nCase Conference Brief \u2013  \nGeneral"
+    },
+    {
+      "id": "t0_r3_c19",
+      "key": "form_17a",
+      "label": "Form 17A",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r3_c19:T0:R3:C19",
+      "required": false,
+      "section": "",
+      "context": "Form 17A: \nCase Conference Brief \u2013  \nGeneral"
+    },
+    {
+      "id": "t0_r3_c20",
+      "key": "form_17a",
+      "label": "Form 17A",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r3_c20:T0:R3:C20",
+      "required": false,
+      "section": "",
+      "context": "Form 17A: \nCase Conference Brief \u2013  \nGeneral"
+    },
+    {
+      "id": "t0_r3_c21",
+      "key": "form_17a",
+      "label": "Form 17A",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r3_c21:T0:R3:C21",
+      "required": false,
+      "section": "",
+      "context": "Form 17A: \nCase Conference Brief \u2013  \nGeneral"
+    },
+    {
+      "id": "t0_r3_c22",
+      "key": "form_17a",
+      "label": "Form 17A",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r3_c22:T0:R3:C22",
+      "required": false,
+      "section": "",
+      "context": "Form 17A: \nCase Conference Brief \u2013  \nGeneral"
+    },
+    {
+      "id": "t0_r4_c19",
+      "key": "form_17a",
+      "label": "Form 17A",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r4_c19:T0:R4:C19",
+      "required": false,
+      "section": "",
+      "context": "Form 17A: \nCase Conference Brief \u2013  \nGeneral"
+    },
+    {
+      "id": "t0_r4_c20",
+      "key": "form_17a",
+      "label": "Form 17A",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r4_c20:T0:R4:C20",
+      "required": false,
+      "section": "",
+      "context": "Form 17A: \nCase Conference Brief \u2013  \nGeneral"
+    },
+    {
+      "id": "t0_r4_c21",
+      "key": "form_17a",
+      "label": "Form 17A",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r4_c21:T0:R4:C21",
+      "required": false,
+      "section": "",
+      "context": "Form 17A: \nCase Conference Brief \u2013  \nGeneral"
+    },
+    {
+      "id": "t0_r4_c22",
+      "key": "form_17a",
+      "label": "Form 17A",
+      "type": "text",
+      "location": "table",
+      "signature": "table:t0_r4_c22:T0:R4:C22",
+      "required": false,
+      "section": "",
+      "context": "Form 17A: \nCase Conference Brief \u2013  \nGeneral"
+    }
+  ]
+}

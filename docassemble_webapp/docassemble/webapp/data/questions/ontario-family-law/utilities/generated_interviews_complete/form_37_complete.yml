@@ -1,0 +1,236 @@
+---
+metadata:
+  title: Ontario Family Law Form 37
+  short_title: Form 37
+  description: Complete standalone interview for Form 37
+  form_number: 37
+  total_fields: 30
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 37
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 37 Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  dropdown1
+  courtfileno
+  field_2
+  text3
+  field_4
+  field_5
+  field_6
+  field_7
+  text2
+  dropdown2
+  field_10
+  check11
+  check3
+  check4
+  check12
+  check13
+  check14
+  check8
+  check9
+  text4
+  # ... and 10 more fields
+  
+  # Generate Form 37
+  form_37_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - dropdown1:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Field 2
+fields:
+  - field_2: text
+---
+question: Text3
+fields:
+  - text3: text
+---
+question: Field 4
+fields:
+  - field_4: text
+---
+question: Field 5
+fields:
+  - field_5: text
+---
+question: Field 6
+fields:
+  - field_6: text
+---
+question: Field 7
+fields:
+  - field_7: text
+---
+question: Text2
+fields:
+  - text2: text
+---
+question: Dropdown2
+fields:
+  - dropdown2:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Field 10
+fields:
+  - field_10: text
+---
+question: Check11
+yesno: check11
+---
+question: Check3
+yesno: check3
+---
+question: Check4
+yesno: check4
+---
+question: Check12
+yesno: check12
+---
+question: Check13
+yesno: check13
+---
+question: Check14
+yesno: check14
+---
+question: Check8
+yesno: check8
+---
+question: Check9
+yesno: check9
+---
+question: Text4
+fields:
+  - text4: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Municipality
+fields:
+  - municipality: text
+---
+question: Street Address
+fields:
+  - street_address: text
+---
+question: Postal Code
+fields:
+  - postal_code: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: Child Age
+fields:
+  - child_age:
+      datatype: integer
+---
+question: |
+  NOTICE:
+fields:
+  - notice: text
+---
+question: |
+  Form 37:
+fields:
+  - form_37: text
+---
+question: Review Form 37 Information
+subquestion: Please review all information before generating the form.
+review:
+  dropdown1:
+    button: **Dropdown1**
+  courtfileno:
+    button: **Court File No**
+  field_2:
+    button: **Field 2**
+  text3:
+    button: **Text3**
+  field_4:
+    button: **Field 4**
+  field_5:
+    button: **Field 5**
+  field_6:
+    button: **Field 6**
+  field_7:
+    button: **Field 7**
+  text2:
+    button: **Text2**
+  dropdown2:
+    button: **Dropdown2**
+---
+event: final_screen
+question: Form 37 Complete
+subquestion: |
+  Your Form 37 has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 37: ${ form_37_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 37
+  filename: form_37
+  variable name: form_37_document
+  content: |
+    # Ontario Family Law Form 37
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 37 Specific Information
+    [Form fields would be inserted here]
+---
+code: form_37_ready = True

@@ -1,0 +1,199 @@
+---
+metadata:
+  title: Ontario Family Law Form 14B
+  short_title: Form 14B
+  description: Complete interview for Ontario Family Law Form 14B
+  form_number: 14B
+  generated: 2025-09-05T16:41:13.172088
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 14B
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_dropdown1
+  form_specific_courtfileno
+  form_specific_text1
+  form_specific_check2
+  form_specific_text3
+  form_specific_text4
+  form_specific_text5
+  form_specific_text6
+  form_specific_check1
+  form_specific_check3
+  form_specific_text7
+  form_specific_check4
+  form_specific_check6
+  form_specific_check7
+  form_specific_text8
+  form_specific_field_19
+  form_specific_field_20
+  form_specific_field_21
+  form_specific_text14
+  case.court_file_number
+  # ... and 16 more fields
+  
+  # Complete the interview
+  form_14B_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - form_specific_dropdown1: text
+---
+question: Courtfileno
+fields:
+  - form_specific_courtfileno: text
+---
+question: Text1
+fields:
+  - form_specific_text1: text
+---
+question: Check2
+yesno: form_specific_check2
+---
+question: Text3
+fields:
+  - form_specific_text3: text
+---
+question: Text4
+fields:
+  - form_specific_text4: text
+---
+question: Text5
+fields:
+  - form_specific_text5: text
+---
+question: Text6
+fields:
+  - form_specific_text6: text
+---
+question: Check1
+yesno: form_specific_check1
+---
+question: Check3
+yesno: form_specific_check3
+---
+question: Text7
+fields:
+  - form_specific_text7: text
+---
+question: Check4
+yesno: form_specific_check4
+---
+question: Check6
+yesno: form_specific_check6
+---
+question: Check7
+yesno: form_specific_check7
+---
+question: Text8
+fields:
+  - form_specific_text8: text
+---
+question: Field 19
+fields:
+  - form_specific_field_19: text
+---
+question: Field 20
+fields:
+  - form_specific_field_20: text
+---
+question: Field 21
+fields:
+  - form_specific_field_21: text
+---
+question: Text14
+fields:
+  - form_specific_text14: text
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Other Specify
+fields:
+  - form_specific_other_specify: text
+---
+question: I Am
+fields:
+  - form_specific_i_am: text
+---
+question: Names Of Parties
+fields:
+  - form_specific_names_of_parties: text
+---
+question: Applicant
+fields:
+  - form_specific_applicant: text
+---
+question: Respondent
+fields:
+  - form_specific_respondent: text
+---
+question: Next Scheduled Court Date If Any
+fields:
+  - form_specific_next_scheduled_court_date_if_any:
+      datatype: date
+---
+question: Name Of Case Management Judge If Any
+fields:
+  - form_specific_name_of_case_management_judge_if_any: text
+---
+question: This Form Is Filed By
+fields:
+  - form_specific_this_form_is_filed_by: text
+---
+question: This Motion Is Made
+fields:
+  - form_specific_this_motion_is_made: text
+---
+question: Without Notice To
+fields:
+  - form_specific_without_notice_to: text
+---
+question: Procedural Uncomplicated Or Unopposed Order That You Want The Court To Make
+fields:
+  - form_specific_procedural_uncomplicated_or_unopposed_order_that_you_want_the_court_to_make: text
+---
+question: Form 14B
+fields:
+  - form_specific_form_14b: text
+---
+question: Why The Court Should Make This Order
+fields:
+  - form_specific_why_the_court_should_make_this_order: text
+---
+event: final_screen
+question: Form 14B Complete
+subquestion: Your Ontario Family Law Form 14B has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_14B_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_14B_ready = True

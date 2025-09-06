@@ -1,0 +1,15 @@
+{
+  "form_number": "8",
+  "form_file": "form_8_-_application_general_flr-8-jun25-en.docx",
+  "source_path": "test_download/core_applications/form_8_-_application_general_flr-8-jun25-en.docx",
+  "total_fields": 0,
+  "field_types": {},
+  "fields": [],
+  "parsing_method": "intelligent_field_naming",
+  "improvements": [
+    "Created meaningful field names from content analysis",
+    "Used Ontario-specific field patterns",
+    "Analyzed surrounding text for context",
+    "Eliminated generic field_X naming"
+  ]
+}

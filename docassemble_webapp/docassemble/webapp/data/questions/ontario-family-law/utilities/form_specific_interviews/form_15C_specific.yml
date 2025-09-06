@@ -1,0 +1,87 @@
+---
+metadata:
+  title: |
+    Form 15C: Form 15C
+  short title: |
+    Form 15C
+  description: |
+    Form-specific questions for Ontario Family Law Form 15C
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form15C_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 15C specific sections
+  form15C_additional_information_complete
+  form15C_review
+  form15C_complete
+---
+question: |
+  Form 15C - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 15C.
+fields:
+  - Full legal name: form15C_full_legal_name
+  - Address: form15C_address
+  - Based on the payor’s annual income of $ Based on the payor’s annual income of $ Based on the payor’s: form15C_based_on_the_payors_annual_inc
+    datatype: currency
+  - shall pay to (name of party) shall pay to (name of party) shall pay to (name of party) shall pay to: form15C_shall_pay_to_name_of_party_sha
+    datatype: currency
+  - shall pay (name of party) shall pay (name of party) shall pay (name of party) shall pay (name of par: form15C_shall_pay_name_of_party_shall_
+    datatype: currency
+  - $ $ $: form15C__
+    datatype: currency
+  - $ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .: form15C__
+    datatype: currency
+  - fixed at $ fixed at $ fixed at $ fixed at $ fixed at $ fixed at $ fixed at $ as of (date) as of (dat: form15C_fixed_at_fixed_at_fixed_at_fix
+    datatype: date
+  - $ $ per month, with payments to begin on (date) per month, with payments to begin on (date) per mont: form15C__per_month_with_payments_to_be
+    datatype: date
+  - fixed at $ fixed at $ fixed at $ fixed at $ fixed at $ fixed at $ as of (date) as of (date) as of (d: form15C_fixed_at_fixed_at_fixed_at_fix
+    datatype: date
+  - $ per month, with payments to begin on (date) per month, with payments to begin on (date) per month,: form15C__per_month_with_payments_to_be
+    datatype: date
+  - $ $ $ per month, with payments to begin on (date) per month, with payments to begin on (date) per mo: form15C__per_month_with_payments_to_be
+    datatype: date
+  - shall be fixed at $ shall be fixed at $ shall be fixed at $ shall be fixed at $ shall be fixed at $: form15C_shall_be_fixed_at_shall_be_fix
+    datatype: date
+continue button field: form15C_additional_information_complete
+---
+event: form15C_review
+question: |
+  Review Form 15C Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form15C_complete
+question: |
+  Form 15C Complete
+subquestion: |
+  Your Form 15C (Form 15C) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 15C specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

@@ -1,0 +1,223 @@
+---
+metadata:
+  title: Ontario Family Law Form 37B
+  short_title: Form 37B
+  description: Complete standalone interview for Form 37B
+  form_number: 37B
+  total_fields: 27
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 37b
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 37B Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  dropdown1
+  courtfileno
+  field_2
+  text4
+  check2
+  check3
+  check4
+  field_12
+  field_13
+  check5
+  check6
+  check7
+  check8
+  text6
+  court_file_number
+  court_address
+  municipality
+  street_address
+  postal_code
+  phone
+  # ... and 7 more fields
+  
+  # Generate Form 37B
+  form_37B_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - dropdown1:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Field 2
+fields:
+  - field_2: text
+---
+question: Text4
+fields:
+  - text4: text
+---
+question: Check2
+yesno: check2
+---
+question: Check3
+yesno: check3
+---
+question: Check4
+yesno: check4
+---
+question: Field 12
+fields:
+  - field_12: text
+---
+question: Field 13
+fields:
+  - field_13: text
+---
+question: Check5
+yesno: check5
+---
+question: Check6
+yesno: check6
+---
+question: Check7
+yesno: check7
+---
+question: Check8
+yesno: check8
+---
+question: Text6
+fields:
+  - text6: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Municipality
+fields:
+  - municipality: text
+---
+question: Street Address
+fields:
+  - street_address: text
+---
+question: Postal Code
+fields:
+  - postal_code: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: Child Age
+fields:
+  - child_age:
+      datatype: integer
+---
+question: |
+  APPLICANT(S):
+fields:
+  - applicants: text
+---
+question: |
+  THE ONTARIO INTERJURISDICTIONAL SUPPORT ORDERS UNIT:
+fields:
+  - the_ontario_interjurisdictional_support_orders_unit: text
+---
+question: |
+  This court considered the application for support or the application to change a support order  under:
+fields:
+  - this_court_considered_the_application_for_support_or_the_application_to_change_a_support_order_under: text
+---
+question: |
+  Form 37 B :
+fields:
+  - form_37_b: text
+---
+question: |
+  At the hearing, a temporary order:
+fields:
+  - at_the_hearing_a_temporary_order: text
+---
+question: Review Form 37B Information
+subquestion: Please review all information before generating the form.
+review:
+  dropdown1:
+    button: **Dropdown1**
+  courtfileno:
+    button: **Court File No**
+  field_2:
+    button: **Field 2**
+  text4:
+    button: **Text4**
+  check2:
+    button: **Check2**
+  check3:
+    button: **Check3**
+  check4:
+    button: **Check4**
+  field_12:
+    button: **Field 12**
+  field_13:
+    button: **Field 13**
+  check5:
+    button: **Check5**
+---
+event: final_screen
+question: Form 37B Complete
+subquestion: |
+  Your Form 37B has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 37B: ${ form_37B_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 37B
+  filename: form_37B
+  variable name: form_37B_document
+  content: |
+    # Ontario Family Law Form 37B
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 37B Specific Information
+    [Form fields would be inserted here]
+---
+code: form_37B_ready = True

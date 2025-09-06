@@ -1,0 +1,303 @@
+metadata:
+  title: Ontario Family Law Form 34A - Affidavit in Support of Protection Application
+  short_title: Form 34A
+  description: Docassemble interview for Ontario Family Law Form 34A
+  authors:
+  - Ontario Family Law System
+  revision_date: '2025-09-05'
+  form_number: '34A'
+  form_title: 'Affidavit in Support of Protection Application'
+  field_count: 74
+  generated_from: improved_parsed_data
+  tags:
+  - ontario
+  - family law
+  - form 34A
+---
+include:
+- docassemble.base:data/questions/basic-questions.yml
+- .ontario_child_protection_fields.yml
+modules:
+- .ontario_common_fields
+- .ontario_party_objects
+- .ontario_validation_functions
+- .ontario_children_objects
+---
+objects:
+- 'court: Organization'
+- 'children: DAList.using(object_type=Individual, there_are_any=False)'
+---
+code: |
+  # Ontario-specific validation functions
+  def validate_ontario_postal_code(postal_code):
+      if not postal_code:
+          return True
+      postal_clean = re.sub(r'\s+', '', postal_code.upper())
+      pattern = r'^[A-Z][0-9][A-Z][0-9][A-Z][0-9]$'
+      if not re.match(pattern, postal_clean):
+          return False
+      ontario_first_letters = 'KLMNP'
+      return postal_clean[0] in ontario_first_letters
+  
+  def validate_ontario_court_file(file_number):
+      if not file_number:
+          return True
+      patterns = [
+          r'^(FS|FC|FD|FM|FE)-[0-9]{2}-[0-9]{5,6}$',
+          r'^[0-9]{2}-[0-9]{5,6}$',
+          r'^[A-Z]{2}-[0-9]{2}-[0-9]{5,6}$'
+      ]
+      file_upper = file_number.upper().strip()
+      return any(re.match(pattern, file_upper) for pattern in patterns)
+  
+  def validate_canadian_phone(phone_number):
+      if not phone_number:
+          return True
+      digits_only = re.sub(r'\D', '', phone_number)
+      if len(digits_only) == 10:
+          return True
+      elif len(digits_only) == 11 and digits_only[0] == '1':
+          return True
+      return False
+---
+mandatory: True
+code: |
+  intro_screen
+  court_information
+  form_specific_information
+  review_answers
+  signature_date
+  final_screen
+---
+question: |
+  Ontario Family Law Form 34A: Affidavit in Support of Protection Application
+subquestion: |
+  This interview will help you with child protection proceedings.
+  
+  **Important Information:**
+  
+  * Have all required documents ready
+  * Answer all questions truthfully
+  * You can save your progress and return later
+  * This form must be filed with the court
+  
+  **Note:** This is not legal advice. Consider consulting a lawyer for your specific situation.
+  
+continue button field: intro_screen
+---
+question: |
+  General Information
+fields:
+  - 'Dropdown1': dropdown1
+  - 'Court File Number': courtfilenumber
+  - 'Field 2': field_2
+  - 'Field 3': field_3
+  - 'Field 4': field_4
+  - 'Field 5': field_5
+  - 'Field 6': field_6
+  - 'Field 7': field_7
+  - 'Field 8': field_8
+  - 'Field 9': field_9
+  - 'Field 10': field_10
+  - 'Field 11': field_11
+  - 'Field 12': field_12
+  - 'Field 13': field_13
+  - 'Field 14': field_14
+  - 'Field 15': field_15
+  - 'Field 16': field_16
+  - 'Field 17': field_17
+  - 'Field 18': field_18
+  - 'Field 19': field_19
+  - 'Check2': check2
+    datatype: yesno
+  - 'Field 21': field_21
+  - 'Field 23': field_23
+  - 'Field 25': field_25
+  - 'Field 26': field_26
+  - 'Field 30': field_30
+  - 'Field 33': field_33
+  - 'Field 34': field_34
+  - 'Field 37': field_37
+  - 'Field 39': field_39
+  - 'Field 40': field_40
+  - 'Field 44': field_44
+  - 'Field 47': field_47
+  - 'Field 48': field_48
+  - 'Field 51': field_51
+  - 'Field 54': field_54
+  - 'Field 57': field_57
+  - 'Field 60': field_60
+  - 'Check3': check3
+    datatype: yesno
+  - 'Field 63': field_63
+  - 'Field 64': field_64
+  - 'Field 65': field_65
+  - 'Field 67': field_67
+  - 'Field 68': field_68
+  - 'Field 69': field_69
+  - 'Field 70': field_70
+  - 'Field 73': field_73
+  - 'Field 74': field_74
+  - 'Field 75': field_75
+  - 'Field 77': field_77
+  - 'Field 78': field_78
+  - 'Field 79': field_79
+  - 'Field 80': field_80
+  - 'Field 83': field_83
+  - 'Field 84': field_84
+  - 'Field 85': field_85
+  - 'Field 86': field_86
+  - 'and I swear/affirm that the following is true:': and_i_swearaffirm_that_the_following_is_true
+  - 'under the following name(s):': under_the_following_names
+  - 'The review mentioned in paragraph  5  included an examination of the following checklist:': the_review_mentioned_in_paragraph_5_included_an_examination_of_the_following_checklist
+  - 'Form 34A: ': form_34a
+continue button field: general_information
+---
+question: |
+  Court Info
+fields:
+  - 'Court File Number': court_file_number
+  - 'Court Address': court_address
+  - 'Municipality': municipality
+  - 'Province': province
+continue button field: court_info
+---
+question: |
+  Party Info
+fields:
+  - 'Date Of Birth': date_of_birth
+    datatype: date
+  - 'Street Address': street_address
+  - 'Postal Code': postal_code
+  - 'Phone Number': phone
+  - 'Fax': fax
+continue button field: party_info
+---
+question: |
+  Marriage Info
+fields:
+  - 'Name Before Marriage': name_before_marriage
+continue button field: marriage_info
+---
+question: |
+  Children
+fields:
+  - 'Child Name': child_name
+  - 'Child Birthdate': child_birthdate
+    datatype: date
+  - 'Child Age': child_age
+    datatype: number
+continue button field: children
+---
+question: |
+  Signature Information
+fields:
+  - "Today's Date": signature_date
+    datatype: date
+    default: ${ today() }
+  - "Signature Location (City)": signature_city
+    default: Toronto
+  - "I understand that swearing a false affidavit is a criminal offense": oath_understood
+    datatype: yesno
+    required: True
+validation code: |
+  if not oath_understood:
+    validation_error("You must acknowledge understanding the oath")
+continue button field: signature_date
+---
+event: final_screen
+question: |
+  Form 34A Complete
+subquestion: |
+  Your Affidavit in Support of Protection Application has been completed and is ready for download.
+  
+  **Next Steps:**
+  1. Review your information below
+  2. Download the completed form
+  3. Print and sign the form
+  4. File with the court
+  
+  ${{ form_download }}
+  
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
+event: review_answers
+question: |
+  Review Your Answers
+subquestion: |
+  Please review your information below. Click on any item to make changes.
+review:
+  - Edit: court.name
+    button: |
+      **Court**: ${ court.name }
+  - Edit: date_of_birth
+    button: |
+      **Date Of Birth**: ${{ date_of_birth }}
+  - Edit: child_birthdate
+    button: |
+      **Child Birthdate**: ${{ child_birthdate }}
+  - Edit: child_age
+    button: |
+      **Child Age**: ${{ child_age }}
+continue button field: review_complete
+---
+attachment:
+  name: Form 34A - Affidavit in Support of Protection Application
+  filename: form_34A_completed
+  variable name: form_download
+  pdf template file: form_34A_template.pdf
+  editable: False
+  fields:
+    - 'dropdown1': ${{ dropdown1 }}
+    - 'courtfilenumber': ${{ courtfilenumber }}
+    - 'field_2': ${{ field_2 }}
+    - 'field_3': ${{ field_3 }}
+    - 'field_4': ${{ field_4 }}
+    - 'field_5': ${{ field_5 }}
+    - 'field_6': ${{ field_6 }}
+    - 'field_7': ${{ field_7 }}
+    - 'field_8': ${{ field_8 }}
+    - 'field_9': ${{ field_9 }}
+    - 'field_10': ${{ field_10 }}
+    - 'field_11': ${{ field_11 }}
+    - 'field_12': ${{ field_12 }}
+    - 'field_13': ${{ field_13 }}
+    - 'field_14': ${{ field_14 }}
+    - 'field_15': ${{ field_15 }}
+    - 'field_16': ${{ field_16 }}
+    - 'field_17': ${{ field_17 }}
+    - 'field_18': ${{ field_18 }}
+    - 'field_19': ${{ field_19 }}
+    - 'check2': ${{ check2 }}
+    - 'field_21': ${{ field_21 }}
+    - 'field_23': ${{ field_23 }}
+    - 'field_25': ${{ field_25 }}
+    - 'field_26': ${{ field_26 }}
+    - 'field_30': ${{ field_30 }}
+    - 'field_33': ${{ field_33 }}
+    - 'field_34': ${{ field_34 }}
+    - 'field_37': ${{ field_37 }}
+    - 'field_39': ${{ field_39 }}
+    - 'field_40': ${{ field_40 }}
+    - 'field_44': ${{ field_44 }}
+    - 'field_47': ${{ field_47 }}
+    - 'field_48': ${{ field_48 }}
+    - 'field_51': ${{ field_51 }}
+    - 'field_54': ${{ field_54 }}
+    - 'field_57': ${{ field_57 }}
+    - 'field_60': ${{ field_60 }}
+    - 'check3': ${{ check3 }}
+    - 'field_63': ${{ field_63 }}
+    - 'field_64': ${{ field_64 }}
+    - 'field_65': ${{ field_65 }}
+    - 'field_67': ${{ field_67 }}
+    - 'field_68': ${{ field_68 }}
+    - 'field_69': ${{ field_69 }}
+    - 'field_70': ${{ field_70 }}
+    - 'field_73': ${{ field_73 }}
+    - 'field_74': ${{ field_74 }}
+    - 'field_75': ${{ field_75 }}
+    - 'field_77': ${{ field_77 }}
+    # Additional fields truncated for brevity

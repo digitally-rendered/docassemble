@@ -1,0 +1,396 @@
+---
+metadata:
+  title: Ontario Family Law Form 10
+  short_title: Form 10
+  description: Complete standalone interview for Form 10
+  form_number: 10
+  total_fields: 73
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 10
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 10 Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  field_0
+  courtfileno
+  text6
+  field_3
+  field_4
+  field_5
+  field_6
+  field_7
+  field_8
+  field_9
+  field_10
+  field_11
+  field_12
+  field_13
+  field_14
+  field_15
+  field_16
+  field_17
+  field_18
+  check3
+  # ... and 53 more fields
+  
+  # Generate Form 10
+  form_10_ready
+  final_screen
+---
+question: Field 0
+fields:
+  - field_0:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Text6
+fields:
+  - text6: text
+---
+question: Field 3
+fields:
+  - field_3: text
+---
+question: Field 4
+fields:
+  - field_4: text
+---
+question: Field 5
+fields:
+  - field_5: text
+---
+question: Field 6
+fields:
+  - field_6: text
+---
+question: Field 7
+fields:
+  - field_7: text
+---
+question: Field 8
+fields:
+  - field_8: text
+---
+question: Field 9
+fields:
+  - field_9: text
+---
+question: Field 10
+fields:
+  - field_10: text
+---
+question: Field 11
+fields:
+  - field_11: text
+---
+question: Field 12
+fields:
+  - field_12: text
+---
+question: Field 13
+fields:
+  - field_13: text
+---
+question: Field 14
+fields:
+  - field_14: text
+---
+question: Field 15
+fields:
+  - field_15: text
+---
+question: Field 16
+fields:
+  - field_16: text
+---
+question: Field 17
+fields:
+  - field_17: text
+---
+question: Field 18
+fields:
+  - field_18: text
+---
+question: Check3
+yesno: check3
+---
+question: Check4
+yesno: check4
+---
+question: Check5
+yesno: check5
+---
+question: Check6
+yesno: check6
+---
+question: Check9
+yesno: check9
+---
+question: Field 31
+fields:
+  - field_31: text
+---
+question: Field 32
+fields:
+  - field_32: text
+---
+question: Field 33
+fields:
+  - field_33: text
+---
+question: Check7
+yesno: check7
+---
+question: Check8
+yesno: check8
+---
+question: Check10
+yesno: check10
+---
+question: Check11
+yesno: check11
+---
+question: Check13
+yesno: check13
+---
+question: Check12
+yesno: check12
+---
+question: Check14
+yesno: check14
+---
+question: Check16
+yesno: check16
+---
+question: Check15
+yesno: check15
+---
+question: Check21
+yesno: check21
+---
+question: Check18
+yesno: check18
+---
+question: Check19
+yesno: check19
+---
+question: Check22
+yesno: check22
+---
+question: Check20
+yesno: check20
+---
+question: Check23
+yesno: check23
+---
+question: Check24
+yesno: check24
+---
+question: Check25
+yesno: check25
+---
+question: Check26
+yesno: check26
+---
+question: Check60
+yesno: check60
+---
+question: Text18
+fields:
+  - text18: text
+---
+question: Text19
+fields:
+  - text19: text
+---
+question: Text22
+fields:
+  - text22: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Municipality
+fields:
+  - municipality: text
+---
+question: Street Address
+fields:
+  - street_address: text
+---
+question: Postal Code
+fields:
+  - postal_code: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Email Address
+fields:
+  - email:
+      datatype: email
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: Claim Property
+yesno: claim_property
+---
+question: Child Name
+fields:
+  - child_name: text
+---
+question: Child Age
+fields:
+  - child_age:
+      datatype: integer
+---
+question: Important Facts
+fields:
+  - important_facts: text
+---
+question: Other Specify
+fields:
+  - other_specify: text
+---
+question: |
+  Full legal name:
+fields:
+  - full_legal_name: text
+---
+question: |
+  Name:
+fields:
+  - name: text
+---
+question: |
+  Address:
+fields:
+  - address: text
+---
+question: |
+  Phone & fax:
+fields:
+  - phone__fax: text
+---
+question: |
+  COMPLETE A FINANCIAL STATEMENT (Form 13) IF:
+fields:
+  - complete_a_financial_statement_form_13_if: text
+---
+question: |
+  COMPLETE A FINANCIAL STATEMENT (Form 13.1) IF:
+fields:
+  - complete_a_financial_statement_form_131_if: text
+---
+question: |
+  TO THE APPLICANT(S):
+fields:
+  - to_the_applicants: text
+---
+question: |
+  Form 10:
+fields:
+  - form_10: text
+---
+question: |
+  The important facts that form the legal basis for my position in paragraph 2 are as follows:
+fields:
+  - the_important_facts_that_form_the_legal_basis_for_my_position_in_paragraph_2_are_as_follows: text
+---
+question: |
+  My name is:
+fields:
+  - my_name_is: text
+---
+question: |
+  I ASK THE COURT FOR THE FOLLOWING:
+fields:
+  - i_ask_the_court_for_the_following: text
+---
+question: Review Form 10 Information
+subquestion: Please review all information before generating the form.
+review:
+  field_0:
+    button: **Field 0**
+  courtfileno:
+    button: **Court File No**
+  text6:
+    button: **Text6**
+  field_3:
+    button: **Field 3**
+  field_4:
+    button: **Field 4**
+  field_5:
+    button: **Field 5**
+  field_6:
+    button: **Field 6**
+  field_7:
+    button: **Field 7**
+  field_8:
+    button: **Field 8**
+  field_9:
+    button: **Field 9**
+---
+event: final_screen
+question: Form 10 Complete
+subquestion: |
+  Your Form 10 has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 10: ${ form_10_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 10
+  filename: form_10
+  variable name: form_10_document
+  content: |
+    # Ontario Family Law Form 10
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 10 Specific Information
+    [Form fields would be inserted here]
+---
+code: form_10_ready = True

@@ -1,0 +1,635 @@
+---
+metadata:
+  title: Ontario Family Law Form 6C
+  short_title: Form 6C
+  description: Complete interview for Form 6C
+  form_number: 6C
+  total_fields: 89
+  generated: 2025-09-05 14:41
+  tags:
+    - ontario
+    - family law
+    - form 6c
+---
+include:
+  - common-intake-enhanced-with-validation.yml
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - applicant_lawyer: Individual
+  - respondent_lawyer: Individual
+---
+mandatory: True
+code: |
+  # Form 6C Interview Flow
+  # Common intake fields are inherited
+  
+  # Form-specific fields
+  # Form Field
+  field_0
+  courtfileno
+  field_2
+  field_3
+  field_4
+  # court_info
+  court_address
+  municipality
+  province
+  # party_info
+  street_address
+  postal_code
+  phone
+  email
+  fax
+  # lawyer_info
+  lso_number
+  # long_form
+  details
+  other_specify
+  # Table 1, Row 14
+  and_i_certify_that_the_following_is_true
+  # Table 1, Row 16
+  with_the_following_documents_in_this_case
+  # Table 1, Row 19
+  and_i_am_satisfied_that_service_was_effected_in_the_manner_described_below
+  # Table 1, Row 24
+  the_documents_mentioned_in_paragraph_1_were_served_by
+  # Table 2, Row 1
+  form_6_c
+  # Table 2, Row 6
+  by
+  # Table 2, Row 18
+  t_he_documents_were_mailed_by_addressing_the_covering_envelope_to_the_person_named_in_paragraph_1_at
+  # Table 3, Row 13
+  my_relationship_to_or_affiliation_with_any_party_in_this_case_is_as_follows
+  # Table 3, Row 21
+  lawyerparalegals_name
+  # Table 3, Row 22
+  lawyerparalegals_firm
+  # Table 3, Row 23
+  lawyerparalegal_for
+  # Table 3, Row 24
+  law_society_of_ontario
+  # Table 3, Row 27
+  city_or_town
+  # Table 3, Row 28
+  province
+  # Table 3, Row 30
+  country
+  # Table 3, Row 31
+  email_address
+  # Table 3, Row 32
+  telephone_number
+  
+  # Generate Form 6C
+  form_6C_ready
+  final_screen
+---
+question: |
+  Field 0
+fields:
+  - field_0: dropdown
+    choices:
+      -           
+      - Ontario Court of Justice
+      - Superior Court of Justice
+      - Superior Court of Justice, Family Court
+---
+question: |
+  Court File No
+fields:
+  - courtfileno: text
+---
+question: |
+  Field 2
+fields:
+  - field_2: text
+---
+question: |
+  Field 3
+fields:
+  - field_3: text
+---
+question: |
+  Field 4
+fields:
+  - field_4: text
+---
+question: |
+  Field 5
+fields:
+  - field_5: text
+---
+question: |
+  Field 6
+fields:
+  - field_6: text
+---
+question: |
+  Field 7
+fields:
+  - field_7: text
+---
+question: |
+  Field 8
+fields:
+  - field_8: text
+---
+question: |
+  Field 9
+fields:
+  - field_9: text
+---
+question: |
+  Field 10
+fields:
+  - field_10: text
+---
+question: |
+  Check1
+yesno: check1
+---
+question: |
+  Field 12
+fields:
+  - field_12: text
+---
+question: |
+  Field 14
+fields:
+  - field_14: text
+---
+question: |
+  Field 15
+fields:
+  - field_15: text
+---
+question: |
+  Field 16
+fields:
+  - field_16: text
+---
+question: |
+  Field 17
+fields:
+  - field_17: text
+---
+question: |
+  Field 18
+fields:
+  - field_18: text
+---
+question: |
+  Field 28
+fields:
+  - field_28: text
+---
+question: |
+  Check2
+yesno: check2
+---
+question: |
+  Check3
+yesno: check3
+---
+question: |
+  Field 31
+fields:
+  - field_31: text
+---
+question: |
+  Check9
+yesno: check9
+---
+question: |
+  Check10
+yesno: check10
+---
+question: |
+  Check11
+yesno: check11
+---
+question: |
+  Field 35
+fields:
+  - field_35: text
+---
+question: |
+  Field 38
+fields:
+  - field_38: text
+---
+question: |
+  Field 40
+fields:
+  - field_40: text
+---
+question: |
+  Field 41
+fields:
+  - field_41: text
+---
+question: |
+  Check4
+yesno: check4
+---
+question: |
+  Check5
+yesno: check5
+---
+question: |
+  Check6
+yesno: check6
+---
+question: |
+  Check7
+yesno: check7
+---
+question: |
+  Check8
+yesno: check8
+---
+question: |
+  Check12
+yesno: check12
+---
+question: |
+  Field 48
+fields:
+  - field_48: text
+---
+question: |
+  Field 49
+fields:
+  - field_49: text
+---
+question: |
+  Dropdown1
+fields:
+  - dropdown1: dropdown
+    choices:
+      - a.m./p.m.
+      - a.m.
+      - p.m.
+---
+question: |
+  Field 51
+fields:
+  - field_51: text
+---
+question: |
+  Field 52
+fields:
+  - field_52: text
+---
+question: |
+  Field 53
+fields:
+  - field_53: text
+---
+question: |
+  Field 60
+fields:
+  - field_60: text
+---
+question: |
+  Field 61
+fields:
+  - field_61: text
+---
+question: |
+  Check13
+yesno: check13
+---
+question: |
+  Field 64
+fields:
+  - field_64: text
+---
+question: |
+  Field 65
+fields:
+  - field_65: text
+---
+question: |
+  Field 66
+fields:
+  - field_66: text
+---
+question: |
+  Field 67
+fields:
+  - field_67: text
+---
+question: |
+  Field 68
+fields:
+  - field_68: text
+---
+question: |
+  Field 69
+fields:
+  - field_69: text
+---
+question: |
+  Field 70
+fields:
+  - field_70: text
+---
+question: |
+  Field 71
+fields:
+  - field_71: text
+---
+question: |
+  Field 72
+fields:
+  - field_72: text
+---
+question: |
+  Field 73
+fields:
+  - field_73: text
+---
+question: |
+  Field 74
+fields:
+  - field_74: text
+---
+question: |
+  Field 75
+fields:
+  - field_75: text
+---
+question: |
+  Field 76
+fields:
+  - field_76: text
+---
+question: |
+  Field 77
+fields:
+  - field_77: text
+---
+question: |
+  Field 78
+fields:
+  - field_78: text
+---
+question: |
+  Field 79
+fields:
+  - field_79: text
+---
+question: |
+  Court Address
+fields:
+  - court_address: text
+---
+question: |
+  Municipality
+fields:
+  - municipality: text
+---
+question: |
+  Province
+fields:
+  - province: dropdown
+---
+question: |
+  Street Address
+fields:
+  - street_address: text
+---
+question: |
+  Postal Code
+fields:
+  - postal_code: text
+---
+question: |
+  Phone Number
+fields:
+  - phone: text
+---
+question: |
+  Email Address
+fields:
+  - email: email
+---
+question: |
+  Fax
+fields:
+  - fax: text
+---
+question: |
+  LSO Number
+fields:
+  - lso_number: text
+---
+question: |
+  Details
+fields:
+  - details: area
+    rows: 4
+---
+question: |
+  Other Specify
+fields:
+  - other_specify: area
+    rows: 4
+---
+question: |
+  and I  CERTIFY  that the following is true:
+fields:
+  - and_i_certify_that_the_following_is_true: text
+---
+question: |
+  with the following documents in this case:
+fields:
+  - with_the_following_documents_in_this_case: text
+---
+question: |
+  AND I am satisfied that service was effected in the manner described below:
+fields:
+  - and_i_am_satisfied_that_service_was_effected_in_the_manner_described_below: area
+    rows: 4
+---
+question: |
+  The documents mentioned in paragraph 1 were served by:
+fields:
+  - the_documents_mentioned_in_paragraph_1_were_served_by: text
+---
+question: |
+  Form 6 C :
+fields:
+  - form_6_c: text
+---
+question: |
+  by:
+fields:
+  - by: text
+---
+question: |
+  T he documents  were mailed  by addressing the covering envelope to the person named in paragraph 1 at:
+fields:
+  - t_he_documents_were_mailed_by_addressing_the_covering_envelope_to_the_person_named_in_paragraph_1_at: text
+---
+question: |
+  My relationship to, or affiliation with, any party in this case is as follows:
+fields:
+  - my_relationship_to_or_affiliation_with_any_party_in_this_case_is_as_follows: text
+---
+question: |
+  Lawyer/paralegal’s name:
+fields:
+  - lawyerparalegals_name: text
+---
+question: |
+  Lawyer/paralegal’s firm:
+fields:
+  - lawyerparalegals_firm: text
+---
+question: |
+  Lawyer/paralegal for:
+fields:
+  - lawyerparalegal_for: text
+---
+question: |
+  Law Society of Ontario #:
+fields:
+  - law_society_of_ontario: text
+---
+question: |
+  City or town:
+fields:
+  - city_or_town: text
+---
+question: |
+  Province:
+fields:
+  - province: text
+---
+question: |
+  Country:
+fields:
+  - country: text
+---
+question: |
+  Email address:
+fields:
+  - email_address: email
+---
+question: |
+  Telephone number:
+fields:
+  - telephone_number: text
+---
+question: |
+  Review Form 6C Information
+subquestion: |
+  Please review all information before generating the form.
+review:
+  - field_0:
+      button: |
+        **Form Field**
+  - court_file_number:
+      button: |
+        **court_info**
+  - street_address:
+      button: |
+        **party_info**
+  - lso_number:
+      button: |
+        **lawyer_info**
+  - details:
+      button: |
+        **long_form**
+  - and_i_certify_that_the_following_is_true:
+      button: |
+        **Table 1, Row 14**
+  - with_the_following_documents_in_this_case:
+      button: |
+        **Table 1, Row 16**
+  - and_i_am_satisfied_that_service_was_effected_in_the_manner_described_below:
+      button: |
+        **Table 1, Row 19**
+  - the_documents_mentioned_in_paragraph_1_were_served_by:
+      button: |
+        **Table 1, Row 24**
+  - form_6_c:
+      button: |
+        **Table 2, Row 1**
+  - by:
+      button: |
+        **Table 2, Row 6**
+  - t_he_documents_were_mailed_by_addressing_the_covering_envelope_to_the_person_named_in_paragraph_1_at:
+      button: |
+        **Table 2, Row 18**
+  - my_relationship_to_or_affiliation_with_any_party_in_this_case_is_as_follows:
+      button: |
+        **Table 3, Row 13**
+  - lawyerparalegals_name:
+      button: |
+        **Table 3, Row 21**
+  - lawyerparalegals_firm:
+      button: |
+        **Table 3, Row 22**
+  - lawyerparalegal_for:
+      button: |
+        **Table 3, Row 23**
+  - law_society_of_ontario:
+      button: |
+        **Table 3, Row 24**
+  - city_or_town:
+      button: |
+        **Table 3, Row 27**
+  - province:
+      button: |
+        **Table 3, Row 28**
+  - country:
+      button: |
+        **Table 3, Row 30**
+  - email_address:
+      button: |
+        **Table 3, Row 31**
+  - telephone_number:
+      button: |
+        **Table 3, Row 32**
+---
+event: final_screen
+question: |
+  Form 6C Complete
+subquestion: |
+  Your Form 6C has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 6C: ${ form_6C_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 6C
+  filename: form_6C
+  variable name: form_6C_document
+  content: |
+    # Ontario Family Law Form 6C
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 6C Specific Information
+    [Form fields would be inserted here]
+---
+code: |
+  form_6C_ready = True

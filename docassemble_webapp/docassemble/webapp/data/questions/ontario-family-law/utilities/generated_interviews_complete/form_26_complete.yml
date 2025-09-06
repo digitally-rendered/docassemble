@@ -1,0 +1,884 @@
+---
+metadata:
+  title: Ontario Family Law Form 26
+  short_title: Form 26
+  description: Complete standalone interview for Form 26
+  form_number: 26
+  total_fields: 187
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 26
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 26 Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  dropdown1
+  courtfileno
+  text1
+  dated
+  text11
+  text10
+  field_10
+  check1
+  text12
+  text13
+  field_21
+  field_22
+  text95
+  check2
+  check3
+  check4
+  check5
+  check6
+  text16
+  field_30
+  # ... and 167 more fields
+  
+  # Generate Form 26
+  form_26_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - dropdown1:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Text1
+fields:
+  - text1: text
+---
+question: Dated
+fields:
+  - dated: text
+---
+question: Text11
+fields:
+  - text11: text
+---
+question: Text10
+fields:
+  - text10: text
+---
+question: Field 10
+fields:
+  - field_10:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Check1
+yesno: check1
+---
+question: Text12
+fields:
+  - text12: text
+---
+question: Text13
+fields:
+  - text13: text
+---
+question: Field 21
+fields:
+  - field_21: text
+---
+question: Field 22
+fields:
+  - field_22: text
+---
+question: Text95
+fields:
+  - text95: text
+---
+question: Check2
+yesno: check2
+---
+question: Check3
+yesno: check3
+---
+question: Check4
+yesno: check4
+---
+question: Check5
+yesno: check5
+---
+question: Check6
+yesno: check6
+---
+question: Text16
+fields:
+  - text16: text
+---
+question: Field 30
+fields:
+  - field_30: text
+---
+question: Field 31
+fields:
+  - field_31: text
+---
+question: Field 32
+fields:
+  - field_32: text
+---
+question: Field 33
+fields:
+  - field_33: text
+---
+question: Field 34
+fields:
+  - field_34: text
+---
+question: Field 35
+fields:
+  - field_35: text
+---
+question: Field 36
+fields:
+  - field_36: text
+---
+question: Text32
+fields:
+  - text32: text
+---
+question: Field 38
+fields:
+  - field_38: text
+---
+question: Text33
+fields:
+  - text33: text
+---
+question: Field 40
+fields:
+  - field_40: text
+---
+question: Text34
+fields:
+  - text34: text
+---
+question: Field 42
+fields:
+  - field_42: text
+---
+question: Text35
+fields:
+  - text35: text
+---
+question: Field 44
+fields:
+  - field_44: text
+---
+question: Text36
+fields:
+  - text36: text
+---
+question: Field 46
+fields:
+  - field_46: text
+---
+question: Text37
+fields:
+  - text37: text
+---
+question: Field 48
+fields:
+  - field_48: text
+---
+question: Text38
+fields:
+  - text38: text
+---
+question: Field 50
+fields:
+  - field_50: text
+---
+question: Dropdown16
+fields:
+  - dropdown16:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Text39
+fields:
+  - text39: text
+---
+question: Text40
+fields:
+  - text40: text
+---
+question: Text5
+fields:
+  - text5: text
+---
+question: Text86
+fields:
+  - text86: text
+---
+question: Text87
+fields:
+  - text87: text
+---
+question: Field 58
+fields:
+  - field_58: text
+---
+question: Field 59
+fields:
+  - field_59: text
+---
+question: Field 60
+fields:
+  - field_60: text
+---
+question: Field 62
+fields:
+  - field_62: text
+---
+question: Field 63
+fields:
+  - field_63: text
+---
+question: Field 64
+fields:
+  - field_64: text
+---
+question: Field 66
+fields:
+  - field_66: text
+---
+question: Field 67
+fields:
+  - field_67: text
+---
+question: Field 68
+fields:
+  - field_68: text
+---
+question: Field 70
+fields:
+  - field_70: text
+---
+question: Field 71
+fields:
+  - field_71: text
+---
+question: Field 72
+fields:
+  - field_72: text
+---
+question: Field 74
+fields:
+  - field_74: text
+---
+question: Field 75
+fields:
+  - field_75: text
+---
+question: Field 76
+fields:
+  - field_76: text
+---
+question: Field 78
+fields:
+  - field_78: text
+---
+question: Field 79
+fields:
+  - field_79: text
+---
+question: Field 80
+fields:
+  - field_80: text
+---
+question: Field 82
+fields:
+  - field_82: text
+---
+question: Field 83
+fields:
+  - field_83: text
+---
+question: Field 84
+fields:
+  - field_84: text
+---
+question: Field 86
+fields:
+  - field_86: text
+---
+question: Field 87
+fields:
+  - field_87: text
+---
+question: Field 88
+fields:
+  - field_88: text
+---
+question: Field 90
+fields:
+  - field_90: text
+---
+question: Field 91
+fields:
+  - field_91: text
+---
+question: Field 92
+fields:
+  - field_92: text
+---
+question: Field 94
+fields:
+  - field_94: text
+---
+question: Field 95
+fields:
+  - field_95: text
+---
+question: Field 96
+fields:
+  - field_96: text
+---
+question: Field 98
+fields:
+  - field_98: text
+---
+question: Field 99
+fields:
+  - field_99: text
+---
+question: Field 100
+fields:
+  - field_100: text
+---
+question: Field 102
+fields:
+  - field_102: text
+---
+question: Field 103
+fields:
+  - field_103: text
+---
+question: Field 104
+fields:
+  - field_104: text
+---
+question: Field 106
+fields:
+  - field_106: text
+---
+question: Field 107
+fields:
+  - field_107: text
+---
+question: Field 108
+fields:
+  - field_108: text
+---
+question: Field 110
+fields:
+  - field_110: text
+---
+question: Field 111
+fields:
+  - field_111: text
+---
+question: Field 112
+fields:
+  - field_112: text
+---
+question: Field 114
+fields:
+  - field_114: text
+---
+question: Field 115
+fields:
+  - field_115: text
+---
+question: Field 116
+fields:
+  - field_116: text
+---
+question: Field 118
+fields:
+  - field_118: text
+---
+question: Field 119
+fields:
+  - field_119: text
+---
+question: Field 120
+fields:
+  - field_120: text
+---
+question: Field 122
+fields:
+  - field_122: text
+---
+question: Field 123
+fields:
+  - field_123: text
+---
+question: Field 124
+fields:
+  - field_124: text
+---
+question: Field 126
+fields:
+  - field_126: text
+---
+question: Field 127
+fields:
+  - field_127: text
+---
+question: Field 128
+fields:
+  - field_128: text
+---
+question: Field 130
+fields:
+  - field_130: text
+---
+question: Field 131
+fields:
+  - field_131: text
+---
+question: Field 132
+fields:
+  - field_132: text
+---
+question: Field 134
+fields:
+  - field_134: text
+---
+question: Field 135
+fields:
+  - field_135: text
+---
+question: Field 136
+fields:
+  - field_136: text
+---
+question: Field 138
+fields:
+  - field_138: text
+---
+question: Field 139
+fields:
+  - field_139: text
+---
+question: Field 140
+fields:
+  - field_140: text
+---
+question: Field 142
+fields:
+  - field_142: text
+---
+question: Field 143
+fields:
+  - field_143: text
+---
+question: Field 144
+fields:
+  - field_144: text
+---
+question: Field 146
+fields:
+  - field_146: text
+---
+question: Field 147
+fields:
+  - field_147: text
+---
+question: Field 148
+fields:
+  - field_148: text
+---
+question: Field 150
+fields:
+  - field_150: text
+---
+question: Field 151
+fields:
+  - field_151: text
+---
+question: Field 152
+fields:
+  - field_152: text
+---
+question: Field 154
+fields:
+  - field_154: text
+---
+question: Field 155
+fields:
+  - field_155: text
+---
+question: Field 156
+fields:
+  - field_156: text
+---
+question: Field 158
+fields:
+  - field_158: text
+---
+question: Field 159
+fields:
+  - field_159: text
+---
+question: Field 160
+fields:
+  - field_160: text
+---
+question: Field 162
+fields:
+  - field_162: text
+---
+question: Field 163
+fields:
+  - field_163: text
+---
+question: Field 164
+fields:
+  - field_164: text
+---
+question: Field 166
+fields:
+  - field_166: text
+---
+question: Field 167
+fields:
+  - field_167: text
+---
+question: Field 168
+fields:
+  - field_168: text
+---
+question: Field 170
+fields:
+  - field_170: text
+---
+question: Field 171
+fields:
+  - field_171: text
+---
+question: Field 172
+fields:
+  - field_172: text
+---
+question: Field 174
+fields:
+  - field_174: text
+---
+question: Field 175
+fields:
+  - field_175: text
+---
+question: Field 176
+fields:
+  - field_176: text
+---
+question: Field 178
+fields:
+  - field_178: text
+---
+question: Field 179
+fields:
+  - field_179: text
+---
+question: Field 180
+fields:
+  - field_180: text
+---
+question: Field 182
+fields:
+  - field_182: text
+---
+question: Field 183
+fields:
+  - field_183: text
+---
+question: Field 184
+fields:
+  - field_184: text
+---
+question: Field 186
+fields:
+  - field_186: text
+---
+question: Field 187
+fields:
+  - field_187: text
+---
+question: Field 188
+fields:
+  - field_188: text
+---
+question: Field 190
+fields:
+  - field_190: text
+---
+question: Field 191
+fields:
+  - field_191: text
+---
+question: Field 192
+fields:
+  - field_192: text
+---
+question: Field 194
+fields:
+  - field_194: text
+---
+question: Field 195
+fields:
+  - field_195: text
+---
+question: Field 196
+fields:
+  - field_196: text
+---
+question: Text88
+fields:
+  - text88: text
+---
+question: Text89
+fields:
+  - text89: text
+---
+question: Text90
+fields:
+  - text90: text
+---
+question: Check10
+yesno: check10
+---
+question: Check12
+yesno: check12
+---
+question: Text91
+fields:
+  - text91: text
+---
+question: Check11
+yesno: check11
+---
+question: Text92
+fields:
+  - text92: text
+---
+question: Text93
+fields:
+  - text93: text
+---
+question: Text94
+fields:
+  - text94: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Municipality
+fields:
+  - municipality: text
+---
+question: Province
+fields:
+  - province:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Street Address
+fields:
+  - street_address: text
+---
+question: Postal Code
+fields:
+  - postal_code: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: Claim Property
+yesno: claim_property
+---
+question: Child Name
+fields:
+  - child_name: text
+---
+question: Child Age
+fields:
+  - child_age:
+      datatype: integer
+---
+question: Other Specify
+fields:
+  - other_specify: text
+---
+question: |
+  and I    that the following is true:
+fields:
+  - and_i_that_the_following_is_true: text
+---
+question: |
+  Form 26:
+fields:
+  - form_26: text
+---
+question: |
+  Paragraph 3:
+fields:
+  - paragraph_3: text
+---
+question: |
+  Paragraph 4:
+fields:
+  - paragraph_4: text
+---
+question: |
+  Paragraph 5:
+fields:
+  - paragraph_5: text
+---
+question: |
+  Paragraph 6:
+fields:
+  - paragraph_6: text
+---
+question: |
+  The total amount enforceable in this court that I am claiming against the payor is as follows:
+fields:
+  - the_total_amount_enforceable_in_this_court_that_i_am_claiming_against_the_payor_is_as_follows: text
+---
+question: |
+  Paragraph 7:
+fields:
+  - paragraph_7: text
+---
+question: |
+  Paragraph 8:
+fields:
+  - paragraph_8: text
+---
+question: |
+  Paragraph 9:
+fields:
+  - paragraph_9: text
+---
+question: |
+  Write “NIL” if your lump-sum claim has nothing to do with support or maintenance.  Otherwise, figure out what portion of your lump-sum claim deals with support or maintenance.  You are entitled to include the interest earned on that amount. This figure will be needed by the clerk of the court and by others, such as the sheriff, because they are required by law to give your claim for lump-sum support priority over the claims of other people with orders against the payor under the  Creditors’ Relief Act .  Section 4 of that Act states:
+fields:
+  - write_nil_if_your_lumpsum_claim_has_nothing_to_do_with_support_or_maintenance_otherwise_figure_out_what_portion_of_your_lumpsum_claim_deals_with_support_or_maintenance_you_are_entitled_to_include_the_interest_earned_on_that_amount_this_figure_will_be_needed_by_the_clerk_of_the_court_and_by_others_such_as_the_sheriff_because_they_are_required_by_law_to_give_your_claim_for_lumpsum_support_priority_over_the_claims_of_other_people_with_orders_against_the_payor_under_the_creditors_relief_act__section_4_of_that_act_states: text
+---
+question: |
+  Paragraph 10:
+fields:
+  - paragraph_10: text
+---
+question: |
+  The calculations below use:
+fields:
+  - the_calculations_below_use: text
+---
+question: |
+  The calculation of the interest is detailed as follows:
+fields:
+  - the_calculation_of_the_interest_is_detailed_as_follows: text
+---
+question: Review Form 26 Information
+subquestion: Please review all information before generating the form.
+review:
+  dropdown1:
+    button: **Dropdown1**
+  courtfileno:
+    button: **Court File No**
+  text1:
+    button: **Text1**
+  dated:
+    button: **Dated**
+  text11:
+    button: **Text11**
+  text10:
+    button: **Text10**
+  field_10:
+    button: **Field 10**
+  check1:
+    button: **Check1**
+  text12:
+    button: **Text12**
+  text13:
+    button: **Text13**
+---
+event: final_screen
+question: Form 26 Complete
+subquestion: |
+  Your Form 26 has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 26: ${ form_26_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 26
+  filename: form_26
+  variable name: form_26_document
+  content: |
+    # Ontario Family Law Form 26
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 26 Specific Information
+    [Form fields would be inserted here]
+---
+code: form_26_ready = True

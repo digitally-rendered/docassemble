@@ -1,0 +1,249 @@
+metadata:
+  title: Ontario Family Law Form 14B - Motion Form
+  short_title: Form 14B
+  description: Docassemble interview for Ontario Family Law Form 14B
+  authors:
+  - Ontario Family Law System
+  revision_date: '2025-09-05'
+  form_number: '14B'
+  form_title: 'Motion Form'
+  field_count: 36
+  generated_from: improved_parsed_data
+  tags:
+  - ontario
+  - family law
+  - form 14B
+---
+include:
+- docassemble.base:data/questions/basic-questions.yml
+modules:
+- .ontario_common_fields
+- .ontario_party_objects
+- .ontario_validation_functions
+- .ontario_children_objects
+---
+objects:
+- 'court: Organization'
+- 'applicant: Individual'
+- 'respondent: Individual'
+- 'children: DAList.using(object_type=Individual, there_are_any=False)'
+---
+code: |
+  # Ontario-specific validation functions
+  def validate_ontario_postal_code(postal_code):
+      if not postal_code:
+          return True
+      postal_clean = re.sub(r'\s+', '', postal_code.upper())
+      pattern = r'^[A-Z][0-9][A-Z][0-9][A-Z][0-9]$'
+      if not re.match(pattern, postal_clean):
+          return False
+      ontario_first_letters = 'KLMNP'
+      return postal_clean[0] in ontario_first_letters
+  
+  def validate_ontario_court_file(file_number):
+      if not file_number:
+          return True
+      patterns = [
+          r'^(FS|FC|FD|FM|FE)-[0-9]{2}-[0-9]{5,6}$',
+          r'^[0-9]{2}-[0-9]{5,6}$',
+          r'^[A-Z]{2}-[0-9]{2}-[0-9]{5,6}$'
+      ]
+      file_upper = file_number.upper().strip()
+      return any(re.match(pattern, file_upper) for pattern in patterns)
+  
+  def validate_canadian_phone(phone_number):
+      if not phone_number:
+          return True
+      digits_only = re.sub(r'\D', '', phone_number)
+      if len(digits_only) == 10:
+          return True
+      elif len(digits_only) == 11 and digits_only[0] == '1':
+          return True
+      return False
+---
+mandatory: True
+code: |
+  intro_screen
+  court_information
+  party_information
+  claim_details
+  review_answers
+  signature_date
+  final_screen
+---
+question: |
+  Ontario Family Law Form 14B: Motion Form
+subquestion: |
+  This interview will help you prepare your motion.
+  
+  **Important Information:**
+  
+  * Have all required documents ready
+  * Answer all questions truthfully
+  * You can save your progress and return later
+  * This form must be filed with the court
+  
+  **Note:** This is not legal advice. Consider consulting a lawyer for your specific situation.
+  
+continue button field: intro_screen
+---
+question: |
+  General Information
+fields:
+  - 'Dropdown1': dropdown1
+  - 'Court File No': courtfileno
+  - 'Text1': text1
+  - 'Check2': check2
+    datatype: yesno
+  - 'Text3': text3
+  - 'Text4': text4
+  - 'Text5': text5
+  - 'Text6': text6
+  - 'Check1': check1
+    datatype: yesno
+  - 'Check3': check3
+    datatype: yesno
+  - 'Text7': text7
+  - 'Check4': check4
+    datatype: yesno
+  - 'Check6': check6
+    datatype: yesno
+  - 'Check7': check7
+    datatype: yesno
+  - 'Text8': text8
+  - 'Field 19': field_19
+  - 'Field 20': field_20
+  - 'Field 21': field_21
+  - 'Text14': text14
+  - 'I am:': i_am
+  - 'Names of parties :': names_of_parties
+  - 'Applicant:': applicant
+  - 'Respondent:': respondent
+  - 'Next scheduled court date   (if any) :': next_scheduled_court_date_if_any
+    datatype: date
+  - 'Name of case management judge   (if any) :': name_of_case_management_judge_if_any
+  - 'This form is filed by:': this_form_is_filed_by
+  - 'This motion is made:': this_motion_is_made
+  - 'without notice to:           ': without_notice_to
+  - 'Procedural, uncomplicated or unopposed order that you want the court to make:': procedural_uncomplicated_or_unopposed_order_that_you_want_the_court_to_make
+  - 'Form 14B:': form_14b
+  - 'Why the court should make this order:  ': why_the_court_should_make_this_order
+continue button field: general_information
+---
+question: |
+  Court Info
+fields:
+  - 'Court File Number': court_file_number
+  - 'Court Address': court_address
+continue button field: court_info
+---
+question: |
+  Party Info
+fields:
+  - 'Phone Number': phone
+  - 'Fax': fax
+continue button field: party_info
+---
+question: |
+  Long Form
+fields:
+  - 'Other Specify': other_specify
+continue button field: long_form
+---
+question: |
+  Signature Information
+fields:
+  - "Today's Date": signature_date
+    datatype: date
+    default: ${ today() }
+  - "Signature Location (City)": signature_city
+    default: Toronto
+  - "I understand that swearing a false affidavit is a criminal offense": oath_understood
+    datatype: yesno
+    required: True
+validation code: |
+  if not oath_understood:
+    validation_error("You must acknowledge understanding the oath")
+continue button field: signature_date
+---
+event: final_screen
+question: |
+  Form 14B Complete
+subquestion: |
+  Your Motion Form has been completed and is ready for download.
+  
+  **Next Steps:**
+  1. Review your information below
+  2. Download the completed form
+  3. Print and sign the form
+  4. File with the court
+  
+  ${{ form_download }}
+  
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
+event: review_answers
+question: |
+  Review Your Answers
+subquestion: |
+  Please review your information below. Click on any item to make changes.
+review:
+  - Edit: court.name
+    button: |
+      **Court**: ${ court.name }
+  - Edit: applicant.name
+    button: |
+      **Applicant**: ${ applicant }
+  - Edit: respondent.name
+    button: |
+      **Respondent**: ${ respondent }
+  - Edit: next_scheduled_court_date_if_any
+    button: |
+      **Next Scheduled Court Date If Any**: ${{ next_scheduled_court_date_if_any }}
+continue button field: review_complete
+---
+attachment:
+  name: Form 14B - Motion Form
+  filename: form_14B_completed
+  variable name: form_download
+  pdf template file: form_14B_template.pdf
+  editable: False
+  fields:
+    - 'dropdown1': ${{ dropdown1 }}
+    - 'courtfileno': ${{ courtfileno }}
+    - 'text1': ${{ text1 }}
+    - 'check2': ${{ check2 }}
+    - 'text3': ${{ text3 }}
+    - 'text4': ${{ text4 }}
+    - 'text5': ${{ text5 }}
+    - 'text6': ${{ text6 }}
+    - 'check1': ${{ check1 }}
+    - 'check3': ${{ check3 }}
+    - 'text7': ${{ text7 }}
+    - 'check4': ${{ check4 }}
+    - 'check6': ${{ check6 }}
+    - 'check7': ${{ check7 }}
+    - 'text8': ${{ text8 }}
+    - 'field_19': ${{ field_19 }}
+    - 'field_20': ${{ field_20 }}
+    - 'field_21': ${{ field_21 }}
+    - 'text14': ${{ text14 }}
+    - 'court_file_number': ${{ court_file_number }}
+    - 'court_address': ${{ court_address }}
+    - 'phone': ${{ phone }}
+    - 'fax': ${{ fax }}
+    - 'other_specify': ${{ other_specify }}
+    - 'i_am': ${{ i_am }}
+    - 'names_of_parties': ${{ names_of_parties }}
+    - 'applicant': ${{ applicant }}
+    - 'respondent': ${{ respondent }}
+    - 'next_scheduled_court_date_if_any': ${{ next_scheduled_court_date_if_any }}
+    - 'name_of_case_management_judge_if_any': ${{ name_of_case_management_judge_if_any }}
+    - 'this_form_is_filed_by': ${{ this_form_is_filed_by }}
+    - 'this_motion_is_made': ${{ this_motion_is_made }}
+    - 'without_notice_to': ${{ without_notice_to }}
+    - 'procedural_uncomplicated_or_unopposed_order_that_you_want_the_court_to_make': ${{ procedural_uncomplicated_or_unopposed_order_that_you_want_the_court_to_make }}
+    - 'form_14b': ${{ form_14b }}
+    - 'why_the_court_should_make_this_order': ${{ why_the_court_should_make_this_order }}

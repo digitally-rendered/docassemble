@@ -1,0 +1,63 @@
+Enhanced Form Generation Report
+========================================
+Generated: 2025-09-05 13:10:32
+Total Forms Processed: 7
+
+Summary Statistics:
+  Total Parsed Fields: 285
+  Average Validation Score: 0.61
+  Total Processing Time: 0.18 seconds
+
+Individual Form Results:
+  Form 10: Form 10
+    Parsed Fields: 4
+    Validation Score: 0.62
+    Processing Time: 0.01s
+    Output File: form_10_enhanced.yml
+
+  Form 13: Form 13
+    Parsed Fields: 127
+    Validation Score: 0.59
+    Processing Time: 0.06s
+    Output File: form_13_enhanced.yml
+
+  Form 13.1: Form 13.1
+    Parsed Fields: 113
+    Validation Score: 0.58
+    Processing Time: 0.05s
+    Output File: form_13.1_enhanced.yml
+
+  Form 15: Form 15
+    Parsed Fields: 13
+    Validation Score: 0.65
+    Processing Time: 0.01s
+    Output File: form_15_enhanced.yml
+
+  Form 36: Form 36
+    Parsed Fields: 4
+    Validation Score: 0.57
+    Processing Time: 0.01s
+    Output File: form_36_enhanced.yml
+
+  Form 8: Form 8
+    Parsed Fields: 12
+    Validation Score: 0.62
+    Processing Time: 0.01s
+    Output File: form_8_enhanced.yml
+
+  Form 8A: Form 8A
+    Parsed Fields: 12
+    Validation Score: 0.62
+    Processing Time: 0.02s
+    Output File: form_8A_enhanced.yml
+
+Generated Files:
+  form_10_enhanced.yml
+  form_13_enhanced.yml
+  form_13.1_enhanced.yml
+  form_15_enhanced.yml
+  form_36_enhanced.yml
+  form_8_enhanced.yml
+  form_8A_enhanced.yml
+
+✅ All files are ready for use in Docassemble!

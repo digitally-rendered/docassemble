@@ -1,0 +1,814 @@
+{
+  "form_number": "8",
+  "form_title": "Application (General)",
+  "form_description": "Ontario Family Law Form 8 - Application (General)",
+  "sections": [
+    {
+      "section_id": "court_info",
+      "section_name": "Court Information",
+      "fields": [
+        {
+          "field_id": "court_name",
+          "field_name": "court_name",
+          "field_label": "Court Name",
+          "field_type": "dropdown",
+          "required": true,
+          "options": ["Superior Court of Justice", "Ontario Court of Justice", "Family Court of the Superior Court of Justice"],
+          "help_text": "Select the court where you are filing"
+        },
+        {
+          "field_id": "court_file_number",
+          "field_name": "court_file_number",
+          "field_label": "Court File Number",
+          "field_type": "text",
+          "required": false,
+          "validation": "alphanumeric",
+          "help_text": "Leave blank if not yet assigned"
+        },
+        {
+          "field_id": "court_location",
+          "field_name": "court_location",
+          "field_label": "Court Office Address",
+          "field_type": "text",
+          "required": true,
+          "help_text": "Full address of the court office"
+        },
+        {
+          "field_id": "court_municipality",
+          "field_name": "court_municipality",
+          "field_label": "Municipality",
+          "field_type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "section_id": "applicant_info",
+      "section_name": "Applicant Information",
+      "fields": [
+        {
+          "field_id": "applicant_full_name",
+          "field_name": "applicant_full_name",
+          "field_label": "Applicant's Full Legal Name",
+          "field_type": "text",
+          "required": true
+        },
+        {
+          "field_id": "applicant_birthdate",
+          "field_name": "applicant_birthdate",
+          "field_label": "Date of Birth",
+          "field_type": "date",
+          "required": false,
+          "validation": "date_past"
+        },
+        {
+          "field_id": "applicant_address_street",
+          "field_name": "applicant_address_street",
+          "field_label": "Street and Number",
+          "field_type": "text",
+          "required": true
+        },
+        {
+          "field_id": "applicant_address_city",
+          "field_name": "applicant_address_city",
+          "field_label": "City/Town",
+          "field_type": "text",
+          "required": true
+        },
+        {
+          "field_id": "applicant_address_province",
+          "field_name": "applicant_address_province",
+          "field_label": "Province",
+          "field_type": "dropdown",
+          "required": true,
+          "options": ["Ontario", "Quebec", "British Columbia", "Alberta", "Manitoba", "Saskatchewan", "Nova Scotia", "New Brunswick", "Newfoundland and Labrador", "Prince Edward Island", "Northwest Territories", "Nunavut", "Yukon"],
+          "default": "Ontario"
+        },
+        {
+          "field_id": "applicant_postal_code",
+          "field_name": "applicant_postal_code",
+          "field_label": "Postal Code",
+          "field_type": "text",
+          "required": true,
+          "validation": "postal_code",
+          "pattern": "[A-Z][0-9][A-Z] [0-9][A-Z][0-9]"
+        },
+        {
+          "field_id": "applicant_phone",
+          "field_name": "applicant_phone",
+          "field_label": "Phone Number",
+          "field_type": "text",
+          "required": false,
+          "validation": "phone"
+        },
+        {
+          "field_id": "applicant_email",
+          "field_name": "applicant_email",
+          "field_label": "Email Address",
+          "field_type": "email",
+          "required": false,
+          "validation": "email"
+        }
+      ]
+    },
+    {
+      "section_id": "respondent_info",
+      "section_name": "Respondent Information",
+      "fields": [
+        {
+          "field_id": "respondent_full_name",
+          "field_name": "respondent_full_name",
+          "field_label": "Respondent's Full Legal Name",
+          "field_type": "text",
+          "required": true
+        },
+        {
+          "field_id": "respondent_birthdate",
+          "field_name": "respondent_birthdate",
+          "field_label": "Date of Birth",
+          "field_type": "date",
+          "required": false,
+          "validation": "date_past"
+        },
+        {
+          "field_id": "respondent_address_street",
+          "field_name": "respondent_address_street",
+          "field_label": "Street and Number",
+          "field_type": "text",
+          "required": false,
+          "help_text": "If unknown, write 'Address Unknown'"
+        },
+        {
+          "field_id": "respondent_address_city",
+          "field_name": "respondent_address_city",
+          "field_label": "City/Town",
+          "field_type": "text",
+          "required": false
+        },
+        {
+          "field_id": "respondent_address_province",
+          "field_name": "respondent_address_province",
+          "field_label": "Province",
+          "field_type": "dropdown",
+          "required": false,
+          "options": ["Ontario", "Quebec", "British Columbia", "Alberta", "Manitoba", "Saskatchewan", "Nova Scotia", "New Brunswick", "Newfoundland and Labrador", "Prince Edward Island", "Northwest Territories", "Nunavut", "Yukon"]
+        },
+        {
+          "field_id": "respondent_postal_code",
+          "field_name": "respondent_postal_code",
+          "field_label": "Postal Code",
+          "field_type": "text",
+          "required": false,
+          "validation": "postal_code"
+        },
+        {
+          "field_id": "respondent_phone",
+          "field_name": "respondent_phone",
+          "field_label": "Phone Number",
+          "field_type": "text",
+          "required": false,
+          "validation": "phone"
+        },
+        {
+          "field_id": "respondent_email",
+          "field_name": "respondent_email",
+          "field_label": "Email Address",
+          "field_type": "email",
+          "required": false,
+          "validation": "email"
+        }
+      ]
+    },
+    {
+      "section_id": "lawyer_applicant",
+      "section_name": "Applicant's Lawyer",
+      "fields": [
+        {
+          "field_id": "applicant_has_lawyer",
+          "field_name": "applicant_has_lawyer",
+          "field_label": "Does the applicant have a lawyer?",
+          "field_type": "yesno",
+          "required": true
+        },
+        {
+          "field_id": "applicant_lawyer_name",
+          "field_name": "applicant_lawyer_name",
+          "field_label": "Lawyer's Name",
+          "field_type": "text",
+          "required": false,
+          "show_if": "applicant_has_lawyer"
+        },
+        {
+          "field_id": "applicant_lawyer_firm",
+          "field_name": "applicant_lawyer_firm",
+          "field_label": "Law Firm Name",
+          "field_type": "text",
+          "required": false,
+          "show_if": "applicant_has_lawyer"
+        },
+        {
+          "field_id": "applicant_lawyer_address",
+          "field_name": "applicant_lawyer_address",
+          "field_label": "Address",
+          "field_type": "text",
+          "required": false,
+          "show_if": "applicant_has_lawyer"
+        },
+        {
+          "field_id": "applicant_lawyer_phone",
+          "field_name": "applicant_lawyer_phone",
+          "field_label": "Phone",
+          "field_type": "text",
+          "required": false,
+          "show_if": "applicant_has_lawyer"
+        },
+        {
+          "field_id": "applicant_lawyer_email",
+          "field_name": "applicant_lawyer_email",
+          "field_label": "Email",
+          "field_type": "email",
+          "required": false,
+          "show_if": "applicant_has_lawyer"
+        },
+        {
+          "field_id": "applicant_lawyer_lso",
+          "field_name": "applicant_lawyer_lso",
+          "field_label": "LSO Number",
+          "field_type": "text",
+          "required": false,
+          "show_if": "applicant_has_lawyer"
+        }
+      ]
+    },
+    {
+      "section_id": "lawyer_respondent",
+      "section_name": "Respondent's Lawyer",
+      "fields": [
+        {
+          "field_id": "respondent_has_lawyer",
+          "field_name": "respondent_has_lawyer",
+          "field_label": "Does the respondent have a lawyer?",
+          "field_type": "yesno",
+          "required": false
+        },
+        {
+          "field_id": "respondent_lawyer_name",
+          "field_name": "respondent_lawyer_name",
+          "field_label": "Lawyer's Name",
+          "field_type": "text",
+          "required": false,
+          "show_if": "respondent_has_lawyer"
+        },
+        {
+          "field_id": "respondent_lawyer_firm",
+          "field_name": "respondent_lawyer_firm",
+          "field_label": "Law Firm Name",
+          "field_type": "text",
+          "required": false,
+          "show_if": "respondent_has_lawyer"
+        },
+        {
+          "field_id": "respondent_lawyer_address",
+          "field_name": "respondent_lawyer_address",
+          "field_label": "Address",
+          "field_type": "text",
+          "required": false,
+          "show_if": "respondent_has_lawyer"
+        },
+        {
+          "field_id": "respondent_lawyer_phone",
+          "field_name": "respondent_lawyer_phone",
+          "field_label": "Phone",
+          "field_type": "text",
+          "required": false,
+          "show_if": "respondent_has_lawyer"
+        },
+        {
+          "field_id": "respondent_lawyer_email",
+          "field_name": "respondent_lawyer_email",
+          "field_label": "Email",
+          "field_type": "email",
+          "required": false,
+          "show_if": "respondent_has_lawyer"
+        },
+        {
+          "field_id": "respondent_lawyer_lso",
+          "field_name": "respondent_lawyer_lso",
+          "field_label": "LSO Number",
+          "field_type": "text",
+          "required": false,
+          "show_if": "respondent_has_lawyer"
+        }
+      ]
+    },
+    {
+      "section_id": "family_history",
+      "section_name": "Family History",
+      "fields": [
+        {
+          "field_id": "parties_married",
+          "field_name": "parties_married",
+          "field_label": "Are/were the parties married?",
+          "field_type": "yesno",
+          "required": true
+        },
+        {
+          "field_id": "marriage_date",
+          "field_name": "marriage_date",
+          "field_label": "Date of Marriage",
+          "field_type": "date",
+          "required": false,
+          "show_if": "parties_married",
+          "validation": "date_past"
+        },
+        {
+          "field_id": "marriage_place",
+          "field_name": "marriage_place",
+          "field_label": "Place of Marriage",
+          "field_type": "text",
+          "required": false,
+          "show_if": "parties_married",
+          "help_text": "City, Province/State, Country"
+        },
+        {
+          "field_id": "separation_date",
+          "field_name": "separation_date",
+          "field_label": "Date of Separation",
+          "field_type": "date",
+          "required": false,
+          "validation": "date_past"
+        },
+        {
+          "field_id": "living_together",
+          "field_name": "living_together",
+          "field_label": "Are the parties currently living together?",
+          "field_type": "yesno",
+          "required": false
+        },
+        {
+          "field_id": "never_lived_together",
+          "field_name": "never_lived_together",
+          "field_label": "The parties never lived together",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "applicant_name_before_marriage",
+          "field_name": "applicant_name_before_marriage",
+          "field_label": "Applicant's Name Before Marriage",
+          "field_type": "text",
+          "required": false,
+          "show_if": "parties_married"
+        },
+        {
+          "field_id": "respondent_name_before_marriage",
+          "field_name": "respondent_name_before_marriage",
+          "field_label": "Respondent's Name Before Marriage",
+          "field_type": "text",
+          "required": false,
+          "show_if": "parties_married"
+        }
+      ]
+    },
+    {
+      "section_id": "claims_divorce_act",
+      "section_name": "Claims under the Divorce Act",
+      "fields": [
+        {
+          "field_id": "claim_divorce",
+          "field_name": "claim_divorce",
+          "field_label": "Divorce",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "claim_custody_divorce_act",
+          "field_name": "claim_custody_divorce_act",
+          "field_label": "Custody of children",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "claim_access_divorce_act",
+          "field_name": "claim_access_divorce_act",
+          "field_label": "Access to children",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "claim_support_applicant_divorce_act",
+          "field_name": "claim_support_applicant_divorce_act",
+          "field_label": "Support for applicant",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "claim_support_children_divorce_act",
+          "field_name": "claim_support_children_divorce_act",
+          "field_label": "Support for children",
+          "field_type": "checkbox",
+          "required": false
+        }
+      ]
+    },
+    {
+      "section_id": "claims_family_law_act",
+      "section_name": "Claims under the Family Law Act",
+      "fields": [
+        {
+          "field_id": "claim_support_applicant_fla",
+          "field_name": "claim_support_applicant_fla",
+          "field_label": "Support for applicant",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "claim_support_children_fla",
+          "field_name": "claim_support_children_fla",
+          "field_label": "Support for children",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "claim_possession_matrimonial_home",
+          "field_name": "claim_possession_matrimonial_home",
+          "field_label": "Possession of matrimonial home",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "claim_equalization",
+          "field_name": "claim_equalization",
+          "field_label": "Equalization of net family property",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "claim_exclusive_possession_home",
+          "field_name": "claim_exclusive_possession_home",
+          "field_label": "Exclusive possession of matrimonial home",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "claim_exclusive_possession_contents",
+          "field_name": "claim_exclusive_possession_contents",
+          "field_label": "Exclusive possession of contents of matrimonial home",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "claim_freezing_assets",
+          "field_name": "claim_freezing_assets",
+          "field_label": "Freezing assets",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "claim_sale_matrimonial_home",
+          "field_name": "claim_sale_matrimonial_home",
+          "field_label": "Sale of matrimonial home",
+          "field_type": "checkbox",
+          "required": false
+        }
+      ]
+    },
+    {
+      "section_id": "claims_children_law_reform_act",
+      "section_name": "Claims under the Children's Law Reform Act",
+      "fields": [
+        {
+          "field_id": "claim_custody_clra",
+          "field_name": "claim_custody_clra",
+          "field_label": "Custody of children",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "claim_access_clra",
+          "field_name": "claim_access_clra",
+          "field_label": "Access to children",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "claim_restraining_order",
+          "field_name": "claim_restraining_order",
+          "field_label": "Restraining order",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "claim_indexing_support",
+          "field_name": "claim_indexing_support",
+          "field_label": "Indexing of support",
+          "field_type": "checkbox",
+          "required": false
+        }
+      ]
+    },
+    {
+      "section_id": "other_claims",
+      "section_name": "Other Claims",
+      "fields": [
+        {
+          "field_id": "claim_other",
+          "field_name": "claim_other",
+          "field_label": "Other claims",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "claim_other_details",
+          "field_name": "claim_other_details",
+          "field_label": "Specify other claims",
+          "field_type": "area",
+          "required": false,
+          "show_if": "claim_other",
+          "min_lines": 3,
+          "max_chars": 1000
+        }
+      ]
+    },
+    {
+      "section_id": "children_info",
+      "section_name": "Children Information",
+      "fields": [
+        {
+          "field_id": "has_children",
+          "field_name": "has_children",
+          "field_label": "Are there children involved in this case?",
+          "field_type": "yesno",
+          "required": true
+        },
+        {
+          "field_id": "children_list",
+          "field_name": "children_list",
+          "field_label": "Children",
+          "field_type": "table",
+          "required": false,
+          "show_if": "has_children",
+          "table_columns": [
+            {
+              "column_id": "child_name",
+              "column_label": "Full Legal Name",
+              "column_type": "text"
+            },
+            {
+              "column_id": "child_birthdate",
+              "column_label": "Birthdate",
+              "column_type": "date"
+            },
+            {
+              "column_id": "child_age",
+              "column_label": "Age",
+              "column_type": "number"
+            },
+            {
+              "column_id": "child_grade",
+              "column_label": "Grade/Year in School",
+              "column_type": "text"
+            },
+            {
+              "column_id": "child_residing_with",
+              "column_label": "Residing with",
+              "column_type": "dropdown",
+              "options": ["Applicant", "Respondent", "Other", "Shared"]
+            },
+            {
+              "column_id": "child_relationship_applicant",
+              "column_label": "Relationship to Applicant",
+              "column_type": "text"
+            },
+            {
+              "column_id": "child_relationship_respondent",
+              "column_label": "Relationship to Respondent",
+              "column_type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "previous_cases",
+      "section_name": "Previous Court Cases",
+      "fields": [
+        {
+          "field_id": "has_previous_case",
+          "field_name": "has_previous_case",
+          "field_label": "Have the parties been involved in any previous or ongoing court case?",
+          "field_type": "yesno",
+          "required": true
+        },
+        {
+          "field_id": "previous_court_name",
+          "field_name": "previous_court_name",
+          "field_label": "Court Name",
+          "field_type": "text",
+          "required": false,
+          "show_if": "has_previous_case"
+        },
+        {
+          "field_id": "previous_court_file_number",
+          "field_name": "previous_court_file_number",
+          "field_label": "Court File Number",
+          "field_type": "text",
+          "required": false,
+          "show_if": "has_previous_case"
+        },
+        {
+          "field_id": "previous_court_date",
+          "field_name": "previous_court_date",
+          "field_label": "Date of Court Order",
+          "field_type": "date",
+          "required": false,
+          "show_if": "has_previous_case"
+        },
+        {
+          "field_id": "previous_judge_name",
+          "field_name": "previous_judge_name",
+          "field_label": "Judge's Name",
+          "field_type": "text",
+          "required": false,
+          "show_if": "has_previous_case"
+        }
+      ]
+    },
+    {
+      "section_id": "urgency",
+      "section_name": "Urgency and Hardship",
+      "fields": [
+        {
+          "field_id": "is_urgent",
+          "field_name": "is_urgent",
+          "field_label": "Is this application urgent?",
+          "field_type": "yesno",
+          "required": false
+        },
+        {
+          "field_id": "urgency_explanation",
+          "field_name": "urgency_explanation",
+          "field_label": "Explain why this is urgent",
+          "field_type": "area",
+          "required": false,
+          "show_if": "is_urgent",
+          "min_lines": 3,
+          "max_chars": 1000
+        },
+        {
+          "field_id": "hardship_if_delayed",
+          "field_name": "hardship_if_delayed",
+          "field_label": "Will hardship result if not heard quickly?",
+          "field_type": "yesno",
+          "required": false
+        },
+        {
+          "field_id": "hardship_explanation",
+          "field_name": "hardship_explanation",
+          "field_label": "Explain the hardship",
+          "field_type": "area",
+          "required": false,
+          "show_if": "hardship_if_delayed",
+          "min_lines": 3,
+          "max_chars": 1000
+        }
+      ]
+    },
+    {
+      "section_id": "financial_statements",
+      "section_name": "Required Financial Statements",
+      "fields": [
+        {
+          "field_id": "requires_form_13",
+          "field_name": "requires_form_13",
+          "field_label": "Form 13: Financial Statement (Support Claims) required",
+          "field_type": "checkbox",
+          "required": false,
+          "help_text": "Required if claiming support only"
+        },
+        {
+          "field_id": "requires_form_13_1",
+          "field_name": "requires_form_13_1",
+          "field_label": "Form 13.1: Financial Statement (Property and Support Claims) required",
+          "field_type": "checkbox",
+          "required": false,
+          "help_text": "Required if claiming property or property and support"
+        },
+        {
+          "field_id": "financial_statement_not_required",
+          "field_name": "financial_statement_not_required",
+          "field_label": "Financial statement not required",
+          "field_type": "checkbox",
+          "required": false,
+          "help_text": "Check if only claiming table amount child support"
+        }
+      ]
+    },
+    {
+      "section_id": "important_facts",
+      "section_name": "Important Facts",
+      "fields": [
+        {
+          "field_id": "important_facts",
+          "field_name": "important_facts",
+          "field_label": "Important facts supporting my claim for:",
+          "field_type": "area",
+          "required": true,
+          "min_lines": 10,
+          "max_chars": 5000,
+          "help_text": "Set out the facts on which you are basing your claim. Include relevant dates and details."
+        }
+      ]
+    },
+    {
+      "section_id": "signature",
+      "section_name": "Signature",
+      "fields": [
+        {
+          "field_id": "signature_date",
+          "field_name": "signature_date",
+          "field_label": "Date of Signature",
+          "field_type": "date",
+          "required": true
+        },
+        {
+          "field_id": "signature_location",
+          "field_name": "signature_location",
+          "field_label": "Signature Location",
+          "field_type": "text",
+          "required": true,
+          "help_text": "Municipality where signed"
+        },
+        {
+          "field_id": "commissioner_name",
+          "field_name": "commissioner_name",
+          "field_label": "Commissioner/Notary Name",
+          "field_type": "text",
+          "required": false
+        },
+        {
+          "field_id": "commission_expires",
+          "field_name": "commission_expires",
+          "field_label": "Commission Expires",
+          "field_type": "date",
+          "required": false
+        }
+      ]
+    },
+    {
+      "section_id": "service_requirements",
+      "section_name": "Special Service Requirements",
+      "fields": [
+        {
+          "field_id": "requires_french",
+          "field_name": "requires_french",
+          "field_label": "Applicant requires French language services",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "requires_accessibility",
+          "field_name": "requires_accessibility",
+          "field_label": "Applicant requires accessibility accommodations",
+          "field_type": "checkbox",
+          "required": false
+        },
+        {
+          "field_id": "accessibility_description",
+          "field_name": "accessibility_description",
+          "field_label": "Describe accommodation needs",
+          "field_type": "area",
+          "required": false,
+          "show_if": "requires_accessibility",
+          "min_lines": 2,
+          "max_chars": 500
+        }
+      ]
+    }
+  ],
+  "validation_rules": {
+    "postal_code": "^[A-Z]\\d[A-Z] \\d[A-Z]\\d$",
+    "phone": "^\\(?\\d{3}\\)?[- ]?\\d{3}[- ]?\\d{4}$",
+    "email": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+    "date_past": "must be before today",
+    "alphanumeric": "^[a-zA-Z0-9-/]+$"
+  },
+  "conditional_logic": {
+    "lawyer_fields": "Show only if party has lawyer",
+    "marriage_fields": "Show only if parties were married",
+    "children_fields": "Show only if there are children",
+    "previous_case_fields": "Show only if there was a previous case",
+    "urgency_fields": "Show only if marked as urgent",
+    "hardship_fields": "Show only if hardship claimed"
+  },
+  "form_notes": [
+    "Court file number may be blank for new applications",
+    "Respondent's address can be 'Unknown' if not known",
+    "Financial statements depend on types of claims",
+    "Form 13 for support only claims",
+    "Form 13.1 for property or property and support claims",
+    "No financial statement needed for table amount child support only",
+    "Important facts section must detail grounds for claims",
+    "Additional pages can be attached if needed"
+  ]
+}

@@ -1,0 +1,121 @@
+---
+metadata:
+  title: Ontario Family Law Form 29A
+  short_title: Form 29A
+  description: Complete interview for Ontario Family Law Form 29A
+  form_number: 29A
+  generated: 2025-09-05T16:41:13.217495
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 29A
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_dropdown1
+  form_specific_courtfileno
+  form_specific_text2
+  form_specific_check2
+  form_specific_field_9
+  form_specific_field_13
+  form_specific_text5
+  case.court_file_number
+  form_specific_court_address
+  form_specific_municipality
+  form_specific_street_address
+  applicant.address.postal_code
+  form_specific_phone
+  form_specific_fax
+  form_specific_form_29a
+  form_specific_if_your_debt_is_jointly_owed_to_the_payor_and_to_one_or_more_other_persons_you_must_immediately_mail_a_notice_to_coowner_of_the_debt_form_29c_to_the_following_persons
+  form_specific_section_7_of_the_ontarios_wages_act_says_that_you_cannot_deduct_more_than
+  
+  # Complete the interview
+  form_29A_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - form_specific_dropdown1: text
+---
+question: Courtfileno
+fields:
+  - form_specific_courtfileno: text
+---
+question: Text2
+fields:
+  - form_specific_text2: text
+---
+question: Check2
+yesno: form_specific_check2
+---
+question: Field 9
+yesno: form_specific_field_9
+---
+question: Field 13
+yesno: form_specific_field_13
+---
+question: Text5
+fields:
+  - form_specific_text5: text
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Street Address
+fields:
+  - form_specific_street_address: text
+---
+question: Applicant Postal Code
+fields:
+  - applicant.address.postal_code: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Form 29A
+fields:
+  - form_specific_form_29a: text
+---
+question: If Your Debt Is Jointly Owed To The Payor And To One Or More Other Persons You Must Immediately Mail A Notice To Coowner Of The Debt Form 29C To The Following Persons
+fields:
+  - form_specific_if_your_debt_is_jointly_owed_to_the_payor_and_to_one_or_more_other_persons_you_must_immediately_mail_a_notice_to_coowner_of_the_debt_form_29c_to_the_following_persons: text
+---
+question: Section 7 Of The Ontarios Wages Act Says That You Cannot Deduct More Than
+fields:
+  - form_specific_section_7_of_the_ontarios_wages_act_says_that_you_cannot_deduct_more_than: text
+---
+event: final_screen
+question: Form 29A Complete
+subquestion: Your Ontario Family Law Form 29A has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_29A_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_29A_ready = True

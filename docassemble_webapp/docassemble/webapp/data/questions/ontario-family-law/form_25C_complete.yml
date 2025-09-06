@@ -1,0 +1,220 @@
+---
+metadata:
+  title: Ontario Family Law Form 25C
+  short_title: Form 25C
+  description: Complete interview for Form 25C
+  form_number: 25C
+  total_fields: 19
+  generated: 2025-09-05 14:41
+  tags:
+    - ontario
+    - family law
+    - form 25c
+---
+include:
+  - common-intake-enhanced-with-validation.yml
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 25C Interview Flow
+  # Common intake fields are inherited
+  
+  # Form-specific fields
+  # Form Field
+  dropdown1
+  courtfileno
+  text11
+  field_6
+  text10
+  # court_info
+  court_address
+  municipality
+  province
+  # party_info
+  date_of_birth
+  street_address
+  postal_code
+  phone
+  fax
+  # children
+  child_name
+  # Table 1, Row 17
+  the_person_to_be_adopted_is
+  # Table 1, Row 20
+  the_application_is_for_a_n_check_all_boxes_that_apply
+  # Table 1, Row 24
+  this_court_orders_that
+  # Table 1, Row 29
+  to_be_completed_for_a_stepparent_adoption
+  
+  # Generate Form 25C
+  form_25C_ready
+  final_screen
+---
+question: |
+  Dropdown1
+fields:
+  - dropdown1: dropdown
+    choices:
+      -           
+      - Ontario Court of Justice
+      - Superior Court of Justice
+      - Superior Court of Justice Family Court Branch
+---
+question: |
+  Court File No
+fields:
+  - courtfileno: text
+---
+question: |
+  Text11
+fields:
+  - text11: text
+---
+question: |
+  Field 6
+fields:
+  - field_6: text
+---
+question: |
+  Text10
+fields:
+  - text10: text
+---
+question: |
+  Court Address
+fields:
+  - court_address: text
+---
+question: |
+  Municipality
+fields:
+  - municipality: text
+---
+question: |
+  Province
+fields:
+  - province: dropdown
+---
+question: |
+  Date Of Birth
+fields:
+  - date_of_birth: date
+    help: None
+---
+question: |
+  Street Address
+fields:
+  - street_address: text
+---
+question: |
+  Postal Code
+fields:
+  - postal_code: text
+---
+question: |
+  Phone Number
+fields:
+  - phone: text
+---
+question: |
+  Fax
+fields:
+  - fax: text
+---
+question: |
+  Child Name
+fields:
+  - child_name: text
+---
+question: |
+  The person  to  be adopted is:
+fields:
+  - the_person_to_be_adopted_is: text
+---
+question: |
+  The application is for a (n)   (check all boxes that apply) :
+fields:
+  - the_application_is_for_a_n_check_all_boxes_that_apply: text
+---
+question: |
+  THIS COURT ORDERS THAT:
+fields:
+  - this_court_orders_that: text
+---
+question: |
+  To be completed for a stepparent adoption:
+fields:
+  - to_be_completed_for_a_stepparent_adoption: text
+---
+question: |
+  Review Form 25C Information
+subquestion: |
+  Please review all information before generating the form.
+review:
+  - dropdown1:
+      button: |
+        **Form Field**
+  - court_file_number:
+      button: |
+        **court_info**
+  - date_of_birth:
+      button: |
+        **party_info**
+  - child_name:
+      button: |
+        **children**
+  - the_person_to_be_adopted_is:
+      button: |
+        **Table 1, Row 17**
+  - the_application_is_for_a_n_check_all_boxes_that_apply:
+      button: |
+        **Table 1, Row 20**
+  - this_court_orders_that:
+      button: |
+        **Table 1, Row 24**
+  - to_be_completed_for_a_stepparent_adoption:
+      button: |
+        **Table 1, Row 29**
+---
+event: final_screen
+question: |
+  Form 25C Complete
+subquestion: |
+  Your Form 25C has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 25C: ${ form_25C_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 25C
+  filename: form_25C
+  variable name: form_25C_document
+  content: |
+    # Ontario Family Law Form 25C
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 25C Specific Information
+    [Form fields would be inserted here]
+---
+code: |
+  form_25C_ready = True

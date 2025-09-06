@@ -1,0 +1,80 @@
+---
+metadata:
+  title: |
+    Form 25A: Form 25A
+  short title: |
+    Form 25A
+  description: |
+    Form-specific questions for Ontario Family Law Form 25A
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form25A_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 25A specific sections
+  form25A_additional_information_complete
+  form25A_review
+  form25A_complete
+---
+question: |
+  Form 25A - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 25A.
+fields:
+  - Court office address: form25A_court_office_address
+  - Judge (print or type name): form25A_judge_print_or_type_name
+  - Date of order: form25A_date_of_order
+    datatype: date
+  - The court considered an application of (name): form25A_the_court_considered_an_applic
+  - date: form25A_date
+    datatype: date
+  - name or names: form25A_name_or_names
+  - full legal names of spouses: form25A_full_legal_names_of_spouses
+  - place: form25A_place
+  - Add further paragraphs where the court orders other relief.: form25A_add_further_paragraphs_where_t
+  - Date of signature: form25A_date_of_signature
+    datatype: date
+  - Signature of judge or clerk of the court: form25A_signature_of_judge_or_clerk_of
+  - Save Form: form25A_save_form
+  - Print Form: form25A_print_form
+  - Clear Form: form25A_clear_form
+continue button field: form25A_additional_information_complete
+---
+event: form25A_review
+question: |
+  Review Form 25A Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form25A_complete
+question: |
+  Form 25A Complete
+subquestion: |
+  Your Form 25A (Form 25A) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 25A specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

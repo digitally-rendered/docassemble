@@ -1,0 +1,421 @@
+---
+metadata:
+  title: Ontario Family Law Form 17A
+  short_title: Form 17A
+  description: Complete interview for Form 17A
+  form_number: 17A
+  total_fields: 55
+  generated: 2025-09-05 14:41
+  tags:
+    - ontario
+    - family law
+    - form 17a
+---
+include:
+  - common-intake-enhanced-with-validation.yml
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 17A Interview Flow
+  # Common intake fields are inherited
+  
+  # Form-specific fields
+  # Form Field
+  field_0
+  courtfilenumber
+  text1
+  field_7
+  check1
+  # court_info
+  court_address
+  municipality
+  # party_info
+  street_address
+  postal_code
+  phone
+  fax
+  # claims
+  claim_property
+  # children
+  child_name
+  child_birthdate
+  child_age
+  # long_form
+  important_facts
+  details
+  other_specify
+  # Table 1, Row 18
+  applicant
+  age
+  # Table 1, Row 19
+  respondent
+  # Table 1, Row 20
+  relationship_dates
+  # Table 1, Row 26
+  the_basic_information_about_the_children_is_as_follows
+  # Table 2, Row 1
+  form_17a
+  # Table 2, Row 5
+  what_are_the_issues_in_this_case_that_have_been_settled
+  # Table 2, Row 10
+  what_are_the_issues_in_this_case_that_have_not_yet_been_settled
+  # Table 2, Row 15
+  if_child_or_spousal_support_is_an_issue_give_the_income_of_the_parties
+  # Table 4, Row 5
+  if_parenting_issues_are_not_yet_settled
+  
+  # Generate Form 17A
+  form_17A_ready
+  final_screen
+---
+question: |
+  Field 0
+fields:
+  - field_0: dropdown
+    choices:
+      -           
+      - Ontario Court of Justice
+      - Superior Court of Justice
+      - Superior Court of Justice, Family Court
+---
+question: |
+  Court File Number
+fields:
+  - courtfilenumber: text
+---
+question: |
+  Text1
+fields:
+  - text1: text
+---
+question: |
+  Field 7
+fields:
+  - field_7: text
+---
+question: |
+  Check1
+yesno: check1
+---
+question: |
+  Field 43
+fields:
+  - field_43: text
+---
+question: |
+  Check6
+yesno: check6
+---
+question: |
+  Check12
+yesno: check12
+---
+question: |
+  Check15
+yesno: check15
+---
+question: |
+  Check8
+yesno: check8
+---
+question: |
+  Check13
+yesno: check13
+---
+question: |
+  Check16
+yesno: check16
+---
+question: |
+  Check9
+yesno: check9
+---
+question: |
+  Check14
+yesno: check14
+---
+question: |
+  Check11
+yesno: check11
+---
+question: |
+  Field 71
+fields:
+  - field_71: text
+---
+question: |
+  Field 73
+fields:
+  - field_73: text
+---
+question: |
+  Check18
+yesno: check18
+---
+question: |
+  Check19
+yesno: check19
+---
+question: |
+  Field 76
+fields:
+  - field_76: text
+---
+question: |
+  Check20
+yesno: check20
+---
+question: |
+  Check21
+yesno: check21
+---
+question: |
+  Check22
+yesno: check22
+---
+question: |
+  Check23
+yesno: check23
+---
+question: |
+  Check24
+yesno: check24
+---
+question: |
+  Check25
+yesno: check25
+---
+question: |
+  Field 86
+fields:
+  - field_86: text
+---
+question: |
+  Check26
+yesno: check26
+---
+question: |
+  Check27
+yesno: check27
+---
+question: |
+  Field 96
+fields:
+  - field_96: text
+---
+question: |
+  Field 117
+fields:
+  - field_117: text
+---
+question: |
+  Court Address
+fields:
+  - court_address: text
+---
+question: |
+  Municipality
+fields:
+  - municipality: text
+---
+question: |
+  Street Address
+fields:
+  - street_address: text
+---
+question: |
+  Postal Code
+fields:
+  - postal_code: text
+---
+question: |
+  Phone Number
+fields:
+  - phone: text
+---
+question: |
+  Fax
+fields:
+  - fax: text
+---
+question: |
+  Claim Property
+yesno: claim_property
+---
+question: |
+  Child Name
+fields:
+  - child_name: text
+---
+question: |
+  Child Birthdate
+fields:
+  - child_birthdate: date
+    help: None
+---
+question: |
+  Child Age
+fields:
+  - child_age: number
+---
+question: |
+  Important Facts
+fields:
+  - important_facts: area
+    rows: 4
+---
+question: |
+  Details
+fields:
+  - details: area
+    rows: 4
+---
+question: |
+  Other Specify
+fields:
+  - other_specify: area
+    rows: 4
+---
+question: |
+  APPLICANT:
+fields:
+  - applicant: text
+---
+question: |
+  Age:
+fields:
+  - age: text
+---
+question: |
+  RESPONDENT:
+fields:
+  - respondent: text
+---
+question: |
+  RELATIONSHIP DATES:
+fields:
+  - relationship_dates: date
+    help: None
+---
+question: |
+  The basic information about the child(ren) is as follows:
+fields:
+  - the_basic_information_about_the_children_is_as_follows: text
+---
+question: |
+  Form 17A:
+fields:
+  - form_17a: text
+---
+question: |
+  What are the issues in this case that  HAVE  been settled:
+fields:
+  - what_are_the_issues_in_this_case_that_have_been_settled: text
+---
+question: |
+  What are the issues in this case that have  NOT  yet been settled:
+fields:
+  - what_are_the_issues_in_this_case_that_have_not_yet_been_settled: text
+---
+question: |
+  If child or spousal support is an issue, give the income of the parties:
+fields:
+  - if_child_or_spousal_support_is_an_issue_give_the_income_of_the_parties: text
+---
+question: |
+  If  parenting  issues are not yet settled:
+fields:
+  - if_parenting_issues_are_not_yet_settled: text
+---
+question: |
+  Review Form 17A Information
+subquestion: |
+  Please review all information before generating the form.
+review:
+  - field_0:
+      button: |
+        **Form Field**
+  - court_file_number:
+      button: |
+        **court_info**
+  - street_address:
+      button: |
+        **party_info**
+  - claim_property:
+      button: |
+        **claims**
+  - child_name:
+      button: |
+        **children**
+  - important_facts:
+      button: |
+        **long_form**
+  - applicant:
+      button: |
+        **Table 1, Row 18**
+  - respondent:
+      button: |
+        **Table 1, Row 19**
+  - relationship_dates:
+      button: |
+        **Table 1, Row 20**
+  - the_basic_information_about_the_children_is_as_follows:
+      button: |
+        **Table 1, Row 26**
+  - form_17a:
+      button: |
+        **Table 2, Row 1**
+  - what_are_the_issues_in_this_case_that_have_been_settled:
+      button: |
+        **Table 2, Row 5**
+  - what_are_the_issues_in_this_case_that_have_not_yet_been_settled:
+      button: |
+        **Table 2, Row 10**
+  - if_child_or_spousal_support_is_an_issue_give_the_income_of_the_parties:
+      button: |
+        **Table 2, Row 15**
+  - if_parenting_issues_are_not_yet_settled:
+      button: |
+        **Table 4, Row 5**
+---
+event: final_screen
+question: |
+  Form 17A Complete
+subquestion: |
+  Your Form 17A has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 17A: ${ form_17A_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 17A
+  filename: form_17A
+  variable name: form_17A_document
+  content: |
+    # Ontario Family Law Form 17A
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 17A Specific Information
+    [Form fields would be inserted here]
+---
+code: |
+  form_17A_ready = True

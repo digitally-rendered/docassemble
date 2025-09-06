@@ -1,0 +1,103 @@
+---
+metadata:
+  title: |
+    Form 26: Form 26
+  short title: |
+    Form 26
+  description: |
+    Form-specific questions for Ontario Family Law Form 26
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form26_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 26 specific sections
+  form26_additional_information_complete
+  form26_review
+  form26_complete
+---
+question: |
+  Form 26 - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 26.
+fields:
+  - 3. 3. The total of the periodic payments that remain unpaid today is $ The total of the periodic pay: form26_3_3_the_total_of_the_periodic_
+    datatype: currency
+  - is $ . The detailed interest calculations are attached to this statement. . The detailed interest: form26_is_the_detailed_interest_calcu
+    datatype: currency
+  - (b) (b) if your order or domestic contract does not require the payor to make periodic payments. I: form26_b_b_if_your_order_or_domestic_
+    datatype: currency
+  - if your order or domestic contract does not require the payor to make periodic payments. If you ar: form26_if_your_order_or_domestic_cont
+    datatype: currency
+  - If there have been partial payments on the lump sum, you MUST attach one or more separate sheets as: form26_if_there_have_been_partial_pay
+    datatype: currency
+  - that remains unpaid today is $ that remains unpaid today is $ that remains unpaid today is $ that re: form26_that_remains_unpaid_today_is_t
+    datatype: currency
+  - 6. 6. 6. The total amount of unpaid interest on the lump sum up to today is $ The total amount of un: form26_6_6_6_the_total_amount_of_unpa
+    datatype: currency
+  - 7. 7. 7. The amount of court costs remaining unpaid today is $ The amount of court costs remaining u: form26_7_7_7_the_amount_of_court_cost
+    datatype: currency
+  - 8. 8. 8. The amount of unpaid interest on court costs up to today is $ The amount of unpaid interest: form26_8_8_8_the_amount_of_unpaid_int
+    datatype: currency
+  - 9. 9. 9. Of the money in paragraphs 5 and 6, I attribute $ Of the money in paragraphs 5 and 6, I att: form26_9_9_9_of_the_money_in_paragrap
+    datatype: currency
+  - 10. 10. 10. Of the money in paragraphs 3 and 4, I attribute $ Of the money in paragraphs 3 and 4, I: form26_10_10_10_of_the_money_in_parag
+    datatype: currency
+  - 11. 11. 11. The total of the sums in paragraphs 9 and 10 is $ The total of the sums in paragraphs 9: form26_11_11_11_the_total_of_the_sums
+    datatype: currency
+  - (a) unpaid amounts of periodic payments (paragraph 3) unpaid amounts of periodic payments (paragraph: form26_a_unpaid_amounts_of_periodic_p
+    datatype: currency
+  - (b) interest on unpaid amounts of periodic payments (paragraph 4) interest on unpaid amounts of peri: form26_b_interest_on_unpaid_amounts_o
+    datatype: currency
+  - (c) unpaid lump-sum debt (paragraph 5) unpaid lump-sum debt (paragraph 5) unpaid lump-sum debt (para: form26_c_unpaid_lumpsum_debt_paragrap
+    datatype: currency
+  - (d) interest on unpaid lump-sum debt (paragraph 6) interest on unpaid lump-sum debt (paragraph 6) in: form26_d_interest_on_unpaid_lumpsum_d
+    datatype: currency
+  - (e) unpaid court costs (paragraph 7) unpaid court costs (paragraph 7) unpaid court costs (paragraph: form26_e_unpaid_court_costs_paragraph
+    datatype: currency
+  - (f) interest on unpaid court costs (paragraph 8) interest on unpaid court costs (paragraph 8) intere: form26_f_interest_on_unpaid_court_cos
+    datatype: currency
+  - TOTAL TOTAL TOTAL TOTAL TOTAL TOTAL TOTAL TOTAL TOTAL $: form26_total_total_total_total_total_
+    datatype: currency
+  - $ $ $ $ $ $ $ $: form26__
+    datatype: currency
+continue button field: form26_additional_information_complete
+---
+event: form26_review
+question: |
+  Review Form 26 Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form26_complete
+question: |
+  Form 26 Complete
+subquestion: |
+  Your Form 26 (Form 26) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 26 specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

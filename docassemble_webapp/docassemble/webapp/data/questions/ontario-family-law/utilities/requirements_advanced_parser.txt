@@ -1,0 +1,49 @@
+# Advanced Document Parser Requirements
+# Install with: pip install -r requirements_advanced_parser.txt
+
+# Core document processing
+python-docx>=0.8.11
+PyMuPDF>=1.23.0  # fitz
+pdfplumber>=0.10.0
+pypdf>=3.17.0
+
+# Image processing and OCR
+opencv-python>=4.8.0
+Pillow>=10.0.0
+pytesseract>=0.3.10
+# Note: Tesseract OCR must be installed separately:
+# Mac: brew install tesseract
+# Ubuntu: sudo apt-get install tesseract-ocr
+# Windows: Download from https://github.com/UB-Mannheim/tesseract/wiki
+
+# Layout analysis
+layoutparser[layoutmodels,tesseract]>=0.3.4
+# Optional: detectron2 for advanced layout detection
+# detectron2 @ git+https://github.com/facebookresearch/detectron2.git
+
+# NLP and text processing
+spacy>=3.7.0
+fuzzywuzzy>=0.18.0
+python-Levenshtein>=0.21.0  # For faster fuzzy matching
+
+# Table extraction
+tabula-py>=2.8.0
+camelot-py[cv]>=0.11.0
+
+# Cloud APIs (optional - install if using)
+# google-cloud-documentai>=2.20.0
+# azure-ai-formrecognizer>=3.3.0
+# boto3>=1.28.0  # For AWS Textract
+
+# Data processing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Utilities
+python-magic>=0.4.27  # File type detection
+chardet>=5.2.0  # Character encoding detection
+
+# Development and testing
+pytest>=7.4.0
+black>=23.0.0
+mypy>=1.5.0

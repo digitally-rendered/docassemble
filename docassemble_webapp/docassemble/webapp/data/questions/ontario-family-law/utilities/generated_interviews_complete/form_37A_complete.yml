@@ -1,0 +1,168 @@
+---
+metadata:
+  title: Ontario Family Law Form 37A
+  short_title: Form 37A
+  description: Complete standalone interview for Form 37A
+  form_number: 37A
+  total_fields: 15
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 37a
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+---
+mandatory: True
+code: |
+  # Form 37A Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  dropdown1
+  courtfileno
+  text2
+  text3
+  check3
+  check4
+  text4
+  court_file_number
+  court_address
+  municipality
+  street_address
+  postal_code
+  phone
+  fax
+  to_the_applicants
+  
+  # Generate Form 37A
+  form_37A_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - dropdown1:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Text2
+fields:
+  - text2: text
+---
+question: Text3
+fields:
+  - text3: text
+---
+question: Check3
+yesno: check3
+---
+question: Check4
+yesno: check4
+---
+question: Text4
+fields:
+  - text4: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Municipality
+fields:
+  - municipality: text
+---
+question: Street Address
+fields:
+  - street_address: text
+---
+question: Postal Code
+fields:
+  - postal_code: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: |
+  TO THE APPLICANT(S):
+fields:
+  - to_the_applicants: text
+---
+question: Review Form 37A Information
+subquestion: Please review all information before generating the form.
+review:
+  dropdown1:
+    button: **Dropdown1**
+  courtfileno:
+    button: **Court File No**
+  text2:
+    button: **Text2**
+  text3:
+    button: **Text3**
+  check3:
+    button: **Check3**
+  check4:
+    button: **Check4**
+  text4:
+    button: **Text4**
+  court_file_number:
+    button: **Court File Number**
+  court_address:
+    button: **Court Address**
+  municipality:
+    button: **Municipality**
+---
+event: final_screen
+question: Form 37A Complete
+subquestion: |
+  Your Form 37A has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 37A: ${ form_37A_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 37A
+  filename: form_37A
+  variable name: form_37A_document
+  content: |
+    # Ontario Family Law Form 37A
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 37A Specific Information
+    [Form fields would be inserted here]
+---
+code: form_37A_ready = True

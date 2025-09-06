@@ -1,0 +1,11 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="2.237824">
+<testsuite name="test_form_8_unified.spec.js" timestamp="2025-09-05T19:38:31.413Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.401" errors="0">
+<testcase name="Form 8 Unified - Complete Interview Flow › should load the unified Form 8 interview successfully" classname="test_form_8_unified.spec.js" time="1.401">
+<system-out>
+<![CDATA[Loading Form 8 unified interview...
+Interview shows error page - may indicate server issues
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

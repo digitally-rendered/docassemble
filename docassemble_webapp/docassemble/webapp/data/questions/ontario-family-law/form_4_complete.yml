@@ -1,0 +1,238 @@
+---
+metadata:
+  title: Ontario Family Law Form 4
+  short_title: Form 4
+  description: Complete interview for Form 4
+  form_number: 4
+  total_fields: 24
+  generated: 2025-09-05 14:41
+  tags:
+    - ontario
+    - family law
+    - form 4
+---
+include:
+  - common-intake-enhanced-with-validation.yml
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+  - applicant_lawyer: Individual
+  - respondent_lawyer: Individual
+---
+mandatory: True
+code: |
+  # Form 4 Interview Flow
+  # Common intake fields are inherited
+  
+  # Form-specific fields
+  # Form Field
+  dropdown1
+  courtfileno
+  field_2
+  field_3
+  field_4
+  # court_info
+  court_address
+  municipality
+  # party_info
+  street_address
+  postal_code
+  phone
+  fax
+  # lawyer_info
+  lawyer_name
+  # children
+  child_age
+  # Table 2, Row 1
+  form_4
+  # Table 2, Row 4
+  notes
+  
+  # Generate Form 4
+  form_4_ready
+  final_screen
+---
+question: |
+  Dropdown1
+fields:
+  - dropdown1: dropdown
+    choices:
+      -           
+      - Ontario Court of Justice
+      - Superior Court of Justice
+      - Superior Court of Justice Family Court Branch
+---
+question: |
+  Court File No
+fields:
+  - courtfileno: text
+---
+question: |
+  Field 2
+fields:
+  - field_2: text
+---
+question: |
+  Field 3
+fields:
+  - field_3: text
+---
+question: |
+  Field 4
+fields:
+  - field_4: text
+---
+question: |
+  Field 5
+fields:
+  - field_5: text
+---
+question: |
+  Field 6
+fields:
+  - field_6: text
+---
+question: |
+  Field 7
+fields:
+  - field_7: text
+---
+question: |
+  Field 8
+fields:
+  - field_8: text
+---
+question: |
+  Check1
+yesno: check1
+---
+question: |
+  Field 10
+fields:
+  - field_10: text
+---
+question: |
+  Field 15
+fields:
+  - field_15: text
+---
+question: |
+  Field 16
+fields:
+  - field_16: text
+---
+question: |
+  Court Address
+fields:
+  - court_address: text
+---
+question: |
+  Municipality
+fields:
+  - municipality: text
+---
+question: |
+  Street Address
+fields:
+  - street_address: text
+---
+question: |
+  Postal Code
+fields:
+  - postal_code: text
+---
+question: |
+  Phone Number
+fields:
+  - phone: text
+---
+question: |
+  Fax
+fields:
+  - fax: text
+---
+question: |
+  Lawyer Name
+fields:
+  - lawyer_name: text
+---
+question: |
+  Child Age
+fields:
+  - child_age: number
+---
+question: |
+  Form 4:
+fields:
+  - form_4: text
+---
+question: |
+  NOTES:
+fields:
+  - notes: text
+---
+question: |
+  Review Form 4 Information
+subquestion: |
+  Please review all information before generating the form.
+review:
+  - dropdown1:
+      button: |
+        **Form Field**
+  - court_file_number:
+      button: |
+        **court_info**
+  - street_address:
+      button: |
+        **party_info**
+  - lawyer_name:
+      button: |
+        **lawyer_info**
+  - child_age:
+      button: |
+        **children**
+  - form_4:
+      button: |
+        **Table 2, Row 1**
+  - notes:
+      button: |
+        **Table 2, Row 4**
+---
+event: final_screen
+question: |
+  Form 4 Complete
+subquestion: |
+  Your Form 4 has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 4: ${ form_4_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 4
+  filename: form_4
+  variable name: form_4_document
+  content: |
+    # Ontario Family Law Form 4
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 4 Specific Information
+    [Form fields would be inserted here]
+---
+code: |
+  form_4_ready = True

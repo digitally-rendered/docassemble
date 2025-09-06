@@ -1,0 +1,388 @@
+---
+metadata:
+  title: Ontario Family Law Form 6B
+  short_title: Form 6B
+  description: Complete standalone interview for Form 6B
+  form_number: 6B
+  total_fields: 67
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 6b
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+---
+mandatory: True
+code: |
+  # Form 6B Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  field_0
+  courtfileno
+  field_2
+  date
+  field_4
+  field_5
+  field_6
+  field_7
+  field_8
+  field_9
+  field_10
+  field_11
+  field_12
+  field_13
+  field_14
+  field_15
+  check1
+  field_25
+  check2
+  check3
+  # ... and 47 more fields
+  
+  # Generate Form 6B
+  form_6B_ready
+  final_screen
+---
+question: Field 0
+fields:
+  - field_0:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Field 2
+fields:
+  - field_2: text
+---
+question: Date
+fields:
+  - date: text
+---
+question: Field 4
+fields:
+  - field_4: text
+---
+question: Field 5
+fields:
+  - field_5: text
+---
+question: Field 6
+fields:
+  - field_6: text
+---
+question: Field 7
+fields:
+  - field_7: text
+---
+question: Field 8
+fields:
+  - field_8: text
+---
+question: Field 9
+fields:
+  - field_9: text
+---
+question: Field 10
+fields:
+  - field_10: text
+---
+question: Field 11
+fields:
+  - field_11: text
+---
+question: Field 12
+fields:
+  - field_12: text
+---
+question: Field 13
+fields:
+  - field_13: text
+---
+question: Field 14
+fields:
+  - field_14: text
+---
+question: Field 15
+fields:
+  - field_15: text
+---
+question: Check1
+yesno: check1
+---
+question: Field 25
+fields:
+  - field_25: text
+---
+question: Check2
+yesno: check2
+---
+question: Check3
+yesno: check3
+---
+question: Field 28
+fields:
+  - field_28: text
+---
+question: Check9
+yesno: check9
+---
+question: Check10
+yesno: check10
+---
+question: Check11
+yesno: check11
+---
+question: Field 32
+fields:
+  - field_32: text
+---
+question: Field 35
+fields:
+  - field_35: text
+---
+question: Field 37
+fields:
+  - field_37: text
+---
+question: Field 38
+fields:
+  - field_38: text
+---
+question: Check4
+yesno: check4
+---
+question: Check5
+yesno: check5
+---
+question: Check6
+yesno: check6
+---
+question: Check7
+yesno: check7
+---
+question: Check8
+yesno: check8
+---
+question: Check12
+yesno: check12
+---
+question: Field 45
+fields:
+  - field_45: text
+---
+question: Field 46
+fields:
+  - field_46: text
+---
+question: Dropdown1
+fields:
+  - dropdown1:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Field 48
+fields:
+  - field_48: text
+---
+question: Field 49
+fields:
+  - field_49: text
+---
+question: Field 50
+fields:
+  - field_50: text
+---
+question: Field 57
+fields:
+  - field_57: text
+---
+question: Field 58
+fields:
+  - field_58: text
+---
+question: Check13
+yesno: check13
+---
+question: Field 61
+fields:
+  - field_61: text
+---
+question: Field 62
+fields:
+  - field_62: text
+---
+question: Field 63
+fields:
+  - field_63: text
+---
+question: Field 64
+fields:
+  - field_64: text
+---
+question: Field 65
+fields:
+  - field_65: text
+---
+question: Field 66
+fields:
+  - field_66: text
+---
+question: Field 67
+fields:
+  - field_67: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Municipality
+fields:
+  - municipality: text
+---
+question: Province
+fields:
+  - province:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Street Address
+fields:
+  - street_address: text
+---
+question: Postal Code
+fields:
+  - postal_code: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Email Address
+fields:
+  - email:
+      datatype: email
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: Other Specify
+fields:
+  - other_specify: text
+---
+question: |
+  and I swear/affirm that the following is true:
+fields:
+  - and_i_swearaffirm_that_the_following_is_true: text
+---
+question: |
+  with the following document(s) in this case:
+fields:
+  - with_the_following_documents_in_this_case: text
+---
+question: |
+  I served the documents mentioned in paragraph 1 by:
+fields:
+  - i_served_the_documents_mentioned_in_paragraph_1_by: text
+---
+question: |
+  Form 6B:
+fields:
+  - form_6b: text
+---
+question: |
+  by:
+fields:
+  - by: text
+---
+question: |
+  I mailed the document(s) to be served by addressing the covering envelope to the person named in paragraph 1 at:
+fields:
+  - i_mailed_the_documents_to_be_served_by_addressing_the_covering_envelope_to_the_person_named_in_paragraph_1_at: text
+---
+question: |
+  My relationship to, or affiliation with, any party in this case is as follows:
+fields:
+  - my_relationship_to_or_affiliation_with_any_party_in_this_case_is_as_follows: text
+---
+question: Review Form 6B Information
+subquestion: Please review all information before generating the form.
+review:
+  field_0:
+    button: **Field 0**
+  courtfileno:
+    button: **Court File No**
+  field_2:
+    button: **Field 2**
+  date:
+    button: **Date**
+  field_4:
+    button: **Field 4**
+  field_5:
+    button: **Field 5**
+  field_6:
+    button: **Field 6**
+  field_7:
+    button: **Field 7**
+  field_8:
+    button: **Field 8**
+  field_9:
+    button: **Field 9**
+---
+event: final_screen
+question: Form 6B Complete
+subquestion: |
+  Your Form 6B has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 6B: ${ form_6B_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 6B
+  filename: form_6B
+  variable name: form_6B_document
+  content: |
+    # Ontario Family Law Form 6B
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 6B Specific Information
+    [Form fields would be inserted here]
+---
+code: form_6B_ready = True

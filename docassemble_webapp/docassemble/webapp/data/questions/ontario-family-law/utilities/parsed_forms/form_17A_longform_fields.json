@@ -1,0 +1,131 @@
+{
+  "form_number": "17A",
+  "form_file": "workflow_output/ontario_forms/form_17a_-_case_conference_brief_flr-17a-sep23-en.docx",
+  "total_longform_fields": 7,
+  "categories": {
+    "other": 4,
+    "support": 1,
+    "children": 2
+  },
+  "fields": [
+    {
+      "field_id": "form17A_t1_r18_c10",
+      "field_key": "form17A_other_yes",
+      "prompt": "Yes.",
+      "instructions": "Give details.",
+      "table_location": {
+        "table": 1,
+        "row": 18,
+        "cell": 10
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Other Claims",
+      "category": "other"
+    },
+    {
+      "field_id": "form17A_t1_r29_c2",
+      "field_key": "form17A_other_what_are_the_issues_for_this_case_confer",
+      "prompt": "What are the issues for this case conference?",
+      "instructions": "",
+      "table_location": {
+        "table": 1,
+        "row": 29,
+        "cell": 2
+      },
+      "field_type": "area",
+      "required": true,
+      "min_lines": 8,
+      "max_chars": null,
+      "section": "Supporting Facts",
+      "category": "other"
+    },
+    {
+      "field_id": "form17A_t2_r9_c0",
+      "field_key": "form17A_support_note_if_a_claim_for_support_has_been_mad",
+      "prompt": "NOTE: If a claim for support has been made in this case, you must serve and file a new financial statement (Form 13 or 13.1), if it is different from the one filed in the continuing record or if the o",
+      "instructions": "Form 13 or 13.1",
+      "table_location": {
+        "table": 2,
+        "row": 9,
+        "cell": 0
+      },
+      "field_type": "area",
+      "required": true,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Support Claims",
+      "category": "support"
+    },
+    {
+      "field_id": "form17A_t2_r11_c2",
+      "field_key": "form17A_children_if_a_claim_is_being_made_for_child_suppo",
+      "prompt": "If a claim is being made for child support and a claim is made for special expenses under the child support guidelines, give details of those expenses or attach additional information.",
+      "instructions": "details of those expenses or attach additional information",
+      "table_location": {
+        "table": 2,
+        "row": 11,
+        "cell": 2
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Support Claims",
+      "category": "children"
+    },
+    {
+      "field_id": "form17A_t2_r13_c2",
+      "field_key": "form17A_children_if_a_claim_is_made_for_child_support_and",
+      "prompt": "If a claim is made for child support and you claim that the Child Support Guidelines table amount should not be ordered, briefly outline the reasons here or attach an additional page.",
+      "instructions": "",
+      "table_location": {
+        "table": 2,
+        "row": 13,
+        "cell": 2
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Support Claims",
+      "category": "children"
+    },
+    {
+      "field_id": "form17A_t3_r12_c7",
+      "field_key": "form17A_other_no",
+      "prompt": "No.",
+      "instructions": "Explain what has not been done.",
+      "table_location": {
+        "table": 3,
+        "row": 12,
+        "cell": 7
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Other Claims",
+      "category": "other"
+    },
+    {
+      "field_id": "form17A_t3_r23_c1",
+      "field_key": "form17A_other_are_there_issues_that_may_require_expert",
+      "prompt": "Are there issues that may require expert evidence or a report?",
+      "instructions": "",
+      "table_location": {
+        "table": 3,
+        "row": 23,
+        "cell": 1
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Other Claims",
+      "category": "other"
+    }
+  ]
+}

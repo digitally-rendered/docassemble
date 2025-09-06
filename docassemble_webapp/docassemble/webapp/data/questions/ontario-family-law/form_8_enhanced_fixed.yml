@@ -1,0 +1,552 @@
+---
+metadata:
+  title: Ontario Family Law Form 8 - Application (General)
+  short_title: Form 8
+  description: Complete Ontario Family Law Form 8 - Application (General)
+  authors:
+    - Ontario Family Law System
+  revision_date: '2025-09-06'
+  form_number: '8'
+  version: '2.0'
+  tags:
+    - ontario
+    - family law
+    - form 8
+    - application
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+modules:
+  - docassemble.base.util
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - court: DAObject
+  - children: DAList.using(object_type=Individual, there_are_any=False)
+  - claims: DAObject
+---
+code: |
+  # Ontario-specific validation functions
+  import re
+  
+  def validate_ontario_postal_code(postal_code):
+      """Validate Ontario postal code format"""
+      if not postal_code:
+          return True
+      postal_clean = re.sub(r'\s+', '', postal_code.upper())
+      pattern = r'^[A-Z][0-9][A-Z][0-9][A-Z][0-9]$'
+      if not re.match(pattern, postal_clean):
+          validation_error("Please enter a valid postal code format (A1A 1A1)")
+          return False
+      ontario_first_letters = 'KLMNP'
+      if postal_clean[0] not in ontario_first_letters:
+          validation_error("Please enter a valid Ontario postal code")
+          return False
+      return True
+  
+  def validate_ontario_court_file(file_number):
+      """Validate Ontario court file number format"""
+      if not file_number:
+          return True
+      patterns = [
+          r'^(FS|FC|FD|FM|FE)-[0-9]{2}-[0-9]{5,6}$',
+          r'^[0-9]{2}-[0-9]{5,6}$',
+          r'^[A-Z]{2}-[0-9]{2}-[0-9]{5,6}$'
+      ]
+      file_upper = file_number.upper().strip()
+      if not any(re.match(pattern, file_upper) for pattern in patterns):
+          validation_error("Please enter a valid court file number (e.g., FC-24-12345)")
+          return False
+      return True
+  
+  def validate_canadian_phone(phone_number):
+      """Validate Canadian phone number"""
+      if not phone_number:
+          return True
+      digits_only = re.sub(r'\D', '', phone_number)
+      if len(digits_only) == 10:
+          return True
+      elif len(digits_only) == 11 and digits_only[0] == '1':
+          return True
+      else:
+          validation_error("Please enter a valid 10-digit phone number")
+          return False
+      return True
+  
+  def format_phone(phone_number):
+      """Format phone number for display"""
+      if not phone_number:
+          return ""
+      digits_only = re.sub(r'\D', '', phone_number)
+      if len(digits_only) == 10:
+          return f"({digits_only[:3]}) {digits_only[3:6]}-{digits_only[6:]}"
+      elif len(digits_only) == 11 and digits_only[0] == '1':
+          return f"1 ({digits_only[1:4]}) {digits_only[4:7]}-{digits_only[7:]}"
+      return phone_number
+  
+  def format_postal(postal_code):
+      """Format postal code for display"""
+      if not postal_code:
+          return ""
+      clean = re.sub(r'\s+', '', postal_code.upper())
+      if len(clean) == 6:
+          return f"{clean[:3]} {clean[3:]}"
+      return postal_code
+---
+mandatory: True
+code: |
+  # Interview flow control
+  court_information_complete
+  applicant_information_complete
+  respondent_information_complete
+  marriage_information_complete
+  children_information_complete
+  claims_complete
+  lawyer_information_complete
+  important_facts_complete
+  review_complete
+  final_screen
+---
+code: |
+  court_information_complete = True
+---
+question: |
+  Court Information
+subquestion: |
+  Please provide information about the court where you are filing this application.
+fields:
+  - Court Type: court.type
+    input type: radio
+    choices:
+      - Ontario Court of Justice
+      - Superior Court of Justice
+      - Superior Court of Justice Family Branch
+    default: Superior Court of Justice
+  - Court File Number: court.file_number
+    required: False
+    help: |
+      Format: XX-YY-12345 (e.g., FC-24-12345)
+      Leave blank if not yet assigned
+    validate: validate_ontario_court_file
+  - Court Office Address: court.address
+    input type: area
+    rows: 2
+    default: |
+      393 University Avenue
+      Toronto, ON M5G 1E6
+---
+code: |
+  applicant_information_complete = True
+---
+question: |
+  Applicant Information
+subquestion: |
+  Please provide your information as the applicant.
+fields:
+  - First Name: applicant.name.first
+    required: True
+  - Middle Name(s): applicant.name.middle
+    required: False
+  - Last Name: applicant.name.last
+    required: True
+  - Name Before Marriage: applicant.name_before_marriage
+    required: False
+    help: If different from current name
+---
+question: |
+  Applicant Contact Information
+fields:
+  - Street Address: applicant.address.address
+    required: True
+  - Unit/Apt: applicant.address.unit
+    required: False
+  - City: applicant.address.city
+    required: True
+    default: Toronto
+  - Province: applicant.address.province
+    code: |
+      province_list()
+    default: ON
+  - Postal Code: applicant.address.postal_code
+    required: True
+    validate: validate_ontario_postal_code
+    help: Format: A1A 1A1
+---
+question: |
+  Applicant Contact Details
+fields:
+  - Phone Number: applicant.phone_number
+    required: False
+    validate: validate_canadian_phone
+    help: 10-digit phone number
+  - Fax Number: applicant.fax_number
+    required: False
+    validate: validate_canadian_phone
+  - Email Address: applicant.email
+    datatype: email
+    required: False
+---
+code: |
+  respondent_information_complete = True
+---
+question: |
+  Respondent Information
+subquestion: |
+  Please provide information about the respondent.
+fields:
+  - First Name: respondent.name.first
+    required: True
+  - Middle Name(s): respondent.name.middle
+    required: False
+  - Last Name: respondent.name.last
+    required: True
+  - Name Before Marriage: respondent.name_before_marriage
+    required: False
+    help: If different from current name
+---
+question: |
+  Respondent Contact Information
+fields:
+  - Street Address: respondent.address.address
+    required: True
+  - Unit/Apt: respondent.address.unit
+    required: False
+  - City: respondent.address.city
+    required: True
+  - Province: respondent.address.province
+    code: |
+      province_list()
+    default: ON
+  - Postal Code: respondent.address.postal_code
+    required: False
+    validate: validate_ontario_postal_code
+---
+question: |
+  Respondent Contact Details
+fields:
+  - Phone Number: respondent.phone_number
+    required: False
+    validate: validate_canadian_phone
+  - Email Address: respondent.email
+    datatype: email
+    required: False
+---
+code: |
+  marriage_information_complete = True
+---
+question: |
+  Marriage Information
+subquestion: |
+  Please provide information about your marriage (if applicable).
+fields:
+  - Were you married to the respondent?: marriage.exists
+    datatype: yesnoradio
+    default: True
+  - Date of Marriage: marriage.date
+    datatype: date
+    show if: marriage.exists
+  - Place of Marriage (City): marriage.place_city
+    show if: marriage.exists
+  - Place of Marriage (Province/Country): marriage.place_province
+    show if: marriage.exists
+---
+question: |
+  Separation Information
+fields:
+  - Are you separated?: separation.exists
+    datatype: yesnoradio
+  - Date of Separation: separation.date
+    datatype: date
+    show if: separation.exists
+  - Grounds for Divorce: divorce.grounds
+    datatype: checkboxes
+    show if: separation.exists
+    choices:
+      - Separation for at least one year: separation_one_year
+      - Adultery: adultery
+      - Cruelty: cruelty
+    none of the above: False
+---
+code: |
+  children_information_complete = True
+---
+question: |
+  Children
+subquestion: |
+  Are there any children involved in this application?
+yesno: children.there_are_any
+---
+question: |
+  How many children are involved?
+fields:
+  - Number of children: children.target_number
+    datatype: integer
+    min: 1
+    max: 20
+---
+question: |
+  Information about ${ ordinal(i) } child
+fields:
+  - First Name: children[i].name.first
+  - Middle Name(s): children[i].name.middle
+    required: False
+  - Last Name: children[i].name.last
+  - Date of Birth: children[i].birthdate
+    datatype: date
+  - Child lives with: children[i].lives_with
+    input type: radio
+    choices:
+      - Applicant
+      - Respondent
+      - Both (shared)
+      - Other
+  - note: |
+      ${ "This child is " + str(age_in_years(children[i].birthdate)) + " years old." if defined('children[i].birthdate') else "" }
+---
+code: |
+  claims_complete = True
+---
+question: |
+  Claims - What are you asking for?
+subquestion: |
+  Check all that apply to your application.
+fields:
+  - Claims: claims.list
+    datatype: checkboxes
+    choices:
+      - Divorce: divorce
+      - Support for me: spousal_support
+      - Support for children: child_support
+      - Custody of children: custody
+      - Access to children: access
+      - Division of property: property_division
+      - Exclusive possession of matrimonial home: exclusive_possession
+      - Equalization of net family property: equalization
+      - Restraining order: restraining_order
+      - Other: other
+    none of the above: False
+  - Specify other claims: claims.other_specify
+    input type: area
+    rows: 3
+    show if:
+      variable: claims.list['other']
+      is: True
+---
+code: |
+  lawyer_information_complete = True
+---
+question: |
+  Legal Representation - Applicant
+fields:
+  - Do you have a lawyer?: applicant.has_lawyer
+    datatype: yesnoradio
+    default: False
+  - Lawyer's Name: applicant.lawyer_name
+    show if: applicant.has_lawyer
+  - Lawyer's Firm: applicant.lawyer_firm
+    show if: applicant.has_lawyer
+  - Lawyer's Phone: applicant.lawyer_phone
+    show if: applicant.has_lawyer
+    validate: validate_canadian_phone
+  - Lawyer's Email: applicant.lawyer_email
+    datatype: email
+    show if: applicant.has_lawyer
+---
+question: |
+  Legal Representation - Respondent
+fields:
+  - Does the respondent have a lawyer?: respondent.has_lawyer
+    datatype: yesnoradio
+    default: False
+  - note: |
+      If yes, please provide their lawyer's information if known.
+    show if: respondent.has_lawyer
+  - Lawyer's Name: respondent.lawyer_name
+    required: False
+    show if: respondent.has_lawyer
+  - Lawyer's Firm: respondent.lawyer_firm
+    required: False
+    show if: respondent.has_lawyer
+---
+code: |
+  important_facts_complete = True
+---
+question: |
+  Important Facts
+subquestion: |
+  Please provide any important facts that support your application.
+fields:
+  - Important Facts: important_facts
+    input type: area
+    rows: 6
+    required: False
+    help: |
+      Include relevant dates, events, and circumstances that support
+      your claims. Be specific but concise.
+---
+code: |
+  review_complete = True
+---
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided before submitting.
+  
+  **Court Information**
+  
+  * Court: ${ court.type }
+  * File Number: ${ court.file_number if court.file_number else "To be assigned" }
+  * Court Address: ${ court.address }
+  
+  **Applicant**
+  
+  * Name: ${ applicant.name.full() }
+  * Address: ${ applicant.address.block() }
+  * Phone: ${ format_phone(applicant.phone_number) if defined('applicant.phone_number') else "Not provided" }
+  * Email: ${ applicant.email if defined('applicant.email') else "Not provided" }
+  
+  **Respondent**
+  
+  * Name: ${ respondent.name.full() }
+  * Address: ${ respondent.address.block() }
+  * Phone: ${ format_phone(respondent.phone_number) if defined('respondent.phone_number') else "Not provided" }
+  * Email: ${ respondent.email if defined('respondent.email') else "Not provided" }
+  
+  % if marriage.exists:
+  **Marriage**
+  
+  * Date: ${ marriage.date }
+  * Place: ${ marriage.place_city }, ${ marriage.place_province }
+  % endif
+  
+  % if children.there_are_any:
+  **Children**
+  
+  % for child in children:
+  * ${ child.name.full() } (DOB: ${ child.birthdate }, Age: ${ age_in_years(child.birthdate) })
+  % endfor
+  % endif
+  
+  **Claims**
+  
+  % for claim, label in claims.list.true_values():
+  * ${ label }
+  % endfor
+  
+  % if defined('important_facts') and important_facts:
+  **Important Facts**
+  
+  ${ important_facts }
+  % endif
+  
+field: review_confirmation
+buttons:
+  - Edit Answers: restart
+  - Continue: continue
+---
+event: final_screen
+question: |
+  Form 8 Application Complete
+subquestion: |
+  Your Form 8 Application (General) has been completed successfully.
+  
+  **Court File Number:** ${ court.file_number if court.file_number else "To be assigned" }
+  
+  **Next Steps:**
+  
+  1. Download your completed form using the link below
+  2. Print the form (you will need multiple copies)
+  3. Sign the form in the presence of a commissioner for taking affidavits
+  4. File the form with the court
+  5. Serve a copy on the respondent
+  
+  **Required Copies:**
+  
+  * Original for the court
+  * Copy for yourself
+  * Copy for the respondent
+  * Additional copies if there are other parties
+  
+  **Filing Fee:** Please check with the court for current filing fees.
+  
+  **Service Requirements:** The respondent must be served with this application
+  within 30 days of filing (or as directed by the court).
+  
+  ${ action_button_html(url_action('generate_form_8'), label="Download Form 8 (PDF)", color="primary", size="lg") }
+  
+buttons:
+  - Exit: exit
+  - Start New Application: restart
+---
+attachment:
+  name: Form 8 - Application (General)
+  filename: form_8_application
+  variable name: form_8_document
+  pdf template file: flr-8-jun25-en.pdf
+  editable: False
+  fields:
+    # Court Information
+    - "court_type": ${ court.type }
+    - "court_file_number": ${ court.file_number if court.file_number else "" }
+    - "court_address": ${ court.address }
+    
+    # Applicant Information
+    - "applicant_name": ${ applicant.name.full() }
+    - "applicant_name_before_marriage": ${ applicant.name_before_marriage if defined('applicant.name_before_marriage') else "" }
+    - "applicant_address": ${ applicant.address.address + (", Unit " + applicant.address.unit if defined('applicant.address.unit') else "") }
+    - "applicant_city": ${ applicant.address.city }
+    - "applicant_province": ${ applicant.address.province }
+    - "applicant_postal_code": ${ format_postal(applicant.address.postal_code) }
+    - "applicant_phone": ${ format_phone(applicant.phone_number) if defined('applicant.phone_number') else "" }
+    - "applicant_fax": ${ format_phone(applicant.fax_number) if defined('applicant.fax_number') else "" }
+    - "applicant_email": ${ applicant.email if defined('applicant.email') else "" }
+    
+    # Respondent Information
+    - "respondent_name": ${ respondent.name.full() }
+    - "respondent_name_before_marriage": ${ respondent.name_before_marriage if defined('respondent.name_before_marriage') else "" }
+    - "respondent_address": ${ respondent.address.address + (", Unit " + respondent.address.unit if defined('respondent.address.unit') else "") }
+    - "respondent_city": ${ respondent.address.city }
+    - "respondent_province": ${ respondent.address.province }
+    - "respondent_postal_code": ${ format_postal(respondent.address.postal_code) if defined('respondent.address.postal_code') else "" }
+    - "respondent_phone": ${ format_phone(respondent.phone_number) if defined('respondent.phone_number') else "" }
+    - "respondent_email": ${ respondent.email if defined('respondent.email') else "" }
+    
+    # Marriage Information
+    - "marriage_date": ${ marriage.date.format() if marriage.exists else "" }
+    - "marriage_place": ${ marriage.place_city + ", " + marriage.place_province if marriage.exists else "" }
+    - "separation_date": ${ separation.date.format() if defined('separation.exists') and separation.exists else "" }
+    
+    # Claims checkboxes
+    - "claim_divorce": ${ claims.list['divorce'] if 'divorce' in claims.list else False }
+    - "claim_spousal_support": ${ claims.list['spousal_support'] if 'spousal_support' in claims.list else False }
+    - "claim_child_support": ${ claims.list['child_support'] if 'child_support' in claims.list else False }
+    - "claim_custody": ${ claims.list['custody'] if 'custody' in claims.list else False }
+    - "claim_access": ${ claims.list['access'] if 'access' in claims.list else False }
+    - "claim_property": ${ claims.list['property_division'] if 'property_division' in claims.list else False }
+    - "claim_exclusive_possession": ${ claims.list['exclusive_possession'] if 'exclusive_possession' in claims.list else False }
+    - "claim_equalization": ${ claims.list['equalization'] if 'equalization' in claims.list else False }
+    - "claim_restraining": ${ claims.list['restraining_order'] if 'restraining_order' in claims.list else False }
+    - "claim_other": ${ claims.list['other'] if 'other' in claims.list else False }
+    - "claim_other_details": ${ claims.other_specify if defined('claims.other_specify') else "" }
+    
+    # Important Facts
+    - "important_facts": ${ important_facts if defined('important_facts') else "" }
+    
+    # Lawyer Information
+    - "applicant_lawyer_name": ${ applicant.lawyer_name if defined('applicant.has_lawyer') and applicant.has_lawyer else "" }
+    - "applicant_lawyer_firm": ${ applicant.lawyer_firm if defined('applicant.has_lawyer') and applicant.has_lawyer else "" }
+    - "applicant_lawyer_phone": ${ format_phone(applicant.lawyer_phone) if defined('applicant.has_lawyer') and applicant.has_lawyer and defined('applicant.lawyer_phone') else "" }
+    - "applicant_lawyer_email": ${ applicant.lawyer_email if defined('applicant.has_lawyer') and applicant.has_lawyer and defined('applicant.lawyer_email') else "" }
+    
+    - "respondent_lawyer_name": ${ respondent.lawyer_name if defined('respondent.has_lawyer') and respondent.has_lawyer and defined('respondent.lawyer_name') else "" }
+    - "respondent_lawyer_firm": ${ respondent.lawyer_firm if defined('respondent.has_lawyer') and respondent.has_lawyer and defined('respondent.lawyer_firm') else "" }
+    
+    # Date
+    - "date_signed": ${ today() }
+---
+code: |
+  # Generate the form when requested
+  form_8_document
+  generate_form_8 = True

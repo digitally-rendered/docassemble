@@ -1,0 +1,424 @@
+---
+metadata:
+  title: Ontario Family Law Form 43B
+  short_title: Form 43B
+  description: Complete interview for Ontario Family Law Form 43B
+  form_number: 43B
+  generated: 2025-09-05T16:41:13.215029
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 43B
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_dropdown1
+  form_specific_courtfileno
+  form_specific_text1
+  form_specific_text3
+  form_specific_field_7
+  form_specific_field_8
+  form_specific_check85
+  form_specific_field_10
+  form_specific_field_12
+  form_specific_field_14
+  form_specific_field_16
+  form_specific_field_18
+  form_specific_field_19
+  form_specific_field_20
+  form_specific_field_29
+  form_specific_field_30
+  form_specific_field_31
+  form_specific_field_32
+  form_specific_field_33
+  form_specific_field_34
+  # ... and 71 more fields
+  
+  # Complete the interview
+  form_43B_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - form_specific_dropdown1: text
+---
+question: Courtfileno
+fields:
+  - form_specific_courtfileno: text
+---
+question: Text1
+fields:
+  - form_specific_text1: text
+---
+question: Text3
+fields:
+  - form_specific_text3: text
+---
+question: Field 7
+fields:
+  - form_specific_field_7: text
+---
+question: Field 8
+fields:
+  - form_specific_field_8: text
+---
+question: Check85
+yesno: form_specific_check85
+---
+question: Field 10
+fields:
+  - form_specific_field_10: text
+---
+question: Field 12
+fields:
+  - form_specific_field_12: text
+---
+question: Field 14
+fields:
+  - form_specific_field_14: text
+---
+question: Field 16
+fields:
+  - form_specific_field_16: text
+---
+question: Field 18
+fields:
+  - form_specific_field_18: text
+---
+question: Field 19
+fields:
+  - form_specific_field_19: text
+---
+question: Field 20
+fields:
+  - form_specific_field_20: text
+---
+question: Field 29
+fields:
+  - form_specific_field_29: text
+---
+question: Field 30
+fields:
+  - form_specific_field_30: text
+---
+question: Field 31
+fields:
+  - form_specific_field_31: text
+---
+question: Field 32
+fields:
+  - form_specific_field_32: text
+---
+question: Field 33
+fields:
+  - form_specific_field_33: text
+---
+question: Field 34
+fields:
+  - form_specific_field_34: text
+---
+question: Field 35
+fields:
+  - form_specific_field_35: text
+---
+question: Field 36
+fields:
+  - form_specific_field_36: text
+---
+question: Field 37
+fields:
+  - form_specific_field_37: text
+---
+question: Field 38
+fields:
+  - form_specific_field_38: text
+---
+question: Field 39
+fields:
+  - form_specific_field_39: text
+---
+question: Field 40
+fields:
+  - form_specific_field_40: text
+---
+question: Field 41
+fields:
+  - form_specific_field_41: text
+---
+question: Field 42
+fields:
+  - form_specific_field_42: text
+---
+question: Field 43
+fields:
+  - form_specific_field_43: text
+---
+question: Field 44
+fields:
+  - form_specific_field_44: text
+---
+question: Field 45
+fields:
+  - form_specific_field_45: text
+---
+question: Field 46
+fields:
+  - form_specific_field_46: text
+---
+question: Field 47
+fields:
+  - form_specific_field_47: text
+---
+question: Field 48
+fields:
+  - form_specific_field_48: text
+---
+question: Field 49
+fields:
+  - form_specific_field_49: text
+---
+question: Field 50
+fields:
+  - form_specific_field_50: text
+---
+question: Field 51
+fields:
+  - form_specific_field_51: text
+---
+question: Field 52
+fields:
+  - form_specific_field_52: text
+---
+question: Field 53
+fields:
+  - form_specific_field_53: text
+---
+question: Field 55
+fields:
+  - form_specific_field_55: text
+---
+question: Field 58
+fields:
+  - form_specific_field_58: text
+---
+question: Field 60
+fields:
+  - form_specific_field_60: text
+---
+question: Field 61
+fields:
+  - form_specific_field_61: text
+---
+question: Field 62
+fields:
+  - form_specific_field_62: text
+---
+question: Field 63
+fields:
+  - form_specific_field_63: text
+---
+question: Field 64
+fields:
+  - form_specific_field_64: text
+---
+question: Field 69
+fields:
+  - form_specific_field_69: text
+---
+question: Field 71
+fields:
+  - form_specific_field_71: text
+---
+question: Field 74
+fields:
+  - form_specific_field_74: text
+---
+question: Field 76
+fields:
+  - form_specific_field_76: text
+---
+question: Field 77
+fields:
+  - form_specific_field_77: text
+---
+question: Field 78
+fields:
+  - form_specific_field_78: text
+---
+question: Field 79
+fields:
+  - form_specific_field_79: text
+---
+question: Field 80
+fields:
+  - form_specific_field_80: text
+---
+question: Field 81
+fields:
+  - form_specific_field_81: text
+---
+question: Field 84
+fields:
+  - form_specific_field_84: text
+---
+question: Field 85
+fields:
+  - form_specific_field_85: text
+---
+question: Field 86
+fields:
+  - form_specific_field_86: text
+---
+question: Field 87
+fields:
+  - form_specific_field_87: text
+---
+question: Field 88
+fields:
+  - form_specific_field_88: text
+---
+question: Field 89
+fields:
+  - form_specific_field_89: text
+---
+question: Field 90
+fields:
+  - form_specific_field_90: text
+---
+question: Field 93
+fields:
+  - form_specific_field_93: text
+---
+question: Field 94
+fields:
+  - form_specific_field_94: text
+---
+question: Field 95
+fields:
+  - form_specific_field_95: text
+---
+question: Field 96
+fields:
+  - form_specific_field_96: text
+---
+question: Field 99
+fields:
+  - form_specific_field_99: text
+---
+question: Field 100
+fields:
+  - form_specific_field_100: text
+---
+question: Field 101
+fields:
+  - form_specific_field_101: text
+---
+question: Field 102
+fields:
+  - form_specific_field_102: text
+---
+question: Field 103
+fields:
+  - form_specific_field_103: text
+---
+question: Field 104
+fields:
+  - form_specific_field_104: text
+---
+question: Field 105
+fields:
+  - form_specific_field_105: text
+---
+question: Field 106
+fields:
+  - form_specific_field_106: text
+---
+question: Field 107
+fields:
+  - form_specific_field_107: text
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Province
+fields:
+  - form_specific_province: text
+---
+question: Street Address
+fields:
+  - form_specific_street_address: text
+---
+question: Applicant Postal Code
+fields:
+  - applicant.address.postal_code: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Claims Property Division
+yesno: form_specific_claims_property_division
+---
+question: Child Full Legal Name
+fields:
+  - children[i].name.full: text
+---
+question: Child Birth Date
+fields:
+  - children[i].birthdate:
+      datatype: date
+---
+question: Child Current Age
+fields:
+  - children[i].age:
+      datatype: integer
+---
+question: Financial Statement Attached
+yesno: form_specific_financial_statement_attached
+---
+question: Important Facts
+fields:
+  - form_specific_important_facts: text
+---
+question: Details
+fields:
+  - form_specific_details: text
+---
+question: Other Specify
+fields:
+  - form_specific_other_specify: text
+---
+event: final_screen
+question: Form 43B Complete
+subquestion: Your Ontario Family Law Form 43B has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_43B_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_43B_ready = True

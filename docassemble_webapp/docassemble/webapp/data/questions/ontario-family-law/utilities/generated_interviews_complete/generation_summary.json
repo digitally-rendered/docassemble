@@ -1,0 +1,226 @@
+{
+  "successful": [
+    {
+      "form": "10",
+      "fields": 73,
+      "file": "generated_interviews_complete/form_10_complete.yml"
+    },
+    {
+      "form": "13A",
+      "fields": 167,
+      "file": "generated_interviews_complete/form_13A_complete.yml"
+    },
+    {
+      "form": "13B",
+      "fields": 12,
+      "file": "generated_interviews_complete/form_13B_complete.yml"
+    },
+    {
+      "form": "13C",
+      "fields": 408,
+      "file": "generated_interviews_complete/form_13C_complete.yml"
+    },
+    {
+      "form": "13",
+      "fields": 361,
+      "file": "generated_interviews_complete/form_13_complete.yml"
+    },
+    {
+      "form": "14B",
+      "fields": 36,
+      "file": "generated_interviews_complete/form_14B_complete.yml"
+    },
+    {
+      "form": "14C",
+      "fields": 54,
+      "file": "generated_interviews_complete/form_14C_complete.yml"
+    },
+    {
+      "form": "15B",
+      "fields": 121,
+      "file": "generated_interviews_complete/form_15B_complete.yml"
+    },
+    {
+      "form": "15C",
+      "fields": 153,
+      "file": "generated_interviews_complete/form_15C_complete.yml"
+    },
+    {
+      "form": "15",
+      "fields": 165,
+      "file": "generated_interviews_complete/form_15_complete.yml"
+    },
+    {
+      "form": "17A",
+      "fields": 55,
+      "file": "generated_interviews_complete/form_17A_complete.yml"
+    },
+    {
+      "form": "17C",
+      "fields": 35,
+      "file": "generated_interviews_complete/form_17C_complete.yml"
+    },
+    {
+      "form": "17F",
+      "fields": 55,
+      "file": "generated_interviews_complete/form_17F_complete.yml"
+    },
+    {
+      "form": "25C",
+      "fields": 19,
+      "file": "generated_interviews_complete/form_25C_complete.yml"
+    },
+    {
+      "form": "25F",
+      "fields": 39,
+      "file": "generated_interviews_complete/form_25F_complete.yml"
+    },
+    {
+      "form": "25",
+      "fields": 16,
+      "file": "generated_interviews_complete/form_25_complete.yml"
+    },
+    {
+      "form": "26",
+      "fields": 187,
+      "file": "generated_interviews_complete/form_26_complete.yml"
+    },
+    {
+      "form": "27",
+      "fields": 15,
+      "file": "generated_interviews_complete/form_27_complete.yml"
+    },
+    {
+      "form": "28",
+      "fields": 19,
+      "file": "generated_interviews_complete/form_28_complete.yml"
+    },
+    {
+      "form": "29A",
+      "fields": 17,
+      "file": "generated_interviews_complete/form_29A_complete.yml"
+    },
+    {
+      "form": "29B",
+      "fields": 20,
+      "file": "generated_interviews_complete/form_29B_complete.yml"
+    },
+    {
+      "form": "29",
+      "fields": 54,
+      "file": "generated_interviews_complete/form_29_complete.yml"
+    },
+    {
+      "form": "30",
+      "fields": 11,
+      "file": "generated_interviews_complete/form_30_complete.yml"
+    },
+    {
+      "form": "33F",
+      "fields": 40,
+      "file": "generated_interviews_complete/form_33F_complete.yml"
+    },
+    {
+      "form": "34A",
+      "fields": 74,
+      "file": "generated_interviews_complete/form_34A_complete.yml"
+    },
+    {
+      "form": "34F",
+      "fields": 18,
+      "file": "generated_interviews_complete/form_34F_complete.yml"
+    },
+    {
+      "form": "34G",
+      "fields": 25,
+      "file": "generated_interviews_complete/form_34G_complete.yml"
+    },
+    {
+      "form": "34I",
+      "fields": 40,
+      "file": "generated_interviews_complete/form_34I_complete.yml"
+    },
+    {
+      "form": "34",
+      "fields": 39,
+      "file": "generated_interviews_complete/form_34_complete.yml"
+    },
+    {
+      "form": "36A",
+      "fields": 74,
+      "file": "generated_interviews_complete/form_36A_complete.yml"
+    },
+    {
+      "form": "36",
+      "fields": 86,
+      "file": "generated_interviews_complete/form_36_complete.yml"
+    },
+    {
+      "form": "37A",
+      "fields": 15,
+      "file": "generated_interviews_complete/form_37A_complete.yml"
+    },
+    {
+      "form": "37B",
+      "fields": 27,
+      "file": "generated_interviews_complete/form_37B_complete.yml"
+    },
+    {
+      "form": "37",
+      "fields": 30,
+      "file": "generated_interviews_complete/form_37_complete.yml"
+    },
+    {
+      "form": "43A",
+      "fields": 33,
+      "file": "generated_interviews_complete/form_43A_complete.yml"
+    },
+    {
+      "form": "43B",
+      "fields": 91,
+      "file": "generated_interviews_complete/form_43B_complete.yml"
+    },
+    {
+      "form": "43",
+      "fields": 49,
+      "file": "generated_interviews_complete/form_43_complete.yml"
+    },
+    {
+      "form": "4",
+      "fields": 24,
+      "file": "generated_interviews_complete/form_4_complete.yml"
+    },
+    {
+      "form": "6B",
+      "fields": 67,
+      "file": "generated_interviews_complete/form_6B_complete.yml"
+    },
+    {
+      "form": "6C",
+      "fields": 89,
+      "file": "generated_interviews_complete/form_6C_complete.yml"
+    },
+    {
+      "form": "8A",
+      "fields": 156,
+      "file": "generated_interviews_complete/form_8A_complete.yml"
+    },
+    {
+      "form": "8B",
+      "fields": 109,
+      "file": "generated_interviews_complete/form_8B_complete.yml"
+    },
+    {
+      "form": "8D",
+      "fields": 38,
+      "file": "generated_interviews_complete/form_8D_complete.yml"
+    },
+    {
+      "form": "8",
+      "fields": 157,
+      "file": "generated_interviews_complete/form_8_complete.yml"
+    }
+  ],
+  "failed": [],
+  "total_fields_generated": 3373
+}

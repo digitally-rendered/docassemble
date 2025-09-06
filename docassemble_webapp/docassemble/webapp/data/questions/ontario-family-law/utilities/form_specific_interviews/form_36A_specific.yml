@@ -1,0 +1,65 @@
+---
+metadata:
+  title: |
+    Form 36A: Form 36A
+  short title: |
+    Form 36A
+  description: |
+    Form-specific questions for Ontario Family Law Form 36A
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form36A_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 36A specific sections
+  form36A_additional_information_complete
+  form36A_review
+  form36A_complete
+---
+question: |
+  Form 36A - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 36A.
+fields:
+  - recipient’s income [REQUIRED for special expenses (add-ons), split and shared parenting time, payor: form36A_recipients_income_required_for
+    datatype: currency
+continue button field: form36A_additional_information_complete
+---
+event: form36A_review
+question: |
+  Review Form 36A Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form36A_complete
+question: |
+  Form 36A Complete
+subquestion: |
+  Your Form 36A (Form 36A) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 36A specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

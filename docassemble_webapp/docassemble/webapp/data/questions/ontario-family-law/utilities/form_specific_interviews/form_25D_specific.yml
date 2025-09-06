@@ -1,0 +1,81 @@
+---
+metadata:
+  title: |
+    Form 25D: Form 25D
+  short title: |
+    Form 25D
+  description: |
+    Form-specific questions for Ontario Family Law Form 25D
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form25D_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 25D specific sections
+  form25D_additional_information_complete
+  form25D_review
+  form25D_complete
+---
+question: |
+  Form 25D - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 25D.
+fields:
+  - 5. THIS COURT FINDS that (name of payor) THIS COURT FINDS that (name of payor) THIS COURT FINDS that: form25D_5_this_court_finds_that_name_o
+    datatype: currency
+  - the sum of $ the sum of $ the sum of $ the sum of $ the sum of $ the sum of $ the sum of $ the sum o: form25D_the_sum_of_the_sum_of_the_sum_
+    datatype: currency
+  - THIS COURT FINDS that (name of recipient) THIS COURT FINDS that (name of recipient) THIS COURT FINDS: form25D_this_court_finds_that_name_of_
+    datatype: currency
+  - the sum of $ the sum of $ the sum of $ the sum of $ the sum of $ the sum of $ per month for the spec: form25D_the_sum_of_the_sum_of_the_sum_
+    datatype: currency
+  - $ $: form25D__
+    datatype: currency
+  - spousal support in the amount of $ spousal support in the amount of $ spousal support in the amount: form25D_spousal_support_in_the_amount_
+    datatype: currency
+  - 8. THIS COURT FINDS that the amount of support owed is $ THIS COURT FINDS that the amount of support: form25D_8_this_court_finds_that_the_am
+    datatype: date
+  - at the rate of $ at the rate of $ at the rate of $ at the rate of $ at the rate of $ at the rate of: form25D_at_the_rate_of_at_the_rate_of_
+    datatype: date
+  - to (name) to (name) to (name) fixed at $ fixed at $ fixed at $: form25D_to_name_to_name_to_name_fixed_
+    datatype: currency
+continue button field: form25D_additional_information_complete
+---
+event: form25D_review
+question: |
+  Review Form 25D Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form25D_complete
+question: |
+  Form 25D Complete
+subquestion: |
+  Your Form 25D (Form 25D) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 25D specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

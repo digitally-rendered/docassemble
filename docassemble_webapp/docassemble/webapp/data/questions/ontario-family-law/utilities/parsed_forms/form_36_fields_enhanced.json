@@ -1,0 +1,62 @@
+[
+  {
+    "field_id": "table_1_row_25",
+    "field_name": "a_a_the_income_of_the_party_paying_child_support_i",
+    "field_type": "currency",
+    "field_label": "(a) (a) The income of the party paying child support is $ The income of the party paying child suppo",
+    "required": false,
+    "validation_rules": "",
+    "max_length": null,
+    "options": null,
+    "table_name": "Table 2",
+    "table_row": 25,
+    "field_context": "Table 2, Row 26",
+    "page_number": 0,
+    "coordinates": null
+  },
+  {
+    "field_id": "table_1_row_28",
+    "field_name": "per_month_per_month_per_month_per_month_per_month_",
+    "field_type": "currency",
+    "field_label": "$ per month. per month. per month. per month. per month. per month. per month. per month. per month.",
+    "required": false,
+    "validation_rules": "",
+    "max_length": null,
+    "options": null,
+    "table_name": "Table 2",
+    "table_row": 28,
+    "field_context": "Table 2, Row 29",
+    "page_number": 0,
+    "coordinates": null
+  },
+  {
+    "field_id": "table_1_row_29",
+    "field_name": "d_d_the_amount_of_child_support_actually_being_pai",
+    "field_type": "currency",
+    "field_label": "(d) (d) The amount of child support actually being paid is $ The amount of child support actually be",
+    "required": false,
+    "validation_rules": "",
+    "max_length": null,
+    "options": null,
+    "table_name": "Table 2",
+    "table_row": 29,
+    "field_context": "Table 2, Row 30",
+    "page_number": 0,
+    "coordinates": null
+  },
+  {
+    "field_id": "table_2_row_14",
+    "field_name": "b_the_child_support_clauses_of_this_order_or_agree",
+    "field_type": "currency",
+    "field_label": "b) The child support clauses of this order or agreement require payment of $ The child support claus",
+    "required": false,
+    "validation_rules": "",
+    "max_length": null,
+    "options": null,
+    "table_name": "Table 3",
+    "table_row": 14,
+    "field_context": "Table 3, Row 15",
+    "page_number": 0,
+    "coordinates": null
+  }
+]

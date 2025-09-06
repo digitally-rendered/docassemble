@@ -1,0 +1,193 @@
+---
+metadata:
+  title: Ontario Family Law Form 43A
+  short_title: Form 43A
+  description: Complete interview for Ontario Family Law Form 43A
+  form_number: 43A
+  generated: 2025-09-05T16:41:13.235737
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 43A
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_dropdown1
+  form_specific_courtfileno
+  form_specific_text1
+  form_specific_text3
+  form_specific_field_7
+  form_specific_field_8
+  form_specific_field_9
+  form_specific_field_10
+  form_specific_field_11
+  form_specific_check85
+  form_specific_field_13
+  form_specific_field_15
+  form_specific_field_17
+  form_specific_field_18
+  form_specific_field_19
+  form_specific_field_22
+  form_specific_field_25
+  form_specific_field_26
+  form_specific_field_27
+  form_specific_field_28
+  # ... and 13 more fields
+  
+  # Complete the interview
+  form_43A_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - form_specific_dropdown1: text
+---
+question: Courtfileno
+fields:
+  - form_specific_courtfileno: text
+---
+question: Text1
+fields:
+  - form_specific_text1: text
+---
+question: Text3
+fields:
+  - form_specific_text3: text
+---
+question: Field 7
+fields:
+  - form_specific_field_7: text
+---
+question: Field 8
+fields:
+  - form_specific_field_8: text
+---
+question: Field 9
+fields:
+  - form_specific_field_9: text
+---
+question: Field 10
+fields:
+  - form_specific_field_10: text
+---
+question: Field 11
+fields:
+  - form_specific_field_11: text
+---
+question: Check85
+yesno: form_specific_check85
+---
+question: Field 13
+fields:
+  - form_specific_field_13: text
+---
+question: Field 15
+fields:
+  - form_specific_field_15: text
+---
+question: Field 17
+fields:
+  - form_specific_field_17: text
+---
+question: Field 18
+fields:
+  - form_specific_field_18: text
+---
+question: Field 19
+fields:
+  - form_specific_field_19: text
+---
+question: Field 22
+fields:
+  - form_specific_field_22: text
+---
+question: Field 25
+fields:
+  - form_specific_field_25: text
+---
+question: Field 26
+fields:
+  - form_specific_field_26: text
+---
+question: Field 27
+fields:
+  - form_specific_field_27: text
+---
+question: Field 28
+fields:
+  - form_specific_field_28: text
+---
+question: Field 29
+fields:
+  - form_specific_field_29: text
+---
+question: Field 32
+fields:
+  - form_specific_field_32: text
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Province
+fields:
+  - form_specific_province: text
+---
+question: Street Address
+fields:
+  - form_specific_street_address: text
+---
+question: Applicant Postal Code
+fields:
+  - applicant.address.postal_code: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Child Full Legal Name
+fields:
+  - children[i].name.full: text
+---
+question: Child Current Age
+fields:
+  - children[i].age:
+      datatype: integer
+---
+question: Re
+fields:
+  - form_specific_re: text
+---
+event: final_screen
+question: Form 43A Complete
+subquestion: Your Ontario Family Law Form 43A has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_43A_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_43A_ready = True

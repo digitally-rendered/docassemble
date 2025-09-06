@@ -1,0 +1,155 @@
+---
+metadata:
+  title: Ontario Family Law Form 30
+  short_title: Form 30
+  description: Complete interview for Form 30
+  form_number: 30
+  total_fields: 11
+  generated: 2025-09-05 14:41
+  tags:
+    - ontario
+    - family law
+    - form 30
+---
+include:
+  - common-intake-enhanced-with-validation.yml
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+---
+mandatory: True
+code: |
+  # Form 30 Interview Flow
+  # Common intake fields are inherited
+  
+  # Form-specific fields
+  # Form Field
+  dropdown1
+  courtfileno
+  text1
+  # court_info
+  court_address
+  municipality
+  # party_info
+  street_address
+  postal_code
+  phone
+  fax
+  # long_form
+  details
+  
+  # Generate Form 30
+  form_30_ready
+  final_screen
+---
+question: |
+  Dropdown1
+fields:
+  - dropdown1: dropdown
+    choices:
+      -           
+      - Ontario Court of Justice
+      - Superior Court of Justice
+      - Superior Court of Justice Family Court Branch
+---
+question: |
+  Court File No
+fields:
+  - courtfileno: text
+---
+question: |
+  Text1
+fields:
+  - text1: text
+---
+question: |
+  Court Address
+fields:
+  - court_address: text
+---
+question: |
+  Municipality
+fields:
+  - municipality: text
+---
+question: |
+  Street Address
+fields:
+  - street_address: text
+---
+question: |
+  Postal Code
+fields:
+  - postal_code: text
+---
+question: |
+  Phone Number
+fields:
+  - phone: text
+---
+question: |
+  Fax
+fields:
+  - fax: text
+---
+question: |
+  Details
+fields:
+  - details: area
+    rows: 4
+---
+question: |
+  Review Form 30 Information
+subquestion: |
+  Please review all information before generating the form.
+review:
+  - dropdown1:
+      button: |
+        **Form Field**
+  - court_file_number:
+      button: |
+        **court_info**
+  - street_address:
+      button: |
+        **party_info**
+  - details:
+      button: |
+        **long_form**
+---
+event: final_screen
+question: |
+  Form 30 Complete
+subquestion: |
+  Your Form 30 has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 30: ${ form_30_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 30
+  filename: form_30
+  variable name: form_30_document
+  content: |
+    # Ontario Family Law Form 30
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 30 Specific Information
+    [Form fields would be inserted here]
+---
+code: |
+  form_30_ready = True

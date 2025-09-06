@@ -1,0 +1,131 @@
+---
+metadata:
+  title: Ontario Family Law Form 34F
+  short_title: Form 34F
+  description: Complete interview for Ontario Family Law Form 34F
+  form_number: 34F
+  generated: 2025-09-05T16:41:13.231939
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 34F
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_field_0
+  form_specific_courtfileno
+  form_specific_text1
+  form_specific_check3
+  form_specific_field_22
+  form_specific_check2
+  case.court_file_number
+  form_specific_court_address
+  form_specific_municipality
+  form_specific_province
+  form_specific_date_of_birth
+  children[i].name.full
+  children[i].birthdate
+  children[i].age
+  form_specific_details
+  form_specific_i_understand_the_nature_and_effect_of_this_consent_i_understand_that_i_may_withdraw_this_consent_in_one_or_more_of_the_following_ways
+  form_specific_form_34f
+  form_specific_and_i_swearaffirm_that_the_following_is_true
+  
+  # Complete the interview
+  form_34F_ready
+  final_screen
+---
+question: Field 0
+fields:
+  - form_specific_field_0: text
+---
+question: Courtfileno
+fields:
+  - form_specific_courtfileno: text
+---
+question: Text1
+fields:
+  - form_specific_text1: text
+---
+question: Check3
+yesno: form_specific_check3
+---
+question: Field 22
+fields:
+  - form_specific_field_22: text
+---
+question: Check2
+yesno: form_specific_check2
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Province
+fields:
+  - form_specific_province: text
+---
+question: Date Of Birth
+fields:
+  - form_specific_date_of_birth:
+      datatype: date
+---
+question: Child Full Legal Name
+fields:
+  - children[i].name.full: text
+---
+question: Child Birth Date
+fields:
+  - children[i].birthdate:
+      datatype: date
+---
+question: Child Current Age
+fields:
+  - children[i].age:
+      datatype: integer
+---
+question: Details
+fields:
+  - form_specific_details: text
+---
+question: I Understand The Nature And Effect Of This Consent I Understand That I May Withdraw This Consent In One Or More Of The Following Ways
+fields:
+  - form_specific_i_understand_the_nature_and_effect_of_this_consent_i_understand_that_i_may_withdraw_this_consent_in_one_or_more_of_the_following_ways: text
+---
+question: Form 34F
+fields:
+  - form_specific_form_34f: text
+---
+question: And I Swearaffirm That The Following Is True
+fields:
+  - form_specific_and_i_swearaffirm_that_the_following_is_true: text
+---
+event: final_screen
+question: Form 34F Complete
+subquestion: Your Ontario Family Law Form 34F has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_34F_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_34F_ready = True

@@ -1,0 +1,165 @@
+{
+  "form_number": "36",
+  "form_file": "workflow_output/ontario_forms/form_36_-_affidavit_for_divorce_flr-36-apr24-en-fil.docx",
+  "total_longform_fields": 9,
+  "categories": {
+    "other": 4,
+    "divorce": 4,
+    "children": 1
+  },
+  "fields": [
+    {
+      "field_id": "form36_t0_r17_c3",
+      "field_key": "form36_other_state_any_corrections_or_changes_to_the_",
+      "prompt": "(State any corrections or changes to the information in the application. Write \u201cNONE\u201d if there are no corrections or changes.)",
+      "instructions": "State any corrections or changes to the information in the application.  Write \u201cNONE\u201d if there are no corrections or changes.",
+      "table_location": {
+        "table": 0,
+        "row": 17,
+        "cell": 3
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Other Claims",
+      "category": "other"
+    },
+    {
+      "field_id": "form36_t1_r3_c1",
+      "field_key": "form36_divorce_the_legal_basis_for_the_divorce_is",
+      "prompt": "The legal basis for the divorce is:",
+      "instructions": "",
+      "table_location": {
+        "table": 1,
+        "row": 3,
+        "cell": 1
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Divorce Claims",
+      "category": "divorce"
+    },
+    {
+      "field_id": "form36_t1_r8_c1",
+      "field_key": "form36_divorce_i_do_not_know_about_and_i_am_not_involve",
+      "prompt": "I do not know about and I am not involved in any arrangement to make up or to hide evidence or to deceive the court in this divorce case.",
+      "instructions": "",
+      "table_location": {
+        "table": 1,
+        "row": 8,
+        "cell": 1
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 3,
+      "max_chars": null,
+      "section": "Divorce Claims",
+      "category": "divorce"
+    },
+    {
+      "field_id": "form36_t1_r9_c1",
+      "field_key": "form36_divorce_i_am_aware_that_it_may_be_legally_imposs",
+      "prompt": "I am aware that it may be legally impossible to make a claim for division of property six years after the date of separation or two years after the divorce, whichever comes first.",
+      "instructions": "",
+      "table_location": {
+        "table": 1,
+        "row": 9,
+        "cell": 1
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 3,
+      "max_chars": null,
+      "section": "Divorce Claims",
+      "category": "divorce"
+    },
+    {
+      "field_id": "form36_t1_r10_c1",
+      "field_key": "form36_divorce_i_want_the_divorce_order_to_include_the_",
+      "prompt": "I want the divorce order to include the following paragraph numbers of the attached consent, settlement, separation agreement or previous court order: (List the numbers of the paragraphs that you want",
+      "instructions": "List the numbers of the paragraphs that you want included in the divorce order. Write \u201cNONE\u201d if none requested.",
+      "table_location": {
+        "table": 1,
+        "row": 10,
+        "cell": 1
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 10,
+      "max_chars": null,
+      "section": "Divorce Claims",
+      "category": "divorce"
+    },
+    {
+      "field_id": "form36_t2_r13_c5",
+      "field_key": "form36_other_of_an_amount_different_from_that_set_out",
+      "prompt": "of an amount different from that set out in the guidelines.",
+      "instructions": "",
+      "table_location": {
+        "table": 2,
+        "row": 13,
+        "cell": 5
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 3,
+      "max_chars": null,
+      "section": "Other Claims",
+      "category": "other"
+    },
+    {
+      "field_id": "form36_t2_r27_c4",
+      "field_key": "form36_children_the_order_or_agreement_directly_or_indir",
+      "prompt": "The order or agreement directly or indirectly benefits the child(ren) because: (Give details or benefits.)",
+      "instructions": "ren",
+      "table_location": {
+        "table": 2,
+        "row": 27,
+        "cell": 4
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Children",
+      "category": "children"
+    },
+    {
+      "field_id": "form36_t3_r3_c4",
+      "field_key": "form36_other_i_am_claiming_costs_in_this_case",
+      "prompt": "I am claiming costs in this case.",
+      "instructions": "Give details.",
+      "table_location": {
+        "table": 3,
+        "row": 3,
+        "cell": 4
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 5,
+      "max_chars": null,
+      "section": "Other Claims",
+      "category": "other"
+    },
+    {
+      "field_id": "form36_t3_r11_c1",
+      "field_key": "form36_other_province_state_or_country",
+      "prompt": "province, state or country",
+      "instructions": "",
+      "table_location": {
+        "table": 3,
+        "row": 11,
+        "cell": 1
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 3,
+      "max_chars": null,
+      "section": "Other Claims",
+      "category": "other"
+    }
+  ]
+}

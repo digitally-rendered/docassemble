@@ -1,0 +1,121 @@
+---
+metadata:
+  title: |
+    Form 8: Application (General)
+  short title: |
+    Form 8
+  description: |
+    Ontario Family Law Form 8
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+  form_number: "8"
+  form_title: "Application (General)"
+
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  navigation: True
+  progress bar: True
+  progress bar method: stepped
+  question back button: True
+  navigation back button: True
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - court: DAObject
+  - children: DAList.using(object_type=Individual, there_are_any=False)
+---
+mandatory: True
+code: |
+  # Interview flow control
+  multi_user = True
+  
+  # Gather information in logical order
+  additional_information_complete
+  applicant_information_complete
+  marriage_information_complete
+  respondent_information_complete
+  review_answers
+  form_complete
+---
+question: |
+  Additional Information
+subquestion: |
+  Please provide the following information.
+fields:
+  - Full legal name: Full legal name: Name: Name: full_legal_name
+  - Address: Address: Address: Address: address
+    datatype: address
+  - Full legal name: Full legal name: Name: Name: full_legal_name
+  - Address: Address: Address: Address: address
+    datatype: address
+continue button field: additional_information_complete
+---
+code: |
+  applicant_information_complete = True
+---
+question: |
+  Marriage Information
+subquestion: |
+  Please provide the following information.
+fields:
+  - First name on the day before the marriage date: First name on the day before the marriage date: Firs: first_name_on_the_day
+    datatype: date
+  - Last name on the day before the marriage date: Last name on the day before the marriage date: Last n: last_name_on_the_day
+    datatype: date
+  - Gender on the day before the marriage date: Gender on the day before the marriage date: Gender on th: gender_on_the_day_before
+    datatype: date
+  - First name on the day before the marriage date: First name on the day before the marriage date: Firs: first_name_on_the_day
+    datatype: date
+  - Last name on the day before the marriage date: Last name on the day before the marriage date: Last n: last_name_on_the_day
+    datatype: date
+  - Gender on the day before the marriage date: Gender on the day before the marriage date: Gender on th: gender_on_the_day_before
+    datatype: date
+continue button field: marriage_information_complete
+---
+code: |
+  respondent_information_complete = True
+---
+event: review_answers
+question: |
+  Review Your Answers
+subquestion: |
+  Please review your answers below. Click on any item to make changes.
+review:
+  - Edit court information: court.file_number
+    button: |
+      **Court File Number:** ${ court.file_number }
+      
+      **Court Location:** ${ court.location }
+  - Edit applicant information: applicant.name.text
+    button: |
+      **Applicant:** ${ applicant.name.text }
+      
+      **Address:** ${ applicant.address.address }, ${ applicant.address.city }, ${ applicant.address.province } ${ applicant.address.postal_code }
+  - Edit respondent information: respondent.name.text
+    button: |
+      **Respondent:** ${ respondent.name.text }
+      
+      **Address:** ${ respondent.address.address }, ${ respondent.address.city }, ${ respondent.address.province } ${ respondent.address.postal_code }
+continue button field: review_complete
+---
+event: form_complete
+question: |
+  Form 8 Complete
+subquestion: |
+  Your Form 8 (Application (General)) has been completed.
+  
+  **Next Steps:**
+  
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court
+  
+  You can download your form using the button below.
+buttons:
+  - Exit: exit
+  - Restart: restart

@@ -1,0 +1,62 @@
+{
+  "form_number": "13A",
+  "form_file": "workflow_output/ontario_forms/form_13a_-_certificate_financial_disclosure_flr-13a-may21-en-fil.docx",
+  "total_longform_fields": 3,
+  "categories": {
+    "support": 2,
+    "property": 1
+  },
+  "fields": [
+    {
+      "field_id": "form13A_t0_r19_c0",
+      "field_key": "form13A_support_you_must_provide_complete_financial_disc",
+      "prompt": "You must provide complete financial disclosure to the other parties in your case.",
+      "instructions": "complete financial disclosure to the other parties in your case",
+      "table_location": {
+        "table": 0,
+        "row": 19,
+        "cell": 0
+      },
+      "field_type": "area",
+      "required": true,
+      "min_lines": 10,
+      "max_chars": null,
+      "section": "Support Claims",
+      "category": "support"
+    },
+    {
+      "field_id": "form13A_t0_r25_c3",
+      "field_key": "form13A_support_if_your_case_includes_a_claim_under_part",
+      "prompt": "if your case includes a claim under Part I of the Family Law Act (Family Property) with or without a claim for support, you must:",
+      "instructions": "Family Property",
+      "table_location": {
+        "table": 0,
+        "row": 25,
+        "cell": 3
+      },
+      "field_type": "area",
+      "required": true,
+      "min_lines": 3,
+      "max_chars": null,
+      "section": "Support Claims",
+      "category": "support"
+    },
+    {
+      "field_id": "form13A_t4_r5_c0",
+      "field_key": "form13A_property_part_c_claim_for_equalization_of_net_fam",
+      "prompt": "Part C: Claim for Equalization of Net Family Property",
+      "instructions": "",
+      "table_location": {
+        "table": 4,
+        "row": 5,
+        "cell": 0
+      },
+      "field_type": "area",
+      "required": false,
+      "min_lines": 3,
+      "max_chars": null,
+      "section": "Property Claims",
+      "category": "property"
+    }
+  ]
+}

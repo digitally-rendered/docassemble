@@ -1,0 +1,816 @@
+---
+metadata:
+  title: Ontario Family Law Form 15
+  short_title: Form 15
+  description: Complete standalone interview for Form 15
+  form_number: 15
+  total_fields: 165
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 15
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 15 Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  field_0
+  courtfileno
+  text2
+  field_3
+  field_4
+  field_5
+  field_6
+  field_7
+  field_8
+  field_9
+  field_10
+  field_11
+  field_12
+  field_13
+  field_14
+  field_15
+  field_16
+  field_17
+  field_18
+  field_19
+  # ... and 145 more fields
+  
+  # Generate Form 15
+  form_15_ready
+  final_screen
+---
+question: Field 0
+fields:
+  - field_0:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Text2
+fields:
+  - text2: text
+---
+question: Field 3
+fields:
+  - field_3: text
+---
+question: Field 4
+fields:
+  - field_4: text
+---
+question: Field 5
+fields:
+  - field_5: text
+---
+question: Field 6
+fields:
+  - field_6: text
+---
+question: Field 7
+fields:
+  - field_7: text
+---
+question: Field 8
+fields:
+  - field_8: text
+---
+question: Field 9
+fields:
+  - field_9: text
+---
+question: Field 10
+fields:
+  - field_10: text
+---
+question: Field 11
+fields:
+  - field_11: text
+---
+question: Field 12
+fields:
+  - field_12: text
+---
+question: Field 13
+fields:
+  - field_13: text
+---
+question: Field 14
+fields:
+  - field_14: text
+---
+question: Field 15
+fields:
+  - field_15: text
+---
+question: Field 16
+fields:
+  - field_16: text
+---
+question: Field 17
+fields:
+  - field_17: text
+---
+question: Field 18
+fields:
+  - field_18: text
+---
+question: Field 19
+fields:
+  - field_19: text
+---
+question: Field 20
+fields:
+  - field_20: text
+---
+question: Field 21
+fields:
+  - field_21: text
+---
+question: Field 22
+fields:
+  - field_22: text
+---
+question: Field 23
+fields:
+  - field_23: text
+---
+question: Field 24
+fields:
+  - field_24: text
+---
+question: Field 25
+fields:
+  - field_25: text
+---
+question: Field 26
+fields:
+  - field_26: text
+---
+question: Field 29
+yesno: field_29
+---
+question: Field 32
+yesno: field_32
+---
+question: Field 33
+fields:
+  - field_33: text
+---
+question: Field 34
+fields:
+  - field_34: text
+---
+question: Field 35
+yesno: field_35
+---
+question: Field 36
+fields:
+  - field_36: text
+---
+question: Field 37
+yesno: field_37
+---
+question: Field 38
+fields:
+  - field_38: text
+---
+question: Field 39
+fields:
+  - field_39: text
+---
+question: Field 40
+yesno: field_40
+---
+question: Field 41
+yesno: field_41
+---
+question: Field 42
+fields:
+  - field_42: text
+---
+question: Field 43
+yesno: field_43
+---
+question: Field 44
+fields:
+  - field_44: text
+---
+question: Field 45
+fields:
+  - field_45: text
+---
+question: Field 46
+fields:
+  - field_46: text
+---
+question: Field 47
+fields:
+  - field_47: text
+---
+question: Field 48
+fields:
+  - field_48: text
+---
+question: Field 49
+fields:
+  - field_49: text
+---
+question: Field 50
+fields:
+  - field_50: text
+---
+question: Field 51
+fields:
+  - field_51: text
+---
+question: Field 52
+fields:
+  - field_52: text
+---
+question: Field 53
+fields:
+  - field_53: text
+---
+question: Field 54
+fields:
+  - field_54: text
+---
+question: Field 55
+fields:
+  - field_55: text
+---
+question: Field 56
+fields:
+  - field_56: text
+---
+question: Field 57
+fields:
+  - field_57: text
+---
+question: Field 58
+fields:
+  - field_58: text
+---
+question: Field 59
+fields:
+  - field_59: text
+---
+question: Field 60
+fields:
+  - field_60: text
+---
+question: Field 61
+fields:
+  - field_61: text
+---
+question: Field 62
+fields:
+  - field_62: text
+---
+question: Field 63
+fields:
+  - field_63: text
+---
+question: Field 64
+fields:
+  - field_64: text
+---
+question: Field 65
+fields:
+  - field_65: text
+---
+question: Field 66
+fields:
+  - field_66: text
+---
+question: Field 67
+fields:
+  - field_67: text
+---
+question: Field 68
+fields:
+  - field_68: text
+---
+question: Field 69
+fields:
+  - field_69: text
+---
+question: Field 70
+fields:
+  - field_70: text
+---
+question: Field 71
+fields:
+  - field_71: text
+---
+question: Field 72
+fields:
+  - field_72: text
+---
+question: Field 73
+fields:
+  - field_73: text
+---
+question: Field 74
+fields:
+  - field_74: text
+---
+question: Field 75
+fields:
+  - field_75: text
+---
+question: Field 76
+fields:
+  - field_76: text
+---
+question: Field 77
+fields:
+  - field_77: text
+---
+question: Field 78
+fields:
+  - field_78: text
+---
+question: Field 79
+fields:
+  - field_79: text
+---
+question: Field 80
+fields:
+  - field_80: text
+---
+question: Field 81
+fields:
+  - field_81: text
+---
+question: Field 82
+fields:
+  - field_82: text
+---
+question: Field 83
+fields:
+  - field_83: text
+---
+question: Field 84
+fields:
+  - field_84: text
+---
+question: Field 85
+fields:
+  - field_85: text
+---
+question: Field 86
+fields:
+  - field_86: text
+---
+question: Check6
+yesno: check6
+---
+question: Check12
+yesno: check12
+---
+question: Check8
+yesno: check8
+---
+question: Check13
+yesno: check13
+---
+question: Check11
+yesno: check11
+---
+question: Field 94
+fields:
+  - field_94: text
+---
+question: Field 95
+fields:
+  - field_95: text
+---
+question: Field 96
+fields:
+  - field_96: text
+---
+question: Field 97
+fields:
+  - field_97: text
+---
+question: Field 98
+fields:
+  - field_98: text
+---
+question: Field 99
+fields:
+  - field_99: text
+---
+question: Field 100
+fields:
+  - field_100: text
+---
+question: Field 101
+fields:
+  - field_101: text
+---
+question: Field 102
+fields:
+  - field_102: text
+---
+question: Field 103
+fields:
+  - field_103: text
+---
+question: Field 104
+fields:
+  - field_104: text
+---
+question: Field 105
+fields:
+  - field_105: text
+---
+question: Field 106
+fields:
+  - field_106: text
+---
+question: Field 107
+fields:
+  - field_107: text
+---
+question: Field 108
+fields:
+  - field_108: text
+---
+question: Field 109
+fields:
+  - field_109: text
+---
+question: Field 110
+fields:
+  - field_110: text
+---
+question: Field 111
+fields:
+  - field_111: text
+---
+question: Field 112
+fields:
+  - field_112: text
+---
+question: Field 115
+fields:
+  - field_115: text
+---
+question: Field 116
+fields:
+  - field_116: text
+---
+question: Field 119
+fields:
+  - field_119: text
+---
+question: Field 120
+fields:
+  - field_120: text
+---
+question: Field 121
+fields:
+  - field_121: text
+---
+question: Field 122
+fields:
+  - field_122: text
+---
+question: Field 125
+fields:
+  - field_125: text
+---
+question: Field 126
+fields:
+  - field_126: text
+---
+question: Field 129
+fields:
+  - field_129: text
+---
+question: Field 130
+fields:
+  - field_130: text
+---
+question: Field 131
+fields:
+  - field_131: text
+---
+question: Dropdown3
+fields:
+  - dropdown3:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Text1
+fields:
+  - text1: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Municipality
+fields:
+  - municipality: text
+---
+question: Province
+fields:
+  - province:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Email Address
+fields:
+  - email:
+      datatype: email
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: LSO Number
+fields:
+  - lso_number: text
+---
+question: Child Name
+fields:
+  - child_name: text
+---
+question: Child Birthdate
+fields:
+  - child_birthdate:
+      datatype: date
+---
+question: Child Age
+fields:
+  - child_age:
+      datatype: integer
+---
+question: Important Facts
+fields:
+  - important_facts: text
+---
+question: Details
+fields:
+  - details: text
+---
+question: |
+  Full legal name:
+fields:
+  - full_legal_name: text
+---
+question: |
+  Name:
+fields:
+  - name: text
+---
+question: |
+  Address:
+fields:
+  - address: text
+---
+question: |
+  Phone & fax:
+fields:
+  - phone__fax: text
+---
+question: |
+  Form 15:
+fields:
+  - form_15: text
+---
+question: |
+  Date parties started living together   ( write “N/A” if not applicable ) :
+fields:
+  - date_parties_started_living_together__write_na_if_not_applicable:
+      datatype: date
+---
+question: |
+  Date parties  married  ( write “N/A” if not applicable ) :
+fields:
+  - date_parties_married__write_na_if_not_applicable:
+      datatype: date
+---
+question: |
+  Date parties separated  ( write “N/A” if not applicable ) :
+fields:
+  - date_parties_separated__write_na_if_not_applicable:
+      datatype: date
+---
+question: |
+  Requesting party’s birth date:
+fields:
+  - requesting_partys_birth_date:
+      datatype: date
+---
+question: |
+  Responding party’s birth date:
+fields:
+  - responding_partys_birth_date:
+      datatype: date
+---
+question: |
+  Municipality requesting party lives in:
+fields:
+  - municipality_requesting_party_lives_in: text
+---
+question: |
+  Municipality responding party lives in:
+fields:
+  - municipality_responding_party_lives_in: text
+---
+question: |
+  Information about the child(ren):
+fields:
+  - information_about_the_children: text
+---
+question: |
+  If  you are  asking to change support, please give information about  your income  (unless you’re only asking to change the table amount of support)  and the other party’s income  (if known)   for the past 3 years  ( a party’s income  should be  their  total income from all sources as listed on line 150 of  their  Income Tax Return) :
+fields:
+  - if_you_are_asking_to_change_support_please_give_information_about_your_income_unless_youre_only_asking_to_change_the_table_amount_of_support_and_the_other_partys_income_if_known_for_the_past_3_years__a_partys_income_should_be_their_total_income_from_all_sources_as_listed_on_line_150_of_their_income_tax_return: text
+---
+question: |
+  I  want to change the following ( check all that apply ):
+fields:
+  - i_want_to_change_the_following__check_all_that_apply: text
+---
+question: |
+  (list type of expenses) :
+fields:
+  - list_type_of_expenses: text
+---
+question: |
+  other  ( give details ) :
+fields:
+  - other__give_details: text
+---
+question: |
+  I  want to  change the following   specific  terms  of  the  current order / agreement  ( please  provide the paragraph number of each term and the wording of the term  exactly as it appears in  the  order/agreement ) :
+fields:
+  - i_want_to_change_the_following_specific_terms_of_the_current_order__agreement__please_provide_the_paragraph_number_of_each_term_and_the_wording_of_the_term_exactly_as_it_appears_in_the_orderagreement: text
+---
+question: |
+  Current  term :
+fields:
+  - current_term: text
+---
+question: |
+  Requested change:
+fields:
+  - requested_change: text
+---
+question: |
+  My name is:
+fields:
+  - my_name_is: text
+---
+question: |
+  I  swear/affirm  that the following is true:
+fields:
+  - i_swearaffirm_that_the_following_is_true: text
+---
+question: |
+  Briefly  give the facts that show why the court should change the order/agreement, including how your situation has changed since the order/agreement was made:
+fields:
+  - briefly_give_the_facts_that_show_why_the_court_should_change_the_orderagreement_including_how_your_situation_has_changed_since_the_orderagreement_was_made: text
+---
+question: |
+  If yes, please give details about the support that is owed:
+fields:
+  - if_yes_please_give_details_about_the_support_that_is_owed: text
+---
+question: |
+  If  you are asking  to change support   starting on a date  before today , please answer the following:
+fields:
+  - if_you_are_asking_to_change_support_starting_on_a_date_before_today__please_answer_the_following:
+      datatype: date
+---
+question: |
+  YOU SHOULD GET LEGAL ADVICE RIGHT AWAY.  For help finding legal advice, you can contact:
+fields:
+  - you_should_get_legal_advice_right_away_for_help_finding_legal_advice_you_can_contact: text
+---
+question: |
+  YOU MUST attach the following to this form :
+fields:
+  - you_must_attach_the_following_to_this_form: text
+---
+question: |
+  A copy of either: 
+fields:
+  - a_copy_of_either: text
+---
+question: |
+  If you are asking to change child support or spousal support:
+fields:
+  - if_you_are_asking_to_change_child_support_or_spousal_support: text
+---
+question: |
+  YOU MUST  file  all your completed documents  with  the court  so  a court clerk  can  sign and date this Motion to Change .  You can file documents in person at a courthouse or online by visiting  www.Ontario.ca/familyclaims .  YOU MUST then :
+fields:
+  - you_must_file_all_your_completed_documents_with_the_court_so_a_court_clerk_can_sign_and_date_this_motion_to_change__you_can_file_documents_in_person_at_a_courthouse_or_online_by_visiting_wwwontariocafamilyclaims__you_must_then:
+      datatype: date
+---
+question: |
+  IF YOU DON’T AGREE WITH THE CHANGES , or you want to ask for different changes, you must:
+fields:
+  - if_you_dont_agree_with_the_changes__or_you_want_to_ask_for_different_changes_you_must: text
+---
+question: |
+  Complete  the following forms:
+fields:
+  - complete_the_following_forms: text
+---
+question: Review Form 15 Information
+subquestion: Please review all information before generating the form.
+review:
+  field_0:
+    button: **Field 0**
+  courtfileno:
+    button: **Court File No**
+  text2:
+    button: **Text2**
+  field_3:
+    button: **Field 3**
+  field_4:
+    button: **Field 4**
+  field_5:
+    button: **Field 5**
+  field_6:
+    button: **Field 6**
+  field_7:
+    button: **Field 7**
+  field_8:
+    button: **Field 8**
+  field_9:
+    button: **Field 9**
+---
+event: final_screen
+question: Form 15 Complete
+subquestion: |
+  Your Form 15 has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 15: ${ form_15_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 15
+  filename: form_15
+  variable name: form_15_document
+  content: |
+    # Ontario Family Law Form 15
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 15 Specific Information
+    [Form fields would be inserted here]
+---
+code: form_15_ready = True

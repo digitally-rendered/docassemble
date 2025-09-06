@@ -1,0 +1,321 @@
+---
+metadata:
+  title: |
+    Form 8: Application (General)
+  short title: |
+    Form 8
+  description: |
+    Ontario Family Law Form 8 - Application (General)
+    This interview will help you complete the official court form.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  navigation: True
+  progress bar: True
+  progress bar method: stepped
+  progress bar multiplier: 0.1
+  question back button: True
+  navigation back button: True
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - court: DAObject
+  - marriage: DAObject
+  - separation: DAObject
+  - additional: DAObject
+---
+mandatory: True
+code: |
+  # Interview flow
+  multi_user = True
+  
+  # Gather information
+  court_information_gathered
+  applicant_information_gathered
+  respondent_information_gathered
+  marriage_information_gathered
+  additional_information_gathered
+  review_screen
+  final_screen
+---
+question: |
+  Court Information
+fields:
+  - Court file number: court.file_number
+    required: True
+    help: |
+      Enter your court file number if you have one (e.g., FC-24-12345).
+      If this is a new case, leave blank and a number will be assigned when you file.
+  - Court location: court.location
+    required: True
+    choices:
+      - Toronto
+      - Ottawa
+      - London
+      - Hamilton
+      - Kitchener
+      - Windsor
+      - Barrie
+      - Kingston
+      - Thunder Bay
+      - Sudbury
+      - Peterborough
+      - Oshawa
+      - Belleville
+      - St. Catharines
+      - Brampton
+      - Mississauga
+      - North Bay
+      - Timmins
+      - Sault Ste. Marie
+      - Guelph
+      - Cambridge
+      - Woodstock
+      - Stratford
+      - Orangeville
+      - Milton
+      - Newmarket
+      - Other
+validation code: |
+  if court.file_number and not validate_court_file_number(court.file_number):
+    validation_error("Please enter a valid Ontario court file number (e.g., FC-24-12345 or FS-24-67890)")
+continue button field: court_information_gathered
+---
+question: |
+  Applicant Information
+subquestion: |
+  Please provide your complete information as the applicant.
+fields:
+  - Full legal name: applicant.name.text
+    required: True
+  - Street address: applicant.address.address
+    required: True
+  - City: applicant.address.city
+    required: True
+  - Province: applicant.address.province
+    default: Ontario
+  - Postal code: applicant.address.postal_code
+    required: True
+  - Phone number: applicant.phone_number
+    datatype: phone
+    required: False
+  - Email address: applicant.email
+    datatype: email
+    required: False
+validation code: |
+  if not ontario_postal_code(applicant.address.postal_code):
+    validation_error("Please enter a valid Ontario postal code (e.g., M5H 2N2 or K1A 0B1)")
+  if applicant.email and not validate_email(applicant.email):
+    validation_error("Please enter a valid email address")
+  if applicant.phone_number and not validate_phone(applicant.phone_number):
+    validation_error("Please enter a valid phone number (e.g., 416-555-0123)")
+continue button field: applicant_information_gathered
+---
+question: |
+  Respondent Information
+subquestion: |
+  Please provide complete information for the respondent (the other party).
+fields:
+  - Full legal name: respondent.name.text
+    required: True
+  - Street address: respondent.address.address
+    required: True
+  - City: respondent.address.city
+    required: True
+  - Province: respondent.address.province
+    default: Ontario
+  - Postal code: respondent.address.postal_code
+    required: True
+  - Phone number: respondent.phone_number
+    datatype: phone
+    required: False
+  - Email address: respondent.email
+    datatype: email
+    required: False
+validation code: |
+  if respondent.address.province == "Ontario" and not ontario_postal_code(respondent.address.postal_code):
+    validation_error("Please enter a valid Ontario postal code (e.g., M5H 2N2 or K1A 0B1)")
+  if respondent.email and not validate_email(respondent.email):
+    validation_error("Please enter a valid email address")
+  if respondent.phone_number and not validate_phone(respondent.phone_number):
+    validation_error("Please enter a valid phone number")
+continue button field: respondent_information_gathered
+---
+question: |
+  Marriage Information
+subquestion: |
+  Please provide details about your marriage.
+fields:
+  - Date of marriage: marriage.date
+    datatype: date
+    required: True
+  - Place of marriage (city, province/country): marriage.place
+    required: False
+  - Date of separation: separation.date
+    datatype: date
+    required: False
+validation code: |
+  import datetime
+  if marriage.date > datetime.date.today():
+    validation_error("Marriage date cannot be in the future")
+  if separation.date and separation.date > datetime.date.today():
+    validation_error("Separation date cannot be in the future")
+  if separation.date and separation.date < marriage.date:
+    validation_error("Separation date cannot be before marriage date")
+continue button field: marriage_information_gathered
+---
+question: |
+  Additional Information for Service
+subquestion: |
+  This information will be used for service of documents.
+fields:
+  - Person to be served (full legal name): additional.service_name
+    required: True
+    default: ${ respondent.name.text }
+  - Address for service: additional.service_address
+    required: True
+    input type: area
+    default: ${ respondent.address.on_one_line() }
+continue button field: additional_information_gathered
+---
+code: |
+  def ontario_postal_code(value):
+    import re
+    if not value:
+      return False
+    # Remove spaces and convert to uppercase
+    postal_clean = str(value).upper().replace(' ', '')
+    # Ontario postal codes start with K, L, M, N, or P
+    pattern = r'^[KLMNP][0-9][A-Z][0-9][A-Z][0-9]$'
+    return bool(re.match(pattern, postal_clean))
+  
+  def validate_email(email):
+    import re
+    if not email:
+      return True  # Optional field
+    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    return bool(re.match(pattern, str(email)))
+  
+  def validate_phone(phone):
+    import re
+    if not phone:
+      return True  # Optional field
+    # Remove all non-digits
+    digits = re.sub(r'\D', '', str(phone))
+    # Should be 10 digits (Canadian) or 11 with country code
+    return len(digits) == 10 or (len(digits) == 11 and digits[0] == '1')
+  
+  def validate_court_file_number(file_number):
+    import re
+    if not file_number:
+      return True  # Optional - new cases don't have one yet
+    # Ontario court file format examples: FC-24-12345, FS-24-67890
+    pattern = r'^(FC|FS|FD|FL|FN)-\d{2}-\d{5}$'
+    return bool(re.match(pattern, str(file_number).upper()))
+---
+event: review_screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided. Click on any section to make changes.
+review:
+  - Edit court information: court.file_number
+    button: |
+      **Court Information**
+      
+      File Number: ${ court.file_number if court.file_number else "To be assigned" }
+      
+      Location: ${ court.location }
+  - Edit applicant information: applicant.name.text
+    button: |
+      **Applicant Information**
+      
+      Name: ${ applicant.name.text }
+      
+      Address: ${ applicant.address.on_one_line() }
+      
+      % if defined('applicant.phone_number') and applicant.phone_number:
+      Phone: ${ applicant.phone_number }
+      % endif
+      
+      % if defined('applicant.email') and applicant.email:
+      Email: ${ applicant.email }
+      % endif
+  - Edit respondent information: respondent.name.text
+    button: |
+      **Respondent Information**
+      
+      Name: ${ respondent.name.text }
+      
+      Address: ${ respondent.address.on_one_line() }
+      
+      % if defined('respondent.phone_number') and respondent.phone_number:
+      Phone: ${ respondent.phone_number }
+      % endif
+      
+      % if defined('respondent.email') and respondent.email:
+      Email: ${ respondent.email }
+      % endif
+  - Edit marriage information: marriage.date
+    button: |
+      **Marriage Information**
+      
+      Date of Marriage: ${ marriage.date }
+      
+      % if defined('marriage.place') and marriage.place:
+      Place of Marriage: ${ marriage.place }
+      % endif
+      
+      % if defined('separation.date') and separation.date:
+      Date of Separation: ${ separation.date }
+      % endif
+  - Edit service information: additional.service_name
+    button: |
+      **Service Information**
+      
+      Person to be served: ${ additional.service_name }
+      
+      Service address: ${ additional.service_address }
+continue button field: review_complete
+---
+event: final_screen
+question: |
+  Form 8 Complete
+subquestion: |
+  Your Form 8 (Application - General) has been completed successfully.
+  
+  **What happens next?**
+  
+  1. Download your completed form using the button below
+  2. Print the form
+  3. Sign the form where indicated
+  4. Make copies for your records
+  5. File the original with the court
+  6. Serve a copy on the other party
+  
+  **Important Filing Information:**
+  
+  **Court:** ${ court.location } Courthouse
+  
+  **File Number:** ${ court.file_number if court.file_number else "To be assigned upon filing" }
+  
+  **Filing Deadline:** File your application promptly. Some claims have specific time limits.
+  
+  **Service Requirements:** You must serve the respondent within 30 days of filing (or as directed by the court).
+  
+  **Need Help?**
+  
+  - Contact the Family Law Information Centre at your courthouse
+  - Visit Legal Aid Ontario at www.legalaid.on.ca
+  - Consult with a family law lawyer
+  
+buttons:
+  - Download Form: download
+  - Exit: exit
+  - Start Over: restart

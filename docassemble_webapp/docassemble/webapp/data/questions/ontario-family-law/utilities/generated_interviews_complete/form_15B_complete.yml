@@ -1,0 +1,630 @@
+---
+metadata:
+  title: Ontario Family Law Form 15B
+  short_title: Form 15B
+  description: Complete standalone interview for Form 15B
+  form_number: 15B
+  total_fields: 121
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 15b
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 15B Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  field_0
+  courtfileno
+  text2
+  field_3
+  field_4
+  field_5
+  field_6
+  field_7
+  field_8
+  field_9
+  field_10
+  field_11
+  field_12
+  field_13
+  field_14
+  field_15
+  field_16
+  field_17
+  field_18
+  field_19
+  # ... and 101 more fields
+  
+  # Generate Form 15B
+  form_15B_ready
+  final_screen
+---
+question: Field 0
+fields:
+  - field_0:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Text2
+fields:
+  - text2: text
+---
+question: Field 3
+fields:
+  - field_3: text
+---
+question: Field 4
+fields:
+  - field_4: text
+---
+question: Field 5
+fields:
+  - field_5: text
+---
+question: Field 6
+fields:
+  - field_6: text
+---
+question: Field 7
+fields:
+  - field_7: text
+---
+question: Field 8
+fields:
+  - field_8: text
+---
+question: Field 9
+fields:
+  - field_9: text
+---
+question: Field 10
+fields:
+  - field_10: text
+---
+question: Field 11
+fields:
+  - field_11: text
+---
+question: Field 12
+fields:
+  - field_12: text
+---
+question: Field 13
+fields:
+  - field_13: text
+---
+question: Field 14
+fields:
+  - field_14: text
+---
+question: Field 15
+fields:
+  - field_15: text
+---
+question: Field 16
+fields:
+  - field_16: text
+---
+question: Field 17
+fields:
+  - field_17: text
+---
+question: Field 18
+fields:
+  - field_18: text
+---
+question: Field 19
+fields:
+  - field_19: text
+---
+question: Field 20
+fields:
+  - field_20: text
+---
+question: Field 21
+fields:
+  - field_21: text
+---
+question: Field 22
+fields:
+  - field_22: text
+---
+question: Field 23
+fields:
+  - field_23: text
+---
+question: Field 24
+fields:
+  - field_24: text
+---
+question: Field 25
+fields:
+  - field_25: text
+---
+question: Field 26
+fields:
+  - field_26: text
+---
+question: Text11
+fields:
+  - text11: text
+---
+question: Check8
+yesno: check8
+---
+question: Check18
+yesno: check18
+---
+question: Check3
+yesno: check3
+---
+question: Field 58
+yesno: field_58
+---
+question: Field 59
+yesno: field_59
+---
+question: Field 60
+fields:
+  - field_60: text
+---
+question: Field 61
+fields:
+  - field_61: text
+---
+question: Field 62
+fields:
+  - field_62: text
+---
+question: Field 63
+fields:
+  - field_63: text
+---
+question: Field 64
+fields:
+  - field_64: text
+---
+question: Field 65
+fields:
+  - field_65: text
+---
+question: Field 66
+fields:
+  - field_66: text
+---
+question: Field 67
+fields:
+  - field_67: text
+---
+question: Field 68
+fields:
+  - field_68: text
+---
+question: Field 69
+fields:
+  - field_69: text
+---
+question: Field 70
+fields:
+  - field_70: text
+---
+question: Field 71
+fields:
+  - field_71: text
+---
+question: Field 72
+fields:
+  - field_72: text
+---
+question: Field 73
+fields:
+  - field_73: text
+---
+question: Field 74
+fields:
+  - field_74: text
+---
+question: Field 75
+fields:
+  - field_75: text
+---
+question: Check6
+yesno: check6
+---
+question: Check12
+yesno: check12
+---
+question: Check13
+yesno: check13
+---
+question: Check11
+yesno: check11
+---
+question: Field 83
+fields:
+  - field_83: text
+---
+question: Field 84
+fields:
+  - field_84: text
+---
+question: Field 85
+fields:
+  - field_85: text
+---
+question: Field 86
+fields:
+  - field_86: text
+---
+question: Field 87
+fields:
+  - field_87: text
+---
+question: Field 88
+fields:
+  - field_88: text
+---
+question: Field 89
+fields:
+  - field_89: text
+---
+question: Field 90
+fields:
+  - field_90: text
+---
+question: Field 91
+fields:
+  - field_91: text
+---
+question: Field 92
+fields:
+  - field_92: text
+---
+question: Field 93
+fields:
+  - field_93: text
+---
+question: Field 94
+fields:
+  - field_94: text
+---
+question: Field 95
+fields:
+  - field_95: text
+---
+question: Field 96
+fields:
+  - field_96: text
+---
+question: Field 97
+fields:
+  - field_97: text
+---
+question: Field 98
+fields:
+  - field_98: text
+---
+question: Field 101
+fields:
+  - field_101: text
+---
+question: Field 102
+fields:
+  - field_102: text
+---
+question: Field 105
+fields:
+  - field_105: text
+---
+question: Field 106
+fields:
+  - field_106: text
+---
+question: Field 107
+fields:
+  - field_107: text
+---
+question: Field 108
+fields:
+  - field_108: text
+---
+question: Field 111
+fields:
+  - field_111: text
+---
+question: Field 112
+fields:
+  - field_112: text
+---
+question: Field 115
+fields:
+  - field_115: text
+---
+question: Field 116
+fields:
+  - field_116: text
+---
+question: Field 117
+fields:
+  - field_117: text
+---
+question: Dropdown3
+fields:
+  - dropdown3:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Text1
+fields:
+  - text1: text
+---
+question: Field 122
+fields:
+  - field_122: text
+---
+question: Field 123
+fields:
+  - field_123: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Municipality
+fields:
+  - municipality: text
+---
+question: Province
+fields:
+  - province:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Email Address
+fields:
+  - email:
+      datatype: email
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: LSO Number
+fields:
+  - lso_number: text
+---
+question: Child Age
+fields:
+  - child_age:
+      datatype: integer
+---
+question: Important Facts
+fields:
+  - important_facts: text
+---
+question: Details
+fields:
+  - details: text
+---
+question: |
+  Full legal name:
+fields:
+  - full_legal_name: text
+---
+question: |
+  Name:
+fields:
+  - name: text
+---
+question: |
+  Address:
+fields:
+  - address: text
+---
+question: |
+  Phone & fax:
+fields:
+  - phone__fax: text
+---
+question: |
+  and I swear/affirm that the following is true:
+fields:
+  - and_i_swearaffirm_that_the_following_is_true: text
+---
+question: |
+  I agree with the following claims made by the requesting party at paragraph 11 of their Motion to Change Form (Form 15)  (list the claims you agree with, for example paragraph 11(a), (b), (c), etc.) :
+fields:
+  - i_agree_with_the_following_claims_made_by_the_requesting_party_at_paragraph_11_of_their_motion_to_change_form_form_15_list_the_claims_you_agree_with_for_example_paragraph_11a_b_c_etc: text
+---
+question: |
+  I disagree with the following claims made by the requesting party at paragraph 11 of their Motion to Change Form (Form 15)  (list the claims you do not agree with, for example paragraph 11(a), (b), (c), etc.) :
+fields:
+  - i_disagree_with_the_following_claims_made_by_the_requesting_party_at_paragraph_11_of_their_motion_to_change_form_form_15_list_the_claims_you_do_not_agree_with_for_example_paragraph_11a_b_c_etc: text
+---
+question: |
+  I disagree with the claims made by the requesting party because  ( briefly  explain why you do not think that the current order/agreement should be changed) :
+fields:
+  - i_disagree_with_the_claims_made_by_the_requesting_party_because__briefly_explain_why_you_do_not_think_that_the_current_orderagreement_should_be_changed: text
+---
+question: |
+  Form 15B:
+fields:
+  - form_15b: text
+---
+question: |
+  I  also disagree with  the  following   facts   in  the requesting party ’s Motion to Change Form (Form 15)  (briefly  explain what information you do not agree with and explain why) :
+fields:
+  - i_also_disagree_with_the_following_facts_in_the_requesting_party_s_motion_to_change_form_form_15_briefly_explain_what_information_you_do_not_agree_with_and_explain_why: text
+---
+question: |
+  If this motion to change includes a request to change support, please complete the following:
+fields:
+  - if_this_motion_to_change_includes_a_request_to_change_support_please_complete_the_following: text
+---
+question: |
+  Children, Community and Social Services showing that:
+fields:
+  - children_community_and_social_services_showing_that: text
+---
+question: |
+  Please give information about your income and the other party’s income (if known) for the past 3 years  (a party’s income should be their total income from all sources as listed on line 150 of their Income Tax Return) :
+fields:
+  - please_give_information_about_your_income_and_the_other_partys_income_if_known_for_the_past_3_years_a_partys_income_should_be_their_total_income_from_all_sources_as_listed_on_line_150_of_their_income_tax_return: text
+---
+question: |
+  I  want to change the following  ( check all that apply ):
+fields:
+  - i_want_to_change_the_following__check_all_that_apply: text
+---
+question: |
+  (list type of expenses) :
+fields:
+  - list_type_of_expenses: text
+---
+question: |
+  other  ( give details ) :
+fields:
+  - other__give_details: text
+---
+question: |
+  I want to change the following specific terms of the current order/agreement  (please provide the paragraph number of each term and the wording of the term exactly as it appears in the order/agreement) :
+fields:
+  - i_want_to_change_the_following_specific_terms_of_the_current_orderagreement_please_provide_the_paragraph_number_of_each_term_and_the_wording_of_the_term_exactly_as_it_appears_in_the_orderagreement: text
+---
+question: |
+  Current term:
+fields:
+  - current_term: text
+---
+question: |
+  Requested change:
+fields:
+  - requested_change: text
+---
+question: |
+  Briefly  give the facts that show why the court should change the order/agreement, including how your situation has changed since the order/agreement was made:
+fields:
+  - briefly_give_the_facts_that_show_why_the_court_should_change_the_orderagreement_including_how_your_situation_has_changed_since_the_orderagreement_was_made: text
+---
+question: |
+  If yes, please give details about the support that is  owed :
+fields:
+  - if_yes_please_give_details_about_the_support_that_is_owed: text
+---
+question: |
+  If you are asking to change support starting on a date before today, please answer the following:
+fields:
+  - if_you_are_asking_to_change_support_starting_on_a_date_before_today_please_answer_the_following:
+      datatype: date
+---
+question: |
+  My name is:
+fields:
+  - my_name_is: text
+---
+question: |
+  YOU SHOULD GET LEGAL ADVICE RIGHT AWAY.  For help finding legal advice, you can contact:
+fields:
+  - you_should_get_legal_advice_right_away_for_help_finding_legal_advice_you_can_contact: text
+---
+question: |
+  IF YOU DON’T AGREE WITH THE CHANGES , or you want to ask for different changes, you must:
+fields:
+  - if_you_dont_agree_with_the_changes__or_you_want_to_ask_for_different_changes_you_must: text
+---
+question: |
+  Complete  the following forms:
+fields:
+  - complete_the_following_forms: text
+---
+question: Review Form 15B Information
+subquestion: Please review all information before generating the form.
+review:
+  field_0:
+    button: **Field 0**
+  courtfileno:
+    button: **Court File No**
+  text2:
+    button: **Text2**
+  field_3:
+    button: **Field 3**
+  field_4:
+    button: **Field 4**
+  field_5:
+    button: **Field 5**
+  field_6:
+    button: **Field 6**
+  field_7:
+    button: **Field 7**
+  field_8:
+    button: **Field 8**
+  field_9:
+    button: **Field 9**
+---
+event: final_screen
+question: Form 15B Complete
+subquestion: |
+  Your Form 15B has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 15B: ${ form_15B_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 15B
+  filename: form_15B
+  variable name: form_15B_document
+  content: |
+    # Ontario Family Law Form 15B
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 15B Specific Information
+    [Form fields would be inserted here]
+---
+code: form_15B_ready = True

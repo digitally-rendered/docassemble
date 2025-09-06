@@ -1,0 +1,410 @@
+---
+metadata:
+  title: Ontario Family Law Form 17F
+  short_title: Form 17F
+  description: Complete interview for Form 17F
+  form_number: 17F
+  total_fields: 55
+  generated: 2025-09-05 14:41
+  tags:
+    - ontario
+    - family law
+    - form 17f
+---
+include:
+  - common-intake-enhanced-with-validation.yml
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 17F Interview Flow
+  # Common intake fields are inherited
+  
+  # Form-specific fields
+  # Form Field
+  dropdown1
+  courtfileno
+  field_2
+  field_3
+  field_4
+  # court_info
+  court_address
+  municipality
+  # party_info
+  street_address
+  postal_code
+  phone
+  fax
+  # children
+  child_name
+  child_age
+  # long_form
+  other_specify
+  # Table 1, Row 19
+  have_you_conferred_with_the_opposing_counsel_or_party_regarding__check_off_all_that_apply
+  # Table 1, Row 24
+  if_not_provide_reasons
+  # Table 2, Row 1
+  form_17f
+  # Table 2, Row 19
+  in_addition_to_the_conference_brief_t_he_presiding_judge_will_be_referred_to_the_following_pagestabs
+  # Table 2, Row 21
+  time_estimate
+  applicant
+  minutes_respondent
+  
+  # Generate Form 17F
+  form_17F_ready
+  final_screen
+---
+question: |
+  Dropdown1
+fields:
+  - dropdown1: dropdown
+    choices:
+      -           
+      - Superior Court of Justice
+      - Superior Court of Justice, Family Court
+      - Ontario Court of Justice
+---
+question: |
+  Court File No
+fields:
+  - courtfileno: text
+---
+question: |
+  Field 2
+fields:
+  - field_2: text
+---
+question: |
+  Field 3
+fields:
+  - field_3: text
+---
+question: |
+  Field 4
+fields:
+  - field_4: text
+---
+question: |
+  Field 5
+fields:
+  - field_5: text
+---
+question: |
+  Field 6
+fields:
+  - field_6: text
+---
+question: |
+  Field 7
+fields:
+  - field_7: text
+---
+question: |
+  Field 8
+fields:
+  - field_8: text
+---
+question: |
+  Check2
+yesno: check2
+---
+question: |
+  Field 10
+fields:
+  - field_10: text
+---
+question: |
+  Check3
+yesno: check3
+---
+question: |
+  Field 14
+fields:
+  - field_14: text
+---
+question: |
+  Field 19
+fields:
+  - field_19: text
+---
+question: |
+  Check11
+yesno: check11
+---
+question: |
+  Field 23
+fields:
+  - field_23: text
+---
+question: |
+  Field 24
+fields:
+  - field_24: text
+---
+question: |
+  Dropdown2
+fields:
+  - dropdown2: dropdown
+    choices:
+      - a.m./p.m.
+      - a.m.
+      - p.m.
+---
+question: |
+  Field 26
+fields:
+  - field_26: text
+---
+question: |
+  Check15
+yesno: check15
+---
+question: |
+  Check13
+yesno: check13
+---
+question: |
+  Field 30
+fields:
+  - field_30: text
+---
+question: |
+  Field 31
+fields:
+  - field_31: text
+---
+question: |
+  Field 32
+fields:
+  - field_32: text
+---
+question: |
+  Field 34
+fields:
+  - field_34: text
+---
+question: |
+  Field 35
+fields:
+  - field_35: text
+---
+question: |
+  Field 36
+fields:
+  - field_36: text
+---
+question: |
+  Text21
+fields:
+  - text21: text
+---
+question: |
+  Field 38
+fields:
+  - field_38: text
+---
+question: |
+  Field 39
+fields:
+  - field_39: text
+---
+question: |
+  Field 40
+fields:
+  - field_40: text
+---
+question: |
+  Field 41
+fields:
+  - field_41: text
+---
+question: |
+  Field 42
+fields:
+  - field_42: text
+---
+question: |
+  Field 43
+fields:
+  - field_43: text
+---
+question: |
+  Field 44
+fields:
+  - field_44: text
+---
+question: |
+  Field 45
+fields:
+  - field_45: text
+---
+question: |
+  Field 46
+fields:
+  - field_46: text
+---
+question: |
+  Text5
+fields:
+  - text5: text
+---
+question: |
+  Court Address
+fields:
+  - court_address: text
+---
+question: |
+  Municipality
+fields:
+  - municipality: text
+---
+question: |
+  Street Address
+fields:
+  - street_address: text
+---
+question: |
+  Postal Code
+fields:
+  - postal_code: text
+---
+question: |
+  Phone Number
+fields:
+  - phone: text
+---
+question: |
+  Fax
+fields:
+  - fax: text
+---
+question: |
+  Child Name
+fields:
+  - child_name: text
+---
+question: |
+  Child Age
+fields:
+  - child_age: number
+---
+question: |
+  Other Specify
+fields:
+  - other_specify: area
+    rows: 4
+---
+question: |
+  Have you conferred with the opposing counsel or party regarding :  ( check off all that apply ) :  
+fields:
+  - have_you_conferred_with_the_opposing_counsel_or_party_regarding__check_off_all_that_apply: text
+---
+question: |
+  If  not, provide reasons:
+fields:
+  - if_not_provide_reasons: text
+---
+question: |
+  Form 17F:
+fields:
+  - form_17f: text
+---
+question: |
+  In addition to the conference brief,  t he presiding judge will be referred to the following pages/tabs:
+fields:
+  - in_addition_to_the_conference_brief_t_he_presiding_judge_will_be_referred_to_the_following_pagestabs: text
+---
+question: |
+  Time estimate:
+fields:
+  - time_estimate: text
+---
+question: |
+  applicant:
+fields:
+  - applicant: text
+---
+question: |
+  minutes; respondent:
+fields:
+  - minutes_respondent: text
+---
+question: |
+  Review Form 17F Information
+subquestion: |
+  Please review all information before generating the form.
+review:
+  - dropdown1:
+      button: |
+        **Form Field**
+  - court_file_number:
+      button: |
+        **court_info**
+  - street_address:
+      button: |
+        **party_info**
+  - child_name:
+      button: |
+        **children**
+  - other_specify:
+      button: |
+        **long_form**
+  - have_you_conferred_with_the_opposing_counsel_or_party_regarding__check_off_all_that_apply:
+      button: |
+        **Table 1, Row 19**
+  - if_not_provide_reasons:
+      button: |
+        **Table 1, Row 24**
+  - form_17f:
+      button: |
+        **Table 2, Row 1**
+  - in_addition_to_the_conference_brief_t_he_presiding_judge_will_be_referred_to_the_following_pagestabs:
+      button: |
+        **Table 2, Row 19**
+  - time_estimate:
+      button: |
+        **Table 2, Row 21**
+---
+event: final_screen
+question: |
+  Form 17F Complete
+subquestion: |
+  Your Form 17F has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 17F: ${ form_17F_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 17F
+  filename: form_17F
+  variable name: form_17F_document
+  content: |
+    # Ontario Family Law Form 17F
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 17F Specific Information
+    [Form fields would be inserted here]
+---
+code: |
+  form_17F_ready = True

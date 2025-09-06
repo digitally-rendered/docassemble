@@ -1,0 +1,263 @@
+---
+metadata:
+  title: Ontario Family Law Form 17A
+  short_title: Form 17A
+  description: Complete interview for Ontario Family Law Form 17A
+  form_number: 17A
+  generated: 2025-09-05T16:41:13.185630
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 17A
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_field_0
+  form_specific_courtfilenumber
+  form_specific_text1
+  form_specific_field_7
+  form_specific_check1
+  form_specific_field_43
+  form_specific_check6
+  form_specific_check12
+  form_specific_check15
+  form_specific_check8
+  form_specific_check13
+  form_specific_check16
+  form_specific_check9
+  form_specific_check14
+  form_specific_check11
+  form_specific_field_71
+  form_specific_field_73
+  form_specific_check18
+  form_specific_check19
+  form_specific_field_76
+  # ... and 35 more fields
+  
+  # Complete the interview
+  form_17A_ready
+  final_screen
+---
+question: Field 0
+fields:
+  - form_specific_field_0: text
+---
+question: Courtfilenumber
+fields:
+  - form_specific_courtfilenumber: text
+---
+question: Text1
+fields:
+  - form_specific_text1: text
+---
+question: Field 7
+fields:
+  - form_specific_field_7: text
+---
+question: Check1
+yesno: form_specific_check1
+---
+question: Field 43
+fields:
+  - form_specific_field_43: text
+---
+question: Check6
+yesno: form_specific_check6
+---
+question: Check12
+yesno: form_specific_check12
+---
+question: Check15
+yesno: form_specific_check15
+---
+question: Check8
+yesno: form_specific_check8
+---
+question: Check13
+yesno: form_specific_check13
+---
+question: Check16
+yesno: form_specific_check16
+---
+question: Check9
+yesno: form_specific_check9
+---
+question: Check14
+yesno: form_specific_check14
+---
+question: Check11
+yesno: form_specific_check11
+---
+question: Field 71
+fields:
+  - form_specific_field_71: text
+---
+question: Field 73
+fields:
+  - form_specific_field_73: text
+---
+question: Check18
+yesno: form_specific_check18
+---
+question: Check19
+yesno: form_specific_check19
+---
+question: Field 76
+fields:
+  - form_specific_field_76: text
+---
+question: Check20
+yesno: form_specific_check20
+---
+question: Check21
+yesno: form_specific_check21
+---
+question: Check22
+yesno: form_specific_check22
+---
+question: Check23
+yesno: form_specific_check23
+---
+question: Check24
+yesno: form_specific_check24
+---
+question: Check25
+yesno: form_specific_check25
+---
+question: Field 86
+fields:
+  - form_specific_field_86: text
+---
+question: Check26
+yesno: form_specific_check26
+---
+question: Check27
+yesno: form_specific_check27
+---
+question: Field 96
+fields:
+  - form_specific_field_96: text
+---
+question: Field 117
+fields:
+  - form_specific_field_117: text
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Street Address
+fields:
+  - form_specific_street_address: text
+---
+question: Applicant Postal Code
+fields:
+  - applicant.address.postal_code: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Claims Property Division
+yesno: form_specific_claims_property_division
+---
+question: Child Full Legal Name
+fields:
+  - children[i].name.full: text
+---
+question: Child Birth Date
+fields:
+  - children[i].birthdate:
+      datatype: date
+---
+question: Child Current Age
+fields:
+  - children[i].age:
+      datatype: integer
+---
+question: Important Facts
+fields:
+  - form_specific_important_facts: text
+---
+question: Details
+fields:
+  - form_specific_details: text
+---
+question: Other Specify
+fields:
+  - form_specific_other_specify: text
+---
+question: Applicant
+fields:
+  - form_specific_applicant: text
+---
+question: Age
+fields:
+  - form_specific_age: text
+---
+question: Respondent
+fields:
+  - form_specific_respondent: text
+---
+question: Relationship Dates
+fields:
+  - form_specific_relationship_dates:
+      datatype: date
+---
+question: The Basic Information About The Children Is As Follows
+fields:
+  - form_specific_the_basic_information_about_the_children_is_as_follows: text
+---
+question: Form 17A
+fields:
+  - form_specific_form_17a: text
+---
+question: What Are The Issues In This Case That Have Been Settled
+fields:
+  - form_specific_what_are_the_issues_in_this_case_that_have_been_settled: text
+---
+question: What Are The Issues In This Case That Have Not Yet Been Settled
+fields:
+  - form_specific_what_are_the_issues_in_this_case_that_have_not_yet_been_settled: text
+---
+question: If Child Or Spousal Support Is An Issue Give The Income Of The Parties
+fields:
+  - form_specific_if_child_or_spousal_support_is_an_issue_give_the_income_of_the_parties: text
+---
+question: If Parenting Issues Are Not Yet Settled
+fields:
+  - form_specific_if_parenting_issues_are_not_yet_settled: text
+---
+event: final_screen
+question: Form 17A Complete
+subquestion: Your Ontario Family Law Form 17A has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_17A_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_17A_ready = True

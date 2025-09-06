@@ -1,0 +1,652 @@
+metadata:
+  title: Ontario Family Law Form 13C - Comparison of Net Family Property Statements
+  short_title: Form 13C
+  description: Docassemble interview for Ontario Family Law Form 13C
+  authors:
+  - Ontario Family Law System
+  revision_date: '2025-09-05'
+  form_number: '13C'
+  form_title: 'Comparison of Net Family Property Statements'
+  field_count: 408
+  generated_from: improved_parsed_data
+  tags:
+  - ontario
+  - family law
+  - form 13C
+---
+include:
+- docassemble.base:data/questions/basic-questions.yml
+- .ontario_financial_fields.yml
+modules:
+- .ontario_common_fields
+- .ontario_party_objects
+- .ontario_validation_functions
+- .ontario_financial_objects
+---
+objects:
+- 'court: Organization'
+- 'applicant: Individual'
+- 'respondent: Individual'
+- 'assets: DAList.using(object_type=DAObject, there_are_any=False)'
+- 'debts: DAList.using(object_type=DAObject, there_are_any=False)'
+- 'income_sources: DAList.using(object_type=DAObject, there_are_any=False)'
+---
+code: |
+  # Ontario-specific validation functions
+  def validate_ontario_postal_code(postal_code):
+      if not postal_code:
+          return True
+      postal_clean = re.sub(r'\s+', '', postal_code.upper())
+      pattern = r'^[A-Z][0-9][A-Z][0-9][A-Z][0-9]$'
+      if not re.match(pattern, postal_clean):
+          return False
+      ontario_first_letters = 'KLMNP'
+      return postal_clean[0] in ontario_first_letters
+  
+  def validate_ontario_court_file(file_number):
+      if not file_number:
+          return True
+      patterns = [
+          r'^(FS|FC|FD|FM|FE)-[0-9]{2}-[0-9]{5,6}$',
+          r'^[0-9]{2}-[0-9]{5,6}$',
+          r'^[A-Z]{2}-[0-9]{2}-[0-9]{5,6}$'
+      ]
+      file_upper = file_number.upper().strip()
+      return any(re.match(pattern, file_upper) for pattern in patterns)
+  
+  def validate_canadian_phone(phone_number):
+      if not phone_number:
+          return True
+      digits_only = re.sub(r'\D', '', phone_number)
+      if len(digits_only) == 10:
+          return True
+      elif len(digits_only) == 11 and digits_only[0] == '1':
+          return True
+      return False
+---
+mandatory: True
+code: |
+  intro_screen
+  court_information
+  party_information
+  financial_information
+  property_information
+  review_answers
+  signature_date
+  final_screen
+---
+question: |
+  Ontario Family Law Form 13C: Comparison of Net Family Property Statements
+subquestion: |
+  This interview will help you complete your financial disclosure.
+  
+  **Important Information:**
+  
+  * Have all required documents ready
+  * Answer all questions truthfully
+  * You can save your progress and return later
+  * This form must be filed with the court
+  
+  **Note:** This is not legal advice. Consider consulting a lawyer for your specific situation.
+  
+continue button field: intro_screen
+---
+question: |
+  General Information
+fields:
+  - 'Field 0': field_0
+  - 'Court File No': courtfileno
+  - 'Field 2': field_2
+  - 'Field 3': field_3
+  - 'Field 4': field_4
+    datatype: yesno
+  - 'Field 5': field_5
+    datatype: yesno
+  - 'Field 6': field_6
+    datatype: yesno
+  - 'Text1': text1
+  - 'Field 8': field_8
+  - 'Field 16': field_16
+  - 'Field 23': field_23
+  - 'Field 24': field_24
+  - 'Field 25': field_25
+  - 'Field 26': field_26
+  - 'Field 27': field_27
+  - 'Field 28': field_28
+  - 'Field 29': field_29
+  - 'Field 30': field_30
+  - 'Field 31': field_31
+  - 'Field 32': field_32
+  - 'Field 33': field_33
+  - 'Field 34': field_34
+  - 'Field 35': field_35
+  - 'Field 36': field_36
+  - 'Field 37': field_37
+  - 'Field 38': field_38
+  - 'Field 39': field_39
+  - 'Field 40': field_40
+  - 'Field 41': field_41
+  - 'Field 42': field_42
+  - 'Field 43': field_43
+  - 'Field 44': field_44
+  - 'Field 45': field_45
+  - 'Field 46': field_46
+  - 'Field 47': field_47
+  - 'Field 48': field_48
+  - 'Field 49': field_49
+  - 'Field 50': field_50
+  - 'Field 51': field_51
+  - 'Field 52': field_52
+  - 'Field 53': field_53
+  - 'Field 54': field_54
+  - 'Field 55': field_55
+  - 'Field 56': field_56
+  - 'Field 57': field_57
+  - 'Field 58': field_58
+  - 'Field 59': field_59
+  - 'Field 60': field_60
+  - 'Field 61': field_61
+  - 'Field 62': field_62
+  - 'Field 63': field_63
+  - 'Field 64': field_64
+  - 'Field 65': field_65
+  - 'Field 66': field_66
+  - 'Field 67': field_67
+  - 'Field 68': field_68
+  - 'Field 69': field_69
+  - 'Field 70': field_70
+  - 'Field 71': field_71
+  - 'Field 72': field_72
+  - 'Field 73': field_73
+  - 'Field 74': field_74
+  - 'Field 75': field_75
+  - 'Field 76': field_76
+  - 'Field 77': field_77
+  - 'Field 78': field_78
+  - 'Field 79': field_79
+  - 'Field 80': field_80
+  - 'Field 81': field_81
+  - 'Field 82': field_82
+  - 'Field 83': field_83
+  - 'Field 84': field_84
+  - 'Field 85': field_85
+  - 'Field 86': field_86
+  - 'Field 87': field_87
+  - 'Field 88': field_88
+  - 'Field 89': field_89
+  - 'Field 90': field_90
+  - 'Field 91': field_91
+  - 'Field 92': field_92
+  - 'Field 93': field_93
+  - 'Field 94': field_94
+  - 'Field 95': field_95
+  - 'Field 96': field_96
+  - 'Field 97': field_97
+  - 'Field 98': field_98
+  - 'Field 99': field_99
+  - 'Field 100': field_100
+  - 'Field 101': field_101
+  - 'Field 102': field_102
+  - 'Field 103': field_103
+  - 'Field 104': field_104
+  - 'Field 105': field_105
+  - 'Field 106': field_106
+  - 'Field 107': field_107
+  - 'Field 108': field_108
+  - 'Field 109': field_109
+  - 'Field 110': field_110
+  - 'Field 111': field_111
+  - 'Field 112': field_112
+  - 'Field 113': field_113
+  - 'Field 114': field_114
+  - 'Field 115': field_115
+  - 'Field 116': field_116
+  - 'Field 117': field_117
+  - 'Field 118': field_118
+  - 'Field 119': field_119
+  - 'Field 120': field_120
+  - 'Field 121': field_121
+  - 'Field 122': field_122
+  - 'Field 123': field_123
+  - 'Field 124': field_124
+  - 'Field 125': field_125
+  - 'Field 126': field_126
+  - 'Field 127': field_127
+  - 'Field 128': field_128
+  - 'Field 129': field_129
+  - 'Field 130': field_130
+  - 'Field 131': field_131
+  - 'Field 132': field_132
+  - 'Field 133': field_133
+  - 'Field 134': field_134
+  - 'Field 135': field_135
+  - 'Field 136': field_136
+  - 'Field 137': field_137
+  - 'Field 138': field_138
+  - 'Field 139': field_139
+  - 'Field 140': field_140
+  - 'Field 141': field_141
+  - 'Field 142': field_142
+  - 'Field 143': field_143
+  - 'Field 144': field_144
+  - 'Field 145': field_145
+  - 'Field 146': field_146
+  - 'Field 147': field_147
+  - 'Field 148': field_148
+  - 'Field 149': field_149
+  - 'Field 150': field_150
+  - 'Field 151': field_151
+  - 'Field 152': field_152
+  - 'Field 153': field_153
+  - 'Field 154': field_154
+  - 'Field 155': field_155
+  - 'Field 156': field_156
+  - 'Field 157': field_157
+  - 'Field 158': field_158
+  - 'Field 159': field_159
+  - 'Field 160': field_160
+  - 'Field 161': field_161
+  - 'Field 162': field_162
+  - 'Field 163': field_163
+  - 'Field 164': field_164
+  - 'Field 165': field_165
+  - 'Field 166': field_166
+  - 'Field 167': field_167
+  - 'Field 168': field_168
+  - 'Field 169': field_169
+  - 'Field 170': field_170
+  - 'Field 171': field_171
+  - 'Field 172': field_172
+  - 'Field 173': field_173
+  - 'Field 174': field_174
+  - 'Field 175': field_175
+  - 'Field 176': field_176
+  - 'Field 177': field_177
+  - 'Field 178': field_178
+  - 'Field 179': field_179
+  - 'Field 180': field_180
+  - 'Field 181': field_181
+  - 'Field 182': field_182
+  - 'Field 183': field_183
+  - 'Field 184': field_184
+  - 'Field 185': field_185
+  - 'Field 186': field_186
+  - 'Field 187': field_187
+  - 'Field 188': field_188
+  - 'Field 189': field_189
+  - 'Field 190': field_190
+  - 'Field 191': field_191
+  - 'Field 192': field_192
+  - 'Field 193': field_193
+  - 'Field 194': field_194
+  - 'Field 195': field_195
+  - 'Field 196': field_196
+  - 'Field 197': field_197
+  - 'Field 198': field_198
+  - 'Field 199': field_199
+  - 'Field 200': field_200
+  - 'Field 201': field_201
+  - 'Field 202': field_202
+  - 'Field 203': field_203
+  - 'Field 204': field_204
+  - 'Field 205': field_205
+  - 'Field 206': field_206
+  - 'Field 207': field_207
+  - 'Field 208': field_208
+  - 'Field 209': field_209
+  - 'Field 210': field_210
+  - 'Field 211': field_211
+  - 'Field 212': field_212
+  - 'Field 213': field_213
+  - 'Field 214': field_214
+  - 'Field 215': field_215
+  - 'Field 216': field_216
+  - 'Field 217': field_217
+  - 'Field 218': field_218
+  - 'Field 219': field_219
+  - 'Field 220': field_220
+  - 'Field 221': field_221
+  - 'Field 222': field_222
+  - 'Field 223': field_223
+  - 'Field 224': field_224
+  - 'Field 225': field_225
+  - 'Field 226': field_226
+  - 'Field 227': field_227
+  - 'Field 228': field_228
+  - 'Field 229': field_229
+  - 'Field 230': field_230
+  - 'Field 231': field_231
+  - 'Field 232': field_232
+  - 'Field 233': field_233
+  - 'Field 234': field_234
+  - 'Field 235': field_235
+  - 'Field 236': field_236
+  - 'Field 237': field_237
+  - 'Field 238': field_238
+  - 'Field 239': field_239
+  - 'Field 240': field_240
+  - 'Field 241': field_241
+  - 'Field 242': field_242
+  - 'Field 243': field_243
+  - 'Field 244': field_244
+  - 'Field 245': field_245
+  - 'Field 246': field_246
+  - 'Field 247': field_247
+  - 'Field 248': field_248
+  - 'Field 249': field_249
+  - 'Field 250': field_250
+  - 'Field 251': field_251
+  - 'Field 252': field_252
+  - 'Field 253': field_253
+  - 'Field 254': field_254
+  - 'Field 255': field_255
+  - 'Field 256': field_256
+  - 'Field 257': field_257
+  - 'Field 258': field_258
+  - 'Field 259': field_259
+  - 'Field 260': field_260
+  - 'Field 261': field_261
+  - 'Field 262': field_262
+  - 'Field 263': field_263
+  - 'Field 264': field_264
+  - 'Field 265': field_265
+  - 'Field 266': field_266
+  - 'Field 267': field_267
+  - 'Field 268': field_268
+  - 'Field 269': field_269
+  - 'Field 270': field_270
+  - 'Field 271': field_271
+  - 'Field 272': field_272
+  - 'Field 273': field_273
+  - 'Field 274': field_274
+  - 'Field 275': field_275
+  - 'Field 276': field_276
+  - 'Field 277': field_277
+  - 'Field 278': field_278
+  - 'Field 279': field_279
+  - 'Field 280': field_280
+  - 'Field 281': field_281
+  - 'Field 282': field_282
+  - 'Field 283': field_283
+  - 'Field 284': field_284
+  - 'Field 285': field_285
+  - 'Field 286': field_286
+  - 'Field 287': field_287
+  - 'Field 288': field_288
+  - 'Field 289': field_289
+  - 'Field 290': field_290
+  - 'Field 291': field_291
+  - 'Field 292': field_292
+  - 'Field 293': field_293
+  - 'Field 294': field_294
+  - 'Field 295': field_295
+  - 'Field 296': field_296
+  - 'Field 297': field_297
+  - 'Field 298': field_298
+  - 'Field 299': field_299
+  - 'Field 300': field_300
+  - 'Field 301': field_301
+  - 'Field 302': field_302
+  - 'Field 303': field_303
+  - 'Field 304': field_304
+  - 'Field 305': field_305
+  - 'Field 306': field_306
+  - 'Field 307': field_307
+  - 'Field 308': field_308
+  - 'Field 309': field_309
+  - 'Field 310': field_310
+  - 'Field 311': field_311
+  - 'Field 312': field_312
+  - 'Field 313': field_313
+  - 'Field 314': field_314
+  - 'Field 315': field_315
+  - 'Field 316': field_316
+  - 'Field 317': field_317
+  - 'Field 318': field_318
+  - 'Field 319': field_319
+  - 'Field 320': field_320
+  - 'Field 321': field_321
+  - 'Field 322': field_322
+  - 'Field 323': field_323
+  - 'Field 324': field_324
+  - 'Field 325': field_325
+  - 'Field 326': field_326
+  - 'Field 327': field_327
+  - 'Field 328': field_328
+  - 'Field 329': field_329
+  - 'Field 330': field_330
+  - 'Field 331': field_331
+  - 'Field 332': field_332
+  - 'Field 333': field_333
+  - 'Field 334': field_334
+  - 'Field 335': field_335
+  - 'Field 336': field_336
+  - 'Field 337': field_337
+  - 'Field 338': field_338
+  - 'Field 339': field_339
+  - 'Field 340': field_340
+  - 'Field 341': field_341
+  - 'Field 342': field_342
+  - 'Field 343': field_343
+  - 'Field 344': field_344
+  - 'Field 345': field_345
+  - 'Field 346': field_346
+  - 'Field 347': field_347
+  - 'Field 348': field_348
+  - 'Field 349': field_349
+  - 'Field 350': field_350
+  - 'Field 351': field_351
+  - 'Field 352': field_352
+  - 'Field 353': field_353
+  - 'Field 354': field_354
+  - 'Field 355': field_355
+  - 'Field 356': field_356
+  - 'Field 357': field_357
+  - 'Field 358': field_358
+  - 'Field 359': field_359
+  - 'Field 360': field_360
+  - 'Field 361': field_361
+  - 'Field 362': field_362
+  - 'Field 363': field_363
+  - 'Field 364': field_364
+  - 'Field 365': field_365
+  - 'Field 366': field_366
+  - 'Field 367': field_367
+  - 'Field 368': field_368
+  - 'Field 369': field_369
+  - 'Field 370': field_370
+  - 'Field 371': field_371
+  - 'Field 372': field_372
+  - 'Field 373': field_373
+  - 'Field 374': field_374
+  - 'Field 375': field_375
+  - 'Field 376': field_376
+  - 'Field 377': field_377
+  - 'Field 378': field_378
+  - 'Field 379': field_379
+  - 'Field 380': field_380
+  - 'Field 381': field_381
+  - 'Field 382': field_382
+  - 'Field 383': field_383
+  - 'Field 384': field_384
+  - 'Field 385': field_385
+  - 'Field 386': field_386
+  - 'Field 387': field_387
+  - 'Field 388': field_388
+  - 'Field 389': field_389
+  - 'Field 390': field_390
+  - 'Field 391': field_391
+  - 'Field 392': field_392
+  - 'Field 393': field_393
+  - 'Field 394': field_394
+  - 'Field 395': field_395
+  - 'Field 396': field_396
+  - 'Field 397': field_397
+  - 'Field 398': field_398
+  - 'Field 399': field_399
+  - 'Field 400': field_400
+  - 'Field 401': field_401
+  - 'Field 402': field_402
+  - 'Field 403': field_403
+  - 'Field 404': field_404
+  - 'Field 405': field_405
+  - 'Field 406': field_406
+  - 'Field 407': field_407
+  - 'Full legal name:': full_legal_name
+  - 'Address:': address
+  - 'Phone & fax:': phone__fax
+  - 'Valuation Date:': valuation_date
+    datatype: date
+  - 'Statement Date:': statement_date
+    datatype: date
+continue button field: general_information
+---
+question: |
+  Court Info
+fields:
+  - 'Court File Number': court_file_number
+  - 'Court Address': court_address
+continue button field: court_info
+---
+question: |
+  Party Info
+fields:
+  - 'Phone Number': phone
+  - 'Email Address': email
+    datatype: email
+  - 'Fax': fax
+continue button field: party_info
+---
+question: |
+  Marriage Info
+fields:
+  - 'Marriage Date': marriage_date
+    datatype: date
+  - 'Name Before Marriage': name_before_marriage
+continue button field: marriage_info
+---
+question: |
+  Claims
+fields:
+  - 'Claim Property': claim_property
+    datatype: yesno
+continue button field: claims
+---
+question: |
+  Signature Information
+fields:
+  - "Today's Date": signature_date
+    datatype: date
+    default: ${ today() }
+  - "Signature Location (City)": signature_city
+    default: Toronto
+  - "I understand that swearing a false affidavit is a criminal offense": oath_understood
+    datatype: yesno
+    required: True
+validation code: |
+  if not oath_understood:
+    validation_error("You must acknowledge understanding the oath")
+continue button field: signature_date
+---
+event: final_screen
+question: |
+  Form 13C Complete
+subquestion: |
+  Your Comparison of Net Family Property Statements has been completed and is ready for download.
+  
+  **Next Steps:**
+  1. Review your information below
+  2. Download the completed form
+  3. Print and sign the form
+  4. File with the court
+  
+  ${{ form_download }}
+  
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
+event: review_answers
+question: |
+  Review Your Answers
+subquestion: |
+  Please review your information below. Click on any item to make changes.
+review:
+  - Edit: court.name
+    button: |
+      **Court**: ${ court.name }
+  - Edit: applicant.name
+    button: |
+      **Applicant**: ${ applicant }
+  - Edit: respondent.name
+    button: |
+      **Respondent**: ${ respondent }
+  - Edit: marriage_date
+    button: |
+      **Marriage Date**: ${{ marriage_date }}
+  - Edit: valuation_date
+    button: |
+      **Valuation Date**: ${{ valuation_date }}
+  - Edit: statement_date
+    button: |
+      **Statement Date**: ${{ statement_date }}
+continue button field: review_complete
+---
+attachment:
+  name: Form 13C - Comparison of Net Family Property Statements
+  filename: form_13C_completed
+  variable name: form_download
+  pdf template file: form_13C_template.pdf
+  editable: False
+  fields:
+    - 'field_0': ${{ field_0 }}
+    - 'courtfileno': ${{ courtfileno }}
+    - 'field_2': ${{ field_2 }}
+    - 'field_3': ${{ field_3 }}
+    - 'field_4': ${{ field_4 }}
+    - 'field_5': ${{ field_5 }}
+    - 'field_6': ${{ field_6 }}
+    - 'text1': ${{ text1 }}
+    - 'field_8': ${{ field_8 }}
+    - 'field_16': ${{ field_16 }}
+    - 'field_23': ${{ field_23 }}
+    - 'field_24': ${{ field_24 }}
+    - 'field_25': ${{ field_25 }}
+    - 'field_26': ${{ field_26 }}
+    - 'field_27': ${{ field_27 }}
+    - 'field_28': ${{ field_28 }}
+    - 'field_29': ${{ field_29 }}
+    - 'field_30': ${{ field_30 }}
+    - 'field_31': ${{ field_31 }}
+    - 'field_32': ${{ field_32 }}
+    - 'field_33': ${{ field_33 }}
+    - 'field_34': ${{ field_34 }}
+    - 'field_35': ${{ field_35 }}
+    - 'field_36': ${{ field_36 }}
+    - 'field_37': ${{ field_37 }}
+    - 'field_38': ${{ field_38 }}
+    - 'field_39': ${{ field_39 }}
+    - 'field_40': ${{ field_40 }}
+    - 'field_41': ${{ field_41 }}
+    - 'field_42': ${{ field_42 }}
+    - 'field_43': ${{ field_43 }}
+    - 'field_44': ${{ field_44 }}
+    - 'field_45': ${{ field_45 }}
+    - 'field_46': ${{ field_46 }}
+    - 'field_47': ${{ field_47 }}
+    - 'field_48': ${{ field_48 }}
+    - 'field_49': ${{ field_49 }}
+    - 'field_50': ${{ field_50 }}
+    - 'field_51': ${{ field_51 }}
+    - 'field_52': ${{ field_52 }}
+    - 'field_53': ${{ field_53 }}
+    - 'field_54': ${{ field_54 }}
+    - 'field_55': ${{ field_55 }}
+    - 'field_56': ${{ field_56 }}
+    - 'field_57': ${{ field_57 }}
+    - 'field_58': ${{ field_58 }}
+    - 'field_59': ${{ field_59 }}
+    - 'field_60': ${{ field_60 }}
+    - 'field_61': ${{ field_61 }}
+    - 'field_62': ${{ field_62 }}
+    # Additional fields truncated for brevity

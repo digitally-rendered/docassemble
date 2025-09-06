@@ -1,0 +1,1752 @@
+---
+metadata:
+  title: Ontario Family Law Form 13C
+  short_title: Form 13C
+  description: Complete standalone interview for Form 13C
+  form_number: 13C
+  total_fields: 408
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 13c
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+---
+mandatory: True
+code: |
+  # Form 13C Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  field_0
+  courtfileno
+  field_2
+  field_3
+  field_4
+  field_5
+  field_6
+  text1
+  field_8
+  field_16
+  field_23
+  field_24
+  field_25
+  field_26
+  field_27
+  field_28
+  field_29
+  field_30
+  field_31
+  field_32
+  # ... and 388 more fields
+  
+  # Generate Form 13C
+  form_13C_ready
+  final_screen
+---
+question: Field 0
+fields:
+  - field_0:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Field 2
+fields:
+  - field_2: text
+---
+question: Field 3
+fields:
+  - field_3: text
+---
+question: Field 4
+yesno: field_4
+---
+question: Field 5
+yesno: field_5
+---
+question: Field 6
+yesno: field_6
+---
+question: Text1
+fields:
+  - text1: text
+---
+question: Field 8
+fields:
+  - field_8: text
+---
+question: Field 16
+fields:
+  - field_16: text
+---
+question: Field 23
+fields:
+  - field_23: text
+---
+question: Field 24
+fields:
+  - field_24: text
+---
+question: Field 25
+fields:
+  - field_25: text
+---
+question: Field 26
+fields:
+  - field_26: text
+---
+question: Field 27
+fields:
+  - field_27: text
+---
+question: Field 28
+fields:
+  - field_28: text
+---
+question: Field 29
+fields:
+  - field_29: text
+---
+question: Field 30
+fields:
+  - field_30: text
+---
+question: Field 31
+fields:
+  - field_31: text
+---
+question: Field 32
+fields:
+  - field_32: text
+---
+question: Field 33
+fields:
+  - field_33: text
+---
+question: Field 34
+fields:
+  - field_34: text
+---
+question: Field 35
+fields:
+  - field_35: text
+---
+question: Field 36
+fields:
+  - field_36: text
+---
+question: Field 37
+fields:
+  - field_37: text
+---
+question: Field 38
+fields:
+  - field_38: text
+---
+question: Field 39
+fields:
+  - field_39: text
+---
+question: Field 40
+fields:
+  - field_40: text
+---
+question: Field 41
+fields:
+  - field_41: text
+---
+question: Field 42
+fields:
+  - field_42: text
+---
+question: Field 43
+fields:
+  - field_43: text
+---
+question: Field 44
+fields:
+  - field_44: text
+---
+question: Field 45
+fields:
+  - field_45: text
+---
+question: Field 46
+fields:
+  - field_46: text
+---
+question: Field 47
+fields:
+  - field_47: text
+---
+question: Field 48
+fields:
+  - field_48: text
+---
+question: Field 49
+fields:
+  - field_49: text
+---
+question: Field 50
+fields:
+  - field_50: text
+---
+question: Field 51
+fields:
+  - field_51: text
+---
+question: Field 52
+fields:
+  - field_52: text
+---
+question: Field 53
+fields:
+  - field_53: text
+---
+question: Field 54
+fields:
+  - field_54: text
+---
+question: Field 55
+fields:
+  - field_55: text
+---
+question: Field 56
+fields:
+  - field_56: text
+---
+question: Field 57
+fields:
+  - field_57: text
+---
+question: Field 58
+fields:
+  - field_58: text
+---
+question: Field 59
+fields:
+  - field_59: text
+---
+question: Field 60
+fields:
+  - field_60: text
+---
+question: Field 61
+fields:
+  - field_61: text
+---
+question: Field 62
+fields:
+  - field_62: text
+---
+question: Field 63
+fields:
+  - field_63: text
+---
+question: Field 64
+fields:
+  - field_64: text
+---
+question: Field 65
+fields:
+  - field_65: text
+---
+question: Field 66
+fields:
+  - field_66: text
+---
+question: Field 67
+fields:
+  - field_67: text
+---
+question: Field 68
+fields:
+  - field_68: text
+---
+question: Field 69
+fields:
+  - field_69: text
+---
+question: Field 70
+fields:
+  - field_70: text
+---
+question: Field 71
+fields:
+  - field_71: text
+---
+question: Field 72
+fields:
+  - field_72: text
+---
+question: Field 73
+fields:
+  - field_73: text
+---
+question: Field 74
+fields:
+  - field_74: text
+---
+question: Field 75
+fields:
+  - field_75: text
+---
+question: Field 76
+fields:
+  - field_76: text
+---
+question: Field 77
+fields:
+  - field_77: text
+---
+question: Field 78
+fields:
+  - field_78: text
+---
+question: Field 79
+fields:
+  - field_79: text
+---
+question: Field 80
+fields:
+  - field_80: text
+---
+question: Field 81
+fields:
+  - field_81: text
+---
+question: Field 82
+fields:
+  - field_82: text
+---
+question: Field 83
+fields:
+  - field_83: text
+---
+question: Field 84
+fields:
+  - field_84: text
+---
+question: Field 85
+fields:
+  - field_85: text
+---
+question: Field 86
+fields:
+  - field_86: text
+---
+question: Field 87
+fields:
+  - field_87: text
+---
+question: Field 88
+fields:
+  - field_88: text
+---
+question: Field 89
+fields:
+  - field_89: text
+---
+question: Field 90
+fields:
+  - field_90: text
+---
+question: Field 91
+fields:
+  - field_91: text
+---
+question: Field 92
+fields:
+  - field_92: text
+---
+question: Field 93
+fields:
+  - field_93: text
+---
+question: Field 94
+fields:
+  - field_94: text
+---
+question: Field 95
+fields:
+  - field_95: text
+---
+question: Field 96
+fields:
+  - field_96: text
+---
+question: Field 97
+fields:
+  - field_97: text
+---
+question: Field 98
+fields:
+  - field_98: text
+---
+question: Field 99
+fields:
+  - field_99: text
+---
+question: Field 100
+fields:
+  - field_100: text
+---
+question: Field 101
+fields:
+  - field_101: text
+---
+question: Field 102
+fields:
+  - field_102: text
+---
+question: Field 103
+fields:
+  - field_103: text
+---
+question: Field 104
+fields:
+  - field_104: text
+---
+question: Field 105
+fields:
+  - field_105: text
+---
+question: Field 106
+fields:
+  - field_106: text
+---
+question: Field 107
+fields:
+  - field_107: text
+---
+question: Field 108
+fields:
+  - field_108: text
+---
+question: Field 109
+fields:
+  - field_109: text
+---
+question: Field 110
+fields:
+  - field_110: text
+---
+question: Field 111
+fields:
+  - field_111: text
+---
+question: Field 112
+fields:
+  - field_112: text
+---
+question: Field 113
+fields:
+  - field_113: text
+---
+question: Field 114
+fields:
+  - field_114: text
+---
+question: Field 115
+fields:
+  - field_115: text
+---
+question: Field 116
+fields:
+  - field_116: text
+---
+question: Field 117
+fields:
+  - field_117: text
+---
+question: Field 118
+fields:
+  - field_118: text
+---
+question: Field 119
+fields:
+  - field_119: text
+---
+question: Field 120
+fields:
+  - field_120: text
+---
+question: Field 121
+fields:
+  - field_121: text
+---
+question: Field 122
+fields:
+  - field_122: text
+---
+question: Field 123
+fields:
+  - field_123: text
+---
+question: Field 124
+fields:
+  - field_124: text
+---
+question: Field 125
+fields:
+  - field_125: text
+---
+question: Field 126
+fields:
+  - field_126: text
+---
+question: Field 127
+fields:
+  - field_127: text
+---
+question: Field 128
+fields:
+  - field_128: text
+---
+question: Field 129
+fields:
+  - field_129: text
+---
+question: Field 130
+fields:
+  - field_130: text
+---
+question: Field 131
+fields:
+  - field_131: text
+---
+question: Field 132
+fields:
+  - field_132: text
+---
+question: Field 133
+fields:
+  - field_133: text
+---
+question: Field 134
+fields:
+  - field_134: text
+---
+question: Field 135
+fields:
+  - field_135: text
+---
+question: Field 136
+fields:
+  - field_136: text
+---
+question: Field 137
+fields:
+  - field_137: text
+---
+question: Field 138
+fields:
+  - field_138: text
+---
+question: Field 139
+fields:
+  - field_139: text
+---
+question: Field 140
+fields:
+  - field_140: text
+---
+question: Field 141
+fields:
+  - field_141: text
+---
+question: Field 142
+fields:
+  - field_142: text
+---
+question: Field 143
+fields:
+  - field_143: text
+---
+question: Field 144
+fields:
+  - field_144: text
+---
+question: Field 145
+fields:
+  - field_145: text
+---
+question: Field 146
+fields:
+  - field_146: text
+---
+question: Field 147
+fields:
+  - field_147: text
+---
+question: Field 148
+fields:
+  - field_148: text
+---
+question: Field 149
+fields:
+  - field_149: text
+---
+question: Field 150
+fields:
+  - field_150: text
+---
+question: Field 151
+fields:
+  - field_151: text
+---
+question: Field 152
+fields:
+  - field_152: text
+---
+question: Field 153
+fields:
+  - field_153: text
+---
+question: Field 154
+fields:
+  - field_154: text
+---
+question: Field 155
+fields:
+  - field_155: text
+---
+question: Field 156
+fields:
+  - field_156: text
+---
+question: Field 157
+fields:
+  - field_157: text
+---
+question: Field 158
+fields:
+  - field_158: text
+---
+question: Field 159
+fields:
+  - field_159: text
+---
+question: Field 160
+fields:
+  - field_160: text
+---
+question: Field 161
+fields:
+  - field_161: text
+---
+question: Field 162
+fields:
+  - field_162: text
+---
+question: Field 163
+fields:
+  - field_163: text
+---
+question: Field 164
+fields:
+  - field_164: text
+---
+question: Field 165
+fields:
+  - field_165: text
+---
+question: Field 166
+fields:
+  - field_166: text
+---
+question: Field 167
+fields:
+  - field_167: text
+---
+question: Field 168
+fields:
+  - field_168: text
+---
+question: Field 169
+fields:
+  - field_169: text
+---
+question: Field 170
+fields:
+  - field_170: text
+---
+question: Field 171
+fields:
+  - field_171: text
+---
+question: Field 172
+fields:
+  - field_172: text
+---
+question: Field 173
+fields:
+  - field_173: text
+---
+question: Field 174
+fields:
+  - field_174: text
+---
+question: Field 175
+fields:
+  - field_175: text
+---
+question: Field 176
+fields:
+  - field_176: text
+---
+question: Field 177
+fields:
+  - field_177: text
+---
+question: Field 178
+fields:
+  - field_178: text
+---
+question: Field 179
+fields:
+  - field_179: text
+---
+question: Field 180
+fields:
+  - field_180: text
+---
+question: Field 181
+fields:
+  - field_181: text
+---
+question: Field 182
+fields:
+  - field_182: text
+---
+question: Field 183
+fields:
+  - field_183: text
+---
+question: Field 184
+fields:
+  - field_184: text
+---
+question: Field 185
+fields:
+  - field_185: text
+---
+question: Field 186
+fields:
+  - field_186: text
+---
+question: Field 187
+fields:
+  - field_187: text
+---
+question: Field 188
+fields:
+  - field_188: text
+---
+question: Field 189
+fields:
+  - field_189: text
+---
+question: Field 190
+fields:
+  - field_190: text
+---
+question: Field 191
+fields:
+  - field_191: text
+---
+question: Field 192
+fields:
+  - field_192: text
+---
+question: Field 193
+fields:
+  - field_193: text
+---
+question: Field 194
+fields:
+  - field_194: text
+---
+question: Field 195
+fields:
+  - field_195: text
+---
+question: Field 196
+fields:
+  - field_196: text
+---
+question: Field 197
+fields:
+  - field_197: text
+---
+question: Field 198
+fields:
+  - field_198: text
+---
+question: Field 199
+fields:
+  - field_199: text
+---
+question: Field 200
+fields:
+  - field_200: text
+---
+question: Field 201
+fields:
+  - field_201: text
+---
+question: Field 202
+fields:
+  - field_202: text
+---
+question: Field 203
+fields:
+  - field_203: text
+---
+question: Field 204
+fields:
+  - field_204: text
+---
+question: Field 205
+fields:
+  - field_205: text
+---
+question: Field 206
+fields:
+  - field_206: text
+---
+question: Field 207
+fields:
+  - field_207: text
+---
+question: Field 208
+fields:
+  - field_208: text
+---
+question: Field 209
+fields:
+  - field_209: text
+---
+question: Field 210
+fields:
+  - field_210: text
+---
+question: Field 211
+fields:
+  - field_211: text
+---
+question: Field 212
+fields:
+  - field_212: text
+---
+question: Field 213
+fields:
+  - field_213: text
+---
+question: Field 214
+fields:
+  - field_214: text
+---
+question: Field 215
+fields:
+  - field_215: text
+---
+question: Field 216
+fields:
+  - field_216: text
+---
+question: Field 217
+fields:
+  - field_217: text
+---
+question: Field 218
+fields:
+  - field_218: text
+---
+question: Field 219
+fields:
+  - field_219: text
+---
+question: Field 220
+fields:
+  - field_220: text
+---
+question: Field 221
+fields:
+  - field_221: text
+---
+question: Field 222
+fields:
+  - field_222: text
+---
+question: Field 223
+fields:
+  - field_223: text
+---
+question: Field 224
+fields:
+  - field_224: text
+---
+question: Field 225
+fields:
+  - field_225: text
+---
+question: Field 226
+fields:
+  - field_226: text
+---
+question: Field 227
+fields:
+  - field_227: text
+---
+question: Field 228
+fields:
+  - field_228: text
+---
+question: Field 229
+fields:
+  - field_229: text
+---
+question: Field 230
+fields:
+  - field_230: text
+---
+question: Field 231
+fields:
+  - field_231: text
+---
+question: Field 232
+fields:
+  - field_232: text
+---
+question: Field 233
+fields:
+  - field_233: text
+---
+question: Field 234
+fields:
+  - field_234: text
+---
+question: Field 235
+fields:
+  - field_235: text
+---
+question: Field 236
+fields:
+  - field_236: text
+---
+question: Field 237
+fields:
+  - field_237: text
+---
+question: Field 238
+fields:
+  - field_238: text
+---
+question: Field 239
+fields:
+  - field_239: text
+---
+question: Field 240
+fields:
+  - field_240: text
+---
+question: Field 241
+fields:
+  - field_241: text
+---
+question: Field 242
+fields:
+  - field_242: text
+---
+question: Field 243
+fields:
+  - field_243: text
+---
+question: Field 244
+fields:
+  - field_244: text
+---
+question: Field 245
+fields:
+  - field_245: text
+---
+question: Field 246
+fields:
+  - field_246: text
+---
+question: Field 247
+fields:
+  - field_247: text
+---
+question: Field 248
+fields:
+  - field_248: text
+---
+question: Field 249
+fields:
+  - field_249: text
+---
+question: Field 250
+fields:
+  - field_250: text
+---
+question: Field 251
+fields:
+  - field_251: text
+---
+question: Field 252
+fields:
+  - field_252: text
+---
+question: Field 253
+fields:
+  - field_253: text
+---
+question: Field 254
+fields:
+  - field_254: text
+---
+question: Field 255
+fields:
+  - field_255: text
+---
+question: Field 256
+fields:
+  - field_256: text
+---
+question: Field 257
+fields:
+  - field_257: text
+---
+question: Field 258
+fields:
+  - field_258: text
+---
+question: Field 259
+fields:
+  - field_259: text
+---
+question: Field 260
+fields:
+  - field_260: text
+---
+question: Field 261
+fields:
+  - field_261: text
+---
+question: Field 262
+fields:
+  - field_262: text
+---
+question: Field 263
+fields:
+  - field_263: text
+---
+question: Field 264
+fields:
+  - field_264: text
+---
+question: Field 265
+fields:
+  - field_265: text
+---
+question: Field 266
+fields:
+  - field_266: text
+---
+question: Field 267
+fields:
+  - field_267: text
+---
+question: Field 268
+fields:
+  - field_268: text
+---
+question: Field 269
+fields:
+  - field_269: text
+---
+question: Field 270
+fields:
+  - field_270: text
+---
+question: Field 271
+fields:
+  - field_271: text
+---
+question: Field 272
+fields:
+  - field_272: text
+---
+question: Field 273
+fields:
+  - field_273: text
+---
+question: Field 274
+fields:
+  - field_274: text
+---
+question: Field 275
+fields:
+  - field_275: text
+---
+question: Field 276
+fields:
+  - field_276: text
+---
+question: Field 277
+fields:
+  - field_277: text
+---
+question: Field 278
+fields:
+  - field_278: text
+---
+question: Field 279
+fields:
+  - field_279: text
+---
+question: Field 280
+fields:
+  - field_280: text
+---
+question: Field 281
+fields:
+  - field_281: text
+---
+question: Field 282
+fields:
+  - field_282: text
+---
+question: Field 283
+fields:
+  - field_283: text
+---
+question: Field 284
+fields:
+  - field_284: text
+---
+question: Field 285
+fields:
+  - field_285: text
+---
+question: Field 286
+fields:
+  - field_286: text
+---
+question: Field 287
+fields:
+  - field_287: text
+---
+question: Field 288
+fields:
+  - field_288: text
+---
+question: Field 289
+fields:
+  - field_289: text
+---
+question: Field 290
+fields:
+  - field_290: text
+---
+question: Field 291
+fields:
+  - field_291: text
+---
+question: Field 292
+fields:
+  - field_292: text
+---
+question: Field 293
+fields:
+  - field_293: text
+---
+question: Field 294
+fields:
+  - field_294: text
+---
+question: Field 295
+fields:
+  - field_295: text
+---
+question: Field 296
+fields:
+  - field_296: text
+---
+question: Field 297
+fields:
+  - field_297: text
+---
+question: Field 298
+fields:
+  - field_298: text
+---
+question: Field 299
+fields:
+  - field_299: text
+---
+question: Field 300
+fields:
+  - field_300: text
+---
+question: Field 301
+fields:
+  - field_301: text
+---
+question: Field 302
+fields:
+  - field_302: text
+---
+question: Field 303
+fields:
+  - field_303: text
+---
+question: Field 304
+fields:
+  - field_304: text
+---
+question: Field 305
+fields:
+  - field_305: text
+---
+question: Field 306
+fields:
+  - field_306: text
+---
+question: Field 307
+fields:
+  - field_307: text
+---
+question: Field 308
+fields:
+  - field_308: text
+---
+question: Field 309
+fields:
+  - field_309: text
+---
+question: Field 310
+fields:
+  - field_310: text
+---
+question: Field 311
+fields:
+  - field_311: text
+---
+question: Field 312
+fields:
+  - field_312: text
+---
+question: Field 313
+fields:
+  - field_313: text
+---
+question: Field 314
+fields:
+  - field_314: text
+---
+question: Field 315
+fields:
+  - field_315: text
+---
+question: Field 316
+fields:
+  - field_316: text
+---
+question: Field 317
+fields:
+  - field_317: text
+---
+question: Field 318
+fields:
+  - field_318: text
+---
+question: Field 319
+fields:
+  - field_319: text
+---
+question: Field 320
+fields:
+  - field_320: text
+---
+question: Field 321
+fields:
+  - field_321: text
+---
+question: Field 322
+fields:
+  - field_322: text
+---
+question: Field 323
+fields:
+  - field_323: text
+---
+question: Field 324
+fields:
+  - field_324: text
+---
+question: Field 325
+fields:
+  - field_325: text
+---
+question: Field 326
+fields:
+  - field_326: text
+---
+question: Field 327
+fields:
+  - field_327: text
+---
+question: Field 328
+fields:
+  - field_328: text
+---
+question: Field 329
+fields:
+  - field_329: text
+---
+question: Field 330
+fields:
+  - field_330: text
+---
+question: Field 331
+fields:
+  - field_331: text
+---
+question: Field 332
+fields:
+  - field_332: text
+---
+question: Field 333
+fields:
+  - field_333: text
+---
+question: Field 334
+fields:
+  - field_334: text
+---
+question: Field 335
+fields:
+  - field_335: text
+---
+question: Field 336
+fields:
+  - field_336: text
+---
+question: Field 337
+fields:
+  - field_337: text
+---
+question: Field 338
+fields:
+  - field_338: text
+---
+question: Field 339
+fields:
+  - field_339: text
+---
+question: Field 340
+fields:
+  - field_340: text
+---
+question: Field 341
+fields:
+  - field_341: text
+---
+question: Field 342
+fields:
+  - field_342: text
+---
+question: Field 343
+fields:
+  - field_343: text
+---
+question: Field 344
+fields:
+  - field_344: text
+---
+question: Field 345
+fields:
+  - field_345: text
+---
+question: Field 346
+fields:
+  - field_346: text
+---
+question: Field 347
+fields:
+  - field_347: text
+---
+question: Field 348
+fields:
+  - field_348: text
+---
+question: Field 349
+fields:
+  - field_349: text
+---
+question: Field 350
+fields:
+  - field_350: text
+---
+question: Field 351
+fields:
+  - field_351: text
+---
+question: Field 352
+fields:
+  - field_352: text
+---
+question: Field 353
+fields:
+  - field_353: text
+---
+question: Field 354
+fields:
+  - field_354: text
+---
+question: Field 355
+fields:
+  - field_355: text
+---
+question: Field 356
+fields:
+  - field_356: text
+---
+question: Field 357
+fields:
+  - field_357: text
+---
+question: Field 358
+fields:
+  - field_358: text
+---
+question: Field 359
+fields:
+  - field_359: text
+---
+question: Field 360
+fields:
+  - field_360: text
+---
+question: Field 361
+fields:
+  - field_361: text
+---
+question: Field 362
+fields:
+  - field_362: text
+---
+question: Field 363
+fields:
+  - field_363: text
+---
+question: Field 364
+fields:
+  - field_364: text
+---
+question: Field 365
+fields:
+  - field_365: text
+---
+question: Field 366
+fields:
+  - field_366: text
+---
+question: Field 367
+fields:
+  - field_367: text
+---
+question: Field 368
+fields:
+  - field_368: text
+---
+question: Field 369
+fields:
+  - field_369: text
+---
+question: Field 370
+fields:
+  - field_370: text
+---
+question: Field 371
+fields:
+  - field_371: text
+---
+question: Field 372
+fields:
+  - field_372: text
+---
+question: Field 373
+fields:
+  - field_373: text
+---
+question: Field 374
+fields:
+  - field_374: text
+---
+question: Field 375
+fields:
+  - field_375: text
+---
+question: Field 376
+fields:
+  - field_376: text
+---
+question: Field 377
+fields:
+  - field_377: text
+---
+question: Field 378
+fields:
+  - field_378: text
+---
+question: Field 379
+fields:
+  - field_379: text
+---
+question: Field 380
+fields:
+  - field_380: text
+---
+question: Field 381
+fields:
+  - field_381: text
+---
+question: Field 382
+fields:
+  - field_382: text
+---
+question: Field 383
+fields:
+  - field_383: text
+---
+question: Field 384
+fields:
+  - field_384: text
+---
+question: Field 385
+fields:
+  - field_385: text
+---
+question: Field 386
+fields:
+  - field_386: text
+---
+question: Field 387
+fields:
+  - field_387: text
+---
+question: Field 388
+fields:
+  - field_388: text
+---
+question: Field 389
+fields:
+  - field_389: text
+---
+question: Field 390
+fields:
+  - field_390: text
+---
+question: Field 391
+fields:
+  - field_391: text
+---
+question: Field 392
+fields:
+  - field_392: text
+---
+question: Field 393
+fields:
+  - field_393: text
+---
+question: Field 394
+fields:
+  - field_394: text
+---
+question: Field 395
+fields:
+  - field_395: text
+---
+question: Field 396
+fields:
+  - field_396: text
+---
+question: Field 397
+fields:
+  - field_397: text
+---
+question: Field 398
+fields:
+  - field_398: text
+---
+question: Field 399
+fields:
+  - field_399: text
+---
+question: Field 400
+fields:
+  - field_400: text
+---
+question: Field 401
+fields:
+  - field_401: text
+---
+question: Field 402
+fields:
+  - field_402: text
+---
+question: Field 403
+fields:
+  - field_403: text
+---
+question: Field 404
+fields:
+  - field_404: text
+---
+question: Field 405
+fields:
+  - field_405: text
+---
+question: Field 406
+fields:
+  - field_406: text
+---
+question: Field 407
+fields:
+  - field_407: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Email Address
+fields:
+  - email:
+      datatype: email
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: Marriage Date
+fields:
+  - marriage_date:
+      datatype: date
+---
+question: Name Before Marriage
+fields:
+  - name_before_marriage: text
+---
+question: Claim Property
+yesno: claim_property
+---
+question: |
+  Full legal name:
+fields:
+  - full_legal_name: text
+---
+question: |
+  Address:
+fields:
+  - address: text
+---
+question: |
+  Phone & fax:
+fields:
+  - phone__fax: text
+---
+question: |
+  Valuation Date:
+fields:
+  - valuation_date:
+      datatype: date
+---
+question: |
+  Statement Date:
+fields:
+  - statement_date:
+      datatype: date
+---
+question: Review Form 13C Information
+subquestion: Please review all information before generating the form.
+review:
+  field_0:
+    button: **Field 0**
+  courtfileno:
+    button: **Court File No**
+  field_2:
+    button: **Field 2**
+  field_3:
+    button: **Field 3**
+  field_4:
+    button: **Field 4**
+  field_5:
+    button: **Field 5**
+  field_6:
+    button: **Field 6**
+  text1:
+    button: **Text1**
+  field_8:
+    button: **Field 8**
+  field_16:
+    button: **Field 16**
+---
+event: final_screen
+question: Form 13C Complete
+subquestion: |
+  Your Form 13C has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 13C: ${ form_13C_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 13C
+  filename: form_13C
+  variable name: form_13C_document
+  content: |
+    # Ontario Family Law Form 13C
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 13C Specific Information
+    [Form fields would be inserted here]
+---
+code: form_13C_ready = True

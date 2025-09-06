@@ -1,0 +1,217 @@
+metadata:
+  title: Ontario Family Law Form 10
+  short_title: Form 10
+  description: Docassemble interview for Ontario Family Law Form 10
+  authors:
+  - Ontario Family Law System
+  revision_date: '2025-09-05'
+  form_number: '10'
+  field_count: 73
+  generated_from: improved_parsed_data
+  tags:
+  - ontario
+  - family law
+  - form 10
+---
+include:
+- docassemble.base:data/questions/basic-questions.yml
+modules:
+- .ontario_common_fields
+- .ontario_party_objects
+- .ontario_validation_functions
+---
+objects:
+- 'applicant: Individual'
+- 'respondent: Individual'
+- 'court: Organization'
+- 'children: DAList.using(object_type=Individual, there_are_any=False)'
+objects from code:
+- 'applicant.lawyer: Individual if applicant.has_lawyer else None'
+- 'respondent.lawyer: Individual if respondent.has_lawyer else None'
+---
+code: "\n# Ontario-specific validation functions\ndef validate_ontario_postal_code(postal_code):\n\
+  \    if not postal_code:\n        return True\n    postal_clean = re.sub(r'\\s+',\
+  \ '', postal_code.upper())\n    pattern = r'^[A-Z][0-9][A-Z][0-9][A-Z][0-9]$'\n\
+  \    if not re.match(pattern, postal_clean):\n        return False\n    ontario_first_letters\
+  \ = 'KLMNP'\n    return postal_clean[0] in ontario_first_letters\n\ndef validate_ontario_court_file(file_number):\n\
+  \    if not file_number:\n        return True\n    patterns = [\n        r'^(FS|FC|FD|FM|FE)-[0-9]{2}-[0-9]{5,6}$',\n\
+  \        r'^[0-9]{2}-[0-9]{5,6}$',\n        r'^[A-Z]{2}-[0-9]{2}-[0-9]{5,6}$'\n\
+  \    ]\n    file_upper = file_number.upper().strip()\n    return any(re.match(pattern,\
+  \ file_upper) for pattern in patterns)\n\ndef validate_canadian_phone(phone_number):\n\
+  \    if not phone_number:\n        return True\n    digits_only = re.sub(r'\\D',\
+  \ '', phone_number)\n    if len(digits_only) == 10:\n        return True\n    elif\
+  \ len(digits_only) == 11 and digits_only[0] == '1':\n        return True\n    return\
+  \ False\n"
+---
+mandatory: true
+question: Form 10 Interview Complete
+subquestion: '
+
+  Your form has been completed and is ready for download.
+
+
+  **Next Steps:**
+
+  1. Review your information below
+
+  2. Download the completed form
+
+  3. Print and sign the form
+
+  4. File with the court
+
+
+  ${ form_download }
+
+  '
+buttons:
+- Exit: exit
+- Restart: restart
+---
+question: Court Information
+fields:
+- Court File No: courtfileno
+- Court Address: court_address
+- 'I ASK THE COURT FOR THE FOLLOWING:': form10_i_ask_the_court_for_the_following
+---
+question: Party Information
+fields:
+- Street Address: form10_street_address
+- Email Address: form10_email
+  datatype: email
+- Child Name: child_name
+- 'Full legal name:': form10_full_legal_name
+- 'Name:': form10_name
+- 'Address:': form10_address
+- 'TO THE APPLICANT(S):': form10_to_the_applicants
+- 'My name is:': form10_my_name_is
+---
+question: Children Information
+fields:
+- Child Age: child_age
+  datatype: number
+---
+question: Claims and Relief Sought
+fields:
+- Claim Property: form10_claim_property
+  datatype: yesno
+---
+question: Additional Information
+fields:
+- Field 0: form10_field_0
+  datatype: radio
+  choices:
+  - '          '
+  - Ontario Court of Justice
+  - Superior Court of Justice
+  - Superior Court of Justice, Family Court
+- Text6: form10_text6
+- Field 3: form10_field_3
+- Field 4: form10_field_4
+- Field 5: form10_field_5
+- Field 6: form10_field_6
+- Field 7: form10_field_7
+- Field 8: form10_field_8
+- Field 9: form10_field_9
+- Field 10: form10_field_10
+- Field 11: form10_field_11
+- Field 12: form10_field_12
+- Field 13: form10_field_13
+- Field 14: form10_field_14
+- Field 15: form10_field_15
+- Field 16: form10_field_16
+- Field 17: form10_field_17
+- Field 18: form10_field_18
+- Check3: form10_check3
+  datatype: yesno
+- Check4: form10_check4
+  datatype: yesno
+- Check5: form10_check5
+  datatype: yesno
+- Check6: form10_check6
+  datatype: yesno
+- Check9: form10_check9
+  datatype: yesno
+- Field 31: form10_field_31
+- Field 32: form10_field_32
+- Field 33: form10_field_33
+- Check7: form10_check7
+  datatype: yesno
+- Check8: form10_check8
+  datatype: yesno
+- Check10: form10_check10
+  datatype: yesno
+- Check11: form10_check11
+  datatype: yesno
+- Check13: form10_check13
+  datatype: yesno
+- Check12: form10_check12
+  datatype: yesno
+- Check14: form10_check14
+  datatype: yesno
+- Check16: form10_check16
+  datatype: yesno
+- Check15: form10_check15
+  datatype: yesno
+- Check21: form10_check21
+  datatype: yesno
+- Check18: form10_check18
+  datatype: yesno
+- Check19: form10_check19
+  datatype: yesno
+- Check22: form10_check22
+  datatype: yesno
+- Check20: form10_check20
+  datatype: yesno
+- Check23: form10_check23
+  datatype: yesno
+- Check24: form10_check24
+  datatype: yesno
+- Check25: form10_check25
+  datatype: yesno
+- Check26: form10_check26
+  datatype: yesno
+- Check60: form10_check60
+  datatype: yesno
+- Text18: form10_text18
+- Text19: form10_text19
+- Text22: form10_text22
+- Postal Code: form10_postal_code
+- Phone Number: form10_phone
+- Fax: form10_fax
+- Important Facts: form10_important_facts
+  datatype: area
+  rows: 4
+- Other Specify: form10_other_specify
+  datatype: area
+  rows: 4
+- 'Phone & fax:': form10_phone_fax
+- 'COMPLETE A FINANCIAL STATEMENT (Form 13) IF:': form10_complete_a_financial_statement_form_13_if
+- 'COMPLETE A FINANCIAL STATEMENT (Form 13.1) IF:': form10_complete_a_financial_statement_form_131_if
+- 'Form 10:': form10_form_10
+- 'The important facts that form the legal basis for my position in paragraph 2 are as follows:': form10_the_important_facts_that_form_the_legal_basis_for_my_position_in_paragraph_2_are_as_follows
+  datatype: area
+  rows: 4
+---
+review:
+  question: Review Form 10
+  subquestion: Please review your information before submitting.
+  review:
+  - label: Court Information
+    fields:
+    - court.court_type
+    - court.file_number
+  - label: Applicant
+    fields:
+    - applicant.name.full()
+    - applicant.address.block()
+  - label: Respondent
+    fields:
+    - respondent.name.full()
+    - respondent.address.block()
+---
+attachment:
+  name: Form 10
+  filename: form_10_completed
+  variable_name: form_download
+  content: '[Your completed Form 10 content will be generated here]'

@@ -1,0 +1,95 @@
+---
+metadata:
+  title: |
+    Form 13B: Form 13B
+  short title: |
+    Form 13B
+  description: |
+    Form-specific questions for Ontario Family Law Form 13B
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form13B_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 13B specific sections
+  form13B_additional_information_complete
+  form13B_review
+  form13B_complete
+---
+question: |
+  Form 13B - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 13B.
+fields:
+  - 1. $ $: form13B_1_
+    datatype: currency
+  - $ $: form13B__
+    datatype: currency
+  - TOTAL 1 $ $: form13B_total_1_
+    datatype: currency
+  - 1. 1. $ $ $ $: form13B_1_1_
+    datatype: currency
+  - TOTAL 2 TOTAL 2 $ $ $ $: form13B_total_2_total_2_
+    datatype: currency
+  - TOTAL OF PROPERTY ITEMS TOTAL OF PROPERTY ITEMS $ $: form13B_total_of_property_items_total_
+    datatype: currency
+  - TOTAL OF DEBT ITEMS TOTAL OF DEBT ITEMS $ $: form13B_total_of_debt_items_total_of_d
+    datatype: currency
+  - NET TOTAL 3 [3(a) minus 3(b)] NET TOTAL 3 [3(a) minus 3(b)] $ $: form13B_net_total_3_3a_minus_3b_net_to
+    datatype: currency
+  - TOTAL 4 $ $ $: form13B_total_4_
+    datatype: currency
+  - TOTAL 2 (from page 2) $ $ $: form13B_total_2_from_page_2_
+    datatype: currency
+  - TOTAL 3 (from page 2) $ $ $: form13B_total_3_from_page_2_
+    datatype: currency
+  - TOTAL 4 (from page 3) $ $ $: form13B_total_4_from_page_3_
+    datatype: currency
+  - TOTAL 5 ([Total 2] + [Total 3] +[Total 4]) $ $ $: form13B_total_5_total_2_total_3_total_
+    datatype: currency
+  - TOTAL 1 (from page 1) $ $: form13B_total_1_from_page_1_
+    datatype: currency
+  - TOTAL 5 (from above) $ $: form13B_total_5_from_above_
+    datatype: currency
+  - TOTAL 6: form13B_total_6
+    datatype: currency
+continue button field: form13B_additional_information_complete
+---
+event: form13B_review
+question: |
+  Review Form 13B Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form13B_complete
+question: |
+  Form 13B Complete
+subquestion: |
+  Your Form 13B (Form 13B) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 13B specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

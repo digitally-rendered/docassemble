@@ -1,0 +1,55 @@
+{
+  "workflow_completion": "2025-09-05T12:53:46.748586",
+  "execution_time_seconds": 8.044897079467773,
+  "success_rate": 60.0,
+  "results": {
+    "total_steps": 5,
+    "completed_steps": 3,
+    "failed_steps": 2,
+    "forms_processed": 27,
+    "interviews_generated": 29,
+    "tests_generated": 0
+  },
+  "output_directories": {
+    "framework": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/common_interview_framework",
+    "interviews": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/generated_interviews",
+    "tests": "/Users/draw/development/docassemble/docassemble_webapp/docassemble/webapp/data/questions/ontario-family-law/utilities/generated_tests"
+  },
+  "step_details": [
+    {
+      "name": "analyze_common_fields",
+      "description": "Analyze common fields across all forms",
+      "status": "completed",
+      "execution_time": 7.797440052032471,
+      "error_message": ""
+    },
+    {
+      "name": "generate_framework",
+      "description": "Generate common interview framework",
+      "status": "completed",
+      "execution_time": 0.03443503379821777,
+      "error_message": ""
+    },
+    {
+      "name": "convert_forms",
+      "description": "Convert all forms to Docassemble interviews",
+      "status": "completed",
+      "execution_time": 0.17129874229431152,
+      "error_message": ""
+    },
+    {
+      "name": "generate_tests",
+      "description": "Generate comprehensive test suites",
+      "status": "failed",
+      "execution_time": 0.039675235748291016,
+      "error_message": "Expected outputs missing"
+    },
+    {
+      "name": "validate_system",
+      "description": "Run system validation and quality checks",
+      "status": "failed",
+      "execution_time": 0.0,
+      "error_message": "Dependencies not satisfied"
+    }
+  ]
+}

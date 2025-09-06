@@ -1,0 +1,208 @@
+metadata:
+  title: Ontario Family Law Form 28 - Writ of Seizure and Sale
+  short_title: Form 28
+  description: Docassemble interview for Ontario Family Law Form 28
+  authors:
+  - Ontario Family Law System
+  revision_date: '2025-09-05'
+  form_number: '28'
+  form_title: 'Writ of Seizure and Sale'
+  field_count: 19
+  generated_from: improved_parsed_data
+  tags:
+  - ontario
+  - family law
+  - form 28
+---
+include:
+- docassemble.base:data/questions/basic-questions.yml
+modules:
+- .ontario_common_fields
+- .ontario_party_objects
+- .ontario_validation_functions
+- .ontario_enforcement_objects
+---
+objects:
+- 'court: Organization'
+- 'garnishee: Individual'
+- 'payor: Individual'
+- 'recipient: Individual'
+objects from code:
+- 'applicant.lawyer: Individual if applicant.has_lawyer else None'
+- 'respondent.lawyer: Individual if respondent.has_lawyer else None'
+---
+code: |
+  # Ontario-specific validation functions
+  def validate_ontario_postal_code(postal_code):
+      if not postal_code:
+          return True
+      postal_clean = re.sub(r'\s+', '', postal_code.upper())
+      pattern = r'^[A-Z][0-9][A-Z][0-9][A-Z][0-9]$'
+      if not re.match(pattern, postal_clean):
+          return False
+      ontario_first_letters = 'KLMNP'
+      return postal_clean[0] in ontario_first_letters
+  
+  def validate_ontario_court_file(file_number):
+      if not file_number:
+          return True
+      patterns = [
+          r'^(FS|FC|FD|FM|FE)-[0-9]{2}-[0-9]{5,6}$',
+          r'^[0-9]{2}-[0-9]{5,6}$',
+          r'^[A-Z]{2}-[0-9]{2}-[0-9]{5,6}$'
+      ]
+      file_upper = file_number.upper().strip()
+      return any(re.match(pattern, file_upper) for pattern in patterns)
+  
+  def validate_canadian_phone(phone_number):
+      if not phone_number:
+          return True
+      digits_only = re.sub(r'\D', '', phone_number)
+      if len(digits_only) == 10:
+          return True
+      elif len(digits_only) == 11 and digits_only[0] == '1':
+          return True
+      return False
+---
+mandatory: True
+code: |
+  intro_screen
+  court_information
+  enforcement_details
+  payment_information
+  review_answers
+  signature_date
+  final_screen
+---
+question: |
+  Ontario Family Law Form 28: Writ of Seizure and Sale
+subquestion: |
+  This interview will help you with enforcement proceedings.
+  
+  **Important Information:**
+  
+  * Have all required documents ready
+  * Answer all questions truthfully
+  * You can save your progress and return later
+  * This form must be filed with the court
+  
+  **Note:** This is not legal advice. Consider consulting a lawyer for your specific situation.
+  
+continue button field: intro_screen
+---
+question: |
+  General Information
+fields:
+  - 'Name Court': namecourt
+  - 'Text1': text1
+  - 'Address Court': addresscourt
+  - 'Check1': check1
+    datatype: yesno
+  - 'Field 22': field_22
+    datatype: yesno
+  - 'and to realize from that sale the following sums:': and_to_realize_from_that_sale_the_following_sums
+  - 'Name of payor:': name_of_payor
+  - 'Name of recipient(s):': name_of_recipients
+  - 'Full legal name of filing party:': full_legal_name_of_filing_party
+  - 'Filing party’s address for service:': filing_partys_address_for_service
+  - 'Name, address, telephone & fax numbers and e-mail address (if any) of filing party’s lawyer:': name_address_telephone__fax_numbers_and_email_address_if_any_of_filing_partys_lawyer
+  - 'NOTE:    This writ has no automatic expiry date.  It remains in effect:': note_this_writ_has_no_automatic_expiry_date_it_remains_in_effect
+    datatype: date
+continue button field: general_information
+---
+question: |
+  Court Info
+fields:
+  - 'Court Address': court_address
+  - 'Municipality': municipality
+continue button field: court_info
+---
+question: |
+  Party Info
+fields:
+  - 'Street Address': street_address
+  - 'Postal Code': postal_code
+  - 'Phone Number': phone
+  - 'Fax': fax
+continue button field: party_info
+---
+question: |
+  Long Form
+fields:
+  - 'Other Specify': other_specify
+continue button field: long_form
+---
+question: |
+  Signature Information
+fields:
+  - "Today's Date": signature_date
+    datatype: date
+    default: ${ today() }
+  - "Signature Location (City)": signature_city
+    default: Toronto
+  - "I understand that swearing a false affidavit is a criminal offense": oath_understood
+    datatype: yesno
+    required: True
+validation code: |
+  if not oath_understood:
+    validation_error("You must acknowledge understanding the oath")
+continue button field: signature_date
+---
+event: final_screen
+question: |
+  Form 28 Complete
+subquestion: |
+  Your Writ of Seizure and Sale has been completed and is ready for download.
+  
+  **Next Steps:**
+  1. Review your information below
+  2. Download the completed form
+  3. Print and sign the form
+  4. File with the court
+  
+  ${{ form_download }}
+  
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
+event: review_answers
+question: |
+  Review Your Answers
+subquestion: |
+  Please review your information below. Click on any item to make changes.
+review:
+  - Edit: court.name
+    button: |
+      **Court**: ${ court.name }
+  - Edit: note_this_writ_has_no_automatic_expiry_date_it_remains_in_effect
+    button: |
+      **Note This Writ Has No Automatic Expiry Date It Remains In Effect**: ${{ note_this_writ_has_no_automatic_expiry_date_it_remains_in_effect }}
+continue button field: review_complete
+---
+attachment:
+  name: Form 28 - Writ of Seizure and Sale
+  filename: form_28_completed
+  variable name: form_download
+  pdf template file: form_28_template.pdf
+  editable: False
+  fields:
+    - 'namecourt': ${{ namecourt }}
+    - 'text1': ${{ text1 }}
+    - 'addresscourt': ${{ addresscourt }}
+    - 'check1': ${{ check1 }}
+    - 'field_22': ${{ field_22 }}
+    - 'court_address': ${{ court_address }}
+    - 'municipality': ${{ municipality }}
+    - 'street_address': ${{ street_address }}
+    - 'postal_code': ${{ postal_code }}
+    - 'phone': ${{ phone }}
+    - 'fax': ${{ fax }}
+    - 'other_specify': ${{ other_specify }}
+    - 'and_to_realize_from_that_sale_the_following_sums': ${{ and_to_realize_from_that_sale_the_following_sums }}
+    - 'name_of_payor': ${{ name_of_payor }}
+    - 'name_of_recipients': ${{ name_of_recipients }}
+    - 'full_legal_name_of_filing_party': ${{ full_legal_name_of_filing_party }}
+    - 'filing_partys_address_for_service': ${{ filing_partys_address_for_service }}
+    - 'name_address_telephone__fax_numbers_and_email_address_if_any_of_filing_partys_lawyer': ${{ name_address_telephone__fax_numbers_and_email_address_if_any_of_filing_partys_lawyer }}
+    - 'note_this_writ_has_no_automatic_expiry_date_it_remains_in_effect': ${{ note_this_writ_has_no_automatic_expiry_date_it_remains_in_effect }}

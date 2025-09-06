@@ -1,0 +1,824 @@
+---
+metadata:
+  title: Ontario Form 13.1 - Financial Statement (Property Claims)
+  short title: Form 13.1
+  version: '2.0'
+  author: SettleWise Ontario Family Law Generator
+  description: Interview for Ontario Family Law Form 13.1
+  tags:
+  - ontario
+  - family law
+  - form 13.1
+  - financial
+  revision_date: '2025-09-05'
+  enhanced_with_parsed_fields: true
+  parsed_fields_count: 113
+  validated_fields_count: 65
+  enhancement_date: '2025-09-05T13:10:32.092105'
+
+---
+include:
+- ontario-common-validation.yml
+- ontario-common-objects.yml
+- ontario-financial-validation.yml
+
+---
+objects:
+- Thing: case
+- Thing: interview_complete
+- Individual: applicant
+- Individual: applicant_lawyer
+- Individual: respondent
+- Individual: respondent_lawyer
+- DAList: children
+- Thing: case
+- Thing: marriage
+- Thing: separation
+- Thing: case
+- Thing: court
+- DAList: existing_orders
+- DAList: related_cases
+- Thing: financial_statement
+- Thing: income
+- Thing: employment
+- Thing: self_employment
+- Thing: other_income
+- Thing: assets
+- Thing: real_estate
+- Thing: debts
+- Thing: expenses
+
+---
+mandatory: true
+code: '# Interview flow control
+
+  form_number = ''13.1''
+
+  form_title = ''Financial Statement (Property Claims)''
+
+  party_info_complete
+
+  court_info_complete
+
+  financial_statement_complete
+
+  interview_review_complete
+
+  interview_complete = True
+
+  final_screen'
+
+---
+question: Ontario Form 13.1 - Financial Statement (Property Claims)
+subquestion: "\nThis interview will help you complete **Ontario Family Law Form 13.1\
+  \ - Financial Statement (Property Claims)**.\n\nBefore you begin, make sure you\
+  \ have:\n- Information about yourself and the other party\n- Details about any children\
+  \ of the relationship\n- Court file number (if you have one)\n- Financial documents\
+  \ (tax returns, pay stubs, bank statements)\n\n**Important:** This interview helps\
+  \ you complete the form but does not provide legal advice. \nConsider consulting\
+  \ with a lawyer if you have questions about your legal rights or the court process.\n\
+  \n**Privacy:** Your information is secure and will only be used to complete your\
+  \ form.\n"
+continue button field: intro_acknowledged
+help: "\n**Who should use this form:**\nThis form is used in Ontario Superior Court\
+  \ of Justice for family law matters.\n\n**Legal advice:** This tool helps you complete\
+  \ the form but does not provide legal advice. \nIf you need legal advice, contact\
+  \ a lawyer or Legal Aid Ontario.\n\n**Court help:** Many courthouses have family\
+  \ law information centres that can provide guidance.\n"
+comment: Introduction screen
+
+---
+question: What is your full legal name?
+subquestion: Enter your name exactly as it appears on official documents
+fields:
+- First name: applicant.name.first
+- Middle name: applicant.name.middle
+  required: false
+- Last name: applicant.name.last
+validation code: "\nif not applicant.name.first or not applicant.name.last:\n  validation_error(\"\
+  First and last names are required\")\nif len(applicant.name.full()) < 2:\n  validation_error(\"\
+  Please enter a valid name\")\n"
+
+---
+question: What is your address?
+subquestion: Provide your current mailing address
+fields:
+- Street address: applicant.address.address
+- City: applicant.address.city
+- Province: applicant.address.state
+  default: Ontario
+- Postal code: applicant.address.zip
+validation code: "\nif not applicant.address.address or not applicant.address.city:\n\
+  \  validation_error(\"Street address and city are required\")\nif applicant.address.zip\
+  \ and not validate_ontario_postal_code(applicant.address.zip):\n  validation_error(\"\
+  Please enter a valid Ontario postal code\")\n"
+
+---
+question: What are your contact details?
+fields:
+- Phone number: applicant.phone_number
+- Email address: applicant.email
+  datatype: email
+  required: false
+validation code: "\nif applicant.phone_number and not validate_canadian_phone(applicant.phone_number):\n\
+  \  validation_error(\"Please enter a valid Canadian phone number\")\n"
+
+---
+question: What is your date of birth?
+fields:
+- Date of birth: applicant.birthdate
+  datatype: date
+validation code: "\nif applicant.birthdate > today():\n  validation_error(\"Birth\
+  \ date cannot be in the future\")\nif applicant.age_in_years() < 18:\n  validation_error(\"\
+  You must be at least 18 years old to file this application\")\n"
+
+---
+question: Do you have a lawyer?
+yesno: applicant.has_lawyer
+fields:
+- I have a lawyer: applicant.has_lawyer
+  datatype: yesnoradio
+
+---
+question: What are your lawyer's details?
+subquestion: Provide your lawyer's contact information
+show if: applicant.has_lawyer
+fields:
+- Lawyer's first name: applicant.lawyer.name.first
+- Lawyer's last name: applicant.lawyer.name.last
+- Law firm name: applicant.lawyer.firm_name
+  required: false
+- Lawyer's phone: applicant.lawyer.phone_number
+- Lawyer's email: applicant.lawyer.email
+  datatype: email
+  required: false
+
+---
+question: Where do you want to file this application?
+subquestion: "\nSelect the Ontario Superior Court location where you want to file\
+  \ your case. \nYou should generally choose the court in the area where:\n- You or\
+  \ the other party lives, or\n- The events giving rise to the case happened, or \
+  \ \n- An existing case is already filed\n"
+field: case.court_location
+datatype: radio
+choices:
+- toronto: Toronto - 393 University Avenue
+- ottawa: Ottawa - 161 Elgin Street
+- london: London - 80 Dundas Street
+- hamilton: Hamilton - 45 Main Street East
+- windsor: Windsor - 245 Windsor Avenue
+- thunder_bay: Thunder Bay - 125 Brodie Street North
+- kingston: Kingston - 26 Antares Drive
+- kitchener: Kitchener - 85 Frederick Street
+- sudbury: Sudbury - 155 Elm Street
+- barrie: Barrie - 75 Mulcaster Street
+- other: Other Ontario location
+
+---
+question: What type of case are you filing?
+subquestion: Select the main type of order you are asking the court to make
+field: case.case_type
+datatype: radio
+choices:
+- divorce: Divorce
+- separation: Separation (without divorce)
+- custody: Decision-making responsibility and parenting time
+- support: Child or spousal support
+- property: Property division
+- motion_to_change: Change an existing order
+- enforcement: Enforce an existing order
+- other: Other
+
+---
+question: Do you have a court file number?
+subquestion: "\nIf this case has already been filed with the court, enter the court\
+  \ file number.\nIf you are filing a new case, leave this blank - a number will be\
+  \ assigned when you file.\n                \nOntario court file numbers look like:\
+  \ FS-24-12345 or FC-24-67890\n"
+fields:
+- Court file number: case.court_file_number
+  required: false
+validation code: "\nif case.court_file_number and not validate_ontario_court_file(case.court_file_number):\n\
+  \  validation_error(\"Please enter a valid Ontario court file number (e.g., FS-24-12345)\"\
+  )\n"
+
+---
+question: What are your sources of income?
+subquestion: Select all that apply to your situation
+fields:
+- Employment income: has_employment
+  datatype: yesno
+- Self-employment income: has_self_employment
+  datatype: yesno
+- Investment income: has_investment
+  datatype: yesno
+- Rental income: has_rental
+  datatype: yesno
+- Pension income: has_pension
+  datatype: yesno
+- Government benefits: has_government
+  datatype: yesno
+- Other income: has_other_income
+  datatype: yesno
+
+---
+question: Employment Income
+subquestion: Provide details of your employment income from all sources
+fields:
+- Employer name: employment.employer_name
+- Job title: employment.job_title
+- Annual salary/wages (before deductions): employment.annual_gross
+  datatype: currency
+- Annual net income (after deductions): employment.annual_net
+  datatype: currency
+- Pay frequency: employment.pay_frequency
+  datatype: radio
+  choices:
+  - weekly: Weekly
+  - bi_weekly: Bi-weekly (every 2 weeks)
+  - monthly: Monthly
+  - annual: Annual salary
+- Hours per week: employment.hours_per_week
+  datatype: number
+  required: false
+validation code: "\nif employment.annual_gross <= 0:\n  validation_error(\"Please\
+  \ enter a valid gross income amount\")\nif employment.annual_net > employment.annual_gross:\n\
+  \  validation_error(\"Net income cannot be higher than gross income\")\n"
+
+---
+question: Self-Employment Income
+subquestion: If you are self-employed, provide business income details
+show if: has_self_employment
+fields:
+- Business name: self_employment.business_name
+- Type of business: self_employment.business_type
+- Annual gross business income: self_employment.gross_income
+  datatype: currency
+- Annual business expenses: self_employment.expenses
+  datatype: currency
+- Annual net business income: self_employment.net_income
+  datatype: currency
+validation code: "\nif self_employment.net_income != (self_employment.gross_income\
+  \ - self_employment.expenses):\n  validation_error(\"Net income should equal gross\
+  \ income minus expenses\")\n"
+
+---
+question: Other Income Sources
+subquestion: List any other regular income you receive
+fields:
+- Investment income (interest, dividends): other_income.investment
+  datatype: currency
+  required: false
+- Rental income: other_income.rental
+  datatype: currency
+  required: false
+- Pension income: other_income.pension
+  datatype: currency
+  required: false
+- Government benefits (EI, social assistance): other_income.government
+  datatype: currency
+  required: false
+- Support received from others: other_income.support_received
+  datatype: currency
+  required: false
+- Other income (describe): other_income.other
+  datatype: currency
+  required: false
+- Description of other income: other_income.other_description
+  required: false
+
+---
+question: Income Summary
+subquestion: '
+
+  % if has_employment:
+
+  **Employment Income:** ${currency(employment.annual_gross)}
+
+  % endif
+
+  % if has_self_employment:
+
+  **Self-Employment Income:** ${currency(self_employment.net_income)}
+
+  % endif
+
+  % if other_income.investment:
+
+  **Investment Income:** ${currency(other_income.investment)}
+
+  % endif
+
+  % if other_income.rental:
+
+  **Rental Income:** ${currency(other_income.rental)}
+
+  % endif
+
+  % if other_income.pension:
+
+  **Pension Income:** ${currency(other_income.pension)}
+
+  % endif
+
+  % if other_income.government:
+
+  **Government Benefits:** ${currency(other_income.government)}
+
+  % endif
+
+
+  **Total Annual Income:** ${currency(total_annual_income)}
+
+  '
+continue button field: income_summary_reviewed
+code: total_annual_income = calculate_total_income()
+
+---
+question: Bank Accounts and Cash
+subquestion: List all bank accounts, savings accounts, and cash holdings
+fields:
+- Chequing accounts: assets.chequing
+  datatype: currency
+  required: false
+- Savings accounts: assets.savings
+  datatype: currency
+  required: false
+- Term deposits/GICs: assets.term_deposits
+  datatype: currency
+  required: false
+- Cash on hand: assets.cash
+  datatype: currency
+  required: false
+
+---
+question: Investments
+subquestion: List all investment accounts and holdings
+fields:
+- RRSP accounts: assets.rrsp
+  datatype: currency
+  required: false
+- TFSA accounts: assets.tfsa
+  datatype: currency
+  required: false
+- Investment accounts (non-registered): assets.investments
+  datatype: currency
+  required: false
+- Pension plan value: assets.pension
+  datatype: currency
+  required: false
+- Life insurance cash value: assets.life_insurance
+  datatype: currency
+  required: false
+
+---
+question: Real Estate
+subquestion: List all real estate you own or have an interest in
+fields:
+- Matrimonial home - current value: real_estate.home_value
+  datatype: currency
+  required: false
+- Matrimonial home - mortgage balance: real_estate.home_mortgage
+  datatype: currency
+  required: false
+- Other real estate - current value: real_estate.other_value
+  datatype: currency
+  required: false
+- Other real estate - mortgage balance: real_estate.other_mortgage
+  datatype: currency
+  required: false
+
+---
+question: Personal Property
+subquestion: List vehicles, jewelry, and other valuable personal property
+fields:
+- Vehicles (cars, boats, etc.): assets.vehicles
+  datatype: currency
+  required: false
+- Jewelry and precious items: assets.jewelry
+  datatype: currency
+  required: false
+- Household contents: assets.household
+  datatype: currency
+  required: false
+- Collections, art, antiques: assets.collections
+  datatype: currency
+  required: false
+- Business interests: assets.business
+  datatype: currency
+  required: false
+- Other valuable property: assets.other
+  datatype: currency
+  required: false
+
+---
+question: Asset Summary
+subquestion: '
+
+  **Bank Accounts and Cash:** ${currency(total_liquid_assets)}
+
+  **Investments and Retirement:** ${currency(total_investments)}
+
+  **Real Estate:** ${currency(total_real_estate)}
+
+  **Personal Property:** ${currency(total_personal_property)}
+
+
+  **Total Assets:** ${currency(total_assets)}
+
+  '
+continue button field: assets_summary_reviewed
+code: '
+
+  total_liquid_assets = (assets.chequing or 0) + (assets.savings or 0) + (assets.term_deposits
+  or 0) + (assets.cash or 0)
+
+  total_investments = (assets.rrsp or 0) + (assets.tfsa or 0) + (assets.investments
+  or 0) + (assets.pension or 0) + (assets.life_insurance or 0)
+
+  total_real_estate = ((real_estate.home_value or 0) - (real_estate.home_mortgage
+  or 0)) + ((real_estate.other_value or 0) - (real_estate.other_mortgage or 0))
+
+  total_personal_property = (assets.vehicles or 0) + (assets.jewelry or 0) + (assets.household
+  or 0) + (assets.collections or 0) + (assets.business or 0) + (assets.other or 0)
+
+  total_assets = total_liquid_assets + total_investments + total_real_estate + total_personal_property
+
+  '
+
+---
+question: Secured Debts
+subquestion: Debts secured by property (mortgages, car loans, etc.)
+fields:
+- Mortgage on matrimonial home: debts.home_mortgage
+  datatype: currency
+  required: false
+- Other mortgages: debts.other_mortgages
+  datatype: currency
+  required: false
+- Car loans: debts.car_loans
+  datatype: currency
+  required: false
+- Other secured loans: debts.other_secured
+  datatype: currency
+  required: false
+
+---
+question: Unsecured Debts
+subquestion: Credit cards, personal loans, and other unsecured debts
+fields:
+- Credit cards: debts.credit_cards
+  datatype: currency
+  required: false
+- Personal loans: debts.personal_loans
+  datatype: currency
+  required: false
+- Student loans: debts.student_loans
+  datatype: currency
+  required: false
+- Lines of credit: debts.lines_of_credit
+  datatype: currency
+  required: false
+- Money owed to family/friends: debts.family_loans
+  datatype: currency
+  required: false
+- Other debts: debts.other
+  datatype: currency
+  required: false
+
+---
+question: Debt Summary
+subquestion: '
+
+  **Secured Debts:** ${currency(total_secured_debts)}
+
+  **Unsecured Debts:** ${currency(total_unsecured_debts)}
+
+
+  **Total Debts:** ${currency(total_debts)}
+
+
+  **Net Worth (Assets - Debts):** ${currency(net_worth)}
+
+  '
+continue button field: debts_summary_reviewed
+code: '
+
+  total_secured_debts = (debts.home_mortgage or 0) + (debts.other_mortgages or 0)
+  + (debts.car_loans or 0) + (debts.other_secured or 0)
+
+  total_unsecured_debts = (debts.credit_cards or 0) + (debts.personal_loans or 0)
+  + (debts.student_loans or 0) + (debts.lines_of_credit or 0) + (debts.family_loans
+  or 0) + (debts.other or 0)
+
+  total_debts = total_secured_debts + total_unsecured_debts
+
+  net_worth = total_assets - total_debts
+
+  '
+
+---
+question: Housing Expenses
+subquestion: Monthly costs for housing and utilities
+fields:
+- Rent or mortgage payment: expenses.housing_payment
+  datatype: currency
+- Property taxes (monthly): expenses.property_taxes
+  datatype: currency
+  required: false
+- Home insurance (monthly): expenses.home_insurance
+  datatype: currency
+  required: false
+- Utilities (heat, electricity, water): expenses.utilities
+  datatype: currency
+- Phone/internet/cable: expenses.communications
+  datatype: currency
+- Home maintenance and repairs: expenses.maintenance
+  datatype: currency
+  required: false
+
+---
+question: Living Expenses
+subquestion: Monthly costs for food, transportation, and personal needs
+fields:
+- Groceries and household supplies: expenses.groceries
+  datatype: currency
+- Transportation (car payments, gas, insurance, transit): expenses.transportation
+  datatype: currency
+- Health care (medical, dental, prescriptions): expenses.healthcare
+  datatype: currency
+  required: false
+- Personal care (clothing, hair, etc.): expenses.personal_care
+  datatype: currency
+  required: false
+- Entertainment and recreation: expenses.entertainment
+  datatype: currency
+  required: false
+
+---
+question: Children's Expenses
+subquestion: Monthly costs related to children
+show if: children.there_are_any
+fields:
+- Childcare/daycare: expenses.childcare
+  datatype: currency
+  required: false
+- Children's activities and sports: expenses.activities
+  datatype: currency
+  required: false
+- Children's clothing: expenses.children_clothing
+  datatype: currency
+  required: false
+- School supplies and fees: expenses.school
+  datatype: currency
+  required: false
+- Children's medical/dental: expenses.children_medical
+  datatype: currency
+  required: false
+
+---
+question: Other Monthly Expenses
+subquestion: Any other regular monthly expenses
+fields:
+- Life/disability insurance premiums: expenses.insurance
+  datatype: currency
+  required: false
+- Debt payments (credit cards, loans): expenses.debt_payments
+  datatype: currency
+  required: false
+- Support paid to others: expenses.support_paid
+  datatype: currency
+  required: false
+- Professional fees (legal, accounting): expenses.professional
+  datatype: currency
+  required: false
+- Donations and gifts: expenses.donations
+  datatype: currency
+  required: false
+- Other expenses: expenses.other
+  datatype: currency
+  required: false
+
+---
+question: Monthly Expense Summary
+subquestion: '
+
+  **Housing:** ${currency(total_housing_expenses)}
+
+  **Living Expenses:** ${currency(total_living_expenses)}
+
+  % if children.there_are_any:
+
+  **Children''s Expenses:** ${currency(total_children_expenses)}
+
+  % endif
+
+  **Other Expenses:** ${currency(total_other_expenses)}
+
+
+  **Total Monthly Expenses:** ${currency(total_monthly_expenses)}
+
+  **Total Annual Expenses:** ${currency(total_monthly_expenses * 12)}
+
+
+  **Monthly Cash Flow:** ${currency(monthly_income - total_monthly_expenses)}
+
+  '
+continue button field: expenses_summary_reviewed
+code: '
+
+  total_housing_expenses = (expenses.housing_payment or 0) + (expenses.property_taxes
+  or 0) + (expenses.home_insurance or 0) + (expenses.utilities or 0) + (expenses.communications
+  or 0) + (expenses.maintenance or 0)
+
+  total_living_expenses = (expenses.groceries or 0) + (expenses.transportation or
+  0) + (expenses.healthcare or 0) + (expenses.personal_care or 0) + (expenses.entertainment
+  or 0)
+
+  total_children_expenses = (expenses.childcare or 0) + (expenses.activities or 0)
+  + (expenses.children_clothing or 0) + (expenses.school or 0) + (expenses.children_medical
+  or 0) if children.there_are_any else 0
+
+  total_other_expenses = (expenses.insurance or 0) + (expenses.debt_payments or 0)
+  + (expenses.support_paid or 0) + (expenses.professional or 0) + (expenses.donations
+  or 0) + (expenses.other or 0)
+
+  total_monthly_expenses = total_housing_expenses + total_living_expenses + total_children_expenses
+  + total_other_expenses
+
+  monthly_income = total_annual_income / 12
+
+  '
+
+---
+question: Property at Date of Marriage
+subquestion: List the value of property you owned on the date of marriage
+fields:
+- Real estate owned at marriage: property.marriage_real_estate
+  datatype: currency
+  required: false
+- Other assets owned at marriage: property.marriage_other_assets
+  datatype: currency
+  required: false
+- Debts at marriage: property.marriage_debts
+  datatype: currency
+  required: false
+
+---
+question: Property Excluded from NFP
+subquestion: Property that should be excluded from net family property calculation
+fields:
+- Gifts/inheritances from third parties: property.excluded_gifts
+  datatype: currency
+  required: false
+- Insurance proceeds: property.excluded_insurance
+  datatype: currency
+  required: false
+- Other excluded property: property.excluded_other
+  datatype: currency
+  required: false
+- Description of excluded property: property.excluded_description
+  input type: area
+  required: false
+
+---
+question: Review Your Form 13.1
+subquestion: "\nPlease review the information you have provided. You can go back to\
+  \ any section to make changes.\n\n**Important:** Make sure all information is accurate\
+  \ and complete. You may need to sign an affidavit \nconfirming that the information\
+  \ is true.\n\n% if config.get('requires_financial'):\n**Financial Information:**\
+  \ You will likely need to provide supporting documents such as:\n- Recent tax returns\
+  \ or Notice of Assessment  \n- Pay stubs or employment letters\n- Bank statements\n\
+  - Investment statements\n% endif\n\nClick \"Continue\" when you are satisfied with\
+  \ the information.\n"
+continue button field: interview_review_complete
+
+---
+question: Your Form 13.1 is Ready
+subquestion: "\nYour Ontario Family Law Form 13.1 has been completed successfully.\n\
+  \n**Next Steps:**\n1. Download and review your completed form\n2. Make copies for\
+  \ your records  \n3. File the form with the appropriate court\n4. Serve the form\
+  \ on the other party (if required)\n5. Follow up on any court requirements\n\n**Important:**\
+  \ This form must be filed within the time limits set by law and court rules.\nConsider\
+  \ consulting with a lawyer if you need legal advice about your case.\n"
+buttons:
+- Download Form: download_form
+- View Instructions: view_instructions
+- Start New Form: restart
+continue button field: final_screen
+
+---
+code: "# Validation functions for Ontario family law\n\ndef validate_ontario_postal_code(postal_code):\n\
+  \    if not postal_code:\n        return True  # Optional field\n    # Remove spaces\
+  \ and convert to uppercase\n    postal_clean = re.sub(r'\\s+', '', postal_code.upper())\n\
+  \    # Ontario postal codes start with K, L, M, N, P\n    ontario_pattern = r'^[KLMNP][0-9][A-Z][0-9][A-Z][0-9]$'\n\
+  \    return bool(re.match(ontario_pattern, postal_clean))\n\n\n\ndef validate_ontario_court_file(file_number):\n\
+  \    if not file_number:\n        return True  # Optional field\n    # Ontario court\
+  \ file format: FS-XX-XXXXX or FC-XX-XXXXX etc.\n    court_file_pattern = r'^(FS|FC|FD|FM|FE)-[0-9]{2}-[0-9]{5}$'\n\
+  \    return bool(re.match(court_file_pattern, file_number.upper()))\n\n\n\ndef validate_canadian_phone(phone_number):\n\
+  \    if not phone_number:\n        return True  # Optional field\n    # Remove all\
+  \ non-digits\n    digits_only = re.sub(r'\\D', '', phone_number)\n    # Must be\
+  \ 10 digits (area code + number) or 11 digits (1 + area code + number)\n    if len(digits_only)\
+  \ == 10:\n        return True\n    elif len(digits_only) == 11 and digits_only[0]\
+  \ == '1':\n        return True\n    return False\n\n\n\ndef validate_sin_number(sin):\n\
+  \    if not sin:\n        return True  # Optional field\n    # Remove spaces and\
+  \ hyphens\n    sin_clean = re.sub(r'[\\s-]', '', sin)\n    # Must be exactly 9 digits\n\
+  \    if not re.match(r'^[0-9]{9}$', sin_clean):\n        return False\n    # Luhn\
+  \ algorithm check for SIN\n    digits = [int(d) for d in sin_clean]\n    check_sum\
+  \ = 0\n    for i, digit in enumerate(digits[:-1]):\n        if i % 2 == 1:  # Even\
+  \ positions (0-indexed)\n            doubled = digit * 2\n            check_sum\
+  \ += doubled if doubled < 10 else (doubled - 9)\n        else:\n            check_sum\
+  \ += digit\n    return (check_sum % 10) == (10 - digits[-1]) % 10\n\n\ndef calculate_total_income():\n\
+  \    '''Calculate total annual income from all sources'''\n    total = 0\n    \n\
+  \    if has_employment and employment.annual_gross:\n        total += employment.annual_gross\n\
+  \    \n    if has_self_employment and self_employment.net_income:\n        total\
+  \ += self_employment.net_income\n    \n    if other_income.investment:\n       \
+  \ total += other_income.investment\n    \n    if other_income.rental:\n        total\
+  \ += other_income.rental\n        \n    if other_income.pension:\n        total\
+  \ += other_income.pension\n        \n    if other_income.government:\n        total\
+  \ += other_income.government\n        \n    if other_income.other:\n        total\
+  \ += other_income.other\n    \n    return total\n\ndef validate_financial_amounts():\n\
+  \    '''Validate financial statement amounts are reasonable'''\n    errors = []\n\
+  \    \n    # Check for negative amounts where they shouldn't be\n    if hasattr(employment,\
+  \ 'annual_gross') and employment.annual_gross < 0:\n        errors.append(\"Employment\
+  \ income cannot be negative\")\n    \n    # Check that net income is less than gross\
+  \ income\n    if (hasattr(employment, 'annual_gross') and hasattr(employment, 'annual_net')\
+  \ and \n        employment.annual_net > employment.annual_gross):\n        errors.append(\"\
+  Net employment income cannot be higher than gross income\")\n    \n    # Check for\
+  \ unreasonably high amounts\n    total_income = calculate_total_income()\n    if\
+  \ total_income > 10000000:  # $10 million\n        errors.append(\"Please verify\
+  \ the income amounts - they appear unusually high\")\n    \n    # Check that expenses\
+  \ are reasonable compared to income\n    monthly_income = total_income / 12\n  \
+  \  if total_monthly_expenses > monthly_income * 2:\n        errors.append(\"Monthly\
+  \ expenses appear high compared to income - please review\")\n    \n    return errors\n\
+  \ndef estimate_support_capacity():\n    '''Estimate capacity to pay support based\
+  \ on income and expenses'''\n    monthly_income = calculate_total_income() / 12\n\
+  \    available_for_support = monthly_income - total_monthly_expenses\n    \n   \
+  \ return {\n        'monthly_income': monthly_income,\n        'monthly_expenses':\
+  \ total_monthly_expenses,\n        'available_for_support': available_for_support,\n\
+  \        'support_capacity_percentage': (available_for_support / monthly_income\
+  \ * 100) if monthly_income > 0 else 0\n    }\n\n# Validation for income\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for income\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n\
+  # Validation for 2_2_commissions_tips_and_bonuses_commissions_tips_\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for income\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n\
+  # Validation for 4_4_employment_insurance_benefits_employment_insur\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for 5_5_workers_compensation_benefits_workers_compensa\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for income\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for income\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n\
+  # Validation for income\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation\
+  \ for 9_9_spousal_support_received_from_a_former_spouse_\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for child\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n\
+  # Validation for income\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation\
+  \ for income\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for income\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for income\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for cpp_contributions_cpp_contributions_cpp_contributi\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for employee_pension_contributions_employee_pension_co\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for housing_housing_housing_housing_housing_subtotal_s\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for housing_housing_housing_housing_housing_subtotal_s\n\
+  ^\\d{3}-\\d{3}-\\d{3}$\n# Validation for rent_or_mortgage_rent_or_mortgage_rent_or_mortgage\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for expense\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for condominium_fees_condominium_fees_condominium_fees\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for repairs_and_maintenance_repairs_and_maintenance_re\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for phone_number\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for phone_number\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n\
+  # Validation for internet_internet_internet_internet_internet_inter\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for expense\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n\
+  # Validation for expense\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation\
+  \ for groceries_groceries_groceries_groceries_groceries_\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for household_supplies_household_supplies_household_su\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for meals_outside_the_home_meals_outside_the_home_meal\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for child\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for laundry_and_dry_cleaning_laundry_and_dry_cleaning_\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for child\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for expense\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n\
+  # Validation for babysitting_costs_babysitting_costs_babysitting_co\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for expense\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n\
+  # Validation for 6_my_spouse_partner_my_spouse_partner_my_spouse_pa\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for 7_my_spouse_partner_or_other_adult_residing_in_the\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for 15_total_value_of_land_15_total_value_of_land_15_t\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for household_goods_furniture_household_goods_furnitur\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for jewellery_art_electronics_tools_sports_hobby_equip\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for 16_total_value_of_general_household_items_and_vehi\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for 17_total_value_of_accounts_savings_securities_and_\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for 18_total_cash_surrender_value_of_insurance_policie\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for 19_total_value_of_business_interests_19_total_valu\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for 19_total_value_of_business_interests_19_total_valu\n\
+  ^\\d{3}-\\d{3}-\\d{3}$\n# Validation for 20_total_of_money_owed_to_you_20_total_of_money_ow\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for 21_total_value_of_other_property_21_total_value_of\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for 22_value_of_all_property_owned_on_the_valuation_da\n\
+  ^\\d{4}-\\d{2}-\\d{2}$|^\\d{2}/\\d{2}/\\d{4}$\n# Validation for debt\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for asset\n^\\d{4}-\\d{2}-\\d{2}$|^\\d{2}/\\d{2}/\\d{4}$\n\
+  # Validation for 25_value_of_all_deductions_add_items_23_and_24_25_\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for 27_total_value_of_disposed_of_property_27_total_va\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for subtract_value_of_all_deductions_from_item_25_abov\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for subtract_total_value_of_excluded_property_from_ite\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for 28_net_family_property_28_net_family_property_28_n\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for income\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for income\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n\
+  # Validation for 3_3_3_3_3_total_amount_of_dividends_received_from_\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for 5_5_5_5_5_registered_retirement_savings_plan_withd\n\
+  ^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n# Validation for income\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for income\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$\n\
+  # Validation for total_net_annual_amount_total_net_annual_amount_to\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for expense\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\.[0-9]{2})?$"
+comment: Validation functions

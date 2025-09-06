@@ -1,0 +1,17 @@
+[
+  {
+    "field_id": "table_1_row_23",
+    "field_name": "recipient_s_income_required_for_special_expenses_a",
+    "field_type": "currency",
+    "field_label": "recipient\u2019s income [REQUIRED for special expenses (add-ons), split and shared parenting time, payor ",
+    "required": false,
+    "validation_rules": "",
+    "max_length": null,
+    "options": null,
+    "table_name": "Table 2",
+    "table_row": 23,
+    "field_context": "Table 2, Row 24",
+    "page_number": 0,
+    "coordinates": null
+  }
+]

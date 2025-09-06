@@ -1,0 +1,100 @@
+---
+metadata:
+  title: Ontario Family Law Form 13B
+  short_title: Form 13B
+  description: Complete interview for Ontario Family Law Form 13B
+  form_number: 13B
+  generated: 2025-09-05T16:41:13.177231
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 13B
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_dropdown1
+  form_specific_courtfilenumber
+  form_specific_text1
+  case.court_file_number
+  form_specific_court_address
+  form_specific_municipality
+  form_specific_street_address
+  applicant.address.postal_code
+  form_specific_phone
+  form_specific_fax
+  form_specific_marriage_date
+  form_specific_form_13b
+  
+  # Complete the interview
+  form_13B_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - form_specific_dropdown1: text
+---
+question: Courtfilenumber
+fields:
+  - form_specific_courtfilenumber: text
+---
+question: Text1
+fields:
+  - form_specific_text1: text
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Street Address
+fields:
+  - form_specific_street_address: text
+---
+question: Applicant Postal Code
+fields:
+  - applicant.address.postal_code: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Marriage Date
+fields:
+  - form_specific_marriage_date:
+      datatype: date
+---
+question: Form 13B
+fields:
+  - form_specific_form_13b: text
+---
+event: final_screen
+question: Form 13B Complete
+subquestion: Your Ontario Family Law Form 13B has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_13B_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_13B_ready = True

@@ -1,0 +1,739 @@
+---
+metadata:
+  title: Ontario Family Law Form 15C
+  short_title: Form 15C
+  description: Complete standalone interview for Form 15C
+  form_number: 15C
+  total_fields: 153
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 15c
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 15C Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  field_0
+  courtfileno
+  text2
+  field_3
+  field_4
+  field_5
+  field_6
+  field_7
+  field_8
+  field_9
+  field_10
+  field_11
+  field_12
+  field_13
+  field_14
+  field_15
+  field_16
+  field_17
+  field_18
+  field_19
+  # ... and 133 more fields
+  
+  # Generate Form 15C
+  form_15C_ready
+  final_screen
+---
+question: Field 0
+fields:
+  - field_0:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Text2
+fields:
+  - text2: text
+---
+question: Field 3
+fields:
+  - field_3: text
+---
+question: Field 4
+fields:
+  - field_4: text
+---
+question: Field 5
+fields:
+  - field_5: text
+---
+question: Field 6
+fields:
+  - field_6: text
+---
+question: Field 7
+fields:
+  - field_7: text
+---
+question: Field 8
+fields:
+  - field_8: text
+---
+question: Field 9
+fields:
+  - field_9: text
+---
+question: Field 10
+fields:
+  - field_10: text
+---
+question: Field 11
+fields:
+  - field_11: text
+---
+question: Field 12
+fields:
+  - field_12: text
+---
+question: Field 13
+fields:
+  - field_13: text
+---
+question: Field 14
+fields:
+  - field_14: text
+---
+question: Field 15
+fields:
+  - field_15: text
+---
+question: Field 16
+fields:
+  - field_16: text
+---
+question: Field 17
+fields:
+  - field_17: text
+---
+question: Field 18
+fields:
+  - field_18: text
+---
+question: Field 19
+fields:
+  - field_19: text
+---
+question: Field 20
+fields:
+  - field_20: text
+---
+question: Field 21
+fields:
+  - field_21: text
+---
+question: Field 22
+fields:
+  - field_22: text
+---
+question: Field 23
+fields:
+  - field_23: text
+---
+question: Field 24
+fields:
+  - field_24: text
+---
+question: Field 25
+fields:
+  - field_25: text
+---
+question: Field 26
+fields:
+  - field_26: text
+---
+question: Check3
+yesno: check3
+---
+question: Field 30
+yesno: field_30
+---
+question: Field 31
+fields:
+  - field_31: text
+---
+question: Field 33
+fields:
+  - field_33: text
+---
+question: Field 34
+fields:
+  - field_34: text
+---
+question: Field 35
+fields:
+  - field_35: text
+---
+question: Field 36
+fields:
+  - field_36: text
+---
+question: Field 37
+fields:
+  - field_37: text
+---
+question: Field 38
+fields:
+  - field_38: text
+---
+question: Field 39
+fields:
+  - field_39: text
+---
+question: Field 40
+fields:
+  - field_40: text
+---
+question: Field 41
+fields:
+  - field_41: text
+---
+question: Field 42
+fields:
+  - field_42: text
+---
+question: Field 43
+fields:
+  - field_43: text
+---
+question: Field 44
+fields:
+  - field_44: text
+---
+question: Field 45
+fields:
+  - field_45: text
+---
+question: Field 46
+fields:
+  - field_46: text
+---
+question: Field 47
+fields:
+  - field_47: text
+---
+question: Field 48
+fields:
+  - field_48: text
+---
+question: Field 49
+fields:
+  - field_49: text
+---
+question: Field 51
+fields:
+  - field_51: text
+---
+question: Field 52
+fields:
+  - field_52: text
+---
+question: Field 54
+fields:
+  - field_54: text
+---
+question: Field 55
+fields:
+  - field_55: text
+---
+question: Check4
+yesno: check4
+---
+question: Check17
+yesno: check17
+---
+question: Check7
+yesno: check7
+---
+question: Text11
+fields:
+  - text11: text
+---
+question: Text16
+fields:
+  - text16: text
+---
+question: Field 76
+fields:
+  - field_76: text
+---
+question: Field 77
+fields:
+  - field_77: text
+---
+question: Field 78
+fields:
+  - field_78: text
+---
+question: Text12
+fields:
+  - text12: text
+---
+question: Text15
+fields:
+  - text15: text
+---
+question: Text18
+fields:
+  - text18: text
+---
+question: Text21
+fields:
+  - text21: text
+---
+question: Field 83
+fields:
+  - field_83: text
+---
+question: Text13
+fields:
+  - text13: text
+---
+question: Text14
+fields:
+  - text14: text
+---
+question: Text19
+fields:
+  - text19: text
+---
+question: Text22
+fields:
+  - text22: text
+---
+question: Field 88
+fields:
+  - field_88: text
+---
+question: Field 89
+fields:
+  - field_89: text
+---
+question: Field 90
+fields:
+  - field_90: text
+---
+question: Field 91
+fields:
+  - field_91: text
+---
+question: Field 92
+fields:
+  - field_92: text
+---
+question: Field 93
+fields:
+  - field_93: text
+---
+question: Field 94
+fields:
+  - field_94: text
+---
+question: Field 95
+fields:
+  - field_95: text
+---
+question: Field 96
+fields:
+  - field_96: text
+---
+question: Field 97
+fields:
+  - field_97: text
+---
+question: Field 98
+fields:
+  - field_98: text
+---
+question: Field 100
+fields:
+  - field_100: text
+---
+question: Field 102
+fields:
+  - field_102: text
+---
+question: Field 103
+fields:
+  - field_103: text
+---
+question: Field 104
+fields:
+  - field_104: text
+---
+question: Check18
+yesno: check18
+---
+question: Text28
+fields:
+  - text28: text
+---
+question: Field 107
+fields:
+  - field_107: text
+---
+question: Field 108
+fields:
+  - field_108: text
+---
+question: Field 109
+fields:
+  - field_109: text
+---
+question: Field 110
+fields:
+  - field_110: text
+---
+question: Field 111
+fields:
+  - field_111: text
+---
+question: Field 112
+fields:
+  - field_112: text
+---
+question: Field 115
+fields:
+  - field_115: text
+---
+question: Field 116
+fields:
+  - field_116: text
+---
+question: Field 117
+fields:
+  - field_117: text
+---
+question: Field 118
+fields:
+  - field_118: text
+---
+question: Field 119
+fields:
+  - field_119: text
+---
+question: Field 120
+fields:
+  - field_120: text
+---
+question: Field 122
+fields:
+  - field_122: text
+---
+question: Field 123
+fields:
+  - field_123: text
+---
+question: Field 124
+fields:
+  - field_124: text
+---
+question: Field 125
+fields:
+  - field_125: text
+---
+question: Field 127
+fields:
+  - field_127: text
+---
+question: Field 128
+fields:
+  - field_128: text
+---
+question: Text27
+fields:
+  - text27: text
+---
+question: Field 134
+fields:
+  - field_134: text
+---
+question: Field 136
+fields:
+  - field_136: text
+---
+question: Field 144
+fields:
+  - field_144: text
+---
+question: Field 145
+fields:
+  - field_145: text
+---
+question: Field 146
+fields:
+  - field_146: text
+---
+question: Field 147
+fields:
+  - field_147: text
+---
+question: Field 148
+fields:
+  - field_148: text
+---
+question: Field 149
+fields:
+  - field_149: text
+---
+question: Field 150
+fields:
+  - field_150: text
+---
+question: Field 151
+fields:
+  - field_151: text
+---
+question: Field 152
+fields:
+  - field_152: text
+---
+question: Field 153
+fields:
+  - field_153: text
+---
+question: Field 154
+fields:
+  - field_154: text
+---
+question: Field 155
+fields:
+  - field_155: text
+---
+question: Field 156
+fields:
+  - field_156: text
+---
+question: Field 157
+fields:
+  - field_157: text
+---
+question: Field 158
+fields:
+  - field_158: text
+---
+question: Field 159
+fields:
+  - field_159: text
+---
+question: Field 160
+fields:
+  - field_160: text
+---
+question: Field 161
+fields:
+  - field_161: text
+---
+question: Field 162
+fields:
+  - field_162: text
+---
+question: Field 163
+fields:
+  - field_163: text
+---
+question: Field 164
+fields:
+  - field_164: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Email Address
+fields:
+  - email:
+      datatype: email
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: Child Name
+fields:
+  - child_name: text
+---
+question: Child Birthdate
+fields:
+  - child_birthdate:
+      datatype: date
+---
+question: Child Age
+fields:
+  - child_age:
+      datatype: integer
+---
+question: Financial Statement Attached
+yesno: financial_statement_attached
+---
+question: Details
+fields:
+  - details: text
+---
+question: Other Specify
+fields:
+  - other_specify: text
+---
+question: |
+  Full legal name:
+fields:
+  - full_legal_name: text
+---
+question: |
+  Name:
+fields:
+  - name: text
+---
+question: |
+  Address:
+fields:
+  - address: text
+---
+question: |
+  Phone & fax:
+fields:
+  - phone__fax: text
+---
+question: |
+  shall have  decision-making responsibilit y   for  the following child(ren)  as described in the attached  schedule :
+fields:
+  - shall_have_decisionmaking_responsibilit_y_for_the_following_children_as_described_in_the_attached_schedule: text
+---
+question: |
+  Form 15C:
+fields:
+  - form_15c: text
+---
+question: |
+  We agree to an order for child support that is:
+fields:
+  - we_agree_to_an_order_for_child_support_that_is: text
+---
+question: |
+  less than what is in the Child Support Guidelines   for the following reasons:
+fields:
+  - less_than_what_is_in_the_child_support_guidelines_for_the_following_reasons: text
+---
+question: |
+  We agree that child support shall be as follows:
+fields:
+  - we_agree_that_child_support_shall_be_as_follows: text
+---
+question: |
+  following special or extraordinary expenses:
+fields:
+  - following_special_or_extraordinary_expenses: text
+---
+question: |
+  Complete if applicable:
+fields:
+  - complete_if_applicable: text
+---
+question: |
+  We also agree that the outstanding child support owed be paid off as follows:
+fields:
+  - we_also_agree_that_the_outstanding_child_support_owed_be_paid_off_as_follows: text
+---
+question: |
+  We agree that the spousal support payments should be as follows:
+fields:
+  - we_agree_that_the_spousal_support_payments_should_be_as_follows: text
+---
+question: |
+  We agree that the outstanding spousal support owed be paid off as follows:
+fields:
+  - we_agree_that_the_outstanding_spousal_support_owed_be_paid_off_as_follows: text
+---
+question: |
+  My name is:
+fields:
+  - my_name_is: text
+---
+question: Review Form 15C Information
+subquestion: Please review all information before generating the form.
+review:
+  field_0:
+    button: **Field 0**
+  courtfileno:
+    button: **Court File No**
+  text2:
+    button: **Text2**
+  field_3:
+    button: **Field 3**
+  field_4:
+    button: **Field 4**
+  field_5:
+    button: **Field 5**
+  field_6:
+    button: **Field 6**
+  field_7:
+    button: **Field 7**
+  field_8:
+    button: **Field 8**
+  field_9:
+    button: **Field 9**
+---
+event: final_screen
+question: Form 15C Complete
+subquestion: |
+  Your Form 15C has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 15C: ${ form_15C_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 15C
+  filename: form_15C
+  variable name: form_15C_document
+  content: |
+    # Ontario Family Law Form 15C
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 15C Specific Information
+    [Form fields would be inserted here]
+---
+code: form_15C_ready = True

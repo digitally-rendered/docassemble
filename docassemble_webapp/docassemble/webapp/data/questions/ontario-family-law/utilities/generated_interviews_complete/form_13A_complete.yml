@@ -1,0 +1,787 @@
+---
+metadata:
+  title: Ontario Family Law Form 13A
+  short_title: Form 13A
+  description: Complete standalone interview for Form 13A
+  form_number: 13A
+  total_fields: 167
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 13a
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+---
+mandatory: True
+code: |
+  # Form 13A Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  field_0
+  courtfileno
+  text1
+  field_3
+  field_11
+  check1
+  check2
+  field_21
+  field_25
+  field_29
+  field_33
+  field_37
+  field_41
+  field_45
+  field_49
+  field_53
+  field_57
+  field_61
+  field_65
+  field_69
+  # ... and 147 more fields
+  
+  # Generate Form 13A
+  form_13A_ready
+  final_screen
+---
+question: Field 0
+fields:
+  - field_0:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Text1
+fields:
+  - text1: text
+---
+question: Field 3
+fields:
+  - field_3: text
+---
+question: Field 11
+fields:
+  - field_11: text
+---
+question: Check1
+yesno: check1
+---
+question: Check2
+yesno: check2
+---
+question: Field 21
+fields:
+  - field_21: text
+---
+question: Field 25
+fields:
+  - field_25: text
+---
+question: Field 29
+fields:
+  - field_29: text
+---
+question: Field 33
+fields:
+  - field_33: text
+---
+question: Field 37
+fields:
+  - field_37: text
+---
+question: Field 41
+fields:
+  - field_41: text
+---
+question: Field 45
+fields:
+  - field_45: text
+---
+question: Field 49
+fields:
+  - field_49: text
+---
+question: Field 53
+fields:
+  - field_53: text
+---
+question: Field 57
+fields:
+  - field_57: text
+---
+question: Field 61
+fields:
+  - field_61: text
+---
+question: Field 65
+fields:
+  - field_65: text
+---
+question: Field 69
+fields:
+  - field_69: text
+---
+question: Field 73
+fields:
+  - field_73: text
+---
+question: Field 77
+fields:
+  - field_77: text
+---
+question: Field 81
+fields:
+  - field_81: text
+---
+question: Field 85
+fields:
+  - field_85: text
+---
+question: Field 89
+fields:
+  - field_89: text
+---
+question: Field 93
+fields:
+  - field_93: text
+---
+question: Field 97
+fields:
+  - field_97: text
+---
+question: Field 101
+fields:
+  - field_101: text
+---
+question: Field 105
+fields:
+  - field_105: text
+---
+question: Field 109
+fields:
+  - field_109: text
+---
+question: Field 113
+fields:
+  - field_113: text
+---
+question: Field 117
+fields:
+  - field_117: text
+---
+question: Field 121
+fields:
+  - field_121: text
+---
+question: Field 125
+fields:
+  - field_125: text
+---
+question: Field 129
+fields:
+  - field_129: text
+---
+question: Field 133
+fields:
+  - field_133: text
+---
+question: Field 137
+fields:
+  - field_137: text
+---
+question: Field 141
+fields:
+  - field_141: text
+---
+question: Field 145
+fields:
+  - field_145: text
+---
+question: Field 149
+fields:
+  - field_149: text
+---
+question: Field 153
+fields:
+  - field_153: text
+---
+question: Field 157
+fields:
+  - field_157: text
+---
+question: Field 161
+fields:
+  - field_161: text
+---
+question: Field 165
+fields:
+  - field_165: text
+---
+question: Field 169
+fields:
+  - field_169: text
+---
+question: Field 173
+fields:
+  - field_173: text
+---
+question: Field 177
+fields:
+  - field_177: text
+---
+question: Field 181
+fields:
+  - field_181: text
+---
+question: Field 185
+fields:
+  - field_185: text
+---
+question: Field 189
+fields:
+  - field_189: text
+---
+question: Field 193
+fields:
+  - field_193: text
+---
+question: Field 197
+fields:
+  - field_197: text
+---
+question: Field 201
+fields:
+  - field_201: text
+---
+question: Field 205
+fields:
+  - field_205: text
+---
+question: Field 209
+fields:
+  - field_209: text
+---
+question: Field 213
+fields:
+  - field_213: text
+---
+question: Field 217
+fields:
+  - field_217: text
+---
+question: Field 221
+fields:
+  - field_221: text
+---
+question: Field 225
+fields:
+  - field_225: text
+---
+question: Field 229
+fields:
+  - field_229: text
+---
+question: Field 233
+fields:
+  - field_233: text
+---
+question: Field 237
+fields:
+  - field_237: text
+---
+question: Field 241
+fields:
+  - field_241: text
+---
+question: Field 245
+fields:
+  - field_245: text
+---
+question: Field 249
+fields:
+  - field_249: text
+---
+question: Field 253
+fields:
+  - field_253: text
+---
+question: Field 257
+fields:
+  - field_257: text
+---
+question: Field 261
+fields:
+  - field_261: text
+---
+question: Field 265
+fields:
+  - field_265: text
+---
+question: Field 269
+fields:
+  - field_269: text
+---
+question: Field 273
+fields:
+  - field_273: text
+---
+question: Field 277
+fields:
+  - field_277: text
+---
+question: Field 281
+fields:
+  - field_281: text
+---
+question: Field 285
+fields:
+  - field_285: text
+---
+question: Field 289
+fields:
+  - field_289: text
+---
+question: Field 293
+fields:
+  - field_293: text
+---
+question: Field 297
+fields:
+  - field_297: text
+---
+question: Field 301
+fields:
+  - field_301: text
+---
+question: Field 305
+fields:
+  - field_305: text
+---
+question: Field 309
+fields:
+  - field_309: text
+---
+question: Field 313
+fields:
+  - field_313: text
+---
+question: Field 317
+fields:
+  - field_317: text
+---
+question: Field 321
+fields:
+  - field_321: text
+---
+question: Field 325
+fields:
+  - field_325: text
+---
+question: Field 329
+fields:
+  - field_329: text
+---
+question: Field 333
+fields:
+  - field_333: text
+---
+question: Field 337
+fields:
+  - field_337: text
+---
+question: Field 341
+fields:
+  - field_341: text
+---
+question: Field 345
+fields:
+  - field_345: text
+---
+question: Field 349
+fields:
+  - field_349: text
+---
+question: Field 353
+fields:
+  - field_353: text
+---
+question: Field 357
+fields:
+  - field_357: text
+---
+question: Field 361
+fields:
+  - field_361: text
+---
+question: Field 365
+fields:
+  - field_365: text
+---
+question: Field 369
+fields:
+  - field_369: text
+---
+question: Field 373
+fields:
+  - field_373: text
+---
+question: Field 377
+fields:
+  - field_377: text
+---
+question: Field 381
+fields:
+  - field_381: text
+---
+question: Field 385
+fields:
+  - field_385: text
+---
+question: Field 389
+fields:
+  - field_389: text
+---
+question: Field 393
+fields:
+  - field_393: text
+---
+question: Field 397
+fields:
+  - field_397: text
+---
+question: Field 401
+fields:
+  - field_401: text
+---
+question: Field 405
+fields:
+  - field_405: text
+---
+question: Field 409
+fields:
+  - field_409: text
+---
+question: Field 413
+fields:
+  - field_413: text
+---
+question: Field 417
+fields:
+  - field_417: text
+---
+question: Field 421
+fields:
+  - field_421: text
+---
+question: Field 425
+fields:
+  - field_425: text
+---
+question: Field 429
+fields:
+  - field_429: text
+---
+question: Field 433
+fields:
+  - field_433: text
+---
+question: Field 437
+fields:
+  - field_437: text
+---
+question: Field 441
+fields:
+  - field_441: text
+---
+question: Field 445
+fields:
+  - field_445: text
+---
+question: Field 449
+fields:
+  - field_449: text
+---
+question: Field 453
+fields:
+  - field_453: text
+---
+question: Field 457
+fields:
+  - field_457: text
+---
+question: Field 461
+fields:
+  - field_461: text
+---
+question: Field 465
+fields:
+  - field_465: text
+---
+question: Field 469
+fields:
+  - field_469: text
+---
+question: Field 473
+fields:
+  - field_473: text
+---
+question: Field 477
+fields:
+  - field_477: text
+---
+question: Field 481
+fields:
+  - field_481: text
+---
+question: Field 485
+fields:
+  - field_485: text
+---
+question: Field 489
+fields:
+  - field_489: text
+---
+question: Field 493
+fields:
+  - field_493: text
+---
+question: Field 497
+fields:
+  - field_497: text
+---
+question: Field 501
+fields:
+  - field_501: text
+---
+question: Field 505
+fields:
+  - field_505: text
+---
+question: Field 509
+fields:
+  - field_509: text
+---
+question: Field 513
+fields:
+  - field_513: text
+---
+question: Field 517
+fields:
+  - field_517: text
+---
+question: Field 521
+fields:
+  - field_521: text
+---
+question: Field 525
+fields:
+  - field_525: text
+---
+question: Field 529
+fields:
+  - field_529: text
+---
+question: Field 533
+fields:
+  - field_533: text
+---
+question: Field 537
+fields:
+  - field_537: text
+---
+question: Field 541
+fields:
+  - field_541: text
+---
+question: Field 545
+fields:
+  - field_545: text
+---
+question: Field 549
+fields:
+  - field_549: text
+---
+question: Field 553
+fields:
+  - field_553: text
+---
+question: Field 557
+fields:
+  - field_557: text
+---
+question: Field 561
+fields:
+  - field_561: text
+---
+question: Field 565
+fields:
+  - field_565: text
+---
+question: Field 569
+fields:
+  - field_569: text
+---
+question: Field 573
+fields:
+  - field_573: text
+---
+question: Field 577
+fields:
+  - field_577: text
+---
+question: Field 581
+fields:
+  - field_581: text
+---
+question: Field 585
+fields:
+  - field_585: text
+---
+question: Field 589
+fields:
+  - field_589: text
+---
+question: Field 593
+fields:
+  - field_593: text
+---
+question: Field 597
+fields:
+  - field_597: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Email Address
+fields:
+  - email:
+      datatype: email
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: Name Before Marriage
+fields:
+  - name_before_marriage: text
+---
+question: Claim Property
+yesno: claim_property
+---
+question: Financial Statement Attached
+yesno: financial_statement_attached
+---
+question: |
+  Full legal name:
+fields:
+  - full_legal_name: text
+---
+question: |
+  Address:
+fields:
+  - address: text
+---
+question: |
+  Phone & fax:
+fields:
+  - phone__fax: text
+---
+question: |
+  This form is filed by:
+fields:
+  - this_form_is_filed_by: text
+---
+question: |
+  if your case includes support with or without special expenses but does not include a claim under Part I of the Family Law Act (Family Property), you must:
+fields:
+  - if_your_case_includes_support_with_or_without_special_expenses_but_does_not_include_a_claim_under_part_i_of_the_family_law_act_family_property_you_must: text
+---
+question: |
+  if your case includes a claim under Part I of the  Family Law Act  (Family Property) with or without a claim for support, you must:
+fields:
+  - if_your_case_includes_a_claim_under_part_i_of_the_family_law_act_family_property_with_or_without_a_claim_for_support_you_must: text
+---
+question: |
+  Form 13A :
+fields:
+  - form_13a: text
+---
+question: Review Form 13A Information
+subquestion: Please review all information before generating the form.
+review:
+  field_0:
+    button: **Field 0**
+  courtfileno:
+    button: **Court File No**
+  text1:
+    button: **Text1**
+  field_3:
+    button: **Field 3**
+  field_11:
+    button: **Field 11**
+  check1:
+    button: **Check1**
+  check2:
+    button: **Check2**
+  field_21:
+    button: **Field 21**
+  field_25:
+    button: **Field 25**
+  field_29:
+    button: **Field 29**
+---
+event: final_screen
+question: Form 13A Complete
+subquestion: |
+  Your Form 13A has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 13A: ${ form_13A_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 13A
+  filename: form_13A
+  variable name: form_13A_document
+  content: |
+    # Ontario Family Law Form 13A
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 13A Specific Information
+    [Form fields would be inserted here]
+---
+code: form_13A_ready = True

@@ -1,0 +1,330 @@
+---
+metadata:
+  title: Ontario Family Law Form 14B
+  short_title: Form 14B
+  description: Complete interview for Form 14B
+  form_number: 14B
+  total_fields: 36
+  generated: 2025-09-05 14:41
+  tags:
+    - ontario
+    - family law
+    - form 14b
+---
+include:
+  - common-intake-enhanced-with-validation.yml
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+---
+mandatory: True
+code: |
+  # Form 14B Interview Flow
+  # Common intake fields are inherited
+  
+  # Form-specific fields
+  # Form Field
+  dropdown1
+  courtfileno
+  text1
+  check2
+  text3
+  # court_info
+  court_address
+  # party_info
+  phone
+  fax
+  # long_form
+  other_specify
+  # Table 1, Row 6
+  i_am
+  # Table 1, Row 8
+  names_of_parties
+  # Table 1, Row 9
+  applicant
+  respondent
+  # Table 1, Row 10
+  next_scheduled_court_date_if_any
+  # Table 1, Row 11
+  name_of_case_management_judge_if_any
+  # Table 1, Row 13
+  this_form_is_filed_by
+  # Table 1, Row 15
+  this_motion_is_made
+  # Table 1, Row 16
+  without_notice_to
+  # Table 1, Row 21
+  procedural_uncomplicated_or_unopposed_order_that_you_want_the_court_to_make
+  # Table 2, Row 1
+  form_14b
+  # Table 2, Row 4
+  why_the_court_should_make_this_order
+  
+  # Generate Form 14B
+  form_14B_ready
+  final_screen
+---
+question: |
+  Dropdown1
+fields:
+  - dropdown1: dropdown
+    choices:
+      -           
+      - Ontario Court of Justice
+      - Superior Court of Justice
+      - Superior Court of Justice Family Court Branch
+---
+question: |
+  Court File No
+fields:
+  - courtfileno: text
+---
+question: |
+  Text1
+fields:
+  - text1: text
+---
+question: |
+  Check2
+yesno: check2
+---
+question: |
+  Text3
+fields:
+  - text3: text
+---
+question: |
+  Text4
+fields:
+  - text4: text
+---
+question: |
+  Text5
+fields:
+  - text5: text
+---
+question: |
+  Text6
+fields:
+  - text6: text
+---
+question: |
+  Check1
+yesno: check1
+---
+question: |
+  Check3
+yesno: check3
+---
+question: |
+  Text7
+fields:
+  - text7: text
+---
+question: |
+  Check4
+yesno: check4
+---
+question: |
+  Check6
+yesno: check6
+---
+question: |
+  Check7
+yesno: check7
+---
+question: |
+  Text8
+fields:
+  - text8: text
+---
+question: |
+  Field 19
+fields:
+  - field_19: text
+---
+question: |
+  Field 20
+fields:
+  - field_20: text
+---
+question: |
+  Field 21
+fields:
+  - field_21: text
+---
+question: |
+  Text14
+fields:
+  - text14: text
+---
+question: |
+  Court Address
+fields:
+  - court_address: text
+---
+question: |
+  Phone Number
+fields:
+  - phone: text
+---
+question: |
+  Fax
+fields:
+  - fax: text
+---
+question: |
+  Other Specify
+fields:
+  - other_specify: area
+    rows: 4
+---
+question: |
+  I am:
+fields:
+  - i_am: text
+---
+question: |
+  Names of parties :
+fields:
+  - names_of_parties: text
+---
+question: |
+  Applicant:
+fields:
+  - applicant: text
+---
+question: |
+  Respondent:
+fields:
+  - respondent: text
+---
+question: |
+  Next scheduled court date   (if any) :
+fields:
+  - next_scheduled_court_date_if_any: date
+    help: None
+---
+question: |
+  Name of case management judge   (if any) :
+fields:
+  - name_of_case_management_judge_if_any: text
+---
+question: |
+  This form is filed by:
+fields:
+  - this_form_is_filed_by: text
+---
+question: |
+  This motion is made:
+fields:
+  - this_motion_is_made: text
+---
+question: |
+  without notice to:           
+fields:
+  - without_notice_to: text
+---
+question: |
+  Procedural, uncomplicated or unopposed order that you want the court to make:
+fields:
+  - procedural_uncomplicated_or_unopposed_order_that_you_want_the_court_to_make: text
+---
+question: |
+  Form 14B:
+fields:
+  - form_14b: text
+---
+question: |
+  Why the court should make this order:  
+fields:
+  - why_the_court_should_make_this_order: text
+---
+question: |
+  Review Form 14B Information
+subquestion: |
+  Please review all information before generating the form.
+review:
+  - dropdown1:
+      button: |
+        **Form Field**
+  - court_file_number:
+      button: |
+        **court_info**
+  - phone:
+      button: |
+        **party_info**
+  - other_specify:
+      button: |
+        **long_form**
+  - i_am:
+      button: |
+        **Table 1, Row 6**
+  - names_of_parties:
+      button: |
+        **Table 1, Row 8**
+  - applicant:
+      button: |
+        **Table 1, Row 9**
+  - next_scheduled_court_date_if_any:
+      button: |
+        **Table 1, Row 10**
+  - name_of_case_management_judge_if_any:
+      button: |
+        **Table 1, Row 11**
+  - this_form_is_filed_by:
+      button: |
+        **Table 1, Row 13**
+  - this_motion_is_made:
+      button: |
+        **Table 1, Row 15**
+  - without_notice_to:
+      button: |
+        **Table 1, Row 16**
+  - procedural_uncomplicated_or_unopposed_order_that_you_want_the_court_to_make:
+      button: |
+        **Table 1, Row 21**
+  - form_14b:
+      button: |
+        **Table 2, Row 1**
+  - why_the_court_should_make_this_order:
+      button: |
+        **Table 2, Row 4**
+---
+event: final_screen
+question: |
+  Form 14B Complete
+subquestion: |
+  Your Form 14B has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 14B: ${ form_14B_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 14B
+  filename: form_14B
+  variable name: form_14B_document
+  content: |
+    # Ontario Family Law Form 14B
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 14B Specific Information
+    [Form fields would be inserted here]
+---
+code: |
+  form_14B_ready = True

@@ -1,0 +1,340 @@
+{
+  "document_path": "test_download/core_applications/form_8_-_application_general_flr-8-jun25-en.docx",
+  "form_type": "form_8",
+  "parsers_used": [
+    "intelligent_field_name",
+    "docx_longform",
+    "field_label_enhancer"
+  ],
+  "total_fields": 16,
+  "fields": [
+    {
+      "field_id": "form8_t0_r18_c0",
+      "field_name": "form8_other_a_court_case_has_been_started_against_yo",
+      "field_label": "A COURT CASE HAS BEEN STARTED AGAINST YOU IN THIS COURT.",
+      "field_type": "longtext",
+      "value": null,
+      "confidence": 0.8,
+      "source_parser": "docx_longform",
+      "alternatives": [],
+      "metadata": {
+        "instructions": "",
+        "min_lines": 5,
+        "category": "other"
+      },
+      "validation_status": "unvalidated"
+    },
+    {
+      "field_id": "form8_t1_r4_c1",
+      "field_name": "form8_support_this_case_includes_a_claim_for_support",
+      "field_label": "This case includes a claim for support.",
+      "field_type": "longtext",
+      "value": null,
+      "confidence": 0.8,
+      "source_parser": "docx_longform",
+      "alternatives": [],
+      "metadata": {
+        "instructions": "Form 13 \u2013 a blank copy attached",
+        "min_lines": 3,
+        "category": "support"
+      },
+      "validation_status": "unvalidated"
+    },
+    {
+      "field_id": "form8_t1_r5_c1",
+      "field_name": "form8_property_this_case_includes_a_claim_for_property_",
+      "field_label": "This case includes a claim for property or exclusive possession of the matrimonial home and its contents.",
+      "field_type": "longtext",
+      "value": null,
+      "confidence": 0.8,
+      "source_parser": "docx_longform",
+      "alternatives": [],
+      "metadata": {
+        "instructions": "Form 13.1 \u2013 a blank copy attached",
+        "min_lines": 3,
+        "category": "property"
+      },
+      "validation_status": "unvalidated"
+    },
+    {
+      "field_id": "form8_t1_r7_c2",
+      "field_name": "form8_support_if_you_want_to_make_a_claim_for_support_",
+      "field_label": "If you want to make a claim for support but do not want to make a claim for property or exclusive possession of the matrimonial home and its contents, you MUST fill out a Financial Statement (Form 13)",
+      "field_type": "longtext",
+      "value": null,
+      "confidence": 0.65,
+      "source_parser": "docx_longform",
+      "alternatives": [
+        {
+          "field_name": "form8_support_if_you_want_to_make_a_claim_for_property",
+          "field_label": "If you want to make a claim for property or exclusive possession of the matrimonial home and its contents, whether or not it includes a claim for support, you MUST fill out a Financial Statement (Form",
+          "value": null,
+          "confidence": 0.8,
+          "source": "docx_longform"
+        }
+      ],
+      "metadata": {
+        "instructions": "Form 13",
+        "min_lines": 3,
+        "category": "support"
+      },
+      "validation_status": "unvalidated"
+    },
+    {
+      "field_id": "form8_t1_r8_c2",
+      "field_name": "form8_children_however_if_your_only_claim_for_support_i",
+      "field_label": "However, if your only claim for support is for child support in the table amount specified under the Child Support Guidelines, you do not need to fill out, serve or file a Financial Statement.",
+      "field_type": "longtext",
+      "value": null,
+      "confidence": 0.8,
+      "source_parser": "docx_longform",
+      "alternatives": [],
+      "metadata": {
+        "instructions": "",
+        "min_lines": 3,
+        "category": "children"
+      },
+      "validation_status": "unvalidated"
+    },
+    {
+      "field_id": "form8_t2_r27_c0",
+      "field_name": "form8_children_list_all_children_involved_in_this_case_",
+      "field_label": "List all children involved in this case, even if no claim is made for these children.",
+      "field_type": "longtext",
+      "value": null,
+      "confidence": 0.8,
+      "source_parser": "docx_longform",
+      "alternatives": [],
+      "metadata": {
+        "instructions": "",
+        "min_lines": 10,
+        "category": "children"
+      },
+      "validation_status": "unvalidated"
+    },
+    {
+      "field_id": "form8_t3_r6_c2",
+      "field_name": "form8_children_if_yes_are_you_asking_the_court_to_make_",
+      "field_label": "If yes, are you asking the court to make an order for child support that is different from the amount set out in the Notice?",
+      "field_type": "longtext",
+      "value": null,
+      "confidence": 0.8,
+      "source_parser": "docx_longform",
+      "alternatives": [],
+      "metadata": {
+        "instructions": "",
+        "min_lines": 5,
+        "category": "children"
+      },
+      "validation_status": "unvalidated"
+    },
+    {
+      "field_id": "form8_t3_r14_c0",
+      "field_name": "form8_other_claims_below_include_claims_for_temporar",
+      "field_label": "(Claims below include claims for temporary orders.)",
+      "field_type": "longtext",
+      "value": null,
+      "confidence": 0.8,
+      "source_parser": "docx_longform",
+      "alternatives": [],
+      "metadata": {
+        "instructions": "Claims below include claims for temporary orders.",
+        "min_lines": 3,
+        "category": "other"
+      },
+      "validation_status": "unvalidated"
+    },
+    {
+      "field_id": "form8_t3_r15_c20",
+      "field_name": "form8_property_claims_relating_to_property_check_boxes_",
+      "field_label": "Claims relating to property (Check boxes in this column only if your case is in the Superior Court of Justice or Family Court of the Superior Court of Justice.)",
+      "field_type": "longtext",
+      "value": null,
+      "confidence": 0.8,
+      "source_parser": "docx_longform",
+      "alternatives": [],
+      "metadata": {
+        "instructions": "Check boxes in this column only if your case is in the Superior Court of Justice or Family Court of the Superior Court of Justice.",
+        "min_lines": 3,
+        "category": "property"
+      },
+      "validation_status": "unvalidated"
+    },
+    {
+      "field_id": "form8_t4_r7_c3",
+      "field_name": "form8_other_claims_relating_to_a_family_arbitration",
+      "field_label": "claims relating to a family arbitration",
+      "field_type": "longtext",
+      "value": null,
+      "confidence": 0.8,
+      "source_parser": "docx_longform",
+      "alternatives": [],
+      "metadata": {
+        "instructions": "",
+        "min_lines": 3,
+        "category": "other"
+      },
+      "validation_status": "unvalidated"
+    },
+    {
+      "field_id": "form8_t4_r8_c0",
+      "field_name": "form8_children_give_details_of_the_order_that_you_want_",
+      "field_label": "Give details of the order that you want the court to make.",
+      "field_type": "longtext",
+      "value": null,
+      "confidence": 0.8,
+      "source_parser": "docx_longform",
+      "alternatives": [],
+      "metadata": {
+        "instructions": "Include any amounts of support (if known",
+        "min_lines": 5,
+        "category": "children"
+      },
+      "validation_status": "unvalidated"
+    },
+    {
+      "field_id": "form8_t4_r11_c0",
+      "field_name": "form8_divorce_important_facts_supporting_my_claim_for_",
+      "field_label": "IMPORTANT FACTS SUPPORTING MY CLAIM FOR DIVORCE",
+      "field_type": "longtext",
+      "value": null,
+      "confidence": 0.8,
+      "source_parser": "docx_longform",
+      "alternatives": [],
+      "metadata": {
+        "instructions": "",
+        "min_lines": 8,
+        "category": "divorce"
+      },
+      "validation_status": "unvalidated"
+    },
+    {
+      "field_id": "form8_t4_r16_c5",
+      "field_name": "form8_divorce_the_respondent_has_committed_adultery",
+      "field_label": "The respondent has committed adultery.",
+      "field_type": "longtext",
+      "value": null,
+      "confidence": 0.8,
+      "source_parser": "docx_longform",
+      "alternatives": [],
+      "metadata": {
+        "instructions": "Give details. It is not necessary to name any other person involved but, if you do name the other person, then you must serve this application on the other person.",
+        "min_lines": 5,
+        "category": "divorce"
+      },
+      "validation_status": "unvalidated"
+    },
+    {
+      "field_id": "form8_t4_r18_c5",
+      "field_name": "form8_divorce_the_respondent_has_treated_the_applicant",
+      "field_label": "The respondent has treated the applicant with physical or mental cruelty of such a kind as to make continued cohabitation intolerable.",
+      "field_type": "longtext",
+      "value": null,
+      "confidence": 0.8,
+      "source_parser": "docx_longform",
+      "alternatives": [],
+      "metadata": {
+        "instructions": "Give details.",
+        "min_lines": 5,
+        "category": "divorce"
+      },
+      "validation_status": "unvalidated"
+    },
+    {
+      "field_id": "form8_t4_r20_c0",
+      "field_name": "form8_support_important_facts_supporting_my_other_clai",
+      "field_label": "IMPORTANT FACTS SUPPORTING MY OTHER CLAIM(S)",
+      "field_type": "longtext",
+      "value": null,
+      "confidence": 0.8,
+      "source_parser": "docx_longform",
+      "alternatives": [],
+      "metadata": {
+        "instructions": "S",
+        "min_lines": 8,
+        "category": "support"
+      },
+      "validation_status": "unvalidated"
+    },
+    {
+      "field_id": "form8_t4_r21_c0",
+      "field_name": "form8_other_set_out_below_the_facts_that_form_the_le",
+      "field_label": "(Set out below the facts that form the legal basis for your other claim(s). Attach an additional page if you need more space.)",
+      "field_type": "longtext",
+      "value": null,
+      "confidence": 0.8,
+      "source_parser": "docx_longform",
+      "alternatives": [],
+      "metadata": {
+        "instructions": "Set out below the facts that form the legal basis for your other claim(s",
+        "min_lines": 8,
+        "category": "other"
+      },
+      "validation_status": "unvalidated"
+    }
+  ],
+  "parser_details": {
+    "intelligent_field_name": {
+      "field_count": 0,
+      "sample_fields": []
+    },
+    "docx_longform": {
+      "field_count": 17,
+      "sample_fields": [
+        {
+          "field_id": "form8_t0_r18_c0",
+          "field_name": "form8_other_a_court_case_has_been_started_against_yo",
+          "field_label": "A COURT CASE HAS BEEN STARTED AGAINST YOU IN THIS COURT.",
+          "field_type": "longtext",
+          "value": null,
+          "confidence": 0.8,
+          "source_parser": "docx_longform",
+          "alternatives": [],
+          "metadata": {
+            "instructions": "",
+            "min_lines": 5,
+            "category": "other"
+          },
+          "validation_status": "unvalidated"
+        },
+        {
+          "field_id": "form8_t1_r4_c1",
+          "field_name": "form8_support_this_case_includes_a_claim_for_support",
+          "field_label": "This case includes a claim for support.",
+          "field_type": "longtext",
+          "value": null,
+          "confidence": 0.8,
+          "source_parser": "docx_longform",
+          "alternatives": [],
+          "metadata": {
+            "instructions": "Form 13 \u2013 a blank copy attached",
+            "min_lines": 3,
+            "category": "support"
+          },
+          "validation_status": "unvalidated"
+        },
+        {
+          "field_id": "form8_t1_r5_c1",
+          "field_name": "form8_property_this_case_includes_a_claim_for_property_",
+          "field_label": "This case includes a claim for property or exclusive possession of the matrimonial home and its contents.",
+          "field_type": "longtext",
+          "value": null,
+          "confidence": 0.8,
+          "source_parser": "docx_longform",
+          "alternatives": [],
+          "metadata": {
+            "instructions": "Form 13.1 \u2013 a blank copy attached",
+            "min_lines": 3,
+            "category": "property"
+          },
+          "validation_status": "unvalidated"
+        }
+      ]
+    },
+    "field_label_enhancer": {
+      "field_count": 0,
+      "sample_fields": []
+    }
+  },
+  "reconciliation_applied": true
+}

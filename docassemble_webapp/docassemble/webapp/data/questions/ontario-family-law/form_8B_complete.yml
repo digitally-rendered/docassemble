@@ -1,0 +1,704 @@
+---
+metadata:
+  title: Ontario Family Law Form 8B
+  short_title: Form 8B
+  description: Complete interview for Form 8B
+  form_number: 8B
+  total_fields: 109
+  generated: 2025-09-05 14:41
+  tags:
+    - ontario
+    - family law
+    - form 8b
+---
+include:
+  - common-intake-enhanced-with-validation.yml
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+  - applicant_lawyer: Individual
+  - respondent_lawyer: Individual
+---
+mandatory: True
+code: |
+  # Form 8B Interview Flow
+  # Common intake fields are inherited
+  
+  # Form-specific fields
+  # Form Field
+  field_0
+  courtfileno
+  field_2
+  field_3
+  field_4
+  # court_info
+  court_address
+  municipality
+  # party_info
+  street_address
+  postal_code
+  phone
+  fax
+  # lawyer_info
+  lawyer_name
+  # children
+  child_name
+  child_birthdate
+  child_age
+  child_grade
+  child_residing_with
+  # financial
+  financial_statement_attached
+  # long_form
+  details
+  other_specify
+  # Table 1, Row 15
+  to_the_respondents
+  # Table 2, Row 1
+  form_8b
+  # Table 2, Row 4
+  warning_this_case_is_subject_to_case_management_which_means_that_the_case_runs_on_a_timetable_that_timetable_says_that_the_following_steps_have_to_be_finished_by_the_following_number_of_days_from_the_start_of_this_case
+  # Table 3, Row 12
+  the_applicant_childrens_aid_society_asks_the_court_to_make_a_finding_under_part_v_of_the_child_youth_and_family_services_act_2017_that_the_children_named_in_this_application_isare_in_need_of_protection_because
+  # Table 5, Row 6
+  relating_to_access_under_the_child_youth_and_family_services_act_2017__the_details_of_which_are_as_follows
+  # Table 5, Row 11
+  relating_to_payment_of_support_while_the_children_isare_in_care_or_subject_to_an_order_of_supervision_the_details_of_which_are_as_follows
+  # Table 5, Row 15
+  that_the_children_be_placed_in_the_custody_of_name_of_custodian__cannot_be_a_foster_parent_of_the_child
+  # Table 5, Row 18
+  relating_to_access__the_details_of_which_are_as_follows
+  
+  # Generate Form 8B
+  form_8B_ready
+  final_screen
+---
+question: |
+  Field 0
+fields:
+  - field_0: dropdown
+    choices:
+      -           
+      - Superior Court of Justice
+      - Superior Court of Justice, Family Court
+      - Ontario Court of Justice
+---
+question: |
+  Court File No
+fields:
+  - courtfileno: text
+---
+question: |
+  Field 2
+fields:
+  - field_2: text
+---
+question: |
+  Field 3
+fields:
+  - field_3: text
+---
+question: |
+  Field 4
+fields:
+  - field_4: text
+---
+question: |
+  Field 5
+fields:
+  - field_5: text
+---
+question: |
+  Field 6
+fields:
+  - field_6: text
+---
+question: |
+  Field 7
+fields:
+  - field_7: text
+---
+question: |
+  Field 8
+fields:
+  - field_8: text
+---
+question: |
+  Field 9
+fields:
+  - field_9: text
+---
+question: |
+  Field 10
+yesno: field_10
+---
+question: |
+  Field 11
+yesno: field_11
+---
+question: |
+  Field 12
+fields:
+  - field_12: text
+---
+question: |
+  Check75
+yesno: check75
+---
+question: |
+  Field 14
+fields:
+  - field_14: text
+---
+question: |
+  Field 15
+fields:
+  - field_15: text
+---
+question: |
+  Field 16
+fields:
+  - field_16: text
+---
+question: |
+  Field 17
+fields:
+  - field_17: text
+---
+question: |
+  Field 18
+fields:
+  - field_18: text
+---
+question: |
+  Field 19
+fields:
+  - field_19: text
+---
+question: |
+  Field 20
+fields:
+  - field_20: text
+---
+question: |
+  Field 21
+fields:
+  - field_21: text
+---
+question: |
+  Field 22
+fields:
+  - field_22: text
+---
+question: |
+  Field 23
+fields:
+  - field_23: text
+---
+question: |
+  Field 24
+fields:
+  - field_24: text
+---
+question: |
+  Field 25
+fields:
+  - field_25: text
+---
+question: |
+  Field 26
+fields:
+  - field_26: text
+---
+question: |
+  Field 27
+fields:
+  - field_27: text
+---
+question: |
+  Field 28
+fields:
+  - field_28: text
+---
+question: |
+  Field 29
+fields:
+  - field_29: text
+---
+question: |
+  Field 30
+fields:
+  - field_30: text
+---
+question: |
+  Field 31
+fields:
+  - field_31: text
+---
+question: |
+  Field 32
+fields:
+  - field_32: text
+---
+question: |
+  Field 33
+fields:
+  - field_33: text
+---
+question: |
+  Field 34
+fields:
+  - field_34: text
+---
+question: |
+  Field 35
+fields:
+  - field_35: text
+---
+question: |
+  Field 36
+fields:
+  - field_36: text
+---
+question: |
+  Field 37
+fields:
+  - field_37: text
+---
+question: |
+  Field 38
+fields:
+  - field_38: text
+---
+question: |
+  Field 39
+fields:
+  - field_39: text
+---
+question: |
+  Field 40
+fields:
+  - field_40: text
+---
+question: |
+  Field 41
+fields:
+  - field_41: text
+---
+question: |
+  Field 42
+fields:
+  - field_42: text
+---
+question: |
+  Field 43
+fields:
+  - field_43: text
+---
+question: |
+  Field 44
+fields:
+  - field_44: text
+---
+question: |
+  Field 45
+fields:
+  - field_45: text
+---
+question: |
+  Field 46
+fields:
+  - field_46: text
+---
+question: |
+  Check76
+yesno: check76
+---
+question: |
+  Check77
+yesno: check77
+---
+question: |
+  Check78
+yesno: check78
+---
+question: |
+  Check79
+yesno: check79
+---
+question: |
+  Field 68
+fields:
+  - field_68: text
+---
+question: |
+  Field 70
+fields:
+  - field_70: text
+---
+question: |
+  Field 71
+fields:
+  - field_71: text
+---
+question: |
+  Field 72
+fields:
+  - field_72: text
+---
+question: |
+  Field 74
+fields:
+  - field_74: text
+---
+question: |
+  Field 75
+fields:
+  - field_75: text
+---
+question: |
+  Field 77
+fields:
+  - field_77: text
+---
+question: |
+  Field 78
+fields:
+  - field_78: text
+---
+question: |
+  Field 79
+fields:
+  - field_79: text
+---
+question: |
+  Field 80
+fields:
+  - field_80: text
+---
+question: |
+  Field 81
+fields:
+  - field_81: text
+---
+question: |
+  Field 83
+fields:
+  - field_83: text
+---
+question: |
+  Field 85
+fields:
+  - field_85: text
+---
+question: |
+  Field 87
+fields:
+  - field_87: text
+---
+question: |
+  Field 88
+fields:
+  - field_88: text
+---
+question: |
+  Field 90
+fields:
+  - field_90: text
+---
+question: |
+  Field 93
+fields:
+  - field_93: text
+---
+question: |
+  Field 94
+yesno: field_94
+---
+question: |
+  Field 95
+fields:
+  - field_95: text
+---
+question: |
+  Field 96
+yesno: field_96
+---
+question: |
+  Field 97
+fields:
+  - field_97: text
+---
+question: |
+  Field 98
+yesno: field_98
+---
+question: |
+  Field 99
+fields:
+  - field_99: text
+---
+question: |
+  Field 100
+fields:
+  - field_100: text
+---
+question: |
+  Field 103
+fields:
+  - field_103: text
+---
+question: |
+  Field 106
+fields:
+  - field_106: text
+---
+question: |
+  Field 109
+fields:
+  - field_109: text
+---
+question: |
+  Field 110
+fields:
+  - field_110: text
+---
+question: |
+  Field 111
+fields:
+  - field_111: text
+---
+question: |
+  Field 112
+fields:
+  - field_112: text
+---
+question: |
+  Field 113
+fields:
+  - field_113: text
+---
+question: |
+  Field 114
+fields:
+  - field_114: text
+---
+question: |
+  Court Address
+fields:
+  - court_address: text
+---
+question: |
+  Municipality
+fields:
+  - municipality: text
+---
+question: |
+  Street Address
+fields:
+  - street_address: text
+---
+question: |
+  Postal Code
+fields:
+  - postal_code: text
+---
+question: |
+  Phone Number
+fields:
+  - phone: text
+---
+question: |
+  Fax
+fields:
+  - fax: text
+---
+question: |
+  Lawyer Name
+fields:
+  - lawyer_name: text
+---
+question: |
+  Child Name
+fields:
+  - child_name: text
+---
+question: |
+  Child Birthdate
+fields:
+  - child_birthdate: date
+    help: None
+---
+question: |
+  Child Age
+fields:
+  - child_age: number
+---
+question: |
+  Financial Statement Attached
+yesno: financial_statement_attached
+---
+question: |
+  Details
+fields:
+  - details: area
+    rows: 4
+---
+question: |
+  Other Specify
+fields:
+  - other_specify: area
+    rows: 4
+---
+question: |
+  TO THE RESPONDENT(S):
+fields:
+  - to_the_respondents: text
+---
+question: |
+  Grade/Year
+fields:
+  - child_grade: text
+---
+question: |
+  Residing With
+fields:
+  - child_residing_with: dropdown
+---
+question: |
+  Relationship to Applicant
+fields:
+  - child_relationship_applicant: text
+---
+question: |
+  Relationship to Respondent
+fields:
+  - child_relationship_respondent: text
+---
+question: |
+  Form 8B:
+fields:
+  - form_8b: text
+---
+question: |
+  WARNING: This case is subject to case management, which means that the case runs on a timetable. That timetable says that the following steps have to be finished by the following number of days from the start of this case:
+fields:
+  - warning_this_case_is_subject_to_case_management_which_means_that_the_case_runs_on_a_timetable_that_timetable_says_that_the_following_steps_have_to_be_finished_by_the_following_number_of_days_from_the_start_of_this_case: text
+---
+question: |
+  The  applicant children’s aid society asks the court to make a finding under Part  V  of the  Child, Youth and Family Services Act, 2017  that the child(ren) named in this application is/are in need of protection because:
+fields:
+  - the_applicant_childrens_aid_society_asks_the_court_to_make_a_finding_under_part_v_of_the_child_youth_and_family_services_act_2017_that_the_children_named_in_this_application_isare_in_need_of_protection_because: text
+---
+question: |
+  relating to access  under the  Child, Youth and Family Services Act, 2017 , the details of which are as follows:
+fields:
+  - relating_to_access_under_the_child_youth_and_family_services_act_2017__the_details_of_which_are_as_follows: area
+    rows: 4
+---
+question: |
+  relating to payment of support while the child(ren) is/are in care or subject to an order of supervision, the details of which are as follows:
+fields:
+  - relating_to_payment_of_support_while_the_children_isare_in_care_or_subject_to_an_order_of_supervision_the_details_of_which_are_as_follows: area
+    rows: 4
+---
+question: |
+  that the child(ren) be placed in the custody of  (name of custodian – cannot be a foster parent of the child) :
+fields:
+  - that_the_children_be_placed_in_the_custody_of_name_of_custodian__cannot_be_a_foster_parent_of_the_child: text
+---
+question: |
+  relating to access ,  the details of which are as follows:
+fields:
+  - relating_to_access__the_details_of_which_are_as_follows: area
+    rows: 4
+---
+question: |
+  Review Form 8B Information
+subquestion: |
+  Please review all information before generating the form.
+review:
+  - field_0:
+      button: |
+        **Form Field**
+  - court_file_number:
+      button: |
+        **court_info**
+  - street_address:
+      button: |
+        **party_info**
+  - lawyer_name:
+      button: |
+        **lawyer_info**
+  - child_name:
+      button: |
+        **children**
+  - financial_statement_attached:
+      button: |
+        **financial**
+  - details:
+      button: |
+        **long_form**
+  - to_the_respondents:
+      button: |
+        **Table 1, Row 15**
+  - form_8b:
+      button: |
+        **Table 2, Row 1**
+  - warning_this_case_is_subject_to_case_management_which_means_that_the_case_runs_on_a_timetable_that_timetable_says_that_the_following_steps_have_to_be_finished_by_the_following_number_of_days_from_the_start_of_this_case:
+      button: |
+        **Table 2, Row 4**
+  - the_applicant_childrens_aid_society_asks_the_court_to_make_a_finding_under_part_v_of_the_child_youth_and_family_services_act_2017_that_the_children_named_in_this_application_isare_in_need_of_protection_because:
+      button: |
+        **Table 3, Row 12**
+  - relating_to_access_under_the_child_youth_and_family_services_act_2017__the_details_of_which_are_as_follows:
+      button: |
+        **Table 5, Row 6**
+  - relating_to_payment_of_support_while_the_children_isare_in_care_or_subject_to_an_order_of_supervision_the_details_of_which_are_as_follows:
+      button: |
+        **Table 5, Row 11**
+  - that_the_children_be_placed_in_the_custody_of_name_of_custodian__cannot_be_a_foster_parent_of_the_child:
+      button: |
+        **Table 5, Row 15**
+  - relating_to_access__the_details_of_which_are_as_follows:
+      button: |
+        **Table 5, Row 18**
+---
+event: final_screen
+question: |
+  Form 8B Complete
+subquestion: |
+  Your Form 8B has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 8B: ${ form_8B_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 8B
+  filename: form_8B
+  variable name: form_8B_document
+  content: |
+    # Ontario Family Law Form 8B
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 8B Specific Information
+    [Form fields would be inserted here]
+---
+code: |
+  form_8B_ready = True

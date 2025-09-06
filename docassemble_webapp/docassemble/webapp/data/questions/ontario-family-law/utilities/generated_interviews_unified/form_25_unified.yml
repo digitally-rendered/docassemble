@@ -1,0 +1,119 @@
+---
+metadata:
+  title: Ontario Family Law Form 25
+  short_title: Form 25
+  description: Complete interview for Ontario Family Law Form 25
+  form_number: 25
+  generated: 2025-09-05T16:41:13.202008
+  generator: simplified_unified_generator
+  architecture: map_based_with_consistent_keys
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - case: DAObject
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Ontario Family Law Form 25
+  # Generated using map-based architecture with consistent keys
+  
+  # Collect information using consistent field mappings
+  form_specific_dropdown1
+  form_specific_courtfileno
+  form_specific_text2
+  form_specific_check109
+  form_specific_check110
+  form_specific_text5
+  case.court_file_number
+  form_specific_court_address
+  form_specific_municipality
+  form_specific_street_address
+  applicant.address.postal_code
+  form_specific_phone
+  form_specific_fax
+  children[i].age
+  form_specific_form_25
+  form_specific_this_court_orders_that__specify_legislation_where_applicable
+  
+  # Complete the interview
+  form_25_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - form_specific_dropdown1: text
+---
+question: Courtfileno
+fields:
+  - form_specific_courtfileno: text
+---
+question: Text2
+fields:
+  - form_specific_text2: text
+---
+question: Check109
+yesno: form_specific_check109
+---
+question: Check110
+yesno: form_specific_check110
+---
+question: Text5
+fields:
+  - form_specific_text5: text
+---
+question: Court File Number
+fields:
+  - case.court_file_number: text
+---
+question: Court Address
+fields:
+  - form_specific_court_address: text
+---
+question: Municipality
+fields:
+  - form_specific_municipality: text
+---
+question: Street Address
+fields:
+  - form_specific_street_address: text
+---
+question: Applicant Postal Code
+fields:
+  - applicant.address.postal_code: text
+---
+question: Phone
+fields:
+  - form_specific_phone: text
+---
+question: Fax
+fields:
+  - form_specific_fax: text
+---
+question: Child Current Age
+fields:
+  - children[i].age:
+      datatype: integer
+---
+question: Form 25
+fields:
+  - form_specific_form_25: text
+---
+question: This Court Orders That  Specify Legislation Where Applicable
+fields:
+  - form_specific_this_court_orders_that__specify_legislation_where_applicable: text
+---
+event: final_screen
+question: Form 25 Complete
+subquestion: Your Ontario Family Law Form 25 has been prepared using consistent field mappings.
+buttons:
+  - Download PDF: ${{ form_25_pdf.url_for() }}
+  - Review Answers: review
+  - Start Over: restart
+---
+code: |
+  form_25_ready = True

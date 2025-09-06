@@ -1,0 +1,65 @@
+---
+metadata:
+  title: |
+    Form 29B: Form 29B
+  short title: |
+    Form 29B
+  description: |
+    Form-specific questions for Ontario Family Law Form 29B
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form29B_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 29B specific sections
+  form29B_additional_information_complete
+  form29B_review
+  form29B_complete
+---
+question: |
+  Form 29B - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 29B.
+fields:
+  - Check the first circle if you want the garnishment to deduct fixed dollar amounts. If you want the: form29B_check_the_first_circle_if_you_
+    datatype: currency
+continue button field: form29B_additional_information_complete
+---
+event: form29B_review
+question: |
+  Review Form 29B Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form29B_complete
+question: |
+  Form 29B Complete
+subquestion: |
+  Your Form 29B (Form 29B) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 29B specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

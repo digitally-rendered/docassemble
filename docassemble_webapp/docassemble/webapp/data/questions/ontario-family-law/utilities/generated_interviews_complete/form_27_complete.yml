@@ -1,0 +1,168 @@
+---
+metadata:
+  title: Ontario Family Law Form 27
+  short_title: Form 27
+  description: Complete standalone interview for Form 27
+  form_number: 27
+  total_fields: 15
+  generated: |
+    2025-09-05 15:14
+  tags:
+    - ontario
+    - family law
+    - form 27
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+---
+mandatory: True
+code: |
+  # Form 27 Interview Flow
+  # Complete standalone interview
+  
+  # Form fields
+  dropdown1
+  courtfileno
+  text1
+  text8
+  text11
+  text12
+  text5
+  court_file_number
+  court_address
+  municipality
+  street_address
+  postal_code
+  phone
+  fax
+  financial_statement_attached
+  
+  # Generate Form 27
+  form_27_ready
+  final_screen
+---
+question: Dropdown1
+fields:
+  - dropdown1:
+      datatype: dropdown
+      choices:
+        - Option 1
+        - Option 2
+        - Option 3
+---
+question: Court File No
+fields:
+  - courtfileno: text
+---
+question: Text1
+fields:
+  - text1: text
+---
+question: Text8
+fields:
+  - text8: text
+---
+question: Text11
+fields:
+  - text11: text
+---
+question: Text12
+fields:
+  - text12: text
+---
+question: Text5
+fields:
+  - text5: text
+---
+question: Court File Number
+fields:
+  - court_file_number: text
+---
+question: Court Address
+fields:
+  - court_address: text
+---
+question: Municipality
+fields:
+  - municipality: text
+---
+question: Street Address
+fields:
+  - street_address: text
+---
+question: Postal Code
+fields:
+  - postal_code: text
+---
+question: Phone Number
+fields:
+  - phone: text
+---
+question: Fax
+fields:
+  - fax: text
+---
+question: Financial Statement Attached
+yesno: financial_statement_attached
+---
+question: Review Form 27 Information
+subquestion: Please review all information before generating the form.
+review:
+  dropdown1:
+    button: **Dropdown1**
+  courtfileno:
+    button: **Court File No**
+  text1:
+    button: **Text1**
+  text8:
+    button: **Text8**
+  text11:
+    button: **Text11**
+  text12:
+    button: **Text12**
+  text5:
+    button: **Text5**
+  court_file_number:
+    button: **Court File Number**
+  court_address:
+    button: **Court Address**
+  municipality:
+    button: **Municipality**
+---
+event: final_screen
+question: Form 27 Complete
+subquestion: |
+  Your Form 27 has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 27: ${ form_27_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 27
+  filename: form_27
+  variable name: form_27_document
+  content: |
+    # Ontario Family Law Form 27
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information  
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 27 Specific Information
+    [Form fields would be inserted here]
+---
+code: form_27_ready = True

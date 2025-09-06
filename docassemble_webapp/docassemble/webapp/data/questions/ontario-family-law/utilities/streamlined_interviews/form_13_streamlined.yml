@@ -1,0 +1,376 @@
+---
+metadata:
+  title: |
+    Form 13: Form 13 - Specific Fields
+  short title: |
+    Form 13 Specific
+  description: |
+    Form-specific fields for Ontario Family Law Form 13
+    To be used after common intake completion
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+  tags:
+    - family law
+    - ontario
+    - form 13
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+# NOTE: This interview assumes common_intake_enhanced_with_validation.yml
+# has already been completed and data is available in the session
+---
+objects:
+  - form13: DAObject
+---
+code: |
+  # Ontario-specific validation functions
+  def ontario_postal_code_validation(value):
+    '''Validate Ontario postal code (K, L, M, N, P prefixes)'''
+    import re
+    pattern = r'^[KLMNP][0-9][A-Z]\s?[0-9][A-Z][0-9]$'
+    if not re.match(pattern, str(value).upper().replace(' ', '')):
+      validation_error("Please enter a valid Ontario postal code")
+    return True
+  
+  def ontario_phone_validation(value):
+    '''Validate Ontario phone numbers'''
+    import re
+    # Remove all non-digits
+    digits = re.sub(r'\D', '', str(value))
+    # Check for 10 digits (with optional 1 prefix)
+    if len(digits) == 11 and digits[0] == '1':
+      digits = digits[1:]
+    if len(digits) != 10:
+      validation_error("Please enter a valid 10-digit phone number")
+    # Check for valid Ontario area codes
+    area_code = digits[:3]
+    ontario_codes = ['226', '249', '289', '343', '365', '416', '437', '519', '548', 
+                     '613', '647', '705', '807', '905']
+    if area_code not in ontario_codes:
+      validation_error(f"Area code {area_code} is not a valid Ontario area code")
+    return True
+  
+  def sin_validation(value):
+    '''Validate Canadian SIN'''
+    import re
+    # Remove spaces and hyphens
+    sin = re.sub(r'[\s-]', '', str(value))
+    if not re.match(r'^\d{9}$', sin):
+      validation_error("SIN must be 9 digits")
+    # Luhn algorithm check
+    check_sum = 0
+    for i in range(9):
+      digit = int(sin[i])
+      if i % 2 == 1:  # Every second digit
+        digit = digit * 2
+        if digit > 9:
+          digit = digit - 9
+      check_sum += digit
+    if check_sum % 10 != 0:
+      validation_error("Invalid SIN number")
+    return True
+---
+code: |
+  def ontario_court_locations():
+    '''List of Ontario court locations'''
+    return [
+      "Toronto (47 Sheppard Avenue East)",
+      "Toronto (311 Jarvis Street)", 
+      "Toronto (393 University Avenue)",
+      "Ottawa (161 Elgin Street)",
+      "London (80 Dundas Street)",
+      "Hamilton (55 Main Street West)",
+      "Kitchener (85 Frederick Street)",
+      "Windsor (245 Windsor Avenue)",
+      "Barrie (75 Mulcaster Street)",
+      "Kingston (5 Court Street)",
+      "Thunder Bay (125 Brodie Street North)",
+      "Sudbury (155 Elm Street)",
+      "Peterborough (470 Water Street)",
+      "Oshawa (150 Bond Street East)",
+      "Belleville (15 Victoria Avenue)",
+      "St. Catharines (59 Church Street)",
+      "Brampton (7755 Hurontario Street)",
+      "Mississauga (7755 Hurontario Street)",
+      "North Bay (360 Plouffe Street)",
+      "Timmins (220 Algonquin Boulevard East)",
+      "Sault Ste. Marie (426 Queen Street East)",
+      "Guelph (74 Woolwich Street)",
+      "Cambridge (85 Frederick Street)",
+      "Woodstock (415 Hunter Street)",
+      "Stratford (1 Huron Street)",
+      "Orangeville (10 Louisa Street)",
+      "Milton (491 Steeles Avenue East)",
+      "Newmarket (50 Eagle Street West)"
+    ]
+---
+mandatory: True
+code: |
+  # Form 13 specific flow
+  
+  # Introduction to form-specific questions
+  form13_intro
+  form13_additional_information_complete
+  form13_employment_details_complete
+  form13_retirement_assets_complete
+  form13_vehicles_complete
+  form13_bank_accounts_complete
+  form13_review
+  form13_complete
+---
+question: |
+  Form 13: Form 13
+subquestion: |
+  We've collected your basic information in the common intake.
+  
+  Now we need some additional information specific to Form 13.
+  
+  % if len(['additional_information', 'employment_details', 'retirement_assets', 'vehicles', 'bank_accounts']) > 1:
+  We'll ask about:
+  % for section in ['additional_information', 'employment_details', 'retirement_assets', 'vehicles', 'bank_accounts']:
+  - ${ section.replace('_', ' ').title() }
+  % endfor
+  % endif
+continue button field: form13_intro
+------
+question: |
+  Additional Information
+subquestion: |
+  % if 'additional_information' == 'employment_details':
+  Please provide details about employment and income sources.
+  % elif 'additional_information' == 'bank_accounts':
+  Please list all bank accounts and financial institutions.
+  % elif 'additional_information' == 'vehicles':
+  Please provide information about all vehicles owned or leased.
+  % elif 'additional_information' == 'debts_and_liabilities':
+  Please list all debts, loans, and financial obligations.
+  % else:
+  Please provide the following information for Form 13.
+  % endif
+fields:
+  - 1. 1. Employment income (before deductions) Employment income (before deductions) Employment income: form13_1_employment_income_before
+    datatype: currency
+  - 4. 4. Employment Insurance benefits Employment Insurance benefits Employment Insurance benefits Empl: form13_4_employment_insurance_benefits
+    datatype: currency
+  - $: form13_
+    datatype: currency
+  - CPP contributions CPP contributions CPP contributions $ Public transit, taxis Public transit, taxis: form13_cpp_contributions_public_transit
+    datatype: currency
+  - Housing Housing Housing Housing Housing SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $: form13_housing_subtotal
+    datatype: currency
+    validation code: |
+      sin_validation(value)
+  - Property taxes Property taxes Property taxes $ Health insurance premiums Health insurance premiums H: form13_property_taxes_health_insurance
+    datatype: currency
+  - Property insurance Property insurance Property insurance $ Dental expenses Dental expenses Dental ex: form13_property_insurance_dental_expenses
+    datatype: currency
+  - Condominium fees Condominium fees Condominium fees $ Medicine and drugs Medicine and drugs Medicine: form13_condominium_fees_medicine_and
+    datatype: currency
+  - SUBTOTAL SUBTOTAL SUBTOTAL $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $: form13_subtotal
+    datatype: currency
+  - Water Water Water $ Clothing Clothing Clothing Clothing Clothing $: form13_water_clothing
+    datatype: currency
+  - Internet Internet Internet Internet $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $: form13_internet_subtotal
+    datatype: currency
+  - SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ Other expenses Other expenses Other expenses Other expenses Ot: form13_subtotal_other_expenses_ot
+    datatype: currency
+  - Household Expenses Household Expenses Household Expenses Household Expenses Household Expenses House: form13_household_expenses_house
+    datatype: currency
+  - Household supplies Household supplies Household supplies Household supplies $ Vacations Vacations Va: form13_household_supplies_vacations_va
+    datatype: currency
+  - SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ Summer camp expenses Summer camp expenses Summer camp expenses: form13_subtotal_summer_camp_expenses
+    datatype: currency
+  - Babysitting costs Babysitting costs Babysitting costs Babysitting costs $ Other expenses not shown a: form13_babysitting_costs_other_expenses
+    datatype: currency
+  - SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $ SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL SUBTOTAL $: form13_subtotal
+    datatype: currency
+  - Real Estate Real Estate 1 $: form13_real_estate_1
+    datatype: currency
+  - Real Estate Real Estate 2 $: form13_real_estate_2
+    datatype: currency
+  - Real Estate Real Estate 3 $: form13_real_estate_3
+    datatype: currency
+  - Life Insurance Life Insurance 1 $: form13_life_insurance_1
+    datatype: currency
+  - Life Insurance Life Insurance 2 $: form13_life_insurance_2
+    datatype: currency
+  - Life Insurance Life Insurance 3 $: form13_life_insurance_3
+    datatype: currency
+  - Other Assets Other Assets 1 $: form13_other_assets_1
+    datatype: currency
+  - Other Assets Other Assets 2 $: form13_other_assets_2
+    datatype: currency
+  - Other Assets Other Assets 3 $: form13_other_assets_3
+    datatype: currency
+  - Unpaid Support Amounts Unpaid Support Amounts Unpaid Support Amounts Unpaid Support Amounts Unpaid S: form13_unpaid_support_amounts_s
+    datatype: currency
+  - 1. $ $: form13_1
+    datatype: currency
+  - 2. $ $: form13_2
+    datatype: currency
+  - 3. $ $: form13_3
+    datatype: currency
+  - 4. $ $: form13_4
+    datatype: currency
+  - 5. $ $: form13_5
+    datatype: currency
+  - 6. $ $: form13_6
+    datatype: currency
+  - 7. $ $: form13_7
+    datatype: currency
+  - 8. $ $: form13_8
+    datatype: currency
+  - 9. $ $: form13_9
+    datatype: currency
+  - 10. 10. $ $: form13_10
+    datatype: currency
+  - . . . Medical insurance premiums and certain health-related expenses for the child that cost more th: form13_medical_insurance_premiums_and
+    datatype: currency
+continue button field: form13_additional_information_complete
+---
+question: |
+  Employment Details
+subquestion: |
+  % if 'employment_details' == 'employment_details':
+  Please provide details about employment and income sources.
+  % elif 'employment_details' == 'bank_accounts':
+  Please list all bank accounts and financial institutions.
+  % elif 'employment_details' == 'vehicles':
+  Please provide information about all vehicles owned or leased.
+  % elif 'employment_details' == 'debts_and_liabilities':
+  Please list all debts, loans, and financial obligations.
+  % else:
+  Please provide the following information for Form 13.
+  % endif
+fields:
+  - 5. 5. Workers' compensation benefits Workers' compensation benefits Workers' compensation benefits W: form13_5_workers_compensation_benefits
+    datatype: currency
+continue button field: form13_employment_details_complete
+---
+question: |
+  Retirement Assets
+subquestion: |
+  % if 'retirement_assets' == 'employment_details':
+  Please provide details about employment and income sources.
+  % elif 'retirement_assets' == 'bank_accounts':
+  Please list all bank accounts and financial institutions.
+  % elif 'retirement_assets' == 'vehicles':
+  Please provide information about all vehicles owned or leased.
+  % elif 'retirement_assets' == 'debts_and_liabilities':
+  Please list all debts, loans, and financial obligations.
+  % else:
+  Please provide the following information for Form 13.
+  % endif
+fields:
+  - Employee pension contributions Employee pension contributions Employee pension contributions $ Repai: form13_employee_pension_contributions_repai
+    datatype: currency
+  - Groceries Groceries Groceries Groceries $ RRSP/RESP withdrawals RRSP/RESP withdrawals RRSP/RESP with: form13_groceries_rrspresp_withdrawals_with
+    datatype: currency
+continue button field: form13_retirement_assets_complete
+---
+question: |
+  Vehicles
+subquestion: |
+  % if 'vehicles' == 'employment_details':
+  Please provide details about employment and income sources.
+  % elif 'vehicles' == 'bank_accounts':
+  Please list all bank accounts and financial institutions.
+  % elif 'vehicles' == 'vehicles':
+  Please provide information about all vehicles owned or leased.
+  % elif 'vehicles' == 'debts_and_liabilities':
+  Please list all debts, loans, and financial obligations.
+  % else:
+  Please provide the following information for Form 13.
+  % endif
+fields:
+  - Repairs and maintenance Repairs and maintenance Repairs and maintenance $ Eye care Eye care Eye care: form13_repairs_and_maintenance_eye
+    datatype: currency
+  - Childcare Costs Childcare Costs Childcare Costs Childcare Costs Childcare Costs Childcare Costs Chil: form13_childcare_costs_chil
+    datatype: currency
+  - Daycare expense Daycare expense Daycare expense Daycare expense $ Support paid for other children Su: form13_daycare_expense_support_paid
+    datatype: currency
+  - Cars, Boats, Vehicles Cars, Boats, Vehicles 1 $: form13_cars_boats_vehicles_1
+    datatype: currency
+  - Cars, Boats, Vehicles Cars, Boats, Vehicles 2 $: form13_cars_boats_vehicles_2
+    datatype: currency
+  - Cars, Boats, Vehicles Cars, Boats, Vehicles 3 $: form13_cars_boats_vehicles_3
+    datatype: currency
+  - Outstanding Credit Card Balances Outstanding Credit Card Balances Outstanding Credit Card Balances O: form13_outstanding_credit_card_balances
+    datatype: currency
+continue button field: form13_vehicles_complete
+---
+question: |
+  Bank Accounts
+subquestion: |
+  % if 'bank_accounts' == 'employment_details':
+  Please provide details about employment and income sources.
+  % elif 'bank_accounts' == 'bank_accounts':
+  Please list all bank accounts and financial institutions.
+  % elif 'bank_accounts' == 'vehicles':
+  Please provide information about all vehicles owned or leased.
+  % elif 'bank_accounts' == 'debts_and_liabilities':
+  Please list all debts, loans, and financial obligations.
+  % else:
+  Please provide the following information for Form 13.
+  % endif
+fields:
+  - Bank Accounts Bank Accounts 1 $: form13_bank_accounts_1
+    datatype: currency
+  - Bank Accounts Bank Accounts 2 $: form13_bank_accounts_2
+    datatype: currency
+  - Bank Accounts Bank Accounts 3 $: form13_bank_accounts_3
+    datatype: currency
+  - 5. 5. Registered retirement savings plan withdrawals Registered retirement savings plan withdrawals: form13_5_registered_retirement_savings
+    datatype: currency
+continue button field: form13_bank_accounts_complete
+---
+event: form13_review
+question: |
+  Review Form 13 Information
+subquestion: |
+  Please review the form-specific information you've provided.
+  
+  Click on any section to make changes.
+review:
+  - note: |
+      ### Common Information
+      *(From intake - already reviewed)*
+      
+      **Applicant:** ${ user.name.full() }
+      
+      **Respondent:** ${ opposing_party.name.full() }
+      
+      **Court:** ${ court.location if court.file_exists else "No existing file" }
+---
+event: form13_complete
+question: |
+  Form 13 Complete
+subquestion: |
+  You have completed all required information for Form 13 (Form 13).
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 13 specific fields (59 fields)
+  
+  **Next Steps:**
+  1. Review all information for accuracy
+  2. Generate the PDF form
+  3. Print and sign where required
+  4. File with the court
+  
+  **Filing Information:**
+  % if court.file_exists:
+  - Court: ${ court.name }
+  - Location: ${ court.location }
+  - File Number: ${ court.file_number }
+  % else:
+  - You will need to file this as a new application
+  - Court location will be determined based on your municipality
+  % endif
+  
+buttons:
+  - Generate PDF: generate_pdf
+  - Exit: exit
+  - Restart: restart

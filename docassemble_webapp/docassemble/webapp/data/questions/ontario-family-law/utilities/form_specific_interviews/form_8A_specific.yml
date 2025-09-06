@@ -1,0 +1,69 @@
+---
+metadata:
+  title: |
+    Form 8A: Application (Divorce)
+  short title: |
+    Form 8A
+  description: |
+    Form-specific questions for Ontario Family Law Form 8A
+    This extends the common intake with additional required fields.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - common_intake_enhanced_with_validation.yml
+---
+objects:
+  - form8A_data: DAObject
+---
+mandatory: True
+code: |
+  # This runs after common intake completes
+  
+  # Form 8A specific sections
+  form8A_additional_information_complete
+  form8A_review
+  form8A_complete
+---
+question: |
+  Form 8A - Additional Information
+subquestion: |
+  Please provide the following additional information specific to Form 8A.
+fields:
+  - Full legal name: form8A_full_legal_name
+  - Address: form8A_address
+  - APPLICANT: form8A_applicant
+    datatype: date
+  - RESPONDENT/JOINT APPLICANT: form8A_respondentjoint_applicant
+    datatype: date
+continue button field: form8A_additional_information_complete
+---
+event: form8A_review
+question: |
+  Review Form 8A Information
+subquestion: |
+  Please review the form-specific information below.
+  
+  The common information (parties, court, children) was already reviewed.
+review:
+---
+event: form8A_complete
+question: |
+  Form 8A Complete
+subquestion: |
+  Your Form 8A (Application (Divorce)) has been completed.
+  
+  **Information Collected:**
+  - ✓ Common intake information (parties, court, children)
+  - ✓ Form 8A specific information
+  
+  **Next Steps:**
+  1. Download your completed form
+  2. Print and sign where required
+  3. File with the court at: ${ court.location }
+  4. Court File Number: ${ court.file_number }
+  
+buttons:
+  - Exit: exit
+  - Restart: restart

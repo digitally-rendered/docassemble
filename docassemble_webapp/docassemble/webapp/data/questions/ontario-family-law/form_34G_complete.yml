@@ -1,0 +1,253 @@
+---
+metadata:
+  title: Ontario Family Law Form 34G
+  short_title: Form 34G
+  description: Complete interview for Form 34G
+  form_number: 34G
+  total_fields: 25
+  generated: 2025-09-05 14:41
+  tags:
+    - ontario
+    - family law
+    - form 34g
+---
+include:
+  - common-intake-enhanced-with-validation.yml
+  - docassemble.base:data/questions/basic-questions.yml
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - children: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  # Form 34G Interview Flow
+  # Common intake fields are inherited
+  
+  # Form-specific fields
+  # Form Field
+  field_0
+  courtfileno
+  field_2
+  text1
+  check1
+  # court_info
+  court_address
+  municipality
+  province
+  # party_info
+  date_of_birth
+  street_address
+  postal_code
+  phone
+  fax
+  # children
+  child_name
+  child_birthdate
+  child_age
+  # long_form
+  other_specify
+  # Table 1, Row 16
+  and_i_swearaffirm_that_the_following_is_true
+  # Table 2, Row 1
+  form_34_g
+  # Table 3, Row 1
+  for_m_34_g
+  
+  # Generate Form 34G
+  form_34G_ready
+  final_screen
+---
+question: |
+  Field 0
+fields:
+  - field_0: dropdown
+    choices:
+      -           
+      - Ontario Court of Justice
+      - Superior Court of Justice
+      - Superior Court of Justice, Family Court
+---
+question: |
+  Court File No
+fields:
+  - courtfileno: text
+---
+question: |
+  Field 2
+fields:
+  - field_2: text
+---
+question: |
+  Text1
+fields:
+  - text1: text
+---
+question: |
+  Check1
+yesno: check1
+---
+question: |
+  Text4
+fields:
+  - text4: text
+---
+question: |
+  Field 34
+fields:
+  - field_34: text
+---
+question: |
+  Field 37
+fields:
+  - field_37: text
+---
+question: |
+  Text5
+fields:
+  - text5: text
+---
+question: |
+  Court Address
+fields:
+  - court_address: text
+---
+question: |
+  Municipality
+fields:
+  - municipality: text
+---
+question: |
+  Province
+fields:
+  - province: dropdown
+---
+question: |
+  Date Of Birth
+fields:
+  - date_of_birth: date
+    help: None
+---
+question: |
+  Street Address
+fields:
+  - street_address: text
+---
+question: |
+  Postal Code
+fields:
+  - postal_code: text
+---
+question: |
+  Phone Number
+fields:
+  - phone: text
+---
+question: |
+  Fax
+fields:
+  - fax: text
+---
+question: |
+  Child Name
+fields:
+  - child_name: text
+---
+question: |
+  Child Birthdate
+fields:
+  - child_birthdate: date
+    help: None
+---
+question: |
+  Child Age
+fields:
+  - child_age: number
+---
+question: |
+  Other Specify
+fields:
+  - other_specify: area
+    rows: 4
+---
+question: |
+  and I swear/affirm that the following is true:
+fields:
+  - and_i_swearaffirm_that_the_following_is_true: text
+---
+question: |
+  Form 34 G: 
+fields:
+  - form_34_g: text
+---
+question: |
+  For m 34 G:
+fields:
+  - for_m_34_g: text
+---
+question: |
+  Review Form 34G Information
+subquestion: |
+  Please review all information before generating the form.
+review:
+  - field_0:
+      button: |
+        **Form Field**
+  - court_file_number:
+      button: |
+        **court_info**
+  - date_of_birth:
+      button: |
+        **party_info**
+  - child_name:
+      button: |
+        **children**
+  - other_specify:
+      button: |
+        **long_form**
+  - and_i_swearaffirm_that_the_following_is_true:
+      button: |
+        **Table 1, Row 16**
+  - form_34_g:
+      button: |
+        **Table 2, Row 1**
+  - for_m_34_g:
+      button: |
+        **Table 3, Row 1**
+---
+event: final_screen
+question: |
+  Form 34G Complete
+subquestion: |
+  Your Form 34G has been prepared.
+  
+  You can now:
+  - Download the completed form
+  - Print the form
+  - Save for later
+buttons:
+  - Download Form 34G: ${ form_34G_document.pdf.url_for() }
+  - Start Over: restart
+  - Exit: exit
+---
+attachment:
+  name: Form 34G
+  filename: form_34G
+  variable name: form_34G_document
+  content: |
+    # Ontario Family Law Form 34G
+    
+    ## Applicant Information
+    **Name:** ${ applicant.name.full() }
+    **Address:** ${ applicant.address.block() }
+    
+    ## Respondent Information
+    **Name:** ${ respondent.name.full() }
+    **Address:** ${ respondent.address.block() }
+    
+    ## Form 34G Specific Information
+    [Form fields would be inserted here]
+---
+code: |
+  form_34G_ready = True

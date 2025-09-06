@@ -1,0 +1,190 @@
+---
+metadata:
+  title: |
+    Form 6B: Form 6B
+  short title: |
+    Form 6B
+  description: |
+    Ontario Family Law Form 6B
+    This interview will help you complete the official court form.
+  authors:
+    - name: Ontario Family Law System
+  revision_date: 2025-09-05
+---
+include:
+  - docassemble.base:data/questions/basic-questions.yml
+---
+features:
+  navigation: True
+  progress bar: True
+  progress bar method: stepped
+  progress bar multiplier: 0.1
+  question back button: True
+  navigation back button: True
+---
+objects:
+  - applicant: Individual
+  - respondent: Individual
+  - court: DAObject
+---
+mandatory: True
+code: |
+  # Interview flow
+  multi_user = True
+  
+  # Gather information
+  court_information_gathered
+  applicant_information_gathered
+  respondent_information_gathered
+  additional_information_gathered
+  review_screen
+  final_screen
+---
+question: |
+  Court Information
+fields:
+  - Court file number: court.file_number
+    required: True
+  - Court location: court.location
+    required: True
+    code: |
+      ontario_court_locations()
+continue button field: court_information_gathered
+---
+question: |
+  Applicant Information
+fields:
+  - Full legal name: applicant.name.text
+    required: True
+  - Street address: applicant.address.address
+    required: True
+  - City: applicant.address.city
+    required: True
+  - Province: applicant.address.province
+    default: Ontario
+  - Postal code: applicant.address.postal_code
+    required: True
+  - Phone number: applicant.phone_number
+    datatype: phone
+    required: False
+  - Email address: applicant.email
+    datatype: email
+    required: False
+continue button field: applicant_information_gathered
+---
+question: |
+  Respondent Information
+fields:
+  - Full legal name: respondent.name.text
+    required: True
+  - Street address: respondent.address.address
+    required: True
+  - City: respondent.address.city
+    required: True
+  - Province: respondent.address.province
+    default: Ontario
+  - Postal code: respondent.address.postal_code
+    required: True
+  - Phone number: respondent.phone_number
+    datatype: phone
+    required: False
+  - Email address: respondent.email
+    datatype: email
+    required: False
+continue button field: respondent_information_gathered
+---
+question: |
+  Additional Information
+fields:
+  - $ including travel. including travel. including travel. including travel. including travel. includin: _including_travel_including_tr
+    datatype: currency
+continue button field: additional_information_gathered
+---
+code: |
+  def ontario_court_locations():
+    return [
+      "Toronto", "Ottawa", "London", "Hamilton", "Kitchener",
+      "Windsor", "Barrie", "Kingston", "Thunder Bay", "Sudbury",
+      "Peterborough", "Oshawa", "Belleville", "St. Catharines",
+      "Brampton", "Mississauga", "North Bay", "Timmins",
+      "Sault Ste. Marie", "Guelph", "Cambridge", "Woodstock",
+      "Stratford", "Orangeville", "Milton", "Newmarket", "Other"
+    ]
+---
+code: |
+  def ontario_postal_code(value):
+    import re
+    pattern = r'^[KLMNP][0-9][A-Z]\s?[0-9][A-Z][0-9]$'
+    if not re.match(pattern, str(value).upper().replace(' ', '')):
+      validation_error("Please enter a valid Ontario postal code (e.g., K1A 0B1)")
+    return True
+---
+event: review_screen
+question: |
+  Review Your Information
+subquestion: |
+  Please review the information you have provided. Click on any section to make changes.
+review:
+  - Edit court information: court.file_number
+    button: |
+      **Court Information**
+      
+      File Number: ${ court.file_number }
+      
+      Location: ${ court.location }
+  - Edit applicant information: applicant.name.text
+    button: |
+      **Applicant Information**
+      
+      Name: ${ applicant.name.text }
+      
+      Address: ${ applicant.address.address }, ${ applicant.address.city }, ${ applicant.address.province } ${ applicant.address.postal_code }
+      
+      % if defined('applicant.phone_number'):
+      Phone: ${ applicant.phone_number }
+      % endif
+      
+      % if defined('applicant.email'):
+      Email: ${ applicant.email }
+      % endif
+  - Edit respondent information: respondent.name.text
+    button: |
+      **Respondent Information**
+      
+      Name: ${ respondent.name.text }
+      
+      Address: ${ respondent.address.address }, ${ respondent.address.city }, ${ respondent.address.province } ${ respondent.address.postal_code }
+      
+      % if defined('respondent.phone_number'):
+      Phone: ${ respondent.phone_number }
+      % endif
+      
+      % if defined('respondent.email'):
+      Email: ${ respondent.email }
+      % endif
+continue button field: review_complete
+---
+event: final_screen
+question: |
+  Form 6B Complete
+subquestion: |
+  Your Form 6B (Form 6B) has been completed successfully.
+  
+  **What happens next?**
+  
+  1. Download your completed form using the button below
+  2. Print the form
+  3. Sign the form where indicated
+  4. Make copies for your records
+  5. File the original with the court
+  
+  **Important:** This form must be filed at:
+  
+  ${ court.location } Courthouse
+  
+  Court File Number: ${ court.file_number }
+  
+buttons:
+  - Download Form: download
+  - Exit: exit
+  - Start Over: restart

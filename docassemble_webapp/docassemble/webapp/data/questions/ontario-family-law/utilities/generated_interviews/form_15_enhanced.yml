@@ -1,0 +1,449 @@
+---
+metadata:
+  title: Ontario Form 15 - Motion to Change
+  short title: Form 15
+  version: '2.0'
+  author: SettleWise Ontario Family Law Generator
+  description: Interview for Ontario Family Law Form 15
+  tags:
+  - ontario
+  - family law
+  - form 15
+  - motion
+  revision_date: '2025-09-05'
+  enhanced_with_parsed_fields: true
+  parsed_fields_count: 13
+  validated_fields_count: 5
+  enhancement_date: '2025-09-05T13:10:32.118847'
+
+---
+include:
+- ontario-common-validation.yml
+- ontario-common-objects.yml
+- ontario-financial-validation.yml
+- ontario-children-validation.yml
+
+---
+objects:
+- Thing: case
+- Thing: interview_complete
+- Individual: applicant
+- Individual: applicant_lawyer
+- Individual: respondent
+- Individual: respondent_lawyer
+- DAList: children
+- Thing: case
+- Thing: marriage
+- Thing: separation
+- Thing: case
+- Thing: court
+- DAList: existing_orders
+- DAList: related_cases
+- DAList: children
+- Thing: custody
+- Thing: child_support
+- DAList: special_expenses
+- Thing: financial_statement
+- Thing: income
+- Thing: employment
+- Thing: self_employment
+- Thing: other_income
+- Thing: assets
+- Thing: real_estate
+- Thing: debts
+- Thing: expenses
+
+---
+mandatory: true
+code: '# Interview flow control
+
+  form_number = ''15''
+
+  form_title = ''Motion to Change''
+
+  party_info_complete
+
+  court_info_complete
+
+  if children.there_are_any: children_info_complete
+
+  financial_statement_complete
+
+  interview_review_complete
+
+  interview_complete = True
+
+  final_screen'
+
+---
+question: Ontario Form 15 - Motion to Change
+subquestion: "\nThis interview will help you complete **Ontario Family Law Form 15\
+  \ - Motion to Change**.\n\nBefore you begin, make sure you have:\n- Information\
+  \ about yourself and the other party\n- Details about any children of the relationship\n\
+  - Court file number (if you have one)\n- Financial documents (tax returns, pay stubs,\
+  \ bank statements)\n\n**Important:** This interview helps you complete the form\
+  \ but does not provide legal advice. \nConsider consulting with a lawyer if you\
+  \ have questions about your legal rights or the court process.\n\n**Privacy:** Your\
+  \ information is secure and will only be used to complete your form.\n"
+continue button field: intro_acknowledged
+help: "\n**Who should use this form:**\nThis form is used in Ontario Superior Court\
+  \ of Justice for family law matters.\n\n**Legal advice:** This tool helps you complete\
+  \ the form but does not provide legal advice. \nIf you need legal advice, contact\
+  \ a lawyer or Legal Aid Ontario.\n\n**Court help:** Many courthouses have family\
+  \ law information centres that can provide guidance.\n"
+comment: Introduction screen
+
+---
+question: What is your full legal name?
+subquestion: Enter your name exactly as it appears on official documents
+fields:
+- First name: applicant.name.first
+- Middle name: applicant.name.middle
+  required: false
+- Last name: applicant.name.last
+validation code: "\nif not applicant.name.first or not applicant.name.last:\n  validation_error(\"\
+  First and last names are required\")\nif len(applicant.name.full()) < 2:\n  validation_error(\"\
+  Please enter a valid name\")\n"
+
+---
+question: What is your address?
+subquestion: Provide your current mailing address
+fields:
+- Street address: respondent.address.address
+- City: respondent.address.city
+- Province: respondent.address.state
+  default: Ontario
+- Postal code: respondent.address.zip
+validation code: "\nif not applicant.address.address or not applicant.address.city:\n\
+  \  validation_error(\"Street address and city are required\")\nif applicant.address.zip\
+  \ and not validate_ontario_postal_code(applicant.address.zip):\n  validation_error(\"\
+  Please enter a valid Ontario postal code\")\n"
+
+---
+question: What are your contact details?
+fields:
+- Phone number: respondent.phone_number
+- Email address: respondent.email
+  datatype: email
+  required: false
+validation code: "\nif applicant.phone_number and not validate_canadian_phone(applicant.phone_number):\n\
+  \  validation_error(\"Please enter a valid Canadian phone number\")\n"
+
+---
+question: What is your date of birth?
+fields:
+- Date of birth: respondent.birthdate
+  datatype: date
+validation code: "\nif applicant.birthdate > today():\n  validation_error(\"Birth\
+  \ date cannot be in the future\")\nif applicant.age_in_years() < 18:\n  validation_error(\"\
+  You must be at least 18 years old to file this application\")\n"
+
+---
+question: Do you have a lawyer?
+yesno: applicant.has_lawyer
+fields:
+- I have a lawyer: applicant.has_lawyer
+  datatype: yesnoradio
+
+---
+question: What are your lawyer's details?
+subquestion: Provide your lawyer's contact information
+show if: applicant.has_lawyer
+fields:
+- Lawyer's first name: applicant.lawyer.name.first
+- Lawyer's last name: applicant.lawyer.name.last
+- Law firm name: applicant.lawyer.firm_name
+  required: false
+- Lawyer's phone: applicant.lawyer.phone_number
+- Lawyer's email: applicant.lawyer.email
+  datatype: email
+  required: false
+
+---
+question: What is the respondent's full legal name?
+subquestion: Enter the respondent's name exactly as it appears on official documents
+fields:
+- First name: respondent.name.first
+- Middle name: respondent.name.middle
+  required: false
+- Last name: respondent.name.last
+validation code: "\nif not respondent.name.first or not respondent.name.last:\n  validation_error(\"\
+  Respondent's first and last names are required\")\n"
+
+---
+question: What is the respondent's address?
+subquestion: Provide the respondent's current mailing address
+fields:
+- Street address: respondent.address.address
+- City: respondent.address.city
+- Province: respondent.address.state
+  default: Ontario
+- Postal code: respondent.address.zip
+validation code: "\nif not applicant.address.address or not applicant.address.city:\n\
+  \  validation_error(\"Street address and city are required\")\nif applicant.address.zip\
+  \ and not validate_ontario_postal_code(applicant.address.zip):\n  validation_error(\"\
+  Please enter a valid Ontario postal code\")\n"
+
+---
+question: What are the respondent's contact details?
+fields:
+- Phone number: respondent.phone_number
+- Email address: respondent.email
+  datatype: email
+  required: false
+validation code: "\nif applicant.phone_number and not validate_canadian_phone(applicant.phone_number):\n\
+  \  validation_error(\"Please enter a valid Canadian phone number\")\n"
+
+---
+question: What is the respondent's date of birth?
+fields:
+- Date of birth: respondent.birthdate
+  datatype: date
+validation code: "\nif applicant.birthdate > today():\n  validation_error(\"Birth\
+  \ date cannot be in the future\")\nif applicant.age_in_years() < 18:\n  validation_error(\"\
+  You must be at least 18 years old to file this application\")\n"
+
+---
+question: Where do you want to file this application?
+subquestion: "\nSelect the Ontario Superior Court location where you want to file\
+  \ your case. \nYou should generally choose the court in the area where:\n- You or\
+  \ the other party lives, or\n- The events giving rise to the case happened, or \
+  \ \n- An existing case is already filed\n"
+field: case.court_location
+datatype: radio
+choices:
+- toronto: Toronto - 393 University Avenue
+- ottawa: Ottawa - 161 Elgin Street
+- london: London - 80 Dundas Street
+- hamilton: Hamilton - 45 Main Street East
+- windsor: Windsor - 245 Windsor Avenue
+- thunder_bay: Thunder Bay - 125 Brodie Street North
+- kingston: Kingston - 26 Antares Drive
+- kitchener: Kitchener - 85 Frederick Street
+- sudbury: Sudbury - 155 Elm Street
+- barrie: Barrie - 75 Mulcaster Street
+- other: Other Ontario location
+
+---
+question: What type of case are you filing?
+subquestion: Select the main type of order you are asking the court to make
+field: case.case_type
+datatype: radio
+choices:
+- divorce: Divorce
+- separation: Separation (without divorce)
+- custody: Decision-making responsibility and parenting time
+- support: Child or spousal support
+- property: Property division
+- motion_to_change: Change an existing order
+- enforcement: Enforce an existing order
+- other: Other
+
+---
+question: Do you have a court file number?
+subquestion: "\nIf this case has already been filed with the court, enter the court\
+  \ file number.\nIf you are filing a new case, leave this blank - a number will be\
+  \ assigned when you file.\n                \nOntario court file numbers look like:\
+  \ FS-24-12345 or FC-24-67890\n"
+fields:
+- Court file number: case.court_file_number
+  required: false
+validation code: "\nif case.court_file_number and not validate_ontario_court_file(case.court_file_number):\n\
+  \  validation_error(\"Please enter a valid Ontario court file number (e.g., FS-24-12345)\"\
+  )\n"
+
+---
+question: Are there any related court cases?
+subquestion: "\nList any other court cases involving you and the same parties, including:\n\
+  - Previous applications in this court\n- Cases in other Ontario courts  \n- Cases\
+  \ in other provinces or countries\n"
+yesno: case.has_related_cases
+
+---
+question: What are the details of the related cases?
+show if: case.has_related_cases
+fields:
+- Court file number of related case: case.related_case_number
+- Court where related case was filed: case.related_case_court
+- Status of related case: case.related_case_status
+
+---
+question: Are there any existing court orders?
+subquestion: "\nTell us about any existing court orders between you and the other\
+  \ party, including:\n- Support orders\n- Custody/access orders  \n- Property orders\n\
+  - Restraining orders\n"
+yesno: case.has_existing_orders
+
+---
+question: What is your current annual income?
+subquestion: Include income from all sources before taxes and deductions
+fields:
+- Annual gross income: simple_income.annual_gross
+  datatype: currency
+validation code: "\nif simple_income.annual_gross <= 0:\n  validation_error(\"Please\
+  \ enter a valid income amount\")\n"
+
+---
+question: What are your main sources of income?
+fields:
+- Employment: simple_income.employment
+  datatype: currency
+  required: false
+- Self-employment: simple_income.self_employment
+  datatype: currency
+  required: false
+- Investment: simple_income.investment
+  datatype: currency
+  required: false
+- Pension/benefits: simple_income.pension
+  datatype: currency
+  required: false
+- Other: simple_income.other
+  datatype: currency
+  required: false
+
+---
+question: What existing order do you want to change?
+fields:
+- Date of existing order: existing_order.order_date
+  datatype: date
+- Court that made the order: existing_order.court
+- Court file number: existing_order.file_number
+- Judge who made the order: existing_order.judge
+  required: false
+- What the current order says: existing_order.current_terms
+  input type: area
+
+---
+question: What changes do you want to make?
+fields:
+- Changes to child support: changes.child_support
+  datatype: yesno
+- Changes to spousal support: changes.spousal_support
+  datatype: yesno
+- Changes to custody/access: changes.custody
+  datatype: yesno
+- Other changes: changes.other
+  datatype: yesno
+- Detailed description of changes: changes.description
+  input type: area
+
+---
+question: Why are you asking for these changes?
+subquestion: Explain the material change in circumstances
+fields:
+- Reasons for change: changes.reasons
+  input type: area
+
+---
+question: Review Your Form 15
+subquestion: "\nPlease review the information you have provided. You can go back to\
+  \ any section to make changes.\n\n**Important:** Make sure all information is accurate\
+  \ and complete. You may need to sign an affidavit \nconfirming that the information\
+  \ is true.\n\n% if config.get('requires_financial'):\n**Financial Information:**\
+  \ You will likely need to provide supporting documents such as:\n- Recent tax returns\
+  \ or Notice of Assessment  \n- Pay stubs or employment letters\n- Bank statements\n\
+  - Investment statements\n% endif\n\nClick \"Continue\" when you are satisfied with\
+  \ the information.\n"
+continue button field: interview_review_complete
+
+---
+question: Your Form 15 is Ready
+subquestion: "\nYour Ontario Family Law Form 15 has been completed successfully.\n\
+  \n**Next Steps:**\n1. Download and review your completed form\n2. Make copies for\
+  \ your records  \n3. File the form with the appropriate court\n4. Serve the form\
+  \ on the other party (if required)\n5. Follow up on any court requirements\n\n**Important:**\
+  \ This form must be filed within the time limits set by law and court rules.\nConsider\
+  \ consulting with a lawyer if you need legal advice about your case.\n"
+buttons:
+- Download Form: download_form
+- View Instructions: view_instructions
+- Start New Form: restart
+continue button field: final_screen
+
+---
+code: "# Validation functions for Ontario family law\n\ndef validate_ontario_postal_code(postal_code):\n\
+  \    if not postal_code:\n        return True  # Optional field\n    # Remove spaces\
+  \ and convert to uppercase\n    postal_clean = re.sub(r'\\s+', '', postal_code.upper())\n\
+  \    # Ontario postal codes start with K, L, M, N, P\n    ontario_pattern = r'^[KLMNP][0-9][A-Z][0-9][A-Z][0-9]$'\n\
+  \    return bool(re.match(ontario_pattern, postal_clean))\n\n\n\ndef validate_ontario_court_file(file_number):\n\
+  \    if not file_number:\n        return True  # Optional field\n    # Ontario court\
+  \ file format: FS-XX-XXXXX or FC-XX-XXXXX etc.\n    court_file_pattern = r'^(FS|FC|FD|FM|FE)-[0-9]{2}-[0-9]{5}$'\n\
+  \    return bool(re.match(court_file_pattern, file_number.upper()))\n\n\n\ndef validate_canadian_phone(phone_number):\n\
+  \    if not phone_number:\n        return True  # Optional field\n    # Remove all\
+  \ non-digits\n    digits_only = re.sub(r'\\D', '', phone_number)\n    # Must be\
+  \ 10 digits (area code + number) or 11 digits (1 + area code + number)\n    if len(digits_only)\
+  \ == 10:\n        return True\n    elif len(digits_only) == 11 and digits_only[0]\
+  \ == '1':\n        return True\n    return False\n\n\n\ndef validate_sin_number(sin):\n\
+  \    if not sin:\n        return True  # Optional field\n    # Remove spaces and\
+  \ hyphens\n    sin_clean = re.sub(r'[\\s-]', '', sin)\n    # Must be exactly 9 digits\n\
+  \    if not re.match(r'^[0-9]{9}$', sin_clean):\n        return False\n    # Luhn\
+  \ algorithm check for SIN\n    digits = [int(d) for d in sin_clean]\n    check_sum\
+  \ = 0\n    for i, digit in enumerate(digits[:-1]):\n        if i % 2 == 1:  # Even\
+  \ positions (0-indexed)\n            doubled = digit * 2\n            check_sum\
+  \ += doubled if doubled < 10 else (doubled - 9)\n        else:\n            check_sum\
+  \ += digit\n    return (check_sum % 10) == (10 - digits[-1]) % 10\n\n\ndef calculate_child_support_table_amount(annual_income,\
+  \ num_children, province=\"ON\"):\n    '''\n    Estimate child support based on\
+  \ Federal Child Support Guidelines\n    This is a simplified calculation - actual\
+  \ amounts should be verified\n    '''\n    # Ontario table amounts for 2024 (approximate)\n\
+  \    if province.upper() == \"ON\":\n        table_data = {\n            1: {20000:\
+  \ 167, 30000: 286, 40000: 365, 50000: 444, 60000: 523, 70000: 602, 80000: 681, 90000:\
+  \ 760, 100000: 839},\n            2: {20000: 274, 30000: 469, 40000: 599, 50000:\
+  \ 728, 60000: 858, 70000: 987, 80000: 1116, 90000: 1246, 100000: 1375},\n      \
+  \      3: {20000: 343, 30000: 587, 40000: 750, 50000: 912, 60000: 1074, 70000: 1237,\
+  \ 80000: 1399, 90000: 1561, 100000: 1723}\n        }\n        \n        if num_children\
+  \ > 3:\n            # Add approximately $400 per additional child\n            base\
+  \ = table_data.get(3, {}).get(annual_income, 0)\n            return base + ((num_children\
+  \ - 3) * 400)\n        \n        child_table = table_data.get(num_children, {})\n\
+  \        \n        # Find closest income bracket\n        income_brackets = sorted(child_table.keys())\n\
+  \        for bracket in income_brackets:\n            if annual_income <= bracket:\n\
+  \                return child_table[bracket]\n        \n        # If income is higher\
+  \ than table, extrapolate\n        if annual_income > 100000:\n            base_amount\
+  \ = child_table.get(100000, 0)\n            excess_income = annual_income - 100000\n\
+  \            # Rough estimate: add percentage of excess\n            additional\
+  \ = excess_income * 0.008 * num_children  # Approximately 0.8% per child\n     \
+  \       return int(base_amount + additional)\n    \n    return 0\n\ndef validate_child_birthdate(birthdate):\n\
+  \    '''Validate child birthdate'''\n    if not birthdate:\n        return False\n\
+  \    \n    today = date.today()\n    \n    # Cannot be in future\n    if birthdate\
+  \ > today:\n        return False\n    \n    # Cannot be more than 30 years ago (reasonable\
+  \ limit)\n    if birthdate < today - timedelta(days=30*365):\n        return False\n\
+  \    \n    return True\n\ndef child_eligible_for_support(child):\n    '''Check if\
+  \ child is eligible for support'''\n    if not child.birthdate:\n        return\
+  \ True  # Assume eligible if no birthdate\n    \n    age = child.age_in_years()\n\
+  \    \n    # Under 18 - always eligible\n    if age < 18:\n        return True\n\
+  \    \n    # 18 or over - eligible if in school or special needs\n    if age >=\
+  \ 18:\n        return child.in_education or child.has_special_needs or child.over_18_needs_support\n\
+  \    \n    return False\n\n\ndef calculate_total_income():\n    '''Calculate total\
+  \ annual income from all sources'''\n    total = 0\n    \n    if has_employment\
+  \ and employment.annual_gross:\n        total += employment.annual_gross\n    \n\
+  \    if has_self_employment and self_employment.net_income:\n        total += self_employment.net_income\n\
+  \    \n    if other_income.investment:\n        total += other_income.investment\n\
+  \    \n    if other_income.rental:\n        total += other_income.rental\n     \
+  \   \n    if other_income.pension:\n        total += other_income.pension\n    \
+  \    \n    if other_income.government:\n        total += other_income.government\n\
+  \        \n    if other_income.other:\n        total += other_income.other\n   \
+  \ \n    return total\n\ndef validate_financial_amounts():\n    '''Validate financial\
+  \ statement amounts are reasonable'''\n    errors = []\n    \n    # Check for negative\
+  \ amounts where they shouldn't be\n    if hasattr(employment, 'annual_gross') and\
+  \ employment.annual_gross < 0:\n        errors.append(\"Employment income cannot\
+  \ be negative\")\n    \n    # Check that net income is less than gross income\n\
+  \    if (hasattr(employment, 'annual_gross') and hasattr(employment, 'annual_net')\
+  \ and \n        employment.annual_net > employment.annual_gross):\n        errors.append(\"\
+  Net employment income cannot be higher than gross income\")\n    \n    # Check for\
+  \ unreasonably high amounts\n    total_income = calculate_total_income()\n    if\
+  \ total_income > 10000000:  # $10 million\n        errors.append(\"Please verify\
+  \ the income amounts - they appear unusually high\")\n    \n    # Check that expenses\
+  \ are reasonable compared to income\n    monthly_income = total_income / 12\n  \
+  \  if total_monthly_expenses > monthly_income * 2:\n        errors.append(\"Monthly\
+  \ expenses appear high compared to income - please review\")\n    \n    return errors\n\
+  \ndef estimate_support_capacity():\n    '''Estimate capacity to pay support based\
+  \ on income and expenses'''\n    monthly_income = calculate_total_income() / 12\n\
+  \    available_for_support = monthly_income - total_monthly_expenses\n    \n   \
+  \ return {\n        'monthly_income': monthly_income,\n        'monthly_expenses':\
+  \ total_monthly_expenses,\n        'available_for_support': available_for_support,\n\
+  \        'support_capacity_percentage': (available_for_support / monthly_income\
+  \ * 100) if monthly_income > 0 else 0\n    }\n\n# Validation for 4_requesting_party_s_birth_date_requesting_party_s\n\
+  ^\\d{4}-\\d{2}-\\d{2}$|^\\d{2}/\\d{2}/\\d{4}$\n# Validation for field\n^\\$?[0-9]{1,3}(,[0-9]{3})*(\\\
+  .[0-9]{2})?$\n# Validation for before_today_give_exact_date_d_m_y_before_today_gi\n\
+  ^\\d{4}-\\d{2}-\\d{2}$|^\\d{2}/\\d{2}/\\d{4}$"
+comment: Validation functions

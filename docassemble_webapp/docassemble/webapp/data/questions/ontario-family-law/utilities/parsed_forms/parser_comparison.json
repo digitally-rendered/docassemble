@@ -1,0 +1,166 @@
+{
+  "basic": {
+    "total_fields": 12,
+    "source": "Original basic parser",
+    "quality_metrics": {
+      "meaningful_names": 12,
+      "descriptive_labels": 12,
+      "duplicate_labels": 6,
+      "with_confidence": 0,
+      "avg_confidence": 0.0,
+      "validated_fields": 0,
+      "typed_fields": 8,
+      "avg_quality_score": 0.5512820512820513
+    },
+    "sample_fields": [
+      {
+        "name": "full_legal_name_full_legal_name_name_name",
+        "label": "Full legal name: Full legal name: Name: Name:",
+        "type": "text"
+      },
+      {
+        "name": "address_address_address_address",
+        "label": "Address: Address: Address: Address:",
+        "type": "text"
+      },
+      {
+        "name": "full_legal_name_full_legal_name_name_name",
+        "label": "Full legal name: Full legal name: Name: Name:",
+        "type": "text"
+      },
+      {
+        "name": "address_address_address_address",
+        "label": "Address: Address: Address: Address:",
+        "type": "text"
+      },
+      {
+        "name": "applicant_applicant_applicant_applicant_applicant_",
+        "label": "APPLICANT: APPLICANT: APPLICANT: APPLICANT: APPLICANT: APPLICANT: APPLICANT: APPLICANT: Age: Age: Ag",
+        "type": "date"
+      }
+    ]
+  },
+  "improved": {
+    "total_fields": 157,
+    "source": "Improved parser",
+    "quality_metrics": {
+      "meaningful_names": 74,
+      "descriptive_labels": 71,
+      "duplicate_labels": 0,
+      "with_confidence": 0,
+      "avg_confidence": 0.0,
+      "validated_fields": 0,
+      "typed_fields": 53,
+      "avg_quality_score": 0.31602155805977467
+    },
+    "sample_fields": [
+      {
+        "name": "field_0",
+        "label": "Field 0",
+        "type": "dropdown"
+      },
+      {
+        "name": "courtfileno",
+        "label": "Court File No",
+        "type": "text"
+      },
+      {
+        "name": "field_2",
+        "label": "Field 2",
+        "type": "text"
+      },
+      {
+        "name": "field_3",
+        "label": "Field 3",
+        "type": "text"
+      },
+      {
+        "name": "field_4",
+        "label": "Field 4",
+        "type": "text"
+      }
+    ]
+  },
+  "enhanced": {
+    "total_fields": 157,
+    "source": "Enhanced parser with label improvements",
+    "quality_metrics": {
+      "meaningful_names": 75,
+      "descriptive_labels": 154,
+      "duplicate_labels": 0,
+      "with_confidence": 0,
+      "avg_confidence": 0.0,
+      "validated_fields": 0,
+      "typed_fields": 53,
+      "avg_quality_score": 0.4394904458598726
+    },
+    "sample_fields": [
+      {
+        "name": "dropdown_field",
+        "label": "Court Name",
+        "type": "dropdown"
+      },
+      {
+        "name": "courtfileno",
+        "label": "Court File No",
+        "type": "text"
+      },
+      {
+        "name": "text_field",
+        "label": "Applicant Full Legal Name",
+        "type": "text"
+      },
+      {
+        "name": "text_field_2",
+        "label": "Applicant Address - Street",
+        "type": "text"
+      },
+      {
+        "name": "text_field_3",
+        "label": "Applicant Address - City",
+        "type": "text"
+      }
+    ]
+  },
+  "unified": {
+    "total_fields": 16,
+    "source": "Unified orchestrator (multiple parsers)",
+    "quality_metrics": {
+      "meaningful_names": 16,
+      "descriptive_labels": 16,
+      "duplicate_labels": 0,
+      "with_confidence": 16,
+      "avg_confidence": 0.790625,
+      "validated_fields": 0,
+      "typed_fields": 16,
+      "avg_quality_score": 0.8139423076923077
+    },
+    "sample_fields": [
+      {
+        "name": "form8_other_a_court_case_has_been_started_against_yo",
+        "label": "A COURT CASE HAS BEEN STARTED AGAINST YOU IN THIS COURT.",
+        "type": "longtext"
+      },
+      {
+        "name": "form8_support_this_case_includes_a_claim_for_support",
+        "label": "This case includes a claim for support.",
+        "type": "longtext"
+      },
+      {
+        "name": "form8_property_this_case_includes_a_claim_for_property_",
+        "label": "This case includes a claim for property or exclusive possession of the matrimonial home and its contents.",
+        "type": "longtext"
+      },
+      {
+        "name": "form8_support_if_you_want_to_make_a_claim_for_support_",
+        "label": "If you want to make a claim for support but do not want to make a claim for property or exclusive possession of the matrimonial home and its contents, you MUST fill out a Financial Statement (Form 13)",
+        "type": "longtext"
+      },
+      {
+        "name": "form8_children_however_if_your_only_claim_for_support_i",
+        "label": "However, if your only claim for support is for child support in the table amount specified under the Child Support Guidelines, you do not need to fill out, serve or file a Financial Statement.",
+        "type": "longtext"
+      }
+    ]
+  }
+}
